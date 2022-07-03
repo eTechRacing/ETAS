@@ -1,0 +1,19 @@
+<?DTDVersion "2.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<?SuperClass ES1000->ESSystem ?>
+
+<!ELEMENT ES1000 (_System)>
+<!ATTLIST ES1000
+    Name ID #REQUIRED
+    Comment CDATA ""
+    
+    Hardware.ofTypeYBOHardware  ENTITY #IMPLIED
+    GlobalObject.ofTypeYBOECU   ENTITY #IMPLIED
+    GlobalParent                ENTITY #IMPLIED
+    BoardLink.ofTypeESNode      ENTITY #IMPLIED
+>

@@ -1,0 +1,318 @@
+<?DTDVersion "4.6.3"?>
+<?CompatibleDTDVersion "4.6.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!ENTITY % ESETKFoundationNodeMainBase SYSTEM "ESETKFoundationNodeMainBase.DTD">
+%ESETKFoundationNodeMainBase;
+
+<?SuperClass ESETKonXCPNodeETKController->ESETKFoundationNodeETKControllerBase ?>
+<?SuperClass ESETKonXCPNodeETKBypass->ESETKFoundationNodeETKBypassBase ?>
+
+
+<!-- node controller -->
+
+<!ELEMENT ESETKonXCPNodeETKController (ESETKonXCPNodeETKController.Parameters, ESETKonXCPNodeETKController.L1Generation, ESETKonXCPNodeETKController.SubNodes)>
+<!ATTLIST ESETKonXCPNodeETKController
+    Name ID #REQUIRED
+    
+    ParsedA2LFile.ofTypeA2LFile ENTITY #REQUIRED
+>
+
+<!ELEMENT ESETKonXCPNodeETKController.Parameters (ESETKBaseNodeETKControllerParameters)>
+<!ELEMENT ESETKonXCPNodeETKController.L1Generation (ESETKonXCPNodeETKControllerL1GenerationBlock)>
+<!ELEMENT ESETKonXCPNodeETKController.SubNodes (ESETKonXCPNodeETKControllerSubNodeList)>
+
+<!ELEMENT ESETKonXCPNodeETKControllerL1GenerationBlock (ESETKonXCPNodeETKControllerL1GenerationBlock.UnionCase, ESETKonXCPNodeETKControllerL1GenerationBlock.Reconnect)>
+<!ATTLIST ESETKonXCPNodeETKControllerL1GenerationBlock 
+    L1TreeIndex CDATA "-1"
+
+>
+
+<!ELEMENT ESETKonXCPNodeETKControllerL1GenerationBlock.UnionCase (ESETKonXCPNodeETKControllerL1GenerationUnionCase)>
+<!ELEMENT ESETKonXCPNodeETKControllerL1GenerationBlock.Reconnect (ESETKonXCPNodeETKControllerL1GenerationReconnect)>
+
+<!ELEMENT ESETKonXCPNodeETKControllerL1GenerationUnionCase EMPTY>
+<!ELEMENT ESETKonXCPNodeETKControllerL1GenerationReconnect EMPTY>
+
+
+<!ELEMENT ESETKonXCPNodeETKControllerSubNodeList (ESETKonXCPNodeETKBypass)*>
+
+<!-- node bypass/device -->
+
+<!ELEMENT ESETKonXCPNodeETKBypass (ESETKonXCPNodeETKBypass.Parameters, ESETKonXCPNodeETKBypass.L1Generation, ESETKonXCPNodeETKBypass.SubNodes, ESETKonXCPNodeETKBypass.SBBSubNodes, ESETKonXCPNodeETKBypass.SBBHookedSubNodes)>
+<!ATTLIST ESETKonXCPNodeETKBypass
+    Name ID #REQUIRED
+    
+    GlobalObject.ofTypeYBODevice ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ESETKonXCPNodeETKBypass.Parameters (ESETKonXCPNodeETKBypassParameters)>
+<!ELEMENT ESETKonXCPNodeETKBypass.L1Generation (ESETKonXCPNodeETKBypassL1GenerationBlock)>
+<!ELEMENT ESETKonXCPNodeETKBypass.SubNodes (ESETKBaseNodeETKBypassSubNodeList)>
+<!ELEMENT ESETKonXCPNodeETKBypass.SBBSubNodes (ESETKFoundationNodeETKBypassSBBSubNodeList)>
+<!ELEMENT ESETKonXCPNodeETKBypass.SBBHookedSubNodes (ESETKFoundationNodeETKBypassSBBHookedSubNodeList)>
+
+<!-- the device node of the ETKonXCP has 4 more API Objects as the other ETKs, therefore the APIROIDArray is greater.  -->
+<!ELEMENT ESETKonXCPNodeETKBypassL1GenerationBlock (ESETKonXCPNodeETKBypassL1GenerationBlock.UnionCase, ESETKonXCPNodeETKBypassL1GenerationBlock.Reconnect)>
+<!ATTLIST ESETKonXCPNodeETKBypassL1GenerationBlock 
+    L1TreeIndex CDATA "-1"
+
+    EnableRasterCount CDATA "0"
+    APIROIDArray1 CDATA "-1"
+    APIROIDArray2 CDATA "-1"
+    APIROIDArray3 CDATA "-1"
+    APIROIDArray4 CDATA "-1"
+    APIROIDArray5 CDATA "-1"
+    APIROIDArray6 CDATA "-1"
+>
+
+<!ELEMENT ESETKonXCPNodeETKBypassL1GenerationBlock.UnionCase (ESETKonXCPNodeETKBypassL1GenerationUnionCase)>
+<!ELEMENT ESETKonXCPNodeETKBypassL1GenerationBlock.Reconnect (ESETKonXCPNodeETKBypassL1GenerationReconnect)>
+
+<!ELEMENT ESETKonXCPNodeETKBypassL1GenerationUnionCase EMPTY>
+<!ELEMENT ESETKonXCPNodeETKBypassL1GenerationReconnect EMPTY>
+
+
+<!-- parameters for the bypass/device. Redefinition of ESETKBaseNodeETKBypassParameters, because of additional parameters. -->
+
+
+<!ELEMENT ESETKonXCPNodeETKBypassParameters (ESETKonXCPNodeETKBypassParameters.Name, 
+                                            ESETKonXCPNodeETKBypassParameters.Enabled, 
+                                            ESETKonXCPNodeETKBypassParameters.BaseOffsetValue, 
+                                            ESETKonXCPNodeETKBypassParameters.BeginFARAddressRange, 
+                                            ESETKonXCPNodeETKBypassParameters.BypassRasterSelectionMode, 
+                                            ESETKonXCPNodeETKBypassParameters.BypassSignalSelectionMode, 
+                                            ESETKonXCPNodeETKBypassParameters.LengthFARAddressRange, 
+                                            ESETKonXCPNodeETKBypassParameters.MaxFARSignals, 
+                                            ESETKonXCPNodeETKBypassParameters.AddressMapping, 
+                                            ESETKonXCPNodeETKBypassParameters.SBBConfigStructure, 
+                                            ESETKonXCPNodeETKBypassParameters.SBBFeatureMode, 
+                                            ESETKonXCPNodeETKBypassParameters.ResourceIDTabLabel, 
+                                            ESETKonXCPNodeETKBypassParameters.ReverseResourceIDTabLabel, 
+                                            ESETKonXCPNodeETKBypassParameters.ResourceIDTabAddress, 
+                                            ESETKonXCPNodeETKBypassParameters.ReverseResourceIDTabAddress, 
+                                            ESETKonXCPNodeETKBypassParameters.ResourceWorkingAreaAddress, 
+                                            ESETKonXCPNodeETKBypassParameters.ResourceWorkingAreaLength, 
+                                            ESETKonXCPNodeETKBypassParameters.ECUWritableResourceWorkingAreaAddress, 
+                                            ESETKonXCPNodeETKBypassParameters.ECUWritableResourceWorkingAreaLength, 
+                                            ESETKonXCPNodeETKBypassParameters.ECUTableAlignment,
+                                            ESETKonXCPNodeETKBypassParameters.TimeoutBeforeBaseAddress, 
+                                            ESETKonXCPNodeETKBypassParameters.TimeoutAfterBaseAddress, 
+                                            ESETKonXCPNodeETKBypassParameters.ActivateServicePointsBaseAddress, 
+                                            ESETKonXCPNodeETKBypassParameters.TimeoutBeforeLabel, 
+                                            ESETKonXCPNodeETKBypassParameters.TimeoutAfterLabel, 
+                                            ESETKonXCPNodeETKBypassParameters.ActivateServicePointsLabel,
+                                            ESETKonXCPNodeETKBypassParameters.ResourceIDTabEntrySize,
+                                            ESETKonXCPNodeETKBypassParameters.ReverseResourceIDTabEntrySize,
+                                            ESETKonXCPNodeETKBypassParameters.ActivateServicePointsTabEntrySize,
+                                            ESETKonXCPNodeETKBypassParameters.TimeoutBeforeTabEntrySize,
+                                            ESETKonXCPNodeETKBypassParameters.TimeoutAfterTabEntrySize,
+                                            ESETKonXCPNodeETKBypassParameters.ResourceIDTabMaxEntries,
+                                            ESETKonXCPNodeETKBypassParameters.ReverseResourceIDTabMaxEntries,
+                                            ESETKonXCPNodeETKBypassParameters.ActivateServicePointsTabMaxEntries,
+                                            ESETKonXCPNodeETKBypassParameters.TimeoutBeforeTabMaxEntries,
+                                            ESETKonXCPNodeETKBypassParameters.TimeoutAfterTabMaxEntries,
+                                            ESETKonXCPNodeETKBypassParameters.TimeoutBeforeTabEntryFormula,
+                                            ESETKonXCPNodeETKBypassParameters.TimeoutAfterTabEntryFormula,
+                                            ESETKonXCPNodeETKBypassParameters.TimeoutBeforeValueUnit,
+                                            ESETKonXCPNodeETKBypassParameters.TimeoutAfterValueUnit,
+                                            ESETKonXCPNodeETKBypassParameters.DisableExecutionFunctionTabLabel,
+                                            ESETKonXCPNodeETKBypassParameters.DisableExecutionFunctionTabAddress,
+                                            ESETKonXCPNodeETKBypassParameters.DisableExecutionFunctionTabMaxEntries,
+                                            ESETKonXCPNodeETKBypassParameters.DisableExecutionFunctionTabEntrySize, 
+                                            ESETKonXCPNodeETKBypassParameters.ISR, 
+                                            ESETKonXCPNodeETKBypassParameters.TimeoutBeforeMin, 
+                                            ESETKonXCPNodeETKBypassParameters.TimeoutBeforeMax, 
+                                            ESETKonXCPNodeETKBypassParameters.TimeoutAfterMin, 
+                                            ESETKonXCPNodeETKBypassParameters.TimeoutAfterMax,
+                                            ESETKonXCPNodeETKBypassParameters.TriggerFlagTabAddress,
+                                            ESETKonXCPNodeETKBypassParameters.SBBTriggerDistributionCurve,
+                                            ESETKonXCPNodeETKBypassParameters.Instance,
+                                            ESETKonXCPNodeETKBypassParameters.IRQSource,
+                                            ESETKonXCPNodeETKBypassParameters.UDPPort,
+                                            ESETKonXCPNodeETKBypassParameters.IPAddress,
+                                            ESETKonXCPNodeETKBypassParameters.ETKType)>
+
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.Name (ESParameterName)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.BaseOffsetValue (ESParameterEnum)>
+<!ATTLIST ESETKonXCPNodeETKBypassParameters.BaseOffsetValue 
+    EnumText1      CDATA "0"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "2"
+    EnumL1Value2     CDATA "2"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "4"
+    EnumL1Value3     CDATA "4"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "8"
+    EnumL1Value4     CDATA "8"
+    EnumAvailable4 CDATA "1"
+>
+
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.BeginFARAddressRange (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.BypassRasterSelectionMode (ESParameterEnum)>
+<!ATTLIST ESETKonXCPNodeETKBypassParameters.BypassRasterSelectionMode 
+    EnumText1      CDATA "Bypass"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Bypass & Measurement"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.BypassSignalSelectionMode (ESParameterEnum)>
+<!ATTLIST ESETKonXCPNodeETKBypassParameters.BypassSignalSelectionMode 
+    EnumText1      CDATA "Bypass"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "All"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.LengthFARAddressRange (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.MaxFARSignals (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.AddressMapping (ESParameterEnum)>
+<!ATTLIST ESETKonXCPNodeETKBypassParameters.AddressMapping
+    EnumText1      CDATA "Mask 16 Bit"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "C16x DPP0"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "C16x DPP1"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "C16x DPP2"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "C16x DPP3"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+<!-- EnumL1Value2: Bit 4: Preconfigured = 0x10 = 16 -->
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.SBBConfigStructure (ESParameterEnum)>
+<!ATTLIST ESETKonXCPNodeETKBypassParameters.SBBConfigStructure
+    EnumText1      CDATA "Dynamic"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Preconfigured"
+    EnumL1Value2     CDATA "16"
+    EnumAvailable2 CDATA "0"
+>
+
+<!-- EnumL1Value2: Bit 6: Extended = 0x40 = 64 -->
+<!-- EnumL1Value3: Bit 7: Selected = 0x80 = 128 -->
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.SBBFeatureMode (ESParameterEnum)>
+<!ATTLIST ESETKonXCPNodeETKBypassParameters.SBBFeatureMode
+    EnumText1      CDATA "Basic"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "0"
+
+    EnumText2      CDATA "Extended"
+    EnumL1Value2     CDATA "64"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Selected"
+    EnumL1Value3     CDATA "128"
+    EnumAvailable3 CDATA "0"
+>
+
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ResourceIDTabLabel (ESParameterString)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ReverseResourceIDTabLabel (ESParameterString)>
+
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ResourceIDTabAddress (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ReverseResourceIDTabAddress (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ResourceWorkingAreaAddress (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ResourceWorkingAreaLength (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ECUWritableResourceWorkingAreaAddress (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ECUWritableResourceWorkingAreaLength (ESParameterUInt)>
+
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ECUTableAlignment (ESParameterUInt)>
+
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.TimeoutBeforeBaseAddress (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.TimeoutAfterBaseAddress (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ActivateServicePointsBaseAddress (ESParameterUInt)>
+
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.TimeoutBeforeLabel (ESParameterString)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.TimeoutAfterLabel (ESParameterString)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ActivateServicePointsLabel (ESParameterString)>
+
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ResourceIDTabEntrySize (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ReverseResourceIDTabEntrySize (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ActivateServicePointsTabEntrySize (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.TimeoutBeforeTabEntrySize (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.TimeoutAfterTabEntrySize (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ResourceIDTabMaxEntries (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ReverseResourceIDTabMaxEntries (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ActivateServicePointsTabMaxEntries (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.TimeoutBeforeTabMaxEntries (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.TimeoutAfterTabMaxEntries (ESParameterUInt)>
+
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.TimeoutBeforeTabEntryFormula (ESParameterUnion)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.TimeoutAfterTabEntryFormula (ESParameterUnion)>
+
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.TimeoutBeforeValueUnit (ESParameterString)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.TimeoutAfterValueUnit (ESParameterString)>
+
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.DisableExecutionFunctionTabLabel (ESParameterString)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.DisableExecutionFunctionTabAddress (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.DisableExecutionFunctionTabMaxEntries (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.DisableExecutionFunctionTabEntrySize (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ISR (ESParameterString)>
+
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.TimeoutBeforeMin (ESParameterFloat)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.TimeoutBeforeMax (ESParameterFloat)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.TimeoutAfterMin (ESParameterFloat)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.TimeoutAfterMax (ESParameterFloat)>
+
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.TriggerFlagTabAddress (ESParameterUInt)>
+
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.SBBTriggerDistributionCurve (ESParameterEnum)>
+<!ATTLIST ESETKonXCPNodeETKBypassParameters.SBBTriggerDistributionCurve
+    EnumText1      CDATA "Emphasize High Priority Triggers"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Equalized"
+    EnumL1Value2     CDATA "0"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.Instance (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.IRQSource (ESParameterString)>
+
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.UDPPort (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.IPAddress (ESParameterIPAddress)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ETKType (ESParameterEnum)>
+<!ATTLIST ESETKonXCPNodeETKBypassParameters.ETKType 
+    EnumText1      CDATA "XETK"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "FETK1"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "FETK2"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>

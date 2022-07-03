@@ -1,0 +1,22 @@
+<?DTDVersion "2.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+<!ENTITY % YBOAction SYSTEM "YBOAction.DTD">
+%YBOAction;
+
+
+<?SuperClass YBOECU->YBO ?>
+<?SuperClass YBOECU->TreeViewNode ?>
+
+<!ELEMENT YBOECU (YBOECU.CPUBoards, _System)>
+<!ATTLIST YBOECU
+    Name ID #REQUIRED
+    ECUType CDATA "ES1000"
+    VisibleName CDATA ""
+    Visible ( FALSE | TRUE ) "TRUE"
+>
+
+
+<!ELEMENT YBOECU.CPUBoards (YBOCPUBoardList)>
+

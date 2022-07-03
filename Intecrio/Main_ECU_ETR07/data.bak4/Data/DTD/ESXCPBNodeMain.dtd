@@ -1,0 +1,790 @@
+<?DTDVersion "3.2.0"?>
+<?CompatibleDTDVersion "3.0.1"?>
+<?CompatibleDTDVersion "3.0.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!NOTATION ofTypeESXCPBNodeCalibrationBasedSignal SYSTEM "ESXCPBNodeCalibrationBasedSignal">
+<!NOTATION ofTypeESXCPBNodeCalibrationBasedSignalGroup SYSTEM "ESXCPBNodeCalibrationBasedSignalGroup">
+<!NOTATION ofTypeESXCPBNodeEventBasedSignal SYSTEM "ESXCPBNodeEventBasedSignal">
+<!NOTATION ofTypeESXCPBNodeEventBasedSignalGroup SYSTEM "ESXCPBNodeEventBasedSignalGroup">
+<!NOTATION ofTypeESXCPBNodeDevice SYSTEM "ESXCPBNodeDevice">
+<!NOTATION ofTypeESXCPBNodeMain SYSTEM "ESXCPBNodeMain">
+<!NOTATION ofTypeESXCPBNodeSignal SYSTEM "ESXCPBNodeSignal">
+<!NOTATION ofTypeESXCPBNodeSignalGroup SYSTEM "ESXCPBNodeSignalGroup">
+<!NOTATION ofTypeESXCPBNodeStatus SYSTEM "ESXCPBNodeStatus">
+<!NOTATION ofTypeESXCPBNodeStatusSignal SYSTEM "ESXCPBNodeStatusSignal">
+<!NOTATION ofTypeESXCPBNodeStatusSignalGroup SYSTEM "ESXCPBNodeStatusSignalGroup">
+<!NOTATION ofTypeESXCPBNodeRasters SYSTEM "ESXCPBNodeRasters">
+
+<!NOTATION ofTypeA2LFile SYSTEM "A2LFile">
+<!NOTATION ofTypeRaster SYSTEM "Raster_XCPBypass">
+<!NOTATION ofTypeXCPEvent SYSTEM "XCP_Event">
+<!NOTATION ofTypeCharacteristic SYSTEM "XCP_Event">
+<!NOTATION ofTypeDataElement SYSTEM "DataElement">
+
+<?SuperClass ESXCPBNodeCalibrationBasedSignalBase->ESXCPBNodeSignal ?>
+<?SuperClass ESXCPBNodeCalibrationBasedSignal->ESXCPBNodeCalibrationBasedSignalBase ?>
+
+<?SuperClass ESXCPBNodeCalibrationBasedSignalGroupBase->ESXCPBNodeSignalGroup ?>
+<?SuperClass ESXCPBNodeCalibrationBasedSignalGroup->ESXCPBNodeCalibrationBasedSignalGroupBase ?>
+
+<?SuperClass ESXCPBNodeEventBasedSignalBase->ESXCPBNodeSignal ?>
+<?SuperClass ESXCPBNodeEventBasedSignal->ESXCPBNodeEventBasedSignalBase ?>
+
+<?SuperClass ESXCPBNodeEventBasedSignalGroupBase->ESXCPBNodeSignalGroup ?>
+<?SuperClass ESXCPBNodeEventBasedSignalGroup->ESXCPBNodeEventBasedSignalGroupBase ?>
+
+<?SuperClass ESXCPBNodeDevice->ESNodeDevice ?>
+<?SuperClass ESXCPBNodeMain->ESNodeMain ?>
+
+<?SuperClass ESXCPBNodeSignal->ESNodeSignal ?>
+<?SuperClass ESXCPBNodeSignalGroup->ESNodeSignalGroup ?>
+
+<?SuperClass ESXCPBNodeRastersBase->ESNodeSubNode ?>
+<?SuperClass ESXCPBNodeRasters->ESXCPBNodeRastersBase ?>
+
+<?SuperClass ESXCPBNodeStatusBase->ESNodeSubNode ?>
+<?SuperClass ESXCPBNodeStatus->ESXCPBNodeStatusBase?>
+
+<?SuperClass ESXCPBNodeStatusSignal->ESNodeSignal ?>
+<?SuperClass ESXCPBNodeStatusSignalGroup->ESNodeSignalGroup ?>
+
+<!ELEMENT ESXCPBNodeMain (ESXCPBNodeMain.Parameters, ESXCPBNodeMain.L1Generation, ESXCPBNodeMain.SubNodes, _System)>
+<!ATTLIST ESXCPBNodeMain
+    Name ID #REQUIRED
+>
+
+<!ELEMENT ESXCPBNodeMain.Parameters (ESXCPBNodeMainParameters)>
+<!ELEMENT ESXCPBNodeMain.L1Generation (ESXCPBNodeMainL1Generation)>
+<!ELEMENT ESXCPBNodeMain.SubNodes (ESXCPBNodeMainSubNodeList)>
+
+<!ELEMENT ESXCPBNodeMainL1Generation (ESXCPBNodeMainL1Generation.NotRunning, ESXCPBNodeMainL1Generation.Reconnect, ESXCPBNodeMainL1Generation.WriteToStream)>
+
+<!ELEMENT ESXCPBNodeMainL1Generation.NotRunning (ESXCPBNodeMainL1GenerationNotRunning)>
+<!ELEMENT ESXCPBNodeMainL1Generation.Reconnect (ESXCPBNodeMainL1GenerationReconnect)>
+<!ELEMENT ESXCPBNodeMainL1Generation.WriteToStream (ESXCPBNodeMainL1GenerationWriteToStream)>
+
+<!ELEMENT ESXCPBNodeMainL1GenerationNotRunning EMPTY>
+<!ELEMENT ESXCPBNodeMainL1GenerationReconnect EMPTY>
+<!ELEMENT ESXCPBNodeMainL1GenerationWriteToStream EMPTY>
+
+<!ELEMENT ESXCPBNodeMainParameters (ESXCPBNodeMainParameters.Name, ESXCPBNodeMainParameters.Enabled)>
+
+<!ELEMENT ESXCPBNodeMainParameters.Name (ESParameterName)>
+<!ELEMENT ESXCPBNodeMainParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESXCPBNodeMainSubNodeList EMPTY>
+
+
+
+<!ELEMENT ESXCPBParameterCompSignalGroup EMPTY>
+<!ATTLIST ESXCPBParameterCompSignalGroup
+    Value CDATA ""
+    Comment CDATA ""
+    ReadOnly ( False | True ) "False"
+    Consistent ( False | True ) "True"
+    Calibratable  ( False | True ) "False"
+    Active ( False | True ) "True"
+>
+
+<!ELEMENT ESXCPBParameterBypassEnableLabel EMPTY>
+<!ATTLIST ESXCPBParameterBypassEnableLabel
+    Value CDATA ""
+    Comment CDATA ""
+    ReadOnly ( False | True ) "False"
+    Consistent ( False | True ) "True"
+    Calibratable  ( False | True ) "False"
+    Active ( False | True ) "True"
+>
+
+<!-- device -->
+
+<!ELEMENT ESXCPBNodeDeviceL1GenerationReconnect EMPTY>
+
+
+<!-- Rasters -->
+
+<!ELEMENT ESXCPBNodeRasters (ESXCPBNodeRasters.Parameters, ESXCPBNodeRasters.L1Generation, ESXCPBNodeRasters.SubNodes)>
+<!ATTLIST ESXCPBNodeRasters
+    Name ID #REQUIRED
+>
+
+<!ELEMENT ESXCPBNodeRasters.L1Generation (ESL1GenerationBlockEmptySubNode)>
+<!ELEMENT ESXCPBNodeRasters.SubNodes (ESXCPBNodeRastersSubNodeList)>
+<!ELEMENT ESXCPBNodeRasters.Parameters (ESXCPBNodeRastersParameters)>
+
+
+<!ELEMENT ESXCPBNodeRastersParameters (ESXCPBNodeRastersParameters.Name, ESXCPBNodeRastersParameters.Enabled)>
+
+<!ELEMENT ESXCPBNodeRastersParameters.Name (ESParameterName)>
+<!ELEMENT ESXCPBNodeRastersParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESXCPBNodeRastersSubNodeList (ESXCPBNodeEventBasedSignalGroup | ESXCPBNodeCalibrationBasedSignalGroup)*>
+
+<!-- status -->
+
+<!ELEMENT ESXCPBNodeStatus (ESXCPBNodeStatus.Parameters, ESXCPBNodeStatus.L1Generation, ESXCPBNodeStatus.SubNodes)>
+<!ATTLIST ESXCPBNodeStatus
+    Name ID #REQUIRED
+>
+
+<!ELEMENT ESXCPBNodeStatus.Parameters (ESXCPBNodeStatusParameters)>
+<!ELEMENT ESXCPBNodeStatus.L1Generation (ESL1GenerationBlockEmptySubNode)>
+<!ELEMENT ESXCPBNodeStatus.SubNodes (ESXCPBNodeStatusSubNodeList)>
+
+<!ELEMENT ESXCPBNodeStatusParameters (ESXCPBNodeStatusParameters.Name, ESXCPBNodeStatusParameters.Enabled, ESXCPBNodeStatusParameters.XCPRunTimeErrorBehavior, ESXCPBNodeStatusParameters.PreserveInformation)>
+
+<!ELEMENT ESXCPBNodeStatusParameters.Name (ESParameterName)>
+<!ELEMENT ESXCPBNodeStatusParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ESXCPBNodeStatusParameters.XCPRunTimeErrorBehavior (ESParameterEnum)>
+<!ATTLIST ESXCPBNodeStatusParameters.XCPRunTimeErrorBehavior  
+    EnumText1      CDATA "Log Message only"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Activate Event"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Stop Driver"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "Stop OS"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+>
+<!ELEMENT ESXCPBNodeStatusParameters.PreserveInformation (ESParameterBoolean)>
+
+<!ELEMENT ESXCPBNodeStatusSubNodeList (ESXCPBNodeStatusSignalGroup)*>
+
+
+<!-- status signal group -->
+
+<!ELEMENT ESXCPBNodeStatusSignalGroup (ESXCPBNodeStatusSignalGroup.Parameters, ESXCPBNodeStatusSignalGroup.L1Generation, ESXCPBNodeStatusSignalGroup.SubNodes)>
+<!ATTLIST ESXCPBNodeStatusSignalGroup
+    Name ID #REQUIRED
+  
+  GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+  GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+  MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+  MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+  MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+
+<!ELEMENT ESXCPBNodeStatusSignalGroup.Parameters (ESXCPBNodeStatusSignalGroupParameters)>
+<!ELEMENT ESXCPBNodeStatusSignalGroup.L1Generation (ESXCPBNodeStatusSignalGroupL1GenerationBlock)>
+<!ELEMENT ESXCPBNodeStatusSignalGroup.SubNodes (ESXCPBNodeStatusSignalGroupSubNodeList)>
+
+<!ELEMENT ESXCPBNodeStatusSignalGroupL1GenerationBlock (ESXCPBNodeStatusSignalGroupL1GenerationBlock.UnionCase, ESXCPBNodeStatusSignalGroupL1GenerationBlock.Reconnect)>
+<!ATTLIST ESXCPBNodeStatusSignalGroupL1GenerationBlock  
+    L1TreeIndex CDATA "-1"
+
+    APIROIDArray1 CDATA "-1"
+    MonitoringROID CDATA "-1"
+    ActivationCount CDATA "0"
+    ExecutionROID CDATA "-1" 
+  
+    IsRelevant ( False | True ) "False"
+    SignalGroupIndex CDATA "-1"
+>
+
+<!ELEMENT ESXCPBNodeStatusSignalGroupL1GenerationBlock.UnionCase (ESXCPBNodeStatusSignalGroupL1GenerationUnionCase)>
+<!ELEMENT ESXCPBNodeStatusSignalGroupL1GenerationBlock.Reconnect (ESXCPBNodeStatusSignalGroupL1GenerationReconnect)>
+
+<!ELEMENT ESXCPBNodeStatusSignalGroupL1GenerationUnionCase EMPTY>
+<!ELEMENT ESXCPBNodeStatusSignalGroupL1GenerationReconnect EMPTY>
+
+<!ELEMENT ESXCPBNodeStatusSignalGroupParameters (ESXCPBNodeStatusSignalGroupParameters.Name, ESXCPBNodeStatusSignalGroupParameters.Enabled, ESXCPBNodeStatusSignalGroupParameters.Direction, ESXCPBNodeStatusSignalGroupParameters.Polling, ESXCPBNodeStatusSignalGroupParameters.dTMonitoring, ESXCPBNodeStatusSignalGroupParameters.SignalGroupKind, ESXCPBNodeStatusSignalGroupParameters.Task)>
+
+<!ELEMENT ESXCPBNodeStatusSignalGroupParameters.Name (ESParameterName)>
+<!ELEMENT ESXCPBNodeStatusSignalGroupParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ESXCPBNodeStatusSignalGroupParameters.Direction (ESParameterEnum)>
+<!ATTLIST ESXCPBNodeStatusSignalGroupParameters.Direction 
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+
+<!ELEMENT ESXCPBNodeStatusSignalGroupParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ESXCPBNodeStatusSignalGroupParameters.dTMonitoring (ESParameterBoolean)>
+<!ELEMENT ESXCPBNodeStatusSignalGroupParameters.Task (ESParameterString)>
+
+<!ELEMENT ESXCPBNodeStatusSignalGroupParameters.SignalGroupKind (ESParameterEnum)>
+<!ATTLIST ESXCPBNodeStatusSignalGroupParameters.SignalGroupKind 
+    EnumText1      CDATA "XCPCommunicationStatus"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "XCPResumeModeStatus"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESXCPBNodeStatusSignalGroupSubNodeList (ESXCPBNodeStatusSignal)*>
+
+<!-- status signal -->
+
+<!ELEMENT ESXCPBNodeStatusSignal (ESXCPBNodeStatusSignal.Parameters, ESXCPBNodeStatusSignal.L1Generation, ESXCPBNodeStatusSignal.SubNodes)>
+<!ATTLIST ESXCPBNodeStatusSignal
+    Name ID #REQUIRED
+
+  GlobalObject.ofTypeYBOHWPort ENTITY #REQUIRED
+  GlobalParent.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+<!ELEMENT ESXCPBNodeStatusSignal.Parameters (ESXCPBNodeStatusSignalParameters)>
+<!ELEMENT ESXCPBNodeStatusSignal.L1Generation (ESXCPBNodeStatusSignalL1GenerationBlock)>
+<!ELEMENT ESXCPBNodeStatusSignal.SubNodes (ESXCPBNodeStatusSignalSubNodeList)>
+
+<!ELEMENT ESXCPBNodeStatusSignalL1GenerationBlock (ESXCPBNodeStatusSignalL1GenerationBlock.UnionCase, ESXCPBNodeStatusSignalL1GenerationBlock.Reconnect)>
+<!ATTLIST ESXCPBNodeStatusSignalL1GenerationBlock  
+    L1TreeIndex CDATA "-1"
+
+    MappingROID CDATA "-1"
+>
+
+<!ELEMENT ESXCPBNodeStatusSignalL1GenerationBlock.UnionCase (ESXCPBNodeStatusSignalL1GenerationUnionCase)>
+<!ELEMENT ESXCPBNodeStatusSignalL1GenerationBlock.Reconnect (ESL1GenerationCaseSignalReconnect)>
+
+<!ELEMENT ESXCPBNodeStatusSignalL1GenerationUnionCase EMPTY>
+
+
+<!ELEMENT ESXCPBNodeStatusSignalParameters (ESXCPBNodeStatusSignalParameters.Name, ESXCPBNodeStatusSignalParameters.Enabled, ESXCPBNodeStatusSignalParameters.SignalType, ESXCPBNodeStatusSignalParameters.Unit, ESXCPBNodeStatusSignalParameters.Formula, ESXCPBNodeStatusSignalParameters.Min, ESXCPBNodeStatusSignalParameters.Max, ESXCPBNodeStatusSignalParameters.InitValue, ESXCPBNodeStatusSignalParameters.SignalKind, ESXCPBNodeStatusSignalParameters.Message)>
+
+<!ELEMENT ESXCPBNodeStatusSignalParameters.Name (ESParameterName)>
+<!ELEMENT ESXCPBNodeStatusSignalParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ESXCPBNodeStatusSignalParameters.SignalType (ESParameterEnum)>
+<!ATTLIST ESXCPBNodeStatusSignalParameters.SignalType 
+    EnumText1      CDATA "cont"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "sdisc"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "udisc"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "boolean"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "enum"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "0"
+>
+
+<!ELEMENT ESXCPBNodeStatusSignalParameters.Unit (ESParameterString)>
+<!ELEMENT ESXCPBNodeStatusSignalParameters.Formula (ESParameterUnion)>
+<!ELEMENT ESXCPBNodeStatusSignalParameters.Min (ESParameterFloat)>
+<!ELEMENT ESXCPBNodeStatusSignalParameters.Max (ESParameterFloat)>
+<!ELEMENT ESXCPBNodeStatusSignalParameters.InitValue (ESParameterFloat)>
+
+<!ELEMENT ESXCPBNodeStatusSignalParameters.SignalKind (ESParameterEnum)>
+<!ATTLIST ESXCPBNodeStatusSignalParameters.SignalKind 
+    EnumText1      CDATA "CommunicationError"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "ActiveAfterResume"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "SignalGroupIndicators"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+<!ELEMENT ESXCPBNodeStatusSignalParameters.Message (ESParameterString)>
+
+<!ELEMENT ESXCPBNodeStatusSignalSubNodeList EMPTY>
+
+
+<!-- EventBased Signal Group -->
+
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupL1GenerationBlock (ESXCPBNodeEventBasedSignalGroupL1GenerationBlock.UnionCase, ESXCPBNodeEventBasedSignalGroupL1GenerationBlock.Reconnect)>
+<!ATTLIST ESXCPBNodeEventBasedSignalGroupL1GenerationBlock  
+    L1TreeIndex CDATA "-1"
+
+    APIROIDArray1 CDATA "-1"
+    MonitoringROID CDATA "-1"
+    ActivationCount CDATA "0"
+    ExecutionROID CDATA "-1" 
+  
+    IsRelevant ( False | True ) "False"
+    SignalGroupIndex CDATA "-1"
+>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupL1GenerationBlock.UnionCase (ESXCPBNodeEventBasedSignalGroupL1GenerationUnionCase)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupL1GenerationBlock.Reconnect (ESXCPBNodeEventBasedSignalGroupL1GenerationReconnect)>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupL1GenerationUnionCase EMPTY>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupL1GenerationReconnect EMPTY>
+
+<!-- CalibrationBased Signal Group -->
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroupL1GenerationBlock (ESXCPBNodeCalibrationBasedSignalGroupL1GenerationBlock.UnionCase, ESXCPBNodeCalibrationBasedSignalGroupL1GenerationBlock.Reconnect)>
+<!ATTLIST ESXCPBNodeCalibrationBasedSignalGroupL1GenerationBlock  
+    L1TreeIndex CDATA "-1"
+
+    APIROIDArray1 CDATA "-1"
+    MonitoringROID CDATA "-1"
+    ActivationCount CDATA "0"
+    ExecutionROID CDATA "-1" 
+  
+    IsRelevant ( False | True ) "False"
+    SignalGroupIndex CDATA "-1"
+>
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroupL1GenerationBlock.UnionCase (ESXCPBNodeCalibrationBasedSignalGroupL1GenerationUnionCase)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroupL1GenerationBlock.Reconnect (ESXCPBNodeCalibrationBasedSignalGroupL1GenerationReconnect)>
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroupL1GenerationUnionCase EMPTY>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroupL1GenerationReconnect EMPTY>
+
+<!-- EventBased Signal -->
+
+<!ELEMENT ESXCPBNodeEventBasedSignalL1GenerationBlock (ESXCPBNodeEventBasedSignalL1GenerationBlock.UnionCase, ESXCPBNodeEventBasedSignalL1GenerationBlock.Reconnect)>
+<!ATTLIST ESXCPBNodeEventBasedSignalL1GenerationBlock  
+    L1TreeIndex CDATA "-1"
+
+    MappingROID CDATA "-1"
+    IsDirectionReceive ( False | True ) "False"
+>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalL1GenerationBlock.UnionCase (ESXCPBNodeEventBasedSignalL1GenerationUnionCase)>
+<!ELEMENT ESXCPBNodeEventBasedSignalL1GenerationBlock.Reconnect (ESL1GenerationCaseSignalReconnect)>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalL1GenerationUnionCase EMPTY>
+
+<!-- CalibrationBased Signal -->
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalL1GenerationBlock (ESXCPBNodeCalibrationBasedSignalL1GenerationBlock.UnionCase, ESXCPBNodeCalibrationBasedSignalL1GenerationBlock.Reconnect)>
+<!ATTLIST ESXCPBNodeCalibrationBasedSignalL1GenerationBlock  
+    L1TreeIndex CDATA "-1"
+
+    MappingROID CDATA "-1"
+>
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalL1GenerationBlock.UnionCase (ESXCPBNodeCalibrationBasedSignalL1GenerationUnionCase)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalL1GenerationBlock.Reconnect (ESXCPBNodeCalibrationBasedSignalL1GenerationReconnect)>
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalL1GenerationUnionCase EMPTY>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalL1GenerationReconnect EMPTY>
+
+<!-- event based signal group -->
+
+<!ELEMENT ESXCPBNodeEventBasedSignalGroup (ESXCPBNodeEventBasedSignalGroup.Parameters, ESXCPBNodeEventBasedSignalGroup.L1Generation, ESXCPBNodeEventBasedSignalGroup.SubNodes)>
+<!ATTLIST ESXCPBNodeEventBasedSignalGroup
+    Name ID #REQUIRED
+
+  GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+  GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+  MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+  MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+  MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+  
+  ComplementarySignalGroup.ofTypeESXCPBNodeEventBasedSignalGroup ENTITY #REQUIRED
+  
+  Raster.ofTypeRaster ENTITY #REQUIRED
+  XCPEvent.ofTypeXCPEvent ENTITY #REQUIRED
+  
+  
+>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalGroup.SubNodes (ESXCPBNodeEventBasedSignalGroupSubNodeList)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroup.L1Generation (ESXCPBNodeEventBasedSignalGroupL1GenerationBlock)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroup.Parameters (ESXCPBNodeEventBasedSignalGroupParameters)>
+
+
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters (ESXCPBNodeEventBasedSignalGroupParameters.Name, 
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.Enabled, 
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.Direction, 
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.Polling, 
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.dTMonitoring,
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.RasterType, 
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.NumberSignals, 
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.NumberOfBytes, 
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.EnableStatusSignals, 
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.BaseName,
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.ComplementarySignalGroup, 
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.EventChannelName, 
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.EventChannelShortName, 
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.XCPEventChannelNumber, 
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.XCPCycleTime, 
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.XCPEventPriority, 
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.MaxDAQList, 
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.MaxDAQListDisplay, 
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.XCPDAQPriority, 
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.PrescalerValue,
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.NumberTransferredSignals, ESXCPBNodeEventBasedSignalGroupParameters.Task)>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.Name (ESParameterName)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.Direction (ESParameterEnum)>
+<!ATTLIST ESXCPBNodeEventBasedSignalGroupParameters.Direction 
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.dTMonitoring (ESParameterBoolean)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.Task (ESParameterString)>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.RasterType (ESParameterEnum)>
+<!ATTLIST ESXCPBNodeEventBasedSignalGroupParameters.RasterType  
+    EnumText1      CDATA "Measurement"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Bypass"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Stimulation"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.NumberSignals (ESParameterUInt)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.NumberOfBytes (ESParameterUInt)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.EnableStatusSignals (ESParameterBoolean)>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.BaseName (ESParameterString)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.ComplementarySignalGroup (ESXCPBParameterCompSignalGroup)>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.EventChannelName (ESParameterString)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.EventChannelShortName (ESParameterString)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.XCPEventChannelNumber (ESParameterUInt)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.XCPCycleTime (ESParameterString)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.XCPEventPriority (ESParameterUInt)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.MaxDAQList (ESParameterUInt)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.MaxDAQListDisplay (ESParameterString)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.XCPDAQPriority (ESParameterUInt)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.PrescalerValue (ESParameterUInt)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.NumberTransferredSignals (ESParameterUInt)>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupSubNodeList (ESXCPBNodeEventBasedSignal|ESXCPBNodeStatusSignal)*>
+
+
+<!-- Calibration based signal group -->
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroup (ESXCPBNodeCalibrationBasedSignalGroup.Parameters, ESXCPBNodeCalibrationBasedSignalGroup.L1Generation, ESXCPBNodeCalibrationBasedSignalGroup.SubNodes)>
+<!ATTLIST ESXCPBNodeCalibrationBasedSignalGroup
+    Name ID #REQUIRED
+
+  GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+  GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+  MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+  MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+  MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+ 
+>
+
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroup.Parameters (ESXCPBNodeCalibrationBasedSignalGroupParameters)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroup.L1Generation (ESXCPBNodeCalibrationBasedSignalGroupL1GenerationBlock)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroup.SubNodes (ESXCPBNodeCalibrationBasedSignalGroupSubNodeList)>
+
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroupParameters (ESXCPBNodeCalibrationBasedSignalGroupParameters.Name,
+                                                                  ESXCPBNodeCalibrationBasedSignalGroupParameters.Enabled, 
+                                                                  ESXCPBNodeCalibrationBasedSignalGroupParameters.Direction, 
+                                                                  ESXCPBNodeCalibrationBasedSignalGroupParameters.Polling, 
+                                                                  ESXCPBNodeCalibrationBasedSignalGroupParameters.dTMonitoring,
+                                                                  ESXCPBNodeCalibrationBasedSignalGroupParameters.RasterType, 
+                                                                  ESXCPBNodeCalibrationBasedSignalGroupParameters.NumberSignals, 
+                                                                  ESXCPBNodeCalibrationBasedSignalGroupParameters.NumberOfBytes,
+                                                                  ESXCPBNodeCalibrationBasedSignalGroupParameters.EnableStatusSignals, ESXCPBNodeCalibrationBasedSignalGroupParameters.Task)>
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroupParameters.Name (ESParameterName)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroupParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroupParameters.Direction (ESParameterEnum)>
+<!ATTLIST ESXCPBNodeCalibrationBasedSignalGroupParameters.Direction  
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroupParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroupParameters.dTMonitoring (ESParameterBoolean)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroupParameters.Task (ESParameterString)>
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroupParameters.RasterType (ESParameterEnum)>
+<!ATTLIST ESXCPBNodeCalibrationBasedSignalGroupParameters.RasterType 
+    EnumText1      CDATA "Measurement"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Bypass"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Stimulation"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroupParameters.NumberSignals (ESParameterUInt)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroupParameters.NumberOfBytes (ESParameterUInt)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroupParameters.EnableStatusSignals (ESParameterBoolean)>
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalGroupSubNodeList (ESXCPBNodeCalibrationBasedSignal|ESXCPBNodeStatusSignal)*>
+
+
+<!-- Event based signal -->
+
+
+<!ELEMENT ESXCPBNodeEventBasedSignal (ESXCPBNodeEventBasedSignal.Parameters, ESXCPBNodeEventBasedSignal.L1Generation, ESXCPBNodeEventBasedSignal.SubNodes)>
+<!ATTLIST ESXCPBNodeEventBasedSignal
+    Name ID #REQUIRED
+  
+  GlobalObject.ofTypeYBOHWPort ENTITY #REQUIRED
+  GlobalParent.ofTypeYBOSignalGroup ENTITY #REQUIRED
+  
+  DataElement.ofTypeDataElement ENTITY #REQUIRED
+  DataElementName CDATA ""
+>
+
+
+<!ELEMENT ESXCPBNodeEventBasedSignal.Parameters (ESXCPBNodeEventBasedSignalParameters)>
+<!ELEMENT ESXCPBNodeEventBasedSignal.L1Generation (ESXCPBNodeEventBasedSignalL1GenerationBlock)>
+<!ELEMENT ESXCPBNodeEventBasedSignal.SubNodes (ESXCPBNodeEventBasedSignalSubNodeList)>
+
+
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters (ESXCPBNodeEventBasedSignalParameters.Name, 
+                                                       ESXCPBNodeEventBasedSignalParameters.Enabled, 
+                                                       ESXCPBNodeEventBasedSignalParameters.SignalType, 
+                                                       ESXCPBNodeEventBasedSignalParameters.Unit, 
+                                                       ESXCPBNodeEventBasedSignalParameters.Formula, 
+                                                       ESXCPBNodeEventBasedSignalParameters.Min, 
+                                                       ESXCPBNodeEventBasedSignalParameters.Max, 
+                                                       ESXCPBNodeEventBasedSignalParameters.InitValue, 
+                                                       ESXCPBNodeEventBasedSignalParameters.DataType, 
+                                                       ESXCPBNodeEventBasedSignalParameters.MatrixIndexX, 
+                                                       ESXCPBNodeEventBasedSignalParameters.MatrixIndexY, 
+                                                       ESXCPBNodeEventBasedSignalParameters.MatrixIndexZ, 
+                                                       ESXCPBNodeEventBasedSignalParameters.SignalAddress, 
+                                                       ESXCPBNodeEventBasedSignalParameters.AddressExtension, 
+                                                       ESXCPBNodeEventBasedSignalParameters.SignalSize, 
+                                                       ESXCPBNodeEventBasedSignalParameters.BitMask, 
+                                                       ESXCPBNodeEventBasedSignalParameters.BitOffset, 
+                                                       ESXCPBNodeEventBasedSignalParameters.Transfer,
+                                                       ESXCPBNodeEventBasedSignalParameters.SignalOffset,
+                                                       ESXCPBNodeEventBasedSignalParameters.SignalByteOrder,
+                                                       ESXCPBNodeEventBasedSignalParameters.Message)>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.Name (ESParameterName)>
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.SignalType (ESParameterEnum)>
+<!ATTLIST ESXCPBNodeEventBasedSignalParameters.SignalType 
+    EnumText1      CDATA "cont"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "sdisc"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "udisc"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "boolean"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "enum"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.Unit (ESParameterString)>
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.Formula (ESParameterUnion)>
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.Min (ESParameterFloat)>
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.Max (ESParameterFloat)>
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.InitValue (ESParameterFloat)>
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.DataType (ESParameterEnum)>
+<!ATTLIST ESXCPBNodeEventBasedSignalParameters.DataType  
+    EnumText1      CDATA "boolean"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "uint8"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "sint8"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "uint16"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "sint16"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+
+    EnumText6      CDATA "uint32"
+    EnumL1Value6     CDATA "5"
+    EnumAvailable6 CDATA "1"
+
+    EnumText7      CDATA "sint32"
+    EnumL1Value7     CDATA "6"
+    EnumAvailable7 CDATA "1"
+
+    EnumText8      CDATA "real32"
+    EnumL1Value8     CDATA "7"
+    EnumAvailable8 CDATA "1"
+
+    EnumText9      CDATA "real64"
+    EnumL1Value9     CDATA "8"
+    EnumAvailable9 CDATA "1"
+>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.MatrixIndexX (ESParameterSInt)>
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.MatrixIndexY (ESParameterSInt)>
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.MatrixIndexZ (ESParameterSInt)>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.SignalAddress (ESParameterUInt)>
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.AddressExtension (ESParameterUInt)>
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.SignalSize (ESParameterUInt)>
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.BitMask (ESParameterUInt)>
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.BitOffset (ESParameterUInt)>
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.Transfer (ESParameterBoolean)>
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.SignalOffset (ESParameterUInt)>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.SignalByteOrder (ESParameterEnum)>
+<!ATTLIST ESXCPBNodeEventBasedSignalParameters.SignalByteOrder          
+    EnumText1      CDATA "little endian (Intel)"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "big endian (Motorola)"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+<!ELEMENT ESXCPBNodeEventBasedSignalParameters.Message (ESParameterString)>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalSubNodeList EMPTY>
+
+<!-- Calibration based signal -->
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignal (ESXCPBNodeCalibrationBasedSignal.Parameters, ESXCPBNodeCalibrationBasedSignal.L1Generation, ESXCPBNodeCalibrationBasedSignal.SubNodes)>
+<!ATTLIST ESXCPBNodeCalibrationBasedSignal
+    Name ID #REQUIRED
+
+  GlobalObject.ofTypeYBOHWPort ENTITY #REQUIRED
+  GlobalParent.ofTypeYBOSignalGroup ENTITY #REQUIRED
+
+  DataElement.ofTypeDataElement ENTITY #REQUIRED
+  DataElementName CDATA ""
+>
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignal.Parameters (ESXCPBNodeCalibrationBasedSignalParameters)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignal.L1Generation (ESXCPBNodeCalibrationBasedSignalL1GenerationBlock)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignal.SubNodes (ESXCPBNodeCalibrationBasedSignalSubNodeList)>
+
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalParameters (ESXCPBNodeCalibrationBasedSignalParameters.Name, ESXCPBNodeCalibrationBasedSignalParameters.Enabled, ESXCPBNodeCalibrationBasedSignalParameters.SignalType, ESXCPBNodeCalibrationBasedSignalParameters.Unit, ESXCPBNodeCalibrationBasedSignalParameters.Formula, ESXCPBNodeCalibrationBasedSignalParameters.Min, ESXCPBNodeCalibrationBasedSignalParameters.Max, ESXCPBNodeCalibrationBasedSignalParameters.InitValue, ESXCPBNodeCalibrationBasedSignalParameters.DataType, ESXCPBNodeCalibrationBasedSignalParameters.MatrixIndexX, ESXCPBNodeCalibrationBasedSignalParameters.MatrixIndexY, ESXCPBNodeCalibrationBasedSignalParameters.MatrixIndexZ, ESXCPBNodeCalibrationBasedSignalParameters.Message)>
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalParameters.Name (ESParameterName)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalParameters.SignalType (ESParameterEnum)>
+<!ATTLIST ESXCPBNodeCalibrationBasedSignalParameters.SignalType 
+    EnumText1      CDATA "cont"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "sdisc"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "udisc"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "boolean"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "enum"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalParameters.Unit (ESParameterString)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalParameters.Formula (ESParameterUnion)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalParameters.Min (ESParameterFloat)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalParameters.Max (ESParameterFloat)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalParameters.InitValue (ESParameterFloat)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalParameters.DataType (ESParameterEnum)>
+<!ATTLIST ESXCPBNodeCalibrationBasedSignalParameters.DataType  
+    EnumText1      CDATA "boolean"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "uint8"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "sint8"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "uint16"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "sint16"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+
+    EnumText6      CDATA "uint32"
+    EnumL1Value6     CDATA "5"
+    EnumAvailable6 CDATA "1"
+
+    EnumText7      CDATA "sint32"
+    EnumL1Value7     CDATA "6"
+    EnumAvailable7 CDATA "1"
+
+    EnumText8      CDATA "real32"
+    EnumL1Value8     CDATA "7"
+    EnumAvailable8 CDATA "1"
+
+    EnumText9      CDATA "real64"
+    EnumL1Value9     CDATA "8"
+    EnumAvailable9 CDATA "1"
+>
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalParameters.MatrixIndexX (ESParameterSInt)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalParameters.MatrixIndexY (ESParameterSInt)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalParameters.MatrixIndexZ (ESParameterSInt)>
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalParameters.Message (ESParameterString)>
+
+<!ELEMENT ESXCPBNodeCalibrationBasedSignalSubNodeList EMPTY>

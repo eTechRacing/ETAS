@@ -1,0 +1,312 @@
+<?DTDVersion "2.0.3"?>
+<?CompatibleDTDVersion "2.0.2"?>
+<?CompatibleDTDVersion "2.0.1"?>
+<?CompatibleDTDVersion "2.0"?>
+
+<!NOTATION ofTypeGMBO SYSTEM "GMBO">
+<!NOTATION ofTypeGMBOConnectable SYSTEM "GMBOConnectable">
+<!NOTATION ofTypeGMBOConnection SYSTEM "GMBOConnection">
+<!NOTATION ofTypeGMBOConnectionPoint SYSTEM "GMBOConnectionPoint">
+<!NOTATION ofTypeGMBOContainer SYSTEM "GMBOContainer">
+<!NOTATION ofTypeGMBOGraphicalObject SYSTEM "GMBOGraphicalObject">
+<!NOTATION ofTypeGMBOGroupContainer SYSTEM "GMBOGroupContainer">
+<!NOTATION ofTypeGMBOLayer SYSTEM "GMBOLayer">
+<!NOTATION ofTypeGMBOLine SYSTEM "GMBOLine">
+<!NOTATION ofTypeGMBOLink SYSTEM "GMBOLink">
+<!NOTATION ofTypeGMBOObjectGroup SYSTEM "GMBOObjectGroup">
+<!NOTATION ofTypeGMBOPortConnection SYSTEM "GMBOPortConnection">
+<!NOTATION ofTypeGMBOPortContainer SYSTEM "GMBOPortContainer">
+<!NOTATION ofTypeGMBOPortRef SYSTEM "GMBOPortRef">
+<!NOTATION ofTypeGMBORoot SYSTEM "GMBORoot">
+<!NOTATION ofTypeGMBOSAPContainer SYSTEM "GMBOSAPContainer">
+<!NOTATION ofTypeGMBOTextContainer SYSTEM "GMBOTextContainer">
+<!NOTATION ofTypeGMBOVirtualConnection SYSTEM "GMBOVirtualConnection">
+<!NOTATION ofTypeGMBOWindow SYSTEM "GMBOWindow">
+
+<!NOTATION ofTypeYBOConnection SYSTEM "YBOConnection">
+<!NOTATION ofTypeYBO SYSTEM "YBO">
+<!NOTATION ofTypeYBOPort SYSTEM "YBOPort">
+
+<?SuperClass GMBOConnectable->GMBOGraphicalObject ?>
+<?SuperClass GMBOConnection->GMBOLink ?>
+<?SuperClass GMBOConnectionPoint->GMBOGraphicalObject ?>
+<?SuperClass GMBOContainer->GMBOConnectable ?>
+<?SuperClass GMBOGraphicalObject->GMBO ?>
+<?SuperClass GMBOGroupContainer->GMBOContainer ?>
+<?SuperClass GMBOLayer->GMBO ?>
+<?SuperClass GMBOLine->GMBOConnectable ?>
+<?SuperClass GMBOLink->GMBOLine ?>
+<?SuperClass GMBOObjectGroup->GMBO ?>
+<?SuperClass GMBOPortConnection->GMBOConnection ?>
+<?SuperClass GMBOPortContainer->GMBOContainer ?>
+<?SuperClass GMBOPortRef->GMBOConnectable ?>
+<?SuperClass GMBOSAPContainer->GMBOContainer ?>
+<?SuperClass GMBOTextContainer->GMBOContainer ?>
+<?SuperClass GMBOVirtualConnection->GMBOConnection ?>
+
+<!ELEMENT GMBOConnectionPoint (GMBOConnectionPoint.Position)>
+<!ATTLIST GMBOConnectionPoint
+    Name ID #REQUIRED
+    Void CDATA "0"
+    Lock ( FALSE | TRUE ) "FALSE"
+    Visible ( FALSE | TRUE ) "TRUE"
+    ObjectName CDATA ""
+    Annotation CDATA ""
+>
+
+
+<!ELEMENT GMBOConnectionPoint.Position (GMBOPoint)>
+
+<!ELEMENT GMBOContainer (GMBOContainer.Size, GMBOContainer.BorderColor, GMBOContainer.BackgroundColor, GMBOContainer.GraphicalObjects, GMBOContainer.ConnectionPoints, GMBOContainer.Position)>
+<!ATTLIST GMBOContainer
+    Name ID #REQUIRED
+    BackgroundImage CDATA ""
+    Lock ( FALSE | TRUE ) "FALSE"
+    Visible ( FALSE | TRUE ) "TRUE"
+    ObjectName CDATA ""
+    Annotation CDATA ""
+>
+
+
+<!ELEMENT GMBOContainer.Size (GMBOSize)>
+<!ELEMENT GMBOContainer.BorderColor (GMBOColor)>
+<!ELEMENT GMBOContainer.BackgroundColor (GMBOColor)>
+<!ELEMENT GMBOContainer.GraphicalObjects (GMBOGraphicalObjectRefList)>
+<!ELEMENT GMBOContainer.ConnectionPoints (GMBOConnectionPointList)>
+<!ELEMENT GMBOContainer.Position (GMBOPoint)>
+
+<!ELEMENT GMBOGroupContainer (GMBOGroupContainer.Containers, GMBOGroupContainer.Size, GMBOGroupContainer.BorderColor, GMBOGroupContainer.BackgroundColor, GMBOGroupContainer.GraphicalObjects, GMBOGroupContainer.ConnectionPoints, GMBOGroupContainer.Position)>
+<!ATTLIST GMBOGroupContainer
+    Name ID #REQUIRED
+    BackgroundImage CDATA ""
+    Lock ( FALSE | TRUE ) "FALSE"
+    Visible ( FALSE | TRUE ) "TRUE"
+    ObjectName CDATA ""
+    Annotation CDATA ""
+>
+
+
+<!ELEMENT GMBOGroupContainer.Containers (GMBOContainerList)>
+<!ELEMENT GMBOGroupContainer.Size (GMBOSize)>
+<!ELEMENT GMBOGroupContainer.BorderColor (GMBOColor)>
+<!ELEMENT GMBOGroupContainer.BackgroundColor (GMBOColor)>
+<!ELEMENT GMBOGroupContainer.GraphicalObjects (GMBOGraphicalObjectRefList)>
+<!ELEMENT GMBOGroupContainer.ConnectionPoints (GMBOConnectionPointList)>
+<!ELEMENT GMBOGroupContainer.Position (GMBOPoint)>
+
+<!ELEMENT GMBOLayer (GMBOLayer.AutoPosition, GMBOLayer.GraphicalObjects, GMBOLayer.Groups)>
+<!ATTLIST GMBOLayer
+    Name ID #REQUIRED
+    LayerName CDATA ""
+    Active ( FALSE | TRUE ) "TRUE"
+    Visible ( FALSE | TRUE ) "TRUE"
+>
+
+
+<!ELEMENT GMBOLayer.AutoPosition (GMBOPoint)>
+<!ELEMENT GMBOLayer.GraphicalObjects (GMBOGraphicalObjectList)>
+<!ELEMENT GMBOLayer.Groups (GMBOObjectGroupList)>
+
+<!ELEMENT GMBOLink (GMBOLink.Points, GMBOLink.Color, GMBOLink.ConnectionPoints, GMBOLink.Position)>
+<!ATTLIST GMBOLink
+    Name ID #REQUIRED
+    Curved ( FALSE | TRUE | AUTO ) "TRUE"
+    Lock ( FALSE | TRUE ) "FALSE"
+    Visible ( FALSE | TRUE ) "TRUE"
+    ObjectName CDATA ""
+    Annotation CDATA ""
+    Source.ofTypeGMBOConnectionPoint ENTITY #IMPLIED
+    Sink.ofTypeGMBOConnectionPoint ENTITY #IMPLIED
+>
+
+
+<!ELEMENT GMBOLink.Points (GMBOPointList)>
+<!ELEMENT GMBOLink.Color (GMBOColor)>
+<!ELEMENT GMBOLink.ConnectionPoints (GMBOConnectionPointList)>
+<!ELEMENT GMBOLink.Position (GMBOPoint)>
+
+<!ELEMENT GMBOObjectGroup (GMBOObjectGroup.GraphicalObjects)>
+<!ATTLIST GMBOObjectGroup
+    Name ID #REQUIRED
+    GroupName CDATA ""
+>
+
+
+<!ELEMENT GMBOObjectGroup.GraphicalObjects (GMBOGraphicalObjectRefList)>
+
+<!ELEMENT GMBOPortConnection (GMBOPortConnection.Points, GMBOPortConnection.Color, GMBOPortConnection.ConnectionPoints, GMBOPortConnection.Position)>
+<!ATTLIST GMBOPortConnection
+    Name ID #REQUIRED
+    Void CDATA "0"
+    Curved ( FALSE | TRUE | AUTO ) "AUTO"
+    Lock ( FALSE | TRUE ) "FALSE"
+    Visible ( FALSE | TRUE ) "TRUE"
+    ObjectName CDATA ""
+    Annotation CDATA ""
+    Connection.ofTypeYBOConnection ENTITY #IMPLIED
+    Source.ofTypeGMBOConnectionPoint ENTITY #IMPLIED
+    Sink.ofTypeGMBOConnectionPoint ENTITY #IMPLIED
+>
+
+
+<!ELEMENT GMBOPortConnection.Points (GMBOPointList)>
+<!ELEMENT GMBOPortConnection.Color (GMBOColor)>
+<!ELEMENT GMBOPortConnection.ConnectionPoints (GMBOConnectionPointList)>
+<!ELEMENT GMBOPortConnection.Position (GMBOPoint)>
+
+<!ELEMENT GMBOPortContainer (GMBOPortContainer.InPortRefs, GMBOPortContainer.OutPortRefs, GMBOPortContainer.Size, GMBOPortContainer.BorderColor, GMBOPortContainer.BackgroundColor, GMBOPortContainer.GraphicalObjects, GMBOPortContainer.ConnectionPoints, GMBOPortContainer.Position)>
+<!ATTLIST GMBOPortContainer
+    Name ID #REQUIRED
+    Splitter CDATA "50"
+    Representation ( FULL | PARTIAL ) "PARTIAL"
+    BackgroundImage CDATA ""
+    Lock ( FALSE | TRUE ) "FALSE"
+    Visible ( FALSE | TRUE ) "TRUE"
+    ObjectName CDATA ""
+    Annotation CDATA ""
+    Owner.ofTypeYBO ENTITY #IMPLIED
+>
+
+
+<!ELEMENT GMBOPortContainer.InPortRefs (GMBOPortRefList)>
+<!ELEMENT GMBOPortContainer.OutPortRefs (GMBOPortRefList)>
+<!ELEMENT GMBOPortContainer.Size (GMBOSize)>
+<!ELEMENT GMBOPortContainer.BorderColor (GMBOColor)>
+<!ELEMENT GMBOPortContainer.BackgroundColor (GMBOColor)>
+<!ELEMENT GMBOPortContainer.GraphicalObjects (GMBOGraphicalObjectRefList)>
+<!ELEMENT GMBOPortContainer.ConnectionPoints (GMBOConnectionPointList)>
+<!ELEMENT GMBOPortContainer.Position (GMBOPoint)>
+
+<!ELEMENT GMBOPortRef (GMBOPortRef.ConnectionPoints, GMBOPortRef.Position)>
+<!ATTLIST GMBOPortRef
+    Name ID #REQUIRED
+    Docking ( LEFT | RIGHT | TOP | BOTTOM ) "LEFT"
+    Lock ( FALSE | TRUE ) "FALSE"
+    Visible ( FALSE | TRUE ) "TRUE"
+    ObjectName CDATA ""
+    Annotation CDATA ""
+    Port.ofTypeYBOPort ENTITY #IMPLIED
+>
+
+
+<!ELEMENT GMBOPortRef.ConnectionPoints (GMBOConnectionPointList)>
+<!ELEMENT GMBOPortRef.Position (GMBOPoint)>
+
+<!ELEMENT GMBOSAPContainer (GMBOSAPContainer.PortRef, GMBOSAPContainer.Size, GMBOSAPContainer.BorderColor, GMBOSAPContainer.BackgroundColor, GMBOSAPContainer.GraphicalObjects, GMBOSAPContainer.ConnectionPoints, GMBOSAPContainer.Position)>
+<!ATTLIST GMBOSAPContainer
+    Name ID #REQUIRED
+    BackgroundImage CDATA ""
+    Lock ( FALSE | TRUE ) "FALSE"
+    Visible ( FALSE | TRUE ) "TRUE"
+    ObjectName CDATA ""
+    Annotation CDATA ""
+>
+
+
+<!ELEMENT GMBOSAPContainer.PortRef (GMBOPortRef)>
+<!ELEMENT GMBOSAPContainer.Size (GMBOSize)>
+<!ELEMENT GMBOSAPContainer.BorderColor (GMBOColor)>
+<!ELEMENT GMBOSAPContainer.BackgroundColor (GMBOColor)>
+<!ELEMENT GMBOSAPContainer.GraphicalObjects (GMBOGraphicalObjectRefList)>
+<!ELEMENT GMBOSAPContainer.ConnectionPoints (GMBOConnectionPointList)>
+<!ELEMENT GMBOSAPContainer.Position (GMBOPoint)>
+
+<!ELEMENT GMBOTextContainer (GMBOTextContainer.Size, GMBOTextContainer.BorderColor, GMBOTextContainer.BackgroundColor, GMBOTextContainer.GraphicalObjects, GMBOTextContainer.ConnectionPoints, GMBOTextContainer.Position)>
+<!ATTLIST GMBOTextContainer
+    Name ID #REQUIRED
+    Text CDATA ""
+    BackgroundImage CDATA ""
+    Lock ( FALSE | TRUE ) "FALSE"
+    Visible ( FALSE | TRUE ) "TRUE"
+    ObjectName CDATA ""
+    Annotation CDATA ""
+>
+
+
+<!ELEMENT GMBOTextContainer.Size (GMBOSize)>
+<!ELEMENT GMBOTextContainer.BorderColor (GMBOColor)>
+<!ELEMENT GMBOTextContainer.BackgroundColor (GMBOColor)>
+<!ELEMENT GMBOTextContainer.GraphicalObjects (GMBOGraphicalObjectRefList)>
+<!ELEMENT GMBOTextContainer.ConnectionPoints (GMBOConnectionPointList)>
+<!ELEMENT GMBOTextContainer.Position (GMBOPoint)>
+
+<!ELEMENT GMBOVirtualConnection (GMBOVirtualConnection.Points, GMBOVirtualConnection.Color, GMBOVirtualConnection.ConnectionPoints, GMBOVirtualConnection.Position)>
+<!ATTLIST GMBOVirtualConnection
+    Name ID #REQUIRED
+    Void CDATA "0"
+    Curved ( FALSE | TRUE | AUTO ) "AUTO"
+    Lock ( FALSE | TRUE ) "FALSE"
+    Visible ( FALSE | TRUE ) "TRUE"
+    ObjectName CDATA ""
+    Annotation CDATA ""
+    Connection.ofTypeYBOConnection ENTITY #IMPLIED
+    Source.ofTypeGMBOConnectionPoint ENTITY #IMPLIED
+    Sink.ofTypeGMBOConnectionPoint ENTITY #IMPLIED
+>
+
+
+<!ELEMENT GMBOVirtualConnection.Points (GMBOPointList)>
+<!ELEMENT GMBOVirtualConnection.Color (GMBOColor)>
+<!ELEMENT GMBOVirtualConnection.ConnectionPoints (GMBOConnectionPointList)>
+<!ELEMENT GMBOVirtualConnection.Position (GMBOPoint)>
+
+<!ELEMENT GMBOColor EMPTY>
+<!ATTLIST GMBOColor
+    Color CDATA "0"
+>
+
+
+
+<!ELEMENT GMBOPoint EMPTY>
+<!ATTLIST GMBOPoint
+    X CDATA "0"
+    Y CDATA "0"
+>
+
+
+
+<!ELEMENT GMBOSize EMPTY>
+<!ATTLIST GMBOSize
+    Width CDATA "0"
+    Height CDATA "0"
+>
+
+
+
+<!ELEMENT GMBOWindowRefList (GMBOWindowRefList.EmbeddedLink)*>
+
+<!ELEMENT GMBOWindowRefList.EmbeddedLink EMPTY>
+<!ATTLIST GMBOWindowRefList.EmbeddedLink
+    EmbeddedLink.ofTypeGMBOWindow ENTITY #IMPLIED
+>
+
+
+<!ELEMENT GMBOGraphicalObjectRefList (GMBOGraphicalObjectRefList.EmbeddedLink)*>
+
+<!ELEMENT GMBOGraphicalObjectRefList.EmbeddedLink EMPTY>
+<!ATTLIST GMBOGraphicalObjectRefList.EmbeddedLink
+    EmbeddedLink.ofTypeGMBOGraphicalObject ENTITY #IMPLIED
+>
+
+
+<!ELEMENT GMBOConnectionPointList (GMBOConnectionPoint)*>
+
+
+<!ELEMENT GMBOContainerList (GMBOContainer)*>
+
+
+<!ELEMENT GMBOLayerList (GMBOLayer)*>
+
+
+<!ELEMENT GMBOObjectGroupList (GMBOObjectGroup)*>
+
+
+<!ELEMENT GMBOGraphicalObjectList (GMBOLink | GMBOConnectionPoint | GMBOContainer | GMBOGroupContainer | GMBOPortConnection | GMBOPortContainer | GMBOPortRef | GMBOSAPContainer | GMBOTextContainer | GMBOVirtualConnection)*>
+
+
+<!ELEMENT GMBOPortRefList (GMBOPortRef)*>
+
+
+<!ELEMENT GMBOPointList (GMBOPoint)*>
+
+

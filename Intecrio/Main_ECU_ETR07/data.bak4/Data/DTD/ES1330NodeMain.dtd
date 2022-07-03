@@ -1,0 +1,782 @@
+<?DTDVersion "3.2.0"?>
+<?CompatibleDTDVersion "2.0.4"?>
+<?CompatibleDTDVersion "2.0.3"?>
+<?CompatibleDTDVersion "2.0.2"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!NOTATION ofTypeES1330NodeDevice SYSTEM "ES1330NodeDevice">
+<!NOTATION ofTypeES1330NodeGenerator SYSTEM "ES1330NodeGenerator">
+<!NOTATION ofTypeES1330NodeMain SYSTEM "ES1330NodeMain">
+<!NOTATION ofTypeES1330NodeMeasurement SYSTEM "ES1330NodeMeasurement">
+<!NOTATION ofTypeES1330NodeSignalGroup SYSTEM "ES1330NodeSignalGroup">
+
+<!NOTATION ofTypeES1330NodeSignal SYSTEM "ES1330NodeSignal">
+
+<!NOTATION ofTypeES1330NodeSignalReceive SYSTEM "ES1330NodeSignalReceive">
+<!NOTATION ofTypeES1330NodeSignalReceivePeriod SYSTEM "ES1330NodeSignalReceivePeriod">
+<!NOTATION ofTypeES1330NodeSignalReceivePulseWidth SYSTEM "ES1330NodeSignalReceivePulseWidth">
+
+<!NOTATION ofTypeES1330NodeSignalSend SYSTEM "ES1330NodeSignalSend">
+<!NOTATION ofTypeES1330NodeSignalSendCycle SYSTEM "ES1330NodeSignalSendCycle">
+<!NOTATION ofTypeES1330NodeSignalSendFrequency SYSTEM "ES1330NodeSignalSendFrequency">
+
+<?SuperClass ES1330NodeMain->ESNodeMain ?>
+<?SuperClass ES1330NodeDevice->ESNodeDevice ?>
+
+<?SuperClass ES1330NodeSignalGroup->ESNodeSignalGroup ?>
+<?SuperClass ES1330NodeGenerator->ES1330NodeSignalGroup ?>
+<?SuperClass ES1330NodeMeasurement->ES1330NodeSignalGroup ?>
+
+<?SuperClass ES1330NodeSignal->ESNodeSignal ?>
+
+<?SuperClass ES1330NodeSignalSend->ES1330NodeSignal ?>
+<?SuperClass ES1330NodeSignalReceive->ES1330NodeSignal ?>
+
+<?SuperClass ES1330NodeSignalSendFrequency->ES1330NodeSignalSend ?>
+<?SuperClass ES1330NodeSignalSendCycle->ES1330NodeSignalSend ?>
+<?SuperClass ES1330NodeSignalReceivePeriod->ES1330NodeSignalReceive ?>
+<?SuperClass ES1330NodeSignalReceivePulseWidth->ES1330NodeSignalReceive ?>
+
+<!-- node main -->
+
+<!ELEMENT ES1330NodeMain (ES1330NodeMain.Parameters, ES1330NodeMain.L1Generation, ES1330NodeMain.SubNodes, _System)>
+<!ATTLIST ES1330NodeMain
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOBoard ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOCPUBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ES1330NodeMain.Parameters (ES1330NodeMainParameters)>
+<!ELEMENT ES1330NodeMain.L1Generation (ES1330NodeMainL1Generation)>
+<!ELEMENT ES1330NodeMain.SubNodes (ES1330NodeMainSubNodeList)>
+
+<!ELEMENT ES1330NodeMainL1Generation (ES1330NodeMainL1Generation.NotRunning, ES1330NodeMainL1Generation.Reconnect, ES1330NodeMainL1Generation.WriteToStream)>
+<!ATTLIST ES1330NodeMainL1Generation  
+    L1TreeIndex CDATA "-1"
+
+    ConfigROID CDATA "-1"
+>
+
+<!ELEMENT ES1330NodeMainL1Generation.NotRunning (ES1330NodeMainL1GenerationNotRunning)>
+<!ELEMENT ES1330NodeMainL1Generation.Reconnect (ES1330NodeMainL1GenerationReconnect)>
+<!ELEMENT ES1330NodeMainL1Generation.WriteToStream (ES1330NodeMainL1GenerationWriteToStream)>
+
+<!ELEMENT ES1330NodeMainL1GenerationNotRunning EMPTY>
+<!ELEMENT ES1330NodeMainL1GenerationReconnect EMPTY>
+<!ELEMENT ES1330NodeMainL1GenerationWriteToStream EMPTY>
+
+<!ELEMENT ES1330NodeMainParameters (ES1330NodeMainParameters.Name, ES1330NodeMainParameters.Enabled, ES1330NodeMainParameters.VMEBaseAddress)>
+
+<!ELEMENT ES1330NodeMainParameters.Name (ESParameterName)>
+<!ELEMENT ES1330NodeMainParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES1330NodeMainParameters.VMEBaseAddress (ESParameterEnum)>
+<!ATTLIST ES1330NodeMainParameters.VMEBaseAddress 
+    EnumText1      CDATA "ID1 / 0xC00000"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "ID2 / 0xC00100"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "ID3 / 0xC00200"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "ID4 / 0xC00300"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+>
+
+<!ELEMENT ES1330NodeMainSubNodeList (ES1330NodeDevice)*>
+
+<!-- node device -->
+
+<!ELEMENT ES1330NodeDevice (ES1330NodeDevice.Parameters, ES1330NodeDevice.L1Generation, ES1330NodeDevice.SubNodes)>
+<!ATTLIST ES1330NodeDevice
+    Name ID #REQUIRED
+    
+    GlobalObject.ofTypeYBODevice ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ES1330NodeDevice.Parameters (ES1330NodeDeviceParameters)>
+<!ELEMENT ES1330NodeDevice.L1Generation (ES1330NodeDeviceL1Generation)>
+<!ELEMENT ES1330NodeDevice.SubNodes (ES1330NodeDeviceSubNodeList)>
+
+<!ELEMENT ES1330NodeDeviceL1Generation (ES1330NodeDeviceL1Generation.Reconnect, ES1330NodeDeviceL1Generation.UnionCase)>
+<!ATTLIST ES1330NodeDeviceL1Generation  
+    L1TreeIndex CDATA "-1"
+
+    APIROIDArray1 CDATA "-1"
+    APIROIDArray2 CDATA "-1"
+    APIROIDArray3 CDATA "-1"
+    APIROIDArray4 CDATA "-1"
+    APIROIDArray5 CDATA "-1"
+>
+
+<!ELEMENT ES1330NodeDeviceL1Generation.Reconnect (ES1330NodeDeviceL1GenerationReconnect)>
+<!ELEMENT ES1330NodeDeviceL1Generation.UnionCase (ES1330NodeDeviceL1GenerationUnionCase)>
+
+<!ELEMENT ES1330NodeDeviceL1GenerationReconnect EMPTY>
+<!ELEMENT ES1330NodeDeviceL1GenerationUnionCase EMPTY>
+
+<!ELEMENT ES1330NodeDeviceParameters (ES1330NodeDeviceParameters.Name, ES1330NodeDeviceParameters.Enabled, ES1330NodeDeviceParameters.Counter1Mode, ES1330NodeDeviceParameters.Counter1Prescaler, ES1330NodeDeviceParameters.Counter2Mode, ES1330NodeDeviceParameters.Counter2Prescaler, ES1330NodeDeviceParameters.Counter3Mode, ES1330NodeDeviceParameters.Counter3Prescaler, ES1330NodeDeviceParameters.Counter4Mode, ES1330NodeDeviceParameters.Counter4Prescaler, ES1330NodeDeviceParameters.Counter5Mode, ES1330NodeDeviceParameters.Counter5Prescaler, ES1330NodeDeviceParameters.CountergroupNumber)>
+
+<!ELEMENT ES1330NodeDeviceParameters.Name (ESParameterName)>
+<!ELEMENT ES1330NodeDeviceParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES1330NodeDeviceParameters.Counter1Mode (ESParameterEnum)>
+<!ATTLIST ES1330NodeDeviceParameters.Counter1Mode  
+    EnumText1       CDATA "Inactive"
+    EnumL1Value1    CDATA "0"
+    EnumAvailable1  CDATA "1"
+
+    EnumText2       CDATA "PWM Generator"
+    EnumL1Value2    CDATA "1"
+    EnumAvailable2  CDATA "1"
+
+    EnumText3       CDATA "Period Measurement"
+    EnumL1Value3    CDATA "3"
+    EnumAvailable3  CDATA "1"
+
+    EnumText4       CDATA "High Time Measurement"
+    EnumL1Value4    CDATA "2"
+    EnumAvailable4  CDATA "1"
+
+    EnumText5       CDATA "Low Time Measurement"
+    EnumL1Value5    CDATA "4"
+    EnumAvailable5  CDATA "1"
+
+    EnumText6       CDATA "Additive High Time Measurement"
+    EnumL1Value6    CDATA "5"
+    EnumAvailable6  CDATA "1"
+
+    EnumText7       CDATA "Additive Low Time Measurement"
+    EnumL1Value7    CDATA "6"
+    EnumAvailable7  CDATA "1"
+>
+
+<!ELEMENT ES1330NodeDeviceParameters.Counter1Prescaler (ESParameterEnum)>
+<!ATTLIST ES1330NodeDeviceParameters.Counter1Prescaler   
+    EnumText1       CDATA "1"
+    EnumL1Value1    CDATA "1"
+    EnumAvailable1  CDATA "1"
+
+    EnumText2       CDATA "10"
+    EnumL1Value2    CDATA "10"
+    EnumAvailable2  CDATA "1"
+
+    EnumText3       CDATA "100"
+    EnumL1Value3    CDATA "100"
+    EnumAvailable3  CDATA "1"
+
+    EnumText4       CDATA "1000"
+    EnumL1Value4    CDATA "1000"
+    EnumAvailable4  CDATA "1"
+
+    EnumText5       CDATA "10000"
+    EnumL1Value5    CDATA "10000"
+    EnumAvailable5  CDATA "1"
+>
+
+<!ELEMENT ES1330NodeDeviceParameters.Counter2Mode (ESParameterEnum)>
+<!ATTLIST ES1330NodeDeviceParameters.Counter2Mode  
+    EnumText1       CDATA "Inactive"
+    EnumL1Value1    CDATA "0"
+    EnumAvailable1  CDATA "1"
+
+    EnumText2       CDATA "PWM Generator"
+    EnumL1Value2    CDATA "1"
+    EnumAvailable2  CDATA "1"
+
+    EnumText3       CDATA "Period Measurement"
+    EnumL1Value3    CDATA "3"
+    EnumAvailable3  CDATA "1"
+
+    EnumText4       CDATA "High Time Measurement"
+    EnumL1Value4    CDATA "2"
+    EnumAvailable4  CDATA "1"
+
+    EnumText5       CDATA "Low Time Measurement"
+    EnumL1Value5    CDATA "4"
+    EnumAvailable5  CDATA "1"
+
+    EnumText6       CDATA "Additive High Time Measurement"
+    EnumL1Value6    CDATA "5"
+    EnumAvailable6  CDATA "1"
+
+    EnumText7       CDATA "Additive Low Time Measurement"
+    EnumL1Value7    CDATA "6"
+    EnumAvailable7  CDATA "1"
+>
+
+<!ELEMENT ES1330NodeDeviceParameters.Counter2Prescaler (ESParameterEnum)>
+<!ATTLIST ES1330NodeDeviceParameters.Counter2Prescaler   
+    EnumText1       CDATA "1"
+    EnumL1Value1    CDATA "1"
+    EnumAvailable1  CDATA "1"
+
+    EnumText2       CDATA "10"
+    EnumL1Value2    CDATA "10"
+    EnumAvailable2  CDATA "1"
+
+    EnumText3       CDATA "100"
+    EnumL1Value3    CDATA "100"
+    EnumAvailable3  CDATA "1"
+
+    EnumText4       CDATA "1000"
+    EnumL1Value4    CDATA "1000"
+    EnumAvailable4  CDATA "1"
+
+    EnumText5       CDATA "10000"
+    EnumL1Value5    CDATA "10000"
+    EnumAvailable5  CDATA "1"
+>
+
+<!ELEMENT ES1330NodeDeviceParameters.Counter3Mode (ESParameterEnum)>
+<!ATTLIST ES1330NodeDeviceParameters.Counter3Mode  
+    EnumText1       CDATA "Inactive"
+    EnumL1Value1    CDATA "0"
+    EnumAvailable1  CDATA "1"
+
+    EnumText2       CDATA "PWM Generator"
+    EnumL1Value2    CDATA "1"
+    EnumAvailable2  CDATA "1"
+
+    EnumText3       CDATA "Period Measurement"
+    EnumL1Value3    CDATA "3"
+    EnumAvailable3  CDATA "1"
+
+    EnumText4       CDATA "High Time Measurement"
+    EnumL1Value4    CDATA "2"
+    EnumAvailable4  CDATA "1"
+
+    EnumText5       CDATA "Low Time Measurement"
+    EnumL1Value5    CDATA "4"
+    EnumAvailable5  CDATA "1"
+
+    EnumText6       CDATA "Additive High Time Measurement"
+    EnumL1Value6    CDATA "5"
+    EnumAvailable6  CDATA "1"
+
+    EnumText7       CDATA "Additive Low Time Measurement"
+    EnumL1Value7    CDATA "6"
+    EnumAvailable7  CDATA "1"
+>
+
+<!ELEMENT ES1330NodeDeviceParameters.Counter3Prescaler (ESParameterEnum)>
+<!ATTLIST ES1330NodeDeviceParameters.Counter3Prescaler   
+    EnumText1       CDATA "1"
+    EnumL1Value1    CDATA "1"
+    EnumAvailable1  CDATA "1"
+
+    EnumText2       CDATA "10"
+    EnumL1Value2    CDATA "10"
+    EnumAvailable2  CDATA "1"
+
+    EnumText3       CDATA "100"
+    EnumL1Value3    CDATA "100"
+    EnumAvailable3  CDATA "1"
+
+    EnumText4       CDATA "1000"
+    EnumL1Value4    CDATA "1000"
+    EnumAvailable4  CDATA "1"
+
+    EnumText5       CDATA "10000"
+    EnumL1Value5    CDATA "10000"
+    EnumAvailable5  CDATA "1"
+>
+
+<!ELEMENT ES1330NodeDeviceParameters.Counter4Mode (ESParameterEnum)>
+<!ATTLIST ES1330NodeDeviceParameters.Counter4Mode  
+    EnumText1       CDATA "Inactive"
+    EnumL1Value1    CDATA "0"
+    EnumAvailable1  CDATA "1"
+
+    EnumText2       CDATA "PWM Generator"
+    EnumL1Value2    CDATA "1"
+    EnumAvailable2  CDATA "1"
+
+    EnumText3       CDATA "Period Measurement"
+    EnumL1Value3    CDATA "3"
+    EnumAvailable3  CDATA "1"
+
+    EnumText4       CDATA "High Time Measurement"
+    EnumL1Value4    CDATA "2"
+    EnumAvailable4  CDATA "1"
+
+    EnumText5       CDATA "Low Time Measurement"
+    EnumL1Value5    CDATA "4"
+    EnumAvailable5  CDATA "1"
+
+    EnumText6       CDATA "Additive High Time Measurement"
+    EnumL1Value6    CDATA "5"
+    EnumAvailable6  CDATA "1"
+
+    EnumText7       CDATA "Additive Low Time Measurement"
+    EnumL1Value7    CDATA "6"
+    EnumAvailable7  CDATA "1"
+>
+
+<!ELEMENT ES1330NodeDeviceParameters.Counter4Prescaler (ESParameterEnum)>
+<!ATTLIST ES1330NodeDeviceParameters.Counter4Prescaler   
+    EnumText1       CDATA "1"
+    EnumL1Value1    CDATA "1"
+    EnumAvailable1  CDATA "1"
+
+    EnumText2       CDATA "10"
+    EnumL1Value2    CDATA "10"
+    EnumAvailable2  CDATA "1"
+
+    EnumText3       CDATA "100"
+    EnumL1Value3    CDATA "100"
+    EnumAvailable3  CDATA "1"
+
+    EnumText4       CDATA "1000"
+    EnumL1Value4    CDATA "1000"
+    EnumAvailable4  CDATA "1"
+
+    EnumText5       CDATA "10000"
+    EnumL1Value5    CDATA "10000"
+    EnumAvailable5  CDATA "1"
+>
+
+<!ELEMENT ES1330NodeDeviceParameters.Counter5Mode (ESParameterEnum)>
+<!ATTLIST ES1330NodeDeviceParameters.Counter5Mode  
+    EnumText1       CDATA "Inactive"
+    EnumL1Value1    CDATA "0"
+    EnumAvailable1  CDATA "1"
+
+    EnumText2       CDATA "PWM Generator"
+    EnumL1Value2    CDATA "1"
+    EnumAvailable2  CDATA "1"
+
+    EnumText3       CDATA "Period Measurement"
+    EnumL1Value3    CDATA "3"
+    EnumAvailable3  CDATA "1"
+
+    EnumText4       CDATA "High Time Measurement"
+    EnumL1Value4    CDATA "2"
+    EnumAvailable4  CDATA "1"
+
+    EnumText5       CDATA "Low Time Measurement"
+    EnumL1Value5    CDATA "4"
+    EnumAvailable5  CDATA "1"
+
+    EnumText6       CDATA "Additive High Time Measurement"
+    EnumL1Value6    CDATA "5"
+    EnumAvailable6  CDATA "1"
+
+    EnumText7       CDATA "Additive Low Time Measurement"
+    EnumL1Value7    CDATA "6"
+    EnumAvailable7  CDATA "1"
+>
+
+<!ELEMENT ES1330NodeDeviceParameters.Counter5Prescaler (ESParameterEnum)>
+<!ATTLIST ES1330NodeDeviceParameters.Counter5Prescaler   
+    EnumText1       CDATA "1"
+    EnumL1Value1    CDATA "1"
+    EnumAvailable1  CDATA "1"
+
+    EnumText2       CDATA "10"
+    EnumL1Value2    CDATA "10"
+    EnumAvailable2  CDATA "1"
+
+    EnumText3       CDATA "100"
+    EnumL1Value3    CDATA "100"
+    EnumAvailable3  CDATA "1"
+
+    EnumText4       CDATA "1000"
+    EnumL1Value4    CDATA "1000"
+    EnumAvailable4  CDATA "1"
+
+    EnumText5       CDATA "10000"
+    EnumL1Value5    CDATA "10000"
+    EnumAvailable5  CDATA "1"
+>
+
+<!ELEMENT ES1330NodeDeviceParameters.CountergroupNumber (ESParameterEnum)>
+<!ATTLIST ES1330NodeDeviceParameters.CountergroupNumber    
+    EnumText1       CDATA "Counter Group 1"
+    EnumL1Value1    CDATA "0"
+    EnumAvailable1  CDATA "1"
+
+    EnumText2       CDATA "Counter Group 2"
+    EnumL1Value2    CDATA "1"
+    EnumAvailable2  CDATA "1"
+
+    EnumText3       CDATA "Counter Group 3"
+    EnumL1Value3    CDATA "2"
+    EnumAvailable3  CDATA "1"
+
+    EnumText4       CDATA "Counter Group 4"
+    EnumL1Value4    CDATA "3"
+    EnumAvailable4  CDATA "1"
+
+    EnumText5       CDATA "Counter Group 5"
+    EnumL1Value5    CDATA "4"
+    EnumAvailable5  CDATA "1"
+
+    EnumText6       CDATA "Counter Group 6"
+    EnumL1Value6    CDATA "5"
+    EnumAvailable6  CDATA "1"
+>
+
+<!ELEMENT ES1330NodeDeviceSubNodeList (ES1330NodeGenerator | ES1330NodeMeasurement)*>
+
+<!-- node signal group -->
+
+<!-- node generator --> 
+
+<!ELEMENT ES1330NodeGenerator (ES1330NodeGenerator.Parameters, ES1330NodeGenerator.L1Generation, ES1330NodeGenerator.SubNodes)>
+<!ATTLIST ES1330NodeGenerator
+    Name ID #REQUIRED
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+  MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+<!ELEMENT ES1330NodeGenerator.Parameters (ES1330NodeGeneratorParameters)>
+<!ELEMENT ES1330NodeGenerator.L1Generation (ES1330NodeGeneratorL1Generation)>
+<!ELEMENT ES1330NodeGenerator.SubNodes (ES1330NodeGeneratorSubNodeList)>
+
+<!ELEMENT ES1330NodeGeneratorL1Generation (ES1330NodeGeneratorL1Generation.Reconnect, ES1330NodeGeneratorL1Generation.UnionCase)>
+<!ATTLIST ES1330NodeGeneratorL1Generation  
+    L1TreeIndex CDATA "-1"
+
+    APIROID CDATA "-1"
+>
+
+<!ELEMENT ES1330NodeGeneratorL1Generation.Reconnect (ESL1GenerationCaseSignalGroupReconnect)>
+<!ELEMENT ES1330NodeGeneratorL1Generation.UnionCase (ES1330NodeGeneratorL1GenerationUnionCase)>
+
+<!ELEMENT ES1330NodeGeneratorL1GenerationUnionCase EMPTY>
+
+<!ELEMENT ES1330NodeGeneratorParameters (ES1330NodeGeneratorParameters.Name, ES1330NodeGeneratorParameters.Enabled,ES1330NodeGeneratorParameters.Direction, ES1330NodeGeneratorParameters.Task)>
+<!ELEMENT ES1330NodeGeneratorParameters.Name (ESParameterName)>
+<!ELEMENT ES1330NodeGeneratorParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES1330NodeGeneratorParameters.Task (ESParameterString)>
+<!ELEMENT ES1330NodeGeneratorParameters.Direction (ESParameterEnum)>
+<!ATTLIST ES1330NodeGeneratorParameters.Direction     
+    EnumText1       CDATA "send"
+    EnumL1Value1    CDATA "0"
+    EnumAvailable1  CDATA "1"
+
+    EnumText2       CDATA "receive"
+    EnumL1Value2    CDATA "1"
+    EnumAvailable2  CDATA "1"
+>
+
+<!ELEMENT ES1330NodeGeneratorSubNodeList (ES1330NodeSignalSendFrequency | ES1330NodeSignalSendCycle)*>
+
+<!-- node measurement -->
+
+<!ELEMENT ES1330NodeMeasurement (ES1330NodeMeasurement.Parameters, ES1330NodeMeasurement.L1Generation, ES1330NodeMeasurement.SubNodes, ES1330NodeMeasurement.Parameters, ES1330NodeMeasurement.L1Generation, ES1330NodeMeasurement.SubNodes)>
+<!ATTLIST ES1330NodeMeasurement
+    Name ID #REQUIRED
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+  MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+<!ELEMENT ES1330NodeMeasurement.Parameters (ES1330NodeMeasurementParameters)>
+<!ELEMENT ES1330NodeMeasurement.L1Generation (ES1330NodeMeasurementL1Generation )>
+<!ELEMENT ES1330NodeMeasurement.SubNodes (ES1330NodeMeasurementSubNodeList)>
+
+<!ELEMENT ES1330NodeMeasurementL1Generation (ES1330NodeMeasurementL1Generation.Reconnect, ES1330NodeMeasurementL1Generation.UnionCase)>
+<!ATTLIST ES1330NodeMeasurementL1Generation  
+    L1TreeIndex CDATA "-1"
+
+    APIROID CDATA "-1"
+>
+
+<!ELEMENT ES1330NodeMeasurementL1Generation.Reconnect (ESL1GenerationCaseSignalGroupReconnect)>
+<!ELEMENT ES1330NodeMeasurementL1Generation.UnionCase (ES1330NodeMeasurementL1GenerationUnionCase)>
+
+<!ELEMENT ES1330NodeMeasurementL1GenerationUnionCase EMPTY>
+
+<!ELEMENT ES1330NodeMeasurementParameters (ES1330NodeMeasurementParameters.Name, ES1330NodeMeasurementParameters.Enabled,ES1330NodeMeasurementParameters.Direction, ES1330NodeMeasurementParameters.Task)>
+
+<!ELEMENT ES1330NodeMeasurementParameters.Name (ESParameterName)>
+<!ELEMENT ES1330NodeMeasurementParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES1330NodeMeasurementParameters.Task (ESParameterString)>
+<!ELEMENT ES1330NodeMeasurementParameters.Direction (ESParameterEnum)>
+<!ATTLIST ES1330NodeMeasurementParameters.Direction      
+    EnumText1       CDATA "send"
+    EnumL1Value1    CDATA "0"
+    EnumAvailable1  CDATA "1"
+
+    EnumText2       CDATA "receive"
+    EnumL1Value2    CDATA "1"
+    EnumAvailable2  CDATA "1"
+>
+
+<!ELEMENT ES1330NodeMeasurementSubNodeList (ES1330NodeSignalReceivePeriod | ES1330NodeSignalReceivePulseWidth)*>
+
+<!-- node signal -->
+
+<!-- node signal receive -->
+
+<!ELEMENT ES1330NodeSignalReceive.L1Generation (ES1330NodeSignalReceiveL1Generation )>
+
+
+<!ELEMENT ES1330NodeSignalReceiveL1Generation (ES1330NodeSignalReceiveL1Generation.Reconnect, ES1330NodeSignalReceiveL1Generation.UnionCase)>
+<!ATTLIST ES1330NodeSignalReceiveL1Generation  
+    L1TreeIndex CDATA "-1"
+    
+    MappingROID CDATA "-1"
+>
+
+<!ELEMENT ES1330NodeSignalReceiveL1Generation.UnionCase (ES1330NodeSignalReceiveL1GenerationUnionCase)>
+<!ELEMENT ES1330NodeSignalReceiveL1Generation.Reconnect (ESL1GenerationCaseSignalReconnect)>
+
+<!ELEMENT ES1330NodeSignalReceiveL1GenerationUnionCase EMPTY>
+<!ELEMENT ES1330NodeSignalReceiveL1GenerationReconnect EMPTY>
+
+<!-- node signal receive period -->
+
+<!ELEMENT ES1330NodeSignalReceivePeriod (ES1330NodeSignalReceivePeriod.Parameters, ES1330NodeSignalReceivePeriod.L1Generation, ES1330NodeSignalReceivePeriod.SubNodes)>
+<!ATTLIST ES1330NodeSignalReceivePeriod
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOHWPort ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    
+    CounterMode CDATA "-1"
+    Counter     CDATA "-1"
+
+>
+
+<!ELEMENT ES1330NodeSignalReceivePeriod.Parameters (ES1330NodeSignalReceivePeriodParameters)>
+<!ELEMENT ES1330NodeSignalReceivePeriod.SubNodes (ES1330NodeSignalReceivePeriodSubNodeList)>
+<!ELEMENT ES1330NodeSignalReceivePeriod.L1Generation (ES1330NodeSignalReceiveL1Generation)>
+
+
+<!ELEMENT ES1330NodeSignalReceivePeriodParameters (ES1330NodeSignalReceivePeriodParameters.Name, ES1330NodeSignalReceivePeriodParameters.Enabled,  ES1330NodeSignalReceivePeriodParameters.Formula, ES1330NodeSignalReceivePeriodParameters.InitValue, ES1330NodeSignalReceivePeriodParameters.Min, ES1330NodeSignalReceivePeriodParameters.Max, ES1330NodeSignalReceivePeriodParameters.Pin, ES1330NodeSignalReceivePeriodParameters.SignalType, ES1330NodeSignalReceivePeriodParameters.Unit, ES1330NodeSignalReceivePeriodParameters.Message)>
+
+<!ELEMENT ES1330NodeSignalReceivePeriodParameters.Name (ESParameterName)>
+<!ELEMENT ES1330NodeSignalReceivePeriodParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES1330NodeSignalReceivePeriodParameters.Formula (ESParameterUnion)>
+<!ELEMENT ES1330NodeSignalReceivePeriodParameters.InitValue (ESParameterFloat)>
+<!ELEMENT ES1330NodeSignalReceivePeriodParameters.Min (ESParameterFloat)>
+<!ELEMENT ES1330NodeSignalReceivePeriodParameters.Max (ESParameterFloat)>
+<!ELEMENT ES1330NodeSignalReceivePeriodParameters.Pin (ESParameterSInt)>
+<!ELEMENT ES1330NodeSignalReceivePeriodParameters.SignalType (ESParameterEnum)>
+<!ATTLIST ES1330NodeSignalReceivePeriodParameters.SignalType       
+    EnumText1       CDATA "cont"
+    EnumL1Value1    CDATA "0"
+    EnumAvailable1  CDATA "1"
+
+    EnumText2       CDATA "sdisc"
+    EnumL1Value2    CDATA "1"
+    EnumAvailable2  CDATA "1"
+
+    EnumText3       CDATA "udisc"
+    EnumL1Value3    CDATA "2"
+    EnumAvailable3  CDATA "1"
+
+    EnumText4       CDATA "boolean"
+    EnumL1Value4    CDATA "3"
+    EnumAvailable4  CDATA "0"
+
+    EnumText5       CDATA "enum"
+    EnumL1Value5    CDATA "4"
+    EnumAvailable5  CDATA "0"
+>
+
+<!ELEMENT ES1330NodeSignalReceivePeriodParameters.Unit (ESParameterString)>
+<!ELEMENT ES1330NodeSignalReceivePeriodParameters.Message (ESParameterString)>
+
+<!ELEMENT ES1330NodeSignalReceivePeriodSubNodeList EMPTY>
+
+<!-- node signal receive pulse width -->
+
+<!ELEMENT ES1330NodeSignalReceivePulseWidth (ES1330NodeSignalReceivePulseWidth.Parameters, ES1330NodeSignalReceivePulseWidth.L1Generation, ES1330NodeSignalReceivePulseWidth.SubNodes)>
+<!ATTLIST ES1330NodeSignalReceivePulseWidth
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOHWPort ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    
+    CounterMode CDATA "-1"
+    Counter     CDATA "-1"
+>
+
+<!ELEMENT ES1330NodeSignalReceivePulseWidth.Parameters (ES1330NodeSignalReceivePulseWidthParameters)>
+<!ELEMENT ES1330NodeSignalReceivePulseWidth.SubNodes (ES1330NodeSignalReceivePulseWidthSubNodeList)>
+<!ELEMENT ES1330NodeSignalReceivePulseWidth.L1Generation (ES1330NodeSignalReceiveL1Generation)>
+
+<!ELEMENT ES1330NodeSignalReceivePulseWidthParameters (ES1330NodeSignalReceivePulseWidthParameters.Name, ES1330NodeSignalReceivePulseWidthParameters.Enabled, ES1330NodeSignalReceivePulseWidthParameters.Formula, ES1330NodeSignalReceivePulseWidthParameters.InitValue, ES1330NodeSignalReceivePulseWidthParameters.Min, ES1330NodeSignalReceivePulseWidthParameters.Max, ES1330NodeSignalReceivePulseWidthParameters.Pin, ES1330NodeSignalReceivePulseWidthParameters.SignalType, ES1330NodeSignalReceivePulseWidthParameters.Unit, ES1330NodeSignalReceivePulseWidthParameters.Message)>
+
+<!ELEMENT ES1330NodeSignalReceivePulseWidthParameters.Name (ESParameterName)>
+<!ELEMENT ES1330NodeSignalReceivePulseWidthParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES1330NodeSignalReceivePulseWidthParameters.Formula (ESParameterUnion)>
+<!ELEMENT ES1330NodeSignalReceivePulseWidthParameters.InitValue (ESParameterFloat)>
+<!ELEMENT ES1330NodeSignalReceivePulseWidthParameters.Min (ESParameterFloat)>
+<!ELEMENT ES1330NodeSignalReceivePulseWidthParameters.Max (ESParameterFloat)>
+<!ELEMENT ES1330NodeSignalReceivePulseWidthParameters.Pin (ESParameterSInt)>
+<!ELEMENT ES1330NodeSignalReceivePulseWidthParameters.SignalType (ESParameterEnum)>
+<!ATTLIST ES1330NodeSignalReceivePulseWidthParameters.SignalType       
+    EnumText1       CDATA "cont"
+    EnumL1Value1    CDATA "0"
+    EnumAvailable1  CDATA "1"
+
+    EnumText2       CDATA "sdisc"
+    EnumL1Value2    CDATA "1"
+    EnumAvailable2  CDATA "1"
+
+    EnumText3       CDATA "udisc"
+    EnumL1Value3    CDATA "2"
+    EnumAvailable3  CDATA "1"
+
+    EnumText4       CDATA "boolean"
+    EnumL1Value4    CDATA "3"
+    EnumAvailable4  CDATA "1"
+
+    EnumText5       CDATA "enum"
+    EnumL1Value5    CDATA "4"
+    EnumAvailable5  CDATA "1"
+>
+
+<!ELEMENT ES1330NodeSignalReceivePulseWidthParameters.Unit (ESParameterString)>
+<!ELEMENT ES1330NodeSignalReceivePulseWidthParameters.Message (ESParameterString)>
+
+<!ELEMENT ES1330NodeSignalReceivePulseWidthSubNodeList EMPTY>
+
+<!-- node signal send -->
+
+<!ELEMENT ES1330NodeSignalSend.L1Generation (ES1330NodeSignalSendL1Generation )>
+
+<!ELEMENT ES1330NodeSignalSendL1Generation (ES1330NodeSignalSendL1Generation.Reconnect, ES1330NodeSignalSendL1Generation.UnionCase)>
+<!ATTLIST ES1330NodeSignalSendL1Generation    
+    L1TreeIndex CDATA "-1"
+    
+    MappingROID CDATA "-1"
+>
+
+<!ELEMENT ES1330NodeSignalSendL1Generation.Reconnect (ESL1GenerationCaseSignalReconnect)> 
+<!ELEMENT ES1330NodeSignalSendL1Generation.UnionCase (ES1330NodeSignalSendL1GenerationUnionCase)>
+
+<!ELEMENT ES1330NodeSignalSendL1GenerationReconnect EMPTY>
+<!ELEMENT ES1330NodeSignalSendL1GenerationUnionCase EMPTY>
+
+<!-- node signal send cycle -->
+
+<!ELEMENT ES1330NodeSignalSendCycle (ES1330NodeSignalSendCycle.Parameters, ES1330NodeSignalSendCycle.L1Generation, ES1330NodeSignalSendCycle.SubNodes)>
+<!ATTLIST ES1330NodeSignalSendCycle
+    Name ID #REQUIRED
+    
+    GlobalObject.ofTypeYBOHWPort ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    
+    CounterMode CDATA "-1"
+    Counter     CDATA "-1"
+>
+
+
+<!ELEMENT ES1330NodeSignalSendCycle.Parameters (ES1330NodeSignalSendCycleParameters)>
+<!ELEMENT ES1330NodeSignalSendCycle.SubNodes (ES1330NodeSignalSendCycleSubNodeList)>
+
+<!ELEMENT ES1330NodeSignalSendCycle.L1Generation (ES1330NodeSignalSendL1Generation)>
+
+<!ELEMENT ES1330NodeSignalSendCycleParameters (ES1330NodeSignalSendCycleParameters.Name, ES1330NodeSignalSendCycleParameters.Enabled, ES1330NodeSignalSendCycleParameters.Formula, ES1330NodeSignalSendCycleParameters.InitValue, ES1330NodeSignalSendCycleParameters.Min, ES1330NodeSignalSendCycleParameters.Max, ES1330NodeSignalSendCycleParameters.Pin, ES1330NodeSignalSendCycleParameters.SignalType, ES1330NodeSignalSendCycleParameters.Unit, ES1330NodeSignalSendCycleParameters.Message)>
+
+<!ELEMENT ES1330NodeSignalSendCycleParameters.Name (ESParameterName)>
+<!ELEMENT ES1330NodeSignalSendCycleParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES1330NodeSignalSendCycleParameters.Formula (ESParameterUnion)>
+<!ELEMENT ES1330NodeSignalSendCycleParameters.InitValue (ESParameterFloat)>
+<!ELEMENT ES1330NodeSignalSendCycleParameters.Min (ESParameterFloat)>
+<!ELEMENT ES1330NodeSignalSendCycleParameters.Max (ESParameterFloat)>
+<!ELEMENT ES1330NodeSignalSendCycleParameters.Pin (ESParameterSInt)>
+<!ELEMENT ES1330NodeSignalSendCycleParameters.SignalType (ESParameterEnum)>
+<!ATTLIST ES1330NodeSignalSendCycleParameters.SignalType       
+    EnumText1       CDATA "cont"
+    EnumL1Value1    CDATA "0"
+    EnumAvailable1  CDATA "1"
+
+    EnumText2       CDATA "sdisc"
+    EnumL1Value2    CDATA "1"
+    EnumAvailable2  CDATA "1"
+
+    EnumText3       CDATA "udisc"
+    EnumL1Value3    CDATA "2"
+    EnumAvailable3  CDATA "1"
+
+    EnumText4       CDATA "boolean"
+    EnumL1Value4    CDATA "3"
+    EnumAvailable4  CDATA "1"
+
+    EnumText5       CDATA "enum"
+    EnumL1Value5    CDATA "4"
+    EnumAvailable5  CDATA "1"
+>
+
+<!ELEMENT ES1330NodeSignalSendCycleParameters.Unit (ESParameterString)>
+<!ELEMENT ES1330NodeSignalSendCycleParameters.Message (ESParameterString)>
+
+<!ELEMENT ES1330NodeSignalSendCycleSubNodeList EMPTY>
+
+<!-- node signal send frequency -->
+
+<!ELEMENT ES1330NodeSignalSendFrequency (ES1330NodeSignalSendFrequency.Parameters, ES1330NodeSignalSendFrequency.L1Generation, ES1330NodeSignalSendFrequency.SubNodes)>
+<!ATTLIST ES1330NodeSignalSendFrequency
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOHWPort ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOSignalGroup ENTITY #REQUIRED
+
+    CounterMode CDATA "-1"
+    Counter     CDATA "-1"
+>
+
+<!ELEMENT ES1330NodeSignalSendFrequency.Parameters (ES1330NodeSignalSendFrequencyParameters)>
+<!ELEMENT ES1330NodeSignalSendFrequency.SubNodes (ES1330NodeSignalSendFrequencySubNodeList)>
+
+<!ELEMENT ES1330NodeSignalSendFrequency.L1Generation (ES1330NodeSignalSendL1Generation)>
+
+<!ELEMENT ES1330NodeSignalSendFrequencyParameters (ES1330NodeSignalSendFrequencyParameters.Name, ES1330NodeSignalSendFrequencyParameters.Enabled, ES1330NodeSignalSendFrequencyParameters.Formula, ES1330NodeSignalSendFrequencyParameters.InitValue, ES1330NodeSignalSendFrequencyParameters.Min, ES1330NodeSignalSendFrequencyParameters.Max, ES1330NodeSignalSendFrequencyParameters.Pin, ES1330NodeSignalSendFrequencyParameters.SignalType, ES1330NodeSignalSendFrequencyParameters.Unit, ES1330NodeSignalSendFrequencyParameters.Message)>
+
+<!ELEMENT ES1330NodeSignalSendFrequencyParameters.Name (ESParameterName)>
+<!ELEMENT ES1330NodeSignalSendFrequencyParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES1330NodeSignalSendFrequencyParameters.Formula (ESParameterUnion)>
+<!ELEMENT ES1330NodeSignalSendFrequencyParameters.InitValue (ESParameterFloat)>
+<!ELEMENT ES1330NodeSignalSendFrequencyParameters.Min (ESParameterFloat)>
+<!ELEMENT ES1330NodeSignalSendFrequencyParameters.Max (ESParameterFloat)>
+<!ELEMENT ES1330NodeSignalSendFrequencyParameters.Pin (ESParameterSInt)>
+<!ELEMENT ES1330NodeSignalSendFrequencyParameters.SignalType (ESParameterEnum)>
+<!ATTLIST ES1330NodeSignalSendFrequencyParameters.SignalType       
+    EnumText1       CDATA "cont"
+    EnumL1Value1    CDATA "0"
+    EnumAvailable1  CDATA "1"
+
+    EnumText2       CDATA "sdisc"
+    EnumL1Value2    CDATA "1"
+    EnumAvailable2  CDATA "1"
+
+    EnumText3       CDATA "udisc"
+    EnumL1Value3    CDATA "2"
+    EnumAvailable3  CDATA "1"
+
+    EnumText4       CDATA "boolean"
+    EnumL1Value4    CDATA "3"
+    EnumAvailable4  CDATA "1"
+
+    EnumText5       CDATA "enum"
+    EnumL1Value5    CDATA "4"
+    EnumAvailable5  CDATA "1"
+>
+
+<!ELEMENT ES1330NodeSignalSendFrequencyParameters.Unit (ESParameterString)>
+<!ELEMENT ES1330NodeSignalSendFrequencyParameters.Message (ESParameterString)>
+
+<!ELEMENT ES1330NodeSignalSendFrequencySubNodeList EMPTY>

@@ -1,0 +1,2136 @@
+<?DTDVersion "3.2.0"?>
+<?CompatibleDTDVersion "2.3"?>
+<?CompatibleDTDVersion "2.2"?>
+<?CompatibleDTDVersion "2.1"?>
+<?CompatibleDTDVersion "2.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!NOTATION ofTypeESLINNodeDevice SYSTEM "ESLINNodeDevice">
+<!NOTATION ofTypeESLINNodeDiagnosticFramePool SYSTEM "ESLINNodeDiagnosticFramePool">
+<!NOTATION ofTypeESLINNodeFrame SYSTEM "ESLINNodeFrame">
+<!NOTATION ofTypeESLINNodeFrameBase SYSTEM "ESLINNodeFrameBase">
+<!NOTATION ofTypeESLINNodeFrameDiagnostic SYSTEM "ESLINNodeFrameDiagnostic">
+<!NOTATION ofTypeESLINNodeFrameDiagnosticRequest SYSTEM "ESLINNodeFrameDiagnosticRequest">
+<!NOTATION ofTypeESLINNodeFrameDiagnosticResponse SYSTEM "ESLINNodeFrameDiagnosticResponse">
+<!NOTATION ofTypeESLINNodeFrameEventTriggered SYSTEM "ESLINNodeFrameEventTriggered">
+<!NOTATION ofTypeESLINNodeFramePool SYSTEM "ESLINNodeFramePool">
+<!NOTATION ofTypeESLINNodeEventTriggeredFramePool SYSTEM "ESLINNodeEventTriggeredFramePool">
+<!NOTATION ofTypeESLINNodeSporadicFramePool SYSTEM "ESLINNodeSporadicFramePool">
+<!NOTATION ofTypeESLINNodeUnconditionalFramePool SYSTEM "ESLINNodeUnconditionalFramePool">
+<!NOTATION ofTypeESLINNodeFrameSporadic SYSTEM "ESLINNodeFrameSporadic">
+<!NOTATION ofTypeESLINNodeFrameUnconditional SYSTEM "ESLINNodeFrameUnconditional">
+<!NOTATION ofTypeESLINNodeLINController SYSTEM "ESLINNodeLINController">
+<!NOTATION ofTypeESLINNodeMain SYSTEM "ESLINNodeMain">
+<!NOTATION ofTypeESLINNodeScheduleTable SYSTEM "ESLINNodeScheduleTable">
+<!NOTATION ofTypeESLINNodeScheduleTables SYSTEM "ESLINNodeScheduleTables">
+<!NOTATION ofTypeESLINNodeScheduledFrameInstanceBase SYSTEM "ESLINNodeScheduledFrameInstanceBase">
+<!NOTATION ofTypeESLINNodeScheduledFrameInstanceBaseWithLink SYSTEM "ESLINNodeScheduledFrameInstanceBaseWithLink">
+<!NOTATION ofTypeESLINNodeScheduledFrameInstanceDiagnostic SYSTEM "ESLINNodeScheduledFrameInstanceDiagnostic">
+<!NOTATION ofTypeESLINNodeScheduledFrameInstanceEventTriggered SYSTEM "ESLINNodeScheduledFrameInstanceEventTriggered">
+<!NOTATION ofTypeESLINNodeScheduledFrameInstanceSID SYSTEM "ESLINNodeScheduledFrameInstanceSID">
+<!NOTATION ofTypeESLINNodeScheduledFrameInstanceSporadic SYSTEM "ESLINNodeScheduledFrameInstanceSporadic">
+<!NOTATION ofTypeESLINNodeScheduledFrameInstanceUnconditional SYSTEM "ESLINNodeScheduledFrameInstanceUnconditional">
+<!NOTATION ofTypeESLINNodeSignalBase SYSTEM "ESLINNodeSignalBase">
+<!NOTATION ofTypeESLINNodeSignalDiagnostics SYSTEM "ESLINNodeSignalDiagnostics">
+<!NOTATION ofTypeESLINNodeSignalGroup SYSTEM "ESLINNodeSignalGroup">
+<!NOTATION ofTypeESLINNodeSignalGroupStatus SYSTEM "ESLINNodeSignalGroupStatus">
+<!NOTATION ofTypeESLINNodeSignalInstance SYSTEM "ESLINNodeSignalInstance">
+<!NOTATION ofTypeESLINNodeSignalStandard SYSTEM "ESLINNodeSignalStandard">
+<!NOTATION ofTypeESLINNodeSignalStandardPID SYSTEM "ESLINNodeSignalStandardPID">
+<!NOTATION ofTypeESLINNodeSignalStatus SYSTEM "ESLINNodeSignalStatus">
+<!NOTATION ofTypeESLINNodeStatus SYSTEM "ESLINNodeStatus">
+<!NOTATION ofTypeESLINNodeUnconditionalFrameInstanceInEventTriggeredFrame SYSTEM "ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrame">
+<!NOTATION ofTypeESLINNodeUnconditionalFrameInstanceInSporadicFrame SYSTEM "ESLINNodeUnconditionalFrameInstanceInSporadicFrame">
+<!NOTATION ofTypeESLINPoolSignal SYSTEM "ESLINPoolSignal">
+
+
+<?SuperClass ESLINNodeMain->ES900Component ?>
+<?SuperClass ESLINNodeDevice->ESNodeDevice ?>
+<?SuperClass ESLINNodeDiagnosticFramePool->ESNodeSubNode ?>
+<?SuperClass ESLINNodeFrame->ESLINNodeFrameBase ?>
+<?SuperClass ESLINNodeFrameBase->ESLINNodeSignalGroup ?>
+<?SuperClass ESLINNodeFrameDiagnostic->ESLINNodeFrameBase ?>
+<?SuperClass ESLINNodeFrameDiagnosticRequest->ESLINNodeFrameDiagnostic ?>
+<?SuperClass ESLINNodeFrameDiagnosticResponse->ESLINNodeFrameDiagnostic ?>
+<?SuperClass ESLINNodeFrameEventTriggered->ESLINNodeFrame ?>
+<?SuperClass ESLINNodeFramePool->ESNodeSubNode ?>
+<?SuperClass ESLINNodeEventTriggeredFramePool->ESNodeSubNode ?>
+<?SuperClass ESLINNodeSporadicFramePool->ESNodeSubNode ?>
+<?SuperClass ESLINNodeUnconditionalFramePool->ESNodeSubNode ?>
+<?SuperClass ESLINNodeFrameSporadic->ESLINNodeFrame ?>
+<?SuperClass ESLINNodeFrameUnconditional->ESLINNodeFrame ?>
+<?SuperClass ESLINNodeLINController->ESNode ?>
+<?SuperClass ESLINNodeLINController->ESLINNodeController ?>
+<?SuperClass ESLINNodeMain->ESNodeMain ?>
+<?SuperClass ESLINNodeScheduleTable->ESNodeSubNode ?>
+<?SuperClass ESLINNodeScheduleTables->ESNodeSubNode ?>
+<?SuperClass ESLINNodeScheduledFrameInstanceBase->ESNodeSignalGroup ?>
+<?SuperClass ESLINNodeScheduledFrameInstanceBaseWithLink->ESLINNodeScheduledFrameInstanceBase ?>
+<?SuperClass ESLINNodeScheduledFrameInstanceDiagnostic->ESLINNodeScheduledFrameInstanceBaseWithLink ?>
+<?SuperClass ESLINNodeScheduledFrameInstanceEventTriggered->ESLINNodeScheduledFrameInstanceBaseWithLink ?>
+<?SuperClass ESLINNodeScheduledFrameInstanceSID->ESNodeSignalGroup ?>
+<?SuperClass ESLINNodeScheduledFrameInstanceSporadic->ESLINNodeScheduledFrameInstanceBaseWithLink ?>
+<?SuperClass ESLINNodeScheduledFrameInstanceUnconditional->ESLINNodeScheduledFrameInstanceBaseWithLink ?>
+
+<?SuperClass ESLINNodeScheduledFrameInstanceDiagnostic->ESLINDelay_Update ?>
+<?SuperClass ESLINNodeScheduledFrameInstanceEventTriggered->ESLINDelay_Update ?>
+<?SuperClass ESLINNodeScheduledFrameInstanceSporadic->ESLINDelay_Update ?>
+<?SuperClass ESLINNodeScheduledFrameInstanceUnconditional->ESLINDelay_Update ?>
+<?SuperClass ESLINNodeScheduledFrameInstanceSID->ESLINDelay_Update ?>
+
+<?SuperClass ESLINNodeSignalBase->ESNodeSignal ?>
+<?SuperClass ESLINNodeSignalDiagnostics->ESLINNodeSignalBase ?>
+<?SuperClass ESLINNodeSignalGroup->ESNodeSignalGroup ?>
+<?SuperClass ESLINNodeSignalGroupStatus->ESLINNodeSignalGroup ?>
+<?SuperClass ESLINNodeSignalInstance->ESNodeSignal ?>
+<?SuperClass ESLINNodeSignalStandard->ESLINNodeSignalBase ?>
+<?SuperClass ESLINNodeSignalStandardPID->ESLINNodeSignalStandard ?>
+<?SuperClass ESLINNodeSignalStatus->ESLINNodeSignalBase ?>
+<?SuperClass ESLINNodeStatus->ESNodeSubNode ?>
+<?SuperClass ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrame->ESNodeMultiplexGroup ?>
+<?SuperClass ESLINNodeUnconditionalFrameInstanceInSporadicFrame->ESNodeSignalGroup ?>
+
+
+<!-- node main -->
+<!ELEMENT ESLINNodeMain (ESLINNodeMain.Parameters, ESLINNodeMain.L1Generation, ESLINNodeMain.SubNodes,  _System)>
+<!ATTLIST ESLINNodeMain
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOBoard ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOCPUBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ESLINNodeMain.Parameters (ESLINNodeMainParameters)>
+<!ELEMENT ESLINNodeMain.L1Generation (ESLINNodeMainL1GenerationBlock)>
+<!ELEMENT ESLINNodeMain.SubNodes (ESLINNodeMainSubNodeList)>
+
+<!ELEMENT ESLINNodeMainL1GenerationBlock (ESLINNodeMainL1GenerationBlock.NotRunning, ESLINNodeMainL1GenerationBlock.Reconnect, ESLINNodeMainL1GenerationBlock.WriteToStream)>
+<!ATTLIST ESLINNodeMainL1GenerationBlock
+    L1TreeIndex CDATA "-1"
+
+    ConfigROID CDATA "-1"
+>
+
+<!ELEMENT ESLINNodeMainL1GenerationBlock.NotRunning (ESLINNodeMainL1GenerationNotRunning)>
+<!ELEMENT ESLINNodeMainL1GenerationBlock.Reconnect (ESLINNodeMainL1GenerationReconnect)>
+<!ELEMENT ESLINNodeMainL1GenerationBlock.WriteToStream (ESLINNodeMainL1GenerationWriteToStream)>
+
+<!ELEMENT ESLINNodeMainL1GenerationNotRunning EMPTY>
+<!ELEMENT ESLINNodeMainL1GenerationReconnect EMPTY>
+<!ELEMENT ESLINNodeMainL1GenerationWriteToStream EMPTY>
+
+
+<!ELEMENT ESLINNodeMainParameters (ESLINNodeMainParameters.Name, ESLINNodeMainParameters.Enabled)>
+
+<!ELEMENT ESLINNodeMainParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeMainParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeMainSubNodeList (ESLINNodeLINController)*>
+
+
+<!ELEMENT ESLINParameterCollResolvingScheduleTable EMPTY>
+<!ATTLIST ESLINParameterCollResolvingScheduleTable
+    Value CDATA ""
+    Comment CDATA ""
+    ReadOnly ( False | True ) "False"
+    Consistent ( False | True ) "True"
+    Calibratable  ( False | True ) "False"
+    Active ( False | True ) "True"
+>
+
+
+<!-- node controller-->
+
+<!ELEMENT ESLINNodeLINController (ESLINNodeLINController.Parameters, ESLINNodeLINController.L1Generation, ESLINNodeLINController.SubNodes)>
+<!ATTLIST ESLINNodeLINController
+    Name ID #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeLINController.Parameters (ESLINNodeLINControllerParameters)>
+<!ELEMENT ESLINNodeLINController.L1Generation (ESLINNodeLINControllerL1GenerationBlock)>
+<!ELEMENT ESLINNodeLINController.SubNodes (ESLINNodeLINControllerSubNodeList)>
+
+<!ELEMENT ESLINNodeLINControllerSubNodeList (ESLINNodeDevice )*>
+
+<!ELEMENT ESLINNodeLINControllerL1GenerationBlock (ESLINNodeLINControllerL1GenerationBlock.UnionCase, ESLINNodeLINControllerL1GenerationBlock.Reconnect)>
+<!ATTLIST ESLINNodeLINControllerL1GenerationBlock
+    L1TreeIndex CDATA "-1"
+
+>
+
+<!ELEMENT ESLINNodeLINControllerL1GenerationBlock.UnionCase (ESLINNodeLINControllerL1GenerationUnionCase)>
+<!ELEMENT ESLINNodeLINControllerL1GenerationBlock.Reconnect (ESLINNodeLINControllerL1GenerationReconnect)>
+
+<!ELEMENT ESLINNodeLINControllerL1GenerationUnionCase EMPTY>
+<!ELEMENT ESLINNodeLINControllerL1GenerationReconnect EMPTY>
+
+<!ELEMENT ESLINNodeLINControllerParameters (ESLINNodeLINControllerParameters.Enabled, ESLINNodeLINControllerParameters.Name, ESLINNodeLINControllerParameters.LDFFile, ESLINNodeLINControllerParameters.LDFFileVersion, ESLINNodeLINControllerParameters.Port, ESLINNodeLINControllerParameters.BaudRate, ESLINNodeLINControllerParameters.SpecialBaudRate)>
+
+<!ELEMENT ESLINNodeLINControllerParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ESLINNodeLINControllerParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeLINControllerParameters.LDFFile (ESParameterString)>
+<!ELEMENT ESLINNodeLINControllerParameters.LDFFileVersion (ESParameterEnum)>
+<!ATTLIST ESLINNodeLINControllerParameters.LDFFileVersion 
+    EnumText1      CDATA "1.3"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "2.0"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "2.1"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "-"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeLINControllerParameters.Port (ESParameterEnum)>
+<!ATTLIST ESLINNodeLINControllerParameters.Port 
+    EnumText1      CDATA "LIN1"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "LIN2"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeLINControllerParameters.BaudRate (ESParameterEnum)>
+<!ATTLIST ESLINNodeLINControllerParameters.BaudRate 
+    EnumText1      CDATA "19200"
+    EnumL1Value1     CDATA "19200"
+    EnumAvailable1 CDATA "1"
+
+     EnumText2      CDATA "10400"
+    EnumL1Value2     CDATA "10400"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "9600"
+    EnumL1Value3     CDATA "9600"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "2400"
+    EnumL1Value4     CDATA "2400"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "special settings"
+    EnumL1Value5     CDATA "-1"
+    EnumAvailable5 CDATA "1"
+
+    EnumText6      CDATA "automatic"
+    EnumL1Value6     CDATA "-10"
+    EnumAvailable6 CDATA "0"
+>
+
+<!ELEMENT ESLINNodeLINControllerParameters.SpecialBaudRate (ESParameterUInt)>
+
+
+<!-- node device-->
+
+<!ELEMENT ESLINNodeDevice (ESLINNodeDevice.Parameters, ESLINNodeDevice.L1Generation, ESLINNodeDevice.SubNodes, ESLINNodeDevice.SignalPool)>
+<!ATTLIST ESLINNodeDevice
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBODevice ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOBoard ENTITY #REQUIRED
+
+    IRQSource CDATA ""
+>
+
+<!ELEMENT ESLINNodeDevice.Parameters (ESLINNodeDeviceParameters)>
+<!ELEMENT ESLINNodeDevice.L1Generation (ESLINNodeDeviceL1GenerationBlock)>
+<!ELEMENT ESLINNodeDevice.SubNodes (ESLINNodeDeviceSubNodeList)>
+<!ELEMENT ESLINNodeDevice.SignalPool (ESLINPoolSignal)>
+
+
+<!ELEMENT ESLINNodeDeviceL1GenerationBlock (ESLINNodeDeviceL1GenerationBlock.UnionCaseMaster, ESLINNodeDeviceL1GenerationBlock.UnionCaseSlave, ESLINNodeDeviceL1GenerationBlock.Reconnect)>
+<!ATTLIST ESLINNodeDeviceL1GenerationBlock 
+    L1TreeIndex CDATA "-1"
+
+    APIROIDArray1 CDATA "-1"
+    APIROIDArray2 CDATA "-1"
+    APIROIDArray3 CDATA "-1"
+    APIROIDArray4 CDATA "-1"
+    APIROIDArray5 CDATA "-1"
+    APIROIDArray6 CDATA "-1"
+    
+    IRQTriggeredSignalGroups CDATA "0"
+    L1RelevantSignalGroups CDATA "0"
+>
+
+<!ELEMENT ESLINNodeDeviceL1GenerationBlock.UnionCaseMaster (ESLINNodeDeviceL1GenerationUnionCaseMaster)>
+<!ELEMENT ESLINNodeDeviceL1GenerationBlock.UnionCaseSlave (ESLINNodeDeviceL1GenerationUnionCaseSlave)>
+<!ELEMENT ESLINNodeDeviceL1GenerationBlock.Reconnect (ESLINNodeDeviceL1GenerationReconnect)>
+
+<!ELEMENT ESLINNodeDeviceL1GenerationUnionCaseMaster EMPTY>
+<!ELEMENT ESLINNodeDeviceL1GenerationUnionCaseSlave EMPTY>
+<!ELEMENT ESLINNodeDeviceL1GenerationReconnect EMPTY>
+
+
+<!ELEMENT ESLINNodeDeviceParameters (ESLINNodeDeviceParameters.Name, ESLINNodeDeviceParameters.Enabled, ESLINNodeDeviceParameters.ProtocolVersionDevice, ESLINNodeDeviceParameters.TimeBase, ESLINNodeDeviceParameters.ConfiguredNAD, ESLINNodeDeviceParameters.InitialNAD, ESLINNodeDeviceParameters.SupplierID, ESLINNodeDeviceParameters.FunctionID, ESLINNodeDeviceParameters.VariantID, ESLINNodeDeviceParameters.SerialNumber,ESLINNodeDeviceParameters.NodeType,ESLINNodeDeviceParameters.DeviceInstance,ESLINNodeDeviceParameters.ISR)>
+
+<!ELEMENT ESLINNodeDeviceParameters.NodeType (ESParameterEnum)>
+<!ATTLIST ESLINNodeDeviceParameters.NodeType 
+    EnumText1      CDATA "Master Node"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Slave Node"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeDeviceParameters.DeviceInstance (ESParameterEnum)>
+<!ATTLIST ESLINNodeDeviceParameters.DeviceInstance 
+    EnumText1      CDATA "Master Device: Instance 0"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Slave Device: Instance 0"
+    EnumL1Value2     CDATA "0"
+    EnumAvailable2 CDATA "1"
+
+    EnumText2      CDATA "Slave Device: Instance 1"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "0"
+
+    EnumText2      CDATA "Slave Device: Instance 2"
+    EnumL1Value2     CDATA "2"
+    EnumAvailable2 CDATA "0"
+
+    EnumText2      CDATA "Slave Device: Instance 3"
+    EnumL1Value2     CDATA "3"
+    EnumAvailable2 CDATA "0"
+>
+<!--ESLINNodeDeviceParameters.SupportedSIDs-->
+
+
+<!ELEMENT ESLINNodeDeviceParameters.SerialNumber (ESParameterUInt)>
+
+<!ELEMENT ESLINNodeDeviceParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeDeviceParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeDeviceParameters.ProtocolVersionDevice (ESParameterEnum)>
+<!ATTLIST ESLINNodeDeviceParameters.ProtocolVersionDevice 
+    EnumText1      CDATA "1.3"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "2.0"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "2.1"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeDeviceParameters.TimeBase (ESParameterFloat)>
+<!ELEMENT ESLINNodeDeviceParameters.ConfiguredNAD (ESParameterUInt)>
+<!ELEMENT ESLINNodeDeviceParameters.InitialNAD (ESParameterUInt)>
+<!ELEMENT ESLINNodeDeviceParameters.SupplierID (ESParameterUInt)>
+<!ELEMENT ESLINNodeDeviceParameters.FunctionID (ESParameterUInt)>
+<!ELEMENT ESLINNodeDeviceParameters.VariantID (ESParameterUInt)>
+<!ELEMENT ESLINNodeDeviceParameters.ISR (ESParameterString)>
+
+<!ELEMENT ESLINNodeDeviceSubNodeList (ESLINNodeScheduleTables | ESLINNodeStatus | ESLINNodeFramePool | ESLINNodeDiagnosticFramePool)*>
+
+<!-- node schedule tables -->
+<!ELEMENT ESLINNodeScheduleTables (ESLINNodeScheduleTables.Parameters, ESLINNodeScheduleTables.SubNodes)>
+<!ATTLIST ESLINNodeScheduleTables
+    Name ID #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeScheduleTables.Parameters (ESLINNodeScheduleTablesParameters)>
+<!ELEMENT ESLINNodeScheduleTables.SubNodes (ESLINNodeScheduleTablesSubNodeList)>
+
+
+<!ELEMENT ESLINNodeScheduleTablesParameters (ESLINNodeScheduleTablesParameters.Name, ESLINNodeScheduleTablesParameters.Enabled)>
+
+<!ELEMENT ESLINNodeScheduleTablesParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeScheduleTablesParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeScheduleTablesSubNodeList (ESLINNodeScheduleTable )*>
+
+<!-- node schedule table -->
+<!ELEMENT ESLINNodeScheduleTable (ESLINNodeScheduleTable.Parameters, ESLINNodeScheduleTable.SubNodes)>
+<!ATTLIST ESLINNodeScheduleTable
+    Name ID #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeScheduleTable.Parameters (ESLINNodeScheduleTableParameters)>
+<!ELEMENT ESLINNodeScheduleTable.SubNodes (ESLINNodeScheduleTableSubNodeList)>
+
+
+<!ELEMENT ESLINNodeScheduleTableParameters (ESLINNodeScheduleTableParameters.Name, ESLINNodeScheduleTableParameters.Enabled, ESLINNodeScheduleTableParameters.StartupTable, ESLINNodeScheduleTableParameters.ScheduleTableNumber)>
+<!ELEMENT ESLINNodeScheduleTableParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeScheduleTableParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ESLINNodeScheduleTableParameters.StartupTable (ESParameterBoolean)>
+<!ELEMENT ESLINNodeScheduleTableParameters.ScheduleTableNumber (ESParameterUInt)>
+
+<!ELEMENT ESLINNodeScheduleTableSubNodeList (ESLINNodeScheduledFrameInstanceUnconditional | ESLINNodeScheduledFrameInstanceEventTriggered | ESLINNodeScheduledFrameInstanceSporadic | ESLINNodeScheduledFrameInstanceSID | ESLINNodeScheduledFrameInstanceDiagnostic)*>
+
+
+<!-- node status -->
+
+<!ELEMENT ESLINNodeStatus (ESLINNodeStatus.Parameters, ESLINNodeStatus.L1Generation, ESLINNodeStatus.SubNodes)>
+<!ATTLIST ESLINNodeStatus
+    Name ID #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeStatus.Parameters (ESLINNodeStatusParameters)>
+<!ELEMENT ESLINNodeStatus.L1Generation (ESL1GenerationBlockEmptySubNode)>
+<!ELEMENT ESLINNodeStatus.SubNodes (ESLINNodeStatusSubNodeList)>
+
+<!ELEMENT ESLINNodeStatusParameters (ESLINNodeStatusParameters.Name, ESLINNodeStatusParameters.Enabled, ESLINNodeStatusParameters.EnableEventForStartScheduleTable)>
+
+<!ELEMENT ESLINNodeStatusParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeStatusParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ESLINNodeStatusParameters.EnableEventForStartScheduleTable (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeStatusSubNodeList (ESLINNodeSignalGroupStatus)*>
+
+<!-- node frame pool -->
+
+<!ELEMENT ESLINNodeFramePool (ESLINNodeFramePool.Parameters, ESLINNodeFramePool.L1Generation, ESLINNodeFramePool.SubNodes)>
+<!ATTLIST ESLINNodeFramePool
+    Name ID #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeFramePool.Parameters (ESLINNodeFramePoolParameters)>
+<!ELEMENT ESLINNodeFramePool.L1Generation (ESL1GenerationBlockEmptySubNode)>
+<!ELEMENT ESLINNodeFramePool.SubNodes (ESLINNodeFramePoolSubNodeList)>
+
+
+<!ELEMENT ESLINNodeFramePoolParameters (ESLINNodeFramePoolParameters.Name, ESLINNodeFramePoolParameters.Enabled)>
+
+<!ELEMENT ESLINNodeFramePoolParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeFramePoolParameters.Enabled (ESParameterBoolean)>
+
+
+<!ELEMENT ESLINNodeFramePoolSubNodeList (ESLINNodeUnconditionalFramePool | ESLINNodeEventTriggeredFramePool | ESLINNodeSporadicFramePool)*>
+
+<!-- node event triggered frame pool -->
+
+<!ELEMENT ESLINNodeEventTriggeredFramePool (ESLINNodeEventTriggeredFramePool.Parameters, ESLINNodeEventTriggeredFramePool.SubNodes)>
+<!ATTLIST ESLINNodeEventTriggeredFramePool
+    Name ID #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeEventTriggeredFramePool.Parameters (ESLINNodeEventTriggeredFramePoolParameters)>
+<!ELEMENT ESLINNodeEventTriggeredFramePool.SubNodes (ESLINNodeEventTriggeredFramePoolSubNodeList)>
+
+
+<!ELEMENT ESLINNodeEventTriggeredFramePoolParameters (ESLINNodeEventTriggeredFramePoolParameters.Name, ESLINNodeEventTriggeredFramePoolParameters.Enabled)>
+
+<!ELEMENT ESLINNodeEventTriggeredFramePoolParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeEventTriggeredFramePoolParameters.Enabled (ESParameterBoolean)>
+
+
+<!ELEMENT ESLINNodeEventTriggeredFramePoolSubNodeList (ESLINNodeFrameEventTriggered)*>
+
+<!-- node sporadic frame pool -->
+
+<!ELEMENT ESLINNodeSporadicFramePool (ESLINNodeSporadicFramePool.Parameters, ESLINNodeSporadicFramePool.SubNodes)>
+<!ATTLIST ESLINNodeSporadicFramePool
+    Name ID #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeSporadicFramePool.Parameters (ESLINNodeSporadicFramePoolParameters)>
+<!ELEMENT ESLINNodeSporadicFramePool.SubNodes (ESLINNodeSporadicFramePoolSubNodeList)>
+
+
+<!ELEMENT ESLINNodeSporadicFramePoolParameters (ESLINNodeSporadicFramePoolParameters.Name, ESLINNodeSporadicFramePoolParameters.Enabled)>
+
+<!ELEMENT ESLINNodeSporadicFramePoolParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeSporadicFramePoolParameters.Enabled (ESParameterBoolean)>
+
+
+<!ELEMENT ESLINNodeSporadicFramePoolSubNodeList (ESLINNodeFrameSporadic)*>
+
+<!-- node unconditional frame pool -->
+
+<!ELEMENT ESLINNodeUnconditionalFramePool (ESLINNodeUnconditionalFramePool.Parameters, ESLINNodeUnconditionalFramePool.L1Generation, ESLINNodeUnconditionalFramePool.SubNodes)>
+<!ATTLIST ESLINNodeUnconditionalFramePool
+    Name ID #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeUnconditionalFramePool.Parameters (ESLINNodeUnconditionalFramePoolParameters)>
+<!ELEMENT ESLINNodeUnconditionalFramePool.L1Generation (ESL1GenerationBlockEmptySubNode)>
+<!ELEMENT ESLINNodeUnconditionalFramePool.SubNodes (ESLINNodeUnconditionalFramePoolSubNodeList)>
+
+
+<!ELEMENT ESLINNodeUnconditionalFramePoolParameters (ESLINNodeUnconditionalFramePoolParameters.Name, ESLINNodeUnconditionalFramePoolParameters.Enabled)>
+
+<!ELEMENT ESLINNodeUnconditionalFramePoolParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeUnconditionalFramePoolParameters.Enabled (ESParameterBoolean)>
+
+
+<!ELEMENT ESLINNodeUnconditionalFramePoolSubNodeList (ESLINNodeFrameUnconditional)*>
+<!-- node diagnostic frames -->
+
+<!ELEMENT ESLINNodeDiagnosticFramePool (ESLINNodeDiagnosticFramePool.Parameters, ESLINNodeDiagnosticFramePool.L1Generation, ESLINNodeDiagnosticFramePool.SubNodes)>
+<!ATTLIST ESLINNodeDiagnosticFramePool
+    Name ID #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeDiagnosticFramePool.Parameters (ESLINNodeDiagnosticFramePoolParameters)>
+<!ELEMENT ESLINNodeDiagnosticFramePool.L1Generation (ESL1GenerationBlockEmptySubNode)>
+<!ELEMENT ESLINNodeDiagnosticFramePool.SubNodes (ESLINNodeDiagnosticFramePoolSubNodeList)>
+
+
+<!ELEMENT ESLINNodeDiagnosticFramePoolParameters (ESLINNodeDiagnosticFramePoolParameters.Name, ESLINNodeDiagnosticFramePoolParameters.Enabled,ESLINNodeDiagnosticFramePoolParameters.DiagnosticClass)>
+<!ELEMENT ESLINNodeDiagnosticFramePoolParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeDiagnosticFramePoolParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ESLINNodeDiagnosticFramePoolParameters.DiagnosticClass (ESParameterEnum)>
+<!ATTLIST ESLINNodeDiagnosticFramePoolParameters.DiagnosticClass   
+    EnumText1      CDATA "Diagnostic Class 1"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Diagnostic Class 2"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "0"
+
+    EnumText2      CDATA "Diagnostic Class 3"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "0"
+
+    EnumText3      CDATA "user-handled"
+    EnumL1Value3     CDATA "1"
+    EnumAvailable3 CDATA "0"
+>
+
+<!ELEMENT ESLINNodeDiagnosticFramePoolSubNodeList (ESLINNodeFrameDiagnosticResponse | ESLINNodeFrameDiagnosticRequest)*>
+
+
+<!-- generic signal group reconnect case -->
+
+<!ELEMENT ESLINNodeSignalGroupL1GenerationReconnect EMPTY>
+
+
+<!--   - ESLINNodeSignalGroupStatus                                 -->
+<!ELEMENT ESLINNodeSignalGroupStatus (ESLINNodeSignalGroupStatus.Parameters, ESLINNodeSignalGroupStatus.L1Generation, ESLINNodeSignalGroupStatus.SubNodes)>
+<!ATTLIST ESLINNodeSignalGroupStatus
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+	MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeSignalGroupStatus.Parameters (ESLINNodeSignalGroupStatusParameters)>
+<!ELEMENT ESLINNodeSignalGroupStatus.L1Generation (ESLINNodeSignalGroupStatusL1GenerationBlock)>
+<!ELEMENT ESLINNodeSignalGroupStatus.SubNodes (ESLINNodeSignalGroupStatusSubNodeList)>
+
+<!ELEMENT ESLINNodeSignalGroupStatusL1GenerationBlock (ESLINNodeSignalGroupStatusL1GenerationBlock.UnionCase, ESLINNodeSignalGroupStatusL1GenerationBlock.Reconnect)>
+<!ATTLIST ESLINNodeSignalGroupStatusL1GenerationBlock  
+    L1TreeIndex CDATA "-1"
+
+    APIROID CDATA "-1"
+    MonitoringROID CDATA "-1"
+    ActivationCount CDATA "0"
+    ExecutionROID CDATA "-1"
+  
+    IsRelevant ( False | True ) "False"
+    SignalGroupIndex CDATA "-1"
+    IRQSignalGroupIndex CDATA "-1"
+>
+
+<!ELEMENT ESLINNodeSignalGroupStatusL1GenerationBlock.UnionCase (ESLINNodeSignalGroupStatusL1GenerationUnionCase)>
+<!ELEMENT ESLINNodeSignalGroupStatusL1GenerationBlock.Reconnect (ESLINNodeSignalGroupL1GenerationReconnect)>
+
+<!ELEMENT ESLINNodeSignalGroupStatusL1GenerationUnionCase EMPTY>
+
+
+<!ELEMENT ESLINNodeSignalGroupStatusParameters (ESLINNodeSignalGroupStatusParameters.Direction, ESLINNodeSignalGroupStatusParameters.Polling, ESLINNodeSignalGroupStatusParameters.dTMonitoring, ESLINNodeSignalGroupStatusParameters.StatusType, ESLINNodeSignalGroupStatusParameters.Name, ESLINNodeSignalGroupStatusParameters.Enabled, ESLINNodeSignalGroupStatusParameters.Task)>
+
+<!ELEMENT ESLINNodeSignalGroupStatusParameters.Direction (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalGroupStatusParameters.Direction   
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+
+<!ELEMENT ESLINNodeSignalGroupStatusParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ESLINNodeSignalGroupStatusParameters.dTMonitoring (ESParameterBoolean)>
+<!ELEMENT ESLINNodeSignalGroupStatusParameters.Task (ESParameterString)>
+<!ELEMENT ESLINNodeSignalGroupStatusParameters.StatusType (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalGroupStatusParameters.StatusType   
+    EnumText1      CDATA "Common Status"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Base Tick"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Schedule Table Status"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "Wake Up"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "Go To Sleep"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeSignalGroupStatusParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeSignalGroupStatusParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeSignalGroupStatusSubNodeList (ESLINNodeSignalStatus)*>
+
+<!--			- ESLINNodeFrameUnconditional                                 -->
+<!ELEMENT ESLINNodeFrameUnconditional (ESLINNodeFrameUnconditional.Parameters, ESLINNodeFrameUnconditional.L1Generation, ESLINNodeFrameUnconditional.SubNodes)>
+<!ATTLIST ESLINNodeFrameUnconditional
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+	MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeFrameUnconditional.Parameters (ESLINNodeFrameUnconditionalParameters)>
+<!ELEMENT ESLINNodeFrameUnconditional.L1Generation (ESLINNodeFrameUnconditionalL1GenerationBlock)>
+<!ELEMENT ESLINNodeFrameUnconditional.SubNodes (ESLINNodeFrameUnconditionalSubNodeList)>
+
+<!ELEMENT ESLINNodeFrameUnconditionalL1GenerationBlock (ESLINNodeFrameUnconditionalL1GenerationBlock.UnionCase, ESLINNodeFrameUnconditionalL1GenerationBlock.Reconnect)>
+<!ATTLIST ESLINNodeFrameUnconditionalL1GenerationBlock  
+    L1TreeIndex CDATA "-1"
+
+    APIROID CDATA "-1"
+    MonitoringROID CDATA "-1"
+    ActivationCount CDATA "0"
+    ExecutionROID CDATA "-1"
+  
+    IsRelevant ( False | True ) "False"
+    SignalGroupIndex CDATA "-1"
+    IRQSignalGroupIndex CDATA "-1"
+>
+
+<!ELEMENT ESLINNodeFrameUnconditionalL1GenerationBlock.UnionCase (ESLINNodeFrameUnconditionalL1GenerationUnionCase)>
+<!ELEMENT ESLINNodeFrameUnconditionalL1GenerationBlock.Reconnect (ESLINNodeSignalGroupL1GenerationReconnect)>
+
+<!ELEMENT ESLINNodeFrameUnconditionalL1GenerationUnionCase EMPTY>
+
+
+<!ELEMENT ESLINNodeFrameUnconditionalParameters (ESLINNodeFrameUnconditionalParameters.FrameSize, ESLINNodeFrameUnconditionalParameters.FrameID, ESLINNodeFrameUnconditionalParameters.Used, ESLINNodeFrameUnconditionalParameters.Direction, ESLINNodeFrameUnconditionalParameters.MessageID, ESLINNodeFrameUnconditionalParameters.FrameIndex, ESLINNodeFrameUnconditionalParameters.Polling, ESLINNodeFrameUnconditionalParameters.dTMonitoring, ESLINNodeFrameUnconditionalParameters.FrameType, ESLINNodeFrameUnconditionalParameters.Name, ESLINNodeFrameUnconditionalParameters.Enabled, ESLINNodeFrameUnconditionalParameters.ChecksumModel, ESLINNodeFrameUnconditionalParameters.Task)>
+
+<!ELEMENT  ESLINNodeFrameUnconditionalParameters.ChecksumModel (ESParameterEnum)>
+<!ATTLIST ESLINNodeFrameUnconditionalParameters.ChecksumModel   
+    EnumText1      CDATA "classic"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "enhanced"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeFrameUnconditionalParameters.FrameSize (ESParameterUInt)>
+<!ELEMENT ESLINNodeFrameUnconditionalParameters.FrameID (ESParameterUInt)>
+<!ELEMENT ESLINNodeFrameUnconditionalParameters.Used (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeFrameUnconditionalParameters.Direction (ESParameterEnum)>
+<!ATTLIST ESLINNodeFrameUnconditionalParameters.Direction   
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeFrameUnconditionalParameters.MessageID (ESParameterUInt)>
+<!ELEMENT ESLINNodeFrameUnconditionalParameters.FrameIndex (ESParameterUInt)>
+<!ELEMENT ESLINNodeFrameUnconditionalParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ESLINNodeFrameUnconditionalParameters.dTMonitoring (ESParameterBoolean)>
+<!ELEMENT ESLINNodeFrameUnconditionalParameters.Task (ESParameterString)>
+<!ELEMENT ESLINNodeFrameUnconditionalParameters.FrameType (ESParameterEnum)>
+<!ATTLIST ESLINNodeFrameUnconditionalParameters.FrameType   
+    EnumText1      CDATA "Unconditional Frame"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Sporadic Frame"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Event Triggered Frame"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "Dynamic Frame"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "0"
+
+    EnumText5      CDATA "Diagnostic Frame"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeFrameUnconditionalParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeFrameUnconditionalParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeFrameUnconditionalSubNodeList (ESLINNodeSignalInstance,ESLINNodeSignalStandardPID)*>
+
+
+<!--			- ESLINNodeFrameEventTriggered                                 -->
+
+<!ELEMENT ESLINNodeFrameEventTriggered (ESLINNodeFrameEventTriggered.Parameters, ESLINNodeFrameEventTriggered.SubNodes)>
+<!ATTLIST ESLINNodeFrameEventTriggered
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+	MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+	
+	CollisionResolvingScheduleTable.ofTypeESLINNodeScheduleTable ENTITY #REQUIRED
+
+>
+
+
+<!ELEMENT ESLINNodeFrameEventTriggered.Parameters (ESLINNodeFrameEventTriggeredParameters)>
+<!ELEMENT ESLINNodeFrameEventTriggered.SubNodes (ESLINNodeFrameEventTriggeredSubNodeList)>
+
+
+<!ELEMENT ESLINNodeFrameEventTriggeredParameters (ESLINNodeFrameEventTriggeredParameters.FrameSize, ESLINNodeFrameEventTriggeredParameters.Direction, ESLINNodeFrameEventTriggeredParameters.MessageID, ESLINNodeFrameEventTriggeredParameters.FrameIndex, ESLINNodeFrameEventTriggeredParameters.Polling, ESLINNodeFrameEventTriggeredParameters.dTMonitoring, ESLINNodeFrameEventTriggeredParameters.FrameType, ESLINNodeFrameEventTriggeredParameters.Name, ESLINNodeFrameEventTriggeredParameters.FrameID,ESLINNodeFrameEventTriggeredParameters.Enabled,ESLINNodeFrameEventTriggeredParameters.CollisionResolvingScheduleTable, ESLINNodeFrameEventTriggeredParameters.ChecksumModel)>
+
+
+<!ELEMENT  ESLINNodeFrameEventTriggeredParameters.ChecksumModel (ESParameterEnum)>
+<!ATTLIST ESLINNodeFrameEventTriggeredParameters.ChecksumModel   
+    EnumText1      CDATA "classic"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "enhanced"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeFrameEventTriggeredParameters.FrameSize (ESParameterUInt)>
+<!ELEMENT ESLINNodeFrameEventTriggeredParameters.FrameID (ESParameterUInt)>
+
+
+<!ELEMENT ESLINNodeFrameEventTriggeredParameters.Direction (ESParameterEnum)>
+<!ATTLIST ESLINNodeFrameEventTriggeredParameters.Direction   
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeFrameEventTriggeredParameters.MessageID (ESParameterUInt)>
+<!ELEMENT ESLINNodeFrameEventTriggeredParameters.FrameIndex (ESParameterUInt)>
+<!ELEMENT ESLINNodeFrameEventTriggeredParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ESLINNodeFrameEventTriggeredParameters.dTMonitoring (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeFrameEventTriggeredParameters.FrameType (ESParameterEnum)>
+<!ATTLIST ESLINNodeFrameEventTriggeredParameters.FrameType   
+    EnumText1      CDATA "Unconditional Frame"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Sporadic Frame"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Event Triggered Frame"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "Dynamic Frame"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "0"
+
+    EnumText5      CDATA "Diagnostic Frame"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeFrameEventTriggeredParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeFrameEventTriggeredParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ESLINNodeFrameEventTriggeredParameters.CollisionResolvingScheduleTable (ESLINParameterCollResolvingScheduleTable)>
+
+<!ELEMENT ESLINNodeFrameEventTriggeredSubNodeList (ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrame)*>
+
+
+<!--			- ESLINNodeFrameSporadic                                 -->
+<!ELEMENT ESLINNodeFrameSporadic (ESLINNodeFrameSporadic.Parameters, ESLINNodeFrameSporadic.SubNodes)>
+<!ATTLIST ESLINNodeFrameSporadic
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+	MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeFrameSporadic.Parameters (ESLINNodeFrameSporadicParameters)>
+<!ELEMENT ESLINNodeFrameSporadic.SubNodes (ESLINNodeFrameSporadicSubNodeList)>
+
+
+<!ELEMENT ESLINNodeFrameSporadicParameters (ESLINNodeFrameSporadicParameters.Direction, ESLINNodeFrameSporadicParameters.MessageID, ESLINNodeFrameSporadicParameters.FrameIndex, ESLINNodeFrameSporadicParameters.Polling, ESLINNodeFrameSporadicParameters.dTMonitoring, ESLINNodeFrameSporadicParameters.FrameType, ESLINNodeFrameSporadicParameters.Name, ESLINNodeFrameSporadicParameters.Enabled, ESLINNodeFrameSporadicParameters.ChecksumModel, ESLINNodeFrameSporadicParameters.FrameSize, ESLINNodeFrameSporadicParameters.FrameID)>
+
+
+<!ELEMENT  ESLINNodeFrameSporadicParameters.ChecksumModel (ESParameterEnum)>
+<!ATTLIST ESLINNodeFrameSporadicParameters.ChecksumModel   
+    EnumText1      CDATA "classic"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "enhanced"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeFrameSporadicParameters.Direction (ESParameterEnum)>
+<!ATTLIST ESLINNodeFrameSporadicParameters.Direction   
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeFrameSporadicParameters.MessageID (ESParameterUInt)>
+<!ELEMENT ESLINNodeFrameSporadicParameters.FrameIndex (ESParameterUInt)>
+<!ELEMENT ESLINNodeFrameSporadicParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ESLINNodeFrameSporadicParameters.dTMonitoring (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeFrameSporadicParameters.FrameType (ESParameterEnum)>
+<!ATTLIST ESLINNodeFrameSporadicParameters.FrameType   
+    EnumText1      CDATA "Unconditional Frame"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Sporadic Frame"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Event Triggered Frame"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "Dynamic Frame"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "0"
+
+    EnumText5      CDATA "Diagnostic Frame"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeFrameSporadicParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeFrameSporadicParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ESLINNodeFrameSporadicParameters.FrameSize (ESParameterUInt)>
+<!ELEMENT ESLINNodeFrameSporadicParameters.FrameID (ESParameterUInt)>
+
+<!ELEMENT ESLINNodeFrameSporadicSubNodeList (ESLINNodeUnconditionalFrameInstanceInSporadicFrame)*>
+
+<!--			- ESLINNodeFrameDiagnosticResponse                                 -->
+
+<!ELEMENT ESLINNodeFrameDiagnosticResponse (ESLINNodeFrameDiagnosticResponse.Parameters, ESLINNodeFrameDiagnosticResponse.L1Generation, ESLINNodeFrameDiagnosticResponse.SubNodes)>
+<!ATTLIST ESLINNodeFrameDiagnosticResponse
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+	MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeFrameDiagnosticResponse.Parameters (ESLINNodeFrameDiagnosticResponseParameters)>
+<!ELEMENT ESLINNodeFrameDiagnosticResponse.L1Generation (ESLINNodeFrameDiagnosticResponseL1GenerationBlock)>
+<!ELEMENT ESLINNodeFrameDiagnosticResponse.SubNodes (ESLINNodeFrameDiagnosticResponseSubNodeList)>
+
+<!ELEMENT ESLINNodeFrameDiagnosticResponseL1GenerationBlock (ESLINNodeFrameDiagnosticResponseL1GenerationBlock.UnionCase, ESLINNodeFrameDiagnosticResponseL1GenerationBlock.Reconnect)>
+<!ATTLIST ESLINNodeFrameDiagnosticResponseL1GenerationBlock 
+    L1TreeIndex CDATA "-1"
+
+    APIROID CDATA "-1"
+    MonitoringROID CDATA "-1"
+    ActivationCount CDATA "0"
+    ExecutionROID CDATA "-1"
+  
+    IsRelevant ( False | True ) "False"
+    SignalGroupIndex CDATA "-1"
+    IRQSignalGroupIndex CDATA "-1"
+>
+
+<!ELEMENT ESLINNodeFrameDiagnosticResponseL1GenerationBlock.UnionCase (ESLINNodeFrameDiagnosticResponseL1GenerationUnionCase)>
+<!ELEMENT ESLINNodeFrameDiagnosticResponseL1GenerationBlock.Reconnect (ESLINNodeSignalGroupL1GenerationReconnect)>
+
+<!ELEMENT ESLINNodeFrameDiagnosticResponseL1GenerationUnionCase EMPTY>
+
+
+<!ELEMENT ESLINNodeFrameDiagnosticResponseParameters (ESLINNodeFrameDiagnosticResponseParameters.Direction, ESLINNodeFrameDiagnosticResponseParameters.Polling, ESLINNodeFrameDiagnosticResponseParameters.dTMonitoring, ESLINNodeFrameDiagnosticResponseParameters.FrameSize, ESLINNodeFrameDiagnosticResponseParameters.FrameID, ESLINNodeFrameDiagnosticResponseParameters.FrameType, ESLINNodeFrameDiagnosticResponseParameters.Name, ESLINNodeFrameDiagnosticResponseParameters.Enabled, ESLINNodeFrameDiagnosticResponseParameters.ChecksumModel, ESLINNodeFrameDiagnosticResponseParameters.Task)>
+
+
+<!ELEMENT  ESLINNodeFrameDiagnosticResponseParameters.ChecksumModel (ESParameterEnum)>
+<!ATTLIST ESLINNodeFrameDiagnosticResponseParameters.ChecksumModel   
+    EnumText1      CDATA "classic"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "enhanced"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeFrameDiagnosticResponseParameters.Direction (ESParameterEnum)>
+<!ATTLIST ESLINNodeFrameDiagnosticResponseParameters.Direction   
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeFrameDiagnosticResponseParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ESLINNodeFrameDiagnosticResponseParameters.dTMonitoring (ESParameterBoolean)>
+<!ELEMENT ESLINNodeFrameDiagnosticResponseParameters.Task (ESParameterString)>
+<!ELEMENT ESLINNodeFrameDiagnosticResponseParameters.FrameSize (ESParameterUInt)>
+<!ELEMENT ESLINNodeFrameDiagnosticResponseParameters.FrameID (ESParameterUInt)>
+
+<!ELEMENT ESLINNodeFrameDiagnosticResponseParameters.FrameType (ESParameterEnum)>
+<!ATTLIST ESLINNodeFrameDiagnosticResponseParameters.FrameType   
+    EnumText1      CDATA "Unconditional Frame"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Sporadic Frame"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Event Triggered Frame"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "Dynamic Frame"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "0"
+
+    EnumText5      CDATA "Diagnostic Frame"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeFrameDiagnosticResponseParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeFrameDiagnosticResponseParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeFrameDiagnosticResponseSubNodeList (ESLINNodeSignalDiagnostics )*>
+
+
+<!--			- ESLINNodeFrameDiagnosticRequest                                -->
+
+<!ELEMENT ESLINNodeFrameDiagnosticRequest (ESLINNodeFrameDiagnosticRequest.Parameters, ESLINNodeFrameDiagnosticRequest.L1Generation, ESLINNodeFrameDiagnosticRequest.SubNodes)>
+<!ATTLIST ESLINNodeFrameDiagnosticRequest
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+	MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeFrameDiagnosticRequest.Parameters (ESLINNodeFrameDiagnosticRequestParameters)>
+<!ELEMENT ESLINNodeFrameDiagnosticRequest.L1Generation (ESLINNodeFrameDiagnosticRequestL1GenerationBlock)>
+<!ELEMENT ESLINNodeFrameDiagnosticRequest.SubNodes (ESLINNodeFrameDiagnosticRequestSubNodeList)>
+
+<!ELEMENT ESLINNodeFrameDiagnosticRequestL1GenerationBlock (ESLINNodeFrameDiagnosticRequestL1GenerationBlock.UnionCase, ESLINNodeFrameDiagnosticRequestL1GenerationBlock.Reconnect)>
+<!ATTLIST ESLINNodeFrameDiagnosticRequestL1GenerationBlock 
+    L1TreeIndex CDATA "-1"
+
+    APIROID CDATA "-1"
+    MonitoringROID CDATA "-1"
+    ActivationCount CDATA "0"
+    ExecutionROID CDATA "-1"
+  
+    IsRelevant ( False | True ) "False"
+    SignalGroupIndex CDATA "-1"
+    IRQSignalGroupIndex CDATA "-1"
+>
+
+<!ELEMENT ESLINNodeFrameDiagnosticRequestL1GenerationBlock.UnionCase (ESLINNodeFrameDiagnosticRequestL1GenerationUnionCase)>
+<!ELEMENT ESLINNodeFrameDiagnosticRequestL1GenerationBlock.Reconnect (ESLINNodeSignalGroupL1GenerationReconnect)>
+
+<!ELEMENT ESLINNodeFrameDiagnosticRequestL1GenerationUnionCase EMPTY>
+
+
+<!ELEMENT ESLINNodeFrameDiagnosticRequestParameters (ESLINNodeFrameDiagnosticRequestParameters.Direction, ESLINNodeFrameDiagnosticRequestParameters.Polling, ESLINNodeFrameDiagnosticRequestParameters.dTMonitoring, ESLINNodeFrameDiagnosticRequestParameters.FrameSize, ESLINNodeFrameDiagnosticRequestParameters.FrameID, ESLINNodeFrameDiagnosticRequestParameters.FrameType, ESLINNodeFrameDiagnosticRequestParameters.Name, ESLINNodeFrameDiagnosticRequestParameters.Enabled, ESLINNodeFrameDiagnosticRequestParameters.ChecksumModel, ESLINNodeFrameDiagnosticRequestParameters.Task)>
+
+
+<!ELEMENT  ESLINNodeFrameDiagnosticRequestParameters.ChecksumModel (ESParameterEnum)>
+<!ATTLIST ESLINNodeFrameDiagnosticRequestParameters.ChecksumModel   
+    EnumText1      CDATA "classic"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "enhanced"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeFrameDiagnosticRequestParameters.Direction (ESParameterEnum)>
+<!ATTLIST ESLINNodeFrameDiagnosticRequestParameters.Direction   
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeFrameDiagnosticRequestParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ESLINNodeFrameDiagnosticRequestParameters.dTMonitoring (ESParameterBoolean)>
+<!ELEMENT ESLINNodeFrameDiagnosticRequestParameters.Task (ESParameterString)>
+<!ELEMENT ESLINNodeFrameDiagnosticRequestParameters.FrameSize (ESParameterUInt)>
+<!ELEMENT ESLINNodeFrameDiagnosticRequestParameters.FrameID (ESParameterUInt)>
+
+<!ELEMENT ESLINNodeFrameDiagnosticRequestParameters.FrameType (ESParameterEnum)>
+<!ATTLIST ESLINNodeFrameDiagnosticRequestParameters.FrameType   
+    EnumText1      CDATA "Unconditional Frame"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Sporadic Frame"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Event Triggered Frame"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "Dynamic Frame"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "0"
+
+    EnumText5      CDATA "Diagnostic Frame"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeFrameDiagnosticRequestParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeFrameDiagnosticRequestParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeFrameDiagnosticRequestSubNodeList (ESLINNodeSignalDiagnostics)*>
+
+<!--	-  ESLINNodeScheduledFrameInstanceUnconditional                                    -->
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceUnconditional (ESLINNodeScheduledFrameInstanceUnconditional.Parameters, ESLINNodeScheduledFrameInstanceUnconditional.SubNodes, ESLINNodeScheduledFrameInstanceUnconditional.NodeLink)>
+<!ATTLIST ESLINNodeScheduledFrameInstanceUnconditional
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+	MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceUnconditional.Parameters (ESLINNodeScheduledFrameInstanceUnconditionalParameters)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceUnconditional.SubNodes (ESLINNodeScheduledFrameInstanceUnconditionalSubNodeList)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceUnconditional.NodeLink (ESLINNodeFrameLink)>
+
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceUnconditionalParameters (ESLINNodeScheduledFrameInstanceUnconditionalParameters.Name, ESLINNodeScheduledFrameInstanceUnconditionalParameters.Enabled, ESLINNodeScheduledFrameInstanceUnconditionalParameters.FrameType, ESLINNodeScheduledFrameInstanceUnconditionalParameters.FrameSize, ESLINNodeScheduledFrameInstanceUnconditionalParameters.FrameID, ESLINNodeScheduledFrameInstanceUnconditionalParameters.Used, ESLINNodeScheduledFrameInstanceUnconditionalParameters.Direction, ESLINNodeScheduledFrameInstanceUnconditionalParameters.MessageID, ESLINNodeScheduledFrameInstanceUnconditionalParameters.FrameIndex, ESLINNodeScheduledFrameInstanceUnconditionalParameters.Delay, ESLINNodeScheduledFrameInstanceUnconditionalParameters.Polling, ESLINNodeScheduledFrameInstanceUnconditionalParameters.dTMonitoring, ESLINNodeScheduledFrameInstanceUnconditionalParameters.MultiplierTimeBase)>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceUnconditionalParameters.MultiplierTimeBase (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceUnconditionalParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceUnconditionalParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceUnconditionalParameters.FrameType (ESParameterEnum)>
+<!ATTLIST ESLINNodeScheduledFrameInstanceUnconditionalParameters.FrameType   
+    EnumText1      CDATA "Unconditional Frame"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Sporadic Frame"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Event Triggered Frame"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "Dynamic Frame"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "0"
+
+    EnumText5      CDATA "Diagnostic Frame"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceUnconditionalParameters.FrameSize (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceUnconditionalParameters.FrameID (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceUnconditionalParameters.Used (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceUnconditionalParameters.Direction (ESParameterEnum)>
+<!ATTLIST ESLINNodeScheduledFrameInstanceUnconditionalParameters.Direction   
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceUnconditionalParameters.MessageID (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceUnconditionalParameters.FrameIndex (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceUnconditionalParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceUnconditionalParameters.dTMonitoring (ESParameterBoolean)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceUnconditionalParameters.Delay (ESParameterFloat)>
+
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceUnconditionalSubNodeList EMPTY>
+
+<!--	-  ESLINNodeScheduledFrameInstanceEventTriggered                                    -->
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceEventTriggered (ESLINNodeScheduledFrameInstanceEventTriggered.Parameters, ESLINNodeScheduledFrameInstanceEventTriggered.SubNodes, ESLINNodeScheduledFrameInstanceEventTriggered.NodeLink)>
+<!ATTLIST ESLINNodeScheduledFrameInstanceEventTriggered
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+	MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceEventTriggered.Parameters (ESLINNodeScheduledFrameInstanceEventTriggeredParameters)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceEventTriggered.SubNodes (ESLINNodeScheduledFrameInstanceEventTriggeredSubNodeList)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceEventTriggered.NodeLink (ESLINNodeFrameLink)>
+
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceEventTriggeredParameters (ESLINNodeScheduledFrameInstanceEventTriggeredParameters.Name, ESLINNodeScheduledFrameInstanceEventTriggeredParameters.Enabled, ESLINNodeScheduledFrameInstanceEventTriggeredParameters.FrameType, ESLINNodeScheduledFrameInstanceEventTriggeredParameters.FrameSize, ESLINNodeScheduledFrameInstanceEventTriggeredParameters.FrameID, ESLINNodeScheduledFrameInstanceEventTriggeredParameters.Direction, ESLINNodeScheduledFrameInstanceEventTriggeredParameters.MessageID, ESLINNodeScheduledFrameInstanceEventTriggeredParameters.FrameIndex, ESLINNodeScheduledFrameInstanceEventTriggeredParameters.Polling, ESLINNodeScheduledFrameInstanceEventTriggeredParameters.dTMonitoring, ESLINNodeScheduledFrameInstanceEventTriggeredParameters.CollisionResolvingScheduleTable, ESLINNodeScheduledFrameInstanceEventTriggeredParameters.Delay, ESLINNodeScheduledFrameInstanceEventTriggeredParameters.MultiplierTimeBase)>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceEventTriggeredParameters.MultiplierTimeBase (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceEventTriggeredParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceEventTriggeredParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceEventTriggeredParameters.FrameType (ESParameterEnum)>
+<!ATTLIST ESLINNodeScheduledFrameInstanceEventTriggeredParameters.FrameType   
+    EnumText1      CDATA "Unconditional Frame"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Sporadic Frame"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Event Triggered Frame"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "Dynamic Frame"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "0"
+
+    EnumText5      CDATA "Diagnostic Frame"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceEventTriggeredParameters.FrameSize (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceEventTriggeredParameters.FrameID (ESParameterUInt)>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceEventTriggeredParameters.Direction (ESParameterEnum)>
+<!ATTLIST ESLINNodeScheduledFrameInstanceEventTriggeredParameters.Direction   
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceEventTriggeredParameters.MessageID (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceEventTriggeredParameters.FrameIndex (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceEventTriggeredParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceEventTriggeredParameters.dTMonitoring (ESParameterBoolean)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceEventTriggeredParameters.CollisionResolvingScheduleTable (ESLINParameterCollResolvingScheduleTable)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceEventTriggeredParameters.Delay (ESParameterFloat)>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceEventTriggeredSubNodeList EMPTY>
+
+<!--	-  ESLINNodeScheduledFrameInstanceSporadic                                    -->
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceSporadic (ESLINNodeScheduledFrameInstanceSporadic.Parameters, ESLINNodeScheduledFrameInstanceSporadic.SubNodes, ESLINNodeScheduledFrameInstanceSporadic.NodeLink)>
+<!ATTLIST ESLINNodeScheduledFrameInstanceSporadic
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+	MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceSporadic.Parameters (ESLINNodeScheduledFrameInstanceSporadicParameters)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceSporadic.SubNodes (ESLINNodeScheduledFrameInstanceSporadicSubNodeList)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceSporadic.NodeLink (ESLINNodeFrameLink)>
+
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceSporadicParameters (ESLINNodeScheduledFrameInstanceSporadicParameters.Name, ESLINNodeScheduledFrameInstanceSporadicParameters.Enabled, ESLINNodeScheduledFrameInstanceSporadicParameters.FrameType, ESLINNodeScheduledFrameInstanceSporadicParameters.Direction, ESLINNodeScheduledFrameInstanceSporadicParameters.MessageID, ESLINNodeScheduledFrameInstanceSporadicParameters.FrameIndex, ESLINNodeScheduledFrameInstanceSporadicParameters.Polling, ESLINNodeScheduledFrameInstanceSporadicParameters.dTMonitoring, ESLINNodeScheduledFrameInstanceSporadicParameters.Delay, ESLINNodeScheduledFrameInstanceSporadicParameters.MultiplierTimeBase)>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceSporadicParameters.MultiplierTimeBase (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceSporadicParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceSporadicParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceSporadicParameters.FrameType (ESParameterEnum)>
+<!ATTLIST ESLINNodeScheduledFrameInstanceSporadicParameters.FrameType   
+    EnumText1      CDATA "Unconditional Frame"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Sporadic Frame"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Event Triggered Frame"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "Dynamic Frame"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "0"
+
+    EnumText5      CDATA "Diagnostic Frame"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceSporadicParameters.Direction (ESParameterEnum)>
+<!ATTLIST ESLINNodeScheduledFrameInstanceSporadicParameters.Direction   
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceSporadicParameters.MessageID (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceSporadicParameters.FrameIndex (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceSporadicParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceSporadicParameters.dTMonitoring (ESParameterBoolean)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceSporadicParameters.Delay (ESParameterFloat)>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceSporadicSubNodeList EMPTY>
+
+
+<!--	-  ESLINNodeScheduledFrameInstanceSID                                    -->
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceSID (ESLINNodeScheduledFrameInstanceSID.Parameters, ESLINNodeScheduledFrameInstanceSID.SubNodes)>
+<!ATTLIST ESLINNodeScheduledFrameInstanceSID
+    Name ID #REQUIRED
+
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+	MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceSID.Parameters (ESLINNodeScheduledFrameInstanceSIDParameters)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceSID.SubNodes (ESLINNodeScheduledFrameInstanceSIDSubNodeList)>
+
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceSIDParameters (ESLINNodeScheduledFrameInstanceSIDParameters.Name, ESLINNodeScheduledFrameInstanceSIDParameters.Enabled, ESLINNodeScheduledFrameInstanceSIDParameters.FrameType, ESLINNodeScheduledFrameInstanceSIDParameters.FrameSize, ESLINNodeScheduledFrameInstanceSIDParameters.FrameID, ESLINNodeScheduledFrameInstanceSIDParameters.Direction, ESLINNodeScheduledFrameInstanceSIDParameters.SIDType, ESLINNodeScheduledFrameInstanceSIDParameters.NAD, ESLINNodeScheduledFrameInstanceSIDParameters.PCI, ESLINNodeScheduledFrameInstanceSIDParameters.SID_RSID, ESLINNodeScheduledFrameInstanceSIDParameters.D1, ESLINNodeScheduledFrameInstanceSIDParameters.D2, ESLINNodeScheduledFrameInstanceSIDParameters.D3, ESLINNodeScheduledFrameInstanceSIDParameters.D4, ESLINNodeScheduledFrameInstanceSIDParameters.D5, ESLINNodeScheduledFrameInstanceSIDParameters.Delay,ESLINNodeScheduledFrameInstanceSIDParameters.ChecksumModel, ESLINNodeScheduledFrameInstanceSIDParameters.MultiplierTimeBase)>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceSIDParameters.MultiplierTimeBase (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceSIDParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceSIDParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceSIDParameters.FrameType (ESParameterEnum)>
+<!ATTLIST ESLINNodeScheduledFrameInstanceSIDParameters.FrameType   
+    EnumText1      CDATA "Unconditional Frame"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Sporadic Frame"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Event Triggered Frame"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "Dynamic Frame"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "0"
+
+    EnumText5      CDATA "Diagnostic Frame"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceSIDParameters.FrameSize (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceSIDParameters.FrameID (ESParameterUInt)>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceSIDParameters.Direction (ESParameterEnum)>
+<!ATTLIST ESLINNodeScheduledFrameInstanceSIDParameters.Direction   
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceSIDParameters.SIDType (ESParameterEnum)>
+<!ATTLIST ESLINNodeScheduledFrameInstanceSIDParameters.SIDType   
+    EnumText1      CDATA "AssignNAD"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "AssignFrameID"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "ReadByID"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "ConditionalChangeNAD"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "DataDump"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+
+    EnumText6      CDATA "AssignFrameIDRange"
+    EnumL1Value6     CDATA "5"
+    EnumAvailable6 CDATA "1"
+
+    EnumText7      CDATA "UnassignFrameID"
+    EnumL1Value7     CDATA "6"
+    EnumAvailable7 CDATA "1"
+
+    EnumText8      CDATA "Other"
+    EnumL1Value8     CDATA "7"
+    EnumAvailable8 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceSIDParameters.NAD (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceSIDParameters.PCI (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceSIDParameters.SID_RSID (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceSIDParameters.D1 (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceSIDParameters.D2 (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceSIDParameters.D3 (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceSIDParameters.D4 (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceSIDParameters.D5 (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceSIDParameters.Delay (ESParameterFloat)>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceSIDParameters.ChecksumModel (ESParameterEnum)>
+<!ATTLIST ESLINNodeScheduledFrameInstanceSIDParameters.ChecksumModel   
+    EnumText1      CDATA "classic"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "enhanced"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceSIDSubNodeList EMPTY>
+
+<!--	-  ESLINNodeScheduledFrameInstanceDiagnostic                                   -->
+<!ELEMENT ESLINNodeScheduledFrameInstanceDiagnostic (ESLINNodeScheduledFrameInstanceDiagnostic.Parameters, ESLINNodeScheduledFrameInstanceDiagnostic.SubNodes, ESLINNodeScheduledFrameInstanceDiagnostic.NodeLink)>
+<!ATTLIST ESLINNodeScheduledFrameInstanceDiagnostic
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+	MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceDiagnostic.Parameters (ESLINNodeScheduledFrameInstanceDiagnosticParameters)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceDiagnostic.SubNodes (ESLINNodeScheduledFrameInstanceDiagnosticSubNodeList)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceDiagnostic.NodeLink (ESLINNodeFrameLink)>
+
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceDiagnosticParameters (ESLINNodeScheduledFrameInstanceDiagnosticParameters.Name, ESLINNodeScheduledFrameInstanceDiagnosticParameters.Enabled, ESLINNodeScheduledFrameInstanceDiagnosticParameters.FrameType, ESLINNodeScheduledFrameInstanceDiagnosticParameters.FrameSize, ESLINNodeScheduledFrameInstanceDiagnosticParameters.FrameID, ESLINNodeScheduledFrameInstanceDiagnosticParameters.Direction, ESLINNodeScheduledFrameInstanceDiagnosticParameters.Polling, ESLINNodeScheduledFrameInstanceDiagnosticParameters.dTMonitoring, ESLINNodeScheduledFrameInstanceDiagnosticParameters.Delay, ESLINNodeScheduledFrameInstanceDiagnosticParameters.MultiplierTimeBase)>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceDiagnosticParameters.MultiplierTimeBase (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceDiagnosticParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceDiagnosticParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceDiagnosticParameters.FrameType (ESParameterEnum)>
+<!ATTLIST ESLINNodeScheduledFrameInstanceDiagnosticParameters.FrameType   
+    EnumText1      CDATA "Unconditional Frame"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Sporadic Frame"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Event Triggered Frame"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "Dynamic Frame"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "0"
+
+    EnumText5      CDATA "Diagnostic Frame"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceDiagnosticParameters.FrameSize (ESParameterUInt)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceDiagnosticParameters.FrameID (ESParameterUInt)>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceDiagnosticParameters.Direction (ESParameterEnum)>
+<!ATTLIST ESLINNodeScheduledFrameInstanceDiagnosticParameters.Direction   
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceDiagnosticParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceDiagnosticParameters.dTMonitoring (ESParameterBoolean)>
+<!ELEMENT ESLINNodeScheduledFrameInstanceDiagnosticParameters.Delay (ESParameterFloat)>
+
+
+<!ELEMENT ESLINNodeScheduledFrameInstanceDiagnosticSubNodeList EMPTY>
+
+
+<!-- ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrame                                    -->
+
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrame (ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrame.Parameters, ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrame.SubNodes, ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrame.NodeLink)>
+<!ATTLIST ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrame
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOSignalGroup ENTITY #REQUIRED
+
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+	MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+
+    OldName CDATA ""
+
+>
+
+
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrame.Parameters (ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters)>
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrame.SubNodes (ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameSubNodeList)>
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrame.NodeLink (ESLINNodeFrameLink)>
+
+
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters (ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.Name, ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.Enabled, ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.FrameType, ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.FrameSize, ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.FrameID, ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.Used, ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.Direction, ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.MessageID, ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.FrameIndex, ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.Polling, ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.dTMonitoring, ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.ChecksumModel,ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.Priority)>
+
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.ChecksumModel (ESParameterEnum)>
+<!ATTLIST ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.ChecksumModel   
+    EnumText1      CDATA "classic"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "enhanced"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.FrameType (ESParameterEnum)>
+<!ATTLIST ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.FrameType   
+    EnumText1      CDATA "Unconditional Frame"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Sporadic Frame"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Event Triggered Frame"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "Dynamic Frame"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "0"
+
+    EnumText5      CDATA "Diagnostic Frame"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.FrameSize (ESParameterUInt)>
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.FrameID (ESParameterUInt)>
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.Used (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.Direction (ESParameterEnum)>
+<!ATTLIST ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.Direction   
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.MessageID (ESParameterUInt)>
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.FrameIndex (ESParameterUInt)>
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.dTMonitoring (ESParameterBoolean)>
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameParameters.Priority (ESParameterUInt)>
+
+
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInEventTriggeredFrameSubNodeList EMPTY>
+
+<!-- ESLINNodeUnconditionalFrameInstanceInSporadicFrame                                    -->
+
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInSporadicFrame (ESLINNodeUnconditionalFrameInstanceInSporadicFrame.Parameters, ESLINNodeUnconditionalFrameInstanceInSporadicFrame.SubNodes, ESLINNodeUnconditionalFrameInstanceInSporadicFrame.NodeLink)>
+<!ATTLIST ESLINNodeUnconditionalFrameInstanceInSporadicFrame
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+	MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInSporadicFrame.Parameters (ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters)>
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInSporadicFrame.SubNodes (ESLINNodeUnconditionalFrameInstanceInSporadicFrameSubNodeList)>
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInSporadicFrame.NodeLink (ESLINNodeFrameLink)>
+
+
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters (ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.Priority, ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.Name, ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.Enabled, ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.FrameType, ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.FrameSize, ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.FrameID, ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.Used, ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.Direction, ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.MessageID, ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.FrameIndex, ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.Polling, ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.dTMonitoring, ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.ChecksumModel)>
+
+<!ELEMENT  ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.ChecksumModel (ESParameterEnum)>
+<!ATTLIST ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.ChecksumModel   
+    EnumText1      CDATA "classic"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "enhanced"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.Priority (ESParameterUInt)>
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.FrameType (ESParameterEnum)>
+<!ATTLIST ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.FrameType   
+    EnumText1      CDATA "Unconditional Frame"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Sporadic Frame"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Event Triggered Frame"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "Dynamic Frame"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "0"
+
+    EnumText5      CDATA "Diagnostic Frame"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.FrameSize (ESParameterUInt)>
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.FrameID (ESParameterUInt)>
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.Used (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.Direction (ESParameterEnum)>
+<!ATTLIST ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.Direction   
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.MessageID (ESParameterUInt)>
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.FrameIndex (ESParameterUInt)>
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInSporadicFrameParameters.dTMonitoring (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeUnconditionalFrameInstanceInSporadicFrameSubNodeList EMPTY>
+
+<!-- - ESLINNodeSignalFrameL1GenerationBlock   -->
+<!ELEMENT ESLINNodeSignalFrameL1GenerationBlock (ESLINNodeSignalFrameL1GenerationBlock.UnionCase, ESLINNodeSignalFrameL1GenerationBlock.Reconnect)>
+<!ATTLIST ESLINNodeSignalFrameL1GenerationBlock  
+    L1TreeIndex CDATA "-1"
+
+    MappingROID CDATA "-1"
+    IsDirectionReceive ( False | True ) "False"
+>
+
+<!ELEMENT ESLINNodeSignalFrameL1GenerationBlock.UnionCase (ESLINNodeSignalFrameL1GenerationUnionCase)>
+<!ELEMENT ESLINNodeSignalFrameL1GenerationBlock.Reconnect (ESL1GenerationCaseSignalReconnect)>
+
+<!ELEMENT ESLINNodeSignalFrameL1GenerationUnionCase EMPTY>
+
+
+<!-- - ESLINNodeSignalStandard   -->
+
+<!ELEMENT ESLINNodeSignalStandard (ESLINNodeSignalStandard.Parameters, ESLINNodeSignalStandard.SubNodes)>
+<!ATTLIST ESLINNodeSignalStandard
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOHWPort ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeSignalStandard.Parameters (ESLINNodeSignalStandardParameters)>
+<!ELEMENT ESLINNodeSignalStandard.SubNodes (ESLINNodeSignalStandardSubNodeList)>
+
+
+<!ELEMENT ESLINNodeSignalStandardParameters (ESLINNodeSignalStandardParameters.Name, ESLINNodeSignalStandardParameters.Enabled, ESLINNodeSignalStandardParameters.SignalType, ESLINNodeSignalStandardParameters.Unit, ESLINNodeSignalStandardParameters.Formula, ESLINNodeSignalStandardParameters.Min, ESLINNodeSignalStandardParameters.Max, ESLINNodeSignalStandardParameters.InitValue, ESLINNodeSignalStandardParameters.DataType, ESLINNodeSignalStandardParameters.SignalLength, ESLINNodeSignalStandardParameters.SignalByteOrder, ESLINNodeSignalStandardParameters.InstanceType, ESLINNodeSignalStandardParameters.AutoMinMax)>
+<!ELEMENT ESLINNodeSignalStandardParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeSignalStandardParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeSignalStandardParameters.SignalType (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalStandardParameters.SignalType 
+    EnumText1      CDATA "cont"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "udisc"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "boolean"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "enum"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "0"
+>
+
+<!ELEMENT ESLINNodeSignalStandardParameters.Unit (ESParameterString)>
+<!ELEMENT ESLINNodeSignalStandardParameters.Formula (ESParameterUnion)>
+<!ELEMENT ESLINNodeSignalStandardParameters.Min (ESParameterFloat)>
+<!ELEMENT ESLINNodeSignalStandardParameters.Max (ESParameterFloat)>
+<!ELEMENT ESLINNodeSignalStandardParameters.InitValue (ESParameterFloat)>
+
+<!ELEMENT ESLINNodeSignalStandardParameters.DataType (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalStandardParameters.DataType 
+    EnumText1      CDATA "boolean"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "uint8"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "uint16"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeSignalStandardParameters.SignalLength (ESParameterUInt)>
+
+
+<!ELEMENT ESLINNodeSignalStandardParameters.AutoMinMax (ESParameterBoolean)>
+
+<!-- dummy parameters-->
+<!ELEMENT ESLINNodeSignalStandardParameters.InstanceType (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalStandardParameters.InstanceType   
+    EnumText1      CDATA "Standard Signal"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+>
+<!ELEMENT ESLINNodeSignalStandardParameters.SignalByteOrder (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalStandardParameters.SignalByteOrder 
+    EnumText1      CDATA "little endian (Intel)"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeSignalStandardSubNodeList EMPTY>
+
+<!--	 	- ESLINNodeSignalStandardPID   -->
+<!ELEMENT ESLINNodeSignalStandardPID (ESLINNodeSignalStandardPID.Parameters, ESLINNodeSignalStandardPID.SubNodes)>
+<!ATTLIST ESLINNodeSignalStandardPID
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOHWPort ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeSignalStandardPID.Parameters (ESLINNodeSignalStandardPIDParameters)>
+<!ELEMENT ESLINNodeSignalStandardPID.SubNodes (ESLINNodeSignalStandardPIDSubNodeList)>
+
+
+<!ELEMENT ESLINNodeSignalStandardPIDParameters (ESLINNodeSignalStandardPIDParameters.Name, ESLINNodeSignalStandardPIDParameters.Enabled, ESLINNodeSignalStandardPIDParameters.SignalType, ESLINNodeSignalStandardPIDParameters.Unit, ESLINNodeSignalStandardPIDParameters.Formula, ESLINNodeSignalStandardPIDParameters.Min, ESLINNodeSignalStandardPIDParameters.Max, ESLINNodeSignalStandardPIDParameters.InitValue, ESLINNodeSignalStandardPIDParameters.DataType, ESLINNodeSignalStandardPIDParameters.SignalLength, ESLINNodeSignalStandardPIDParameters.StartBit, ESLINNodeSignalStandardPIDParameters.SignalByteOrder, ESLINNodeSignalStandardPIDParameters.InstanceType)>
+
+<!ELEMENT ESLINNodeSignalStandardPIDParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeSignalStandardPIDParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeSignalStandardPIDParameters.SignalType (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalStandardPIDParameters.SignalType 
+    EnumText1      CDATA "cont"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "udisc"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "boolean"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "enum"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "0"
+>
+
+<!ELEMENT ESLINNodeSignalStandardPIDParameters.Unit (ESParameterString)>
+<!ELEMENT ESLINNodeSignalStandardPIDParameters.Formula (ESParameterUnion)>
+<!ELEMENT ESLINNodeSignalStandardPIDParameters.Min (ESParameterFloat)>
+<!ELEMENT ESLINNodeSignalStandardPIDParameters.Max (ESParameterFloat)>
+<!ELEMENT ESLINNodeSignalStandardPIDParameters.InitValue (ESParameterFloat)>
+
+<!ELEMENT ESLINNodeSignalStandardPIDParameters.DataType (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalStandardPIDParameters.DataType 
+    EnumText1      CDATA "boolean"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "uint8"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "uint16"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeSignalStandardPIDParameters.SignalLength (ESParameterUInt)>
+<!ELEMENT ESLINNodeSignalStandardPIDParameters.StartBit (ESParameterUInt)>
+
+<!-- dummy parameters-->
+<!ELEMENT ESLINNodeSignalStandardPIDParameters.InstanceType (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalStandardPIDParameters.InstanceType   
+    EnumText1      CDATA "Standard Signal"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+>
+<!ELEMENT ESLINNodeSignalStandardPIDParameters.SignalByteOrder (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalStandardPIDParameters.SignalByteOrder 
+    EnumText1      CDATA "little endian (Intel)"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeSignalStandardPIDSubNodeList EMPTY>
+
+
+<!-- - ESLINNodeSignalDiagnostics   -->
+
+<!ELEMENT ESLINNodeSignalDiagnostics (ESLINNodeSignalDiagnostics.Parameters, ESLINNodeSignalDiagnostics.L1Generation, ESLINNodeSignalDiagnostics.SubNodes)>
+<!ATTLIST ESLINNodeSignalDiagnostics
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOHWPort ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeSignalDiagnostics.Parameters (ESLINNodeSignalDiagnosticsParameters)>
+<!ELEMENT ESLINNodeSignalDiagnostics.L1Generation (ESLINNodeSignalFrameL1GenerationBlock)>
+<!ELEMENT ESLINNodeSignalDiagnostics.SubNodes (ESLINNodeSignalDiagnosticsSubNodeList)>
+
+
+<!ELEMENT ESLINNodeSignalDiagnosticsParameters (ESLINNodeSignalDiagnosticsParameters.StartBit, ESLINNodeSignalDiagnosticsParameters.Name, ESLINNodeSignalDiagnosticsParameters.Enabled, ESLINNodeSignalDiagnosticsParameters.SignalType, ESLINNodeSignalDiagnosticsParameters.Unit, ESLINNodeSignalDiagnosticsParameters.Formula, ESLINNodeSignalDiagnosticsParameters.Min, ESLINNodeSignalDiagnosticsParameters.Max, ESLINNodeSignalDiagnosticsParameters.InitValue, ESLINNodeSignalDiagnosticsParameters.DataType, ESLINNodeSignalDiagnosticsParameters.SignalLength,ESLINNodeSignalDiagnosticsParameters.SignalByteOrder, ESLINNodeSignalDiagnosticsParameters.InstanceType, ESLINNodeSignalDiagnosticsParameters.Message)>
+
+<!ELEMENT ESLINNodeSignalDiagnosticsParameters.StartBit (ESParameterUInt)>
+<!ELEMENT ESLINNodeSignalDiagnosticsParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeSignalDiagnosticsParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeSignalDiagnosticsParameters.SignalType (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalDiagnosticsParameters.SignalType 
+    EnumText1      CDATA "cont"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "udisc"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "boolean"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "enum"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "0"
+>
+
+<!ELEMENT ESLINNodeSignalDiagnosticsParameters.Unit (ESParameterString)>
+<!ELEMENT ESLINNodeSignalDiagnosticsParameters.Formula (ESParameterUnion)>
+<!ELEMENT ESLINNodeSignalDiagnosticsParameters.Min (ESParameterFloat)>
+<!ELEMENT ESLINNodeSignalDiagnosticsParameters.Max (ESParameterFloat)>
+<!ELEMENT ESLINNodeSignalDiagnosticsParameters.InitValue (ESParameterFloat)>
+
+<!ELEMENT ESLINNodeSignalDiagnosticsParameters.DataType (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalDiagnosticsParameters.DataType 
+    EnumText1      CDATA "boolean"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "uint8"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "uint16"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeSignalDiagnosticsParameters.SignalLength (ESParameterUInt)>
+
+<!-- dummy parameters-->
+<!ELEMENT ESLINNodeSignalDiagnosticsParameters.InstanceType (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalDiagnosticsParameters.InstanceType   
+    EnumText1      CDATA "Standard Signal"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+>
+<!ELEMENT ESLINNodeSignalDiagnosticsParameters.SignalByteOrder (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalDiagnosticsParameters.SignalByteOrder 
+    EnumText1      CDATA "little endian (Intel)"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+>
+<!ELEMENT ESLINNodeSignalDiagnosticsParameters.Message (ESParameterString)>
+
+<!ELEMENT ESLINNodeSignalDiagnosticsSubNodeList EMPTY>
+
+<!-- - ESLINNodeSignalStatus   -->
+<!ELEMENT ESLINNodeSignalStatus (ESLINNodeSignalStatus.Parameters, ESLINNodeSignalStatus.L1Generation, ESLINNodeSignalStatus.SubNodes)>
+<!ATTLIST ESLINNodeSignalStatus
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOHWPort ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeSignalStatus.Parameters (ESLINNodeSignalStatusParameters)>
+<!ELEMENT ESLINNodeSignalStatus.L1Generation (ESLINNodeSignalStatusL1GenerationBlock)>
+<!ELEMENT ESLINNodeSignalStatus.SubNodes (ESLINNodeSignalStatussSubNodeList)>
+
+
+<!ELEMENT ESLINNodeSignalStatusL1GenerationBlock (ESLINNodeSignalStatusL1GenerationBlock.UnionCase, ESLINNodeSignalStatusL1GenerationBlock.Reconnect)>
+<!ATTLIST ESLINNodeSignalStatusL1GenerationBlock  
+    L1TreeIndex CDATA "-1"
+
+    MappingROID CDATA "-1"
+    IsDirectionReceive ( False | True ) "False"
+>
+
+<!ELEMENT ESLINNodeSignalStatusL1GenerationBlock.UnionCase (ESLINNodeSignalStatusL1GenerationUnionCase)>
+<!ELEMENT ESLINNodeSignalStatusL1GenerationBlock.Reconnect (ESL1GenerationCaseSignalReconnect)>
+
+<!ELEMENT ESLINNodeSignalStatusL1GenerationUnionCase EMPTY>
+
+
+<!ELEMENT ESLINNodeSignalStatusParameters (ESLINNodeSignalStatusParameters.StartBit, ESLINNodeSignalStatusParameters.Name, ESLINNodeSignalStatusParameters.Enabled, ESLINNodeSignalStatusParameters.SignalType, ESLINNodeSignalStatusParameters.Unit, ESLINNodeSignalStatusParameters.Formula, ESLINNodeSignalStatusParameters.Min, ESLINNodeSignalStatusParameters.Max, ESLINNodeSignalStatusParameters.InitValue, ESLINNodeSignalStatusParameters.DataType, ESLINNodeSignalStatusParameters.SignalLength, ESLINNodeSignalStatusParameters.SignalKind, ESLINNodeSignalStatusParameters.Message)>
+
+<!ELEMENT ESLINNodeSignalStatusParameters.StartBit (ESParameterUInt)>
+<!ELEMENT ESLINNodeSignalStatusParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeSignalStatusParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeSignalStatusParameters.SignalType (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalStatusParameters.SignalType 
+    EnumText1      CDATA "cont"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "udisc"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "boolean"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "enum"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "0"
+>
+
+<!ELEMENT ESLINNodeSignalStatusParameters.Unit (ESParameterString)>
+<!ELEMENT ESLINNodeSignalStatusParameters.Formula (ESParameterUnion)>
+<!ELEMENT ESLINNodeSignalStatusParameters.Min (ESParameterFloat)>
+<!ELEMENT ESLINNodeSignalStatusParameters.Max (ESParameterFloat)>
+<!ELEMENT ESLINNodeSignalStatusParameters.InitValue (ESParameterFloat)>
+
+<!ELEMENT ESLINNodeSignalStatusParameters.DataType (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalStatusParameters.DataType 
+    EnumText1      CDATA "boolean"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "uint8"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "uint16"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "uint32"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeSignalStatusParameters.SignalLength (ESParameterUInt)>
+
+<!ELEMENT ESLINNodeSignalStatusParameters.SignalKind (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalStatusParameters.SignalKind
+    EnumText1      CDATA "BaseTick_ScheduleTableNr"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "CommonStatus_FrameID"
+    EnumL1Value2     CDATA "0"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "CommonStatus_TransmissionResult"
+    EnumL1Value3     CDATA "1"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "CommonStatus_HWMode"
+    EnumL1Value4     CDATA "2"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "CommonStatus_ErrorCounter"
+    EnumL1Value5     CDATA "3"
+    EnumAvailable5 CDATA "1"
+
+    EnumText6      CDATA "ScheduleTableStatus_TableIndex"
+    EnumL1Value6     CDATA "0"
+    EnumAvailable6 CDATA "1"
+
+    EnumText7      CDATA "ScheduleTableStatus_TableEntry"
+    EnumL1Value7     CDATA "1"
+    EnumAvailable7 CDATA "1"
+
+    EnumText8      CDATA "ScheduleTableStatus_EndOfScheduleTable"
+    EnumL1Value8     CDATA "2"
+    EnumAvailable8 CDATA "1"
+
+    EnumText9      CDATA "ScheduleTableStatus_CollisionResolvingFlag"
+    EnumL1Value9     CDATA "3"
+    EnumAvailable9 CDATA "1"
+
+    EnumText10      CDATA "ScheduleTableStatus_FrameID"
+    EnumL1Value10     CDATA "4"
+    EnumAvailable10 CDATA "1"
+>
+<!ELEMENT ESLINNodeSignalStatusParameters.Message (ESParameterString)>
+
+<!ELEMENT ESLINNodeSignalStatussSubNodeList EMPTY>
+
+<!-- ESLINNodeSignalInstance     -->
+<!ELEMENT ESLINNodeSignalInstance (ESLINNodeSignalInstance.Parameters, ESLINNodeSignalInstance.L1Generation, ESLINNodeSignalInstance.SubNodes, ESLINNodeSignalInstance.NodeLink)>
+<!ATTLIST ESLINNodeSignalInstance
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOHWPort ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeSignalInstance.Parameters (ESLINNodeSignalInstanceParameters)>
+<!ELEMENT ESLINNodeSignalInstance.L1Generation (ESLINNodeSignalFrameL1GenerationBlock)>
+<!ELEMENT ESLINNodeSignalInstance.SubNodes (ESLINNodeSignalInstanceSubNodeList)>
+<!ELEMENT ESLINNodeSignalInstance.NodeLink (ESLINNodeSignalLink)>
+
+
+<!ELEMENT ESLINNodeSignalInstanceParameters (ESLINNodeSignalInstanceParameters.Enabled, ESLINNodeSignalInstanceParameters.StartBit, ESLINNodeSignalInstanceParameters.Name, ESLINNodeSignalInstanceParameters.SignalType, ESLINNodeSignalInstanceParameters.Unit, ESLINNodeSignalInstanceParameters.Formula, ESLINNodeSignalInstanceParameters.Min, ESLINNodeSignalInstanceParameters.Max, ESLINNodeSignalInstanceParameters.InitValue, ESLINNodeSignalInstanceParameters.DataType, ESLINNodeSignalInstanceParameters.SignalLength, ESLINNodeSignalInstanceParameters.SignalByteOrder, ESLINNodeSignalInstanceParameters.InstanceType, ESLINNodeSignalInstanceParameters.Message)>
+
+<!ELEMENT ESLINNodeSignalInstanceParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ESLINNodeSignalInstanceParameters.StartBit (ESParameterUInt)>
+<!ELEMENT ESLINNodeSignalInstanceParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeSignalInstanceParameters.Message (ESParameterString)>
+
+<!ELEMENT ESLINNodeSignalInstanceParameters.SignalType (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalInstanceParameters.SignalType 
+    EnumText1      CDATA "cont"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "udisc"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "boolean"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "enum"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "0"
+>
+
+<!ELEMENT ESLINNodeSignalInstanceParameters.Unit (ESParameterString)>
+<!ELEMENT ESLINNodeSignalInstanceParameters.Formula (ESParameterUnion)>
+<!ELEMENT ESLINNodeSignalInstanceParameters.Min (ESParameterFloat)>
+<!ELEMENT ESLINNodeSignalInstanceParameters.Max (ESParameterFloat)>
+<!ELEMENT ESLINNodeSignalInstanceParameters.InitValue (ESParameterFloat)>
+
+<!ELEMENT ESLINNodeSignalInstanceParameters.DataType (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalInstanceParameters.DataType 
+    EnumText1      CDATA "boolean"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "uint8"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "uint16"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeSignalInstanceParameters.SignalLength (ESParameterUInt)>
+
+<!-- dummy parameters-->
+<!ELEMENT ESLINNodeSignalInstanceParameters.InstanceType (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalInstanceParameters.InstanceType   
+    EnumText1      CDATA "Standard Signal"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+>
+<!ELEMENT ESLINNodeSignalInstanceParameters.SignalByteOrder (ESParameterEnum)>
+<!ATTLIST ESLINNodeSignalInstanceParameters.SignalByteOrder 
+    EnumText1      CDATA "little endian (Intel)"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeSignalInstanceSubNodeList EMPTY>
+
+
+<!-- pool -->
+
+<?SuperClass ESLINPoolSignal->ESPoolSignal ?>
+
+<!ELEMENT ESLINPoolSignal (ESLINPoolSignal.SignalList)>
+<!ATTLIST ESLINPoolSignal
+    Name ID #REQUIRED
+>
+
+<!ELEMENT ESLINPoolSignal.SignalList (ESLINPoolSignalList)>
+
+
+<!ELEMENT ESLINPoolSignalList (ESLINNodeSignalStandard)*>
+
+<!-- links -->
+
+<!ELEMENT ESLINNodeUCinDFrameLink EMPTY>
+<!ATTLIST ESLINNodeUCinDFrameLink
+    NodeLink.ofTypeESNode ENTITY #IMPLIED
+>
+<!ELEMENT ESLINNodeFrameLink EMPTY>
+<!ATTLIST ESLINNodeFrameLink
+    NodeLink.ofTypeESNode ENTITY #IMPLIED
+>
+
+
+<!ELEMENT ESLINNodeSignalLink EMPTY>
+<!ATTLIST ESLINNodeSignalLink
+    NodeLink.ofTypeESNode ENTITY #IMPLIED
+>

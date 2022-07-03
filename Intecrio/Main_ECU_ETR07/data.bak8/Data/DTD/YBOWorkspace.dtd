@@ -1,0 +1,25 @@
+<?DTDVersion "2.2"?>
+<?CompatibleDTDVersion "2.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+<!ENTITY % YBOAction SYSTEM "YBOAction.DTD">
+%YBOAction;
+
+
+<?SuperClass YBOWorkspace->YBO ?>
+<?SuperClass YBOWorkspace->TreeViewNode ?>
+
+<!ELEMENT YBOWorkspace (YBOWorkspace.Hardware, YBOWorkspace.Software, YBOWorkspace.Environment, YBOWorkspace.Systems, _System)>
+<!ATTLIST YBOWorkspace
+    Name ID #REQUIRED
+    VisibleName CDATA ""
+    Visible ( FALSE | TRUE ) "TRUE"
+>
+
+
+<!ELEMENT YBOWorkspace.Hardware (YBOHardware)>
+<!ELEMENT YBOWorkspace.Software (YBOSoftware)>
+<!ELEMENT YBOWorkspace.Environment (YBOSoftware)>
+<!ELEMENT YBOWorkspace.Systems (YBOSystems)>
+

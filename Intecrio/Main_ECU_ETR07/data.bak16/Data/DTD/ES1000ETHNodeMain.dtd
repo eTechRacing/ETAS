@@ -1,0 +1,640 @@
+<?DTDVersion "4.6.2"?>
+<?CompatibleDTDVersion "4.6.0"?>
+<?CompatibleDTDVersion "3.2.0"?>
+<?CompatibleDTDVersion "2.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!ENTITY % ESXCPBNodeMain SYSTEM "ESXCPBNodeMain.DTD">
+%ESXCPBNodeMain;
+
+<!NOTATION ofTypeES1000ETHNodeController SYSTEM "ES1000ETHNodeController">
+<!NOTATION ofTypeES1000XCPBUdpNodeDevice SYSTEM "ES1000XCPBUdpNodeDevice">
+<!NOTATION ofTypeES1000ETHNodeMain SYSTEM "ES1000ETHNodeMain">
+
+<?SuperClass ESETHBaseNodeMainBase->ESNodeMain?>
+<?SuperClass ES1000ETHNodeMain->ESETHBaseNodeMainBase ?>
+
+<?SuperClass ESETHBaseNodeControllerBase->ESNodeController ?>
+<?SuperClass ES1000ETHNodeController->ESETHBaseNodeControllerBase ?>
+
+<?SuperClass ESXCPBNodeDevice->ESNodeDevice ?>
+<?SuperClass ESXCPBUdpNodeDeviceBase->ESXCPBNodeDevice ?>
+<?SuperClass ES1000XCPBUdpNodeDevice->ESXCPBUdpNodeDeviceBase ?>
+
+<!-- main node -->
+
+<!ELEMENT ES1000ETHNodeMain (ES1000ETHNodeMain.Parameters, ES1000ETHNodeMain.L1Generation, ES1000ETHNodeMain.SubNodes, _System)>
+<!ATTLIST ES1000ETHNodeMain
+    Name ID #REQUIRED
+  
+    GlobalObject.ofTypeYBOBoard ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOCPUBoard ENTITY #REQUIRED
+>
+<!ELEMENT ES1000ETHNodeMain.Parameters (ES1000ETHNodeMainParameters)>
+<!ELEMENT ES1000ETHNodeMain.L1Generation (ES1000ETHNodeMainL1GenerationBlock)>
+<!ELEMENT ES1000ETHNodeMain.SubNodes (ES1000ETHNodeMainSubNodeList)>
+
+
+<!ELEMENT ES1000ETHNodeMainL1GenerationBlock (ES1000ETHNodeMainL1GenerationBlock.NotRunning, ES1000ETHNodeMainL1GenerationBlock.Reconnect, ES1000ETHNodeMainL1GenerationBlock.WriteToStream)>
+<!ATTLIST ES1000ETHNodeMainL1GenerationBlock
+    L1TreeIndex CDATA "-1"
+
+    ConfigROID CDATA "-1"
+>
+
+<!ELEMENT ES1000ETHNodeMainL1GenerationBlock.NotRunning (ESETHBaseNodeMainL1GenerationNotRunning)>
+<!ELEMENT ES1000ETHNodeMainL1GenerationBlock.Reconnect (ESETHBaseNodeMainL1GenerationReconnect)>
+<!ELEMENT ES1000ETHNodeMainL1GenerationBlock.WriteToStream (ESETHBaseNodeMainL1GenerationWriteToStream)>
+
+<!--MPP dies gehört eignentlich in die ESETHBaseNodeMain.dtd -->
+<!ELEMENT ESETHBaseNodeMainL1GenerationNotRunning EMPTY>
+<!ELEMENT ESETHBaseNodeMainL1GenerationReconnect EMPTY>
+<!ELEMENT ESETHBaseNodeMainL1GenerationWriteToStream EMPTY>
+
+<!ELEMENT ES1000ETHNodeMainParameters (ES1000ETHNodeMainParameters.Name, ES1000ETHNodeMainParameters.Enabled)>
+<!ELEMENT ES1000ETHNodeMainParameters.Name (ESParameterName)>
+<!ELEMENT ES1000ETHNodeMainParameters.Enabled (ESParameterBoolean)>
+
+
+<!ELEMENT ES1000ETHNodeMainSubNodeList (ES1000ETHNodeController)*>
+
+
+
+<!-- controller node -->
+
+<!ELEMENT ES1000ETHNodeController (ES1000ETHNodeController.Parameters, ES1000ETHNodeController.L1Generation, ES1000ETHNodeController.SubNodes)>
+<!ATTLIST ES1000ETHNodeController
+    Name ID #REQUIRED
+>
+
+<!ELEMENT ES1000ETHNodeController.Parameters (ES1000ETHNodeControllerParameters)>
+<!ELEMENT ES1000ETHNodeController.L1Generation (ESETHBaseNodeControllerL1GenerationBlock)>
+<!ELEMENT ES1000ETHNodeController.SubNodes (ES1000ETHNodeControllerSubNodeList)>
+
+<!--MPP dies gehört eignentlich in die ESETHBaseNodeMain.dtd  -->
+<!ELEMENT ESETHBaseNodeControllerL1GenerationBlock (ESETHBaseNodeControllerL1GenerationBlock.UnionCase, ESETHBaseNodeControllerL1GenerationBlock.Reconnect)>
+<!ATTLIST ESETHBaseNodeControllerL1GenerationBlock
+    L1TreeIndex CDATA "-1"
+
+>
+
+<!ELEMENT ESETHBaseNodeControllerL1GenerationBlock.UnionCase (ESETHBaseNodeControllerL1GenerationUnionCase)>
+<!ELEMENT ESETHBaseNodeControllerL1GenerationBlock.Reconnect (ESETHBaseNodeControllerL1GenerationReconnect)>
+
+<!ELEMENT ESETHBaseNodeControllerL1GenerationUnionCase EMPTY>
+<!ELEMENT ESETHBaseNodeControllerL1GenerationReconnect EMPTY>
+
+
+<!ELEMENT ES1000ETHNodeControllerParameters (ES1000ETHNodeControllerParameters.Name, 
+                                                 ES1000ETHNodeControllerParameters.Enabled, 
+                                                 ES1000ETHNodeControllerParameters.Port,
+                                                 ES1000ETHNodeControllerParameters.IPAddress,
+                                                 ES1000ETHNodeControllerParameters.SubnetMask)>
+
+
+<!ELEMENT ES1000ETHNodeControllerParameters.Name (ESParameterName)>
+<!ELEMENT ES1000ETHNodeControllerParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES1000ETHNodeControllerParameters.Port (ESParameterEnum)>
+<!ATTLIST ES1000ETHNodeControllerParameters.Port 
+    EnumText1      CDATA "Port 1"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Port 2"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "0"
+>
+
+<!ELEMENT ES1000ETHNodeControllerParameters.IPAddress (ESParameterIPAddress)>
+<!ELEMENT ES1000ETHNodeControllerParameters.SubnetMask (ESParameterIPAddress)>
+
+<!ELEMENT ES1000ETHNodeControllerSubNodeList (ES1000XCPBUdpNodeDevice)*>
+
+<!-- device node -->
+
+<!ELEMENT ES1000XCPBUdpNodeDevice (ES1000XCPBUdpNodeDevice.Parameters, ES1000XCPBUdpNodeDevice.L1Generation, ES1000XCPBUdpNodeDevice.SubNodes)>
+<!ATTLIST ES1000XCPBUdpNodeDevice
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBODevice ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOBoard ENTITY #REQUIRED
+  
+    a2lFile.ofTypeA2LFile ENTITY #REQUIRED
+    BypassEnableLabel.ofTypeCharacteristic ENTITY #REQUIRED
+>
+
+<!ELEMENT ES1000XCPBUdpNodeDevice.Parameters (ES1000XCPBUdpNodeDeviceParameters)>
+<!ELEMENT ES1000XCPBUdpNodeDevice.L1Generation (ESXCPBUdpNodeDeviceL1GenerationBlock)>
+<!ELEMENT ES1000XCPBUdpNodeDevice.SubNodes (ES1000XCPBUdpNodeDeviceSubNodeList)>
+
+
+<!--MPP dies gehört eignentlich in die ESUDPBaseNodeDevice.dtd  -->
+<!ELEMENT ESXCPBUdpNodeDeviceL1GenerationBlock (ESXCPBUdpNodeDeviceL1GenerationBlock.UnionCase, ESXCPBUdpNodeDeviceL1GenerationBlock.Reconnect)>
+<!ATTLIST ESXCPBUdpNodeDeviceL1GenerationBlock 
+    L1TreeIndex CDATA "-1"
+
+    APIROIDArray1 CDATA "-1"
+    APIROIDArray2 CDATA "-1"
+    APIROIDArray3 CDATA "-1"
+    APIROIDArray4 CDATA "-1"
+    APIROIDArray5 CDATA "-1"
+    APIROIDArray6 CDATA "-1"
+
+    IRQTriggeredSignalGroups CDATA "0"
+    RelevantSignalGroups CDATA "0"
+>
+
+<!ELEMENT ESXCPBUdpNodeDeviceL1GenerationBlock.UnionCase (ESXCPBUdpNodeDeviceL1GenerationUnionCase)>
+<!ELEMENT ESXCPBUdpNodeDeviceL1GenerationBlock.Reconnect (ESXCPBNodeDeviceL1GenerationReconnect)>
+
+<!ELEMENT ESXCPBUdpNodeDeviceL1GenerationUnionCase EMPTY>
+
+
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters (ES1000XCPBUdpNodeDeviceParameters.Name, 
+                                             ES1000XCPBUdpNodeDeviceParameters.Enabled,
+                                             ES1000XCPBUdpNodeDeviceParameters.ASAMMCD2File, 
+                                             ES1000XCPBUdpNodeDeviceParameters.ECUByteOrder, 
+                                             ES1000XCPBUdpNodeDeviceParameters.ECUSWVersion, 
+                                             ES1000XCPBUdpNodeDeviceParameters.SWConsistencyCheck, 
+                                             ES1000XCPBUdpNodeDeviceParameters.EPK, 
+                                             ES1000XCPBUdpNodeDeviceParameters.EPKAddress, 
+                                             ES1000XCPBUdpNodeDeviceParameters.AutomaticBypassActivation, 
+                                             ES1000XCPBUdpNodeDeviceParameters.BypassEnableLabel, 
+                                             ES1000XCPBUdpNodeDeviceParameters.BypassEnableLabelTransferMethod,
+                                             ES1000XCPBUdpNodeDeviceParameters.BypassEnableDelay, 
+                                             ES1000XCPBUdpNodeDeviceParameters.SignalSelectionMode, 
+                                             ES1000XCPBUdpNodeDeviceParameters.TransferMode, 
+                                             ES1000XCPBUdpNodeDeviceParameters.XCPProtocolLayerVersion, 
+                                             ES1000XCPBUdpNodeDeviceParameters.TimeoutT1,
+                                             ES1000XCPBUdpNodeDeviceParameters.TimeoutT2,
+                                             ES1000XCPBUdpNodeDeviceParameters.TimeoutT3,
+                                             ES1000XCPBUdpNodeDeviceParameters.TimeoutT4,
+                                             ES1000XCPBUdpNodeDeviceParameters.TimeoutT5,
+                                             ES1000XCPBUdpNodeDeviceParameters.TimeoutT6,
+                                             ES1000XCPBUdpNodeDeviceParameters.TimeoutT7,
+                                             ES1000XCPBUdpNodeDeviceParameters.MaxCTO, 
+                                             ES1000XCPBUdpNodeDeviceParameters.MaxDTO, 
+                                             ES1000XCPBUdpNodeDeviceParameters.AddressGranularity, 
+                                             ES1000XCPBUdpNodeDeviceParameters.DAQConfigType, 
+                                             ES1000XCPBUdpNodeDeviceParameters.MaxDAQ, 
+                                             ES1000XCPBUdpNodeDeviceParameters.MinDAQ, 
+                                             ES1000XCPBUdpNodeDeviceParameters.MaxEventChannel, 
+                                             ES1000XCPBUdpNodeDeviceParameters.OptimisationType, 
+                                             ES1000XCPBUdpNodeDeviceParameters.AddressExtensionType, 
+                                             ES1000XCPBUdpNodeDeviceParameters.IdentificationFieldType, 
+                                             ES1000XCPBUdpNodeDeviceParameters.GranularityODTEntrySizeDAQ, 
+                                             ES1000XCPBUdpNodeDeviceParameters.MaxODTEntrySizeDAQ, 
+                                             ES1000XCPBUdpNodeDeviceParameters.OverloadIndication, 
+                                             ES1000XCPBUdpNodeDeviceParameters.PrescalerSupported, 
+                                             ES1000XCPBUdpNodeDeviceParameters.ResumeSupported, 
+                                             ES1000XCPBUdpNodeDeviceParameters.ResumeMode, 
+                                             ES1000XCPBUdpNodeDeviceParameters.GranularityODTEntrySizeSTIM, 
+                                             ES1000XCPBUdpNodeDeviceParameters.MaxODTEntrySizeSTIM, 
+                                             ES1000XCPBUdpNodeDeviceParameters.BitSTIMSupported, 
+                                             ES1000XCPBUdpNodeDeviceParameters.TimestampSupported, 
+                                             ES1000XCPBUdpNodeDeviceParameters.TimestampTicks, 
+                                             ES1000XCPBUdpNodeDeviceParameters.TimestampUnit, 
+                                             ES1000XCPBUdpNodeDeviceParameters.TimestampFixed, 
+                                             ES1000XCPBUdpNodeDeviceParameters.TimestampSize, 
+                                             ES1000XCPBUdpNodeDeviceParameters.PIDOffSupported, 
+                                             ES1000XCPBUdpNodeDeviceParameters.AutomaticBypassDetection, 
+                                             ES1000XCPBUdpNodeDeviceParameters.BypassReceiveNamePrefix, 
+                                             ES1000XCPBUdpNodeDeviceParameters.BypassReceiveNameSuffix, 
+                                             ES1000XCPBUdpNodeDeviceParameters.BypassSendNamePrefix, 
+                                             ES1000XCPBUdpNodeDeviceParameters.BypassSendNameSuffix, 
+                                             ES1000XCPBUdpNodeDeviceParameters.LogCTO, 
+                                             ES1000XCPBUdpNodeDeviceParameters.LogDTO, 
+                                             ES1000XCPBUdpNodeDeviceParameters.LogCalibration, 
+                                             ES1000XCPBUdpNodeDeviceParameters.LogWarnings, 
+                                             ES1000XCPBUdpNodeDeviceParameters.LogInformation, 
+                                             ES1000XCPBUdpNodeDeviceParameters.BehaviorOnInconsistentA2LandECUConfiguration,
+                                             ES1000XCPBUdpNodeDeviceParameters.IRQSource,
+                                             ES1000XCPBUdpNodeDeviceParameters.XCPByteOrder,
+                                             ES1000XCPBUdpNodeDeviceParameters.XCPInstance,
+                                             ES1000XCPBUdpNodeDeviceParameters.XCPonUDPIPVersion, 
+                                             ES1000XCPBUdpNodeDeviceParameters.UDPPortSlave, 
+                                             ES1000XCPBUdpNodeDeviceParameters.IPAddressSlave,
+                                             ES1000XCPBUdpNodeDeviceParameters.Checksum,
+                                             ES1000XCPBUdpNodeDeviceParameters.SeedAndKeyLibrary,
+                                             ES1000XCPBUdpNodeDeviceParameters.TransportLayerName)>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.Name (ESParameterName)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.ASAMMCD2File (ESParameterString)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.ECUByteOrder (ESParameterEnum)>
+<!ATTLIST ES1000XCPBUdpNodeDeviceParameters.ECUByteOrder
+    EnumText1      CDATA "little endian (Intel)"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "big endian (Motorola)"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.ECUSWVersion (ESParameterString)>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.SWConsistencyCheck (ESParameterEnum)>
+<!ATTLIST ES1000XCPBUdpNodeDeviceParameters.SWConsistencyCheck 
+    EnumText1      CDATA "enabled"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "disabled"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.EPK (ESParameterString)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.EPKAddress (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.AutomaticBypassActivation (ESParameterBoolean)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.BypassEnableLabel (ESXCPBParameterBypassEnableLabel)>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.BypassEnableLabelTransferMethod (ESParameterEnum)>
+<!ATTLIST ES1000XCPBUdpNodeDeviceParameters.BypassEnableLabelTransferMethod  
+    EnumText1      CDATA "DOWNLOAD"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "DAQ_STIM_LIST"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.BypassEnableDelay (ESParameterUInt)>
+
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.SignalSelectionMode (ESParameterEnum)>
+<!ATTLIST ES1000XCPBUdpNodeDeviceParameters.SignalSelectionMode 
+    EnumText1      CDATA "Declared Fixed or Default for Event"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+    
+    EnumText2      CDATA "Declared Fixed, Default or Available for Event"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "All"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.TransferMode (ESParameterEnum)>
+<!ATTLIST ES1000XCPBUdpNodeDeviceParameters.TransferMode 
+    EnumText1      CDATA "Bypass"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Bypass and Measurement"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Bypass, Measurement and Calibration"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.XCPProtocolLayerVersion (ESParameterEnum)>
+<!ATTLIST ES1000XCPBUdpNodeDeviceParameters.XCPProtocolLayerVersion  
+    EnumText1      CDATA "1.0"
+    EnumL1Value1     CDATA "256"
+    EnumAvailable1 CDATA "1"
+>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.TimeoutT1 (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.TimeoutT2 (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.TimeoutT3 (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.TimeoutT4 (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.TimeoutT5 (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.TimeoutT6 (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.TimeoutT7 (ESParameterUInt)>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.MaxCTO (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.MaxDTO (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.AddressGranularity (ESParameterEnum)>
+<!ATTLIST ES1000XCPBUdpNodeDeviceParameters.AddressGranularity   
+    EnumText1      CDATA "Missing"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "BYTE"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "WORD"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "DWORD"
+    EnumL1Value4     CDATA "4"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "DLONG"
+    EnumL1Value5     CDATA "8"
+    EnumAvailable5 CDATA "1"
+  >
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.DAQConfigType (ESParameterEnum)>
+<!ATTLIST ES1000XCPBUdpNodeDeviceParameters.DAQConfigType  
+    EnumText1      CDATA "Static"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Dynamic"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.MaxDAQ (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.MinDAQ (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.MaxEventChannel (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.OptimisationType (ESParameterEnum)>
+<!ATTLIST ES1000XCPBUdpNodeDeviceParameters.OptimisationType   
+    EnumText1      CDATA "Default"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "ODT_Type_16"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "ODT_Type_32"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "ODT_Type_64"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+  
+    EnumText5      CDATA "ODT_Type_Alignment"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+  
+    EnumText6      CDATA "Max_Entry_Size"
+    EnumL1Value6     CDATA "5"
+    EnumAvailable6 CDATA "1"
+>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.AddressExtensionType (ESParameterEnum)>
+<!ATTLIST ES1000XCPBUdpNodeDeviceParameters.AddressExtensionType    
+    EnumText1      CDATA "Free"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "ODT"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "DAQ"
+    EnumL1Value3     CDATA "3"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.IdentificationFieldType (ESParameterEnum)>
+<!ATTLIST ES1000XCPBUdpNodeDeviceParameters.IdentificationFieldType     
+    EnumText1      CDATA "Absolute"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Relative Byte"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Relative Word"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "Relative Word Aligned"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.GranularityODTEntrySizeDAQ (ESParameterEnum)>
+<!ATTLIST ES1000XCPBUdpNodeDeviceParameters.GranularityODTEntrySizeDAQ      
+    EnumText1      CDATA "Missing"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "BYTE"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "WORD"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "DWORD"
+    EnumL1Value4     CDATA "4"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "DLONG"
+    EnumL1Value5     CDATA "8"
+    EnumAvailable5 CDATA "1"
+  >
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.MaxODTEntrySizeDAQ (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.OverloadIndication (ESParameterEnum)>
+<!ATTLIST ES1000XCPBUdpNodeDeviceParameters.OverloadIndication       
+    EnumText1      CDATA "No"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "PID"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Event"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.PrescalerSupported (ESParameterBoolean)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.ResumeSupported (ESParameterBoolean)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.ResumeMode (ESParameterBoolean)>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.GranularityODTEntrySizeSTIM (ESParameterEnum)>
+<!ATTLIST ES1000XCPBUdpNodeDeviceParameters.GranularityODTEntrySizeSTIM     
+    EnumText1      CDATA "Missing"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "BYTE"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "WORD"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "DWORD"
+    EnumL1Value4     CDATA "4"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "DLONG"
+    EnumL1Value5     CDATA "8"
+    EnumAvailable5 CDATA "1"
+  >
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.MaxODTEntrySizeSTIM (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.BitSTIMSupported (ESParameterBoolean)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.TimestampSupported (ESParameterBoolean)>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.TimestampTicks (ESParameterUInt)>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.TimestampUnit (ESParameterEnum)>
+<!ATTLIST ES1000XCPBUdpNodeDeviceParameters.TimestampUnit        
+    EnumText1      CDATA "1 ns"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "10 ns"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "100 ns"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "1 us"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "10 us"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+
+    EnumText6      CDATA "100 us"
+    EnumL1Value6     CDATA "5"
+    EnumAvailable6 CDATA "1"
+
+    EnumText7      CDATA "1 ms"
+    EnumL1Value7     CDATA "6"
+    EnumAvailable7 CDATA "1"
+
+    EnumText8      CDATA "10 ms"
+    EnumL1Value8     CDATA "7"
+    EnumAvailable8 CDATA "1"
+
+    EnumText9      CDATA "100 ms"
+    EnumL1Value9     CDATA "8"
+    EnumAvailable9 CDATA "1"
+
+    EnumText10      CDATA "1 s"
+    EnumL1Value10     CDATA "9"
+    EnumAvailable10 CDATA "1"
+ >
+
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.TimestampFixed (ESParameterBoolean)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.TimestampSize (ESParameterEnum)>
+<!ATTLIST ES1000XCPBUdpNodeDeviceParameters.TimestampSize        
+    EnumText1      CDATA "Missing"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "BYTE"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "WORD"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "DWORD"
+    EnumL1Value4     CDATA "4"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "DLONG"
+    EnumL1Value5     CDATA "8"
+    EnumAvailable5 CDATA "1"
+  >
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.PIDOffSupported (ESParameterBoolean)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.AutomaticBypassDetection (ESParameterBoolean)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.BypassReceiveNamePrefix (ESParameterString)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.BypassReceiveNameSuffix (ESParameterString)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.BypassSendNamePrefix (ESParameterString)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.BypassSendNameSuffix (ESParameterString)>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.LogCTO (ESParameterBoolean)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.LogDTO (ESParameterBoolean)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.LogCalibration (ESParameterBoolean)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.LogWarnings (ESParameterBoolean)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.LogInformation (ESParameterBoolean)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.BehaviorOnInconsistentA2LandECUConfiguration (ESParameterEnum)>
+<!ATTLIST ES1000XCPBUdpNodeDeviceParameters.BehaviorOnInconsistentA2LandECUConfiguration          
+    EnumText1      CDATA "Use Configuration from ASAM-MCD2 file"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Use Configuration reported from ECU"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Abort start of XCP System"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+ >
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.IRQSource (ESParameterString)>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.XCPByteOrder (ESParameterEnum)>
+<!ATTLIST ES1000XCPBUdpNodeDeviceParameters.XCPByteOrder         
+    EnumText1      CDATA "little endian (Intel)"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "big endian (Motorola)"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.XCPInstance (ESParameterUInt)>
+
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.XCPonUDPIPVersion (ESParameterEnum)>
+<!ATTLIST ES1000XCPBUdpNodeDeviceParameters.XCPonUDPIPVersion
+    EnumText1      CDATA "1.0"
+    EnumL1Value1     CDATA "256"
+    EnumAvailable1 CDATA "1"
+>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.UDPPortSlave (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.IPAddressSlave (ESParameterIPAddress)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.Checksum (ESParameterString)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.SeedAndKeyLibrary (ESParameterString)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.TransportLayerName (ESParameterString)>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceSubNodeList (ESXCPBNodeStatus| ESXCPBNodeRasters)*>
+
+<!-- 
+
+<!ELEMENT ES1000XCPBUdpNodeDevice.L1Generation (ES1000XCPBUdpNodeDeviceL1Generation)>
+
+
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceL1Generation EMPTY>
+
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceL1GenerationNotRunning EMPTY>
+
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceL1GenerationReconnect EMPTY>
+
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceL1GenerationWriteToStream EMPTY>
+
+-->
+
+
+
+
+
+
