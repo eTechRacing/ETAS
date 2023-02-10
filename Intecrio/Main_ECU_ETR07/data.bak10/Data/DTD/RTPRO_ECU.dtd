@@ -1,0 +1,20 @@
+<?DTDVersion "4.0.0"?>
+<?CompatibleDTDVersion "3.3.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<?SuperClass RTPRO_ECU->ESRTABasedSystem ?>
+
+<!ELEMENT RTPRO_ECU (_System)>
+<!ATTLIST RTPRO_ECU
+    Name ID #REQUIRED
+    Comment CDATA ""
+    
+    Hardware.ofTypeYBOHardware  ENTITY #IMPLIED
+    GlobalObject.ofTypeYBOECU   ENTITY #IMPLIED
+    GlobalParent                ENTITY #IMPLIED
+    BoardLink.ofTypeESNode      ENTITY #IMPLIED
+>

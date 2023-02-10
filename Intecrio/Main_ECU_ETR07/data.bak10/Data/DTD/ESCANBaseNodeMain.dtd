@@ -1,0 +1,72 @@
+<?DTDVersion "4.0.0"?>
+<?CompatibleDTDVersion "3.2.2"?>
+<?CompatibleDTDVersion "3.2.1"?>
+<?CompatibleDTDVersion "3.2.0"?>
+<?CompatibleDTDVersion "3.1.0"?>
+<?CompatibleDTDVersion "3.0.1"?>
+<?CompatibleDTDVersion "3.0.0"?>
+<?CompatibleDTDVersion "2.2.0"?>
+<?CompatibleDTDVersion "2.0.6"?>
+<?CompatibleDTDVersion "2.0.5"?>
+<?CompatibleDTDVersion "2.0.4"?>
+<?CompatibleDTDVersion "2.0.3"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!ENTITY % ESXCPBNodeMain SYSTEM "ESXCPBNodeMain.DTD">
+%ESXCPBNodeMain;
+
+<!ENTITY % ESCANFoundationNodeMainBase SYSTEM "ESCANFoundationNodeMainBase.dtd">
+%ESCANFoundationNodeMainBase;
+
+<?SuperClass ESCANBaseNodeMain->ESCANFoundationNodeMainBase ?>
+<?SuperClass ESCANBaseNodeCANController->ESCANFoundationNodeControllerBase ?>
+<?SuperClass ESCANBaseNodeDevice->ESCANFoundationNodeIODeviceBase ?>
+
+<!-- Board -->
+
+<!ELEMENT ESCANBaseNodeMain (ESCANBaseNodeMain.Parameters, ESCANBaseNodeMain.L1Generation, ESCANBaseNodeMain.SubNodes, _System)>
+<!ATTLIST ESCANBaseNodeMain
+    Name ID #REQUIRED
+    
+    GlobalObject.ofTypeYBOBoard ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOCPUBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ESCANBaseNodeMain.Parameters (ESCANBaseNodeMainParameters)>
+<!ELEMENT ESCANBaseNodeMain.L1Generation (ESCANBaseNodeMainL1Generation)>
+<!ELEMENT ESCANBaseNodeMain.SubNodes (ESCANBaseNodeMainSubNodeList)>
+
+<!ELEMENT ESCANBaseNodeMainSubNodeList (ESCANBaseNodeCANController)*>
+
+<!-- controller node -->
+
+<!ELEMENT ESCANBaseNodeCANController (ESCANBaseNodeCANController.Parameters, ESCANBaseNodeCANController.L1Generation, ESCANBaseNodeCANController.SubNodes, ESCANBaseNodeCANController.SignalPool)>
+<!ATTLIST ESCANBaseNodeCANController
+    Name ID #REQUIRED
+>
+
+<!ELEMENT ESCANBaseNodeCANController.Parameters (ESCANBaseNodeCANControllerParameters)>
+<!ELEMENT ESCANBaseNodeCANController.L1Generation (ESCANBaseNodeCANControllerL1Generation)>
+<!ELEMENT ESCANBaseNodeCANController.SubNodes (ESCANBaseNodeCANControllerSubNodeList)>
+<!ELEMENT ESCANBaseNodeCANController.SignalPool (ESCANBasePoolSignal)>
+
+<!ELEMENT ESCANBaseNodeCANControllerSubNodeList (ESCANBaseNodeDevice,ESCANBaseNodeXCPBDevice)*>
+
+<!-- IO device node -->
+
+<!ELEMENT ESCANBaseNodeDevice (ESCANBaseNodeDevice.Parameters, ESCANBaseNodeDevice.L1Generation, ESCANBaseNodeDevice.SubNodes)>
+<!ATTLIST ESCANBaseNodeDevice
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBODevice ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ESCANBaseNodeDevice.Parameters (ESCANBaseNodeDeviceParameters)>
+<!ELEMENT ESCANBaseNodeDevice.L1Generation (ESCANBaseNodeDeviceL1Generation)>
+<!ELEMENT ESCANBaseNodeDevice.SubNodes (ESCANBaseNodeDeviceSubNodeList)>

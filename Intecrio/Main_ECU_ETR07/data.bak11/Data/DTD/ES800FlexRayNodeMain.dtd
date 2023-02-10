@@ -1,0 +1,522 @@
+<?DTDVersion "4.7.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!ENTITY % ESFlexRayNodeMainBase SYSTEM "ESFlexRayNodeMainBase.dtd">
+%ESFlexRayNodeMainBase;
+
+<!NOTATION ofTypeES800FlexRayNodeMain SYSTEM "ES800FlexRayNodeMain">
+<!NOTATION ofTypeES800FlexRayNodeDevice SYSTEM "ES800FlexRayNodeDevice">
+
+<?SuperClass ES800FlexRayNodeMain->ES800Component ?>
+<?SuperClass ES800FlexRayNodeMain->ESFlexRayNodeMainBase ?>
+<?SuperClass ES800FlexRayNodeDevice->ESFlexRayNodeDeviceBase ?>
+
+<!-- node main -->
+
+<!ELEMENT ES800FlexRayNodeMain (ES800FlexRayNodeMain.Parameters, ES800FlexRayNodeMain.L1Generation, ES800FlexRayNodeMain.SubNodes, _System)>
+<!ATTLIST ES800FlexRayNodeMain
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOBoard ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOCPUBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ES800FlexRayNodeMain.Parameters (ES800FlexRayNodeMainParameters)>
+<!ELEMENT ES800FlexRayNodeMain.L1Generation (ES800FlexRayNodeMainL1GenerationBlock)>
+<!ELEMENT ES800FlexRayNodeMain.SubNodes (ES800FlexRayNodeMainSubNodeList)>
+
+<!ELEMENT ES800FlexRayNodeMainL1GenerationBlock (ES800FlexRayNodeMainL1GenerationBlock.NotRunning, ES800FlexRayNodeMainL1GenerationBlock.Reconnect, ES800FlexRayNodeMainL1GenerationBlock.WriteToStream)>
+<!ATTLIST ES800FlexRayNodeMainL1GenerationBlock
+    L1TreeIndex CDATA "-1"
+
+    ConfigROID CDATA "-1"
+    APIROIDArray1 CDATA "-1"
+    APIROIDArray2 CDATA "-1"
+    APIROIDArray3 CDATA "-1"
+    APIROIDArray4 CDATA "-1"
+>
+
+<!ELEMENT ES800FlexRayNodeMainL1GenerationBlock.NotRunning (ES800FlexRayNodeMainL1GenerationNotRunning)>
+<!ELEMENT ES800FlexRayNodeMainL1GenerationBlock.Reconnect (ES800FlexRayNodeMainL1GenerationReconnect)>
+<!ELEMENT ES800FlexRayNodeMainL1GenerationBlock.WriteToStream (ES800FlexRayNodeMainL1GenerationWriteToStream)>
+
+<!ELEMENT ES800FlexRayNodeMainL1GenerationNotRunning EMPTY>
+<!ELEMENT ES800FlexRayNodeMainL1GenerationReconnect EMPTY>
+<!ELEMENT ES800FlexRayNodeMainL1GenerationWriteToStream EMPTY>
+
+<!ELEMENT ES800FlexRayNodeMainParameters (ES800FlexRayNodeMainParameters.Name, ES800FlexRayNodeMainParameters.Enabled, ES800FlexRayNodeMainParameters.BoardInstance)>
+
+<!ELEMENT ES800FlexRayNodeMainParameters.Name (ESParameterName)>
+<!ELEMENT ES800FlexRayNodeMainParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeMainParameters.BoardInstance (ESParameterEnum)>
+<!ATTLIST ES800FlexRayNodeMainParameters.BoardInstance 
+    EnumText1      CDATA "ID1"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+>
+
+<!ELEMENT ES800FlexRayNodeMainSubNodeList (ES800FlexRayNodeDevice)*>
+
+<!-- node device -->
+
+<!ELEMENT ES800FlexRayNodeDevice (ES800FlexRayNodeDevice.Parameters, ES800FlexRayNodeDevice.L1Generation, ES800FlexRayNodeDevice.SubNodes, ES800FlexRayNodeDevice.SignalPool)>
+<!ATTLIST ES800FlexRayNodeDevice
+    Name ID #REQUIRED
+    CalculatorActive ( False | True ) "True"
+    CalculatorSilentMode ( False | True ) "False"
+
+    GlobalObject.ofTypeYBODevice ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOBoard ENTITY #REQUIRED
+    
+    CustomerEngineeringFIBEXSolution ( False | True ) "False"
+>
+
+<!ELEMENT ES800FlexRayNodeDevice.Parameters (ES800FlexRayNodeDeviceParameters)>
+<!ELEMENT ES800FlexRayNodeDevice.L1Generation (ES800FlexRayNodeDeviceL1GenerationBlock)>
+<!ELEMENT ES800FlexRayNodeDevice.SubNodes (ES800FlexRayNodeDeviceSubNodeList)>
+<!ELEMENT ES800FlexRayNodeDevice.SignalPool (ES920PoolSignal)>
+
+<!ELEMENT ES800FlexRayNodeDeviceL1GenerationBlock (ES800FlexRayNodeDeviceL1GenerationBlock.UnionCase, ES800FlexRayNodeDeviceL1GenerationBlock.Reconnect)>
+<!ATTLIST ES800FlexRayNodeDeviceL1GenerationBlock  
+    L1TreeIndex CDATA "-1"
+
+    APIROIDArray1 CDATA "-1"
+    APIROIDArray2 CDATA "-1"
+    
+    IRQTriggeredSignalGroups CDATA "0"
+    L1SignalGroupCount CDATA "0"
+    SyncAPICount CDATA "-1"
+    L1FrameDescEntryCount CDATA "-1"
+>
+
+<!ELEMENT ES800FlexRayNodeDeviceL1GenerationBlock.UnionCase (ES800FlexRayNodeDeviceL1GenerationUnionCase)>
+<!ELEMENT ES800FlexRayNodeDeviceL1GenerationBlock.Reconnect (ES800FlexRayNodeDeviceL1GenerationReconnect)>
+
+<!ELEMENT ES800FlexRayNodeDeviceL1GenerationUnionCase EMPTY>
+<!ELEMENT ES800FlexRayNodeDeviceL1GenerationReconnect EMPTY>
+
+<!ELEMENT ES800FlexRayNodeDeviceParameters (ES800FlexRayNodeDeviceParameters.Name, 
+                                          ES800FlexRayNodeDeviceParameters.Enabled, 
+                                          ES800FlexRayNodeDeviceParameters.gdStaticSlot, 
+                                          ES800FlexRayNodeDeviceParameters.gNumberOfStaticSlots, 
+                                          ES800FlexRayNodeDeviceParameters.gdMinislot, 
+                                          ES800FlexRayNodeDeviceParameters.gColdStartAttempts, 
+                                          ES800FlexRayNodeDeviceParameters.gPayloadLengthStatic, 
+                                          ES800FlexRayNodeDeviceParameters.gdMinislotActionPointOffset, 
+                                          ES800FlexRayNodeDeviceParameters.gdActionPointOffset, 
+                                          ES800FlexRayNodeDeviceParameters.gdSymbolWindow, 
+                                          ES800FlexRayNodeDeviceParameters.gClusterDriftDamping, 
+                                          ES800FlexRayNodeDeviceParameters.gdTSSTransmitter, 
+                                          ES800FlexRayNodeDeviceParameters.gListenNoise, 
+                                          ES800FlexRayNodeDeviceParameters.gdMinPropagationDelay, 
+                                          ES800FlexRayNodeDeviceParameters.gMaxWithoutClockCorrectionFatal, 
+                                          ES800FlexRayNodeDeviceParameters.gMaxWithoutClockCorrectionPassive, 
+                                          ES800FlexRayNodeDeviceParameters.gChannels, 
+                                          ES800FlexRayNodeDeviceParameters.DefaultByteOrder, 
+                                          ES800FlexRayNodeDeviceParameters.FIBEXFile, 
+                                          ES800FlexRayNodeDeviceParameters.gSyncNodeMax, 
+                                          ES800FlexRayNodeDeviceParameters.gNetworkManagementVectorLength, 
+                                          ES800FlexRayNodeDeviceParameters.gdCycle, 
+                                          ES800FlexRayNodeDeviceParameters.gMacroPerCycle, 
+                                          ES800FlexRayNodeDeviceParameters.gdMaxMicrotick, 
+                                          ES800FlexRayNodeDeviceParameters.gdMaxPropagationDelay, 
+                                          ES800FlexRayNodeDeviceParameters.gNumberOfMinislots, 
+                                          ES800FlexRayNodeDeviceParameters.gdDynamicSlotIdlePhase, 
+                                          ES800FlexRayNodeDeviceParameters.gOffsetCorrectionMax, 
+                                          ES800FlexRayNodeDeviceParameters.gOffsetCorrectionStart, 
+                                          ES800FlexRayNodeDeviceParameters.gdMaxInitializationError, 
+                                          ES800FlexRayNodeDeviceParameters.gdCASRxLowMax, 
+                                          ES800FlexRayNodeDeviceParameters.gdWakeupSymbolTxIdle, 
+                                          ES800FlexRayNodeDeviceParameters.gdWakeupSymbolTxLow, 
+                                          ES800FlexRayNodeDeviceParameters.gdWakeupSymbolRxIdle, 
+                                          ES800FlexRayNodeDeviceParameters.gdWakeupSymbolRxLow, 
+                                          ES800FlexRayNodeDeviceParameters.gdWakeupSymbolRxWindow, 
+                                          ES800FlexRayNodeDeviceParameters.ProtocolVersion, 
+                                          ES800FlexRayNodeDeviceParameters.BaudRate, 
+                                          ES800FlexRayNodeDeviceParameters.gdSampleClockPeriod, 
+                                          ES800FlexRayNodeDeviceParameters.gdBit, 
+                                          ES800FlexRayNodeDeviceParameters.gdMacrotick, 
+                                          ES800FlexRayNodeDeviceParameters.gAssumedPrecision, 
+                                          ES800FlexRayNodeDeviceParameters.aFrameLengthStatic, 
+                                          ES800FlexRayNodeDeviceParameters.gdNIT, 
+                                          ES800FlexRayNodeDeviceParameters.dBDRxai, 
+                                          ES800FlexRayNodeDeviceParameters.dBDRxia, 
+                                          ES800FlexRayNodeDeviceParameters.cdBSS, 
+                                          ES800FlexRayNodeDeviceParameters.cdCAS, 
+                                          ES800FlexRayNodeDeviceParameters.cClockDeviationMax, 
+                                          ES800FlexRayNodeDeviceParameters.cChannelIdleDelimiter, 
+                                          ES800FlexRayNodeDeviceParameters.cdCycleMax, 
+                                          ES800FlexRayNodeDeviceParameters.cdFES, 
+                                          ES800FlexRayNodeDeviceParameters.cdFSS, 
+                                          ES800FlexRayNodeDeviceParameters.cdMaxMTNom, 
+                                          ES800FlexRayNodeDeviceParameters.cMicroPerMacroMin, 
+                                          ES800FlexRayNodeDeviceParameters.cMicroPerMacroNomMin, 
+                                          ES800FlexRayNodeDeviceParameters.cMicroPerMacroNomMax, 
+                                          ES800FlexRayNodeDeviceParameters.cdMinMTNom, 
+                                          ES800FlexRayNodeDeviceParameters.cPayloadLengthMax, 
+                                          ES800FlexRayNodeDeviceParameters.cPropagationDelayMax, 
+                                          ES800FlexRayNodeDeviceParameters.cSamplesPerBit, 
+                                          ES800FlexRayNodeDeviceParameters.cSlotIDMax, 
+                                          ES800FlexRayNodeDeviceParameters.cStaticSlotIDMax, 
+                                          ES800FlexRayNodeDeviceParameters.cdWakeupMaxCollision, 
+                                          ES800FlexRayNodeDeviceParameters.cStrobeOffset, 
+                                          ES800FlexRayNodeDeviceParameters.cSyncNodeMax, 
+                                          ES800FlexRayNodeDeviceParameters.cdWakeupSymbolTxLow, 
+                                          ES800FlexRayNodeDeviceParameters.cdWakeupSymbolTxIdle, 
+                                          ES800FlexRayNodeDeviceParameters.cVotingDelay, 
+                                          ES800FlexRayNodeDeviceParameters.pPayloadLengthDynMax, 
+                                          ES800FlexRayNodeDeviceParameters.pdAcceptedStartupRange, 
+                                          ES800FlexRayNodeDeviceParameters.pClusterDriftDamping, 
+                                          ES800FlexRayNodeDeviceParameters.pRateCorrectionOut, 
+                                          ES800FlexRayNodeDeviceParameters.pOffsetCorrectionOut, 
+                                          ES800FlexRayNodeDeviceParameters.pdMaxDrift, 
+                                          ES800FlexRayNodeDeviceParameters.pdListenTimeout, 
+                                          ES800FlexRayNodeDeviceParameters.pDecodingCorrection, 
+                                          ES800FlexRayNodeDeviceParameters.pDelayCompensationA, 
+                                          ES800FlexRayNodeDeviceParameters.pDelayCompensationB, 
+                                          ES800FlexRayNodeDeviceParameters.pMacroInitialOffsetA, 
+                                          ES800FlexRayNodeDeviceParameters.pMacroInitialOffsetB, 
+                                          ES800FlexRayNodeDeviceParameters.pMicroInitialOffsetA, 
+                                          ES800FlexRayNodeDeviceParameters.pMicroInitialOffsetB, 
+                                          ES800FlexRayNodeDeviceParameters.pLatestTx, 
+                                          ES800FlexRayNodeDeviceParameters.pAllowHaltDueToClock, 
+                                          ES800FlexRayNodeDeviceParameters.pAllowPassiveToActive, 
+                                          ES800FlexRayNodeDeviceParameters.pChannels, 
+                                          ES800FlexRayNodeDeviceParameters.pKeySlotId, 
+                                          ES800FlexRayNodeDeviceParameters.pKeySlotUsedForStartup, 
+                                          ES800FlexRayNodeDeviceParameters.pKeySlotUsedForSync, 
+                                          ES800FlexRayNodeDeviceParameters.pSingleSlotEnabled, 
+                                          ES800FlexRayNodeDeviceParameters.pWakeupChannel, 
+                                          ES800FlexRayNodeDeviceParameters.pWakeupPattern, 
+                                          ES800FlexRayNodeDeviceParameters.pSamplesPerMicrotick, 
+                                          ES800FlexRayNodeDeviceParameters.pdMicrotick, 
+                                          ES800FlexRayNodeDeviceParameters.pMicroPerMacroNom, 
+                                          ES800FlexRayNodeDeviceParameters.pMicroPerCycle, 
+                                          ES800FlexRayNodeDeviceParameters.pExternRateCorrection, 
+                                          ES800FlexRayNodeDeviceParameters.pExternOffsetCorrection, 
+                                          ES800FlexRayNodeDeviceParameters.aFrameLengthDynamic,
+                                          ES800FlexRayNodeDeviceParameters.WakeupEnabled,
+                                          ES800FlexRayNodeDeviceParameters.WaitForWUPA,
+                                          ES800FlexRayNodeDeviceParameters.WaitForWUPB,
+                                          ES800FlexRayNodeDeviceParameters.ColdstartInhibit,
+                                          ES800FlexRayNodeDeviceParameters.RepeatColdstart,
+                                          ES800FlexRayNodeDeviceParameters.ResumeAfterHalt,
+                                          ES800FlexRayNodeDeviceParameters.UsedCommunicationRegisters,
+                                          ES800FlexRayNodeDeviceParameters.UsedCommunicationMemory,
+                                          ES800FlexRayNodeDeviceParameters.ClusterName,
+                                          ES800FlexRayNodeDeviceParameters.vDTSLowMin,
+                                          ES800FlexRayNodeDeviceParameters.nStarPathMax,
+                                          ES800FlexRayNodeDeviceParameters.dStarTruncation,
+                                          ES800FlexRayNodeDeviceParameters.adOffsetCorrection,
+                                          ES800FlexRayNodeDeviceParameters.cdMaxOffsetCalculation,
+                                          ES800FlexRayNodeDeviceParameters.cdMaxRateCalculation,
+                                          ES800FlexRayNodeDeviceParameters.gdActionPointOffset_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gdCASRxLowMax_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gdDynamicSlotIdlePhase_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gdMinislot_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gdMinislotActionPointOffset_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gdStaticSlot_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gdSymbolWindow_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gdTSSTransmitter_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gdWakeupSymbolRxIdle_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gdWakeupSymbolRxLow_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gdWakeupSymbolRxWindow_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gdWakeupSymbolTxIdle_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gdWakeupSymbolTxLow_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gListenNoise_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gOffsetCorrectionStart_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.pdAcceptedStartupRange_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.pClusterDriftDamping_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.pDecodingCorrection_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.pdListenTimeout_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.pdMaxDrift_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.pLatestTx_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.pMacroInitialOffsetA_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.pMacroInitialOffsetB_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.pMicroInitialOffsetA_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.pMicroInitialOffsetB_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.pMicroPerCycle_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.pOffsetCorrectionOut_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.pRateCorrectionOut_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.adOffsetCorrection_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gColdStartAttempts_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gMaxWithoutClockCorrectionFatal_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gMaxWithoutClockCorrectionPassive_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gSyncNodeMax_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gOffsetCorrectionMax_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gdMaxInitializationError_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.gAssumedPrecision_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.pAllowHaltDueToClock_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.pAllowPassiveToActive_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.pKeySlotUsedForStartup_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.pKeySlotUsedForSync_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.pSingleSlotEnabled_AutoCalc,
+                                          ES800FlexRayNodeDeviceParameters.pWakeupPattern_AutoCalc, 
+                                          ES800FlexRayNodeDeviceParameters.ISR, 
+                                          ES800FlexRayNodeDeviceParameters.FIBEXVersion, 
+                                          ES800FlexRayNodeDeviceParameters.UsedTripleBuffers, 
+                                          ES800FlexRayNodeDeviceParameters.UsedSignalGroups,
+                                          ES800FlexRayNodeDeviceParameters.pSecondKeySlotId)>
+
+<!ELEMENT ES800FlexRayNodeDeviceParameters.Name (ESParameterName)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdStaticSlot (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gNumberOfStaticSlots (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdMinislot (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gColdStartAttempts (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gPayloadLengthStatic (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdMinislotActionPointOffset (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdActionPointOffset (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdSymbolWindow (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gClusterDriftDamping (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdTSSTransmitter (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gListenNoise (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdMinPropagationDelay (ESParameterFloat)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gMaxWithoutClockCorrectionFatal (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gMaxWithoutClockCorrectionPassive (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gChannels (ESParameterEnum)>
+<!ATTLIST ES800FlexRayNodeDeviceParameters.gChannels  
+    EnumText1      CDATA "A"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "B"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "A&B"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ES800FlexRayNodeDeviceParameters.DefaultByteOrder (ESParameterEnum)>
+<!ATTLIST ES800FlexRayNodeDeviceParameters.DefaultByteOrder 
+    EnumText1      CDATA "little endian (Intel)"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "big endian (Motorola)"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.FIBEXFile (ESParameterString)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gSyncNodeMax (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gNetworkManagementVectorLength (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdCycle (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gMacroPerCycle (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdMaxMicrotick (ESParameterFloat)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdMaxPropagationDelay (ESParameterFloat)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gNumberOfMinislots (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdDynamicSlotIdlePhase (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gOffsetCorrectionMax (ESParameterFloat)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gOffsetCorrectionStart (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdMaxInitializationError (ESParameterFloat)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdCASRxLowMax (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdWakeupSymbolTxIdle (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdWakeupSymbolTxLow (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdWakeupSymbolRxIdle (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdWakeupSymbolRxLow (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdWakeupSymbolRxWindow (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.ProtocolVersion (ESParameterEnum)>
+<!ATTLIST ES800FlexRayNodeDeviceParameters.ProtocolVersion  
+    EnumText1      CDATA "2.1.A"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.BaudRate (ESParameterEnum)>
+<!ATTLIST ES800FlexRayNodeDeviceParameters.BaudRate  
+    EnumText1      CDATA "10"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "5"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "2.5"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdSampleClockPeriod (ESParameterFloat)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdBit (ESParameterFloat)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdMacrotick (ESParameterFloat)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gAssumedPrecision (ESParameterFloat)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.aFrameLengthStatic (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdNIT (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.dBDRxai (ESParameterFloat)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.dBDRxia (ESParameterFloat)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cdBSS (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cdCAS (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cClockDeviationMax (ESParameterFloat)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cChannelIdleDelimiter (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cdCycleMax (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cdFES (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cdFSS (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cdMaxMTNom (ESParameterFloat)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cMicroPerMacroMin (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cMicroPerMacroNomMin (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cMicroPerMacroNomMax (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cdMinMTNom (ESParameterFloat)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cPayloadLengthMax (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cPropagationDelayMax (ESParameterFloat)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cSamplesPerBit (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cSlotIDMax (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cStaticSlotIDMax (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cdWakeupMaxCollision (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cStrobeOffset (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cSyncNodeMax (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cdWakeupSymbolTxLow (ESParameterFloat)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cdWakeupSymbolTxIdle (ESParameterFloat)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cVotingDelay (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pPayloadLengthDynMax (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pdAcceptedStartupRange (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pClusterDriftDamping (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pRateCorrectionOut (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pOffsetCorrectionOut (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pdMaxDrift (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pdListenTimeout (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pDecodingCorrection (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pDelayCompensationA (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pDelayCompensationB (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pMacroInitialOffsetA (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pMacroInitialOffsetB (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pMicroInitialOffsetA (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pMicroInitialOffsetB (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pLatestTx (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pAllowHaltDueToClock (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pAllowPassiveToActive (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pChannels (ESParameterEnum)>
+<!ATTLIST ES800FlexRayNodeDeviceParameters.pChannels   
+    EnumText1      CDATA "A"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "B"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "A&B"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pKeySlotId (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pKeySlotUsedForStartup (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pKeySlotUsedForSync (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pSingleSlotEnabled (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pWakeupChannel (ESParameterEnum)>
+<!ATTLIST ES800FlexRayNodeDeviceParameters.pWakeupChannel    
+    EnumText1      CDATA "A"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "B"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pWakeupPattern (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pSamplesPerMicrotick (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pdMicrotick (ESParameterFloat)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pMicroPerMacroNom (ESParameterFloat)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pMicroPerCycle (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pExternRateCorrection (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pExternOffsetCorrection (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.aFrameLengthDynamic (ESParameterUInt)>
+
+<!ELEMENT ES800FlexRayNodeDeviceParameters.WakeupEnabled (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.WaitForWUPA (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.WaitForWUPB (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.ColdstartInhibit (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.RepeatColdstart (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.ResumeAfterHalt (ESParameterBoolean)>
+
+<!ELEMENT ES800FlexRayNodeDeviceParameters.UsedCommunicationRegisters (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.UsedCommunicationMemory (ESParameterUInt)>
+
+<!ELEMENT ES800FlexRayNodeDeviceParameters.ClusterName (ESParameterString)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.vDTSLowMin (ESParameterUInt)>
+
+<!ELEMENT ES800FlexRayNodeDeviceParameters.nStarPathMax (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.dStarTruncation (ESParameterFloat)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.adOffsetCorrection (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cdMaxOffsetCalculation (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.cdMaxRateCalculation (ESParameterUInt)>
+
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdActionPointOffset_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdCASRxLowMax_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdDynamicSlotIdlePhase_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdMinislot_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdMinislotActionPointOffset_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdStaticSlot_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdSymbolWindow_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdTSSTransmitter_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdWakeupSymbolRxIdle_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdWakeupSymbolRxLow_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdWakeupSymbolRxWindow_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdWakeupSymbolTxIdle_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdWakeupSymbolTxLow_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gListenNoise_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gOffsetCorrectionStart_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pdAcceptedStartupRange_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pClusterDriftDamping_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pDecodingCorrection_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pdListenTimeout_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pdMaxDrift_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pLatestTx_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pMacroInitialOffsetA_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pMacroInitialOffsetB_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pMicroInitialOffsetA_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pMicroInitialOffsetB_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pMicroPerCycle_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pOffsetCorrectionOut_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pRateCorrectionOut_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.adOffsetCorrection_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gColdStartAttempts_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gMaxWithoutClockCorrectionFatal_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gMaxWithoutClockCorrectionPassive_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gSyncNodeMax_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gOffsetCorrectionMax_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gdMaxInitializationError_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.gAssumedPrecision_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pAllowHaltDueToClock_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pAllowPassiveToActive_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pKeySlotUsedForStartup_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pKeySlotUsedForSync_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pSingleSlotEnabled_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pWakeupPattern_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.ISR (ESParameterString)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.FIBEXVersion (ESParameterEnum)>
+<!ATTLIST ES800FlexRayNodeDeviceParameters.FIBEXVersion    
+    EnumText1      CDATA "unspecified"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "1.2"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "2.0"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "2.0+"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"   
+
+    EnumText5      CDATA "3.0"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"   
+
+    EnumText6      CDATA "3.1"
+    EnumL1Value6     CDATA "5"
+    EnumAvailable6 CDATA "1"   
+>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.UsedTripleBuffers (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.UsedSignalGroups (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.pSecondKeySlotId (ESParameterUInt)>
+
+<!ELEMENT ES800FlexRayNodeDeviceSubNodeList (ES920NodeChannels | ES920NodeStatus | ES920NodeFramePool | ES920NodePDUPool)*>

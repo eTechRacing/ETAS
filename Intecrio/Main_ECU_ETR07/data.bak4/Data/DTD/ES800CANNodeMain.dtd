@@ -1,0 +1,425 @@
+<?DTDVersion "4.6.3"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!ENTITY % ESCANFoundationNodeMainBase SYSTEM "ESCANFoundationNodeMainBase.dtd">
+%ESCANFoundationNodeMainBase;
+
+<?SuperClass ES800CANNodeMain->ES800Component ?>
+<?SuperClass ES800CANNodeMain->ESCANFoundationNodeMainBase ?>
+<?SuperClass ES800CANNodeController->ESCANFoundationNodeControllerBase ?>
+<?SuperClass ES800CANNodeIODevice->ESCANFoundationNodeIODeviceBase ?>
+
+<!-- Board -->
+
+<!ELEMENT ES800CANNodeMain (ES800CANNodeMain.Parameters, ES800CANNodeMain.L1Generation, ES800CANNodeMain.SubNodes, _System)>
+<!ATTLIST ES800CANNodeMain
+    Name ID #REQUIRED
+    
+    GlobalObject.ofTypeYBOBoard ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOCPUBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ES800CANNodeMain.Parameters (ES800CANNodeMainParameters)>
+<!ELEMENT ES800CANNodeMain.L1Generation (ES800CANNodeMainL1Generation)>
+<!ELEMENT ES800CANNodeMain.SubNodes (ES800CANNodeMainSubNodeList)>
+
+<!ELEMENT ES800CANNodeMainSubNodeList (ES800CANNodeController)*>
+
+<!ELEMENT ES800CANNodeMainParameters (ES800CANNodeMainParameters.Name, ES800CANNodeMainParameters.Enabled, ES800CANNodeMainParameters.BoardInstance, ES800CANNodeMainParameters.AnalyzeTask)>
+<!ELEMENT ES800CANNodeMainParameters.Name (ESParameterName)>
+<!ELEMENT ES800CANNodeMainParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeMainParameters.BoardInstance (ESParameterEnum)>
+<!ATTLIST ES800CANNodeMainParameters.BoardInstance
+    EnumText1      CDATA "ID1"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+>
+<!ELEMENT ES800CANNodeMainParameters.AnalyzeTask (ESParameterString)>
+
+<!ELEMENT ES800CANNodeMainL1Generation (ES800CANNodeMainL1Generation.NotRunning, ES800CANNodeMainL1Generation.Reconnect, ES800CANNodeMainL1Generation.WriteToStream)>
+<!ATTLIST ES800CANNodeMainL1Generation 
+    L1TreeIndex CDATA "-1"
+
+    ConfigROID CDATA "-1"
+    APIROIDArray1 CDATA "-1"
+    APIROIDArray2 CDATA "-1"
+    APIROIDArray3 CDATA "-1"
+    APIROIDArray4 CDATA "-1"
+    APIROIDArray5 CDATA "-1"
+    
+    IRQTriggeredSignalGroups CDATA "0"
+>
+
+<!ELEMENT ES800CANNodeMainL1Generation.NotRunning (ESCANBaseNodeMainL1GenerationNotRunning)>
+<!ELEMENT ES800CANNodeMainL1Generation.Reconnect (ESCANBaseNodeMainL1GenerationReconnect)>
+<!ELEMENT ES800CANNodeMainL1Generation.WriteToStream (ESCANBaseNodeMainL1GenerationWriteToStream)>
+
+<!-- controller node -->
+
+<!ELEMENT ES800CANNodeController (ES800CANNodeController.Parameters, ES800CANNodeController.L1Generation, ES800CANNodeController.SubNodes, ES800CANNodeController.SignalPool)>
+<!ATTLIST ES800CANNodeController
+    Name ID #REQUIRED
+>
+
+<!ELEMENT ES800CANNodeController.Parameters (ES800CANNodeControllerParameters)>
+<!ELEMENT ES800CANNodeController.L1Generation (ES800CANNodeControllerL1Generation)>
+<!ELEMENT ES800CANNodeController.SubNodes (ES800CANNodeControllerSubNodeList)>
+<!ELEMENT ES800CANNodeController.SignalPool (ESCANBasePoolSignal)>
+
+<!ELEMENT ES800CANNodeControllerSubNodeList (ES800CANNodeIODevice)*>
+
+<!ELEMENT ES800CANNodeControllerParameters (ES800CANNodeControllerParameters.Name, 
+                                                ES800CANNodeControllerParameters.Enabled, 
+                                                ES800CANNodeControllerParameters.Port, 
+                                                ES800CANNodeControllerParameters.BaudRate, 
+                                                ES800CANNodeControllerParameters.BaudRatePreScaler, 
+                                                ES800CANNodeControllerParameters.SyncJumpWidth, 
+                                                ES800CANNodeControllerParameters.TimeSegmentRegister1, 
+                                                ES800CANNodeControllerParameters.TimeSegmentRegister2, 
+                                                ES800CANNodeControllerParameters.SpecialBaudRate, 
+                                                ES800CANNodeControllerParameters.SampleMode, 
+                                                ES800CANNodeControllerParameters.CANdbFilee, 
+                                                ES800CANNodeControllerParameters.CANMode,
+                                                ES800CANNodeControllerParameters.TimingSpecificationMode,
+                                                ES800CANNodeControllerParameters.ASAMBaudRate,
+                                                ES800CANNodeControllerParameters.ASAMBTLCycles,
+                                                ES800CANNodeControllerParameters.ASAMSyncJumpWidth,
+                                                ES800CANNodeControllerParameters.ASAMSamplePoint,
+                                                ES800CANNodeControllerParameters.UseFDMode,
+                                                ES800CANNodeControllerParameters.DataBaudRate,
+                                                ES800CANNodeControllerParameters.ASAMDataBaudRate,
+                                                ES800CANNodeControllerParameters.ASAMDataBTLCycles,
+                                                ES800CANNodeControllerParameters.ASAMDataSyncJumpWidth,
+                                                ES800CANNodeControllerParameters.ASAMDataSamplePoint,
+                                                ES800CANNodeControllerParameters.FilterDuringBusIntegrationPhase,
+                                                ES800CANNodeControllerParameters.TransceiverDelayCompensationMode,
+                                                ES800CANNodeControllerParameters.TransceiverDelayCompensationOffset,
+                                                ES800CANNodeControllerParameters.FrameFormat)>
+
+<!ELEMENT ES800CANNodeControllerParameters.Name (ESParameterName)>
+<!ELEMENT ES800CANNodeControllerParameters.Enabled (ESParameterBoolean)>
+
+<!-- The enum values differ from the other CAN types. This is not a problem because of CopyPaste and HWX2 Importer set the values by name. 
+And in case the value can not be set, the parameter is ignored with a warning. -->
+<!ELEMENT ES800CANNodeControllerParameters.Port (ESParameterEnum)>
+<!ATTLIST ES800CANNodeControllerParameters.Port 
+    EnumText1      CDATA "CAN1"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "CAN2"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "CAN3"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "CAN4"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "CAN5"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+<!ELEMENT ES800CANNodeControllerParameters.BaudRate (ESParameterEnum)>
+<!ATTLIST ES800CANNodeControllerParameters.BaudRate
+    EnumText1      CDATA "1000000"
+    EnumL1Value1     CDATA "1000000"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "800000"
+    EnumL1Value2     CDATA "800000"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "666666"
+    EnumL1Value3     CDATA "666667"
+    EnumAvailable3 CDATA "1"
+  
+    EnumText4      CDATA "500000"
+    EnumL1Value4     CDATA "500000"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "250000"
+    EnumL1Value5     CDATA "250000"
+    EnumAvailable5 CDATA "1"
+
+    EnumText6      CDATA "125000"
+    EnumL1Value6     CDATA "125000"
+    EnumAvailable6 CDATA "1"
+
+    EnumText7      CDATA "100000"
+    EnumL1Value7     CDATA "100000"
+    EnumAvailable7 CDATA "1"
+
+    EnumText8      CDATA "83333"
+    EnumL1Value8     CDATA "83333"
+    EnumAvailable8 CDATA "1"
+  
+    EnumText9      CDATA "50000"
+    EnumL1Value9     CDATA "50000"
+    EnumAvailable9 CDATA "1"
+
+    EnumText10      CDATA "20000"
+    EnumL1Value10     CDATA "20000"
+    EnumAvailable10 CDATA "1"
+
+    EnumText11      CDATA "10000"
+    EnumL1Value11     CDATA "10000"
+    EnumAvailable11 CDATA "1"
+
+    EnumText12      CDATA "special settings"
+    EnumL1Value12     CDATA "0"
+    EnumAvailable12 CDATA "1"    
+>
+
+<!ELEMENT ES800CANNodeControllerParameters.BaudRatePreScaler (ESParameterUInt)>
+<!ELEMENT ES800CANNodeControllerParameters.SyncJumpWidth (ESParameterUInt)>
+<!ELEMENT ES800CANNodeControllerParameters.TimeSegmentRegister1 (ESParameterUInt)>
+<!ELEMENT ES800CANNodeControllerParameters.TimeSegmentRegister2 (ESParameterUInt)>
+<!ELEMENT ES800CANNodeControllerParameters.SpecialBaudRate (ESParameterUInt)>
+<!ELEMENT ES800CANNodeControllerParameters.SampleMode (ESParameterEnum)>
+<!ATTLIST ES800CANNodeControllerParameters.SampleMode
+    EnumText1      CDATA "one sample (fast)"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "three samples (safe)"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES800CANNodeControllerParameters.CANdbFilee (ESParameterString)>
+
+<!ELEMENT ES800CANNodeControllerParameters.CANMode (ESParameterEnum)>
+<!ATTLIST ES800CANNodeControllerParameters.CANMode
+    EnumText1      CDATA "High Speed"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Low Speed"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES800CANNodeControllerParameters.TimingSpecificationMode (ESParameterEnum)>
+<!ATTLIST ES800CANNodeControllerParameters.TimingSpecificationMode 
+    EnumText1      CDATA "CAN Controller compliant"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "ASAM compliant"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+  
+    EnumText3      CDATA "Default Values"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ES800CANNodeControllerParameters.ASAMBaudRate (ESParameterUInt)>
+<!ELEMENT ES800CANNodeControllerParameters.ASAMBTLCycles (ESParameterUInt)>
+<!ELEMENT ES800CANNodeControllerParameters.ASAMSyncJumpWidth (ESParameterUInt)>
+<!ELEMENT ES800CANNodeControllerParameters.ASAMSamplePoint (ESParameterUInt)>
+
+<!ELEMENT ES800CANNodeControllerParameters.UseFDMode (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeControllerParameters.DataBaudRate (ESParameterEnum)>
+<!ATTLIST ES800CANNodeControllerParameters.DataBaudRate
+    EnumText1      CDATA "10000000"
+    EnumL1Value1     CDATA "10000000"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "8000000"
+    EnumL1Value2     CDATA "8000000"
+    EnumAvailable2 CDATA "1"	
+	
+    EnumText3      CDATA "6666666"
+    EnumL1Value3     CDATA "6666667"
+    EnumAvailable3 CDATA "1"	
+	
+    EnumText4      CDATA "5000000"
+    EnumL1Value4     CDATA "5000000"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "4000000"
+    EnumL1Value5     CDATA "4000000"
+    EnumAvailable5 CDATA "1"
+
+    EnumText6      CDATA "3333333"
+    EnumL1Value6     CDATA "3333333"
+    EnumAvailable6 CDATA "1"
+  
+    EnumText7      CDATA "2000000"
+    EnumL1Value7     CDATA "2000000"
+    EnumAvailable7 CDATA "1"
+
+    EnumText8      CDATA "1000000"
+    EnumL1Value8     CDATA "1000000"
+    EnumAvailable8 CDATA "1"
+
+    EnumText9      CDATA "800000"
+    EnumL1Value9     CDATA "800000"
+    EnumAvailable9 CDATA "1"
+
+    EnumText10      CDATA "666666"
+    EnumL1Value10     CDATA "666667"
+    EnumAvailable10 CDATA "1"
+  
+    EnumText11      CDATA "500000"
+    EnumL1Value11     CDATA "500000"
+    EnumAvailable11 CDATA "1"
+  
+    EnumText12      CDATA "250000"
+    EnumL1Value12     CDATA "250000"
+    EnumAvailable12 CDATA "1"
+
+    EnumText13      CDATA "125000"
+    EnumL1Value13     CDATA "125000"
+    EnumAvailable13 CDATA "1"
+
+    EnumText14      CDATA "100000"
+    EnumL1Value14     CDATA "100000"
+    EnumAvailable14 CDATA "1"
+
+    EnumText15      CDATA "83333"
+    EnumL1Value15     CDATA "83333"
+    EnumAvailable15 CDATA "1"    
+
+    EnumText16      CDATA "50000"
+    EnumL1Value16     CDATA "50000"
+    EnumAvailable16 CDATA "1"    
+
+    EnumText17      CDATA "20000"
+    EnumL1Value17     CDATA "20000"
+    EnumAvailable17 CDATA "1"    
+
+    EnumText18      CDATA "10000"
+    EnumL1Value18     CDATA "10000"
+    EnumAvailable18 CDATA "1"    
+>
+<!ELEMENT ES800CANNodeControllerParameters.ASAMDataBaudRate (ESParameterUInt)>
+<!ELEMENT ES800CANNodeControllerParameters.ASAMDataBTLCycles (ESParameterUInt)>
+<!ELEMENT ES800CANNodeControllerParameters.ASAMDataSyncJumpWidth (ESParameterUInt)>
+<!ELEMENT ES800CANNodeControllerParameters.ASAMDataSamplePoint (ESParameterUInt)>
+<!ELEMENT ES800CANNodeControllerParameters.FilterDuringBusIntegrationPhase (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeControllerParameters.TransceiverDelayCompensationMode (ESParameterEnum)>
+<!ATTLIST ES800CANNodeControllerParameters.TransceiverDelayCompensationMode
+    EnumText1      CDATA "automatic"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+  
+    EnumText2      CDATA "off"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+<!ELEMENT ES800CANNodeControllerParameters.TransceiverDelayCompensationOffset (ESParameterUInt)>
+<!ELEMENT ES800CANNodeControllerParameters.FrameFormat (ESParameterEnum)>
+<!ATTLIST ES800CANNodeControllerParameters.FrameFormat
+    EnumText1      CDATA "ISO"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+  
+    EnumText2      CDATA "non-ISO"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES800CANNodeControllerL1Generation (ES800CANNodeControllerL1Generation.Reconnect, ES800CANNodeControllerL1Generation.UnionCase)>
+<!ATTLIST ES800CANNodeControllerL1Generation 
+    L1TreeIndex CDATA "-1"
+
+    AnalyzeApiIndexList CDATA ""
+>
+
+<!ELEMENT ES800CANNodeControllerL1Generation.UnionCase (ESCANBaseNodeCANControllerL1GenerationUnionCase)>
+
+<!ELEMENT ES800CANNodeControllerL1Generation.Reconnect (ESCANBaseNodeCANControllerL1GenerationReconnect)>
+
+<!-- IO device node -->
+
+<!ELEMENT ES800CANNodeIODevice (ES800CANNodeIODevice.Parameters, ES800CANNodeIODevice.L1Generation, ES800CANNodeIODevice.SubNodes)>
+<!ATTLIST ES800CANNodeIODevice
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBODevice ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ES800CANNodeIODevice.Parameters (ES800CANNodeIODeviceParameters)>
+<!ELEMENT ES800CANNodeIODevice.L1Generation (ES800CANNodeIODeviceL1Generation)>
+<!ELEMENT ES800CANNodeIODevice.SubNodes (ES800CANNodeIODeviceSubNodeList)>
+
+<!ELEMENT ES800CANNodeIODeviceParameters (ES800CANNodeIODeviceParameters.Name, 
+                                        ES800CANNodeIODeviceParameters.Enabled, 
+                                        ES800CANNodeIODeviceParameters.DefaultByteOrder, 
+                                        ES800CANNodeIODeviceParameters.DefaultCANIdentifierType, 
+                                        ES800CANNodeIODeviceParameters.ISR,
+                                        ES800CANNodeIODeviceParameters.IRQSource,
+                                        ES800CANNodeIODeviceParameters.DefaultFrameMode)>
+
+<!ELEMENT ES800CANNodeIODeviceParameters.Name (ESParameterName)>
+<!ELEMENT ES800CANNodeIODeviceParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeIODeviceParameters.DefaultByteOrder (ESParameterEnum)>
+<!ATTLIST ES800CANNodeIODeviceParameters.DefaultByteOrder
+    EnumText1      CDATA "little endian (Intel)"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "big endian (Motorola)"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES800CANNodeIODeviceParameters.DefaultCANIdentifierType (ESParameterEnum)>
+<!ATTLIST ES800CANNodeIODeviceParameters.DefaultCANIdentifierType
+    EnumText1      CDATA "standard (11 bit)"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "extended (29 bit)"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+<!ELEMENT ES800CANNodeIODeviceParameters.ISR (ESParameterString)>
+<!ELEMENT ES800CANNodeIODeviceParameters.IRQSource (ESParameterString)>
+
+<!ELEMENT ES800CANNodeIODeviceParameters.DefaultFrameMode (ESParameterEnum)>
+<!ATTLIST ES800CANNodeIODeviceParameters.DefaultFrameMode
+    EnumText1      CDATA "classic"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "FD"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES800CANNodeIODeviceL1Generation (ES800CANNodeIODeviceL1Generation.UnionCase, ES800CANNodeIODeviceL1Generation.Reconnect)>
+<!ATTLIST ES800CANNodeIODeviceL1Generation 
+    L1TreeIndex CDATA "-1"
+
+    APIROIDArray1 CDATA "-1"
+    APIROIDArray2 CDATA "-1"
+    APIROIDArray3 CDATA "-1"
+    APIROIDArray4 CDATA "-1"
+    APIROIDArray5 CDATA "-1"
+    APIROIDArray6 CDATA "-1"
+
+    DriverIndex CDATA "-1"
+    DeviceIndex CDATA "-1"
+    FrameCountSend CDATA "0"
+    FrameCountReceive CDATA "0"
+    IRQTriggeredSignalGroups CDATA "0"
+>
+
+<!ELEMENT ES800CANNodeIODeviceL1Generation.UnionCase (ESCANBaseNodeDeviceL1GenerationUnionCase)>
+<!ELEMENT ES800CANNodeIODeviceL1Generation.Reconnect (ESCANBaseNodeDeviceL1GenerationReconnect)>
+
+<!ELEMENT ES800CANNodeIODeviceSubNodeList (ESCANBaseNodeSignalGroup)*>

@@ -1,0 +1,865 @@
+<?DTDVersion "4.7.0"?>
+<?CompatibleDTDVersion "4.2.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!NOTATION ofTypeES4XXFoundationNodeMainBase SYSTEM "ES4XXFoundationNodeMainBase">
+<!NOTATION ofTypeES4XXFoundationNodeDeviceBase SYSTEM "ES4XXFoundationNodeDeviceBase">
+<!NOTATION ofTypeES4XXNodeSignal SYSTEM "ES4XXNodeSignal">
+<!NOTATION ofTypeES4XXNodeSignalBase SYSTEM "ES4XXNodeSignalBase">
+<!NOTATION ofTypeES4XXNodeSignalGroup SYSTEM "ES4XXNodeSignalGroup">
+<!NOTATION ofTypeES4XXNodeSignalGroupBase SYSTEM "ES4XXNodeSignalGroupBase">
+<!NOTATION ofTypeES4XXNodeSignalGroupReceive SYSTEM "ES4XXNodeSignalGroupReceive">
+<!NOTATION ofTypeES4XXNodeSignalGroupSend SYSTEM "ES4XXNodeSignalGroupSend">
+<!NOTATION ofTypeES4XXNodeSignalGroupStatus SYSTEM "ES4XXNodeSignalGroupStatus">
+<!NOTATION ofTypeES4XXNodeSignalReceive SYSTEM "ES4XXNodeSignalReceive">
+<!NOTATION ofTypeES4XXNodeSignalSend SYSTEM "ES4XXNodeSignalSend">
+<!NOTATION ofTypeES4XXNodeSignalStatus SYSTEM "ES4XXNodeSignalStatus">
+
+
+<?SuperClass ES4XXFoundationNodeMainBase->ESNodeMain ?>
+<?SuperClass ES4XXFoundationNodeDeviceBase->ESNodeDevice ?>
+<?SuperClass ES4XXNodeSignal->ES4XXNodeSignalBase ?>
+<?SuperClass ES4XXNodeSignalBase->ESNodeSignal ?>
+<?SuperClass ES4XXNodeSignalGroup->ES4XXNodeSignalGroupBase ?>
+<?SuperClass ES4XXNodeSignalGroupBase->ESNodeSignalGroup ?>
+<?SuperClass ES4XXNodeSignalGroupReceive->ES4XXNodeSignalGroup ?>
+<?SuperClass ES4XXNodeSignalGroupSend->ES4XXNodeSignalGroup ?>
+<?SuperClass ES4XXNodeSignalGroupStatus->ES4XXNodeSignalGroupBase ?>
+<?SuperClass ES4XXNodeSignalReceive->ES4XXNodeSignal ?>
+<?SuperClass ES4XXNodeSignalSend->ES4XXNodeSignal ?>
+<?SuperClass ES4XXNodeSignalStatus->ES4XXNodeSignalBase ?>
+
+<!-- node main -->
+
+<!ELEMENT ES4XXFoundationNodeMainBase (ES4XXFoundationNodeMainBase.Parameters, ES4XXFoundationNodeMainBase.L1Generation, ES4XXFoundationNodeMainBase.SubNodes, ES4XXFoundationNodeMainBase.VariableParameters, _System)>
+<!ATTLIST ES4XXFoundationNodeMainBase
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOBoard ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOCPUBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ES4XXFoundationNodeMainBase.Parameters (ES4XXFoundationNodeMainBaseParameters)>
+<!ELEMENT ES4XXFoundationNodeMainBase.L1Generation (ES4XXFoundationNodeMainBaseL1Generation)>
+<!ELEMENT ES4XXFoundationNodeMainBase.SubNodes (ES4XXFoundationNodeMainBaseSubNodeList)>
+<!ELEMENT ES4XXFoundationNodeMainBase.VariableParameters (ES4XXVariableParameters)>
+
+<!ELEMENT ES4XXFoundationNodeMainBaseL1Generation (ES4XXFoundationNodeMainBaseL1Generation.NotRunning, ES4XXFoundationNodeMainBaseL1Generation.Reconnect, ES4XXFoundationNodeMainBaseL1Generation.WriteToStream)>
+<!ATTLIST ES4XXFoundationNodeMainBaseL1Generation
+    L1TreeIndex CDATA "-1"
+
+    ConfigROID CDATA "-1"
+>
+
+<!ELEMENT ES4XXFoundationNodeMainBaseL1Generation.NotRunning (ES4XXNodeMainL1GenerationNotRunning)>
+<!ELEMENT ES4XXFoundationNodeMainBaseL1Generation.Reconnect (ES4XXNodeMainL1GenerationReconnect)>
+<!ELEMENT ES4XXFoundationNodeMainBaseL1Generation.WriteToStream (ES4XXNodeMainL1GenerationWriteToStream)>
+
+<!ELEMENT ES4XXNodeMainL1GenerationNotRunning EMPTY>
+<!ELEMENT ES4XXNodeMainL1GenerationReconnect EMPTY>
+<!ELEMENT ES4XXNodeMainL1GenerationWriteToStream EMPTY>
+
+<!ELEMENT ES4XXFoundationNodeMainBaseParameters (ES4XXFoundationNodeMainBaseParameters.Name, ES4XXFoundationNodeMainBaseParameters.Enabled)>
+
+<!ELEMENT ES4XXFoundationNodeMainBaseParameters.Name (ESParameterName)>
+<!ELEMENT ES4XXFoundationNodeMainBaseParameters.Enabled (ESParameterBoolean)>
+
+
+<!ELEMENT ES4XXFoundationNodeMainBaseSubNodeList (ES4XXFoundationNodeDeviceBase)*>
+
+<!-- node device -->
+
+<!ELEMENT ES4XXFoundationNodeDeviceBase (ES4XXFoundationNodeDeviceBase.Parameters, ES4XXFoundationNodeDeviceBase.L1Generation, ES4XXFoundationNodeDeviceBase.SubNodes, ES4XXFoundationNodeDeviceBase.VariableParameters)>
+<!ATTLIST ES4XXFoundationNodeDeviceBase
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBODevice ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ES4XXFoundationNodeDeviceBase.Parameters (ES4XXFoundationNodeDeviceBaseParameters)>
+<!ELEMENT ES4XXFoundationNodeDeviceBase.L1Generation (ES4XXFoundationNodeDeviceBaseL1Generation)>
+<!ELEMENT ES4XXFoundationNodeDeviceBase.SubNodes (ES4XXFoundationNodeDeviceBaseSubNodeList)>
+<!ELEMENT ES4XXFoundationNodeDeviceBase.VariableParameters (ES4XXVariableParameters)>
+
+<!ELEMENT ES4XXFoundationNodeDeviceBaseL1Generation (ES4XXFoundationNodeDeviceBaseL1Generation.UnionCase , ES4XXFoundationNodeDeviceBaseL1Generation.Reconnect)>
+<!ATTLIST ES4XXFoundationNodeDeviceBaseL1Generation
+    L1TreeIndex CDATA "-1"
+
+    APIROIDArray1 CDATA "-1"
+    APIROIDArray2 CDATA "-1"
+    APIROIDArray3 CDATA "-1"
+    APIROIDArray4 CDATA "-1"
+    APIROIDArray5 CDATA "-1"
+    APIROIDArray6 CDATA "-1"
+
+    IRQTriggeredSignalGroups CDATA "0"
+    L1SignalGroupCount CDATA "0"
+>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseL1Generation.UnionCase (ES4XXNodeDeviceL1GenerationUnionCase)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseL1Generation.Reconnect (ES4XXNodeDeviceL1GenerationReconnect)>
+
+<!ELEMENT ES4XXNodeDeviceL1GenerationUnionCase EMPTY>
+<!ELEMENT ES4XXNodeDeviceL1GenerationReconnect EMPTY>
+
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters (ES4XXFoundationNodeDeviceBaseParameters.Name,ES4XXFoundationNodeDeviceBaseParameters.Enabled,ES4XXFoundationNodeDeviceBaseParameters.ChainName,ES4XXFoundationNodeDeviceBaseParameters.ConfigurationFile,ES4XXFoundationNodeDeviceBaseParameters.ConfigurationFileVersion,ES4XXFoundationNodeDeviceBaseParameters.GCFFileName,ES4XXFoundationNodeDeviceBaseParameters.IPAddress,ES4XXFoundationNodeDeviceBaseParameters.ShowStatusSignalForDevice, ES4XXFoundationNodeDeviceBaseParameters.XCPVersion, ES4XXFoundationNodeDeviceBaseParameters.UDPIPVersion, ES4XXFoundationNodeDeviceBaseParameters.Port, ES4XXFoundationNodeDeviceBaseParameters.EPKValue, ES4XXFoundationNodeDeviceBaseParameters.EPKAddress, ES4XXFoundationNodeDeviceBaseParameters.EPKValueLength, ES4XXFoundationNodeDeviceBaseParameters.DAQ_MaxODTEntrySize, ES4XXFoundationNodeDeviceBaseParameters.DAQ_MaxEntries,ES4XXFoundationNodeDeviceBaseParameters.DAQ_MinEntries, ES4XXFoundationNodeDeviceBaseParameters.STIM_MaxODTEntrySize, ES4XXFoundationNodeDeviceBaseParameters.STIM_MaxEntries, ES4XXFoundationNodeDeviceBaseParameters.STIM_MinEntries, ES4XXFoundationNodeDeviceBaseParameters.TimestampSize, ES4XXFoundationNodeDeviceBaseParameters.ISR, ES4XXFoundationNodeDeviceBaseParameters.RapidPrototypingEnabled)>
+
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.Name (ESParameterName)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.ChainName (ESParameterString)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.ConfigurationFile (ESParameterString)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.ConfigurationFileVersion (ESParameterUInt)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.GCFFileName (ESParameterString)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.IPAddress (ESParameterString)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.ShowStatusSignalForDevice (ESParameterBoolean)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.XCPVersion (ESParameterUInt)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.UDPIPVersion (ESParameterUInt)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.Port (ESParameterUInt)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.EPKValue (ESParameterString)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.EPKAddress (ESParameterUInt)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.EPKValueLength (ESParameterUInt)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.DAQ_MaxODTEntrySize (ESParameterUInt)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.DAQ_MaxEntries (ESParameterUInt)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.DAQ_MinEntries (ESParameterUInt)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.STIM_MaxODTEntrySize (ESParameterUInt)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.STIM_MaxEntries (ESParameterUInt)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.STIM_MinEntries (ESParameterUInt)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.TimestampSize (ESParameterEnum)>
+<!ATTLIST ES4XXFoundationNodeDeviceBaseParameters.TimestampSize  
+    EnumText1      CDATA "NO_TIME_STAMP"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "SIZE_DWORD"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.ISR (ESParameterString)>
+<!ELEMENT ES4XXFoundationNodeDeviceBaseParameters.RapidPrototypingEnabled (ESParameterBoolean)>
+
+
+<!ELEMENT ES4XXFoundationNodeDeviceBaseSubNodeList (ES4XXNodeSignalGroupSend | ES4XXNodeSignalGroupReceive | ES4XXNodeSignalGroupStatus)*>
+
+<!-- node signal group base -->
+
+<!ELEMENT ES4XXNodeSignalGroupBase (ES4XXNodeSignalGroupBase.SubNodes)>
+<!ATTLIST ES4XXNodeSignalGroupBase
+    Name ID #REQUIRED
+>
+
+<!ELEMENT ES4XXNodeSignalGroupBase.SubNodes (ESSubNodeList)>
+
+<!ELEMENT ES4XXNodeSignalGroupBaseParameters (ES4XXNodeSignalGroupBaseParameters.Name,ES4XXNodeSignalGroupBaseParameters.Direction, ES4XXNodeSignalGroupBaseParameters.Task)>
+
+<!ELEMENT ES4XXNodeSignalGroupBaseParameters.Name (ESParameterName)>
+<!ELEMENT ES4XXNodeSignalGroupBaseParameters.Task (ESParameterString)>
+<!ELEMENT ES4XXNodeSignalGroupBaseParameters.Direction (ESParameterEnum)>
+
+<!ELEMENT ES4XXNodeSignalGroupBaseSubNodeList EMPTY>
+
+
+<!-- node signal group -->
+
+<!ELEMENT ES4XXNodeSignalGroup (ES4XXNodeSignalGroup.SubNodes)>
+<!ATTLIST ES4XXNodeSignalGroup
+    Name ID #REQUIRED
+>
+
+
+<!ELEMENT ES4XXNodeSignalGroup.SubNodes (ESSubNodeList)>
+
+<!ELEMENT ES4XXNodeSignalGroupParameters (ES4XXNodeSignalGroupParameters.CycleTime, ES4XXNodeSignalGroupParameters.MaxODT, ES4XXNodeSignalGroupParameters.MaxODTEntries, ES4XXNodeSignalGroupParameters.EventChannelNumber, ES4XXNodeSignalGroupParameters.DAQListNumber, ES4XXNodeSignalGroupParameters.Name, ES4XXNodeSignalGroupParameters.Direction, ES4XXNodeSignalGroupParameters.Polling, ES4XXNodeSignalGroupParameters.dTMonitoring, ES4XXNodeSignalGroupParameters.Task, ES4XXNodeSignalGroupParameters.RasterType)>
+
+<!ELEMENT ES4XXNodeSignalGroupParameters.CycleTime (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalGroupParameters.MaxODT (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalGroupParameters.MaxODTEntries (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalGroupParameters.EventChannelNumber (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalGroupParameters.DAQListNumber (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalGroupParameters.Name (ESParameterName)>
+<!ELEMENT ES4XXNodeSignalGroupParameters.Direction (ESParameterEnum)>
+<!ELEMENT ES4XXNodeSignalGroupParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ES4XXNodeSignalGroupParameters.dTMonitoring (ESParameterBoolean)>
+<!ELEMENT ES4XXNodeSignalGroupParameters.Task (ESParameterString)>
+<!ELEMENT ES4XXNodeSignalGroupParameters.RasterType (ESParameterEnum)>
+
+<!ELEMENT ES4XXNodeSignalGroupSubNodeList EMPTY>
+
+
+<!-- node signal group send -->
+
+<!ELEMENT ES4XXNodeSignalGroupSend (ES4XXNodeSignalGroupSend.Parameters, ES4XXNodeSignalGroupSend.L1Generation, ES4XXNodeSignalGroupSend.SubNodes, ES4XXNodeSignalGroupSend.VariableParameters)>
+<!ATTLIST ES4XXNodeSignalGroupSend
+    Name ID #REQUIRED
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+<!ELEMENT ES4XXNodeSignalGroupSend.Parameters (ES4XXNodeSignalGroupSendParameters)>
+<!ELEMENT ES4XXNodeSignalGroupSend.L1Generation (ES4XXNodeSignalGroupSendL1Generation)>
+<!ELEMENT ES4XXNodeSignalGroupSend.SubNodes (ES4XXNodeSignalGroupSendSubNodeList)>
+<!ELEMENT ES4XXNodeSignalGroupSend.VariableParameters (ES4XXVariableParameters)>
+
+<!ELEMENT ES4XXNodeSignalGroupSendL1Generation (ES4XXNodeSignalGroupSendL1Generation.UnionCase, ES4XXNodeSignalGroupSendL1Generation.Reconnect)>
+<!ATTLIST ES4XXNodeSignalGroupSendL1Generation  
+    L1TreeIndex CDATA "-1"
+
+    APIROID CDATA "-1"
+>
+
+<!ELEMENT ES4XXNodeSignalGroupSendL1Generation.UnionCase (ES4XXNodeSignalGroupSendL1GenerationUnionCase)>
+<!ELEMENT ES4XXNodeSignalGroupSendL1Generation.Reconnect (ESL1GenerationCaseSignalGroupReconnect)>
+
+<!ELEMENT ES4XXNodeSignalGroupSendL1GenerationUnionCase EMPTY>
+
+<!ELEMENT ES4XXNodeSignalGroupSendParameters (ES4XXNodeSignalGroupSendParameters.Name,ES4XXNodeSignalGroupSendParameters.Enabled,ES4XXNodeSignalGroupSendParameters.Direction, ES4XXNodeSignalGroupSendParameters.Polling, ES4XXNodeSignalGroupSendParameters.dTMonitoring,ES4XXNodeSignalGroupSendParameters.CycleTime, ES4XXNodeSignalGroupSendParameters.MaxODT, ES4XXNodeSignalGroupSendParameters.MaxODTEntries, ES4XXNodeSignalGroupSendParameters.FirstPID, ES4XXNodeSignalGroupSendParameters.EventChannelNumber, ES4XXNodeSignalGroupSendParameters.DAQListNumber, ES4XXNodeSignalGroupSendParameters.Task, ES4XXNodeSignalGroupSendParameters.RasterType)>
+
+<!ELEMENT ES4XXNodeSignalGroupSendParameters.Name (ESParameterName)>
+<!ELEMENT ES4XXNodeSignalGroupSendParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES4XXNodeSignalGroupSendParameters.Task (ESParameterString)>
+<!ELEMENT ES4XXNodeSignalGroupSendParameters.Direction (ESParameterEnum)>
+<!ATTLIST ES4XXNodeSignalGroupSendParameters.Direction 
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES4XXNodeSignalGroupSendParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ES4XXNodeSignalGroupSendParameters.dTMonitoring (ESParameterBoolean)>
+<!ELEMENT ES4XXNodeSignalGroupSendParameters.CycleTime (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalGroupSendParameters.MaxODT (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalGroupSendParameters.MaxODTEntries (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalGroupSendParameters.FirstPID (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalGroupSendParameters.EventChannelNumber (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalGroupSendParameters.DAQListNumber (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalGroupSendParameters.RasterType (ESParameterEnum)>
+<!ATTLIST ES4XXNodeSignalGroupSendParameters.RasterType 
+    EnumText1      CDATA "event"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+            
+    EnumText2      CDATA "time-triggered"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+                
+    EnumText3      CDATA "output"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ES4XXNodeSignalGroupSendSubNodeList (ES4XXNodeSignalSend)*>
+
+<!-- node signal group receive -->
+
+<!ELEMENT ES4XXNodeSignalGroupReceive (ES4XXNodeSignalGroupReceive.Parameters, ES4XXNodeSignalGroupReceive.L1Generation, ES4XXNodeSignalGroupReceive.SubNodes, ES4XXNodeSignalGroupReceive.VariableParameters)>
+<!ATTLIST ES4XXNodeSignalGroupReceive
+    Name ID #REQUIRED
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+  MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+<!ELEMENT ES4XXNodeSignalGroupReceive.Parameters (ES4XXNodeSignalGroupReceiveParameters)>
+<!ELEMENT ES4XXNodeSignalGroupReceive.L1Generation (ES4XXNodeSignalGroupReceiveL1Generation)>
+<!ELEMENT ES4XXNodeSignalGroupReceive.SubNodes (ES4XXNodeSignalGroupReceiveSubNodeList)>
+<!ELEMENT ES4XXNodeSignalGroupReceive.VariableParameters (ES4XXVariableParameters)>
+
+<!ELEMENT ES4XXNodeSignalGroupReceiveL1Generation (ES4XXNodeSignalGroupReceiveL1Generation.UnionCase, ES4XXNodeSignalGroupReceiveL1Generation.Reconnect)>
+<!ATTLIST ES4XXNodeSignalGroupReceiveL1Generation  
+    L1TreeIndex CDATA "-1"
+
+    APIROID CDATA "-1"
+    MonitoringROID CDATA "-1"
+    ActivationCount CDATA "0"
+    ExecutionROID CDATA "-1"
+>
+
+<!ELEMENT ES4XXNodeSignalGroupReceiveL1Generation.UnionCase (ES4XXNodeSignalGroupReceiveL1GenerationUnionCase)>
+<!ELEMENT ES4XXNodeSignalGroupReceiveL1Generation.Reconnect (ES4XXNodeSignalGroupReceiveL1GenerationReconnect)>
+
+<!ELEMENT ES4XXNodeSignalGroupReceiveL1GenerationUnionCase EMPTY>
+<!ELEMENT ES4XXNodeSignalGroupReceiveL1GenerationReconnect EMPTY>
+
+<!ELEMENT ES4XXNodeSignalGroupReceiveParameters (ES4XXNodeSignalGroupReceiveParameters.Name, ES4XXNodeSignalGroupReceiveParameters.Enabled, ES4XXNodeSignalGroupReceiveParameters.Direction, ES4XXNodeSignalGroupReceiveParameters.Polling, ES4XXNodeSignalGroupReceiveParameters.dTMonitoring, ES4XXNodeSignalGroupReceiveParameters.CycleTime, ES4XXNodeSignalGroupReceiveParameters.ShowStatusSignalForSignalGroup, ES4XXNodeSignalGroupReceiveParameters.MaxODT, ES4XXNodeSignalGroupReceiveParameters.MaxODTEntries, ES4XXNodeSignalGroupReceiveParameters.FirstPID, ES4XXNodeSignalGroupReceiveParameters.EventChannelNumber, ES4XXNodeSignalGroupReceiveParameters.DAQListNumber, ES4XXNodeSignalGroupReceiveParameters.Task, ES4XXNodeSignalGroupReceiveParameters.RasterType)>
+
+<!ELEMENT ES4XXNodeSignalGroupReceiveParameters.Name (ESParameterName)>
+<!ELEMENT ES4XXNodeSignalGroupReceiveParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES4XXNodeSignalGroupReceiveParameters.Task (ESParameterString)>
+<!ELEMENT ES4XXNodeSignalGroupReceiveParameters.Direction (ESParameterEnum)>
+<!ATTLIST ES4XXNodeSignalGroupReceiveParameters.Direction 
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES4XXNodeSignalGroupReceiveParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ES4XXNodeSignalGroupReceiveParameters.dTMonitoring (ESParameterBoolean)>
+<!ELEMENT ES4XXNodeSignalGroupReceiveParameters.CycleTime (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalGroupReceiveParameters.ShowStatusSignalForSignalGroup (ESParameterBoolean)>
+<!ELEMENT ES4XXNodeSignalGroupReceiveParameters.MaxODT (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalGroupReceiveParameters.MaxODTEntries (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalGroupReceiveParameters.FirstPID (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalGroupReceiveParameters.EventChannelNumber (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalGroupReceiveParameters.DAQListNumber (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalGroupReceiveParameters.RasterType (ESParameterEnum)>
+<!ATTLIST ES4XXNodeSignalGroupReceiveParameters.RasterType 
+    EnumText1      CDATA "event"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+            
+    EnumText2      CDATA "time-triggered"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+                
+    EnumText3      CDATA "output"
+    EnumL1Value3    CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ES4XXNodeSignalGroupReceiveSubNodeList (ES4XXNodeSignalReceive | ES4XXNodeSignalStatus)*>
+
+<!-- node signal group status -->
+
+<!ELEMENT ES4XXNodeSignalGroupStatus (ES4XXNodeSignalGroupStatus.Parameters, ES4XXNodeSignalGroupStatus.L1Generation, ES4XXNodeSignalGroupStatus.SubNodes, ES4XXNodeSignalGroupStatus.VariableParameters)>
+<!ATTLIST ES4XXNodeSignalGroupStatus
+    Name ID #REQUIRED
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+<!ELEMENT ES4XXNodeSignalGroupStatus.Parameters (ES4XXNodeSignalGroupStatusParameters)>
+<!ELEMENT ES4XXNodeSignalGroupStatus.L1Generation (ES4XXNodeSignalGroupStatusL1Generation)>
+<!ELEMENT ES4XXNodeSignalGroupStatus.SubNodes (ES4XXNodeSignalGroupStatusSubNodeList)>
+<!ELEMENT ES4XXNodeSignalGroupStatus.VariableParameters (ES4XXVariableParameters)>
+
+<!ELEMENT ES4XXNodeSignalGroupStatusL1Generation (ES4XXNodeSignalGroupStatusL1Generation.UnionCase, ES4XXNodeSignalGroupStatusL1Generation.Reconnect)>
+<!ATTLIST ES4XXNodeSignalGroupStatusL1Generation  
+    L1TreeIndex CDATA "-1"
+
+    APIROID CDATA "-1"
+>
+
+<!ELEMENT ES4XXNodeSignalGroupStatusL1Generation.UnionCase (ES4XXNodeSignalGroupStatusL1GenerationUnionCase)>
+<!ELEMENT ES4XXNodeSignalGroupStatusL1Generation.Reconnect (ESL1GenerationCaseSignalGroupReconnect)>
+
+<!ELEMENT ES4XXNodeSignalGroupStatusL1GenerationUnionCase EMPTY>
+
+<!ELEMENT ES4XXNodeSignalGroupStatusParameters (ES4XXNodeSignalGroupStatusParameters.Name, ES4XXNodeSignalGroupStatusParameters.Enabled,ES4XXNodeSignalGroupStatusParameters.Direction, ES4XXNodeSignalGroupStatusParameters.Task)>
+
+<!ELEMENT ES4XXNodeSignalGroupStatusParameters.Name (ESParameterName)>
+<!ELEMENT ES4XXNodeSignalGroupStatusParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES4XXNodeSignalGroupStatusParameters.Task (ESParameterString)>
+<!ELEMENT ES4XXNodeSignalGroupStatusParameters.Direction (ESParameterEnum)>
+<!ATTLIST ES4XXNodeSignalGroupStatusParameters.Direction  
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES4XXNodeSignalGroupStatusSubNodeList (ES4XXNodeSignalStatus)*>
+
+<!-- node signal base -->
+
+<!ELEMENT ES4XXNodeSignalBase (ES4XXNodeSignalBase.SubNodes)>
+<!ATTLIST ES4XXNodeSignalBase
+    Name ID #REQUIRED
+>
+
+
+<!ELEMENT ES4XXNodeSignalBase.SubNodes (ESSubNodeList)>
+
+<!ELEMENT ES4XXNodeSignalBaseParameters (ES4XXNodeSignalBaseParameters.Name, ES4XXNodeSignalBaseParameters.SignalType, ES4XXNodeSignalBaseParameters.Unit, ES4XXNodeSignalBaseParameters.FormulaVisible, ES4XXNodeSignalBaseParameters.Min, ES4XXNodeSignalBaseParameters.Max, ES4XXNodeSignalBaseParameters.InitValue, ES4XXNodeSignalBaseParameters.Message)>
+
+<!ELEMENT ES4XXNodeSignalBaseParameters.Name (ESParameterName)>
+<!ELEMENT ES4XXNodeSignalBaseParameters.SignalType (ESParameterEnum)>
+<!ELEMENT ES4XXNodeSignalBaseParameters.Unit (ESParameterString)>
+<!ELEMENT ES4XXNodeSignalBaseParameters.FormulaVisible (ESParameterUnion)>
+<!ELEMENT ES4XXNodeSignalBaseParameters.Min (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalBaseParameters.Max (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalBaseParameters.InitValue (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalBaseParameters.Message (ESParameterString)>
+
+<!ELEMENT ES4XXNodeSignalBaseSubNodeList EMPTY>
+
+
+<!-- node signal -->
+
+<!ELEMENT ES4XXNodeSignal (ES4XXNodeSignal.SubNodes)>
+<!ATTLIST ES4XXNodeSignal
+    Name ID #REQUIRED
+>
+
+
+
+
+<!ELEMENT ES4XXNodeSignal.SubNodes (ESSubNodeList)>
+
+<!ELEMENT ES4XXNodeSignalParameters (ES4XXNodeSignalParameters.Formula, ES4XXNodeSignalParameters.Module, ES4XXNodeSignalParameters.ChannelNumber, ES4XXNodeSignalParameters.RangeMin, ES4XXNodeSignalParameters.RangeMax, ES4XXNodeSignalParameters.RealRangeMin, ES4XXNodeSignalParameters.RealRangeMax, ES4XXNodeSignalParameters.ODTEntryNumber, ES4XXNodeSignalParameters.ODTEntrySize, ES4XXNodeSignalParameters.CbbIndex, ES4XXNodeSignalParameters.Name, ES4XXNodeSignalParameters.SignalType, ES4XXNodeSignalParameters.Unit, ES4XXNodeSignalParameters.FormulaVisible, ES4XXNodeSignalParameters.Min, ES4XXNodeSignalParameters.Max, ES4XXNodeSignalParameters.InitValue, ES4XXNodeSignalParameters.Message, ES4XXNodeSignalParameters.BitMask)>
+
+<!ELEMENT ES4XXNodeSignalParameters.Formula (ESParameterUnion)>
+<!ELEMENT ES4XXNodeSignalParameters.Module (ESParameterString)>
+<!ELEMENT ES4XXNodeSignalParameters.ChannelNumber (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalParameters.RangeMin (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalParameters.RangeMax (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalParameters.RealRangeMin (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalParameters.RealRangeMax (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalParameters.ODTEntryNumber (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalParameters.ODTEntrySize (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalParameters.CbbIndex (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalParameters.Name (ESParameterName)>
+<!ELEMENT ES4XXNodeSignalParameters.SignalType (ESParameterEnum)>
+<!ELEMENT ES4XXNodeSignalParameters.Unit (ESParameterString)>
+<!ELEMENT ES4XXNodeSignalParameters.FormulaVisible (ESParameterUnion)>
+<!ELEMENT ES4XXNodeSignalParameters.Min (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalParameters.Max (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalParameters.InitValue (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalParameters.Message (ESParameterString)>
+<!ELEMENT ES4XXNodeSignalParameters.BitMask (ESParameterUInt)>
+
+<!ELEMENT ES4XXNodeSignalSubNodeList EMPTY>
+
+<!-- node signal send -->
+
+<!ELEMENT ES4XXNodeSignalSend (ES4XXNodeSignalSend.Parameters, ES4XXNodeSignalSend.L1Generation, ES4XXNodeSignalSend.SubNodes, ES4XXNodeSignalSend.VariableParameters)>
+<!ATTLIST ES4XXNodeSignalSend
+    Name ID #REQUIRED
+    GlobalObject.ofTypeYBOHWPort ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+<!ELEMENT ES4XXNodeSignalSend.Parameters (ES4XXNodeSignalSendParameters)>
+<!ELEMENT ES4XXNodeSignalSend.L1Generation (ES4XXNodeSignalSendL1Generation)>
+<!ELEMENT ES4XXNodeSignalSend.SubNodes (ES4XXNodeSignalSendSubNodeList)>
+<!ELEMENT ES4XXNodeSignalSend.VariableParameters (ES4XXVariableParameters)>
+
+
+<!ELEMENT ES4XXNodeSignalSendL1Generation (ES4XXNodeSignalSendL1Generation.UnionCase, ES4XXNodeSignalSendL1Generation.Reconnect)>
+<!ATTLIST ES4XXNodeSignalSendL1Generation  
+    L1TreeIndex CDATA "-1"
+    
+    MappingROID CDATA "-1"
+>
+
+<!ELEMENT ES4XXNodeSignalSendL1Generation.UnionCase (ES4XXNodeSignalSendL1GenerationUnionCase)>
+<!ELEMENT ES4XXNodeSignalSendL1Generation.Reconnect (ESL1GenerationCaseSignalReconnect)>
+
+<!ELEMENT ES4XXNodeSignalSendL1GenerationUnionCase EMPTY>
+
+
+<!ELEMENT ES4XXNodeSignalSendParameters (ES4XXNodeSignalSendParameters.Name, ES4XXNodeSignalSendParameters.Enabled, ES4XXNodeSignalSendParameters.SignalType, ES4XXNodeSignalSendParameters.Unit, ES4XXNodeSignalSendParameters.FormulaVisible, ES4XXNodeSignalSendParameters.Min, ES4XXNodeSignalSendParameters.Max, ES4XXNodeSignalSendParameters.InitValue, ES4XXNodeSignalSendParameters.Formula, ES4XXNodeSignalSendParameters.Module, ES4XXNodeSignalSendParameters.DataType, ES4XXNodeSignalSendParameters.ChannelNumber, ES4XXNodeSignalSendParameters.RangeMin, ES4XXNodeSignalSendParameters.RangeMax, ES4XXNodeSignalSendParameters.RealRangeMin, ES4XXNodeSignalSendParameters.RealRangeMax, ES4XXNodeSignalSendParameters.ODTEntryNumber, ES4XXNodeSignalSendParameters.ODTEntrySize, ES4XXNodeSignalSendParameters.CbbIndex, ES4XXNodeSignalSendParameters.Message, ES4XXNodeSignalSendParameters.BitMask)>
+
+<!ELEMENT ES4XXNodeSignalSendParameters.Name (ESParameterName)>
+<!ELEMENT ES4XXNodeSignalSendParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES4XXNodeSignalSendParameters.SignalType (ESParameterEnum)>
+<!ATTLIST ES4XXNodeSignalSendParameters.SignalType
+    EnumText1      CDATA "cont"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "sdisc"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "udisc"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "boolean"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "enum"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+<!ELEMENT ES4XXNodeSignalSendParameters.Unit (ESParameterString)>
+<!ELEMENT ES4XXNodeSignalSendParameters.FormulaVisible (ESParameterUnion)>
+<!ELEMENT ES4XXNodeSignalSendParameters.Min (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalSendParameters.Max (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalSendParameters.InitValue (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalSendParameters.Formula (ESParameterUnion)>
+
+<!ELEMENT ES4XXNodeSignalSendParameters.Module (ESParameterString)>
+<!ELEMENT ES4XXNodeSignalSendParameters.DataType (ESParameterEnum)>
+<!ATTLIST ES4XXNodeSignalSendParameters.DataType
+    EnumText1      CDATA "boolean"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "uint8"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "sint8"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "uint16"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "sint16"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+
+    EnumText6      CDATA "uint32"
+    EnumL1Value6     CDATA "5"
+    EnumAvailable6 CDATA "1"
+
+    EnumText7      CDATA "sint32"
+    EnumL1Value7     CDATA "6"
+    EnumAvailable7 CDATA "1"
+
+    EnumText8      CDATA "real32"
+    EnumL1Value8     CDATA "7"
+    EnumAvailable8 CDATA "1"
+
+    EnumText9      CDATA "real64"
+    EnumL1Value9     CDATA "8"
+    EnumAvailable9 CDATA "1"
+>
+
+
+<!ELEMENT ES4XXNodeSignalSendParameters.ChannelNumber (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalSendParameters.RangeMin (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalSendParameters.RangeMax (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalSendParameters.RealRangeMin (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalSendParameters.RealRangeMax (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalSendParameters.ODTEntryNumber (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalSendParameters.ODTEntrySize (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalSendParameters.CbbIndex (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalSendParameters.Message (ESParameterString)>
+<!ELEMENT ES4XXNodeSignalSendParameters.BitMask (ESParameterUInt)>
+
+<!ELEMENT ES4XXNodeSignalSendSubNodeList EMPTY>
+
+
+<!-- node signal receive -->
+
+<!ELEMENT ES4XXNodeSignalReceive (ES4XXNodeSignalReceive.Parameters, ES4XXNodeSignalReceive.L1Generation, ES4XXNodeSignalReceive.SubNodes, ES4XXNodeSignalReceive.VariableParameters)>
+<!ATTLIST ES4XXNodeSignalReceive
+    Name ID #REQUIRED
+    GlobalObject.ofTypeYBOHWPort ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+<!ELEMENT ES4XXNodeSignalReceive.Parameters (ES4XXNodeSignalReceiveParameters)>
+<!ELEMENT ES4XXNodeSignalReceive.L1Generation (ES4XXNodeSignalReceiveL1Generation)>
+<!ELEMENT ES4XXNodeSignalReceive.SubNodes (ES4XXNodeSignalReceiveSubNodeList)>
+<!ELEMENT ES4XXNodeSignalReceive.VariableParameters (ES4XXVariableParameters)>
+
+<!ELEMENT ES4XXNodeSignalReceiveL1Generation (ES4XXNodeSignalReceiveL1Generation.UnionCase, ES4XXNodeSignalReceiveL1Generation.Reconnect)>
+<!ATTLIST ES4XXNodeSignalReceiveL1Generation  
+    L1TreeIndex CDATA "-1"
+    
+    MappingROID CDATA "-1"
+>
+
+<!ELEMENT ES4XXNodeSignalReceiveL1Generation.UnionCase (ES4XXNodeSignalReceiveL1GenerationUnionCase)>
+<!ELEMENT ES4XXNodeSignalReceiveL1Generation.Reconnect (ESL1GenerationCaseSignalReconnect)>
+
+<!ELEMENT ES4XXNodeSignalReceiveL1GenerationUnionCase EMPTY>
+
+<!ELEMENT ES4XXNodeSignalReceiveParameters (ES4XXNodeSignalReceiveParameters.Name, ES4XXNodeSignalReceiveParameters.Enabled, ES4XXNodeSignalReceiveParameters.SignalType, ES4XXNodeSignalReceiveParameters.Unit, ES4XXNodeSignalReceiveParameters.FormulaVisible, ES4XXNodeSignalReceiveParameters.Min, ES4XXNodeSignalReceiveParameters.Max, ES4XXNodeSignalReceiveParameters.InitValue, ES4XXNodeSignalReceiveParameters.Formula, ES4XXNodeSignalReceiveParameters.Module,ES4XXNodeSignalReceiveParameters.DataType, ES4XXNodeSignalReceiveParameters.ChannelNumber, ES4XXNodeSignalReceiveParameters.RangeMin, ES4XXNodeSignalReceiveParameters.RangeMax, ES4XXNodeSignalReceiveParameters.RealRangeMin, ES4XXNodeSignalReceiveParameters.RealRangeMax, ES4XXNodeSignalReceiveParameters.ODTEntryNumber, ES4XXNodeSignalReceiveParameters.ODTEntrySize, ES4XXNodeSignalReceiveParameters.CbbIndex, ES4XXNodeSignalReceiveParameters.Message, ES4XXNodeSignalReceiveParameters.BitMask)>
+
+<!ELEMENT ES4XXNodeSignalReceiveParameters.Name (ESParameterName)>
+<!ELEMENT ES4XXNodeSignalReceiveParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES4XXNodeSignalReceiveParameters.SignalType (ESParameterEnum)>
+<!ATTLIST ES4XXNodeSignalReceiveParameters.SignalType
+    EnumText1      CDATA "cont"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "sdisc"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "udisc"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "boolean"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "enum"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+<!ELEMENT ES4XXNodeSignalReceiveParameters.Unit (ESParameterString)>
+<!ELEMENT ES4XXNodeSignalReceiveParameters.FormulaVisible (ESParameterUnion)>
+<!ELEMENT ES4XXNodeSignalReceiveParameters.Min (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalReceiveParameters.Max (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalReceiveParameters.InitValue (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalReceiveParameters.Formula (ESParameterUnion)>
+
+<!ELEMENT ES4XXNodeSignalReceiveParameters.Module (ESParameterString)>
+<!ELEMENT ES4XXNodeSignalReceiveParameters.DataType (ESParameterEnum)>
+<!ATTLIST ES4XXNodeSignalReceiveParameters.DataType
+    EnumText1      CDATA "boolean"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "uint8"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "sint8"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "uint16"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "sint16"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+
+    EnumText6      CDATA "uint32"
+    EnumL1Value6     CDATA "5"
+    EnumAvailable6 CDATA "1"
+
+    EnumText7      CDATA "sint32"
+    EnumL1Value7     CDATA "6"
+    EnumAvailable7 CDATA "1"
+
+    EnumText8      CDATA "real32"
+    EnumL1Value8     CDATA "7"
+    EnumAvailable8 CDATA "1"
+
+    EnumText9      CDATA "real64"
+    EnumL1Value9     CDATA "8"
+    EnumAvailable9 CDATA "1"
+>
+
+<!ELEMENT ES4XXNodeSignalReceiveParameters.ChannelNumber (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalReceiveParameters.RangeMin (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalReceiveParameters.RangeMax (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalReceiveParameters.RealRangeMin (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalReceiveParameters.RealRangeMax (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalReceiveParameters.ODTEntryNumber (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalReceiveParameters.ODTEntrySize (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalReceiveParameters.CbbIndex (ESParameterUInt)>
+<!ELEMENT ES4XXNodeSignalReceiveParameters.Message (ESParameterString)>
+<!ELEMENT ES4XXNodeSignalReceiveParameters.BitMask (ESParameterUInt)>
+
+<!ELEMENT ES4XXNodeSignalReceiveSubNodeList EMPTY>
+
+<!-- node signal status -->
+
+<!ELEMENT ES4XXNodeSignalStatus (ES4XXNodeSignalStatus.Parameters, ES4XXNodeSignalStatus.L1Generation, ES4XXNodeSignalStatus.SubNodes, ES4XXNodeSignalStatus.VariableParameters)>
+<!ATTLIST ES4XXNodeSignalStatus
+    Name ID #REQUIRED
+    GlobalObject.ofTypeYBOHWPort ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+<!ELEMENT ES4XXNodeSignalStatus.Parameters (ES4XXNodeSignalStatusParameters)>
+<!ELEMENT ES4XXNodeSignalStatus.L1Generation (ES4XXNodeSignalStatusL1Generation)>
+<!ELEMENT ES4XXNodeSignalStatus.SubNodes (ES4XXNodeSignalStatusSubNodeList)>
+<!ELEMENT ES4XXNodeSignalStatus.VariableParameters (ES4XXVariableParameters)>
+
+<!ELEMENT ES4XXNodeSignalStatusL1Generation (ES4XXNodeSignalStatusL1Generation.UnionCase, ES4XXNodeSignalStatusL1Generation.Reconnect)>
+<!ATTLIST ES4XXNodeSignalStatusL1Generation  
+    L1TreeIndex CDATA "-1"
+    
+    MappingROID CDATA "-1"
+>
+
+<!ELEMENT ES4XXNodeSignalStatusL1Generation.UnionCase (ES4XXNodeSignalStatusL1GenerationUnionCase)>
+<!ELEMENT ES4XXNodeSignalStatusL1Generation.Reconnect (ESL1GenerationCaseSignalReconnect)>
+
+<!ELEMENT ES4XXNodeSignalStatusL1GenerationUnionCase EMPTY>
+
+<!ELEMENT ES4XXNodeSignalStatusParameters (ES4XXNodeSignalStatusParameters.Name, ES4XXNodeSignalStatusParameters.Enabled, ES4XXNodeSignalStatusParameters.SignalType, ES4XXNodeSignalStatusParameters.Formula, ES4XXNodeSignalStatusParameters.Unit, ES4XXNodeSignalStatusParameters.FormulaVisible, ES4XXNodeSignalStatusParameters.Min, ES4XXNodeSignalStatusParameters.Max, ES4XXNodeSignalStatusParameters.InitValue, ES4XXNodeSignalStatusParameters.SignalKind, ES4XXNodeSignalStatusParameters.Message)>
+
+<!ELEMENT ES4XXNodeSignalStatusParameters.Name (ESParameterName)>
+<!ELEMENT ES4XXNodeSignalStatusParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES4XXNodeSignalStatusParameters.SignalType (ESParameterEnum)>
+<!ATTLIST ES4XXNodeSignalStatusParameters.SignalType
+    EnumText1      CDATA "cont"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "sdisc"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "udisc"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "boolean"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "enum"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+<!ELEMENT ES4XXNodeSignalStatusParameters.Formula (ESParameterUnion)>
+<!ELEMENT ES4XXNodeSignalStatusParameters.Unit (ESParameterString)>
+<!ELEMENT ES4XXNodeSignalStatusParameters.FormulaVisible (ESParameterUnion)>
+<!ELEMENT ES4XXNodeSignalStatusParameters.Min (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalStatusParameters.Max (ESParameterFloat)>
+<!ELEMENT ES4XXNodeSignalStatusParameters.InitValue (ESParameterFloat)>
+
+<!ELEMENT ES4XXNodeSignalStatusParameters.SignalKind (ESParameterEnum)>
+<!ATTLIST ES4XXNodeSignalStatusParameters.SignalKind
+    EnumText1      CDATA "Normal_DataIndicator_in"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Normal_TimeStamp_in"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Status_DataIndicator_in"
+    EnumL1Value3     CDATA "0"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "Status_DeviceError_in"
+    EnumL1Value4     CDATA "2"
+    EnumAvailable4 CDATA "1"
+ 
+    EnumText5      CDATA "Status_RXPackageDropCount_in"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+  
+    EnumText6      CDATA "Status_RXPackageLostCount_in"
+    EnumL1Value6     CDATA "5"
+    EnumAvailable6 CDATA "1"
+>
+<!ELEMENT ES4XXNodeSignalStatusParameters.Message (ESParameterString)>
+
+<!ELEMENT ES4XXNodeSignalStatusSubNodeList EMPTY>
+
+<!ELEMENT ES4XXVariableParameters (ES4XXVariableParameters.Container)*>
+
+<!ELEMENT ES4XXVariableParameters.Container (ES4XXParameterContainer)*>
+
+
+<!ELEMENT ES4XXParameterContainer (ES4XXParameterEntryBoolean | ES4XXParameterEntryUInt | ES4XXParameterEntrySInt | ES4XXParameterEntryFloat | ES4XXParameterEntryString)*>
+
+<!ELEMENT ES4XXParameterEntryBoolean (ES4XXParameterEntryBoolean.Parameter)*>
+<!ATTLIST ES4XXParameterEntryBoolean
+    Name CDATA ""
+>
+<!ELEMENT ES4XXParameterEntryBoolean.Parameter (ES4XXParameterBoolean)*>
+
+
+<!ELEMENT ES4XXParameterEntryUInt (ES4XXParameterEntryUInt.Parameter)*>
+<!ATTLIST ES4XXParameterEntryUInt
+    Name CDATA ""
+>
+<!ELEMENT ES4XXParameterEntryUInt.Parameter (ES4XXParameterUInt)*>
+
+
+<!ELEMENT ES4XXParameterEntrySInt (ES4XXParameterEntrySInt.Parameter)*>
+<!ATTLIST ES4XXParameterEntrySInt
+    Name CDATA ""
+>
+<!ELEMENT ES4XXParameterEntrySInt.Parameter (ES4XXParameterSInt)*>
+
+
+<!ELEMENT ES4XXParameterEntryFloat (ES4XXParameterEntryFloat.Parameter)*>
+<!ATTLIST ES4XXParameterEntryFloat
+    Name CDATA ""
+>
+<!ELEMENT ES4XXParameterEntryFloat.Parameter (ES4XXParameterFloat)*>
+
+
+<!ELEMENT ES4XXParameterEntryString (ES4XXParameterEntryString.Parameter)*>
+<!ATTLIST ES4XXParameterEntryString
+    Name CDATA ""
+>
+<!ELEMENT ES4XXParameterEntryString.Parameter (ES4XXParameterString)*>
+
+
+<!ELEMENT ES4XXParameterBoolean EMPTY>
+<!ATTLIST ES4XXParameterBoolean
+    Value ( False | True ) "False"
+    Comment CDATA ""
+    ReadOnly ( False | True ) "False"
+    Consistent ( False | True ) "True"
+    Calibratable  ( False | True ) "False"
+    Active ( False | True ) "True"
+>
+
+<!ELEMENT ES4XXParameterUInt EMPTY>
+<!ATTLIST ES4XXParameterUInt
+    Value CDATA "0"
+    Comment CDATA ""
+    ReadOnly ( False | True ) "False"
+    Consistent ( False | True ) "True"
+    Calibratable  ( False | True ) "False"
+    Active ( False | True ) "True"
+    Min CDATA "0"
+    Max CDATA "4294967295"
+>
+
+<!ELEMENT ES4XXParameterSInt EMPTY>
+<!ATTLIST ES4XXParameterSInt
+    Value CDATA "0"
+    Comment CDATA ""
+    ReadOnly ( False | True ) "False"
+    Consistent ( False | True ) "True"
+    Calibratable  ( False | True ) "False"
+    Active ( False | True ) "True"
+    Min CDATA "–2147483648"
+    Max CDATA "2147483647"
+
+>
+
+<!ELEMENT ES4XXParameterString EMPTY>
+<!ATTLIST ES4XXParameterString
+    Value CDATA ""
+    Comment CDATA ""
+    ReadOnly ( False | True ) "False"
+    Consistent ( False | True ) "True"
+    Calibratable  ( False | True ) "False"
+    Active ( False | True ) "True"
+>
+
+<!ELEMENT ES4XXParameterFloat EMPTY>
+<!ATTLIST ES4XXParameterFloat
+    Value CDATA "0.0"
+    Comment CDATA ""
+    ReadOnly ( False | True ) "False"
+    Consistent ( False | True ) "True"
+    Calibratable  ( False | True ) "False"
+    Active ( False | True ) "True"
+    Min CDATA "-1.7976931348623158e+308"
+    Max CDATA "1.7976931348623158e+308"
+>

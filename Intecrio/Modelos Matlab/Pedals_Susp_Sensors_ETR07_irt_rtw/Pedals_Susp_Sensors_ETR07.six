@@ -1,0 +1,1922 @@
+<?xml version="1.0"?>
+<!DOCTYPE module [
+    <!ENTITY szlig "&#223;">
+    <!ENTITY copy "&#169;">
+    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/common/baseTypes-mlsl.six'>
+    ]>
+<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/common/showSCOOP-IX.xsl"?>
+<!--
+<h1>SCOOP-IX</h1>
+<p>
+    <strong>Copyright &copy; 2014 ETAS GmbH</strong>, Borsigstra&szlig;e 14, D-70469 Stuttgart. <em>All rights reserved.</em>
+</p>
+-->
+<module xmlns="http://www.etas.com/scoop-ix/1.4" xmlns:ix="http://www.etas.com/scoop-ix/1.4" xmlns:mlsl="http://www.etas.com/scoop-ix/1.4/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.4
+        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
+	<directoryLocations scheme="MATLAB 9.3">
+		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO4.7\MATLAB\"/>
+		<directory identifier="toolDir" path=".\"/>
+		<directory identifier="modelDir" path="C:\Users\GERARD\Desktop\e-Tech\ETAS\Intecrio\Matlab\"/>
+		<directory identifier="codeDir" path="c:\users\gerard\desktop\e-tech\etas\intecrio\modelos matlab\pedals_susp_sensors_etr07_irt_rtw\"/>
+	</directoryLocations>
+	<moduleInfo identifier="Pedals_Susp_Sensors_ETR07">
+		<name>Pedals_Susp_Sensors_ETR07</name>
+		<modelLink href="mlsl://&quot;{{modelDir}}Pedals_Susp_Sensors_ETR07.slx&quot;"/>
+		<version major="1" minor="17"/>
+		<dateTime kind="created" year="2021" month="2" day="17" hour="15" minute="47" second="20"/>
+		<dateTime kind="lastModified" year="2022" month="6" day="18" hour="14" minute="25" second="55"/>
+		<completion degree="full"/>
+		<suitability>
+			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
+			<application domain="softwareDevelopment" addressesAvailable="false" nestedDataStructuresAvailable="true"/>
+		</suitability>
+		<user lastName="GERARD" role="modifier"/>
+		<creators>
+			<user lastName="cspt" role="creator"/>
+			<tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
+				<version major="9" minor="3" year="2017" month="7" day="24" info="R2017b"/>
+			</tool>
+			<tool kind="modeler" vendor="The Mathworks, Inc." name="Simulink">
+				<version major="9" minor="0" year="2017" month="7" day="24" info="R2017b"/>
+			</tool>
+			<tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
+			</tool>
+			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
+				<version major="8" minor="13" year="2017" month="7" day="24" info="R2017b"/>
+				<mode name="target" value="INTECRIO Real-Time Target"/>
+				<configuration>
+					<option identifier="InlineParameters">2</option>
+					<option identifier="InlineInvariantSignals">0</option>
+					<option identifier="Solver">FixedStepDiscrete</option>
+					<option identifier="SolverType">FixedStep</option>
+					<option identifier="FixedStepOpts.FixedStep">0.2</option>
+					<option identifier="FixedStepOpts.SolverMode">SingleTasking</option>
+				</configuration>
+			</tool>
+			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="MATLAB Coder">
+				<version major="3" minor="4" year="2017" month="7" day="24" info="R2017b"/>
+			</tool>
+			<tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
+				<version major="4" minor="7" year="2018" month="1" day="1"/>
+				<configuration>
+					<option identifier="SCOOPIXFileName"><![CDATA[Pedals_Susp_Sensors_ETR07.six]]></option>
+					<option identifier="ExternalMode">0</option>
+					<option identifier="IgnoreCustomStorageClasses">1</option>
+					<option identifier="StopSimuAfterAssert">1</option>
+					<option identifier="GenerateOnlySelectedSignalsToASAP2">0</option>
+				</configuration>
+			</tool>
+		</creators>
+	</moduleInfo>
+	<codeInfo>
+		<constitution mode="sourceCode"/>
+		<dateTime kind="created" year="2022" month="6" day="18" hour="14" minute="26" second="23"/>
+		<target>
+			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
+			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
+				<configuration>
+					<optionKind name="macroDefine" prefix="-D"/>
+					<optionKind name="includeDirectory" prefix="-I"/>
+					<!-- RTW specific defines -->
+					<option kind="macroDefine" name="USE_RTMODEL"/>
+					<option kind="macroDefine" name="MODEL">Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="RT"/>
+					<option kind="macroDefine" name="NUMST">1</option>
+					<option kind="macroDefine" name="TID01EQ">0</option>
+					<option kind="macroDefine" name="NCSTATES">0</option>
+					<option kind="macroDefine" name="MT">0</option>
+					<option kind="macroDefine" name="HAVESTDIO"/>
+					<option kind="macroDefine" name="MdlStart">MdlStart_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="MdlOutputs">MdlOutputs_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="MdlUpdate">MdlUpdate_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="MdlTerminate">MdlTerminate_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="MdlInitializeSizes">MdlInitializeSizes_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="MdlInitializeSampleTimes">MdlInitializeSampleTimes_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="MdlInitialize">MdlInitialize_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="MdlEnable">MdlEnable_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="MdlDerivatives">MdlDerivatives_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="MdlProjection">MdlProjection_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_ODECreateIntegrationData">rt_ODECreateIntegrationData_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_ODEUpdateContinuousStates">rt_ODEUpdateContinuousStates_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_ODEDestroyIntegrationData">rt_ODEDestroyIntegrationData_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_ODECacheDataIntoSolverInfo">rt_ODECacheDataIntoSolverInfo_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_ODERetrieveDataFromSolverInfo">rt_ODERetrieveDataFromSolverInfo_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_ODECreateSolverInfo">rt_ODECreateSolverInfo_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_SimInitTimingEngine">rt_SimInitTimingEngine_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_SimGetNextSampleHit">rt_SimGetNextSampleHit_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteTaskSampleHits">rt_SimUpdateDiscreteTaskSampleHits_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteEvents">rt_SimUpdateDiscreteEvents_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteTaskTime">rt_SimUpdateDiscreteTaskTime_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_CallSys">rt_CallSys_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_EnableSys">rt_EnableSys_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_DisableSys">rt_DisableSys_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_SimDestroyTimingEngine">rt_SimDestroyTimingEngine_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_InitTimingEngine">rt_InitTimingEngine_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_DestroyTimingEngine">rt_DestroyTimingEngine_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteTaskSampleHits">rt_UpdateDiscreteTaskSampleHits_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_GetNextSampleHit">rt_GetNextSampleHit_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteEvents">rt_UpdateDiscreteEvents_Pedals_Susp_Sensors_ETR07</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteTaskTime">rt_UpdateDiscreteTaskTime_Pedals_Susp_Sensors_ETR07</option>
+					<!-- RTW specific include directories -->
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}]]></option>
+					<option kind="includeDirectory"><![CDATA[{{integratorDir}}c\src\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{integratorDir}}c\lib\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\simulink\include\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\extern\include\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\src\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\libsrc\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\_sharedutils\]]></option>
+					<!-- S-Function specific includes directories -->
+				</configuration>
+			</tool>
+		</target>
+	</codeInfo>
+	<!-- Model specific files -->
+	<fileContainer constitution="sourceCode">
+		<pathBase path="{{codeDir}}"/>
+		<!-- Model specific source files -->
+		<file name="Pedals_Susp_Sensors_ETR07_types.h" kind="header"/>
+		<file name="Pedals_Susp_Sensors_ETR07.h" kind="header"/>
+		<file name="Pedals_Susp_Sensors_ETR07.c" kind="body"/>
+		<file name="Pedals_Susp_Sensors_ETR07_private.h" kind="header"/>
+		<file name="rtmodel.h" kind="header"/>
+		<file name="Pedals_Susp_Sensors_ETR07_data.c" kind="body"/>
+		<file name="Pedals_Susp_Sensors_ETR07_main.c" kind="body"/>
+		<!-- Additionally registered model specific source files -->
+		<file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body"/>
+		<!-- Target specific libraries -->
+		<file name="rtwStaticLib.lib" kind="symbolicLibrary"/>
+		<file name="rtwSharedLib.lib" kind="symbolicLibrary"/>
+		<!-- Additional files -->
+	</fileContainer>
+	<interface>
+		<modelLinkBase href="mlsl://{{modelDir}}Pedals_Susp_Sensors_ETR07.slx?"/>
+		<pathBase path="{{codeDir}}"/>
+		<fileOrigin name="Pedals_Susp_Sensors_ETR07.c"/>
+		<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+		<fileOrigin name="rt_nonfinite.c"/>
+		<fileOrigin name="Pedals_Susp_Sensors_ETR07_main.c"/>
+		<headerFile name="Pedals_Susp_Sensors_ETR07.h"/>
+		<headerFile name="Pedals_Susp_Sensors_ETR07_private.h"/>
+		<usage layoutFamily="mlsl:standardLayout"/>
+		<!-- "import" MATLAB/Simulink base type and complex struct definitions via external entity -->
+		&baseTypes-mlsl;
+		<definitions>
+			<structDef name="_P_Pedals_Susp_Sensors_ETR07_T">
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.h"/>
+				<structMember identifier="ON_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 1 -- Referenced by: '&lt;S10&gt;/ON'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Off_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 0 -- Referenced by: '&lt;S9&gt;/Off'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Brake_Light_Threshold_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 0.2 -- Referenced by: '&lt;S4&gt;/Brake_Light_Threshold'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="min_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 92 -- Referenced by: '&lt;S3&gt;/min'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="max_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 200 -- Referenced by: '&lt;S3&gt;/max'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="min_Value_a">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 5 -- Referenced by: '&lt;S1&gt;/min'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="max_Value_f">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 680 -- Referenced by: '&lt;S1&gt;/max'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="min_Value_g">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 5 -- Referenced by: '&lt;S2&gt;/min'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="max_Value_a">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 580 -- Referenced by: '&lt;S2&gt;/max'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="bitsmax_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 1024 -- Referenced by: '&lt;S5&gt;/bitsmax '
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Experimental_Zero_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 385 -- Referenced by: '&lt;S5&gt;/Experimental_Zero'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Ltotal_Gain">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 76 -- Referenced by: '&lt;S5&gt;/Ltotal'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Ctemuelles_Gain">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 29 -- Referenced by: '&lt;S5&gt;/Cte muelles'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="bitsmax_Value_e">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 1024 -- Referenced by: '&lt;S6&gt;/bitsmax '
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Experimental_Zero_Value_e">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 425 -- Referenced by: '&lt;S6&gt;/Experimental_Zero'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Ltotal_Gain_c">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 76 -- Referenced by: '&lt;S6&gt;/Ltotal'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Ctemuelles_Gain_e">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 29 -- Referenced by: '&lt;S6&gt;/Cte muelles'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="bitsmax_Value_g">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 1024 -- Referenced by: '&lt;S7&gt;/bitsmax '
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Experimental_Zero_Value_f">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 122 -- Referenced by: '&lt;S7&gt;/Experimental_Zero'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Ltotal_Gain_d">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 76 -- Referenced by: '&lt;S7&gt;/Ltotal'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Ctemuelles_Gain_j">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 35 -- Referenced by: '&lt;S7&gt;/Cte muelles'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="bitsmax_Value_n">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 1024 -- Referenced by: '&lt;S8&gt;/bitsmax '
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Experimental_Zero_Value_a">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 128 -- Referenced by: '&lt;S8&gt;/Experimental_Zero'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Ltotal_Gain_e">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 76 -- Referenced by: '&lt;S8&gt;/Ltotal'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Ctemuelles_Gain_f">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 35 -- Referenced by: '&lt;S8&gt;/Cte muelles'
+  </documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="P_Pedals_Susp_Sensors_ETR07_T">
+				<struct/><typeRef name="_P_Pedals_Susp_Sensors_ETR07_T"/>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_types.h"/>
+				<annotation>
+					<documentation>Parameters (auto storage)</documentation>
+				</annotation>
+			</typeDef>
+			<structDef name="ExtU_Pedals_Susp_Sensors_ETR0_T_tag">
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.h"/>
+				<structMember identifier="APPS1_Bits">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/APPS1_Bits</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="APPS2_Bits">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/APPS2_Bits</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="BrakeSensor_Bits">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/BrakeSensor_Bits</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Susp_F_L_Bits">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Susp_F_L_Bits</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Susp_F_R_Bits">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Susp_F_R_Bits</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Susp_R_L_Bits">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Susp_R_L_Bits</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Susp_R_R_Bits">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Susp_R_R_Bits</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ExtU_Pedals_Susp_Sensors_ETR0_T">
+				<struct/><typeRef name="ExtU_Pedals_Susp_Sensors_ETR0_T_tag"/>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.h"/>
+			</typeDef>
+			<structDef name="ExtY_Pedals_Susp_Sensors_ETR0_T_tag">
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.h"/>
+				<structMember identifier="BrakeLight_Control">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/BrakeLight_Control</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="APPS1_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/APPS1_Value</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="APPS2_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/APPS2_Value</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="BrakeSensor_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/BrakeSensor_Value</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="SUSP_F_L">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/SUSP_F_L</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="SUSP_F_R">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/SUSP_F_R</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="SUSP_R_L">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/SUSP_R_L</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="SUSP_R_R">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/SUSP_R_R</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ExtY_Pedals_Susp_Sensors_ETR0_T">
+				<struct/><typeRef name="ExtY_Pedals_Susp_Sensors_ETR0_T_tag"/>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.h"/>
+			</typeDef>
+			<baseDef identifier="Pedals_Susp_Sensors_ETR07_P">
+				<type><typeRef name="P_Pedals_Susp_Sensors_ETR07_T"/></type>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<annotation>
+					<documentation>The rtP data structure for parameters.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="Pedals_Susp_Sensors_ETR07_U">
+				<type><typeRef name="ExtU_Pedals_Susp_Sensors_ETR0_T"/></type>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.c"/>
+				<annotation>
+					<documentation>The rtU data structure for external inputs.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="Pedals_Susp_Sensors_ETR07_Y">
+				<type><typeRef name="ExtY_Pedals_Susp_Sensors_ETR0_T"/></type>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.c"/>
+				<annotation>
+					<documentation>The rtY data structure for external outputs.</documentation>
+				</annotation>
+			</baseDef>
+			<conversion name="Pedals_Susp_Sensors_ETR07_CM_double">
+				<rationalFunction>
+					<numerator bx="1.0"/>
+					<denominator f="1.0"/>
+				</rationalFunction>
+				<annotation>
+					<documentation>Q = V</documentation>
+				</annotation>
+			</conversion>
+		</definitions>
+		<!-- rtP parameters following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.ON_Value">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="ON_Value"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="1.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Brake_Light.Brake_Light_ON.ON.ON_Value">
+				<name>ON_Value</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Brake_Light/Brake_Light_ON/ON"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Brake_Light" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Brake_Light_ON" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="ON" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.Off_Value">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="Off_Value"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="0.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Brake_Light.Brake_Light_OFF.Off.Off_Value">
+				<name>Off_Value</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Brake_Light/Brake_Light_OFF/Off"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Brake_Light" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Brake_Light_OFF" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Off" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.Brake_Light_Threshold_Value">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="Brake_Light_Threshold_Value"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="0.2"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Brake_Light.Brake_Light_Threshold.Brake_Light_Threshold_Value">
+				<name>Brake_Light_Threshold_Value</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Brake_Light/Brake_Light_Threshold"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Brake_Light" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Brake_Light_Threshold" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.min_Value">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="min_Value"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="92.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.BRS_Data_Conv.min.min_Value">
+				<name>min_Value</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/BRS Data Conv/min"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="BRS Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="min" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.max_Value">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="max_Value"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="200.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.BRS_Data_Conv.max.max_Value">
+				<name>max_Value</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/BRS Data Conv/max"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="BRS Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="max" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.min_Value_a">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="min_Value_a"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="5.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.APPS1_Data_Conv.min.min_Value_a">
+				<name>min_Value_a</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/APPS1 Data Conv/min"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="APPS1 Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="min" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.max_Value_f">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="max_Value_f"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="680.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.APPS1_Data_Conv.max.max_Value_f">
+				<name>max_Value_f</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/APPS1 Data Conv/max"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="APPS1 Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="max" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.min_Value_g">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="min_Value_g"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="5.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.APPS2_Data_Conv_n.min.min_Value_g">
+				<name>min_Value_g</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/APPS2 Data Conv\n/min"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="APPS2 Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="min" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.max_Value_a">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="max_Value_a"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="580.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.APPS2_Data_Conv_n.max.max_Value_a">
+				<name>max_Value_a</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/APPS2 Data Conv\n/max"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="APPS2 Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="max" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.bitsmax_Value">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="bitsmax_Value"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="1024.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Suspension_FL_Data_Conv.bitsmax_n.bitsmax_Value">
+				<name>bitsmax_Value</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Suspension_FL Data Conv/bitsmax\n"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="Suspension_FL Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="bitsmax" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.Experimental_Zero_Value">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="Experimental_Zero_Value"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="385.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Suspension_FL_Data_Conv.Experimental_Zero.Experimental_Zero_Value">
+				<name>Experimental_Zero_Value</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Suspension_FL Data Conv/Experimental_Zero"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="Suspension_FL Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Experimental_Zero" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.Ltotal_Gain">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="Ltotal_Gain"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="76.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Opaque.Ltotal_Gain">
+				<name>Ltotal_Gain</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Opaque"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="Suspension_FL Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Ltotal" kind="mlsl:block"/>
+					<pathNode name="Gain" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.Ctemuelles_Gain">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="Ctemuelles_Gain"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="29.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Opaque.Ctemuelles_Gain">
+				<name>Ctemuelles_Gain</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Opaque"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="Suspension_FL Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Cte muelles" kind="mlsl:block"/>
+					<pathNode name="Gain" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.bitsmax_Value_e">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="bitsmax_Value_e"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="1024.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Suspension_FR_Data_Conv.bitsmax_n.bitsmax_Value_e">
+				<name>bitsmax_Value_e</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Suspension_FR Data Conv/bitsmax\n"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="Suspension_FR Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="bitsmax" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.Experimental_Zero_Value_e">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="Experimental_Zero_Value_e"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="425.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Suspension_FR_Data_Conv.Experimental_Zero.Experimental_Zero_Value_e">
+				<name>Experimental_Zero_Value_e</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Suspension_FR Data Conv/Experimental_Zero"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="Suspension_FR Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Experimental_Zero" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.Ltotal_Gain_c">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="Ltotal_Gain_c"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="76.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Opaque.Ltotal_Gain_c">
+				<name>Ltotal_Gain_c</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Opaque"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="Suspension_FR Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Ltotal" kind="mlsl:block"/>
+					<pathNode name="Gain" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.Ctemuelles_Gain_e">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="Ctemuelles_Gain_e"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="29.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Opaque.Ctemuelles_Gain_e">
+				<name>Ctemuelles_Gain_e</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Opaque"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="Suspension_FR Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Cte muelles" kind="mlsl:block"/>
+					<pathNode name="Gain" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.bitsmax_Value_g">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="bitsmax_Value_g"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="1024.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Suspension_RL_Data_Conv.bitsmax_n.bitsmax_Value_g">
+				<name>bitsmax_Value_g</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Suspension_RL Data Conv/bitsmax\n"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="Suspension_RL Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="bitsmax" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.Experimental_Zero_Value_f">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="Experimental_Zero_Value_f"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="122.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Suspension_RL_Data_Conv.Experimental_Zero.Experimental_Zero_Value_f">
+				<name>Experimental_Zero_Value_f</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Suspension_RL Data Conv/Experimental_Zero"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="Suspension_RL Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Experimental_Zero" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.Ltotal_Gain_d">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="Ltotal_Gain_d"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="76.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Opaque.Ltotal_Gain_d">
+				<name>Ltotal_Gain_d</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Opaque"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="Suspension_RL Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Ltotal" kind="mlsl:block"/>
+					<pathNode name="Gain" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.Ctemuelles_Gain_j">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="Ctemuelles_Gain_j"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="35.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Opaque.Ctemuelles_Gain_j">
+				<name>Ctemuelles_Gain_j</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Opaque"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="Suspension_RL Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Cte muelles" kind="mlsl:block"/>
+					<pathNode name="Gain" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.bitsmax_Value_n">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="bitsmax_Value_n"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="1024.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Suspension_RR_Data_Conv.bitsmax_n.bitsmax_Value_n">
+				<name>bitsmax_Value_n</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Suspension_RR Data_Conv/bitsmax\n"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="Suspension_RR Data_Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="bitsmax" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.Experimental_Zero_Value_a">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="Experimental_Zero_Value_a"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="128.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Suspension_RR_Data_Conv.Experimental_Zero.Experimental_Zero_Value_a">
+				<name>Experimental_Zero_Value_a</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Suspension_RR Data_Conv/Experimental_Zero"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="Suspension_RR Data_Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Experimental_Zero" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.Ltotal_Gain_e">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="Ltotal_Gain_e"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="76.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Opaque.Ltotal_Gain_e">
+				<name>Ltotal_Gain_e</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Opaque"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="Suspension_RR Data_Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Ltotal" kind="mlsl:block"/>
+					<pathNode name="Gain" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_P.Ctemuelles_Gain_f">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_P"/>
+					<memberRef identifier="Ctemuelles_Gain_f"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_data.c"/>
+				<initValue value="35.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Opaque.Ctemuelles_Gain_f">
+				<name>Ctemuelles_Gain_f</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Opaque"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="Suspension_RR Data_Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Cte muelles" kind="mlsl:block"/>
+					<pathNode name="Gain" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- Constant parameters following -->
+		<!-- Exported global parameters following -->
+		<!-- Imported extern parameters following -->
+		<!-- Global BlockIO (rtB) signals following -->
+		<!-- Global constant BlockIO (rtC) signals following -->
+		<!-- Exported global and imported extern signals following -->
+		<!-- Global IRT DWork port signals following -->
+		<!-- rtU input ports following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_U.APPS1_Bits">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_U"/>
+					<memberRef identifier="APPS1_Bits"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.APPS1_Bits">
+				<name>APPS1_Bits</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/APPS1_Bits"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="APPS1_Bits" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_U.APPS2_Bits">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_U"/>
+					<memberRef identifier="APPS2_Bits"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.APPS2_Bits">
+				<name>APPS2_Bits</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/APPS2_Bits"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="APPS2_Bits" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_U.BrakeSensor_Bits">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_U"/>
+					<memberRef identifier="BrakeSensor_Bits"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.BrakeSensor_Bits">
+				<name>BrakeSensor_Bits</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/BrakeSensor_Bits"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="BrakeSensor_Bits" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_U.Susp_F_L_Bits">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_U"/>
+					<memberRef identifier="Susp_F_L_Bits"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Susp_F_L_Bits">
+				<name>Susp_F_L_Bits</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Susp_F_L_Bits"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="Susp_F_L_Bits" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_U.Susp_F_R_Bits">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_U"/>
+					<memberRef identifier="Susp_F_R_Bits"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Susp_F_R_Bits">
+				<name>Susp_F_R_Bits</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Susp_F_R_Bits"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="Susp_F_R_Bits" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_U.Susp_R_L_Bits">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_U"/>
+					<memberRef identifier="Susp_R_L_Bits"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Susp_R_L_Bits">
+				<name>Susp_R_L_Bits</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Susp_R_L_Bits"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="Susp_R_L_Bits" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_U.Susp_R_R_Bits">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_U"/>
+					<memberRef identifier="Susp_R_R_Bits"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.Susp_R_R_Bits">
+				<name>Susp_R_R_Bits</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/Susp_R_R_Bits"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="Susp_R_R_Bits" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- rtY output ports following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_Y.BrakeLight_Control">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_Y"/>
+					<memberRef identifier="BrakeLight_Control"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.BrakeLight_Control">
+				<name>BrakeLight_Control</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/BrakeLight_Control"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="BrakeLight_Control" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_Y.APPS1_Value">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_Y"/>
+					<memberRef identifier="APPS1_Value"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.APPS1_Value">
+				<name>APPS1_Value</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/APPS1_Value"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="APPS1_Value" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_Y.APPS2_Value">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_Y"/>
+					<memberRef identifier="APPS2_Value"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.APPS2_Value">
+				<name>APPS2_Value</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/APPS2_Value"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="APPS2_Value" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_Y.BrakeSensor_Value">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_Y"/>
+					<memberRef identifier="BrakeSensor_Value"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.BrakeSensor_Value">
+				<name>BrakeSensor_Value</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/BrakeSensor_Value"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="BrakeSensor_Value" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_Y.SUSP_F_L">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_Y"/>
+					<memberRef identifier="SUSP_F_L"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.SUSP_F_L">
+				<name>SUSP_F_L</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/SUSP_F_L"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="SUSP_F_L" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_Y.SUSP_F_R">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_Y"/>
+					<memberRef identifier="SUSP_F_R"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.SUSP_F_R">
+				<name>SUSP_F_R</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/SUSP_F_R"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="SUSP_F_R" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_Y.SUSP_R_L">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_Y"/>
+					<memberRef identifier="SUSP_R_L"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.SUSP_R_L">
+				<name>SUSP_R_L</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/SUSP_R_L"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="SUSP_R_L" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Pedals_Susp_Sensors_ETR07_Y.SUSP_R_R">
+				<definitionLocation>
+					<baseRef identifier="Pedals_Susp_Sensors_ETR07_Y"/>
+					<memberRef identifier="SUSP_R_R"/>
+				</definitionLocation>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Pedals_Susp_Sensors_ETR07.SUSP_R_R">
+				<name>SUSP_R_R</name>
+				<modelLink href="Pedals_Susp_Sensors_ETR07/SUSP_R_R"/>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="SUSP_R_R" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Pedals_Susp_Sensors_ETR07_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_Start_Pedals_Susp_Sensors_ETR07">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_Start_Pedals_Susp_Sensors_ETR07">
+				<name>irt_Start_Pedals_Susp_Sensors_ETR07</name>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="irt_Start_Pedals_Susp_Sensors_ETR07" kind="mlsl:process" type="initialization"/>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<constraint>
+						<execution trigger="initialization"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the initialization process of the Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_OneStep_Pedals_Susp_Sensors_ETR07">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_OneStep_Pedals_Susp_Sensors_ETR07">
+				<name>irt_OneStep_Pedals_Susp_Sensors_ETR07</name>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="irt_OneStep_Pedals_Susp_Sensors_ETR07" kind="mlsl:process" type="execution">
+						<pathParameter name="mlsl:baseSampleRate" value="0.2"/>
+						<pathParameter name="mlsl:sampleRates" value="0.2"/>
+					</pathNode>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<messageAccess>
+						<message identifier="Pedals_Susp_Sensors_ETR07_U.APPS1_Bits" send="false"></message>
+						<message identifier="Pedals_Susp_Sensors_ETR07_U.APPS2_Bits" send="false"></message>
+						<message identifier="Pedals_Susp_Sensors_ETR07_U.BrakeSensor_Bits" send="false"></message>
+						<message identifier="Pedals_Susp_Sensors_ETR07_U.Susp_F_L_Bits" send="false"></message>
+						<message identifier="Pedals_Susp_Sensors_ETR07_U.Susp_F_R_Bits" send="false"></message>
+						<message identifier="Pedals_Susp_Sensors_ETR07_U.Susp_R_L_Bits" send="false"></message>
+						<message identifier="Pedals_Susp_Sensors_ETR07_U.Susp_R_R_Bits" send="false"></message>
+						<message identifier="Pedals_Susp_Sensors_ETR07_Y.BrakeLight_Control" send="true"></message>
+						<message identifier="Pedals_Susp_Sensors_ETR07_Y.APPS1_Value" send="true"></message>
+						<message identifier="Pedals_Susp_Sensors_ETR07_Y.APPS2_Value" send="true"></message>
+						<message identifier="Pedals_Susp_Sensors_ETR07_Y.BrakeSensor_Value" send="true"></message>
+						<message identifier="Pedals_Susp_Sensors_ETR07_Y.SUSP_F_L" send="true"></message>
+						<message identifier="Pedals_Susp_Sensors_ETR07_Y.SUSP_F_R" send="true"></message>
+						<message identifier="Pedals_Susp_Sensors_ETR07_Y.SUSP_R_L" send="true"></message>
+						<message identifier="Pedals_Susp_Sensors_ETR07_Y.SUSP_R_R" send="true"></message>
+					</messageAccess>
+					<constraint>
+						<period value="0.2"/>
+						<offset value="0.0"/>
+						<execution trigger="timer" priority="normal"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the execution process of the Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_Terminate_Pedals_Susp_Sensors_ETR07">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Pedals_Susp_Sensors_ETR07_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_Terminate_Pedals_Susp_Sensors_ETR07">
+				<name>irt_Terminate_Pedals_Susp_Sensors_ETR07</name>
+				<modelLocation>
+					<pathNode name="Pedals_Susp_Sensors_ETR07" kind="mlsl:model"/>
+					<pathNode name="irt_Terminate_Pedals_Susp_Sensors_ETR07" kind="mlsl:process" type="termination"/>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<constraint>
+						<execution trigger="termination"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the termination process of the INTECRIO Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+	</interface>
+</module>

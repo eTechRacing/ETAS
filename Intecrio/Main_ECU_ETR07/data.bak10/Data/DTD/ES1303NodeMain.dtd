@@ -1,0 +1,310 @@
+<?DTDVersion "3.2.0"?>
+<?CompatibleDTDVersion "2.2"?>
+<?CompatibleDTDVersion "2.0.2"?>
+<?CompatibleDTDVersion "2.0.1"?>
+<?CompatibleDTDVersion "2.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!NOTATION ofTypeES1303NodeMain SYSTEM "ES1303NodeMain">
+<!NOTATION ofTypeES1303NodeSignal SYSTEM "ES1303NodeSignal">
+<!NOTATION ofTypeES1303NodeSignalGroup SYSTEM "ES1303NodeSignalGroup">
+
+<?SuperClass ES1303NodeMain->ESNodeUnsortedMain ?>
+<?SuperClass ES1303NodeSignalGroup->ESNodeSignalGroup ?>
+<?SuperClass ES1303NodeSignal->ESNodeSignal ?>
+
+<!-- main node -->
+
+<!ELEMENT ES1303NodeMain (ES1303NodeMain.Parameters, ES1303NodeMain.L1Generation, ES1303NodeMain.SubNodes, _System)>
+<!ATTLIST ES1303NodeMain
+    Name ID #REQUIRED
+    GlobalObject.ofTypeYBOBoard ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOCPUBoard ENTITY #REQUIRED
+    GlobalSubParent.ofTypeYBODevice ENTITY #REQUIRED
+>
+
+<!ELEMENT ES1303NodeMain.Parameters (ES1303NodeMainParameters)>
+<!ELEMENT ES1303NodeMain.L1Generation (ES1303NodeMainL1Generation)>
+<!ELEMENT ES1303NodeMain.SubNodes (ES1303NodeMainSubNodeList)>
+
+<!ELEMENT ES1303NodeMainL1Generation (ES1303NodeMainL1Generation.NotRunning, ES1303NodeMainL1Generation.Reconnect, ES1303NodeMainL1Generation.WriteToStream)>
+<!ATTLIST ES1303NodeMainL1Generation
+    L1TreeIndex CDATA "-1"
+
+    ConfigROID CDATA "-1"
+    APIROIDArray1 CDATA "-1"
+    APIROIDArray2 CDATA "-1"
+    APIROIDArray3 CDATA "-1"
+    APIROIDArray4 CDATA "-1"
+    APIROIDArray5 CDATA "-1"
+
+    IRQTriggered ( False | True ) "False"
+>
+
+<!ELEMENT ES1303NodeMainL1Generation.NotRunning (ES1303NodeMainL1GenerationNotRunning)>
+<!ELEMENT ES1303NodeMainL1Generation.Reconnect (ES1303NodeMainL1GenerationReconnect)>
+<!ELEMENT ES1303NodeMainL1Generation.WriteToStream (ES1303NodeMainL1GenerationWriteToStream)>
+
+<!ELEMENT ES1303NodeMainL1GenerationNotRunning EMPTY>
+
+
+<!ELEMENT ES1303NodeMainL1GenerationReconnect EMPTY>
+
+
+<!ELEMENT ES1303NodeMainL1GenerationWriteToStream EMPTY>
+
+
+<!ELEMENT ES1303NodeMainParameters (ES1303NodeMainParameters.Name, ES1303NodeMainParameters.Enabled, ES1303NodeMainParameters.BoardInstance, ES1303NodeMainParameters.AntiAliasing, ES1303NodeMainParameters.SamplingMode, ES1303NodeMainParameters.TriggerGate, ES1303NodeMainParameters.AnalyzeTask)>
+
+<!ELEMENT ES1303NodeMainParameters.Name (ESParameterName)>
+
+<!ELEMENT ES1303NodeMainParameters.Enabled (ESParameterBoolean)>
+
+
+<!ELEMENT ES1303NodeMainParameters.BoardInstance (ESParameterEnum)>
+<!ATTLIST ES1303NodeMainParameters.BoardInstance  
+    EnumText1      CDATA "ID1"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "ID2"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "ID3"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "ID4"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+>
+
+<!ELEMENT ES1303NodeMainParameters.AntiAliasing (ESParameterBoolean)>
+<!ELEMENT ES1303NodeMainParameters.SamplingMode (ESParameterEnum)>
+<!ATTLIST ES1303NodeMainParameters.SamplingMode   
+    EnumText1      CDATA "Off"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Triggered at Falling Edge"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Triggered at Rising Edge"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ES1303NodeMainParameters.TriggerGate (ESParameterEnum)>
+<!ATTLIST ES1303NodeMainParameters.TriggerGate
+    EnumText1      CDATA "Off"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "On"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES1303NodeMainParameters.AnalyzeTask (ESParameterString)>
+
+<!ELEMENT ES1303NodeMainSubNodeList (ES1303NodeSignalGroup)*>
+
+<!-- signal node -->
+
+<!ELEMENT ES1303NodeSignal (ES1303NodeSignal.Parameters, ES1303NodeSignal.L1Generation, ES1303NodeSignal.SubNodes)>
+<!ATTLIST ES1303NodeSignal
+    Name ID #REQUIRED
+    GlobalObject.ofTypeYBOHWPort ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+<!ELEMENT ES1303NodeSignal.Parameters (ES1303NodeSignalParameters)>
+<!ELEMENT ES1303NodeSignal.L1Generation (ES1303NodeSignalL1Generation)>
+<!ELEMENT ES1303NodeSignal.SubNodes (ES1303NodeSignalSubNodeList)>
+
+<!ELEMENT ES1303NodeSignalL1Generation (ES1303NodeSignalL1Generation.UnionCase, ES1303NodeSignalL1Generation.Reconnect)>
+<!ATTLIST ES1303NodeSignalL1Generation  
+    L1TreeIndex CDATA "-1"
+    
+    MappingROID CDATA "-1"
+>
+
+<!ELEMENT ES1303NodeSignalL1Generation.UnionCase (ES1303NodeSignalL1GenerationUnionCase)>
+<!ELEMENT ES1303NodeSignalL1Generation.Reconnect (ESL1GenerationCaseSignalReconnect)>
+
+<!ELEMENT ES1303NodeSignalL1GenerationUnionCase EMPTY>
+
+<!ELEMENT ES1303NodeSignalParameters (ES1303NodeSignalParameters.Name, ES1303NodeSignalParameters.Enabled, ES1303NodeSignalParameters.SignalType, ES1303NodeSignalParameters.Unit, ES1303NodeSignalParameters.Formula, ES1303NodeSignalParameters.Message)>
+
+<!ELEMENT ES1303NodeSignalParameters.Name (ESParameterName)>
+
+<!ELEMENT ES1303NodeSignalParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ES1303NodeSignalParameters.SignalType (ESParameterEnum)>
+<!ATTLIST ES1303NodeSignalParameters.SignalType 
+    EnumText1      CDATA "cont"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "sdisc"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "udisc"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "boolean"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "enum"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "0"
+>
+
+<!ELEMENT ES1303NodeSignalParameters.Unit (ESParameterString)>
+<!ELEMENT ES1303NodeSignalParameters.Formula (ESParameterUnion)>
+<!ELEMENT ES1303NodeSignalParameters.Message (ESParameterString)>
+
+<!ELEMENT ES1303NodeSignalSubNodeList EMPTY>
+
+<!-- signal group node -->
+
+<!ELEMENT ES1303NodeSignalGroup (ES1303NodeSignalGroup.Parameters, ES1303NodeSignalGroup.L1Generation, ES1303NodeSignalGroup.SubNodes)>
+<!ATTLIST ES1303NodeSignalGroup
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+  MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+<!ELEMENT ES1303NodeSignalGroup.Parameters (ES1303NodeSignalGroupParameters)>
+<!ELEMENT ES1303NodeSignalGroup.L1Generation (ES1303NodeSignalGroupL1Generation)>
+<!ELEMENT ES1303NodeSignalGroup.SubNodes (ES1303NodeSignalGroupSubNodeList)>
+
+<!ELEMENT ES1303NodeSignalGroupL1Generation (ES1303NodeSignalGroupL1Generation.UnionCase, ES1303NodeSignalGroupL1Generation.Reconnect)>
+<!ATTLIST ES1303NodeSignalGroupL1Generation 
+    L1TreeIndex CDATA "-1"
+
+    APIROID CDATA "-1"
+    IRQTriggered ( False | True ) "False"
+    MonitoringROID CDATA "-1"
+    ActivationCount CDATA "-1"
+
+>
+
+<!ELEMENT ES1303NodeSignalGroupL1Generation.UnionCase (ES1303NodeSignalGroupL1GenerationUnionCase)>
+<!ELEMENT ES1303NodeSignalGroupL1Generation.Reconnect (ES1303NodeSignalGroupL1GenerationReconnect)>
+
+<!ELEMENT ES1303NodeSignalGroupL1GenerationUnionCase EMPTY>
+<!ELEMENT ES1303NodeSignalGroupL1GenerationReconnect EMPTY>
+
+<!ELEMENT ES1303NodeSignalGroupParameters (ES1303NodeSignalGroupParameters.Name, ES1303NodeSignalGroupParameters.Enabled, ES1303NodeSignalGroupParameters.Direction, ES1303NodeSignalGroupParameters.Polling, ES1303NodeSignalGroupParameters.VoltageRange, ES1303NodeSignalGroupParameters.dTMonitoring, ES1303NodeSignalGroupParameters.HardwareChannel, ES1303NodeSignalGroupParameters.Task)>
+
+<!ELEMENT ES1303NodeSignalGroupParameters.Name (ESParameterName)>
+<!ELEMENT ES1303NodeSignalGroupParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ES1303NodeSignalGroupParameters.Direction (ESParameterEnum)>
+<!ATTLIST ES1303NodeSignalGroupParameters.Direction  
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES1303NodeSignalGroupParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ES1303NodeSignalGroupParameters.VoltageRange (ESParameterEnum)>
+<!ATTLIST ES1303NodeSignalGroupParameters.VoltageRange   
+    EnumText1      CDATA "-10..+10 V"
+    EnumL1Value1     CDATA "1"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "-60..+60 V"
+    EnumL1Value2     CDATA "2"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES1303NodeSignalGroupParameters.dTMonitoring (ESParameterBoolean)>
+<!ELEMENT ES1303NodeSignalGroupParameters.Task (ESParameterString)>
+<!ELEMENT ES1303NodeSignalGroupParameters.HardwareChannel (ESParameterEnum)>
+<!ATTLIST ES1303NodeSignalGroupParameters.HardwareChannel    
+    EnumText1      CDATA " 1 (Port A, Pin 1+2)"
+    EnumL1Value1     CDATA "1"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA " 2 (Port A, Pin 3+4)"
+    EnumL1Value2     CDATA "2"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA " 3 (Port A, Pin 5+6)"
+    EnumL1Value3     CDATA "3"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA " 4 (Port A, Pin 7+8)"
+    EnumL1Value4     CDATA "4"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA " 5 (Port B, Pin 1+2)"
+    EnumL1Value5     CDATA "5"
+    EnumAvailable5 CDATA "1"
+
+    EnumText6      CDATA " 6 (Port B, Pin 3+4)"
+    EnumL1Value6     CDATA "6"
+    EnumAvailable6 CDATA "1"
+
+    EnumText7      CDATA " 7 (Port B, Pin 5+6)"
+    EnumL1Value7     CDATA "7"
+    EnumAvailable7 CDATA "1"
+
+    EnumText8      CDATA " 8 (Port B, Pin 7+8)"
+    EnumL1Value8     CDATA "8"
+    EnumAvailable8 CDATA "1"
+
+    EnumText9      CDATA " 9 (Port C, Pin 1+2)"
+    EnumL1Value9     CDATA "9"
+    EnumAvailable9 CDATA "1"
+
+    EnumText10      CDATA "10 (Port C, Pin 3+4)"
+    EnumL1Value10     CDATA "10"
+    EnumAvailable10 CDATA "1"
+
+    EnumText11      CDATA "11 (Port C, Pin 5+6)"
+    EnumL1Value11     CDATA "11"
+    EnumAvailable11 CDATA "1"
+
+    EnumText12      CDATA "12 (Port C, Pin 7+8)"
+    EnumL1Value12     CDATA "12"
+    EnumAvailable12 CDATA "1"
+
+    EnumText13      CDATA "13 (Port D, Pin 1+2)"
+    EnumL1Value13     CDATA "13"
+    EnumAvailable13 CDATA "1"
+
+    EnumText14      CDATA "14 (Port D, Pin 3+4)"
+    EnumL1Value14     CDATA "14"
+    EnumAvailable14 CDATA "1"
+
+    EnumText15      CDATA "15 (Port D, Pin 5+6)"
+    EnumL1Value15     CDATA "15"
+    EnumAvailable15 CDATA "1"
+
+    EnumText16      CDATA "16 (Port D, Pin 7+8)"
+    EnumL1Value16     CDATA "16"
+    EnumAvailable16 CDATA "1"
+>
+
+<!ELEMENT ES1303NodeSignalGroupSubNodeList (ES1303NodeSignal)*>

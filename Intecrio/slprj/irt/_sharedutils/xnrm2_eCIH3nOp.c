@@ -1,0 +1,53 @@
+/*
+ * C:\Users\GERARD\Desktop\e-Tech\ETAS\Intecrio\slprj\irt\_sharedutils\xnrm2_eCIH3nOp.c
+ *
+ * Academic License - for use in teaching, academic research, and meeting
+ * course requirements at degree granting institutions only.  Not for
+ * government, commercial, or other organizational use.
+ *
+ * Code generation for model "Torque_Control_ETR07".
+ *
+ * Model version              : 1.16
+ * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
+ * C source code generated on : Fri Jun 17 19:17:38 2022
+ * Created for block: Torque_Control_ETR07
+ */
+
+#include "rtwtypes.h"
+#include <math.h>
+#include "xnrm2_eCIH3nOp.h"
+
+/* Function for MATLAB Function: '<S135>/Kamm_Circle LatD' */
+real_T xnrm2_eCIH3nOp(int32_T n, const real_T x[12], int32_T ix0)
+{
+  real_T y;
+  real_T scale;
+  int32_T kend;
+  real_T absxk;
+  real_T t;
+  int32_T k;
+  y = 0.0;
+  if (!(n < 1)) {
+    if (n == 1) {
+      y = fabs(x[ix0 - 1]);
+    } else {
+      scale = 3.3121686421112381E-170;
+      kend = (ix0 + n) - 1;
+      for (k = ix0; k <= kend; k++) {
+        absxk = fabs(x[k - 1]);
+        if (absxk > scale) {
+          t = scale / absxk;
+          y = y * t * t + 1.0;
+          scale = absxk;
+        } else {
+          t = absxk / scale;
+          y += t * t;
+        }
+      }
+
+      y = scale * sqrt(y);
+    }
+  }
+
+  return y;
+}

@@ -1,0 +1,23 @@
+<?DTDVersion "3.0"?>
+<?CompatibleDTDVersion "2.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+<!ENTITY % A2LFile SYSTEM "A2LFile.DTD">
+%A2LFile;
+<!ENTITY % A2LProject SYSTEM "A2LProject.DTD">
+%A2LProject;
+
+
+<?SuperClass A2LFile_ETKBypass->A2LFile ?>
+
+<!ELEMENT A2LFile_ETKBypass (A2LFile_ETKBypass.Project, _System)>
+<!ATTLIST A2LFile_ETKBypass
+	Name ID #REQUIRED
+	AMLVersion CDATA "0"
+	FilePath CDATA ""
+>
+
+
+<!ELEMENT A2LFile_ETKBypass.Project (A2LProject)>
+

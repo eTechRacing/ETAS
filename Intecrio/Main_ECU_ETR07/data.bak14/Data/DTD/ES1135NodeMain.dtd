@@ -1,0 +1,63 @@
+<?DTDVersion "2.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!NOTATION ofTypeES1135NodeMain SYSTEM "ES1135NodeMain">
+<!NOTATION ofTypeESNode SYSTEM "ESNode">
+<!NOTATION ofTypeESNodeDevice SYSTEM "ESNodeDevice">
+<!NOTATION ofTypeESNodeMain SYSTEM "ESNodeMain">
+<!NOTATION ofTypeESNodeProcessor SYSTEM "ESNodeProcessor">
+<!NOTATION ofTypeESNodeSignal SYSTEM "ESNodeSignal">
+<!NOTATION ofTypeESNodeSignalGroup SYSTEM "ESNodeSignalGroup">
+<!NOTATION ofTypeESPoolSignal SYSTEM "ESPoolSignal">
+<!NOTATION ofTypeESSystem SYSTEM "ESSystem">
+
+<?SuperClass ES1135NodeMain->ESNodeProcessor ?>
+
+<!ELEMENT ES1135NodeMain (ES1135NodeMain.Parameters, ES1135NodeMain.L1Generation, ES1135NodeMain.SubNodes, _System)>
+<!ATTLIST ES1135NodeMain
+    Name ID #REQUIRED
+    ConfigurationID CDATA ""
+    
+    GlobalObject.ofTypeYBOCPUBoard ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOECU ENTITY #REQUIRED
+>
+<!ELEMENT ES1135NodeMain.Parameters (ES1135NodeMainParameters)>
+<!ELEMENT ES1135NodeMain.L1Generation (ES1135NodeMainL1Generation)>
+<!ELEMENT ES1135NodeMain.SubNodes (ES1135NodeMainSubNodeList)>
+
+<!ELEMENT ES1135NodeMainL1Generation (ES1135NodeMainL1Generation.NotRunning, ES1135NodeMainL1Generation.Reconnect, ES1135NodeMainL1Generation.WriteToStream)>
+<!ATTLIST ES1135NodeMainL1Generation
+    L1TreeIndex CDATA "-1"
+    ObjectsToReconnect CDATA "-1"
+>
+
+<!ELEMENT ES1135NodeMainL1Generation.NotRunning (ES1135NodeMainL1GenerationNotRunning)>
+<!ELEMENT ES1135NodeMainL1Generation.Reconnect (ES1135NodeMainL1GenerationReconnect)>
+<!ELEMENT ES1135NodeMainL1Generation.WriteToStream (ES1135NodeMainL1GenerationWriteToStream)>
+
+<!ELEMENT ES1135NodeMainL1GenerationNotRunning EMPTY>
+<!ELEMENT ES1135NodeMainL1GenerationReconnect EMPTY>
+<!ELEMENT ES1135NodeMainL1GenerationWriteToStream EMPTY>
+
+<!ELEMENT ES1135NodeMainParameters (ES1135NodeMainParameters.Name,ES1135NodeMainParameters.Enabled,ES1135NodeMainParameters.IOFailureBehaviour)>
+
+<!ELEMENT ES1135NodeMainParameters.Name (ESParameterName)>
+<!ELEMENT ES1135NodeMainParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES1135NodeMainParameters.IOFailureBehaviour (ESParameterEnum)>
+
+<!ATTLIST ES1135NodeMainParameters.IOFailureBehaviour  
+    EnumText1      CDATA "abort"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "continue"
+    EnumL1Value2     CDATA "0"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES1135NodeMainSubNodeList (ESNodeRef)*>
