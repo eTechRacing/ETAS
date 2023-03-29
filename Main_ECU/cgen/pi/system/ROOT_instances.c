@@ -11,16 +11,16 @@
  *****************************************************************************/
 #include "../a_basdef.h"
 #include "./ROOT_instances.h"
-#include "./Accel_Data_ETR07_instances.h"
-#include "./Car_State_ETR07_instances.h"
-#include "./Disconnections_ETR07_instances.h"
-#include "./inverters_action_ETR07_instances.h"
-#include "./Inverters_Data_ETR07_instances.h"
-#include "./LVD_Data_ETR07_instances.h"
-#include "./Pedals_Susp_Sensors_ETR07_instances.h"
-#include "./Racing_Mode_ETR07_instances.h"
-#include "./Synchronism_ETR07_instances.h"
-#include "./Torque_Control_ETR07_instances.h"
+#include "./Car_State_instances.h"
+#include "./Accel_Data_instances.h"
+#include "./Disconnections_instances.h"
+#include "./Inverters_Action_instances.h"
+#include "./Inverters_Data_instances.h"
+#include "./LVD_Data_instances.h"
+#include "./Pedals_Susp_Sensors_instances.h"
+#include "./Racing_Mode_instances.h"
+#include "./Synchronism_instances.h"
+#include "./Torque_Control_instances.h"
 /* Data structure for keeping the INTECRIO version (defines must be set) */
 #ifdef INTECRIO_VERSION_NUMBER
 static const uint32 intecrioVersionNumber = INTECRIO_VERSION_NUMBER;
@@ -54,16 +54,16 @@ uint32 getBuildEnvironment(void)
 static void initClass_INTECRIOTop_ROOT(struct INTECRIOTop_ROOT_Class *self)
 {
     /* Intialize top level class variables */
-    self->RTWTop_Accel_Data_ETR07_Ptr = (struct RTWTop_Accel_Data_ETR07_Obj*)initModel_RTWTop_Accel_Data_ETR07();
-    self->RTWTop_Car_State_ETR07_Ptr = (struct RTWTop_Car_State_ETR07_Obj*)initModel_RTWTop_Car_State_ETR07();
-    self->RTWTop_Disconnections_ETR07_Ptr = (struct RTWTop_Disconnections_ETR07_Obj*)initModel_RTWTop_Disconnections_ETR07();
-    self->RTWTop_inverters_action_ETR07_Ptr = (struct RTWTop_inverters_action_ETR07_Obj*)initModel_RTWTop_inverters_action_ETR07();
-    self->RTWTop_Inverters_Data_ETR07_Ptr = (struct RTWTop_Inverters_Data_ETR07_Obj*)initModel_RTWTop_Inverters_Data_ETR07();
-    self->RTWTop_LVD_Data_ETR07_Ptr = (struct RTWTop_LVD_Data_ETR07_Obj*)initModel_RTWTop_LVD_Data_ETR07();
-    self->RTWTop_Pedals_Susp_Sensors_ETR07_Ptr = (struct RTWTop_Pedals_Susp_Sensors_ETR07_Obj*)initModel_RTWTop_Pedals_Susp_Sensors_ETR07();
-    self->RTWTop_Racing_Mode_ETR07_Ptr = (struct RTWTop_Racing_Mode_ETR07_Obj*)initModel_RTWTop_Racing_Mode_ETR07();
-    self->RTWTop_Synchronism_ETR07_Ptr = (struct RTWTop_Synchronism_ETR07_Obj*)initModel_RTWTop_Synchronism_ETR07();
-    self->RTWTop_Torque_Control_ETR07_Ptr = (struct RTWTop_Torque_Control_ETR07_Obj*)initModel_RTWTop_Torque_Control_ETR07();
+    self->RTWTop_Car_State_Ptr = (struct RTWTop_Car_State_Obj*)initModel_RTWTop_Car_State();
+    self->RTWTop_Accel_Data_Ptr = (struct RTWTop_Accel_Data_Obj*)initModel_RTWTop_Accel_Data();
+    self->RTWTop_Disconnections_Ptr = (struct RTWTop_Disconnections_Obj*)initModel_RTWTop_Disconnections();
+    self->RTWTop_Inverters_Action_Ptr = (struct RTWTop_Inverters_Action_Obj*)initModel_RTWTop_Inverters_Action();
+    self->RTWTop_Inverters_Data_Ptr = (struct RTWTop_Inverters_Data_Obj*)initModel_RTWTop_Inverters_Data();
+    self->RTWTop_LVD_Data_Ptr = (struct RTWTop_LVD_Data_Obj*)initModel_RTWTop_LVD_Data();
+    self->RTWTop_Pedals_Susp_Sensors_Ptr = (struct RTWTop_Pedals_Susp_Sensors_Obj*)initModel_RTWTop_Pedals_Susp_Sensors();
+    self->RTWTop_Racing_Mode_Ptr = (struct RTWTop_Racing_Mode_Obj*)initModel_RTWTop_Racing_Mode();
+    self->RTWTop_Synchronism_Ptr = (struct RTWTop_Synchronism_Obj*)initModel_RTWTop_Synchronism();
+    self->RTWTop_Torque_Control_Ptr = (struct RTWTop_Torque_Control_Obj*)initModel_RTWTop_Torque_Control();
     return;
 }
 /* Definition of the class header */
@@ -94,16 +94,16 @@ void os_setDeltaT (void)
 {
     staticDT = ((real64) (SYSTEM_TICK_DURATION * os_dT) / 1.0e9);
     /* Set dT for each module */
-    setDeltaT_Accel_Data_ETR07();
-    setDeltaT_Car_State_ETR07();
-    setDeltaT_Disconnections_ETR07();
-    setDeltaT_inverters_action_ETR07();
-    setDeltaT_Inverters_Data_ETR07();
-    setDeltaT_LVD_Data_ETR07();
-    setDeltaT_Pedals_Susp_Sensors_ETR07();
-    setDeltaT_Racing_Mode_ETR07();
-    setDeltaT_Synchronism_ETR07();
-    setDeltaT_Torque_Control_ETR07();
+    setDeltaT_Car_State();
+    setDeltaT_Accel_Data();
+    setDeltaT_Disconnections();
+    setDeltaT_Inverters_Action();
+    setDeltaT_Inverters_Data();
+    setDeltaT_LVD_Data();
+    setDeltaT_Pedals_Susp_Sensors();
+    setDeltaT_Racing_Mode();
+    setDeltaT_Synchronism();
+    setDeltaT_Torque_Control();
 }
 /* Accessor for staticDT */
 uint32 getDeltaT (void)

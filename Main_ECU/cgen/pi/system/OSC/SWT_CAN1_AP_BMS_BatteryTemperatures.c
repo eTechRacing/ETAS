@@ -7,7 +7,7 @@ extern void crossbarHook_2_0(void);
 extern void rtioHook_2_0(void);
 
 
-TASK_MONITOR_DEF(SWT_CAN1_AP_BMS_BatteryTemperatures, thread2);
+TASK_MONITOR_DEF(SWT_CAN1_AP_BMS_BatteryTemperatures, thread6);
 
 TASK(SWT_CAN1_AP_BMS_BatteryTemperatures)
 {

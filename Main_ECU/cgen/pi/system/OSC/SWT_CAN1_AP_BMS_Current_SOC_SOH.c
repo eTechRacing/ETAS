@@ -3,19 +3,20 @@
 #include "../a_basdef.h"
 #include "osc_dyn.h"
 
-extern void crossbarHook_5_0(void);
+extern void crossbarHook_4_0(void);
+extern void rtioHook_4_0(void);
 
 
-TASK_MONITOR_DEF(SWT_CAN1_AP_BMS_Current_SOC_SOH, thread4);
+TASK_MONITOR_DEF(SWT_CAN1_AP_BMS_Current_SOC_SOH, thread1);
 
 TASK(SWT_CAN1_AP_BMS_Current_SOC_SOH)
 {
 	START_TASK_HOOK(SWT_CAN1_AP_BMS_Current_SOC_SOH);
 
-	sgHook(5);
+	sgHook(4);
 
 #ifdef FEATURE_LABCAR_SG
-    labcar_sgHook(5);
+    labcar_sgHook(4);
 #endif
     
 #ifdef XCP_SLAVE
@@ -23,7 +24,8 @@ TASK(SWT_CAN1_AP_BMS_Current_SOC_SOH)
     XCP_STIM_SWT_CAN1_AP_BMS_Current_SOC_SOH
 #endif
 #endif
-	crossbarHook_5_0();
+	crossbarHook_4_0();
+	rtioHook_4_0();
 	
 #ifdef XCP_SLAVE
 #if defined XCP_DAQ_SWT_CAN1_AP_BMS_Current_SOC_SOH

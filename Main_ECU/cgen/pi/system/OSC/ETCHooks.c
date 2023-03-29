@@ -19,114 +19,120 @@ rtioHookTableEntry rtioHookTable2[1] = {NULL};
 /* rtio hook in task 3 SWT_CAN1_AP_BMS_ChargerParameters */
 rtioHookTableEntry rtioHookTable3[1] = {NULL};
 
-/* rtio hook in task 6 SWT_CAN1_AP_BMS_Current_SOC_SOH1 */
+/* rtio hook in task 4 SWT_CAN1_AP_BMS_Current_SOC_SOH */
+rtioHookTableEntry rtioHookTable4[1] = {NULL};
+
+/* rtio hook in task 5 SWT_CAN1_AP_BMS_OnBoardTemperatures */
+rtioHookTableEntry rtioHookTable5[1] = {NULL};
+
+/* rtio hook in task 6 SWT_CAN1_AP_BMS_StateAndFailReport */
 rtioHookTableEntry rtioHookTable6[1] = {NULL};
 
-/* rtio hook in task 8 SWT_CAN1_AP_BMS_OnBoardTemperatures1 */
+/* rtio hook in task 7 SWT_CAN1_AP_BMS_Voltages */
+rtioHookTableEntry rtioHookTable7[1] = {NULL};
+
+/* rtio hook in task 8 SWT_CAN1_AP_DASH_CustomMode */
 rtioHookTableEntry rtioHookTable8[1] = {NULL};
 
-/* rtio hook in task 9 SWT_CAN1_AP_BMS_StateAndFailReport */
+/* rtio hook in task 9 SWT_CAN1_AP_DASH_EnableDrive */
 rtioHookTableEntry rtioHookTable9[1] = {NULL};
 
-/* rtio hook in task 10 SWT_CAN1_AP_BMS_Voltages */
+/* rtio hook in task 10 SWT_CAN1_AP_DASH_Mode */
 rtioHookTableEntry rtioHookTable10[1] = {NULL};
 
-/* rtio hook in task 11 SWT_CAN1_AP_DASH_CustomMode */
+/* rtio hook in task 11 SWT_CAN1_AP_DASH_PrechargeRequest */
 rtioHookTableEntry rtioHookTable11[1] = {NULL};
 
-/* rtio hook in task 12 SWT_CAN1_AP_DASH_EnableDrive */
+/* rtio hook in task 12 SWT_CAN1_AP_DASH_TorqueLockOn */
 rtioHookTableEntry rtioHookTable12[1] = {NULL};
 
-/* rtio hook in task 13 SWT_CAN1_AP_DASH_Mode */
+/* rtio hook in task 13 SWT_CAN1_AP_Inverter_L_Tx */
 rtioHookTableEntry rtioHookTable13[1] = {NULL};
 
-/* rtio hook in task 14 SWT_CAN1_AP_DASH_PrechargeRequest */
+/* rtio hook in task 14 SWT_CAN1_AP_Inverter_R_Tx */
 rtioHookTableEntry rtioHookTable14[1] = {NULL};
 
-/* rtio hook in task 15 SWT_CAN1_AP_DASH_TorqueLockOn */
+/* rtio hook in task 15 SWT_CAN1_AP_SHUTDOWN_State */
 rtioHookTableEntry rtioHookTable15[1] = {NULL};
 
-/* rtio hook in task 16 SWT_CAN1_AP_Inverter_L_Tx */
+/* rtio hook in task 16 SWT_CAN1_NM_BMS_Keep_Alive */
 rtioHookTableEntry rtioHookTable16[1] = {NULL};
 
-/* rtio hook in task 17 SWT_CAN1_AP_Inverter_R_Tx */
+/* rtio hook in task 17 SWT_CAN1_NM_DASH_Keep_Alive */
 rtioHookTableEntry rtioHookTable17[1] = {NULL};
 
-/* rtio hook in task 18 SWT_CAN1_AP_SHUTDOWN_State */
+/* rtio hook in task 18 SWT_CAN1_NM_SHUTDOWN_Keep_Alive */
 rtioHookTableEntry rtioHookTable18[1] = {NULL};
 
-/* rtio hook in task 19 SWT_CAN1_NM_BMS_Keep_Alive */
+/* rtio hook in task 19 SWT_CAN2_AP_ACCEL_F_Data */
 rtioHookTableEntry rtioHookTable19[1] = {NULL};
 
-/* rtio hook in task 20 SWT_CAN1_NM_DASH_Keep_Alive */
+/* rtio hook in task 20 SWT_CAN2_AP_ACCEL_R_Data */
 rtioHookTableEntry rtioHookTable20[1] = {NULL};
 
-/* rtio hook in task 21 SWT_CAN1_NM_SHUTDOWN_Keep_Alive */
+/* rtio hook in task 21 SWT_CAN2_AP_ACCEL_R_Data2 */
 rtioHookTableEntry rtioHookTable21[1] = {NULL};
 
-/* rtio hook in task 22 SWT_CAN2_AP_ACCEL_F_Data */
+/* rtio hook in task 22 SWT_CAN2_AP_ADCAN_Data1 */
 rtioHookTableEntry rtioHookTable22[1] = {NULL};
 
-/* rtio hook in task 23 SWT_CAN2_AP_ACCEL_R_Data */
+/* rtio hook in task 23 SWT_CAN2_AP_ADCAN_Data2 */
 rtioHookTableEntry rtioHookTable23[1] = {NULL};
 
-/* rtio hook in task 24 SWT_CAN2_AP_ACCEL_R_Data2 */
+/* rtio hook in task 24 SWT_CAN2_AP_LV_Derivation_LVData */
 rtioHookTableEntry rtioHookTable24[1] = {NULL};
 
-/* rtio hook in task 25 SWT_CAN2_AP_ADCAN_Data1 */
+/* rtio hook in task 25 SWT_CAN2_NM_ACCEL_F_Keep_Alive */
 rtioHookTableEntry rtioHookTable25[1] = {NULL};
 
-/* rtio hook in task 26 SWT_CAN2_AP_ADCAN_Data2 */
+/* rtio hook in task 26 SWT_CAN2_NM_ACCEL_R_Keep_Alive */
 rtioHookTableEntry rtioHookTable26[1] = {NULL};
 
-/* rtio hook in task 30 SWT_CAN2_NM_ACCEL_F_Keep_Alive */
+/* rtio hook in task 27 SWT_CAN2_NM_ADCAN_Keep_Alive */
+rtioHookTableEntry rtioHookTable27[1] = {NULL};
+
+/* rtio hook in task 28 SWT_CAN2_NM_LV_Derivation_Keep_Alive */
+rtioHookTableEntry rtioHookTable28[1] = {NULL};
+
+/* rtio hook in task 29 Sync_25ms */
+rtioHookTableEntry rtioHookTable29[1] = {NULL};
+
+/* rtio hook in task 30 Timer_1000ms */
 rtioHookTableEntry rtioHookTable30[1] = {NULL};
 
-/* rtio hook in task 31 SWT_CAN2_NM_ACCEL_R_Keep_Alive */
+/* rtio hook in task 31 Timer_100ms */
 rtioHookTableEntry rtioHookTable31[1] = {NULL};
 
-/* rtio hook in task 32 SWT_CAN2_NM_ADCAN_Keep_Alive */
+/* rtio hook in task 32 Timer_25ms */
 rtioHookTableEntry rtioHookTable32[1] = {NULL};
 
-/* rtio hook in task 34 Sync_25ms */
-rtioHookTableEntry rtioHookTable34[2] = {NULL, NULL};
+/* rtio hook in task 33 Timer_Inv */
+rtioHookTableEntry rtioHookTable33[1] = {NULL};
 
-/* rtio hook in task 35 Timer_1000ms */
+/* rtio hook in task 34 ISR_CAN1 */
+rtioHookTableEntry rtioHookTable34[1] = {NULL};
+
+/* rtio hook in task 35 ISR_CAN2 */
 rtioHookTableEntry rtioHookTable35[1] = {NULL};
 
-/* rtio hook in task 36 Timer_100ms */
+/* rtio hook in task 36 Init */
 rtioHookTableEntry rtioHookTable36[1] = {NULL};
 
-/* rtio hook in task 37 Timer_25ms */
-rtioHookTableEntry rtioHookTable37[2] = {NULL, NULL};
-
-/* rtio hook in task 38 Timer_Inv */
-rtioHookTableEntry rtioHookTable38[1] = {NULL};
-
-/* rtio hook in task 39 NewISR */
-rtioHookTableEntry rtioHookTable39[1] = {NULL};
-
-/* rtio hook in task 40 NewISR1 */
-rtioHookTableEntry rtioHookTable40[1] = {NULL};
-
-/* rtio hook in task 41 Init */
-rtioHookTableEntry rtioHookTable41[1] = {NULL};
-
-/* rtio hook in task 42 Exit */
-rtioHookTableEntry rtioHookTable42[1] = {NULL};
+/* rtio hook in task 37 Exit */
+rtioHookTableEntry rtioHookTable37[1] = {NULL};
 
 
 /* rtio task table */
-rtioTaskTableEntry rtioTaskTable[43] =
+rtioTaskTableEntry rtioTaskTable[38] =
 {
 	{&rtioHookTable0[0]},
 	{&rtioHookTable1[0]},
 	{&rtioHookTable2[0]},
 	{&rtioHookTable3[0]},
-	{NULL},
-	{NULL},
+	{&rtioHookTable4[0]},
+	{&rtioHookTable5[0]},
 	{&rtioHookTable6[0]},
-	{NULL},
+	{&rtioHookTable7[0]},
 	{&rtioHookTable8[0]},
 	{&rtioHookTable9[0]},
 	{&rtioHookTable10[0]},
@@ -146,22 +152,17 @@ rtioTaskTableEntry rtioTaskTable[43] =
 	{&rtioHookTable24[0]},
 	{&rtioHookTable25[0]},
 	{&rtioHookTable26[0]},
-	{NULL},
-	{NULL},
-	{NULL},
+	{&rtioHookTable27[0]},
+	{&rtioHookTable28[0]},
+	{&rtioHookTable29[0]},
 	{&rtioHookTable30[0]},
 	{&rtioHookTable31[0]},
 	{&rtioHookTable32[0]},
-	{NULL},
+	{&rtioHookTable33[0]},
 	{&rtioHookTable34[0]},
 	{&rtioHookTable35[0]},
 	{&rtioHookTable36[0]},
-	{&rtioHookTable37[0]},
-	{&rtioHookTable38[0]},
-	{&rtioHookTable39[0]},
-	{&rtioHookTable40[0]},
-	{&rtioHookTable41[0]},
-	{&rtioHookTable42[0]}
+	{&rtioHookTable37[0]}
 };
 
 /* rtio hook processes */
@@ -189,9 +190,27 @@ void rtioHook_3_0(void)
 	return;
 }
 
+void rtioHook_4_0(void)
+{
+	rtioHook(4,0);
+	return;
+}
+
+void rtioHook_5_0(void)
+{
+	rtioHook(5,0);
+	return;
+}
+
 void rtioHook_6_0(void)
 {
 	rtioHook(6,0);
+	return;
+}
+
+void rtioHook_7_0(void)
+{
+	rtioHook(7,0);
 	return;
 }
 
@@ -309,6 +328,24 @@ void rtioHook_26_0(void)
 	return;
 }
 
+void rtioHook_27_0(void)
+{
+	rtioHook(27,0);
+	return;
+}
+
+void rtioHook_28_0(void)
+{
+	rtioHook(28,0);
+	return;
+}
+
+void rtioHook_29_0(void)
+{
+	rtioHook(29,0);
+	return;
+}
+
 void rtioHook_30_0(void)
 {
 	rtioHook(30,0);
@@ -327,15 +364,15 @@ void rtioHook_32_0(void)
 	return;
 }
 
-void rtioHook_34_0(void)
+void rtioHook_33_0(void)
 {
-	rtioHook(34,0);
+	rtioHook(33,0);
 	return;
 }
 
-void rtioHook_34_1(void)
+void rtioHook_34_0(void)
 {
-	rtioHook(34,1);
+	rtioHook(34,0);
 	return;
 }
 
@@ -348,49 +385,13 @@ void rtioHook_35_0(void)
 void rtioHook_36_0(void)
 {
 	rtioHook(36,0);
+	INIT_EXIT_FW_HOOK
 	return;
 }
 
 void rtioHook_37_0(void)
 {
 	rtioHook(37,0);
-	return;
-}
-
-void rtioHook_37_1(void)
-{
-	rtioHook(37,1);
-	return;
-}
-
-void rtioHook_38_0(void)
-{
-	rtioHook(38,0);
-	return;
-}
-
-void rtioHook_39_0(void)
-{
-	rtioHook(39,0);
-	return;
-}
-
-void rtioHook_40_0(void)
-{
-	rtioHook(40,0);
-	return;
-}
-
-void rtioHook_41_0(void)
-{
-	rtioHook(41,0);
-	INIT_EXIT_FW_HOOK
-	return;
-}
-
-void rtioHook_42_0(void)
-{
-	rtioHook(42,0);
 	INIT_EXIT_FW_HOOK
 	return;
 }
