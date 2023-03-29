@@ -1,0 +1,820 @@
+<?xml version="1.0"?>
+<!DOCTYPE module [
+    <!ENTITY szlig "&#223;">
+    <!ENTITY copy "&#169;">
+    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/common/baseTypes-mlsl.six'>
+    ]>
+<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/common/showSCOOP-IX.xsl"?>
+<!--
+<h1>SCOOP-IX</h1>
+<p>
+    <strong>Copyright &copy; 2014 ETAS GmbH</strong>, Borsigstra&szlig;e 14, D-70469 Stuttgart. <em>All rights reserved.</em>
+</p>
+-->
+<module xmlns="http://www.etas.com/scoop-ix/1.4" xmlns:ix="http://www.etas.com/scoop-ix/1.4" xmlns:mlsl="http://www.etas.com/scoop-ix/1.4/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.4
+        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
+	<directoryLocations scheme="MATLAB 9.3">
+		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO4.7\MATLAB\"/>
+		<directory identifier="toolDir" path=".\"/>
+		<directory identifier="modelDir" path="C:\Users\dwegg\Desktop\ETAS-main\ETAS\Programas_Simulink\"/>
+		<directory identifier="codeDir" path="c:\users\dwegg\desktop\etas-main\etas\programas_simulink_build\lvd_data_irt_rtw\"/>
+	</directoryLocations>
+	<moduleInfo identifier="LVD_Data">
+		<name>LVD_Data</name>
+		<modelLink href="mlsl://&quot;{{modelDir}}LVD_Data.slx&quot;"/>
+		<version major="1" minor="9"/>
+		<dateTime kind="created" year="2021" month="2" day="20" hour="19" minute="36" second="19"/>
+		<dateTime kind="lastModified" year="2021" month="11" day="9" hour="11" minute="40" second="7"/>
+		<completion degree="full"/>
+		<suitability>
+			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
+			<application domain="softwareDevelopment" addressesAvailable="false" nestedDataStructuresAvailable="true"/>
+		</suitability>
+		<user lastName="cspt" role="modifier"/>
+		<creators>
+			<user lastName="cspt" role="creator"/>
+			<tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
+				<version major="9" minor="3" year="2017" month="7" day="24" info="R2017b"/>
+			</tool>
+			<tool kind="modeler" vendor="The Mathworks, Inc." name="Simulink">
+				<version major="9" minor="0" year="2017" month="7" day="24" info="R2017b"/>
+			</tool>
+			<tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
+				<version major="9" minor="0" year="2017" month="7" day="24" info="R2017b"/>
+			</tool>
+			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
+				<version major="8" minor="13" year="2017" month="7" day="24" info="R2017b"/>
+				<mode name="target" value="INTECRIO Real-Time Target"/>
+				<configuration>
+					<option identifier="InlineParameters">2</option>
+					<option identifier="InlineInvariantSignals">0</option>
+					<option identifier="Solver">FixedStepDiscrete</option>
+					<option identifier="SolverType">FixedStep</option>
+					<option identifier="FixedStepOpts.FixedStep">0.2</option>
+					<option identifier="FixedStepOpts.SolverMode">SingleTasking</option>
+				</configuration>
+			</tool>
+			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="MATLAB Coder">
+				<version major="3" minor="4" year="2017" month="7" day="24" info="R2017b"/>
+			</tool>
+			<tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
+				<version major="4" minor="7" year="2018" month="1" day="1"/>
+				<configuration>
+					<option identifier="SCOOPIXFileName"><![CDATA[LVD_Data.six]]></option>
+					<option identifier="ExternalMode">0</option>
+					<option identifier="IgnoreCustomStorageClasses">1</option>
+					<option identifier="StopSimuAfterAssert">1</option>
+					<option identifier="GenerateOnlySelectedSignalsToASAP2">0</option>
+				</configuration>
+			</tool>
+		</creators>
+	</moduleInfo>
+	<codeInfo>
+		<constitution mode="sourceCode"/>
+		<dateTime kind="created" year="2023" month="3" day="29" hour="12" minute="58" second="53"/>
+		<target>
+			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
+			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
+				<configuration>
+					<optionKind name="macroDefine" prefix="-D"/>
+					<optionKind name="includeDirectory" prefix="-I"/>
+					<!-- RTW specific defines -->
+					<option kind="macroDefine" name="USE_RTMODEL"/>
+					<option kind="macroDefine" name="MODEL">LVD_Data</option>
+					<option kind="macroDefine" name="RT"/>
+					<option kind="macroDefine" name="NUMST">1</option>
+					<option kind="macroDefine" name="TID01EQ">0</option>
+					<option kind="macroDefine" name="NCSTATES">0</option>
+					<option kind="macroDefine" name="MT">0</option>
+					<option kind="macroDefine" name="HAVESTDIO"/>
+					<option kind="macroDefine" name="MdlStart">MdlStart_LVD_Data</option>
+					<option kind="macroDefine" name="MdlOutputs">MdlOutputs_LVD_Data</option>
+					<option kind="macroDefine" name="MdlUpdate">MdlUpdate_LVD_Data</option>
+					<option kind="macroDefine" name="MdlTerminate">MdlTerminate_LVD_Data</option>
+					<option kind="macroDefine" name="MdlInitializeSizes">MdlInitializeSizes_LVD_Data</option>
+					<option kind="macroDefine" name="MdlInitializeSampleTimes">MdlInitializeSampleTimes_LVD_Data</option>
+					<option kind="macroDefine" name="MdlInitialize">MdlInitialize_LVD_Data</option>
+					<option kind="macroDefine" name="MdlEnable">MdlEnable_LVD_Data</option>
+					<option kind="macroDefine" name="MdlDerivatives">MdlDerivatives_LVD_Data</option>
+					<option kind="macroDefine" name="MdlProjection">MdlProjection_LVD_Data</option>
+					<option kind="macroDefine" name="rt_ODECreateIntegrationData">rt_ODECreateIntegrationData_LVD_Data</option>
+					<option kind="macroDefine" name="rt_ODEUpdateContinuousStates">rt_ODEUpdateContinuousStates_LVD_Data</option>
+					<option kind="macroDefine" name="rt_ODEDestroyIntegrationData">rt_ODEDestroyIntegrationData_LVD_Data</option>
+					<option kind="macroDefine" name="rt_ODECacheDataIntoSolverInfo">rt_ODECacheDataIntoSolverInfo_LVD_Data</option>
+					<option kind="macroDefine" name="rt_ODERetrieveDataFromSolverInfo">rt_ODERetrieveDataFromSolverInfo_LVD_Data</option>
+					<option kind="macroDefine" name="rt_ODECreateSolverInfo">rt_ODECreateSolverInfo_LVD_Data</option>
+					<option kind="macroDefine" name="rt_SimInitTimingEngine">rt_SimInitTimingEngine_LVD_Data</option>
+					<option kind="macroDefine" name="rt_SimGetNextSampleHit">rt_SimGetNextSampleHit_LVD_Data</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteTaskSampleHits">rt_SimUpdateDiscreteTaskSampleHits_LVD_Data</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteEvents">rt_SimUpdateDiscreteEvents_LVD_Data</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteTaskTime">rt_SimUpdateDiscreteTaskTime_LVD_Data</option>
+					<option kind="macroDefine" name="rt_CallSys">rt_CallSys_LVD_Data</option>
+					<option kind="macroDefine" name="rt_EnableSys">rt_EnableSys_LVD_Data</option>
+					<option kind="macroDefine" name="rt_DisableSys">rt_DisableSys_LVD_Data</option>
+					<option kind="macroDefine" name="rt_SimDestroyTimingEngine">rt_SimDestroyTimingEngine_LVD_Data</option>
+					<option kind="macroDefine" name="rt_InitTimingEngine">rt_InitTimingEngine_LVD_Data</option>
+					<option kind="macroDefine" name="rt_DestroyTimingEngine">rt_DestroyTimingEngine_LVD_Data</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteTaskSampleHits">rt_UpdateDiscreteTaskSampleHits_LVD_Data</option>
+					<option kind="macroDefine" name="rt_GetNextSampleHit">rt_GetNextSampleHit_LVD_Data</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteEvents">rt_UpdateDiscreteEvents_LVD_Data</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteTaskTime">rt_UpdateDiscreteTaskTime_LVD_Data</option>
+					<!-- RTW specific include directories -->
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}]]></option>
+					<option kind="includeDirectory"><![CDATA[{{integratorDir}}c\src\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{integratorDir}}c\lib\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\simulink\include\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\extern\include\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\src\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\libsrc\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\_sharedutils\]]></option>
+					<!-- S-Function specific includes directories -->
+				</configuration>
+			</tool>
+		</target>
+	</codeInfo>
+	<!-- Model specific files -->
+	<fileContainer constitution="sourceCode">
+		<pathBase path="{{codeDir}}"/>
+		<!-- Model specific source files -->
+		<file name="LVD_Data_types.h" kind="header"/>
+		<file name="LVD_Data.h" kind="header"/>
+		<file name="LVD_Data.c" kind="body"/>
+		<file name="LVD_Data_private.h" kind="header"/>
+		<file name="rtmodel.h" kind="header"/>
+		<file name="LVD_Data_data.c" kind="body"/>
+		<file name="LVD_Data_main.c" kind="body"/>
+		<!-- Additionally registered model specific source files -->
+		<file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body"/>
+		<!-- Target specific libraries -->
+		<file name="rtwStaticLib.lib" kind="symbolicLibrary"/>
+		<file name="rtwSharedLib.lib" kind="symbolicLibrary"/>
+		<!-- Additional files -->
+	</fileContainer>
+	<interface>
+		<modelLinkBase href="mlsl://{{modelDir}}LVD_Data.slx?"/>
+		<pathBase path="{{codeDir}}"/>
+		<fileOrigin name="LVD_Data.c"/>
+		<fileOrigin name="LVD_Data_data.c"/>
+		<fileOrigin name="rt_nonfinite.c"/>
+		<fileOrigin name="LVD_Data_main.c"/>
+		<headerFile name="LVD_Data.h"/>
+		<headerFile name="LVD_Data_private.h"/>
+		<usage layoutFamily="mlsl:standardLayout"/>
+		<!-- "import" MATLAB/Simulink base type and complex struct definitions via external entity -->
+		&baseTypes-mlsl;
+		<definitions>
+			<structDef name="_P_LVD_Data_T">
+				<fileOrigin name="LVD_Data.h"/>
+				<structMember identifier="ct_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 1 -- Referenced by: '&lt;S1&gt;/ct'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="exptcycletau1_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 0.96 -- Referenced by: '&lt;S1&gt;/exp(-tcycle//tau)1'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="DataStoreMemory_InitialValue">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 0 -- Referenced by: '&lt;S1&gt;/Data Store Memory'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="DataStoreMemory1_InitialValue">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 0 -- Referenced by: '&lt;S1&gt;/Data Store Memory1'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Vmin_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 23.65 -- Referenced by: '&lt;Root&gt;/Vmin'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Vmax_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 28.5 -- Referenced by: '&lt;Root&gt;/Vmax'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="MaxBits_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 1024 -- Referenced by: '&lt;Root&gt;/MaxBits'
+  </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="MaxBits2_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>Expression: 9 -- Referenced by: '&lt;Root&gt;/MaxBits2'
+  </documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="P_LVD_Data_T">
+				<struct/><typeRef name="_P_LVD_Data_T"/>
+				<fileOrigin name="LVD_Data_types.h"/>
+				<annotation>
+					<documentation>Parameters (auto storage)</documentation>
+				</annotation>
+			</typeDef>
+			<structDef name="ExtU_LVD_Data_T_tag">
+				<fileOrigin name="LVD_Data.h"/>
+				<structMember identifier="LVBattery_Voltage_Bits">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/LVBattery_Voltage_Bits</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ExtU_LVD_Data_T">
+				<struct/><typeRef name="ExtU_LVD_Data_T_tag"/>
+				<fileOrigin name="LVD_Data.h"/>
+			</typeDef>
+			<structDef name="ExtY_LVD_Data_T_tag">
+				<fileOrigin name="LVD_Data.h"/>
+				<structMember identifier="LVbattery_Voltage">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/LVbattery_Voltage</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ExtY_LVD_Data_T">
+				<struct/><typeRef name="ExtY_LVD_Data_T_tag"/>
+				<fileOrigin name="LVD_Data.h"/>
+			</typeDef>
+			<structDef name="_DW_LVD_Data_T">
+				<fileOrigin name="LVD_Data.h"/>
+				<structMember identifier="Previous_IN">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'dsmMem'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Previous_OUT">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'dsmMem'.</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="DW_LVD_Data_T">
+				<struct/><typeRef name="_DW_LVD_Data_T"/>
+				<fileOrigin name="LVD_Data.h"/>
+			</typeDef>
+			<baseDef identifier="LVD_Data_P">
+				<type><typeRef name="P_LVD_Data_T"/></type>
+				<fileOrigin name="LVD_Data_data.c"/>
+				<annotation>
+					<documentation>The rtP data structure for parameters.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="LVD_Data_U">
+				<type><typeRef name="ExtU_LVD_Data_T"/></type>
+				<fileOrigin name="LVD_Data.c"/>
+				<annotation>
+					<documentation>The rtU data structure for external inputs.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="LVD_Data_Y">
+				<type><typeRef name="ExtY_LVD_Data_T"/></type>
+				<fileOrigin name="LVD_Data.c"/>
+				<annotation>
+					<documentation>The rtY data structure for external outputs.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="LVD_Data_DW">
+				<type><typeRef name="DW_LVD_Data_T"/></type>
+				<fileOrigin name="LVD_Data.c"/>
+				<annotation>
+					<documentation>The dWork data structure for model state.</documentation>
+				</annotation>
+			</baseDef>
+			<conversion name="LVD_Data_CM_double">
+				<rationalFunction>
+					<numerator bx="1.0"/>
+					<denominator f="1.0"/>
+				</rationalFunction>
+				<annotation>
+					<documentation>Q = V</documentation>
+				</annotation>
+			</conversion>
+		</definitions>
+		<!-- rtP parameters following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="LVD_Data_P.ct_Value">
+				<definitionLocation>
+					<baseRef identifier="LVD_Data_P"/>
+					<memberRef identifier="ct_Value"/>
+				</definitionLocation>
+				<fileOrigin name="LVD_Data_data.c"/>
+				<initValue value="1.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="LVD_Data.Low_Pass.ct.ct_Value">
+				<name>ct_Value</name>
+				<modelLink href="LVD_Data/Low Pass/ct"/>
+				<modelLocation>
+					<pathNode name="LVD_Data" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Low Pass" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="ct" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="LVD_Data_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="LVD_Data_P.exptcycletau1_Value">
+				<definitionLocation>
+					<baseRef identifier="LVD_Data_P"/>
+					<memberRef identifier="exptcycletau1_Value"/>
+				</definitionLocation>
+				<fileOrigin name="LVD_Data_data.c"/>
+				<initValue value="0.96"/>
+			</dataCInterface>
+			<modelOrigin identifier="LVD_Data.Low_Pass.exp__tcycle_tau_1.exptcycletau1_Value">
+				<name>exptcycletau1_Value</name>
+				<modelLink href="LVD_Data/Low Pass/exp(-tcycle//tau)1"/>
+				<modelLocation>
+					<pathNode name="LVD_Data" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Low Pass" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="exp(-tcycle//tau)1" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="LVD_Data_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="LVD_Data_P.DataStoreMemory_InitialValue">
+				<definitionLocation>
+					<baseRef identifier="LVD_Data_P"/>
+					<memberRef identifier="DataStoreMemory_InitialValue"/>
+				</definitionLocation>
+				<fileOrigin name="LVD_Data_data.c"/>
+				<initValue value="0.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="LVD_Data.Opaque.DataStoreMemory_InitialValue">
+				<name>DataStoreMemory_InitialValue</name>
+				<modelLink href="LVD_Data/Opaque"/>
+				<modelLocation>
+					<pathNode name="LVD_Data" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Low Pass" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Data Store Memory" kind="mlsl:block"/>
+					<pathNode name="InitialValue" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="LVD_Data_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="LVD_Data_P.DataStoreMemory1_InitialValue">
+				<definitionLocation>
+					<baseRef identifier="LVD_Data_P"/>
+					<memberRef identifier="DataStoreMemory1_InitialValue"/>
+				</definitionLocation>
+				<fileOrigin name="LVD_Data_data.c"/>
+				<initValue value="0.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="LVD_Data.Opaque.DataStoreMemory1_InitialValue">
+				<name>DataStoreMemory1_InitialValue</name>
+				<modelLink href="LVD_Data/Opaque"/>
+				<modelLocation>
+					<pathNode name="LVD_Data" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Low Pass" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Data Store Memory1" kind="mlsl:block"/>
+					<pathNode name="InitialValue" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="LVD_Data_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="LVD_Data_P.Vmin_Value">
+				<definitionLocation>
+					<baseRef identifier="LVD_Data_P"/>
+					<memberRef identifier="Vmin_Value"/>
+				</definitionLocation>
+				<fileOrigin name="LVD_Data_data.c"/>
+				<initValue value="23.65"/>
+			</dataCInterface>
+			<modelOrigin identifier="LVD_Data.Vmin.Vmin_Value">
+				<name>Vmin_Value</name>
+				<modelLink href="LVD_Data/Vmin"/>
+				<modelLocation>
+					<pathNode name="LVD_Data" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Vmin" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="LVD_Data_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="LVD_Data_P.Vmax_Value">
+				<definitionLocation>
+					<baseRef identifier="LVD_Data_P"/>
+					<memberRef identifier="Vmax_Value"/>
+				</definitionLocation>
+				<fileOrigin name="LVD_Data_data.c"/>
+				<initValue value="28.5"/>
+			</dataCInterface>
+			<modelOrigin identifier="LVD_Data.Vmax.Vmax_Value">
+				<name>Vmax_Value</name>
+				<modelLink href="LVD_Data/Vmax"/>
+				<modelLocation>
+					<pathNode name="LVD_Data" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Vmax" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="LVD_Data_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="LVD_Data_P.MaxBits_Value">
+				<definitionLocation>
+					<baseRef identifier="LVD_Data_P"/>
+					<memberRef identifier="MaxBits_Value"/>
+				</definitionLocation>
+				<fileOrigin name="LVD_Data_data.c"/>
+				<initValue value="1024.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="LVD_Data.MaxBits.MaxBits_Value">
+				<name>MaxBits_Value</name>
+				<modelLink href="LVD_Data/MaxBits"/>
+				<modelLocation>
+					<pathNode name="LVD_Data" kind="mlsl:model" type="atomic"/>
+					<pathNode name="MaxBits" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="LVD_Data_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="LVD_Data_P.MaxBits2_Value">
+				<definitionLocation>
+					<baseRef identifier="LVD_Data_P"/>
+					<memberRef identifier="MaxBits2_Value"/>
+				</definitionLocation>
+				<fileOrigin name="LVD_Data_data.c"/>
+				<initValue value="9.0"/>
+			</dataCInterface>
+			<modelOrigin identifier="LVD_Data.MaxBits2.MaxBits2_Value">
+				<name>MaxBits2_Value</name>
+				<modelLink href="LVD_Data/MaxBits2"/>
+				<modelLocation>
+					<pathNode name="LVD_Data" kind="mlsl:model" type="atomic"/>
+					<pathNode name="MaxBits2" kind="mlsl:block"/>
+					<pathNode name="Value" kind="mlsl:parameter"/>
+				</modelLocation>
+				<modelKind kind="parameter" visibility="private"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="LVD_Data_CM_double"/>
+			</implementation>
+			<usage calibration="true">
+				<address kind="pseudo">
+					<BLOB kind="DP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- Constant parameters following -->
+		<!-- Exported global parameters following -->
+		<!-- Imported extern parameters following -->
+		<!-- Global BlockIO (rtB) signals following -->
+		<!-- Global constant BlockIO (rtC) signals following -->
+		<!-- Exported global and imported extern signals following -->
+		<!-- Global IRT DWork port signals following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="LVD_Data_DW.Previous_IN">
+				<definitionLocation>
+					<baseRef identifier="LVD_Data_DW"/>
+					<memberRef identifier="Previous_IN"/>
+				</definitionLocation>
+				<fileOrigin name="LVD_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="LVD_Data.Opaque.Previous_IN">
+				<name>Previous_IN</name>
+				<modelLink href="LVD_Data/Opaque"/>
+				<modelLocation>
+					<pathNode name="LVD_Data" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Low Pass" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Data Store Memory" kind="mlsl:block"/>
+					<pathNode name="Previous_IN" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="LVD_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="LVD_Data_DW.Previous_OUT">
+				<definitionLocation>
+					<baseRef identifier="LVD_Data_DW"/>
+					<memberRef identifier="Previous_OUT"/>
+				</definitionLocation>
+				<fileOrigin name="LVD_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="LVD_Data.Opaque.Previous_OUT">
+				<name>Previous_OUT</name>
+				<modelLink href="LVD_Data/Opaque"/>
+				<modelLocation>
+					<pathNode name="LVD_Data" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Low Pass" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Data Store Memory1" kind="mlsl:block"/>
+					<pathNode name="Previous_OUT" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="LVD_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- rtU input ports following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="LVD_Data_U.LVBattery_Voltage_Bits">
+				<definitionLocation>
+					<baseRef identifier="LVD_Data_U"/>
+					<memberRef identifier="LVBattery_Voltage_Bits"/>
+				</definitionLocation>
+				<fileOrigin name="LVD_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="LVD_Data.LVBattery_Voltage_Bits">
+				<name>LVBattery_Voltage_Bits</name>
+				<modelLink href="LVD_Data/LVBattery_Voltage_Bits"/>
+				<modelLocation>
+					<pathNode name="LVD_Data" kind="mlsl:model"/>
+					<pathNode name="LVBattery_Voltage_Bits" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="LVD_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- rtY output ports following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="LVD_Data_Y.LVbattery_Voltage">
+				<definitionLocation>
+					<baseRef identifier="LVD_Data_Y"/>
+					<memberRef identifier="LVbattery_Voltage"/>
+				</definitionLocation>
+				<fileOrigin name="LVD_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="LVD_Data.LVbattery_Voltage">
+				<name>LVbattery_Voltage</name>
+				<modelLink href="LVD_Data/LVbattery_Voltage"/>
+				<modelLocation>
+					<pathNode name="LVD_Data" kind="mlsl:model"/>
+					<pathNode name="LVbattery_Voltage" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="LVD_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_Start_LVD_Data">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="LVD_Data_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_Start_LVD_Data">
+				<name>irt_Start_LVD_Data</name>
+				<modelLocation>
+					<pathNode name="LVD_Data" kind="mlsl:model"/>
+					<pathNode name="irt_Start_LVD_Data" kind="mlsl:process" type="initialization"/>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<constraint>
+						<execution trigger="initialization"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the initialization process of the Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_OneStep_LVD_Data">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="LVD_Data_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_OneStep_LVD_Data">
+				<name>irt_OneStep_LVD_Data</name>
+				<modelLocation>
+					<pathNode name="LVD_Data" kind="mlsl:model"/>
+					<pathNode name="irt_OneStep_LVD_Data" kind="mlsl:process" type="execution">
+						<pathParameter name="mlsl:baseSampleRate" value="0.2"/>
+						<pathParameter name="mlsl:sampleRates" value="0.2"/>
+					</pathNode>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<messageAccess>
+						<message identifier="LVD_Data_U.LVBattery_Voltage_Bits" send="false"></message>
+						<message identifier="LVD_Data_Y.LVbattery_Voltage" send="true"></message>
+					</messageAccess>
+					<constraint>
+						<period value="0.2"/>
+						<offset value="0.0"/>
+						<execution trigger="timer" priority="normal"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the execution process of the Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_Terminate_LVD_Data">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="LVD_Data_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_Terminate_LVD_Data">
+				<name>irt_Terminate_LVD_Data</name>
+				<modelLocation>
+					<pathNode name="LVD_Data" kind="mlsl:model"/>
+					<pathNode name="irt_Terminate_LVD_Data" kind="mlsl:process" type="termination"/>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<constraint>
+						<execution trigger="termination"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the termination process of the INTECRIO Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+	</interface>
+</module>
