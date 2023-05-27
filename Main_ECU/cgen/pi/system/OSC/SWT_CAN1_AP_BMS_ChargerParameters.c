@@ -7,7 +7,7 @@ extern void crossbarHook_3_0(void);
 extern void rtioHook_3_0(void);
 
 
-TASK_MONITOR_DEF(SWT_CAN1_AP_BMS_ChargerParameters, thread1);
+TASK_MONITOR_DEF(SWT_CAN1_AP_BMS_ChargerParameters, thread5);
 
 TASK(SWT_CAN1_AP_BMS_ChargerParameters)
 {

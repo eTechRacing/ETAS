@@ -3,15 +3,15 @@
 #include "../a_basdef.h"
 #include "osc_dyn.h"
 
-extern void crossbarHook_38_0(void);
-extern void crossbarHook_38_1(void);
-extern void irt_OneStep_inverters_action_ETR07(void);
-extern void crossbarHook_38_2(void);
-extern void crossbarHook_38_3(void);
-extern void irt_OneStep_Inverters_Data_ETR07(void);
-extern void crossbarHook_38_4(void);
-extern void crossbarHook_38_5(void);
-extern void rtioHook_38_0(void);
+extern void crossbarHook_33_0(void);
+extern void crossbarHook_33_1(void);
+extern void irt_OneStep_Inverters_Action(void);
+extern void crossbarHook_33_2(void);
+extern void crossbarHook_33_3(void);
+extern void irt_OneStep_Inverters_Data(void);
+extern void crossbarHook_33_4(void);
+extern void crossbarHook_33_5(void);
+extern void rtioHook_33_0(void);
 
 
 TASK_MONITOR_DEF(Timer_Inv, thread0);
@@ -20,10 +20,10 @@ TASK(Timer_Inv)
 {
 	START_TASK_HOOK(Timer_Inv);
 
-	sgHook(38);
+	sgHook(33);
 
 #ifdef FEATURE_LABCAR_SG
-    labcar_sgHook(38);
+    labcar_sgHook(33);
 #endif
     
 #ifdef XCP_SLAVE
@@ -31,15 +31,15 @@ TASK(Timer_Inv)
     XCP_STIM_Timer_Inv
 #endif
 #endif
-	crossbarHook_38_0();
-	crossbarHook_38_1();
-	irt_OneStep_inverters_action_ETR07();
-	crossbarHook_38_2();
-	crossbarHook_38_3();
-	irt_OneStep_Inverters_Data_ETR07();
-	crossbarHook_38_4();
-	crossbarHook_38_5();
-	rtioHook_38_0();
+	crossbarHook_33_0();
+	crossbarHook_33_1();
+	irt_OneStep_Inverters_Action();
+	crossbarHook_33_2();
+	crossbarHook_33_3();
+	irt_OneStep_Inverters_Data();
+	crossbarHook_33_4();
+	crossbarHook_33_5();
+	rtioHook_33_0();
 	
 #ifdef XCP_SLAVE
 #if defined XCP_DAQ_Timer_Inv

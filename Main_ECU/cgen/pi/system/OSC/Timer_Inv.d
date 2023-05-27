@@ -1,8 +1,8 @@
 Timer_Inv.o: \
- c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC\Timer_Inv.c \
- c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC\/Timer_Inv.h \
- c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC\/osekcomn.h \
- c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC\/oscomn.h \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC\Timer_Inv.c \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC\/Timer_Inv.h \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC\/osekcomn.h \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC\/oscomn.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\QNX_COMMON\rta_osek/oscore.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\QNX_COMMON\rta_osek/osnamespace.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\ES910\rta_osek/ostarget.h \
@@ -37,9 +37,9 @@ Timer_Inv.o: \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\ES910/t_led.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\rtio\global/ES910\p_rtio_s.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\QNX_COMMON/t_dataset.h \
- c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC/driverThreads.h \
- c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC/taskMonitors.h \
- c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC/rtaInterface.h \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC/driverThreads.h \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC/taskMonitors.h \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC/rtaInterface.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\ES910/..\a_contai.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\ES910/..\t_rtcros.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\ES910/..\i_rtioma.h \
@@ -50,4 +50,4 @@ Timer_Inv.o: \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\ES910/..\i_cpyfnc.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\ES910/..\i_salone.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\ES910/..\y_primit.h \
- c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC\/osc_dyn.h
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC\/osc_dyn.h

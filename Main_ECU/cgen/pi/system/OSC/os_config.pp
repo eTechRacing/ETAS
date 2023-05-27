@@ -33,27 +33,27 @@ kernel {
 # 16 "os_config.stc"
 
 # 17 "os_config.stc"
-	set "DestDir_asm"="c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC\";
+	set "DestDir_asm"="c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC\";
 # 17 "os_config.stc"
 
 # 18 "os_config.stc"
-	set "DestDir_c"="c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC\";
+	set "DestDir_c"="c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC\";
 # 18 "os_config.stc"
 
 # 19 "os_config.stc"
-	set "DestDir_h"="c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC\";
+	set "DestDir_h"="c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC\";
 # 19 "os_config.stc"
 
 # 20 "os_config.stc"
-	set "DestDir_obj"="c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC\";
+	set "DestDir_obj"="c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC\";
 # 20 "os_config.stc"
 
 # 21 "os_config.stc"
-	set "DestDir_app"="c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC\";
+	set "DestDir_app"="c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC\";
 # 21 "os_config.stc"
 
 # 22 "os_config.stc"
-	set "DestDir_tmp"="c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC\";
+	set "DestDir_tmp"="c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC\";
 # 22 "os_config.stc"
 
 # 23 "os_config.stc"
@@ -290,29 +290,29 @@ stopwatch conversion {
 }
 
 
-# 498 "os_config.stc"
+# 448 "os_config.stc"
 
-# 499 "os_config.stc"
+# 449 "os_config.stc"
 idle task {
-# 500 "os_config.stc"
+# 450 "os_config.stc"
 	locks resource osek_resource_RES_SCHEDULER;
-# 500 "os_config.stc"
+# 450 "os_config.stc"
 
-# 501 "os_config.stc"
+# 451 "os_config.stc"
 	profile default_profile {
-# 502 "os_config.stc"
+# 452 "os_config.stc"
 		this priority duration undefined;
-# 502 "os_config.stc"
+# 452 "os_config.stc"
 
-# 503 "os_config.stc"
+# 453 "os_config.stc"
 		resource osek_resource_RES_SCHEDULER duration undefined;
-# 503 "os_config.stc"
+# 453 "os_config.stc"
 
-# 504 "os_config.stc"
+# 454 "os_config.stc"
 	}
-# 504 "os_config.stc"
+# 454 "os_config.stc"
 
-# 505 "os_config.stc"
+# 455 "os_config.stc"
 }
 
 
@@ -321,9 +321,9 @@ idle task {
 # 69 "os_config.stc"
 
 # 70 "os_config.stc"
-task osek_task_SWT_CAN1_AP_BMS_OnBoardTemperatures1 {
+task osek_task_SWT_CAN2_NM_ADCAN_Keep_Alive {
 # 71 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_AP_BMS_OnBoardTemperatures1;
+	entry osek_task_e_SWT_CAN2_NM_ADCAN_Keep_Alive;
 # 71 "os_config.stc"
 
 # 72 "os_config.stc"
@@ -353,9 +353,9 @@ task osek_task_SWT_CAN1_AP_BMS_OnBoardTemperatures1 {
 # 78 "os_config.stc"
 
 # 79 "os_config.stc"
-task osek_task_SWT_CAN1_AP_BMS_Current_SOC_SOH1 {
+task osek_task_SWT_CAN2_AP_ADCAN_Data1 {
 # 80 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_AP_BMS_Current_SOC_SOH1;
+	entry osek_task_e_SWT_CAN2_AP_ADCAN_Data1;
 # 80 "os_config.stc"
 
 # 81 "os_config.stc"
@@ -385,9 +385,9 @@ task osek_task_SWT_CAN1_AP_BMS_Current_SOC_SOH1 {
 # 87 "os_config.stc"
 
 # 88 "os_config.stc"
-task osek_task_SWT_CAN1_AP_BMS_Current_SOC {
+task osek_task_SWT_CAN2_AP_ADCAN_Data2 {
 # 89 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_AP_BMS_Current_SOC;
+	entry osek_task_e_SWT_CAN2_AP_ADCAN_Data2;
 # 89 "os_config.stc"
 
 # 90 "os_config.stc"
@@ -417,9 +417,9 @@ task osek_task_SWT_CAN1_AP_BMS_Current_SOC {
 # 96 "os_config.stc"
 
 # 97 "os_config.stc"
-task osek_task_SWT_CAN2_AP_ELIPSE_VelBody {
+task osek_task_SWT_CAN2_AP_ACCEL_R_Data {
 # 98 "os_config.stc"
-	entry osek_task_e_SWT_CAN2_AP_ELIPSE_VelBody;
+	entry osek_task_e_SWT_CAN2_AP_ACCEL_R_Data;
 # 98 "os_config.stc"
 
 # 99 "os_config.stc"
@@ -449,9 +449,9 @@ task osek_task_SWT_CAN2_AP_ELIPSE_VelBody {
 # 105 "os_config.stc"
 
 # 106 "os_config.stc"
-task osek_task_SWT_CAN2_AP_ELIPSE_VelAngular {
+task osek_task_SWT_CAN2_NM_ACCEL_R_Keep_Alive {
 # 107 "os_config.stc"
-	entry osek_task_e_SWT_CAN2_AP_ELIPSE_VelAngular;
+	entry osek_task_e_SWT_CAN2_NM_ACCEL_R_Keep_Alive;
 # 107 "os_config.stc"
 
 # 108 "os_config.stc"
@@ -481,9 +481,9 @@ task osek_task_SWT_CAN2_AP_ELIPSE_VelAngular {
 # 114 "os_config.stc"
 
 # 115 "os_config.stc"
-task osek_task_SWT_CAN2_NM_ADCAN_Keep_Alive {
+task osek_task_SWT_CAN2_NM_ACCEL_F_Keep_Alive {
 # 116 "os_config.stc"
-	entry osek_task_e_SWT_CAN2_NM_ADCAN_Keep_Alive;
+	entry osek_task_e_SWT_CAN2_NM_ACCEL_F_Keep_Alive;
 # 116 "os_config.stc"
 
 # 117 "os_config.stc"
@@ -513,9 +513,9 @@ task osek_task_SWT_CAN2_NM_ADCAN_Keep_Alive {
 # 123 "os_config.stc"
 
 # 124 "os_config.stc"
-task osek_task_SWT_CAN2_AP_ADCAN_Data1 {
+task osek_task_SWT_CAN2_AP_ACCEL_F_Data {
 # 125 "os_config.stc"
-	entry osek_task_e_SWT_CAN2_AP_ADCAN_Data1;
+	entry osek_task_e_SWT_CAN2_AP_ACCEL_F_Data;
 # 125 "os_config.stc"
 
 # 126 "os_config.stc"
@@ -545,9 +545,9 @@ task osek_task_SWT_CAN2_AP_ADCAN_Data1 {
 # 132 "os_config.stc"
 
 # 133 "os_config.stc"
-task osek_task_SWT_CAN2_AP_ADCAN_Data2 {
+task osek_task_SWT_CAN2_NM_LV_Derivation_Keep_Alive {
 # 134 "os_config.stc"
-	entry osek_task_e_SWT_CAN2_AP_ADCAN_Data2;
+	entry osek_task_e_SWT_CAN2_NM_LV_Derivation_Keep_Alive;
 # 134 "os_config.stc"
 
 # 135 "os_config.stc"
@@ -577,9 +577,9 @@ task osek_task_SWT_CAN2_AP_ADCAN_Data2 {
 # 141 "os_config.stc"
 
 # 142 "os_config.stc"
-task osek_task_SWT_CAN2_AP_ACCEL_R_Data {
+task osek_task_SWT_CAN2_AP_ACCEL_R_Data2 {
 # 143 "os_config.stc"
-	entry osek_task_e_SWT_CAN2_AP_ACCEL_R_Data;
+	entry osek_task_e_SWT_CAN2_AP_ACCEL_R_Data2;
 # 143 "os_config.stc"
 
 # 144 "os_config.stc"
@@ -609,9 +609,9 @@ task osek_task_SWT_CAN2_AP_ACCEL_R_Data {
 # 150 "os_config.stc"
 
 # 151 "os_config.stc"
-task osek_task_SWT_CAN2_NM_ACCEL_R_Keep_Alive {
+task osek_task_SWT_CAN2_AP_LV_Derivation_LVData {
 # 152 "os_config.stc"
-	entry osek_task_e_SWT_CAN2_NM_ACCEL_R_Keep_Alive;
+	entry osek_task_e_SWT_CAN2_AP_LV_Derivation_LVData;
 # 152 "os_config.stc"
 
 # 153 "os_config.stc"
@@ -641,9 +641,9 @@ task osek_task_SWT_CAN2_NM_ACCEL_R_Keep_Alive {
 # 159 "os_config.stc"
 
 # 160 "os_config.stc"
-task osek_task_SWT_CAN2_NM_ACCEL_F_Keep_Alive {
+task osek_task_SWT_CAN1_NM_SHUTDOWN_Keep_Alive {
 # 161 "os_config.stc"
-	entry osek_task_e_SWT_CAN2_NM_ACCEL_F_Keep_Alive;
+	entry osek_task_e_SWT_CAN1_NM_SHUTDOWN_Keep_Alive;
 # 161 "os_config.stc"
 
 # 162 "os_config.stc"
@@ -673,9 +673,9 @@ task osek_task_SWT_CAN2_NM_ACCEL_F_Keep_Alive {
 # 168 "os_config.stc"
 
 # 169 "os_config.stc"
-task osek_task_SWT_CAN2_AP_ACCEL_F_Data {
+task osek_task_SWT_CAN1_AP_SHUTDOWN_State {
 # 170 "os_config.stc"
-	entry osek_task_e_SWT_CAN2_AP_ACCEL_F_Data;
+	entry osek_task_e_SWT_CAN1_AP_SHUTDOWN_State;
 # 170 "os_config.stc"
 
 # 171 "os_config.stc"
@@ -705,9 +705,9 @@ task osek_task_SWT_CAN2_AP_ACCEL_F_Data {
 # 177 "os_config.stc"
 
 # 178 "os_config.stc"
-task osek_task_SWT_CAN2_NM_LV_Derivation_Keep_Alive {
+task osek_task_SWT_CAN1_AP_DASH_EnableDrive {
 # 179 "os_config.stc"
-	entry osek_task_e_SWT_CAN2_NM_LV_Derivation_Keep_Alive;
+	entry osek_task_e_SWT_CAN1_AP_DASH_EnableDrive;
 # 179 "os_config.stc"
 
 # 180 "os_config.stc"
@@ -737,9 +737,9 @@ task osek_task_SWT_CAN2_NM_LV_Derivation_Keep_Alive {
 # 186 "os_config.stc"
 
 # 187 "os_config.stc"
-task osek_task_SWT_CAN2_AP_ACCEL_R_Data2 {
+task osek_task_SWT_CAN1_AP_DASH_PrechargeRequest {
 # 188 "os_config.stc"
-	entry osek_task_e_SWT_CAN2_AP_ACCEL_R_Data2;
+	entry osek_task_e_SWT_CAN1_AP_DASH_PrechargeRequest;
 # 188 "os_config.stc"
 
 # 189 "os_config.stc"
@@ -769,9 +769,9 @@ task osek_task_SWT_CAN2_AP_ACCEL_R_Data2 {
 # 195 "os_config.stc"
 
 # 196 "os_config.stc"
-task osek_task_SWT_CAN2_AP_LV_Derivation_LVData {
+task osek_task_SWT_CAN1_AP_DASH_TorqueLockOn {
 # 197 "os_config.stc"
-	entry osek_task_e_SWT_CAN2_AP_LV_Derivation_LVData;
+	entry osek_task_e_SWT_CAN1_AP_DASH_TorqueLockOn;
 # 197 "os_config.stc"
 
 # 198 "os_config.stc"
@@ -801,9 +801,9 @@ task osek_task_SWT_CAN2_AP_LV_Derivation_LVData {
 # 204 "os_config.stc"
 
 # 205 "os_config.stc"
-task osek_task_SWT_CAN1_NM_SHUTDOWN_Keep_Alive {
+task osek_task_SWT_CAN1_NM_DASH_Keep_Alive {
 # 206 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_NM_SHUTDOWN_Keep_Alive;
+	entry osek_task_e_SWT_CAN1_NM_DASH_Keep_Alive;
 # 206 "os_config.stc"
 
 # 207 "os_config.stc"
@@ -833,9 +833,9 @@ task osek_task_SWT_CAN1_NM_SHUTDOWN_Keep_Alive {
 # 213 "os_config.stc"
 
 # 214 "os_config.stc"
-task osek_task_SWT_CAN1_AP_SHUTDOWN_State {
+task osek_task_SWT_CAN1_AP_BMS_AIRs_State {
 # 215 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_AP_SHUTDOWN_State;
+	entry osek_task_e_SWT_CAN1_AP_BMS_AIRs_State;
 # 215 "os_config.stc"
 
 # 216 "os_config.stc"
@@ -865,9 +865,9 @@ task osek_task_SWT_CAN1_AP_SHUTDOWN_State {
 # 222 "os_config.stc"
 
 # 223 "os_config.stc"
-task osek_task_SWT_CAN1_AP_DASH_EnableDrive {
+task osek_task_SWT_CAN1_NM_BMS_Keep_Alive {
 # 224 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_AP_DASH_EnableDrive;
+	entry osek_task_e_SWT_CAN1_NM_BMS_Keep_Alive;
 # 224 "os_config.stc"
 
 # 225 "os_config.stc"
@@ -897,9 +897,9 @@ task osek_task_SWT_CAN1_AP_DASH_EnableDrive {
 # 231 "os_config.stc"
 
 # 232 "os_config.stc"
-task osek_task_SWT_CAN1_AP_DASH_PrechargeRequest {
+task osek_task_SWT_CAN1_AP_DASH_Mode {
 # 233 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_AP_DASH_PrechargeRequest;
+	entry osek_task_e_SWT_CAN1_AP_DASH_Mode;
 # 233 "os_config.stc"
 
 # 234 "os_config.stc"
@@ -929,9 +929,9 @@ task osek_task_SWT_CAN1_AP_DASH_PrechargeRequest {
 # 240 "os_config.stc"
 
 # 241 "os_config.stc"
-task osek_task_SWT_CAN1_AP_DASH_TorqueLockOn {
+task osek_task_SWT_CAN1_AP_DASH_CustomMode {
 # 242 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_AP_DASH_TorqueLockOn;
+	entry osek_task_e_SWT_CAN1_AP_DASH_CustomMode;
 # 242 "os_config.stc"
 
 # 243 "os_config.stc"
@@ -961,9 +961,9 @@ task osek_task_SWT_CAN1_AP_DASH_TorqueLockOn {
 # 249 "os_config.stc"
 
 # 250 "os_config.stc"
-task osek_task_SWT_CAN1_NM_DASH_Keep_Alive {
+task osek_task_SWT_CAN1_AP_Inverter_L_Tx {
 # 251 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_NM_DASH_Keep_Alive;
+	entry osek_task_e_SWT_CAN1_AP_Inverter_L_Tx;
 # 251 "os_config.stc"
 
 # 252 "os_config.stc"
@@ -993,9 +993,9 @@ task osek_task_SWT_CAN1_NM_DASH_Keep_Alive {
 # 258 "os_config.stc"
 
 # 259 "os_config.stc"
-task osek_task_SWT_CAN1_NM_BMS_Keep_Alive {
+task osek_task_SWT_CAN1_AP_Inverter_R_Tx {
 # 260 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_NM_BMS_Keep_Alive;
+	entry osek_task_e_SWT_CAN1_AP_Inverter_R_Tx;
 # 260 "os_config.stc"
 
 # 261 "os_config.stc"
@@ -1025,9 +1025,9 @@ task osek_task_SWT_CAN1_NM_BMS_Keep_Alive {
 # 267 "os_config.stc"
 
 # 268 "os_config.stc"
-task osek_task_SWT_CAN1_AP_DASH_Mode {
+task osek_task_SWT_CAN1_AP_BMS_BatteryTemperatures {
 # 269 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_AP_DASH_Mode;
+	entry osek_task_e_SWT_CAN1_AP_BMS_BatteryTemperatures;
 # 269 "os_config.stc"
 
 # 270 "os_config.stc"
@@ -1057,9 +1057,9 @@ task osek_task_SWT_CAN1_AP_DASH_Mode {
 # 276 "os_config.stc"
 
 # 277 "os_config.stc"
-task osek_task_SWT_CAN1_AP_DASH_CustomMode {
+task osek_task_SWT_CAN1_AP_BMS_ChargerParameters {
 # 278 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_AP_DASH_CustomMode;
+	entry osek_task_e_SWT_CAN1_AP_BMS_ChargerParameters;
 # 278 "os_config.stc"
 
 # 279 "os_config.stc"
@@ -1089,9 +1089,9 @@ task osek_task_SWT_CAN1_AP_DASH_CustomMode {
 # 285 "os_config.stc"
 
 # 286 "os_config.stc"
-task osek_task_SWT_CAN1_AP_Inverter_L_Tx {
+task osek_task_SWT_CAN1_AP_BMS_OnBoardTemperatures {
 # 287 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_AP_Inverter_L_Tx;
+	entry osek_task_e_SWT_CAN1_AP_BMS_OnBoardTemperatures;
 # 287 "os_config.stc"
 
 # 288 "os_config.stc"
@@ -1121,9 +1121,9 @@ task osek_task_SWT_CAN1_AP_Inverter_L_Tx {
 # 294 "os_config.stc"
 
 # 295 "os_config.stc"
-task osek_task_SWT_CAN1_AP_Inverter_R_Tx {
+task osek_task_SWT_CAN1_AP_BMS_Voltages {
 # 296 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_AP_Inverter_R_Tx;
+	entry osek_task_e_SWT_CAN1_AP_BMS_Voltages;
 # 296 "os_config.stc"
 
 # 297 "os_config.stc"
@@ -1153,9 +1153,9 @@ task osek_task_SWT_CAN1_AP_Inverter_R_Tx {
 # 303 "os_config.stc"
 
 # 304 "os_config.stc"
-task osek_task_SWT_CAN1_AP_BMS_OnBoardTemperatures {
+task osek_task_SWT_CAN1_AP_BMS_StateAndFailReport {
 # 305 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_AP_BMS_OnBoardTemperatures;
+	entry osek_task_e_SWT_CAN1_AP_BMS_StateAndFailReport;
 # 305 "os_config.stc"
 
 # 306 "os_config.stc"
@@ -1185,9 +1185,9 @@ task osek_task_SWT_CAN1_AP_BMS_OnBoardTemperatures {
 # 312 "os_config.stc"
 
 # 313 "os_config.stc"
-task osek_task_SWT_CAN1_AP_BMS_Voltages {
+task osek_task_SWT_CAN1_AP_BMS_Current_SOC_SOH {
 # 314 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_AP_BMS_Voltages;
+	entry osek_task_e_SWT_CAN1_AP_BMS_Current_SOC_SOH;
 # 314 "os_config.stc"
 
 # 315 "os_config.stc"
@@ -1217,9 +1217,9 @@ task osek_task_SWT_CAN1_AP_BMS_Voltages {
 # 321 "os_config.stc"
 
 # 322 "os_config.stc"
-task osek_task_SWT_CAN1_AP_BMS_StateAndFailReport {
+task osek_task_Sync_25ms {
 # 323 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_AP_BMS_StateAndFailReport;
+	entry osek_task_e_Sync_25ms;
 # 323 "os_config.stc"
 
 # 324 "os_config.stc"
@@ -1237,571 +1237,547 @@ task osek_task_SWT_CAN1_AP_BMS_StateAndFailReport {
 # 327 "os_config.stc"
 
 # 328 "os_config.stc"
-	}
-# 328 "os_config.stc"
-
+		 
 # 329 "os_config.stc"
+	}
+# 329 "os_config.stc"
+
+# 330 "os_config.stc"
 }
 
-
-# 329 "os_config.stc"
 
 # 330 "os_config.stc"
 
 # 331 "os_config.stc"
-task osek_task_SWT_CAN1_AP_BMS_Current_SOC_SOH {
-# 332 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_AP_BMS_Current_SOC_SOH;
-# 332 "os_config.stc"
 
+# 332 "os_config.stc"
+task osek_task_Timer_1000ms {
 # 333 "os_config.stc"
-	locks resource osek_resource_RES_SCHEDULER;
+	entry osek_task_e_Timer_1000ms;
 # 333 "os_config.stc"
 
 # 334 "os_config.stc"
+	locks resource osek_resource_RES_SCHEDULER;
+# 334 "os_config.stc"
+
+# 335 "os_config.stc"
 	profile default_profile {
-# 335 "os_config.stc"
+# 336 "os_config.stc"
 		this priority duration undefined;
-# 335 "os_config.stc"
-
 # 336 "os_config.stc"
+
+# 337 "os_config.stc"
 		resource osek_resource_RES_SCHEDULER duration undefined;
-# 336 "os_config.stc"
-
 # 337 "os_config.stc"
+
+# 338 "os_config.stc"
+		 
+# 339 "os_config.stc"
 	}
-# 337 "os_config.stc"
-
-# 338 "os_config.stc"
-}
-
-
-# 338 "os_config.stc"
-
 # 339 "os_config.stc"
 
 # 340 "os_config.stc"
-task osek_task_SWT_CAN1_AP_BMS_AIRs_State {
-# 341 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_AP_BMS_AIRs_State;
-# 341 "os_config.stc"
-
-# 342 "os_config.stc"
-	locks resource osek_resource_RES_SCHEDULER;
-# 342 "os_config.stc"
-
-# 343 "os_config.stc"
-	profile default_profile {
-# 344 "os_config.stc"
-		this priority duration undefined;
-# 344 "os_config.stc"
-
-# 345 "os_config.stc"
-		resource osek_resource_RES_SCHEDULER duration undefined;
-# 345 "os_config.stc"
-
-# 346 "os_config.stc"
-	}
-# 346 "os_config.stc"
-
-# 347 "os_config.stc"
 }
 
 
+# 340 "os_config.stc"
+
+# 341 "os_config.stc"
+
+# 342 "os_config.stc"
+task osek_task_Timer_100ms {
+# 343 "os_config.stc"
+	entry osek_task_e_Timer_100ms;
+# 343 "os_config.stc"
+
+# 344 "os_config.stc"
+	locks resource osek_resource_RES_SCHEDULER;
+# 344 "os_config.stc"
+
+# 345 "os_config.stc"
+	profile default_profile {
+# 346 "os_config.stc"
+		this priority duration undefined;
+# 346 "os_config.stc"
+
+# 347 "os_config.stc"
+		resource osek_resource_RES_SCHEDULER duration undefined;
 # 347 "os_config.stc"
 
 # 348 "os_config.stc"
-
+		 
 # 349 "os_config.stc"
-task osek_task_SWT_CAN1_AP_BMS_BatteryTemperatures {
+	}
+# 349 "os_config.stc"
+
 # 350 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_AP_BMS_BatteryTemperatures;
+}
+
+
 # 350 "os_config.stc"
 
-# 351 "os_config.stc"
-	locks resource osek_resource_RES_SCHEDULER;
 # 351 "os_config.stc"
 
 # 352 "os_config.stc"
+task osek_task_Timer_25ms {
+# 353 "os_config.stc"
+	entry osek_task_e_Timer_25ms;
+# 353 "os_config.stc"
+
+# 354 "os_config.stc"
+	locks resource osek_resource_RES_SCHEDULER;
+# 354 "os_config.stc"
+
+# 355 "os_config.stc"
 	profile default_profile {
-# 353 "os_config.stc"
-		this priority duration undefined;
-# 353 "os_config.stc"
-
-# 354 "os_config.stc"
-		resource osek_resource_RES_SCHEDULER duration undefined;
-# 354 "os_config.stc"
-
-# 355 "os_config.stc"
-	}
-# 355 "os_config.stc"
-
 # 356 "os_config.stc"
-}
-
-
+		this priority duration undefined;
 # 356 "os_config.stc"
 
 # 357 "os_config.stc"
+		resource osek_resource_RES_SCHEDULER duration undefined;
+# 357 "os_config.stc"
 
 # 358 "os_config.stc"
-task osek_task_SWT_CAN1_AP_BMS_ChargerParameters {
+		 
 # 359 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_AP_BMS_ChargerParameters;
+	}
 # 359 "os_config.stc"
 
 # 360 "os_config.stc"
-	locks resource osek_resource_RES_SCHEDULER;
+}
+
+
 # 360 "os_config.stc"
 
 # 361 "os_config.stc"
+
+# 362 "os_config.stc"
+task osek_task_Timer_Inv {
+# 363 "os_config.stc"
+	entry osek_task_e_Timer_Inv;
+# 363 "os_config.stc"
+
+# 364 "os_config.stc"
+	locks resource osek_resource_RES_SCHEDULER;
+# 364 "os_config.stc"
+
+# 365 "os_config.stc"
 	profile default_profile {
-# 362 "os_config.stc"
+# 366 "os_config.stc"
 		this priority duration undefined;
-# 362 "os_config.stc"
-
-# 363 "os_config.stc"
-		resource osek_resource_RES_SCHEDULER duration undefined;
-# 363 "os_config.stc"
-
-# 364 "os_config.stc"
-	}
-# 364 "os_config.stc"
-
-# 365 "os_config.stc"
-}
-
-
-# 365 "os_config.stc"
-
 # 366 "os_config.stc"
 
 # 367 "os_config.stc"
-task osek_task_Sync_25ms {
-# 368 "os_config.stc"
-	entry osek_task_e_Sync_25ms;
-# 368 "os_config.stc"
+		resource osek_resource_RES_SCHEDULER duration undefined;
+# 367 "os_config.stc"
 
+# 368 "os_config.stc"
+		 
 # 369 "os_config.stc"
-	locks resource osek_resource_RES_SCHEDULER;
+	}
 # 369 "os_config.stc"
 
 # 370 "os_config.stc"
-	profile default_profile {
-# 371 "os_config.stc"
-		this priority duration undefined;
-# 371 "os_config.stc"
-
-# 372 "os_config.stc"
-		resource osek_resource_RES_SCHEDULER duration undefined;
-# 372 "os_config.stc"
-
-# 373 "os_config.stc"
-		 
-# 374 "os_config.stc"
-	}
-# 374 "os_config.stc"
-
-# 375 "os_config.stc"
 }
 
 
-# 375 "os_config.stc"
+# 370 "os_config.stc"
 
+# 371 "os_config.stc"
+
+# 372 "os_config.stc"
+task osek_task_etasL1Task {
+# 373 "os_config.stc"
+	entry osek_task_e_etasL1Task;
+# 373 "os_config.stc"
+
+# 374 "os_config.stc"
+	locks resource osek_resource_RES_SCHEDULER;
+# 374 "os_config.stc"
+
+# 375 "os_config.stc"
+	profile default_profile {
+# 376 "os_config.stc"
+		this priority duration undefined;
 # 376 "os_config.stc"
 
 # 377 "os_config.stc"
-task osek_task_Timer_1000ms {
+		resource osek_resource_RES_SCHEDULER duration undefined;
+# 377 "os_config.stc"
+
 # 378 "os_config.stc"
-	entry osek_task_e_Timer_1000ms;
+	}
 # 378 "os_config.stc"
 
 # 379 "os_config.stc"
-	locks resource osek_resource_RES_SCHEDULER;
+}
+
+
 # 379 "os_config.stc"
 
 # 380 "os_config.stc"
-	profile default_profile {
-# 381 "os_config.stc"
-		this priority duration undefined;
-# 381 "os_config.stc"
 
+# 381 "os_config.stc"
+task osek_task_etasConfigTask {
 # 382 "os_config.stc"
-		resource osek_resource_RES_SCHEDULER duration undefined;
+	entry osek_task_e_etasConfigTask;
 # 382 "os_config.stc"
 
 # 383 "os_config.stc"
-		 
-# 384 "os_config.stc"
-	}
-# 384 "os_config.stc"
+	locks resource osek_resource_RES_SCHEDULER;
+# 383 "os_config.stc"
 
+# 384 "os_config.stc"
+	profile default_profile {
 # 385 "os_config.stc"
-}
-
-
+		this priority duration undefined;
 # 385 "os_config.stc"
 
 # 386 "os_config.stc"
+		resource osek_resource_RES_SCHEDULER duration undefined;
+# 386 "os_config.stc"
 
 # 387 "os_config.stc"
-task osek_task_Timer_100ms {
+	}
+# 387 "os_config.stc"
+
 # 388 "os_config.stc"
-	entry osek_task_e_Timer_100ms;
+}
+
+
 # 388 "os_config.stc"
 
-# 389 "os_config.stc"
-	locks resource osek_resource_RES_SCHEDULER;
 # 389 "os_config.stc"
 
 # 390 "os_config.stc"
-	profile default_profile {
+taskset osek_bcc1_tasks {
 # 391 "os_config.stc"
-		this priority duration undefined;
+	label osek_bcc1_ts;
 # 391 "os_config.stc"
 
 # 392 "os_config.stc"
-		resource osek_resource_RES_SCHEDULER duration undefined;
+	task osek_task_SWT_CAN2_NM_ADCAN_Keep_Alive;
 # 392 "os_config.stc"
 
 # 393 "os_config.stc"
-		 
+	task osek_task_SWT_CAN2_AP_ADCAN_Data1;
+# 393 "os_config.stc"
+
 # 394 "os_config.stc"
-	}
+	task osek_task_SWT_CAN2_AP_ADCAN_Data2;
 # 394 "os_config.stc"
 
 # 395 "os_config.stc"
-}
-
-
+	task osek_task_SWT_CAN2_AP_ACCEL_R_Data;
 # 395 "os_config.stc"
 
 # 396 "os_config.stc"
+	task osek_task_SWT_CAN2_NM_ACCEL_R_Keep_Alive;
+# 396 "os_config.stc"
 
 # 397 "os_config.stc"
-task osek_task_Timer_25ms {
+	task osek_task_SWT_CAN2_NM_ACCEL_F_Keep_Alive;
+# 397 "os_config.stc"
+
 # 398 "os_config.stc"
-	entry osek_task_e_Timer_25ms;
+	task osek_task_SWT_CAN2_AP_ACCEL_F_Data;
 # 398 "os_config.stc"
 
 # 399 "os_config.stc"
-	locks resource osek_resource_RES_SCHEDULER;
+	task osek_task_SWT_CAN2_NM_LV_Derivation_Keep_Alive;
 # 399 "os_config.stc"
 
 # 400 "os_config.stc"
-	profile default_profile {
+	task osek_task_SWT_CAN2_AP_ACCEL_R_Data2;
+# 400 "os_config.stc"
+
 # 401 "os_config.stc"
-		this priority duration undefined;
+	task osek_task_SWT_CAN2_AP_LV_Derivation_LVData;
 # 401 "os_config.stc"
 
 # 402 "os_config.stc"
-		resource osek_resource_RES_SCHEDULER duration undefined;
+	task osek_task_SWT_CAN1_NM_SHUTDOWN_Keep_Alive;
 # 402 "os_config.stc"
 
 # 403 "os_config.stc"
-		 
+	task osek_task_SWT_CAN1_AP_SHUTDOWN_State;
+# 403 "os_config.stc"
+
 # 404 "os_config.stc"
-	}
+	task osek_task_SWT_CAN1_AP_DASH_EnableDrive;
 # 404 "os_config.stc"
 
 # 405 "os_config.stc"
-}
-
-
+	task osek_task_SWT_CAN1_AP_DASH_PrechargeRequest;
 # 405 "os_config.stc"
 
 # 406 "os_config.stc"
+	task osek_task_SWT_CAN1_AP_DASH_TorqueLockOn;
+# 406 "os_config.stc"
 
 # 407 "os_config.stc"
-task osek_task_Timer_Inv {
+	task osek_task_SWT_CAN1_NM_DASH_Keep_Alive;
+# 407 "os_config.stc"
+
 # 408 "os_config.stc"
-	entry osek_task_e_Timer_Inv;
+	task osek_task_SWT_CAN1_AP_BMS_AIRs_State;
 # 408 "os_config.stc"
 
 # 409 "os_config.stc"
-	locks resource osek_resource_RES_SCHEDULER;
+	task osek_task_SWT_CAN1_NM_BMS_Keep_Alive;
 # 409 "os_config.stc"
 
 # 410 "os_config.stc"
-	profile default_profile {
+	task osek_task_SWT_CAN1_AP_DASH_Mode;
+# 410 "os_config.stc"
+
 # 411 "os_config.stc"
-		this priority duration undefined;
+	task osek_task_SWT_CAN1_AP_DASH_CustomMode;
 # 411 "os_config.stc"
 
 # 412 "os_config.stc"
-		resource osek_resource_RES_SCHEDULER duration undefined;
+	task osek_task_SWT_CAN1_AP_Inverter_L_Tx;
 # 412 "os_config.stc"
 
 # 413 "os_config.stc"
-		 
+	task osek_task_SWT_CAN1_AP_Inverter_R_Tx;
+# 413 "os_config.stc"
+
 # 414 "os_config.stc"
-	}
+	task osek_task_SWT_CAN1_AP_BMS_BatteryTemperatures;
 # 414 "os_config.stc"
 
 # 415 "os_config.stc"
-}
-
-
+	task osek_task_SWT_CAN1_AP_BMS_ChargerParameters;
 # 415 "os_config.stc"
 
 # 416 "os_config.stc"
+	task osek_task_SWT_CAN1_AP_BMS_OnBoardTemperatures;
+# 416 "os_config.stc"
 
 # 417 "os_config.stc"
-task osek_task_etasL1Task {
+	task osek_task_SWT_CAN1_AP_BMS_Voltages;
+# 417 "os_config.stc"
+
 # 418 "os_config.stc"
-	entry osek_task_e_etasL1Task;
+	task osek_task_SWT_CAN1_AP_BMS_StateAndFailReport;
 # 418 "os_config.stc"
 
 # 419 "os_config.stc"
-	locks resource osek_resource_RES_SCHEDULER;
+	task osek_task_SWT_CAN1_AP_BMS_Current_SOC_SOH;
 # 419 "os_config.stc"
 
 # 420 "os_config.stc"
-	profile default_profile {
-# 421 "os_config.stc"
-		this priority duration undefined;
-# 421 "os_config.stc"
-
-# 422 "os_config.stc"
-		resource osek_resource_RES_SCHEDULER duration undefined;
-# 422 "os_config.stc"
-
-# 423 "os_config.stc"
-	}
-# 423 "os_config.stc"
-
-# 424 "os_config.stc"
 }
 
 
+# 420 "os_config.stc"
+
+# 421 "os_config.stc"
+
+# 422 "os_config.stc"
+taskset osek_cc2_tasks {
+# 423 "os_config.stc"
+	label osek_cc2_ts;
+# 423 "os_config.stc"
+
+# 424 "os_config.stc"
+	task osek_task_Sync_25ms;
 # 424 "os_config.stc"
 
 # 425 "os_config.stc"
+	task osek_task_Timer_1000ms;
+# 425 "os_config.stc"
 
 # 426 "os_config.stc"
-task osek_task_etasConfigTask {
+	task osek_task_Timer_100ms;
+# 426 "os_config.stc"
+
 # 427 "os_config.stc"
-	entry osek_task_e_etasConfigTask;
+	task osek_task_Timer_25ms;
 # 427 "os_config.stc"
 
 # 428 "os_config.stc"
-	locks resource osek_resource_RES_SCHEDULER;
+	task osek_task_Timer_Inv;
 # 428 "os_config.stc"
 
 # 429 "os_config.stc"
-	profile default_profile {
+	task osek_task_etasL1Task;
+# 429 "os_config.stc"
+
 # 430 "os_config.stc"
-		this priority duration undefined;
+	task osek_task_etasConfigTask;
 # 430 "os_config.stc"
 
 # 431 "os_config.stc"
-		resource osek_resource_RES_SCHEDULER duration undefined;
-# 431 "os_config.stc"
-
-# 432 "os_config.stc"
-	}
-# 432 "os_config.stc"
-
-# 433 "os_config.stc"
 }
 
 
-# 433 "os_config.stc"
+# 431 "os_config.stc"
 
+# 432 "os_config.stc"
+
+# 433 "os_config.stc"
+taskset osek_ecc_tasks {
+# 434 "os_config.stc"
+	label osek_ecc_ts;
 # 434 "os_config.stc"
 
 # 435 "os_config.stc"
-taskset osek_bcc1_tasks {
-# 436 "os_config.stc"
-	label osek_bcc1_ts;
-# 436 "os_config.stc"
-
-# 437 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_BMS_OnBoardTemperatures1;
-# 437 "os_config.stc"
-
-# 438 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_BMS_Current_SOC_SOH1;
-# 438 "os_config.stc"
-
-# 439 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_BMS_Current_SOC;
-# 439 "os_config.stc"
-
-# 440 "os_config.stc"
-	task osek_task_SWT_CAN2_AP_ELIPSE_VelBody;
-# 440 "os_config.stc"
-
-# 441 "os_config.stc"
-	task osek_task_SWT_CAN2_AP_ELIPSE_VelAngular;
-# 441 "os_config.stc"
-
-# 442 "os_config.stc"
-	task osek_task_SWT_CAN2_NM_ADCAN_Keep_Alive;
-# 442 "os_config.stc"
-
-# 443 "os_config.stc"
-	task osek_task_SWT_CAN2_AP_ADCAN_Data1;
-# 443 "os_config.stc"
-
-# 444 "os_config.stc"
-	task osek_task_SWT_CAN2_AP_ADCAN_Data2;
-# 444 "os_config.stc"
-
-# 445 "os_config.stc"
-	task osek_task_SWT_CAN2_AP_ACCEL_R_Data;
-# 445 "os_config.stc"
-
-# 446 "os_config.stc"
-	task osek_task_SWT_CAN2_NM_ACCEL_R_Keep_Alive;
-# 446 "os_config.stc"
-
-# 447 "os_config.stc"
-	task osek_task_SWT_CAN2_NM_ACCEL_F_Keep_Alive;
-# 447 "os_config.stc"
-
-# 448 "os_config.stc"
-	task osek_task_SWT_CAN2_AP_ACCEL_F_Data;
-# 448 "os_config.stc"
-
-# 449 "os_config.stc"
-	task osek_task_SWT_CAN2_NM_LV_Derivation_Keep_Alive;
-# 449 "os_config.stc"
-
-# 450 "os_config.stc"
-	task osek_task_SWT_CAN2_AP_ACCEL_R_Data2;
-# 450 "os_config.stc"
-
-# 451 "os_config.stc"
-	task osek_task_SWT_CAN2_AP_LV_Derivation_LVData;
-# 451 "os_config.stc"
-
-# 452 "os_config.stc"
-	task osek_task_SWT_CAN1_NM_SHUTDOWN_Keep_Alive;
-# 452 "os_config.stc"
-
-# 453 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_SHUTDOWN_State;
-# 453 "os_config.stc"
-
-# 454 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_DASH_EnableDrive;
-# 454 "os_config.stc"
-
-# 455 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_DASH_PrechargeRequest;
-# 455 "os_config.stc"
-
-# 456 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_DASH_TorqueLockOn;
-# 456 "os_config.stc"
-
-# 457 "os_config.stc"
-	task osek_task_SWT_CAN1_NM_DASH_Keep_Alive;
-# 457 "os_config.stc"
-
-# 458 "os_config.stc"
-	task osek_task_SWT_CAN1_NM_BMS_Keep_Alive;
-# 458 "os_config.stc"
-
-# 459 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_DASH_Mode;
-# 459 "os_config.stc"
-
-# 460 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_DASH_CustomMode;
-# 460 "os_config.stc"
-
-# 461 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_Inverter_L_Tx;
-# 461 "os_config.stc"
-
-# 462 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_Inverter_R_Tx;
-# 462 "os_config.stc"
-
-# 463 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_BMS_OnBoardTemperatures;
-# 463 "os_config.stc"
-
-# 464 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_BMS_Voltages;
-# 464 "os_config.stc"
-
-# 465 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_BMS_StateAndFailReport;
-# 465 "os_config.stc"
-
-# 466 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_BMS_Current_SOC_SOH;
-# 466 "os_config.stc"
-
-# 467 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_BMS_AIRs_State;
-# 467 "os_config.stc"
-
-# 468 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_BMS_BatteryTemperatures;
-# 468 "os_config.stc"
-
-# 469 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_BMS_ChargerParameters;
-# 469 "os_config.stc"
-
-# 470 "os_config.stc"
 }
 
 
+# 435 "os_config.stc"
+
+# 436 "os_config.stc"
+
+# 437 "os_config.stc"
+nonpreemption group   {
+# 438 "os_config.stc"
+	task osek_task_etasL1Task;
+# 438 "os_config.stc"
+
+# 439 "os_config.stc"
+	task osek_task_etasConfigTask;
+# 439 "os_config.stc"
+
+# 440 "os_config.stc"
+}
+
+
+# 440 "os_config.stc"
+
+# 441 "os_config.stc"
+
+# 442 "os_config.stc"
+nonpreemption group   {
+# 443 "os_config.stc"
+	task osek_task_Sync_25ms;
+# 443 "os_config.stc"
+
+# 444 "os_config.stc"
+	task osek_task_Timer_1000ms;
+# 444 "os_config.stc"
+
+# 445 "os_config.stc"
+	task osek_task_Timer_100ms;
+# 445 "os_config.stc"
+
+# 446 "os_config.stc"
+	task osek_task_Timer_25ms;
+# 446 "os_config.stc"
+
+# 447 "os_config.stc"
+	task osek_task_Timer_Inv;
+# 447 "os_config.stc"
+
+# 448 "os_config.stc"
+}
+
+
+# 455 "os_config.stc"
+
+# 456 "os_config.stc"
+
+# 457 "os_config.stc"
+interrupt osek_interrupt_etasTimerIsr {
+# 458 "os_config.stc"
+	entry osek_isr_e_etasTimerIsr;
+# 458 "os_config.stc"
+
+# 459 "os_config.stc"
+	controlled;
+# 459 "os_config.stc"
+
+# 460 "os_config.stc"
+	priority 10;
+# 460 "os_config.stc"
+
+# 461 "os_config.stc"
+	vector 48;
+# 461 "os_config.stc"
+
+# 462 "os_config.stc"
+	profile default_profile {
+# 463 "os_config.stc"
+		this priority duration undefined;
+# 463 "os_config.stc"
+
+# 464 "os_config.stc"
+	}
+# 464 "os_config.stc"
+
+# 465 "os_config.stc"
+}
+
+
+# 465 "os_config.stc"
+
+# 466 "os_config.stc"
+
+# 467 "os_config.stc"
+interrupt osek_interrupt_etasL1Isr {
+# 468 "os_config.stc"
+	entry osE_etasL1Isr;
+# 468 "os_config.stc"
+
+# 469 "os_config.stc"
+	controlled;
+# 469 "os_config.stc"
+
+# 470 "os_config.stc"
+	priority 1;
 # 470 "os_config.stc"
 
 # 471 "os_config.stc"
+	vector 200;
+# 471 "os_config.stc"
 
 # 472 "os_config.stc"
-taskset osek_cc2_tasks {
+	profile default_profile {
 # 473 "os_config.stc"
-	label osek_cc2_ts;
+		this priority duration undefined;
 # 473 "os_config.stc"
 
 # 474 "os_config.stc"
-	task osek_task_Sync_25ms;
+	}
 # 474 "os_config.stc"
 
 # 475 "os_config.stc"
-	task osek_task_Timer_1000ms;
-# 475 "os_config.stc"
-
-# 476 "os_config.stc"
-	task osek_task_Timer_100ms;
-# 476 "os_config.stc"
-
-# 477 "os_config.stc"
-	task osek_task_Timer_25ms;
-# 477 "os_config.stc"
-
-# 478 "os_config.stc"
-	task osek_task_Timer_Inv;
-# 478 "os_config.stc"
-
-# 479 "os_config.stc"
-	task osek_task_etasL1Task;
-# 479 "os_config.stc"
-
-# 480 "os_config.stc"
-	task osek_task_etasConfigTask;
-# 480 "os_config.stc"
-
-# 481 "os_config.stc"
 }
 
 
+# 475 "os_config.stc"
+
+# 476 "os_config.stc"
+
+# 477 "os_config.stc"
+interrupt osek_interrupt_etasStopOsIsr {
+# 478 "os_config.stc"
+	entry osek_isr_e_etasStopOsIsr;
+# 478 "os_config.stc"
+
+# 479 "os_config.stc"
+	controlled;
+# 479 "os_config.stc"
+
+# 480 "os_config.stc"
+	priority 11;
+# 480 "os_config.stc"
+
+# 481 "os_config.stc"
+	vector 203;
 # 481 "os_config.stc"
 
 # 482 "os_config.stc"
-
+	profile default_profile {
 # 483 "os_config.stc"
-taskset osek_ecc_tasks {
+		this priority duration undefined;
+# 483 "os_config.stc"
+
 # 484 "os_config.stc"
-	label osek_ecc_ts;
+	}
 # 484 "os_config.stc"
 
 # 485 "os_config.stc"
@@ -1813,46 +1789,70 @@ taskset osek_ecc_tasks {
 # 486 "os_config.stc"
 
 # 487 "os_config.stc"
-nonpreemption group   {
+interrupt osek_interrupt_etasActivateTaskIsr {
 # 488 "os_config.stc"
-	task osek_task_etasL1Task;
+	entry osek_isr_e_etasActivateTaskIsr;
 # 488 "os_config.stc"
 
 # 489 "os_config.stc"
-	task osek_task_etasConfigTask;
+	controlled;
 # 489 "os_config.stc"
 
 # 490 "os_config.stc"
-}
-
-
+	priority 10;
 # 490 "os_config.stc"
 
 # 491 "os_config.stc"
+	vector 216;
+# 491 "os_config.stc"
 
 # 492 "os_config.stc"
-nonpreemption group   {
+	profile default_profile {
 # 493 "os_config.stc"
-	task osek_task_Sync_25ms;
+		this priority duration undefined;
 # 493 "os_config.stc"
 
 # 494 "os_config.stc"
-	task osek_task_Timer_1000ms;
+	}
 # 494 "os_config.stc"
 
 # 495 "os_config.stc"
-	task osek_task_Timer_100ms;
+}
+
+
 # 495 "os_config.stc"
 
 # 496 "os_config.stc"
-	task osek_task_Timer_25ms;
-# 496 "os_config.stc"
 
 # 497 "os_config.stc"
-	task osek_task_Timer_Inv;
-# 497 "os_config.stc"
-
+interrupt osek_interrupt_ISR_CAN1 {
 # 498 "os_config.stc"
+	entry osE_ISR_CAN1;
+# 498 "os_config.stc"
+
+# 499 "os_config.stc"
+	controlled;
+# 499 "os_config.stc"
+
+# 500 "os_config.stc"
+	priority 1;
+# 500 "os_config.stc"
+
+# 501 "os_config.stc"
+	vector 208;
+# 501 "os_config.stc"
+
+# 502 "os_config.stc"
+	profile default_profile {
+# 503 "os_config.stc"
+		this priority duration undefined;
+# 503 "os_config.stc"
+
+# 504 "os_config.stc"
+	}
+# 504 "os_config.stc"
+
+# 505 "os_config.stc"
 }
 
 
@@ -1861,9 +1861,9 @@ nonpreemption group   {
 # 506 "os_config.stc"
 
 # 507 "os_config.stc"
-interrupt osek_interrupt_etasTimerIsr {
+interrupt osek_interrupt_ISR_CAN2 {
 # 508 "os_config.stc"
-	entry osek_isr_e_etasTimerIsr;
+	entry osE_ISR_CAN2;
 # 508 "os_config.stc"
 
 # 509 "os_config.stc"
@@ -1871,11 +1871,11 @@ interrupt osek_interrupt_etasTimerIsr {
 # 509 "os_config.stc"
 
 # 510 "os_config.stc"
-	priority 10;
+	priority 1;
 # 510 "os_config.stc"
 
 # 511 "os_config.stc"
-	vector 48;
+	vector 209;
 # 511 "os_config.stc"
 
 # 512 "os_config.stc"
@@ -1897,27 +1897,25 @@ interrupt osek_interrupt_etasTimerIsr {
 # 516 "os_config.stc"
 
 # 517 "os_config.stc"
-interrupt osek_interrupt_etasL1Isr {
+arbitration order {
 # 518 "os_config.stc"
-	entry osE_etasL1Isr;
-# 518 "os_config.stc"
-
+	interrupt priority 11 {
 # 519 "os_config.stc"
-	controlled;
+		interrupt osek_interrupt_etasStopOsIsr;
 # 519 "os_config.stc"
 
 # 520 "os_config.stc"
-	priority 1;
+	}
 # 520 "os_config.stc"
 
 # 521 "os_config.stc"
-	vector 200;
-# 521 "os_config.stc"
-
+	interrupt priority 10 {
 # 522 "os_config.stc"
-	profile default_profile {
+		interrupt osek_interrupt_etasTimerIsr;
+# 522 "os_config.stc"
+
 # 523 "os_config.stc"
-		this priority duration undefined;
+		interrupt osek_interrupt_etasActivateTaskIsr;
 # 523 "os_config.stc"
 
 # 524 "os_config.stc"
@@ -1925,384 +1923,186 @@ interrupt osek_interrupt_etasL1Isr {
 # 524 "os_config.stc"
 
 # 525 "os_config.stc"
-}
-
-
-# 525 "os_config.stc"
-
+	interrupt priority 1 {
+# 526 "os_config.stc"
+		interrupt osek_interrupt_etasL1Isr;
 # 526 "os_config.stc"
 
 # 527 "os_config.stc"
-interrupt osek_interrupt_etasStopOsIsr {
+		interrupt osek_interrupt_ISR_CAN1;
+# 527 "os_config.stc"
+
 # 528 "os_config.stc"
-	entry osek_isr_e_etasStopOsIsr;
+		interrupt osek_interrupt_ISR_CAN2;
 # 528 "os_config.stc"
 
 # 529 "os_config.stc"
-	controlled;
+	}
 # 529 "os_config.stc"
 
 # 530 "os_config.stc"
-	priority 11;
+}
+
+
 # 530 "os_config.stc"
 
-# 531 "os_config.stc"
-	vector 203;
 # 531 "os_config.stc"
 
 # 532 "os_config.stc"
-	profile default_profile {
-# 533 "os_config.stc"
-		this priority duration undefined;
-# 533 "os_config.stc"
-
-# 534 "os_config.stc"
-	}
-# 534 "os_config.stc"
-
-# 535 "os_config.stc"
-}
-
-
-# 535 "os_config.stc"
-
-# 536 "os_config.stc"
-
-# 537 "os_config.stc"
-interrupt osek_interrupt_etasActivateTaskIsr {
-# 538 "os_config.stc"
-	entry osek_isr_e_etasActivateTaskIsr;
-# 538 "os_config.stc"
-
-# 539 "os_config.stc"
-	controlled;
-# 539 "os_config.stc"
-
-# 540 "os_config.stc"
-	priority 10;
-# 540 "os_config.stc"
-
-# 541 "os_config.stc"
-	vector 216;
-# 541 "os_config.stc"
-
-# 542 "os_config.stc"
-	profile default_profile {
-# 543 "os_config.stc"
-		this priority duration undefined;
-# 543 "os_config.stc"
-
-# 544 "os_config.stc"
-	}
-# 544 "os_config.stc"
-
-# 545 "os_config.stc"
-}
-
-
-# 545 "os_config.stc"
-
-# 546 "os_config.stc"
-
-# 547 "os_config.stc"
-interrupt osek_interrupt_NewISR {
-# 548 "os_config.stc"
-	entry osE_NewISR;
-# 548 "os_config.stc"
-
-# 549 "os_config.stc"
-	controlled;
-# 549 "os_config.stc"
-
-# 550 "os_config.stc"
-	priority 1;
-# 550 "os_config.stc"
-
-# 551 "os_config.stc"
-	vector 208;
-# 551 "os_config.stc"
-
-# 552 "os_config.stc"
-	profile default_profile {
-# 553 "os_config.stc"
-		this priority duration undefined;
-# 553 "os_config.stc"
-
-# 554 "os_config.stc"
-	}
-# 554 "os_config.stc"
-
-# 555 "os_config.stc"
-}
-
-
-# 555 "os_config.stc"
-
-# 556 "os_config.stc"
-
-# 557 "os_config.stc"
-interrupt osek_interrupt_NewISR1 {
-# 558 "os_config.stc"
-	entry osE_NewISR1;
-# 558 "os_config.stc"
-
-# 559 "os_config.stc"
-	controlled;
-# 559 "os_config.stc"
-
-# 560 "os_config.stc"
-	priority 1;
-# 560 "os_config.stc"
-
-# 561 "os_config.stc"
-	vector 209;
-# 561 "os_config.stc"
-
-# 562 "os_config.stc"
-	profile default_profile {
-# 563 "os_config.stc"
-		this priority duration undefined;
-# 563 "os_config.stc"
-
-# 564 "os_config.stc"
-	}
-# 564 "os_config.stc"
-
-# 565 "os_config.stc"
-}
-
-
-# 565 "os_config.stc"
-
-# 566 "os_config.stc"
-
-# 567 "os_config.stc"
-arbitration order {
-# 568 "os_config.stc"
-	interrupt priority 11 {
-# 569 "os_config.stc"
-		interrupt osek_interrupt_etasStopOsIsr;
-# 569 "os_config.stc"
-
-# 570 "os_config.stc"
-	}
-# 570 "os_config.stc"
-
-# 571 "os_config.stc"
-	interrupt priority 10 {
-# 572 "os_config.stc"
-		interrupt osek_interrupt_etasTimerIsr;
-# 572 "os_config.stc"
-
-# 573 "os_config.stc"
-		interrupt osek_interrupt_etasActivateTaskIsr;
-# 573 "os_config.stc"
-
-# 574 "os_config.stc"
-	}
-# 574 "os_config.stc"
-
-# 575 "os_config.stc"
-	interrupt priority 1 {
-# 576 "os_config.stc"
-		interrupt osek_interrupt_etasL1Isr;
-# 576 "os_config.stc"
-
-# 577 "os_config.stc"
-		interrupt osek_interrupt_NewISR;
-# 577 "os_config.stc"
-
-# 578 "os_config.stc"
-		interrupt osek_interrupt_NewISR1;
-# 578 "os_config.stc"
-
-# 579 "os_config.stc"
-	}
-# 579 "os_config.stc"
-
-# 580 "os_config.stc"
-}
-
-
-# 580 "os_config.stc"
-
-# 581 "os_config.stc"
-
-# 582 "os_config.stc"
 system timings undefined;
 
 
-# 582 "os_config.stc"
+# 532 "os_config.stc"
 
-# 583 "os_config.stc"
+# 533 "os_config.stc"
 interrupt recognition undefined;
 
 
-# 583 "os_config.stc"
+# 533 "os_config.stc"
 
-# 584 "os_config.stc"
+# 534 "os_config.stc"
 
-# 585 "os_config.stc"
+# 535 "os_config.stc"
 task priority order {
-# 586 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_BMS_OnBoardTemperatures1;
-# 586 "os_config.stc"
-
-# 587 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_BMS_Current_SOC_SOH1;
-# 587 "os_config.stc"
-
-# 588 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_BMS_Current_SOC;
-# 588 "os_config.stc"
-
-# 589 "os_config.stc"
-	task osek_task_SWT_CAN2_AP_ELIPSE_VelBody;
-# 589 "os_config.stc"
-
-# 590 "os_config.stc"
-	task osek_task_SWT_CAN2_AP_ELIPSE_VelAngular;
-# 590 "os_config.stc"
-
-# 591 "os_config.stc"
+# 536 "os_config.stc"
 	task osek_task_SWT_CAN2_NM_ADCAN_Keep_Alive;
-# 591 "os_config.stc"
+# 536 "os_config.stc"
 
-# 592 "os_config.stc"
+# 537 "os_config.stc"
 	task osek_task_SWT_CAN2_AP_ADCAN_Data1;
-# 592 "os_config.stc"
+# 537 "os_config.stc"
 
-# 593 "os_config.stc"
+# 538 "os_config.stc"
 	task osek_task_SWT_CAN2_AP_ADCAN_Data2;
-# 593 "os_config.stc"
+# 538 "os_config.stc"
 
-# 594 "os_config.stc"
+# 539 "os_config.stc"
 	task osek_task_SWT_CAN2_AP_ACCEL_R_Data;
-# 594 "os_config.stc"
+# 539 "os_config.stc"
 
-# 595 "os_config.stc"
+# 540 "os_config.stc"
 	task osek_task_SWT_CAN2_NM_ACCEL_R_Keep_Alive;
-# 595 "os_config.stc"
+# 540 "os_config.stc"
 
-# 596 "os_config.stc"
+# 541 "os_config.stc"
 	task osek_task_SWT_CAN2_NM_ACCEL_F_Keep_Alive;
-# 596 "os_config.stc"
+# 541 "os_config.stc"
 
-# 597 "os_config.stc"
+# 542 "os_config.stc"
 	task osek_task_SWT_CAN2_AP_ACCEL_F_Data;
-# 597 "os_config.stc"
+# 542 "os_config.stc"
 
-# 598 "os_config.stc"
+# 543 "os_config.stc"
 	task osek_task_SWT_CAN2_NM_LV_Derivation_Keep_Alive;
-# 598 "os_config.stc"
+# 543 "os_config.stc"
 
-# 599 "os_config.stc"
+# 544 "os_config.stc"
 	task osek_task_SWT_CAN2_AP_ACCEL_R_Data2;
-# 599 "os_config.stc"
+# 544 "os_config.stc"
 
-# 600 "os_config.stc"
+# 545 "os_config.stc"
 	task osek_task_SWT_CAN2_AP_LV_Derivation_LVData;
-# 600 "os_config.stc"
+# 545 "os_config.stc"
 
-# 601 "os_config.stc"
+# 546 "os_config.stc"
 	task osek_task_SWT_CAN1_NM_SHUTDOWN_Keep_Alive;
-# 601 "os_config.stc"
+# 546 "os_config.stc"
 
-# 602 "os_config.stc"
+# 547 "os_config.stc"
 	task osek_task_SWT_CAN1_AP_SHUTDOWN_State;
-# 602 "os_config.stc"
+# 547 "os_config.stc"
 
-# 603 "os_config.stc"
+# 548 "os_config.stc"
 	task osek_task_SWT_CAN1_AP_DASH_EnableDrive;
-# 603 "os_config.stc"
+# 548 "os_config.stc"
 
-# 604 "os_config.stc"
+# 549 "os_config.stc"
 	task osek_task_SWT_CAN1_AP_DASH_PrechargeRequest;
-# 604 "os_config.stc"
+# 549 "os_config.stc"
 
-# 605 "os_config.stc"
+# 550 "os_config.stc"
 	task osek_task_SWT_CAN1_AP_DASH_TorqueLockOn;
-# 605 "os_config.stc"
+# 550 "os_config.stc"
 
-# 606 "os_config.stc"
+# 551 "os_config.stc"
 	task osek_task_SWT_CAN1_NM_DASH_Keep_Alive;
-# 606 "os_config.stc"
+# 551 "os_config.stc"
 
-# 607 "os_config.stc"
-	task osek_task_SWT_CAN1_NM_BMS_Keep_Alive;
-# 607 "os_config.stc"
-
-# 608 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_DASH_Mode;
-# 608 "os_config.stc"
-
-# 609 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_DASH_CustomMode;
-# 609 "os_config.stc"
-
-# 610 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_Inverter_L_Tx;
-# 610 "os_config.stc"
-
-# 611 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_Inverter_R_Tx;
-# 611 "os_config.stc"
-
-# 612 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_BMS_OnBoardTemperatures;
-# 612 "os_config.stc"
-
-# 613 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_BMS_Voltages;
-# 613 "os_config.stc"
-
-# 614 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_BMS_StateAndFailReport;
-# 614 "os_config.stc"
-
-# 615 "os_config.stc"
-	task osek_task_SWT_CAN1_AP_BMS_Current_SOC_SOH;
-# 615 "os_config.stc"
-
-# 616 "os_config.stc"
+# 552 "os_config.stc"
 	task osek_task_SWT_CAN1_AP_BMS_AIRs_State;
-# 616 "os_config.stc"
+# 552 "os_config.stc"
 
-# 617 "os_config.stc"
+# 553 "os_config.stc"
+	task osek_task_SWT_CAN1_NM_BMS_Keep_Alive;
+# 553 "os_config.stc"
+
+# 554 "os_config.stc"
+	task osek_task_SWT_CAN1_AP_DASH_Mode;
+# 554 "os_config.stc"
+
+# 555 "os_config.stc"
+	task osek_task_SWT_CAN1_AP_DASH_CustomMode;
+# 555 "os_config.stc"
+
+# 556 "os_config.stc"
+	task osek_task_SWT_CAN1_AP_Inverter_L_Tx;
+# 556 "os_config.stc"
+
+# 557 "os_config.stc"
+	task osek_task_SWT_CAN1_AP_Inverter_R_Tx;
+# 557 "os_config.stc"
+
+# 558 "os_config.stc"
 	task osek_task_SWT_CAN1_AP_BMS_BatteryTemperatures;
-# 617 "os_config.stc"
+# 558 "os_config.stc"
 
-# 618 "os_config.stc"
+# 559 "os_config.stc"
 	task osek_task_SWT_CAN1_AP_BMS_ChargerParameters;
-# 618 "os_config.stc"
+# 559 "os_config.stc"
 
-# 619 "os_config.stc"
+# 560 "os_config.stc"
+	task osek_task_SWT_CAN1_AP_BMS_OnBoardTemperatures;
+# 560 "os_config.stc"
+
+# 561 "os_config.stc"
+	task osek_task_SWT_CAN1_AP_BMS_Voltages;
+# 561 "os_config.stc"
+
+# 562 "os_config.stc"
+	task osek_task_SWT_CAN1_AP_BMS_StateAndFailReport;
+# 562 "os_config.stc"
+
+# 563 "os_config.stc"
+	task osek_task_SWT_CAN1_AP_BMS_Current_SOC_SOH;
+# 563 "os_config.stc"
+
+# 564 "os_config.stc"
 	task osek_task_Sync_25ms;
-# 619 "os_config.stc"
+# 564 "os_config.stc"
 
-# 620 "os_config.stc"
+# 565 "os_config.stc"
 	task osek_task_Timer_1000ms;
-# 620 "os_config.stc"
+# 565 "os_config.stc"
 
-# 621 "os_config.stc"
+# 566 "os_config.stc"
 	task osek_task_Timer_100ms;
-# 621 "os_config.stc"
+# 566 "os_config.stc"
 
-# 622 "os_config.stc"
+# 567 "os_config.stc"
 	task osek_task_Timer_25ms;
-# 622 "os_config.stc"
+# 567 "os_config.stc"
 
-# 623 "os_config.stc"
+# 568 "os_config.stc"
 	task osek_task_Timer_Inv;
-# 623 "os_config.stc"
+# 568 "os_config.stc"
 
-# 624 "os_config.stc"
+# 569 "os_config.stc"
 	task osek_task_etasL1Task;
-# 624 "os_config.stc"
+# 569 "os_config.stc"
 
-# 625 "os_config.stc"
+# 570 "os_config.stc"
 	task osek_task_etasConfigTask;
-# 625 "os_config.stc"
+# 570 "os_config.stc"
 
-# 626 "os_config.stc"
+# 571 "os_config.stc"
 }

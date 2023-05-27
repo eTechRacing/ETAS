@@ -10,26 +10,26 @@
 <linker id="linker.project">
 	<libset libs="matlabstaticR2017b_gnu"/>
 	<path>
-		<pathelement path="Accel_Data_ETR070\Accel_Data_ETR07_instances${fileext.obj}"/>
-		<pathelement path="Accel_Data_ETR071\Accel_Data_ETR071.a"/>
-		<pathelement path="Car_State_ETR070\Car_State_ETR07_instances${fileext.obj}"/>
-		<pathelement path="Car_State_ETR071\Car_State_ETR071.a"/>
-		<pathelement path="Disconnections_ETR070\Disconnections_ETR07_instances${fileext.obj}"/>
-		<pathelement path="Disconnections_ETR071\Disconnections_ETR071.a"/>
-		<pathelement path="inverters_action_ETR070\inverters_action_ETR07_instances${fileext.obj}"/>
-		<pathelement path="inverters_action_ETR071\inverters_action_ETR071.a"/>
-		<pathelement path="Inverters_Data_ETR070\Inverters_Data_ETR07_instances${fileext.obj}"/>
-		<pathelement path="Inverters_Data_ETR071\Inverters_Data_ETR071.a"/>
-		<pathelement path="LVD_Data_ETR070\LVD_Data_ETR07_instances${fileext.obj}"/>
-		<pathelement path="LVD_Data_ETR071\LVD_Data_ETR071.a"/>
-		<pathelement path="Pedals_Susp_Sensors_ETR070\Pedals_Susp_Sensors_ETR07_instances${fileext.obj}"/>
-		<pathelement path="Pedals_Susp_Sensors_ETR071\Pedals_Susp_Sensors_ETR071.a"/>
-		<pathelement path="Racing_Mode_ETR070\Racing_Mode_ETR07_instances${fileext.obj}"/>
-		<pathelement path="Racing_Mode_ETR071\Racing_Mode_ETR071.a"/>
-		<pathelement path="Synchronism_ETR070\Synchronism_ETR07_instances${fileext.obj}"/>
-		<pathelement path="Synchronism_ETR071\Synchronism_ETR071.a"/>
-		<pathelement path="Torque_Control_ETR070\Torque_Control_ETR07_instances${fileext.obj}"/>
-		<pathelement path="Torque_Control_ETR071\Torque_Control_ETR071.a"/>
+		<pathelement path="Car_State0\Car_State_instances${fileext.obj}"/>
+		<pathelement path="Car_State1\Car_State1.a"/>
+		<pathelement path="Accel_Data0\Accel_Data_instances${fileext.obj}"/>
+		<pathelement path="Accel_Data1\Accel_Data1.a"/>
+		<pathelement path="Disconnections0\Disconnections_instances${fileext.obj}"/>
+		<pathelement path="Disconnections1\Disconnections1.a"/>
+		<pathelement path="Inverters_Action0\Inverters_Action_instances${fileext.obj}"/>
+		<pathelement path="Inverters_Action1\Inverters_Action1.a"/>
+		<pathelement path="Inverters_Data0\Inverters_Data_instances${fileext.obj}"/>
+		<pathelement path="Inverters_Data1\Inverters_Data1.a"/>
+		<pathelement path="LVD_Data0\LVD_Data_instances${fileext.obj}"/>
+		<pathelement path="LVD_Data1\LVD_Data1.a"/>
+		<pathelement path="Pedals_Susp_Sensors0\Pedals_Susp_Sensors_instances${fileext.obj}"/>
+		<pathelement path="Pedals_Susp_Sensors1\Pedals_Susp_Sensors1.a"/>
+		<pathelement path="Racing_Mode0\Racing_Mode_instances${fileext.obj}"/>
+		<pathelement path="Racing_Mode1\Racing_Mode1.a"/>
+		<pathelement path="Synchronism0\Synchronism_instances${fileext.obj}"/>
+		<pathelement path="Synchronism1\Synchronism1.a"/>
+		<pathelement path="Torque_Control0\Torque_Control_instances${fileext.obj}"/>
+		<pathelement path="Torque_Control1\Torque_Control1.a"/>
 		<pathelement path="matlabsharedR2017b\matlabsharedR2017b.a"/>
 		<pathelement path="OSC\osekdefs${fileext.obj}"/>
 		<pathelement path="OSC\osgen${fileext.obj}"/>
@@ -56,38 +56,35 @@
 		<pathelement path="CBC\CrossbarL1RecordTable${fileext.obj}"/>
 	</path>
 	<libpath>
-		<pathelement path="C:\Users\GERARD\AppData\Roaming\ETAS\INTECRIO4.7\ETARGET\ES910"/>
+		<pathelement path="C:\Users\dwegg\AppData\Roaming\ETAS\INTECRIO4.7\ETARGET\ES910"/>
 	</libpath>
 </linker>
 
 <linker id="linker_ram.project" extends="qnx-6.5.qcc-linker.powerpc-nto-gnu-4.4.2_ram,linker.project">
 </linker>
 
-<linker id="linker_rom.project" extends="qnx-6.5.qcc-linker.powerpc-nto-gnu-4.4.2_rom,linker.project">
-</linker>
-
 <tool id="a2lgen.project" extends="etas.etarget.asam2mc-merger-2.3">
 	<path>
-		<pathelement path="Accel_Data_ETR070\..\Accel_Data_ETR07_instances.lst"/>
-		<pathelement path="c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\Accel_Data_ETR07.a2l"/>
-		<pathelement path="Car_State_ETR070\..\Car_State_ETR07_instances.lst"/>
-		<pathelement path="c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\Car_State_ETR07.a2l"/>
-		<pathelement path="Disconnections_ETR070\..\Disconnections_ETR07_instances.lst"/>
-		<pathelement path="c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\Disconnections_ETR07.a2l"/>
-		<pathelement path="inverters_action_ETR070\..\inverters_action_ETR07_instances.lst"/>
-		<pathelement path="c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\inverters_action_ETR07.a2l"/>
-		<pathelement path="Inverters_Data_ETR070\..\Inverters_Data_ETR07_instances.lst"/>
-		<pathelement path="c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\Inverters_Data_ETR07.a2l"/>
-		<pathelement path="LVD_Data_ETR070\..\LVD_Data_ETR07_instances.lst"/>
-		<pathelement path="c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\LVD_Data_ETR07.a2l"/>
-		<pathelement path="Pedals_Susp_Sensors_ETR070\..\Pedals_Susp_Sensors_ETR07_instances.lst"/>
-		<pathelement path="c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\Pedals_Susp_Sensors_ETR07.a2l"/>
-		<pathelement path="Racing_Mode_ETR070\..\Racing_Mode_ETR07_instances.lst"/>
-		<pathelement path="c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\Racing_Mode_ETR07.a2l"/>
-		<pathelement path="Synchronism_ETR070\..\Synchronism_ETR07_instances.lst"/>
-		<pathelement path="c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\Synchronism_ETR07.a2l"/>
-		<pathelement path="Torque_Control_ETR070\..\Torque_Control_ETR07_instances.lst"/>
-		<pathelement path="c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\Torque_Control_ETR07.a2l"/>
+		<pathelement path="Car_State0\..\Car_State_instances.lst"/>
+		<pathelement path="c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\Car_State.a2l"/>
+		<pathelement path="Accel_Data0\..\Accel_Data_instances.lst"/>
+		<pathelement path="c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\Accel_Data.a2l"/>
+		<pathelement path="Disconnections0\..\Disconnections_instances.lst"/>
+		<pathelement path="c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\Disconnections.a2l"/>
+		<pathelement path="Inverters_Action0\..\Inverters_Action_instances.lst"/>
+		<pathelement path="c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\Inverters_Action.a2l"/>
+		<pathelement path="Inverters_Data0\..\Inverters_Data_instances.lst"/>
+		<pathelement path="c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\Inverters_Data.a2l"/>
+		<pathelement path="LVD_Data0\..\LVD_Data_instances.lst"/>
+		<pathelement path="c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\LVD_Data.a2l"/>
+		<pathelement path="Pedals_Susp_Sensors0\..\Pedals_Susp_Sensors_instances.lst"/>
+		<pathelement path="c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\Pedals_Susp_Sensors.a2l"/>
+		<pathelement path="Racing_Mode0\..\Racing_Mode_instances.lst"/>
+		<pathelement path="c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\Racing_Mode.a2l"/>
+		<pathelement path="Synchronism0\..\Synchronism_instances.lst"/>
+		<pathelement path="c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\Synchronism.a2l"/>
+		<pathelement path="Torque_Control0\..\Torque_Control_instances.lst"/>
+		<pathelement path="c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\Torque_Control.a2l"/>
 		<pathelement path="ETC\Signals.a2l"/>
 	</path>
 </tool>

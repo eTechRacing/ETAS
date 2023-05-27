@@ -1,5 +1,5 @@
 CopyFunctionTable.o: \
- c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\CBC\CopyFunctionTable.c \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\CBC\CopyFunctionTable.c \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\ES910/..\a_basdef.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\ES910/..\a_limits.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\common/etashead\etas_typ.h \
@@ -15,14 +15,14 @@ CopyFunctionTable.o: \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\common/protocol\l1\p_stdeb.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\ES910/..\a_fast.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\QNX_COMMON/a_tardef.h \
- c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC/osek.h \
- c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC/osekcomn.h \
- c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC/oscomn.h \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC/osek.h \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC/osekcomn.h \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC/oscomn.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\QNX_COMMON\rta_osek/oscore.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\QNX_COMMON\rta_osek/osnamespace.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\ES910\rta_osek/ostarget.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\ES910\rta_osek/osfptgt.h \
- c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC/osgen.h \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC/osgen.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\QNX_COMMON/a_decl.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\rtio\global/rtio.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\rtio\global/u_boards.h \
@@ -37,9 +37,9 @@ CopyFunctionTable.o: \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\ES910/t_led.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\rtio\global/ES910\p_rtio_s.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\QNX_COMMON/t_dataset.h \
- c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC/driverThreads.h \
- c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC/taskMonitors.h \
- c:\users\gerard\desktop\e-tech\etas\intecrio\main_ecu_etr07\cgen\pi\system\OSC/rtaInterface.h \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC/driverThreads.h \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC/taskMonitors.h \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\OSC/rtaInterface.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\ES910/..\a_contai.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\ES910/..\t_rtcros.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\ES910/..\i_rtioma.h \
