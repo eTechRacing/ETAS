@@ -3,6 +3,21 @@
 #include "Pedals_Susp_Sensors_irtmacros.h"
 /* PATCH END */
 
+/* Patched in by the INTECRIO IRT target */
+/* PATCH BEGIN */
+#include "Pedals_Susp_Sensors_irtmacros.h"
+/* PATCH END */
+
+/* Patched in by the INTECRIO IRT target */
+/* PATCH BEGIN */
+#include "Pedals_Susp_Sensors_irtmacros.h"
+/* PATCH END */
+
+/* Patched in by the INTECRIO IRT target */
+/* PATCH BEGIN */
+#include "Pedals_Susp_Sensors_irtmacros.h"
+/* PATCH END */
+
 /*
  * Pedals_Susp_Sensors.h
  *
@@ -12,9 +27,9 @@
  *
  * Code generation for model "Pedals_Susp_Sensors".
  *
- * Model version              : 1.37
+ * Model version              : 1.40
  * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Wed Mar 29 12:59:21 2023
+ * C source code generated on : Wed May 31 15:50:26 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -763,7 +778,7 @@
 #endif
 
 #ifndef rtmIsContinuousTask
-# define rtmIsContinuousTask(rtm, tid) ((tid) == 0)
+# define rtmIsContinuousTask(rtm, tid) 0
 #endif
 
 #ifndef rtmGetErrorStatus
@@ -774,16 +789,8 @@
 # define rtmSetErrorStatus(rtm, val)   ((rtm)->errorStatus = (val))
 #endif
 
-#ifndef rtmIsMajorTimeStep
-# define rtmIsMajorTimeStep(rtm)       (((rtm)->Timing.simTimeStep) == MAJOR_TIME_STEP)
-#endif
-
-#ifndef rtmIsMinorTimeStep
-# define rtmIsMinorTimeStep(rtm)       (((rtm)->Timing.simTimeStep) == MINOR_TIME_STEP)
-#endif
-
 #ifndef rtmIsSampleHit
-# define rtmIsSampleHit(rtm, sti, tid) ((rtmIsMajorTimeStep((rtm)) && (rtm)->Timing.sampleHits[(rtm)->Timing.sampleTimeTaskIDPtr[sti]]))
+# define rtmIsSampleHit(rtm, sti, tid) ((rtm)->Timing.sampleHits[(rtm)->Timing.sampleTimeTaskIDPtr[sti]])
 #endif
 
 #ifndef rtmGetStopRequested
@@ -851,31 +858,6 @@
 /* Definition for use in the target main file */
 #define Pedals_Susp_Sensors_rtModel    RT_MODEL_Pedals_Susp_Sensors_T
 
-/* Block signals for system '<S5>/MATLAB Function' */
-typedef struct {
-  real_T ZeroExperimental;             /* '<S5>/MATLAB Function' */
-} B_MATLABFunction_Pedals_Susp__T;
-
-/* Block signals (auto storage) */
-typedef struct {
-  real_T bitsmax;                      /* '<S5>/bitsmax ' */
-  real_T bitsmax_p;                    /* '<S6>/bitsmax ' */
-  real_T bitsmax_o;                    /* '<S7>/bitsmax' */
-  real_T bitsmax_n;                    /* '<S8>/bitsmax' */
-  B_MATLABFunction_Pedals_Susp__T sf_MATLABFunction_h;/* '<S8>/MATLAB Function' */
-  B_MATLABFunction_Pedals_Susp__T sf_MATLABFunction_b;/* '<S7>/MATLAB Function' */
-  B_MATLABFunction_Pedals_Susp__T sf_MATLABFunction_k;/* '<S6>/MATLAB Function' */
-  B_MATLABFunction_Pedals_Susp__T sf_MATLABFunction;/* '<S5>/MATLAB Function' */
-} B_Pedals_Susp_Sensors_T;
-
-/* Block states (auto storage) for system '<Root>' */
-typedef struct {
-  real_T Z_E;                          /* '<S5>/Data Store Memory' */
-  real_T Z_E_d;                        /* '<S6>/Data Store Memory' */
-  real_T Z_E_h;                        /* '<S7>/Data Store Memory' */
-  real_T Z_E_p;                        /* '<S8>/Data Store Memory' */
-} DW_Pedals_Susp_Sensors_T;
-
 /* External inputs (root inport signals with auto storage) */
 typedef struct {
   real_T APPS1_Bits;                   /* '<Root>/APPS1_Bits' */
@@ -900,16 +882,12 @@ typedef struct {
 } ExtY_Pedals_Susp_Sensors_T;
 
 /* Backward compatible GRT Identifiers */
-#define rtB                            Pedals_Susp_Sensors_B
-#define BlockIO                        B_Pedals_Susp_Sensors_T
 #define rtU                            Pedals_Susp_Sensors_U
 #define ExternalInputs                 ExtU_Pedals_Susp_Sensors_T
 #define rtY                            Pedals_Susp_Sensors_Y
 #define ExternalOutputs                ExtY_Pedals_Susp_Sensors_T
 #define rtP                            Pedals_Susp_Sensors_P
 #define Parameters                     P_Pedals_Susp_Sensors_T
-#define rtDWork                        Pedals_Susp_Sensors_DW
-#define D_Work                         DW_Pedals_Susp_Sensors_T
 
 /* Parameters (auto storage) */
 struct P_Pedals_Susp_Sensors_T_ {
@@ -922,58 +900,10 @@ struct P_Pedals_Susp_Sensors_T_ {
   real_T Brake_Light_Threshold_Value;  /* Expression: 0.2
                                         * Referenced by: '<S4>/Brake_Light_Threshold'
                                         */
-  real_T bitsmax_Value;                /* Expression: 1024
-                                        * Referenced by: '<S5>/bitsmax '
-                                        */
-  real_T Ltotal_Gain;                  /* Expression: 76
-                                        * Referenced by: '<S5>/Ltotal'
-                                        */
-  real_T Ctemuelles_Gain;              /* Expression: 29.3
-                                        * Referenced by: '<S5>/Cte muelles'
-                                        */
-  real_T DataStoreMemory_InitialValue; /* Expression: 0
-                                        * Referenced by: '<S5>/Data Store Memory'
-                                        */
-  real_T bitsmax_Value_e;              /* Expression: 1024
-                                        * Referenced by: '<S6>/bitsmax '
-                                        */
-  real_T Ltotal_Gain_c;                /* Expression: 76
-                                        * Referenced by: '<S6>/Ltotal'
-                                        */
-  real_T Ctemuelles_Gain_e;            /* Expression: 29.3
-                                        * Referenced by: '<S6>/Cte muelles'
-                                        */
-  real_T DataStoreMemory_InitialValue_m;/* Expression: 0
-                                         * Referenced by: '<S6>/Data Store Memory'
-                                         */
-  real_T bitsmax_Value_o;              /* Expression: 1024
-                                        * Referenced by: '<S7>/bitsmax'
-                                        */
-  real_T Ltotal_Gain_h;                /* Expression: 76
-                                        * Referenced by: '<S7>/Ltotal'
-                                        */
-  real_T Ctemuelles_Gain_a;            /* Expression: 38.9
-                                        * Referenced by: '<S7>/Cte muelles'
-                                        */
-  real_T DataStoreMemory_InitialValue_b;/* Expression: 0
-                                         * Referenced by: '<S7>/Data Store Memory'
-                                         */
-  real_T bitsmax_Value_b;              /* Expression: 1024
-                                        * Referenced by: '<S8>/bitsmax'
-                                        */
-  real_T Ltotal_Gain_j;                /* Expression: 76
-                                        * Referenced by: '<S8>/Ltotal'
-                                        */
-  real_T Ctemuelles_Gain_g;            /* Expression: 38.9
-                                        * Referenced by: '<S8>/Cte muelles'
-                                        */
-  real_T DataStoreMemory_InitialValue_l;/* Expression: 0
-                                         * Referenced by: '<S8>/Data Store Memory'
-                                         */
-  real_T min_Value;                    /* Expression: 100
+  real_T min_Value;                    /* Expression: 92
                                         * Referenced by: '<S3>/min'
                                         */
-  real_T max_Value;                    /* Expression: 300
+  real_T max_Value;                    /* Expression: 200
                                         * Referenced by: '<S3>/max'
                                         */
   real_T min_Value_a;                  /* Expression: 5
@@ -987,6 +917,45 @@ struct P_Pedals_Susp_Sensors_T_ {
                                         */
   real_T max_Value_a;                  /* Expression: 580
                                         * Referenced by: '<S2>/max'
+                                        */
+  real_T Zero_Bits_Experimental_Value; /* Expression: 1
+                                        * Referenced by: '<Root>/Zero_Bits_Experimental'
+                                        */
+  real_T bitsmax_Value;                /* Expression: 1024
+                                        * Referenced by: '<S5>/bitsmax '
+                                        */
+  real_T Ltotal_Gain;                  /* Expression: 57
+                                        * Referenced by: '<S5>/Ltotal'
+                                        */
+  real_T Ctemuelles_Gain;              /* Expression: 23
+                                        * Referenced by: '<S5>/Cte muelles'
+                                        */
+  real_T bitsmax_Value_m;              /* Expression: 1024
+                                        * Referenced by: '<S6>/bitsmax '
+                                        */
+  real_T Ltotal_Gain_c;                /* Expression: 57
+                                        * Referenced by: '<S6>/Ltotal'
+                                        */
+  real_T Ctemuelles_Gain_e;            /* Expression: 23
+                                        * Referenced by: '<S6>/Cte muelles'
+                                        */
+  real_T bitsmax_Value_a;              /* Expression: 1024
+                                        * Referenced by: '<S7>/bitsmax '
+                                        */
+  real_T Ltotal_Gain_h;                /* Expression: 57
+                                        * Referenced by: '<S7>/Ltotal'
+                                        */
+  real_T Ctemuelles_Gain_a;            /* Expression: 30
+                                        * Referenced by: '<S7>/Cte muelles'
+                                        */
+  real_T bitsmax_Value_f;              /* Expression: 1024
+                                        * Referenced by: '<S8>/bitsmax '
+                                        */
+  real_T Ltotal_Gain_j;                /* Expression: 57
+                                        * Referenced by: '<S8>/Ltotal'
+                                        */
+  real_T Ctemuelles_Gain_g;            /* Expression: 30
+                                        * Referenced by: '<S8>/Cte muelles'
                                         */
 };
 
@@ -1065,9 +1034,6 @@ struct tag_RTM_Pedals_Susp_Sensors_T {
     uint32_T clockTick0;
     uint32_T clockTickH0;
     time_T stepSize0;
-    uint32_T clockTick1;
-    uint32_T clockTickH1;
-    time_T stepSize1;
     time_T tStart;
     time_T tFinal;
     time_T timeOfLastOutput;
@@ -1081,23 +1047,17 @@ struct tag_RTM_Pedals_Susp_Sensors_T {
     int_T *sampleHits;
     int_T *perTaskSampleHits;
     time_T *t;
-    time_T sampleTimesArray[2];
-    time_T offsetTimesArray[2];
-    int_T sampleTimeTaskIDArray[2];
-    int_T sampleHitArray[2];
-    int_T perTaskSampleHitsArray[4];
-    time_T tArray[2];
+    time_T sampleTimesArray[1];
+    time_T offsetTimesArray[1];
+    int_T sampleTimeTaskIDArray[1];
+    int_T sampleHitArray[1];
+    int_T perTaskSampleHitsArray[1];
+    time_T tArray[1];
   } Timing;
 };
 
 /* Block parameters (auto storage) */
 extern P_Pedals_Susp_Sensors_T Pedals_Susp_Sensors_P;
-
-/* Block signals (auto storage) */
-extern B_Pedals_Susp_Sensors_T Pedals_Susp_Sensors_B;
-
-/* Block states (auto storage) */
-extern DW_Pedals_Susp_Sensors_T Pedals_Susp_Sensors_DW;
 
 /* External inputs (root inport signals with auto storage) */
 extern ExtU_Pedals_Susp_Sensors_T Pedals_Susp_Sensors_U;
@@ -1145,9 +1105,5 @@ extern RT_MODEL_Pedals_Susp_Sensors_T *const Pedals_Susp_Sensors_M;
  * '<S8>'   : 'Pedals_Susp_Sensors/Suspension_RR Data_Conv'
  * '<S9>'   : 'Pedals_Susp_Sensors/Brake_Light/Brake_Light_OFF'
  * '<S10>'  : 'Pedals_Susp_Sensors/Brake_Light/Brake_Light_ON'
- * '<S11>'  : 'Pedals_Susp_Sensors/Suspension_FL Data Conv/MATLAB Function'
- * '<S12>'  : 'Pedals_Susp_Sensors/Suspension_FR Data Conv/MATLAB Function'
- * '<S13>'  : 'Pedals_Susp_Sensors/Suspension_RL Data Conv/MATLAB Function'
- * '<S14>'  : 'Pedals_Susp_Sensors/Suspension_RR Data_Conv/MATLAB Function'
  */
 #endif                                 /* RTW_HEADER_Pedals_Susp_Sensors_h_ */

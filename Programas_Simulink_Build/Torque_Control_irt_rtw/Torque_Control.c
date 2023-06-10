@@ -7,9 +7,9 @@
  *
  * Code generation for model "Torque_Control".
  *
- * Model version              : 1.181
+ * Model version              : 1.182
  * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Wed Mar 29 13:03:35 2023
+ * C source code generated on : Sat Jun 10 14:35:54 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -486,7 +486,7 @@ void Torque_Control_output(void)
   real_T rtb_Abs1;
   real_T rtb_Abs4;
   real_T rtb_Gain_f;
-  real_T rtb_Gain5_c;
+  real_T rtb_Merge_d;
   real_T rtb_Merge3;
   real_T rtb_Merge;
   real_T rtb_Subtract1;
@@ -5577,7 +5577,7 @@ void Torque_Control_output(void)
       /* SignalConversion: '<S41>/OutportBufferFor1' incorporates:
        *  Constant: '<S41>/Constant'
        */
-      rtb_Gain5_c = Torque_Control_P.Constant_Value_i;
+      rtb_Merge_d = Torque_Control_P.Constant_Value_i;
     }
 
     /* End of Outputs for SubSystem: '<S10>/Pumps_Control_ON' */
@@ -5591,7 +5591,7 @@ void Torque_Control_output(void)
       /* SignalConversion: '<S40>/OutportBufferFor0' incorporates:
        *  Constant: '<S40>/Constant'
        */
-      rtb_Gain5_c = Torque_Control_P.Constant_Value_n;
+      rtb_Merge_d = Torque_Control_P.Constant_Value_n;
     }
 
     /* End of Outputs for SubSystem: '<S10>/Pumps_Control_OFF' */
@@ -5601,7 +5601,7 @@ void Torque_Control_output(void)
   /* End of If: '<S10>/If' */
   if (rtmIsMajorTimeStep(Torque_Control_M)) {
     /* Outport: '<Root>/Pumps_Control' */
-    Torque_Control_Y.Pumps_Control = rtb_Gain5_c;
+    Torque_Control_Y.Pumps_Control = rtb_Merge_d;
   }
 
   /* Outputs for Atomic SubSystem: '<S14>/WORKSHOP_MODE_RESTRICTIONS' */
@@ -5701,15 +5701,6 @@ void Torque_Control_output(void)
   /* Gain: '<Root>/Gain' */
   rtb_Gain_f = Torque_Control_P.Gain_Gain_g * rtb_Gain;
   if (rtmIsMajorTimeStep(Torque_Control_M)) {
-    /* Lookup_n-D: '<S208>/Lookup_SoC_SoP_dischg' incorporates:
-     *  Constant: '<Root>/Constant'
-     *  Gain: '<S208>/Gain6'
-     */
-    Torque_Control_B.Lookup_SoC_SoP_dischg = look1_binlxpw
-      (Torque_Control_P.Gain6_Gain_f * Torque_Control_P.Constant_Value_dx,
-       Torque_Control_P.Lookup_SoC_SoP_dischg_bp01Dat_m,
-       Torque_Control_P.Lookup_SoC_SoP_dischg_tableDa_g, 7U);
-
     /* Constant: '<S216>/Constant' */
     Torque_Control_B.Constant_b = Torque_Control_P.Temphigherthan50_const_l;
 
@@ -5740,7 +5731,7 @@ void Torque_Control_output(void)
    *  Sum: '<S213>/Add1'
    *  Sum: '<S213>/Add3'
    */
-  rtb_Gain5_c = ((Torque_Control_B.Constant1 /
+  rtb_Merge_d = ((Torque_Control_B.Constant1 /
                   (Torque_Control_U.Highest_CellTemp -
                    Torque_Control_B.Constant2) -
                   Torque_Control_B.initial_limitation) * (real_T)
@@ -5789,15 +5780,6 @@ void Torque_Control_output(void)
 
     /* Constant: '<S215>/Constant3' */
     Torque_Control_B.Constant3_f = Torque_Control_P.Constant3_Value_i;
-
-    /* Lookup_n-D: '<S208>/Lookup_SoC_SoP_chg' incorporates:
-     *  Constant: '<Root>/Constant12'
-     *  Gain: '<S208>/Gain5'
-     */
-    Torque_Control_B.Lookup_SoC_SoP_chg = look1_binlxpw
-      (Torque_Control_P.Gain5_Gain_n * Torque_Control_P.Constant12_Value,
-       Torque_Control_P.Lookup_SoC_SoP_chg_bp01Data_b,
-       Torque_Control_P.Lookup_SoC_SoP_chg_tableData_p, 7U);
 
     /* Constant: '<Root>/Gear Ratio' */
     Torque_Control_B.GearRatio = Torque_Control_P.GearRatio_Value;
@@ -5872,16 +5854,6 @@ void Torque_Control_output(void)
     if (rtmIsMajorTimeStep(Torque_Control_M)) {
       Torque_Control_B.Max_Tq_per_motor =
         Torque_Control_P.Max_Tq_per_motor_Value;
-
-      /* Lookup_n-D: '<S24>/Lookup_SoC_SoP_dischg' incorporates:
-       *  Constant: '<Root>/Constant17'
-       *  Constant: '<S3>/Max_Tq_per_motor'
-       *  Gain: '<S24>/Gain6'
-       */
-      Torque_Control_B.Lookup_SoC_SoP_dischg_k = look1_binlxpw
-        (Torque_Control_P.Gain6_Gain * Torque_Control_P.Constant17_Value,
-         Torque_Control_P.Lookup_SoC_SoP_dischg_bp01Data,
-         Torque_Control_P.Lookup_SoC_SoP_dischg_tableData, 7U);
       Torque_Control_B.Constant_g = Torque_Control_P.Temphigherthan50_const;
       Torque_Control_B.Constant1_l = Torque_Control_P.Constant1_Value;
       Torque_Control_B.Constant2_n = Torque_Control_P.Constant2_Value;
@@ -6008,25 +5980,26 @@ void Torque_Control_output(void)
     /* MinMax: '<S26>/Min' */
     rtb_Merge = fmin(fmin(rtb_Abs1, rtb_value_g), rtb_alpha_j);
 
-    /* Product: '<S24>/Product4' */
-    rtb_Merge3 = Torque_Control_B.Lookup_SoC_SoP_dischg_k * rtb_Merge;
-    if (rtmIsMajorTimeStep(Torque_Control_M)) {
-      /* Lookup_n-D: '<S24>/Lookup_SoC_SoP_chg' incorporates:
-       *  Constant: '<Root>/Constant13'
-       *  Gain: '<S24>/Gain5'
-       */
-      Torque_Control_B.Lookup_SoC_SoP_chg_j = look1_binlxpw
-        (Torque_Control_P.Gain5_Gain * Torque_Control_P.Constant13_Value,
-         Torque_Control_P.Lookup_SoC_SoP_chg_bp01Data,
-         Torque_Control_P.Lookup_SoC_SoP_chg_tableData, 7U);
-    }
+    /* Product: '<S24>/Product4' incorporates:
+     *  Gain: '<S24>/Gain6'
+     *  Inport: '<Root>/SoC_Low'
+     *  Lookup_n-D: '<S24>/Lookup_SoC_SoP_dischg'
+     */
+    rtb_Merge3 = look1_binlxpw(Torque_Control_P.Gain6_Gain *
+      Torque_Control_U.SoC_Low, Torque_Control_P.Lookup_SoC_SoP_dischg_bp01Data,
+      Torque_Control_P.Lookup_SoC_SoP_dischg_tableData, 7U) * rtb_Merge;
 
     /* Product: '<S24>/Product5' incorporates:
+     *  Gain: '<S24>/Gain5'
      *  Inport: '<Root>/Highest_CellTemp'
+     *  Inport: '<Root>/SoC_High'
+     *  Lookup_n-D: '<S24>/Lookup_SoC_SoP_chg'
      *  Lookup_n-D: '<S24>/Lookup_Temp_SoP_chg'
      *  Product: '<S24>/Product'
      */
-    rtb_Merge *= Torque_Control_B.Lookup_SoC_SoP_chg_j * look1_binlxpw
+    rtb_Merge *= look1_binlxpw(Torque_Control_P.Gain5_Gain *
+      Torque_Control_U.SoC_High, Torque_Control_P.Lookup_SoC_SoP_chg_bp01Data,
+      Torque_Control_P.Lookup_SoC_SoP_chg_tableData, 7U) * look1_binlxpw
       (Torque_Control_U.Highest_CellTemp,
        Torque_Control_P.Lookup_Temp_SoP_chg_bp01Data,
        Torque_Control_P.Lookup_Temp_SoP_chg_tableData, 4U);
@@ -6209,17 +6182,17 @@ void Torque_Control_output(void)
    *  Sum: '<S215>/Add1'
    *  Sum: '<S215>/Add3'
    */
-  rtb_Merge3 = ((Torque_Control_B.Constant1_h / (Torque_Control_U.Temp_Motors -
+  rtb_Gain = ((Torque_Control_B.Constant1_h / (Torque_Control_U.Temp_Motors -
     Torque_Control_B.Constant2_pf) - Torque_Control_B.initial_limitation) *
-                (real_T)rtb_LogicalOperator1 - (real_T)rtb_LogicalOperator1) +
+              (real_T)rtb_LogicalOperator1 - (real_T)rtb_LogicalOperator1) +
     Torque_Control_B.Constant3_f;
 
   /* Saturate: '<S213>/Saturation1' */
-  if (rtb_Gain5_c > Torque_Control_P.Saturation1_UpperSat_d) {
-    rtb_Gain5_c = Torque_Control_P.Saturation1_UpperSat_d;
+  if (rtb_Merge_d > Torque_Control_P.Saturation1_UpperSat_d) {
+    rtb_Merge_d = Torque_Control_P.Saturation1_UpperSat_d;
   } else {
-    if (rtb_Gain5_c < Torque_Control_P.Saturation1_LowerSat_m) {
-      rtb_Gain5_c = Torque_Control_P.Saturation1_LowerSat_m;
+    if (rtb_Merge_d < Torque_Control_P.Saturation1_LowerSat_m) {
+      rtb_Merge_d = Torque_Control_P.Saturation1_LowerSat_m;
     }
   }
 
@@ -6237,11 +6210,11 @@ void Torque_Control_output(void)
   /* End of Saturate: '<S214>/Saturation1' */
 
   /* Saturate: '<S215>/Saturation1' */
-  if (rtb_Merge3 > Torque_Control_P.Saturation1_UpperSat_b) {
-    rtb_Merge3 = Torque_Control_P.Saturation1_UpperSat_b;
+  if (rtb_Gain > Torque_Control_P.Saturation1_UpperSat_b) {
+    rtb_Gain = Torque_Control_P.Saturation1_UpperSat_b;
   } else {
-    if (rtb_Merge3 < Torque_Control_P.Saturation1_LowerSat_b) {
-      rtb_Merge3 = Torque_Control_P.Saturation1_LowerSat_b;
+    if (rtb_Gain < Torque_Control_P.Saturation1_LowerSat_b) {
+      rtb_Gain = Torque_Control_P.Saturation1_LowerSat_b;
     }
   }
 
@@ -6255,9 +6228,9 @@ void Torque_Control_output(void)
    *  RelationalOperator: '<S211>/Compare'
    *  RelationalOperator: '<S212>/Compare'
    */
-  Torque_Control_Y.TV_Flag_Temperature = ((rtb_Gain5_c <
+  Torque_Control_Y.TV_Flag_Temperature = ((rtb_Merge_d <
     Torque_Control_B.Constant_j) || (rtb_Merge1_l < Torque_Control_B.Constant_do)
-    || (rtb_Merge3 < Torque_Control_B.Constant_bc) || (Torque_Control_B.Compare ||
+    || (rtb_Gain < Torque_Control_B.Constant_bc) || (Torque_Control_B.Compare ||
     Torque_Control_B.Compare_d || Torque_Control_B.Compare_g));
 
   /* Abs: '<S14>/Abs' incorporates:
@@ -7092,12 +7065,12 @@ RT_MODEL_Torque_Control_T *Torque_Control(void)
   Torque_Control_M->Sizes.numContStates = (1);/* Number of continuous states */
   Torque_Control_M->Sizes.numPeriodicContStates = (0);/* Number of periodic continuous states */
   Torque_Control_M->Sizes.numY = (33); /* Number of model outputs */
-  Torque_Control_M->Sizes.numU = (40); /* Number of model inputs */
+  Torque_Control_M->Sizes.numU = (42); /* Number of model inputs */
   Torque_Control_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Torque_Control_M->Sizes.numSampTimes = (2);/* Number of sample times */
-  Torque_Control_M->Sizes.numBlocks = (725);/* Number of blocks */
-  Torque_Control_M->Sizes.numBlockIO = (185);/* Number of block outputs */
-  Torque_Control_M->Sizes.numBlockPrms = (370);/* Sum of parameter "widths" */
+  Torque_Control_M->Sizes.numBlocks = (721);/* Number of blocks */
+  Torque_Control_M->Sizes.numBlockIO = (181);/* Number of block outputs */
+  Torque_Control_M->Sizes.numBlockPrms = (366);/* Sum of parameter "widths" */
   return Torque_Control_M;
 }
 

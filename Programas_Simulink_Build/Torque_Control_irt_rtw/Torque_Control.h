@@ -12,9 +12,9 @@
  *
  * Code generation for model "Torque_Control".
  *
- * Model version              : 1.181
+ * Model version              : 1.182
  * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Wed Mar 29 13:03:35 2023
+ * C source code generated on : Sat Jun 10 14:35:54 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -913,7 +913,6 @@ typedef struct {
   real_T Constant14;                   /* '<Root>/Constant14' */
   real_T Constant_n;                   /* '<S38>/Constant' */
   real_T Constant_i;                   /* '<S37>/Constant' */
-  real_T Lookup_SoC_SoP_dischg;        /* '<S208>/Lookup_SoC_SoP_dischg' */
   real_T Constant_b;                   /* '<S216>/Constant' */
   real_T Constant1;                    /* '<S213>/Constant1' */
   real_T Constant2;                    /* '<S213>/Constant2' */
@@ -927,7 +926,6 @@ typedef struct {
   real_T Constant1_h;                  /* '<S215>/Constant1' */
   real_T Constant2_pf;                 /* '<S215>/Constant2' */
   real_T Constant3_f;                  /* '<S215>/Constant3' */
-  real_T Lookup_SoC_SoP_chg;           /* '<S208>/Lookup_SoC_SoP_chg' */
   real_T GearRatio;                    /* '<Root>/Gear Ratio' */
   real_T MaxTqpermotorNm;              /* '<Root>/Max Tq per motor [Nm]' */
   real_T Max_Power_dischargekW;        /* '<S9>/Max_Power_discharge [kW]' */
@@ -1031,7 +1029,6 @@ typedef struct {
   real_T exptcycletau1;                /* '<S54>/exp(-tcycle//tau)1' */
   real_T Subtract;                     /* '<S54>/Subtract' */
   real_T Max_Tq_per_motor;             /* '<S3>/Max_Tq_per_motor' */
-  real_T Lookup_SoC_SoP_dischg_k;      /* '<S24>/Lookup_SoC_SoP_dischg' */
   real_T Constant_g;                   /* '<S33>/Constant' */
   real_T Constant1_l;                  /* '<S30>/Constant1' */
   real_T Constant2_n;                  /* '<S30>/Constant2' */
@@ -1045,7 +1042,6 @@ typedef struct {
   real_T Constant1_c;                  /* '<S32>/Constant1' */
   real_T Constant2_m;                  /* '<S32>/Constant2' */
   real_T Constant3_it;                 /* '<S32>/Constant3' */
-  real_T Lookup_SoC_SoP_chg_j;         /* '<S24>/Lookup_SoC_SoP_chg' */
   real_T Constant_jv;                  /* '<S27>/Constant' */
   real_T Constant_o4;                  /* '<S28>/Constant' */
   real_T Constant_kc;                  /* '<S29>/Constant' */
@@ -1215,6 +1211,8 @@ typedef struct {
   real_T Temp_IGBT;                    /* '<Root>/Temp_IGBT' */
   real_T Gyro_F_Z_Deg;                 /* '<Root>/Gyro_F_Z_Deg' */
   real_T Car_State;                    /* '<Root>/Car_State' */
+  real_T SoC_Low;                      /* '<Root>/SoC_Low' */
+  real_T SoC_High;                     /* '<Root>/SoC_High' */
 } ExtU_Torque_Control_T;
 
 /* External outputs (root outports fed by signals with auto storage) */
@@ -2008,15 +2006,6 @@ struct P_Torque_Control_T_ {
   real_T Gain_Gain_g;                  /* Expression: 1/4
                                         * Referenced by: '<Root>/Gain'
                                         */
-  real_T Constant17_Value;             /* Expression: 50
-                                        * Referenced by: '<Root>/Constant17'
-                                        */
-  real_T Constant13_Value;             /* Expression: 50
-                                        * Referenced by: '<Root>/Constant13'
-                                        */
-  real_T Constant_Value_dx;            /* Expression: 50
-                                        * Referenced by: '<Root>/Constant'
-                                        */
   real_T Gain6_Gain_f;                 /* Expression: 1/100
                                         * Referenced by: '<S208>/Gain6'
                                         */
@@ -2079,9 +2068,6 @@ struct P_Torque_Control_T_ {
                                         */
   real_T Saturation_LowerSat_ey;       /* Expression: 0
                                         * Referenced by: '<S16>/Saturation'
-                                        */
-  real_T Constant12_Value;             /* Expression: 50
-                                        * Referenced by: '<Root>/Constant12'
                                         */
   real_T Gain5_Gain_n;                 /* Expression: 1/100
                                         * Referenced by: '<S208>/Gain5'
@@ -2321,7 +2307,7 @@ extern RT_MODEL_Torque_Control_T *const Torque_Control_M;
  * '<S13>'  : 'Torque_Control/Steering Data Conv'
  * '<S14>'  : 'Torque_Control/VDC'
  * '<S15>'  : 'Torque_Control/W to kW'
- * '<S16>'  : 'Torque_Control/power_limitation1'
+ * '<S16>'  : 'Torque_Control/power_limitation'
  * '<S17>'  : 'Torque_Control/Accumulator Power/PowerLimitDetection'
  * '<S18>'  : 'Torque_Control/Accumulator Power/PowerLimitDetection/LimitReached'
  * '<S19>'  : 'Torque_Control/Accumulator Power/PowerLimitDetection/OK_OrLatch'
@@ -2513,16 +2499,16 @@ extern RT_MODEL_Torque_Control_T *const Torque_Control_M;
  * '<S205>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Optimization SKF & CKF/Subsystem  /CKF/Spin /MATLAB Function'
  * '<S206>' : 'Torque_Control/VDC/WORKSHOP_MODE_RESTRICTIONS/BYPASS'
  * '<S207>' : 'Torque_Control/VDC/WORKSHOP_MODE_RESTRICTIONS/Torque_Reduction '
- * '<S208>' : 'Torque_Control/power_limitation1/SoC_SoP'
- * '<S209>' : 'Torque_Control/power_limitation1/temperature_SoP'
- * '<S210>' : 'Torque_Control/power_limitation1/temperature_SoP/Flag_Accu'
- * '<S211>' : 'Torque_Control/power_limitation1/temperature_SoP/Flag_Inv'
- * '<S212>' : 'Torque_Control/power_limitation1/temperature_SoP/Flag_Mot'
- * '<S213>' : 'Torque_Control/power_limitation1/temperature_SoP/temperature_rise_limitator_Accu'
- * '<S214>' : 'Torque_Control/power_limitation1/temperature_SoP/temperature_rise_limitator_Inverters'
- * '<S215>' : 'Torque_Control/power_limitation1/temperature_SoP/temperature_rise_limitator_Motors'
- * '<S216>' : 'Torque_Control/power_limitation1/temperature_SoP/temperature_rise_limitator_Accu/Temp higher than 50'
- * '<S217>' : 'Torque_Control/power_limitation1/temperature_SoP/temperature_rise_limitator_Inverters/Temp higher than 50'
- * '<S218>' : 'Torque_Control/power_limitation1/temperature_SoP/temperature_rise_limitator_Motors/Temp higher than 110'
+ * '<S208>' : 'Torque_Control/power_limitation/SoC_SoP'
+ * '<S209>' : 'Torque_Control/power_limitation/temperature_SoP'
+ * '<S210>' : 'Torque_Control/power_limitation/temperature_SoP/Flag_Accu'
+ * '<S211>' : 'Torque_Control/power_limitation/temperature_SoP/Flag_Inv'
+ * '<S212>' : 'Torque_Control/power_limitation/temperature_SoP/Flag_Mot'
+ * '<S213>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Accu'
+ * '<S214>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Inverters'
+ * '<S215>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Motors'
+ * '<S216>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Accu/Temp higher than 50'
+ * '<S217>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Inverters/Temp higher than 50'
+ * '<S218>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Motors/Temp higher than 110'
  */
 #endif                                 /* RTW_HEADER_Torque_Control_h_ */

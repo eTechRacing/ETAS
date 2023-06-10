@@ -7,9 +7,9 @@
  *
  * Code generation for model "Pedals_Susp_Sensors".
  *
- * Model version              : 1.37
+ * Model version              : 1.40
  * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Wed Mar 29 12:59:21 2023
+ * C source code generated on : Wed May 31 15:50:26 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -23,10 +23,4 @@
 #include "rtwtypes.h"
 #include "multiword_types.h"
 #include "zero_crossing_types.h"
-#include "Pedals_Susp_Sensors.h"
-
-extern void Pedals_Susp_Sens_MATLABFunction(real_T rtu_Suspe, real_T
-  rtu_elapsed_time, real_T rtu_ZeroExperimental_ant,
-  B_MATLABFunction_Pedals_Susp__T *localB);
-
 #endif                                 /* RTW_HEADER_Pedals_Susp_Sensors_private_h_ */

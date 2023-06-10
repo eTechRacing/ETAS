@@ -51,8 +51,8 @@ MATLAB_BIN           = C:\Program Files\MATLAB\R2017b\bin
 S_FUNCTIONS          = 
 S_FUNCTIONS_LIB      = 
 SOLVER               = 
-NUMST                = 2
-TID01EQ              = 1
+NUMST                = 1
+TID01EQ              = 0
 NCSTATES             = 0
 BUILDARGS            =  MODELLIB=Pedals_Susp_Sensorslib.lib MODELREF_TARGET_TYPE=NONE ISPROTECTINGMODEL=NOTPROTECTING RELATIVE_PATH_TO_ANCHOR=.. MAT_FILE=0 IRTWaitForStartMsg=0
 MULTITASKING         = 0

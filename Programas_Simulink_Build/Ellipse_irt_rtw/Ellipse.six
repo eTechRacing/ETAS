@@ -1,0 +1,2127 @@
+<?xml version="1.0"?>
+<!DOCTYPE module [
+    <!ENTITY szlig "&#223;">
+    <!ENTITY copy "&#169;">
+    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/common/baseTypes-mlsl.six'>
+    ]>
+<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/common/showSCOOP-IX.xsl"?>
+<!--
+<h1>SCOOP-IX</h1>
+<p>
+    <strong>Copyright &copy; 2014 ETAS GmbH</strong>, Borsigstra&szlig;e 14, D-70469 Stuttgart. <em>All rights reserved.</em>
+</p>
+-->
+<module xmlns="http://www.etas.com/scoop-ix/1.4" xmlns:ix="http://www.etas.com/scoop-ix/1.4" xmlns:mlsl="http://www.etas.com/scoop-ix/1.4/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.4
+        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
+	<directoryLocations scheme="MATLAB 9.3">
+		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO4.7\MATLAB\"/>
+		<directory identifier="toolDir" path=".\"/>
+		<directory identifier="modelDir" path="C:\Users\dwegg\Desktop\ETAS-main\ETAS\Programas_Simulink\"/>
+		<directory identifier="codeDir" path="c:\users\dwegg\desktop\etas-main\etas\programas_simulink_build\ellipse_irt_rtw\"/>
+	</directoryLocations>
+	<moduleInfo identifier="Ellipse">
+		<name>Ellipse</name>
+		<modelLink href="mlsl://&quot;{{modelDir}}Ellipse.slx&quot;"/>
+		<version major="1" minor="13"/>
+		<dateTime kind="created" year="2022" month="8" day="20" hour="10" minute="22" second="41"/>
+		<dateTime kind="lastModified" year="2023" month="6" day="10" hour="10" minute="43" second="25"/>
+		<completion degree="full"/>
+		<suitability>
+			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
+			<application domain="softwareDevelopment" addressesAvailable="false" nestedDataStructuresAvailable="true"/>
+		</suitability>
+		<user lastName="dwegg" role="modifier"/>
+		<creators>
+			<user lastName="Eric" role="creator"/>
+			<tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
+				<version major="9" minor="3" year="2017" month="7" day="24" info="R2017b"/>
+			</tool>
+			<tool kind="modeler" vendor="The Mathworks, Inc." name="Simulink">
+				<version major="9" minor="0" year="2017" month="7" day="24" info="R2017b"/>
+			</tool>
+			<tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
+				<version major="9" minor="0" year="2017" month="7" day="24" info="R2017b"/>
+			</tool>
+			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
+				<version major="8" minor="13" year="2017" month="7" day="24" info="R2017b"/>
+				<mode name="target" value="INTECRIO Real-Time Target"/>
+				<configuration>
+					<option identifier="InlineParameters">2</option>
+					<option identifier="InlineInvariantSignals">0</option>
+					<option identifier="Solver">FixedStepDiscrete</option>
+					<option identifier="SolverType">FixedStep</option>
+					<option identifier="FixedStepOpts.FixedStep">0.2</option>
+					<option identifier="FixedStepOpts.SolverMode">SingleTasking</option>
+				</configuration>
+			</tool>
+			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="MATLAB Coder">
+				<version major="3" minor="4" year="2017" month="7" day="24" info="R2017b"/>
+			</tool>
+			<tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
+				<version major="4" minor="7" year="2018" month="1" day="1"/>
+				<configuration>
+					<option identifier="SCOOPIXFileName"><![CDATA[Ellipse.six]]></option>
+					<option identifier="ExternalMode">0</option>
+					<option identifier="IgnoreCustomStorageClasses">1</option>
+					<option identifier="StopSimuAfterAssert">1</option>
+					<option identifier="GenerateOnlySelectedSignalsToASAP2">0</option>
+				</configuration>
+			</tool>
+		</creators>
+	</moduleInfo>
+	<codeInfo>
+		<constitution mode="sourceCode"/>
+		<dateTime kind="created" year="2023" month="6" day="10" hour="10" minute="43" second="30"/>
+		<target>
+			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
+			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
+				<configuration>
+					<optionKind name="macroDefine" prefix="-D"/>
+					<optionKind name="includeDirectory" prefix="-I"/>
+					<!-- RTW specific defines -->
+					<option kind="macroDefine" name="USE_RTMODEL"/>
+					<option kind="macroDefine" name="MODEL">Ellipse</option>
+					<option kind="macroDefine" name="RT"/>
+					<option kind="macroDefine" name="NUMST">1</option>
+					<option kind="macroDefine" name="TID01EQ">0</option>
+					<option kind="macroDefine" name="NCSTATES">0</option>
+					<option kind="macroDefine" name="MT">0</option>
+					<option kind="macroDefine" name="HAVESTDIO"/>
+					<option kind="macroDefine" name="MdlStart">MdlStart_Ellipse</option>
+					<option kind="macroDefine" name="MdlOutputs">MdlOutputs_Ellipse</option>
+					<option kind="macroDefine" name="MdlUpdate">MdlUpdate_Ellipse</option>
+					<option kind="macroDefine" name="MdlTerminate">MdlTerminate_Ellipse</option>
+					<option kind="macroDefine" name="MdlInitializeSizes">MdlInitializeSizes_Ellipse</option>
+					<option kind="macroDefine" name="MdlInitializeSampleTimes">MdlInitializeSampleTimes_Ellipse</option>
+					<option kind="macroDefine" name="MdlInitialize">MdlInitialize_Ellipse</option>
+					<option kind="macroDefine" name="MdlEnable">MdlEnable_Ellipse</option>
+					<option kind="macroDefine" name="MdlDerivatives">MdlDerivatives_Ellipse</option>
+					<option kind="macroDefine" name="MdlProjection">MdlProjection_Ellipse</option>
+					<option kind="macroDefine" name="rt_ODECreateIntegrationData">rt_ODECreateIntegrationData_Ellipse</option>
+					<option kind="macroDefine" name="rt_ODEUpdateContinuousStates">rt_ODEUpdateContinuousStates_Ellipse</option>
+					<option kind="macroDefine" name="rt_ODEDestroyIntegrationData">rt_ODEDestroyIntegrationData_Ellipse</option>
+					<option kind="macroDefine" name="rt_ODECacheDataIntoSolverInfo">rt_ODECacheDataIntoSolverInfo_Ellipse</option>
+					<option kind="macroDefine" name="rt_ODERetrieveDataFromSolverInfo">rt_ODERetrieveDataFromSolverInfo_Ellipse</option>
+					<option kind="macroDefine" name="rt_ODECreateSolverInfo">rt_ODECreateSolverInfo_Ellipse</option>
+					<option kind="macroDefine" name="rt_SimInitTimingEngine">rt_SimInitTimingEngine_Ellipse</option>
+					<option kind="macroDefine" name="rt_SimGetNextSampleHit">rt_SimGetNextSampleHit_Ellipse</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteTaskSampleHits">rt_SimUpdateDiscreteTaskSampleHits_Ellipse</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteEvents">rt_SimUpdateDiscreteEvents_Ellipse</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteTaskTime">rt_SimUpdateDiscreteTaskTime_Ellipse</option>
+					<option kind="macroDefine" name="rt_CallSys">rt_CallSys_Ellipse</option>
+					<option kind="macroDefine" name="rt_EnableSys">rt_EnableSys_Ellipse</option>
+					<option kind="macroDefine" name="rt_DisableSys">rt_DisableSys_Ellipse</option>
+					<option kind="macroDefine" name="rt_SimDestroyTimingEngine">rt_SimDestroyTimingEngine_Ellipse</option>
+					<option kind="macroDefine" name="rt_InitTimingEngine">rt_InitTimingEngine_Ellipse</option>
+					<option kind="macroDefine" name="rt_DestroyTimingEngine">rt_DestroyTimingEngine_Ellipse</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteTaskSampleHits">rt_UpdateDiscreteTaskSampleHits_Ellipse</option>
+					<option kind="macroDefine" name="rt_GetNextSampleHit">rt_GetNextSampleHit_Ellipse</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteEvents">rt_UpdateDiscreteEvents_Ellipse</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteTaskTime">rt_UpdateDiscreteTaskTime_Ellipse</option>
+					<!-- RTW specific include directories -->
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}]]></option>
+					<option kind="includeDirectory"><![CDATA[{{integratorDir}}c\src\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{integratorDir}}c\lib\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\simulink\include\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\extern\include\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\src\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\libsrc\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\_sharedutils\]]></option>
+					<!-- S-Function specific includes directories -->
+				</configuration>
+			</tool>
+		</target>
+	</codeInfo>
+	<!-- Model specific files -->
+	<fileContainer constitution="sourceCode">
+		<pathBase path="{{codeDir}}"/>
+		<!-- Model specific source files -->
+		<file name="Ellipse_types.h" kind="header"/>
+		<file name="Ellipse.h" kind="header"/>
+		<file name="Ellipse.c" kind="body"/>
+		<file name="Ellipse_private.h" kind="header"/>
+		<file name="rtmodel.h" kind="header"/>
+		<file name="Ellipse_main.c" kind="body"/>
+		<!-- Additionally registered model specific source files -->
+		<file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body"/>
+		<!-- Target specific libraries -->
+		<file name="rtwStaticLib.lib" kind="symbolicLibrary"/>
+		<file name="rtwSharedLib.lib" kind="symbolicLibrary"/>
+		<!-- Additional files -->
+	</fileContainer>
+	<interface>
+		<modelLinkBase href="mlsl://{{modelDir}}Ellipse.slx?"/>
+		<pathBase path="{{codeDir}}"/>
+		<fileOrigin name="Ellipse.c"/>
+		<fileOrigin name="rt_nonfinite.c"/>
+		<fileOrigin name="Ellipse_main.c"/>
+		<headerFile name="Ellipse.h"/>
+		<headerFile name="Ellipse_private.h"/>
+		<usage layoutFamily="mlsl:standardLayout"/>
+		<!-- "import" MATLAB/Simulink base type and complex struct definitions via external entity -->
+		&baseTypes-mlsl;
+		<definitions>
+			<structDef name="ExtU_Ellipse_T_tag">
+				<fileOrigin name="Ellipse.h"/>
+				<structMember identifier="ROLL">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/ROLL</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="PITCH">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/PITCH</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="YAW">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/YAW</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="LATITUDE_EKF">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/LATITUDE_EKF</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="LONGITUDE_EKF">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/LONGITUDE_EKF</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="el_Vel_X">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_Vel_X</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="el_Vel_Y">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_Vel_Y</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="el_Vel_Z">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_Vel_Z</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="ACCEL_X_IMU">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/ACCEL_X_IMU</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="ACCEL_Y_IMU">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/ACCEL_Y_IMU</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="ACCEL_Z_IMU">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/ACCEL_Z_IMU</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="GYRO_X">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/GYRO_X</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="GYRO_Y">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/GYRO_Y</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="GYRO_Z">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/GYRO_Z</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="ACCEL_X_MAG">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/ACCEL_X_MAG</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="ACCEL_Y_MAG">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/ACCEL_Y_MAG</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="ACCEL_Z_MAG">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/ACCEL_Z_MAG</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="ANGLE_TRACK">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/ANGLE_TRACK</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="ANGLE_SLIP">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/ANGLE_SLIP</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="CURVATURE_RADIUS">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/CURVATURE_RADIUS</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="AUTO_STATUS">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/AUTO_STATUS</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="TIME_STAMP">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/TIME_STAMP</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="GENERAL">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/GENERAL</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="CLOCK">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/CLOCK</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ExtU_Ellipse_T">
+				<struct/><typeRef name="ExtU_Ellipse_T_tag"/>
+				<fileOrigin name="Ellipse.h"/>
+			</typeDef>
+			<structDef name="ExtY_Ellipse_T_tag">
+				<fileOrigin name="Ellipse.h"/>
+				<structMember identifier="Roll_Tx">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Roll_Tx</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Pitch_Tx">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Pitch_Tx</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Yaw_Tx">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Yaw_Tx</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Lat_EKF">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Lat_EKF</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Long_EKF">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Long_EKF</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Vel_X">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Vel_X</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Vel_Y">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Vel_Y</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Vel_Z">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Vel_Z</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Accel_X_IMU_Tx">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Accel_X_IMU_Tx</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Accel_Y_IMU_Tx">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Accel_Y_IMU_Tx</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Accel_Z_IMU_Tx">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Accel_Z_IMU_Tx</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Gyro_X_Tx">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Gyro_X_Tx</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Gyro_Y_Tx">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Gyro_Y_Tx</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Gyro_Z_Tx">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Gyro_Z_Tx</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Accel_X_Mag_Tx">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Accel_X_Mag_Tx</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Accel_Y_Mag_Tx">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Accel_Y_Mag_Tx</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Accel_Z_Mag_Tx">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Accel_Z_Mag_Tx</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="TrackAngle">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/TrackAngle</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="SlipAngle">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/SlipAngle</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="CurvRadius">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/CurvRadius</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Status_Auto">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Status_Auto</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Time">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Time</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="General_Tx">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/General_Tx</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Clock_Tx">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Clock_Tx</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ExtY_Ellipse_T">
+				<struct/><typeRef name="ExtY_Ellipse_T_tag"/>
+				<fileOrigin name="Ellipse.h"/>
+			</typeDef>
+			<baseDef identifier="Ellipse_U">
+				<type><typeRef name="ExtU_Ellipse_T"/></type>
+				<fileOrigin name="Ellipse.c"/>
+				<annotation>
+					<documentation>The rtU data structure for external inputs.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="Ellipse_Y">
+				<type><typeRef name="ExtY_Ellipse_T"/></type>
+				<fileOrigin name="Ellipse.c"/>
+				<annotation>
+					<documentation>The rtY data structure for external outputs.</documentation>
+				</annotation>
+			</baseDef>
+			<conversion name="Ellipse_CM_double">
+				<rationalFunction>
+					<numerator bx="1.0"/>
+					<denominator f="1.0"/>
+				</rationalFunction>
+				<annotation>
+					<documentation>Q = V</documentation>
+				</annotation>
+			</conversion>
+		</definitions>
+		<!-- Global BlockIO (rtB) signals following -->
+		<!-- Global constant BlockIO (rtC) signals following -->
+		<!-- Exported global and imported extern signals following -->
+		<!-- Global IRT DWork port signals following -->
+		<!-- rtU input ports following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.ROLL">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="ROLL"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.ROLL">
+				<name>ROLL</name>
+				<modelLink href="Ellipse/ROLL"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="ROLL" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.PITCH">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="PITCH"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.PITCH">
+				<name>PITCH</name>
+				<modelLink href="Ellipse/PITCH"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="PITCH" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.YAW">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="YAW"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.YAW">
+				<name>YAW</name>
+				<modelLink href="Ellipse/YAW"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="YAW" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.LATITUDE_EKF">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="LATITUDE_EKF"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.LATITUDE_EKF">
+				<name>LATITUDE_EKF</name>
+				<modelLink href="Ellipse/LATITUDE_EKF"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="LATITUDE_EKF" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.LONGITUDE_EKF">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="LONGITUDE_EKF"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.LONGITUDE_EKF">
+				<name>LONGITUDE_EKF</name>
+				<modelLink href="Ellipse/LONGITUDE_EKF"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="LONGITUDE_EKF" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.el_Vel_X">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="el_Vel_X"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.el_Vel_X">
+				<name>el_Vel_X</name>
+				<modelLink href="Ellipse/el_Vel_X"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="el_Vel_X" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.el_Vel_Y">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="el_Vel_Y"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.el_Vel_Y">
+				<name>el_Vel_Y</name>
+				<modelLink href="Ellipse/el_Vel_Y"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="el_Vel_Y" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.el_Vel_Z">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="el_Vel_Z"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.el_Vel_Z">
+				<name>el_Vel_Z</name>
+				<modelLink href="Ellipse/el_Vel_Z"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="el_Vel_Z" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.ACCEL_X_IMU">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="ACCEL_X_IMU"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.ACCEL_X_IMU">
+				<name>ACCEL_X_IMU</name>
+				<modelLink href="Ellipse/ACCEL_X_IMU"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="ACCEL_X_IMU" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.ACCEL_Y_IMU">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="ACCEL_Y_IMU"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.ACCEL_Y_IMU">
+				<name>ACCEL_Y_IMU</name>
+				<modelLink href="Ellipse/ACCEL_Y_IMU"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="ACCEL_Y_IMU" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.ACCEL_Z_IMU">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="ACCEL_Z_IMU"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.ACCEL_Z_IMU">
+				<name>ACCEL_Z_IMU</name>
+				<modelLink href="Ellipse/ACCEL_Z_IMU"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="ACCEL_Z_IMU" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.GYRO_X">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="GYRO_X"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.GYRO_X">
+				<name>GYRO_X</name>
+				<modelLink href="Ellipse/GYRO_X"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="GYRO_X" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.GYRO_Y">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="GYRO_Y"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.GYRO_Y">
+				<name>GYRO_Y</name>
+				<modelLink href="Ellipse/GYRO_Y"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="GYRO_Y" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.GYRO_Z">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="GYRO_Z"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.GYRO_Z">
+				<name>GYRO_Z</name>
+				<modelLink href="Ellipse/GYRO_Z"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="GYRO_Z" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.ACCEL_X_MAG">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="ACCEL_X_MAG"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.ACCEL_X_MAG">
+				<name>ACCEL_X_MAG</name>
+				<modelLink href="Ellipse/ACCEL_X_MAG"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="ACCEL_X_MAG" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.ACCEL_Y_MAG">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="ACCEL_Y_MAG"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.ACCEL_Y_MAG">
+				<name>ACCEL_Y_MAG</name>
+				<modelLink href="Ellipse/ACCEL_Y_MAG"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="ACCEL_Y_MAG" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.ACCEL_Z_MAG">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="ACCEL_Z_MAG"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.ACCEL_Z_MAG">
+				<name>ACCEL_Z_MAG</name>
+				<modelLink href="Ellipse/ACCEL_Z_MAG"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="ACCEL_Z_MAG" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.ANGLE_TRACK">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="ANGLE_TRACK"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.ANGLE_TRACK">
+				<name>ANGLE_TRACK</name>
+				<modelLink href="Ellipse/ANGLE_TRACK"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="ANGLE_TRACK" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.ANGLE_SLIP">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="ANGLE_SLIP"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.ANGLE_SLIP">
+				<name>ANGLE_SLIP</name>
+				<modelLink href="Ellipse/ANGLE_SLIP"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="ANGLE_SLIP" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.CURVATURE_RADIUS">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="CURVATURE_RADIUS"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.CURVATURE_RADIUS">
+				<name>CURVATURE_RADIUS</name>
+				<modelLink href="Ellipse/CURVATURE_RADIUS"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="CURVATURE_RADIUS" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.AUTO_STATUS">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="AUTO_STATUS"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.AUTO_STATUS">
+				<name>AUTO_STATUS</name>
+				<modelLink href="Ellipse/AUTO_STATUS"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="AUTO_STATUS" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.TIME_STAMP">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="TIME_STAMP"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.TIME_STAMP">
+				<name>TIME_STAMP</name>
+				<modelLink href="Ellipse/TIME_STAMP"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="TIME_STAMP" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.GENERAL">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="GENERAL"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.GENERAL">
+				<name>GENERAL</name>
+				<modelLink href="Ellipse/GENERAL"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="GENERAL" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.CLOCK">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="CLOCK"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.CLOCK">
+				<name>CLOCK</name>
+				<modelLink href="Ellipse/CLOCK"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="CLOCK" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- rtY output ports following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.Roll_Tx">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="Roll_Tx"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.Roll_Tx">
+				<name>Roll_Tx</name>
+				<modelLink href="Ellipse/Roll_Tx"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="Roll_Tx" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.Pitch_Tx">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="Pitch_Tx"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.Pitch_Tx">
+				<name>Pitch_Tx</name>
+				<modelLink href="Ellipse/Pitch_Tx"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="Pitch_Tx" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.Yaw_Tx">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="Yaw_Tx"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.Yaw_Tx">
+				<name>Yaw_Tx</name>
+				<modelLink href="Ellipse/Yaw_Tx"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="Yaw_Tx" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.Lat_EKF">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="Lat_EKF"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.Lat_EKF">
+				<name>Lat_EKF</name>
+				<modelLink href="Ellipse/Lat_EKF"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="Lat_EKF" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.Long_EKF">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="Long_EKF"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.Long_EKF">
+				<name>Long_EKF</name>
+				<modelLink href="Ellipse/Long_EKF"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="Long_EKF" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.Vel_X">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="Vel_X"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.Vel_X">
+				<name>Vel_X</name>
+				<modelLink href="Ellipse/Vel_X"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="Vel_X" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.Vel_Y">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="Vel_Y"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.Vel_Y">
+				<name>Vel_Y</name>
+				<modelLink href="Ellipse/Vel_Y"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="Vel_Y" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.Vel_Z">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="Vel_Z"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.Vel_Z">
+				<name>Vel_Z</name>
+				<modelLink href="Ellipse/Vel_Z"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="Vel_Z" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.Accel_X_IMU_Tx">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="Accel_X_IMU_Tx"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.Accel_X_IMU_Tx">
+				<name>Accel_X_IMU_Tx</name>
+				<modelLink href="Ellipse/Accel_X_IMU_Tx"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="Accel_X_IMU_Tx" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.Accel_Y_IMU_Tx">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="Accel_Y_IMU_Tx"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.Accel_Y_IMU_Tx">
+				<name>Accel_Y_IMU_Tx</name>
+				<modelLink href="Ellipse/Accel_Y_IMU_Tx"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="Accel_Y_IMU_Tx" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.Accel_Z_IMU_Tx">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="Accel_Z_IMU_Tx"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.Accel_Z_IMU_Tx">
+				<name>Accel_Z_IMU_Tx</name>
+				<modelLink href="Ellipse/Accel_Z_IMU_Tx"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="Accel_Z_IMU_Tx" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.Gyro_X_Tx">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="Gyro_X_Tx"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.Gyro_X_Tx">
+				<name>Gyro_X_Tx</name>
+				<modelLink href="Ellipse/Gyro_X_Tx"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="Gyro_X_Tx" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.Gyro_Y_Tx">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="Gyro_Y_Tx"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.Gyro_Y_Tx">
+				<name>Gyro_Y_Tx</name>
+				<modelLink href="Ellipse/Gyro_Y_Tx"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="Gyro_Y_Tx" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.Gyro_Z_Tx">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="Gyro_Z_Tx"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.Gyro_Z_Tx">
+				<name>Gyro_Z_Tx</name>
+				<modelLink href="Ellipse/Gyro_Z_Tx"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="Gyro_Z_Tx" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.Accel_X_Mag_Tx">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="Accel_X_Mag_Tx"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.Accel_X_Mag_Tx">
+				<name>Accel_X_Mag_Tx</name>
+				<modelLink href="Ellipse/Accel_X_Mag_Tx"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="Accel_X_Mag_Tx" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.Accel_Y_Mag_Tx">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="Accel_Y_Mag_Tx"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.Accel_Y_Mag_Tx">
+				<name>Accel_Y_Mag_Tx</name>
+				<modelLink href="Ellipse/Accel_Y_Mag_Tx"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="Accel_Y_Mag_Tx" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.Accel_Z_Mag_Tx">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="Accel_Z_Mag_Tx"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.Accel_Z_Mag_Tx">
+				<name>Accel_Z_Mag_Tx</name>
+				<modelLink href="Ellipse/Accel_Z_Mag_Tx"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="Accel_Z_Mag_Tx" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.TrackAngle">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="TrackAngle"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.TrackAngle">
+				<name>TrackAngle</name>
+				<modelLink href="Ellipse/TrackAngle"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="TrackAngle" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.SlipAngle">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="SlipAngle"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.SlipAngle">
+				<name>SlipAngle</name>
+				<modelLink href="Ellipse/SlipAngle"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="SlipAngle" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.CurvRadius">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="CurvRadius"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.CurvRadius">
+				<name>CurvRadius</name>
+				<modelLink href="Ellipse/CurvRadius"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="CurvRadius" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.Status_Auto">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="Status_Auto"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.Status_Auto">
+				<name>Status_Auto</name>
+				<modelLink href="Ellipse/Status_Auto"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="Status_Auto" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.Time">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="Time"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.Time">
+				<name>Time</name>
+				<modelLink href="Ellipse/Time"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="Time" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.General_Tx">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="General_Tx"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.General_Tx">
+				<name>General_Tx</name>
+				<modelLink href="Ellipse/General_Tx"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="General_Tx" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_Y.Clock_Tx">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_Y"/>
+					<memberRef identifier="Clock_Tx"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.Clock_Tx">
+				<name>Clock_Tx</name>
+				<modelLink href="Ellipse/Clock_Tx"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="Clock_Tx" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_Start_Ellipse">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Ellipse_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_Start_Ellipse">
+				<name>irt_Start_Ellipse</name>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="irt_Start_Ellipse" kind="mlsl:process" type="initialization"/>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<constraint>
+						<execution trigger="initialization"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the initialization process of the Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_OneStep_Ellipse">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Ellipse_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_OneStep_Ellipse">
+				<name>irt_OneStep_Ellipse</name>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="irt_OneStep_Ellipse" kind="mlsl:process" type="execution">
+						<pathParameter name="mlsl:baseSampleRate" value="0.2"/>
+						<pathParameter name="mlsl:sampleRates" value="0.2"/>
+					</pathNode>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<messageAccess>
+						<message identifier="Ellipse_U.ROLL" send="false"></message>
+						<message identifier="Ellipse_U.PITCH" send="false"></message>
+						<message identifier="Ellipse_U.YAW" send="false"></message>
+						<message identifier="Ellipse_U.LATITUDE_EKF" send="false"></message>
+						<message identifier="Ellipse_U.LONGITUDE_EKF" send="false"></message>
+						<message identifier="Ellipse_U.el_Vel_X" send="false"></message>
+						<message identifier="Ellipse_U.el_Vel_Y" send="false"></message>
+						<message identifier="Ellipse_U.el_Vel_Z" send="false"></message>
+						<message identifier="Ellipse_U.ACCEL_X_IMU" send="false"></message>
+						<message identifier="Ellipse_U.ACCEL_Y_IMU" send="false"></message>
+						<message identifier="Ellipse_U.ACCEL_Z_IMU" send="false"></message>
+						<message identifier="Ellipse_U.GYRO_X" send="false"></message>
+						<message identifier="Ellipse_U.GYRO_Y" send="false"></message>
+						<message identifier="Ellipse_U.GYRO_Z" send="false"></message>
+						<message identifier="Ellipse_U.ACCEL_X_MAG" send="false"></message>
+						<message identifier="Ellipse_U.ACCEL_Y_MAG" send="false"></message>
+						<message identifier="Ellipse_U.ACCEL_Z_MAG" send="false"></message>
+						<message identifier="Ellipse_U.ANGLE_TRACK" send="false"></message>
+						<message identifier="Ellipse_U.ANGLE_SLIP" send="false"></message>
+						<message identifier="Ellipse_U.CURVATURE_RADIUS" send="false"></message>
+						<message identifier="Ellipse_U.AUTO_STATUS" send="false"></message>
+						<message identifier="Ellipse_U.TIME_STAMP" send="false"></message>
+						<message identifier="Ellipse_U.GENERAL" send="false"></message>
+						<message identifier="Ellipse_U.CLOCK" send="false"></message>
+						<message identifier="Ellipse_Y.Roll_Tx" send="true"></message>
+						<message identifier="Ellipse_Y.Pitch_Tx" send="true"></message>
+						<message identifier="Ellipse_Y.Yaw_Tx" send="true"></message>
+						<message identifier="Ellipse_Y.Lat_EKF" send="true"></message>
+						<message identifier="Ellipse_Y.Long_EKF" send="true"></message>
+						<message identifier="Ellipse_Y.Vel_X" send="true"></message>
+						<message identifier="Ellipse_Y.Vel_Y" send="true"></message>
+						<message identifier="Ellipse_Y.Vel_Z" send="true"></message>
+						<message identifier="Ellipse_Y.Accel_X_IMU_Tx" send="true"></message>
+						<message identifier="Ellipse_Y.Accel_Y_IMU_Tx" send="true"></message>
+						<message identifier="Ellipse_Y.Accel_Z_IMU_Tx" send="true"></message>
+						<message identifier="Ellipse_Y.Gyro_X_Tx" send="true"></message>
+						<message identifier="Ellipse_Y.Gyro_Y_Tx" send="true"></message>
+						<message identifier="Ellipse_Y.Gyro_Z_Tx" send="true"></message>
+						<message identifier="Ellipse_Y.Accel_X_Mag_Tx" send="true"></message>
+						<message identifier="Ellipse_Y.Accel_Y_Mag_Tx" send="true"></message>
+						<message identifier="Ellipse_Y.Accel_Z_Mag_Tx" send="true"></message>
+						<message identifier="Ellipse_Y.TrackAngle" send="true"></message>
+						<message identifier="Ellipse_Y.SlipAngle" send="true"></message>
+						<message identifier="Ellipse_Y.CurvRadius" send="true"></message>
+						<message identifier="Ellipse_Y.Status_Auto" send="true"></message>
+						<message identifier="Ellipse_Y.Time" send="true"></message>
+						<message identifier="Ellipse_Y.General_Tx" send="true"></message>
+						<message identifier="Ellipse_Y.Clock_Tx" send="true"></message>
+					</messageAccess>
+					<constraint>
+						<period value="0.2"/>
+						<offset value="0.0"/>
+						<execution trigger="timer" priority="normal"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the execution process of the Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_Terminate_Ellipse">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Ellipse_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_Terminate_Ellipse">
+				<name>irt_Terminate_Ellipse</name>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="irt_Terminate_Ellipse" kind="mlsl:process" type="termination"/>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<constraint>
+						<execution trigger="termination"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the termination process of the INTECRIO Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+	</interface>
+</module>

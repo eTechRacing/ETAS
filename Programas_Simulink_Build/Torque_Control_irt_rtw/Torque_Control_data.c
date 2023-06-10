@@ -7,9 +7,9 @@
  *
  * Code generation for model "Torque_Control".
  *
- * Model version              : 1.181
+ * Model version              : 1.182
  * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Wed Mar 29 13:03:35 2023
+ * C source code generated on : Sat Jun 10 14:35:54 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1178,21 +1178,6 @@ P_Torque_Control_T Torque_Control_P = {
    */
   0.25,
 
-  /* Expression: 50
-   * Referenced by: '<Root>/Constant17'
-   */
-  50.0,
-
-  /* Expression: 50
-   * Referenced by: '<Root>/Constant13'
-   */
-  50.0,
-
-  /* Expression: 50
-   * Referenced by: '<Root>/Constant'
-   */
-  50.0,
-
   /* Expression: 1/100
    * Referenced by: '<S208>/Gain6'
    */
@@ -1297,11 +1282,6 @@ P_Torque_Control_T Torque_Control_P = {
    * Referenced by: '<S16>/Saturation'
    */
   0.0,
-
-  /* Expression: 50
-   * Referenced by: '<Root>/Constant12'
-   */
-  50.0,
 
   /* Expression: 1/100
    * Referenced by: '<S208>/Gain5'

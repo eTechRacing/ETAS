@@ -7,9 +7,9 @@
  *
  * Code generation for model "Pedals_Susp_Sensors".
  *
- * Model version              : 1.37
+ * Model version              : 1.40
  * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Wed Mar 29 12:59:21 2023
+ * C source code generated on : Wed May 31 15:50:26 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -38,95 +38,15 @@ P_Pedals_Susp_Sensors_T Pedals_Susp_Sensors_P = {
    */
   0.2,
 
-  /* Expression: 1024
-   * Referenced by: '<S5>/bitsmax '
-   */
-  1024.0,
-
-  /* Expression: 76
-   * Referenced by: '<S5>/Ltotal'
-   */
-  76.0,
-
-  /* Expression: 29.3
-   * Referenced by: '<S5>/Cte muelles'
-   */
-  29.3,
-
-  /* Expression: 0
-   * Referenced by: '<S5>/Data Store Memory'
-   */
-  0.0,
-
-  /* Expression: 1024
-   * Referenced by: '<S6>/bitsmax '
-   */
-  1024.0,
-
-  /* Expression: 76
-   * Referenced by: '<S6>/Ltotal'
-   */
-  76.0,
-
-  /* Expression: 29.3
-   * Referenced by: '<S6>/Cte muelles'
-   */
-  29.3,
-
-  /* Expression: 0
-   * Referenced by: '<S6>/Data Store Memory'
-   */
-  0.0,
-
-  /* Expression: 1024
-   * Referenced by: '<S7>/bitsmax'
-   */
-  1024.0,
-
-  /* Expression: 76
-   * Referenced by: '<S7>/Ltotal'
-   */
-  76.0,
-
-  /* Expression: 38.9
-   * Referenced by: '<S7>/Cte muelles'
-   */
-  38.9,
-
-  /* Expression: 0
-   * Referenced by: '<S7>/Data Store Memory'
-   */
-  0.0,
-
-  /* Expression: 1024
-   * Referenced by: '<S8>/bitsmax'
-   */
-  1024.0,
-
-  /* Expression: 76
-   * Referenced by: '<S8>/Ltotal'
-   */
-  76.0,
-
-  /* Expression: 38.9
-   * Referenced by: '<S8>/Cte muelles'
-   */
-  38.9,
-
-  /* Expression: 0
-   * Referenced by: '<S8>/Data Store Memory'
-   */
-  0.0,
-
-  /* Expression: 100
+  /* Expression: 92
    * Referenced by: '<S3>/min'
    */
-  100.0,
+  92.0,
 
-  /* Expression: 300
+  /* Expression: 200
    * Referenced by: '<S3>/max'
    */
-  300.0,
+  200.0,
 
   /* Expression: 5
    * Referenced by: '<S1>/min'
@@ -146,5 +66,70 @@ P_Pedals_Susp_Sensors_T Pedals_Susp_Sensors_P = {
   /* Expression: 580
    * Referenced by: '<S2>/max'
    */
-  580.0
+  580.0,
+
+  /* Expression: 1
+   * Referenced by: '<Root>/Zero_Bits_Experimental'
+   */
+  1.0,
+
+  /* Expression: 1024
+   * Referenced by: '<S5>/bitsmax '
+   */
+  1024.0,
+
+  /* Expression: 57
+   * Referenced by: '<S5>/Ltotal'
+   */
+  57.0,
+
+  /* Expression: 23
+   * Referenced by: '<S5>/Cte muelles'
+   */
+  23.0,
+
+  /* Expression: 1024
+   * Referenced by: '<S6>/bitsmax '
+   */
+  1024.0,
+
+  /* Expression: 57
+   * Referenced by: '<S6>/Ltotal'
+   */
+  57.0,
+
+  /* Expression: 23
+   * Referenced by: '<S6>/Cte muelles'
+   */
+  23.0,
+
+  /* Expression: 1024
+   * Referenced by: '<S7>/bitsmax '
+   */
+  1024.0,
+
+  /* Expression: 57
+   * Referenced by: '<S7>/Ltotal'
+   */
+  57.0,
+
+  /* Expression: 30
+   * Referenced by: '<S7>/Cte muelles'
+   */
+  30.0,
+
+  /* Expression: 1024
+   * Referenced by: '<S8>/bitsmax '
+   */
+  1024.0,
+
+  /* Expression: 57
+   * Referenced by: '<S8>/Ltotal'
+   */
+  57.0,
+
+  /* Expression: 30
+   * Referenced by: '<S8>/Cte muelles'
+   */
+  30.0
 };
