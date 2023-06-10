@@ -111,10 +111,6 @@ void initClass_RTWTop_Torque_Control(struct RTWTop_Torque_Control_Class *self)
     self->RTWWrapper_Torque_Control_B_GearRatio_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_B.GearRatio, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Torque_Control_B_LogicalOperator_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_B.LogicalOperator, sizeof(char), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Torque_Control_B_LogicalOperator1_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_B.LogicalOperator1, sizeof(char), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Torque_Control_B_Lookup_SoC_SoP_chg_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_B.Lookup_SoC_SoP_chg, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Torque_Control_B_Lookup_SoC_SoP_chg_j_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_B.Lookup_SoC_SoP_chg_j, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Torque_Control_B_Lookup_SoC_SoP_dischg_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_B.Lookup_SoC_SoP_dischg, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Torque_Control_B_Lookup_SoC_SoP_dischg_k_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_B.Lookup_SoC_SoP_dischg_k, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Torque_Control_B_MaxTqpermotorNm_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_B.MaxTqpermotorNm, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Torque_Control_B_Max_Power_chargekW_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_B.Max_Power_chargekW, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Torque_Control_B_Max_Power_dischargekW_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_B.Max_Power_dischargekW, sizeof(double), (uint32)ASD_VARIABLE);
@@ -237,10 +233,7 @@ void initClass_RTWTop_Torque_Control(struct RTWTop_Torque_Control_Class *self)
     self->RTWWrapper_Torque_Control_P_CompareToConstant1_const_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_P.CompareToConstant1_const, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Torque_Control_P_CompareToConstant_const_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_P.CompareToConstant_const, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Torque_Control_P_CompareToConstant_const_p_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_P.CompareToConstant_const_p, sizeof(double), (uint32)ASD_PARAMETER);
-    self->RTWWrapper_Torque_Control_P_Constant12_Value_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_P.Constant12_Value, sizeof(double), (uint32)ASD_PARAMETER);
-    self->RTWWrapper_Torque_Control_P_Constant13_Value_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_P.Constant13_Value, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Torque_Control_P_Constant14_Value_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_P.Constant14_Value, sizeof(double), (uint32)ASD_PARAMETER);
-    self->RTWWrapper_Torque_Control_P_Constant17_Value_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_P.Constant17_Value, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Torque_Control_P_Constant1_Value_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_P.Constant1_Value, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Torque_Control_P_Constant1_Value_a_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_P.Constant1_Value_a, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Torque_Control_P_Constant1_Value_ab_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_P.Constant1_Value_ab, sizeof(double), (uint32)ASD_PARAMETER);
@@ -287,7 +280,6 @@ void initClass_RTWTop_Torque_Control(struct RTWTop_Torque_Control_Class *self)
     self->RTWWrapper_Torque_Control_P_Constant_Value_d_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_P.Constant_Value_d, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Torque_Control_P_Constant_Value_dl_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_P.Constant_Value_dl, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Torque_Control_P_Constant_Value_dm_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_P.Constant_Value_dm, sizeof(double), (uint32)ASD_PARAMETER);
-    self->RTWWrapper_Torque_Control_P_Constant_Value_dx_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_P.Constant_Value_dx, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Torque_Control_P_Constant_Value_f_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_P.Constant_Value_f, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Torque_Control_P_Constant_Value_f0_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_P.Constant_Value_f0, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Torque_Control_P_Constant_Value_h_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_P.Constant_Value_h, sizeof(double), (uint32)ASD_PARAMETER);
@@ -518,6 +510,8 @@ void initClass_RTWTop_Torque_Control(struct RTWTop_Torque_Control_Class *self)
     self->RTWWrapper_Torque_Control_U_RL_rads_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_U.RL_rads, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Torque_Control_U_RR_rads_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_U.RR_rads, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Torque_Control_U_ShutdownClosed_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_U.ShutdownClosed, sizeof(char), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Torque_Control_U_SoC_High_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_U.SoC_High, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Torque_Control_U_SoC_Low_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_U.SoC_Low, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Torque_Control_U_SteeringSensor_Bits_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_U.SteeringSensor_Bits, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Torque_Control_U_Susp_F_L_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_U.Susp_F_L, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Torque_Control_U_Susp_F_R_Ptr = initInstance_scalarWrapper((uint32)&Torque_Control_U.Susp_F_R, sizeof(double), (uint32)ASD_VARIABLE);
@@ -593,15 +587,9 @@ static MethodList RTWTop_Torque_Control_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_Torque_Control_ClassHeader =
-    {0, 1, 0, 536 + 0, (MethodList *)0, (MethodList *)&RTWTop_Torque_Control_ClassMethodList};
+    {0, 1, 0, 530 + 0, (MethodList *)0, (MethodList *)&RTWTop_Torque_Control_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_Torque_Control_Class RTWTop_Torque_Control_ClassObj = {{1, {&RTWTop_Torque_Control_ClassHeader}, {0}}
-    ,NULL
-    ,NULL
-    ,NULL
-    ,NULL
-    ,NULL
-    ,NULL
     ,NULL
     ,NULL
     ,NULL

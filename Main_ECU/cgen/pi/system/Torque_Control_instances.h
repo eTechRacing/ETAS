@@ -98,10 +98,6 @@ struct RTWTop_Torque_Control_Class
     scalarWrapper_Obj *RTWWrapper_Torque_Control_B_GearRatio_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_B_LogicalOperator_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_B_LogicalOperator1_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Torque_Control_B_Lookup_SoC_SoP_chg_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Torque_Control_B_Lookup_SoC_SoP_chg_j_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Torque_Control_B_Lookup_SoC_SoP_dischg_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Torque_Control_B_Lookup_SoC_SoP_dischg_k_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_B_MaxTqpermotorNm_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_B_Max_Power_chargekW_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_B_Max_Power_dischargekW_Ptr;
@@ -224,10 +220,7 @@ struct RTWTop_Torque_Control_Class
     scalarWrapper_Obj *RTWWrapper_Torque_Control_P_CompareToConstant1_const_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_P_CompareToConstant_const_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_P_CompareToConstant_const_p_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Torque_Control_P_Constant12_Value_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Torque_Control_P_Constant13_Value_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_P_Constant14_Value_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Torque_Control_P_Constant17_Value_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_P_Constant1_Value_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_P_Constant1_Value_a_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_P_Constant1_Value_ab_Ptr;
@@ -274,7 +267,6 @@ struct RTWTop_Torque_Control_Class
     scalarWrapper_Obj *RTWWrapper_Torque_Control_P_Constant_Value_d_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_P_Constant_Value_dl_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_P_Constant_Value_dm_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Torque_Control_P_Constant_Value_dx_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_P_Constant_Value_f_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_P_Constant_Value_f0_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_P_Constant_Value_h_Ptr;
@@ -505,6 +497,8 @@ struct RTWTop_Torque_Control_Class
     scalarWrapper_Obj *RTWWrapper_Torque_Control_U_RL_rads_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_U_RR_rads_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_U_ShutdownClosed_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Torque_Control_U_SoC_High_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Torque_Control_U_SoC_Low_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_U_SteeringSensor_Bits_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_U_Susp_F_L_Ptr;
     scalarWrapper_Obj *RTWWrapper_Torque_Control_U_Susp_F_R_Ptr;

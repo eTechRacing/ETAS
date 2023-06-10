@@ -3,20 +3,20 @@
 #include "../a_basdef.h"
 #include "osc_dyn.h"
 
-extern void crossbarHook_28_0(void);
-extern void rtioHook_28_0(void);
+extern void crossbarHook_36_0(void);
+extern void rtioHook_36_0(void);
 
 
-TASK_MONITOR_DEF(SWT_CAN2_NM_LV_Derivation_Keep_Alive, thread21);
+TASK_MONITOR_DEF(SWT_CAN2_NM_LV_Derivation_Keep_Alive, thread29);
 
 TASK(SWT_CAN2_NM_LV_Derivation_Keep_Alive)
 {
 	START_TASK_HOOK(SWT_CAN2_NM_LV_Derivation_Keep_Alive);
 
-	sgHook(28);
+	sgHook(36);
 
 #ifdef FEATURE_LABCAR_SG
-    labcar_sgHook(28);
+    labcar_sgHook(36);
 #endif
     
 #ifdef XCP_SLAVE
@@ -24,8 +24,8 @@ TASK(SWT_CAN2_NM_LV_Derivation_Keep_Alive)
     XCP_STIM_SWT_CAN2_NM_LV_Derivation_Keep_Alive
 #endif
 #endif
-	crossbarHook_28_0();
-	rtioHook_28_0();
+	crossbarHook_36_0();
+	rtioHook_36_0();
 	
 #ifdef XCP_SLAVE
 #if defined XCP_DAQ_SWT_CAN2_NM_LV_Derivation_Keep_Alive

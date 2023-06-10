@@ -32,5 +32,4 @@ Pedals_Susp_Sensors_data.o: \
  c:\users\dwegg\desktop\etas-main\etas\programas_simulink_build\pedals_susp_sensors_irt_rtw\external\_sharedutils/rtwtypes.h \
  c:\users\dwegg\desktop\etas-main\etas\programas_simulink_build\pedals_susp_sensors_irt_rtw\external\_sharedutils/rt_defines.h \
  c:\users\dwegg\desktop\etas-main\etas\programas_simulink_build\pedals_susp_sensors_irt_rtw\external\_sharedutils/rt_nonfinite.h \
- c:\users\dwegg\desktop\etas-main\etas\programas_simulink_build\pedals_susp_sensors_irt_rtw\/Pedals_Susp_Sensors_private.h \
- c:\users\dwegg\desktop\etas-main\etas\programas_simulink_build\pedals_susp_sensors_irt_rtw\/Pedals_Susp_Sensors.h
+ c:\users\dwegg\desktop\etas-main\etas\programas_simulink_build\pedals_susp_sensors_irt_rtw\/Pedals_Susp_Sensors_private.h

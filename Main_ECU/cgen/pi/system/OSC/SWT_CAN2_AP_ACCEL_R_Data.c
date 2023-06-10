@@ -7,7 +7,7 @@ extern void crossbarHook_20_0(void);
 extern void rtioHook_20_0(void);
 
 
-TASK_MONITOR_DEF(SWT_CAN2_AP_ACCEL_R_Data, thread25);
+TASK_MONITOR_DEF(SWT_CAN2_AP_ACCEL_R_Data, thread33);
 
 TASK(SWT_CAN2_AP_ACCEL_R_Data)
 {

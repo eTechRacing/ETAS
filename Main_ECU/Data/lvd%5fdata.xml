@@ -2,36 +2,36 @@
 <!DOCTYPE YBOModule SYSTEM ".\dtd\ybomodule.dtd" [ <?RequiredDTDVersion "3.1"?>
 
 <!NOTATION _OSrvLink SYSTEM "_OSrvLink" >
-<!ENTITY _2327 SYSTEM "OSrv://ObjectHandle#2327" NDATA _OIDLink >
-<!ENTITY _5804 SYSTEM "OSrv://ObjectHandle#5804" NDATA _OIDLink >
-<!ENTITY _5811 SYSTEM "OSrv://ObjectHandle#5811" NDATA _OIDLink >
-<!ENTITY _1694 SYSTEM "OSrv://ObjectHandle#1694" NDATA _OIDLink >
-<!ENTITY _1695 SYSTEM "OSrv://ObjectHandle#1695" NDATA _OIDLink >
-<!ENTITY _1696 SYSTEM "OSrv://ObjectHandle#1696" NDATA _OIDLink >
+<!ENTITY _3550 SYSTEM "OSrv://ObjectHandle#3550" NDATA _OIDLink >
+<!ENTITY _12849 SYSTEM "OSrv://ObjectHandle#12849" NDATA _OIDLink >
+<!ENTITY _9408 SYSTEM "OSrv://ObjectHandle#9408" NDATA _OIDLink >
+<!ENTITY _2917 SYSTEM "OSrv://ObjectHandle#2917" NDATA _OIDLink >
+<!ENTITY _2918 SYSTEM "OSrv://ObjectHandle#2918" NDATA _OIDLink >
+<!ENTITY _2919 SYSTEM "OSrv://ObjectHandle#2919" NDATA _OIDLink >
 ]><YBOModule
 	Name="LVD_5FData"
 	ScoopIXSource="c:\users\dwegg\desktop\etas-main\etas\programas_simulink_build\lvd_data_irt_rtw\lvd_data.six"
-	FileDateTime="133245617958160880"
+	FileDateTime="133296594457392341"
 	ModelingTool="MATLAB"
 	Kind="SOFTWARE"
 	VisibleName="LVD_Data"><_System><_AdminInfo/><_LinkTarget><_LinkTarget
 	Name="SoftwareSystem"
-	Index="2327"
+	Index="3550"
 	Type="YBOSoftwareSystem"><_LinkTarget
-	Name="Connection308"
-	Index="5804"
+	Name="Connection362"
+	Index="12849"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection310"
-	Index="5811"
+	Name="Connection364"
+	Index="9408"
 	Type="YBOConnection"/></_LinkTarget><_LinkTarget
 	Name="LVD_Data"
-	Index="1694"
+	Index="2917"
 	Type="YBOModule"><_LinkTarget
 	Name="LVD_Data_U.LVBattery_Voltage_Bits"
-	Index="1695"
+	Index="2918"
 	Type="YBOSWPort"/><_LinkTarget
 	Name="LVD_Data_Y.LVbattery_Voltage"
-	Index="1696"
+	Index="2919"
 	Type="YBOSWPort"/></_LinkTarget></_LinkTarget></_System><YBOModule.Ports><YBOPortList><YBOSWPort
 	Name="LVD_5FData.LVD_5FData_5FU_5C.LVBattery_5FVoltage_5FBits"
 	Size="REAL64"
@@ -41,7 +41,7 @@
 	LowerBound="-1.6999999999999999388e+308"
 	UpperBound="1.6999999999999999388e+308"
 	VisibleName="LVBattery_Voltage_Bits"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_5804"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	EmbeddedLink.ofTypeYBOConnection="_12849"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
 	Name="LVD_5FData.LVD_5FData_5FY_5C.LVbattery_5FVoltage"
 	Size="REAL64"
 	PortType="CONTINUOUS"
@@ -50,7 +50,7 @@
 	LowerBound="-1.6999999999999999388e+308"
 	UpperBound="1.6999999999999999388e+308"
 	VisibleName="LVbattery_Voltage"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_5811"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort></YBOPortList></YBOModule.Ports><YBOModule.Processes><YBOProcessList><YBOProcess
+	EmbeddedLink.ofTypeYBOConnection="_9408"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort></YBOPortList></YBOModule.Ports><YBOModule.Processes><YBOProcessList><YBOProcess
 	Name="LVD_5FData.irt_5FStart_5FLVD_5FData"
 	Kind="INITIALIZATION"
 	Priority="0.5"
@@ -82,14 +82,14 @@
 	Name="LVD_5FData.irt_5FOneStep_5FLVD_5FData.irt_5FOneStep_5FLVD_5FData_5FSourceCopy.Action"
 	Hidden="TRUE"
 	Kind="SOURCE_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_1695"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
+	EmbeddedLink.ofTypeYBOSWPort="_2918"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
 	Name="LVD_5FData.irt_5FOneStep_5FLVD_5FData.irt_5FOneStep_5FLVD_5FData_5FSinkCopy"
 	Kind="SINK"
 	VisibleName="irt_OneStep_LVD_Data_SinkCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
 	Name="LVD_5FData.irt_5FOneStep_5FLVD_5FData.irt_5FOneStep_5FLVD_5FData_5FSinkCopy.Action"
 	Hidden="TRUE"
 	Kind="SINK_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_1696"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess><YBOProcess
+	EmbeddedLink.ofTypeYBOSWPort="_2919"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess><YBOProcess
 	Name="LVD_5FData.irt_5FTerminate_5FLVD_5FData"
 	Kind="TERMINATION"
 	Priority="0.5"

@@ -17,13 +17,13 @@
 
 extern AppModeType etasStartupAppMode;
 extern AppModeType etasInactiveAppMode;
-extern AppModeType TimersAppMode;
+extern AppModeType UserAppModeAppMode;
 
 T_appModeTableEntry appModeEntries[] =
 {
     {(AppModeType *)&etasStartupAppMode, "etasStartup"},
     {(AppModeType *)&etasInactiveAppMode, "etasInactive"},
-    {(AppModeType *)&TimersAppMode, "Timers"}
+    {(AppModeType *)&UserAppModeAppMode, "UserAppMode"}
 };
 
 T_appModeTable appModeTable =
@@ -61,10 +61,18 @@ T_taskTableEntry taskTableEntries[] =
     {(TaskType *)&SWT_CAN2_AP_ACCEL_R_Data2, "SWT_CAN2_AP_ACCEL_R_Data2", TASK_MONITOR_PTR(SWT_CAN2_AP_ACCEL_R_Data2)},
     {(TaskType *)&SWT_CAN2_AP_ADCAN_Data1, "SWT_CAN2_AP_ADCAN_Data1", TASK_MONITOR_PTR(SWT_CAN2_AP_ADCAN_Data1)},
     {(TaskType *)&SWT_CAN2_AP_ADCAN_Data2, "SWT_CAN2_AP_ADCAN_Data2", TASK_MONITOR_PTR(SWT_CAN2_AP_ADCAN_Data2)},
+    {(TaskType *)&SWT_CAN2_AP_ELLIPSE_EKF_EULER, "SWT_CAN2_AP_ELLIPSE_EKF_EULER", TASK_MONITOR_PTR(SWT_CAN2_AP_ELLIPSE_EKF_EULER)},
+    {(TaskType *)&SWT_CAN2_AP_ELLIPSE_EKF_POS, "SWT_CAN2_AP_ELLIPSE_EKF_POS", TASK_MONITOR_PTR(SWT_CAN2_AP_ELLIPSE_EKF_POS)},
+    {(TaskType *)&SWT_CAN2_AP_ELLIPSE_EKF_VEL_BODY, "SWT_CAN2_AP_ELLIPSE_EKF_VEL_BODY", TASK_MONITOR_PTR(SWT_CAN2_AP_ELLIPSE_EKF_VEL_BODY)},
+    {(TaskType *)&SWT_CAN2_AP_ELLIPSE_IMU_ACCEL, "SWT_CAN2_AP_ELLIPSE_IMU_ACCEL", TASK_MONITOR_PTR(SWT_CAN2_AP_ELLIPSE_IMU_ACCEL)},
+    {(TaskType *)&SWT_CAN2_AP_ELLIPSE_IMU_GYRO, "SWT_CAN2_AP_ELLIPSE_IMU_GYRO", TASK_MONITOR_PTR(SWT_CAN2_AP_ELLIPSE_IMU_GYRO)},
+    {(TaskType *)&SWT_CAN2_AP_ELLIPSE_MAG, "SWT_CAN2_AP_ELLIPSE_MAG", TASK_MONITOR_PTR(SWT_CAN2_AP_ELLIPSE_MAG)},
+    {(TaskType *)&SWT_CAN2_AP_ELLIPSE_SLIP_CURV, "SWT_CAN2_AP_ELLIPSE_SLIP_CURV", TASK_MONITOR_PTR(SWT_CAN2_AP_ELLIPSE_SLIP_CURV)},
     {(TaskType *)&SWT_CAN2_AP_LV_Derivation_LVData, "SWT_CAN2_AP_LV_Derivation_LVData", TASK_MONITOR_PTR(SWT_CAN2_AP_LV_Derivation_LVData)},
     {(TaskType *)&SWT_CAN2_NM_ACCEL_F_Keep_Alive, "SWT_CAN2_NM_ACCEL_F_Keep_Alive", TASK_MONITOR_PTR(SWT_CAN2_NM_ACCEL_F_Keep_Alive)},
     {(TaskType *)&SWT_CAN2_NM_ACCEL_R_Keep_Alive, "SWT_CAN2_NM_ACCEL_R_Keep_Alive", TASK_MONITOR_PTR(SWT_CAN2_NM_ACCEL_R_Keep_Alive)},
     {(TaskType *)&SWT_CAN2_NM_ADCAN_Keep_Alive, "SWT_CAN2_NM_ADCAN_Keep_Alive", TASK_MONITOR_PTR(SWT_CAN2_NM_ADCAN_Keep_Alive)},
+    {(TaskType *)&SWT_CAN2_NM_ELLIPSE_Status, "SWT_CAN2_NM_ELLIPSE_Status", TASK_MONITOR_PTR(SWT_CAN2_NM_ELLIPSE_Status)},
     {(TaskType *)&SWT_CAN2_NM_LV_Derivation_Keep_Alive, "SWT_CAN2_NM_LV_Derivation_Keep_Alive", TASK_MONITOR_PTR(SWT_CAN2_NM_LV_Derivation_Keep_Alive)},
     {(TaskType *)&Sync_25ms, "Sync_25ms", TASK_MONITOR_PTR(Sync_25ms)},
     {(TaskType *)&Timer_1000ms, "Timer_1000ms", TASK_MONITOR_PTR(Timer_1000ms)},
@@ -75,43 +83,49 @@ T_taskTableEntry taskTableEntries[] =
 
 T_taskTable taskTable =
 {
-    1 + 33,
+    1 + 41,
     &taskTableEntries[0]
 };
 
 /************** init tasks ******************/
-extern void crossbarHook_36_0(void);
+extern void crossbarHook_44_0(void);
 extern void irt_Start_Accel_Data(void);
-extern void crossbarHook_36_1(void);
-extern void crossbarHook_36_2(void);
+extern void crossbarHook_44_1(void);
+extern void crossbarHook_44_2(void);
 extern void irt_Start_Car_State(void);
-extern void crossbarHook_36_3(void);
-extern void crossbarHook_36_4(void);
+extern void crossbarHook_44_3(void);
+extern void crossbarHook_44_4(void);
 extern void irt_Start_Disconnections(void);
-extern void crossbarHook_36_5(void);
-extern void crossbarHook_36_6(void);
+extern void crossbarHook_44_5(void);
+extern void crossbarHook_44_6(void);
+extern void irt_Start_Ellipse(void);
+extern void crossbarHook_44_7(void);
+extern void crossbarHook_44_8(void);
 extern void irt_Start_Inverters_Action(void);
-extern void crossbarHook_36_7(void);
-extern void crossbarHook_36_8(void);
+extern void crossbarHook_44_9(void);
+extern void crossbarHook_44_10(void);
 extern void irt_Start_Inverters_Data(void);
-extern void crossbarHook_36_9(void);
-extern void crossbarHook_36_10(void);
+extern void crossbarHook_44_11(void);
+extern void crossbarHook_44_12(void);
 extern void irt_Start_LVD_Data(void);
-extern void crossbarHook_36_11(void);
-extern void crossbarHook_36_12(void);
+extern void crossbarHook_44_13(void);
+extern void crossbarHook_44_14(void);
 extern void irt_Start_Pedals_Susp_Sensors(void);
-extern void crossbarHook_36_13(void);
-extern void crossbarHook_36_14(void);
+extern void crossbarHook_44_15(void);
+extern void crossbarHook_44_16(void);
 extern void irt_Start_Racing_Mode(void);
-extern void crossbarHook_36_15(void);
-extern void crossbarHook_36_16(void);
+extern void crossbarHook_44_17(void);
+extern void crossbarHook_44_18(void);
+extern void irt_Start_SoC(void);
+extern void crossbarHook_44_19(void);
+extern void crossbarHook_44_20(void);
 extern void irt_Start_Synchronism(void);
-extern void crossbarHook_36_17(void);
-extern void crossbarHook_36_18(void);
+extern void crossbarHook_44_21(void);
+extern void crossbarHook_44_22(void);
 extern void irt_Start_Torque_Control(void);
-extern void crossbarHook_36_19(void);
+extern void crossbarHook_44_23(void);
 extern void etasRtioInitProcess(void);
-extern void rtioHook_36_0(void);
+extern void rtioHook_44_0(void);
 extern void etasRtioIntEnableProcess(void);
 
 void etasStartupInitTask(void)
@@ -148,44 +162,50 @@ void etasInactiveInitTask(void)
     return;
 }
 
-void TimersInitTask(void)
+void UserAppModeInitTask(void)
 {
 #ifdef USER_APP_MODE_INIT_TASK_START_FW_HOOK
     USER_APP_MODE_INIT_TASK_START_FW_HOOK
 #endif
 
-    crossbarHook_36_0();
+    crossbarHook_44_0();
 	irt_Start_Accel_Data();
-	crossbarHook_36_1();
-	crossbarHook_36_2();
+	crossbarHook_44_1();
+	crossbarHook_44_2();
 	irt_Start_Car_State();
-	crossbarHook_36_3();
-	crossbarHook_36_4();
+	crossbarHook_44_3();
+	crossbarHook_44_4();
 	irt_Start_Disconnections();
-	crossbarHook_36_5();
-	crossbarHook_36_6();
+	crossbarHook_44_5();
+	crossbarHook_44_6();
+	irt_Start_Ellipse();
+	crossbarHook_44_7();
+	crossbarHook_44_8();
 	irt_Start_Inverters_Action();
-	crossbarHook_36_7();
-	crossbarHook_36_8();
+	crossbarHook_44_9();
+	crossbarHook_44_10();
 	irt_Start_Inverters_Data();
-	crossbarHook_36_9();
-	crossbarHook_36_10();
+	crossbarHook_44_11();
+	crossbarHook_44_12();
 	irt_Start_LVD_Data();
-	crossbarHook_36_11();
-	crossbarHook_36_12();
+	crossbarHook_44_13();
+	crossbarHook_44_14();
 	irt_Start_Pedals_Susp_Sensors();
-	crossbarHook_36_13();
-	crossbarHook_36_14();
+	crossbarHook_44_15();
+	crossbarHook_44_16();
 	irt_Start_Racing_Mode();
-	crossbarHook_36_15();
-	crossbarHook_36_16();
+	crossbarHook_44_17();
+	crossbarHook_44_18();
+	irt_Start_SoC();
+	crossbarHook_44_19();
+	crossbarHook_44_20();
 	irt_Start_Synchronism();
-	crossbarHook_36_17();
-	crossbarHook_36_18();
+	crossbarHook_44_21();
+	crossbarHook_44_22();
 	irt_Start_Torque_Control();
-	crossbarHook_36_19();
+	crossbarHook_44_23();
 	etasRtioInitProcess();
-	rtioHook_36_0();
+	rtioHook_44_0();
 	etasRtioIntEnableProcess();
 	
     
@@ -212,8 +232,8 @@ void etasInitTasks(void)
             etasInactiveInitTask();
             break;
 
-        case Timers:
-            TimersInitTask();
+        case UserAppMode:
+            UserAppModeInitTask();
             break;
     }
 
@@ -221,38 +241,44 @@ void etasInitTasks(void)
 }
 
 /**************** exit tasks *****************/
-extern void crossbarHook_37_0(void);
-extern void irt_Terminate_Accel_Data(void);
-extern void crossbarHook_37_1(void);
-extern void crossbarHook_37_2(void);
+extern void crossbarHook_45_0(void);
 extern void irt_Terminate_Car_State(void);
-extern void crossbarHook_37_3(void);
-extern void crossbarHook_37_4(void);
+extern void crossbarHook_45_1(void);
+extern void crossbarHook_45_2(void);
+extern void irt_Terminate_Accel_Data(void);
+extern void crossbarHook_45_3(void);
+extern void crossbarHook_45_4(void);
 extern void irt_Terminate_Disconnections(void);
-extern void crossbarHook_37_5(void);
-extern void crossbarHook_37_6(void);
+extern void crossbarHook_45_5(void);
+extern void crossbarHook_45_6(void);
+extern void irt_Terminate_Ellipse(void);
+extern void crossbarHook_45_7(void);
+extern void crossbarHook_45_8(void);
 extern void irt_Terminate_Inverters_Action(void);
-extern void crossbarHook_37_7(void);
-extern void crossbarHook_37_8(void);
+extern void crossbarHook_45_9(void);
+extern void crossbarHook_45_10(void);
 extern void irt_Terminate_Inverters_Data(void);
-extern void crossbarHook_37_9(void);
-extern void crossbarHook_37_10(void);
+extern void crossbarHook_45_11(void);
+extern void crossbarHook_45_12(void);
 extern void irt_Terminate_LVD_Data(void);
-extern void crossbarHook_37_11(void);
-extern void crossbarHook_37_12(void);
+extern void crossbarHook_45_13(void);
+extern void crossbarHook_45_14(void);
 extern void irt_Terminate_Pedals_Susp_Sensors(void);
-extern void crossbarHook_37_13(void);
-extern void crossbarHook_37_14(void);
+extern void crossbarHook_45_15(void);
+extern void crossbarHook_45_16(void);
 extern void irt_Terminate_Racing_Mode(void);
-extern void crossbarHook_37_15(void);
-extern void crossbarHook_37_16(void);
+extern void crossbarHook_45_17(void);
+extern void crossbarHook_45_18(void);
+extern void irt_Terminate_SoC(void);
+extern void crossbarHook_45_19(void);
+extern void crossbarHook_45_20(void);
 extern void irt_Terminate_Synchronism(void);
-extern void crossbarHook_37_17(void);
-extern void crossbarHook_37_18(void);
+extern void crossbarHook_45_21(void);
+extern void crossbarHook_45_22(void);
 extern void irt_Terminate_Torque_Control(void);
-extern void crossbarHook_37_19(void);
+extern void crossbarHook_45_23(void);
 extern void etasRtioIntDisableProcess(void);
-extern void rtioHook_37_0(void);
+extern void rtioHook_45_0(void);
 extern void etasRtioExitProcess(void);
 
 void etasStartupExitTask(void)
@@ -279,44 +305,50 @@ void etasInactiveExitTask(void)
     return;
 }
 
-void TimersExitTask(void)
+void UserAppModeExitTask(void)
 {
 #ifdef USER_APP_MODE_EXIT_TASK_START_FW_HOOK
     USER_APP_MODE_EXIT_TASK_START_FW_HOOK
 #endif
 
-    crossbarHook_37_0();
-	irt_Terminate_Accel_Data();
-	crossbarHook_37_1();
-	crossbarHook_37_2();
+    crossbarHook_45_0();
 	irt_Terminate_Car_State();
-	crossbarHook_37_3();
-	crossbarHook_37_4();
+	crossbarHook_45_1();
+	crossbarHook_45_2();
+	irt_Terminate_Accel_Data();
+	crossbarHook_45_3();
+	crossbarHook_45_4();
 	irt_Terminate_Disconnections();
-	crossbarHook_37_5();
-	crossbarHook_37_6();
+	crossbarHook_45_5();
+	crossbarHook_45_6();
+	irt_Terminate_Ellipse();
+	crossbarHook_45_7();
+	crossbarHook_45_8();
 	irt_Terminate_Inverters_Action();
-	crossbarHook_37_7();
-	crossbarHook_37_8();
+	crossbarHook_45_9();
+	crossbarHook_45_10();
 	irt_Terminate_Inverters_Data();
-	crossbarHook_37_9();
-	crossbarHook_37_10();
+	crossbarHook_45_11();
+	crossbarHook_45_12();
 	irt_Terminate_LVD_Data();
-	crossbarHook_37_11();
-	crossbarHook_37_12();
+	crossbarHook_45_13();
+	crossbarHook_45_14();
 	irt_Terminate_Pedals_Susp_Sensors();
-	crossbarHook_37_13();
-	crossbarHook_37_14();
+	crossbarHook_45_15();
+	crossbarHook_45_16();
 	irt_Terminate_Racing_Mode();
-	crossbarHook_37_15();
-	crossbarHook_37_16();
+	crossbarHook_45_17();
+	crossbarHook_45_18();
+	irt_Terminate_SoC();
+	crossbarHook_45_19();
+	crossbarHook_45_20();
 	irt_Terminate_Synchronism();
-	crossbarHook_37_17();
-	crossbarHook_37_18();
+	crossbarHook_45_21();
+	crossbarHook_45_22();
 	irt_Terminate_Torque_Control();
-	crossbarHook_37_19();
+	crossbarHook_45_23();
 	etasRtioIntDisableProcess();
-	rtioHook_37_0();
+	rtioHook_45_0();
 	etasRtioExitProcess();
 	
     
@@ -342,8 +374,8 @@ void etasExitTasks(void)
             etasInactiveExitTask();
             break;
 
-        case Timers:
-            TimersExitTask();
+        case UserAppMode:
+            UserAppModeExitTask();
             break;
     }
 
@@ -361,6 +393,6 @@ T_osAdmin osAdmin =
 /************ dummies **********/
 
 /* stimuligenerator table */
-sgTaskTableEntry sgTaskTable[1 + 33 + 2] = {NULL}; /* all elements are initialized with 0 */
+sgTaskTableEntry sgTaskTable[1 + 41 + 2] = {NULL}; /* all elements are initialized with 0 */
 
 

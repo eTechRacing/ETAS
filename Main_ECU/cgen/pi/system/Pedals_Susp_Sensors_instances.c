@@ -18,8 +18,6 @@
 #undef true
 #include "../a_basdef.h"
 #include "Pedals_Susp_Sensors_instances.h"
-extern    B_Pedals_Susp_Sensors_T Pedals_Susp_Sensors_B;
-extern    DW_Pedals_Susp_Sensors_T Pedals_Susp_Sensors_DW;
 extern    P_Pedals_Susp_Sensors_T Pedals_Susp_Sensors_P;
 extern    ExtU_Pedals_Susp_Sensors_T Pedals_Susp_Sensors_U;
 extern    ExtY_Pedals_Susp_Sensors_T Pedals_Susp_Sensors_Y;
@@ -37,37 +35,22 @@ struct RTWTop_Pedals_Susp_Sensors_Obj *initModel_RTWTop_Pedals_Susp_Sensors(void
 void initClass_RTWTop_Pedals_Susp_Sensors(struct RTWTop_Pedals_Susp_Sensors_Class *self)
 {
     /* Level 1 class variables */
-    self->RTWWrapper_Pedals_Susp_Sensors_B_bitsmax_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_B.bitsmax, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Pedals_Susp_Sensors_B_bitsmax_n_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_B.bitsmax_n, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Pedals_Susp_Sensors_B_bitsmax_o_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_B.bitsmax_o, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Pedals_Susp_Sensors_B_bitsmax_p_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_B.bitsmax_p, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Pedals_Susp_Sensors_B_sf_MATLABFunction_ZeroExperimental_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_B.sf_MATLABFunction.ZeroExperimental, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Pedals_Susp_Sensors_B_sf_MATLABFunction_b_ZeroExperimental_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_B.sf_MATLABFunction_b.ZeroExperimental, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Pedals_Susp_Sensors_B_sf_MATLABFunction_h_ZeroExperimental_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_B.sf_MATLABFunction_h.ZeroExperimental, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Pedals_Susp_Sensors_B_sf_MATLABFunction_k_ZeroExperimental_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_B.sf_MATLABFunction_k.ZeroExperimental, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Pedals_Susp_Sensors_DW_Z_E_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_DW.Z_E, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Pedals_Susp_Sensors_DW_Z_E_d_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_DW.Z_E_d, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Pedals_Susp_Sensors_DW_Z_E_h_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_DW.Z_E_h, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Pedals_Susp_Sensors_DW_Z_E_p_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_DW.Z_E_p, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Pedals_Susp_Sensors_P_Brake_Light_Threshold_Value_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.Brake_Light_Threshold_Value, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Pedals_Susp_Sensors_P_Ctemuelles_Gain_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.Ctemuelles_Gain, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Pedals_Susp_Sensors_P_Ctemuelles_Gain_a_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.Ctemuelles_Gain_a, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Pedals_Susp_Sensors_P_Ctemuelles_Gain_e_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.Ctemuelles_Gain_e, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Pedals_Susp_Sensors_P_Ctemuelles_Gain_g_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.Ctemuelles_Gain_g, sizeof(double), (uint32)ASD_PARAMETER);
-    self->RTWWrapper_Pedals_Susp_Sensors_P_DataStoreMemory_InitialValue_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.DataStoreMemory_InitialValue, sizeof(double), (uint32)ASD_PARAMETER);
-    self->RTWWrapper_Pedals_Susp_Sensors_P_DataStoreMemory_InitialValue_b_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.DataStoreMemory_InitialValue_b, sizeof(double), (uint32)ASD_PARAMETER);
-    self->RTWWrapper_Pedals_Susp_Sensors_P_DataStoreMemory_InitialValue_l_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.DataStoreMemory_InitialValue_l, sizeof(double), (uint32)ASD_PARAMETER);
-    self->RTWWrapper_Pedals_Susp_Sensors_P_DataStoreMemory_InitialValue_m_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.DataStoreMemory_InitialValue_m, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Pedals_Susp_Sensors_P_Ltotal_Gain_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.Ltotal_Gain, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Pedals_Susp_Sensors_P_Ltotal_Gain_c_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.Ltotal_Gain_c, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Pedals_Susp_Sensors_P_Ltotal_Gain_h_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.Ltotal_Gain_h, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Pedals_Susp_Sensors_P_Ltotal_Gain_j_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.Ltotal_Gain_j, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Pedals_Susp_Sensors_P_ON_Value_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.ON_Value, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Pedals_Susp_Sensors_P_Off_Value_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.Off_Value, sizeof(double), (uint32)ASD_PARAMETER);
+    self->RTWWrapper_Pedals_Susp_Sensors_P_Zero_Bits_Experimental_Value_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.Zero_Bits_Experimental_Value, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Pedals_Susp_Sensors_P_bitsmax_Value_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.bitsmax_Value, sizeof(double), (uint32)ASD_PARAMETER);
-    self->RTWWrapper_Pedals_Susp_Sensors_P_bitsmax_Value_b_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.bitsmax_Value_b, sizeof(double), (uint32)ASD_PARAMETER);
-    self->RTWWrapper_Pedals_Susp_Sensors_P_bitsmax_Value_e_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.bitsmax_Value_e, sizeof(double), (uint32)ASD_PARAMETER);
-    self->RTWWrapper_Pedals_Susp_Sensors_P_bitsmax_Value_o_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.bitsmax_Value_o, sizeof(double), (uint32)ASD_PARAMETER);
+    self->RTWWrapper_Pedals_Susp_Sensors_P_bitsmax_Value_a_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.bitsmax_Value_a, sizeof(double), (uint32)ASD_PARAMETER);
+    self->RTWWrapper_Pedals_Susp_Sensors_P_bitsmax_Value_f_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.bitsmax_Value_f, sizeof(double), (uint32)ASD_PARAMETER);
+    self->RTWWrapper_Pedals_Susp_Sensors_P_bitsmax_Value_m_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.bitsmax_Value_m, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Pedals_Susp_Sensors_P_max_Value_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.max_Value, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Pedals_Susp_Sensors_P_max_Value_a_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.max_Value_a, sizeof(double), (uint32)ASD_PARAMETER);
     self->RTWWrapper_Pedals_Susp_Sensors_P_max_Value_f_Ptr = initInstance_scalarWrapper((uint32)&Pedals_Susp_Sensors_P.max_Value_f, sizeof(double), (uint32)ASD_PARAMETER);
@@ -109,24 +92,9 @@ static MethodList RTWTop_Pedals_Susp_Sensors_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_Pedals_Susp_Sensors_ClassHeader =
-    {0, 1, 0, 52 + 0, (MethodList *)0, (MethodList *)&RTWTop_Pedals_Susp_Sensors_ClassMethodList};
+    {0, 1, 0, 37 + 0, (MethodList *)0, (MethodList *)&RTWTop_Pedals_Susp_Sensors_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_Pedals_Susp_Sensors_Class RTWTop_Pedals_Susp_Sensors_ClassObj = {{1, {&RTWTop_Pedals_Susp_Sensors_ClassHeader}, {0}}
-    ,NULL
-    ,NULL
-    ,NULL
-    ,NULL
-    ,NULL
-    ,NULL
-    ,NULL
-    ,NULL
-    ,NULL
-    ,NULL
-    ,NULL
-    ,NULL
-    ,NULL
-    ,NULL
-    ,NULL
     ,NULL
     ,NULL
     ,NULL

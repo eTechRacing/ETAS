@@ -32,207 +32,6 @@ ASAP2_VERSION
             ALIGNMENT_FLOAT64_IEEE 8
         /end MOD_COMMON
 
- 
-        /begin MEASUREMENT 
-            /* Name                */     Pedals_Susp_Sensors_B.bitsmax 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Pedals_Susp_Sensors_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-        ECU_ADDRESS 0x0 
-        DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Suspension_FL_Data_Conv.bitsmax.bitsmax 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
-        /begin COMPU_METHOD 
-            /* Name                */     Pedals_Susp_Sensors_CM_double 
-            /* Long identifier     */     "Q = V" 
-            /* ConversionType      */     RAT_FUNC 
-            /* Format              */     "%9.6" 
-            /* Unit                */     "NO_PHYSICAL_QTY" 
-            COEFFS            0.0 1.0 0.0 0.0 0.0 1.0  
-        /end COMPU_METHOD 
-
- 
-        /begin MEASUREMENT 
-            /* Name                */     Pedals_Susp_Sensors_B.bitsmax_n 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Pedals_Susp_Sensors_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-        ECU_ADDRESS 0x0 
-        DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Suspension_RR_Data_Conv.bitsmax.bitsmax_n 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     Pedals_Susp_Sensors_B.bitsmax_o 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Pedals_Susp_Sensors_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-        ECU_ADDRESS 0x0 
-        DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Suspension_RL_Data_Conv.bitsmax.bitsmax_o 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     Pedals_Susp_Sensors_B.bitsmax_p 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Pedals_Susp_Sensors_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-        ECU_ADDRESS 0x0 
-        DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Suspension_FR_Data_Conv.bitsmax.bitsmax_p 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     Pedals_Susp_Sensors_B.sf_MATLABFunction.ZeroExperimental 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Pedals_Susp_Sensors_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-        ECU_ADDRESS 0x0 
-        DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Suspension_FL_Data_Conv.MATLAB_Function.ZeroExperimental 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     Pedals_Susp_Sensors_B.sf_MATLABFunction_b.ZeroExperimental 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Pedals_Susp_Sensors_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-        ECU_ADDRESS 0x0 
-        DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Suspension_RL_Data_Conv.MATLAB_Function.ZeroExperimental 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     Pedals_Susp_Sensors_B.sf_MATLABFunction_h.ZeroExperimental 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Pedals_Susp_Sensors_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-        ECU_ADDRESS 0x0 
-        DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Suspension_RR_Data_Conv.MATLAB_Function.ZeroExperimental 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     Pedals_Susp_Sensors_B.sf_MATLABFunction_k.ZeroExperimental 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Pedals_Susp_Sensors_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-        ECU_ADDRESS 0x0 
-        DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Suspension_FR_Data_Conv.MATLAB_Function.ZeroExperimental 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     Pedals_Susp_Sensors_DW.Z_E 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Pedals_Susp_Sensors_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-        ECU_ADDRESS 0x0 
-        DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Suspension_FL_Data_Conv.Data_Store_Memory.Z_E 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     Pedals_Susp_Sensors_DW.Z_E_d 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Pedals_Susp_Sensors_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-        ECU_ADDRESS 0x0 
-        DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Suspension_FR_Data_Conv.Data_Store_Memory.Z_E_d 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     Pedals_Susp_Sensors_DW.Z_E_h 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Pedals_Susp_Sensors_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-        ECU_ADDRESS 0x0 
-        DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Suspension_RL_Data_Conv.Data_Store_Memory.Z_E_h 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     Pedals_Susp_Sensors_DW.Z_E_p 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Pedals_Susp_Sensors_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-        ECU_ADDRESS 0x0 
-        DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Suspension_RR_Data_Conv.Data_Store_Memory.Z_E_p 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
         /begin CHARACTERISTIC 
             /* Name                */     Pedals_Susp_Sensors_P.Brake_Light_Threshold_Value 
             /* Long identifier     */     "" 
@@ -255,6 +54,15 @@ ASAP2_VERSION
             FNC_VALUES 1 FLOAT64_IEEE COLUMN_DIR DIRECT
  
         /end RECORD_LAYOUT 
+        /begin COMPU_METHOD 
+            /* Name                */     Pedals_Susp_Sensors_CM_double 
+            /* Long identifier     */     "Q = V" 
+            /* ConversionType      */     RAT_FUNC 
+            /* Format              */     "%9.6" 
+            /* Unit                */     "NO_PHYSICAL_QTY" 
+            COEFFS            0.0 1.0 0.0 0.0 0.0 1.0  
+        /end COMPU_METHOD 
+
         /begin CHARACTERISTIC 
             /* Name                */     Pedals_Susp_Sensors_P.Ctemuelles_Gain 
             /* Long identifier     */     "" 
@@ -317,74 +125,6 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Suspension_RR_Data_Conv.Cte_muelles.Gain 
-            /begin IF_DATA E_TARGET
-                DP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA
-        /end CHARACTERISTIC 
-
-
-        /begin CHARACTERISTIC 
-            /* Name                */     Pedals_Susp_Sensors_P.DataStoreMemory_InitialValue 
-            /* Long identifier     */     "" 
-            /* Characteristic type */     VALUE 
-            /* Memory address      */     0x0 
-            /* Record layout       */     SCALAR_FLOAT64_IEEE 
-            /* Maxdiff             */     3.5e+305 
-            /* Conversion method   */     Pedals_Susp_Sensors_CM_double 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Suspension_FL_Data_Conv.Data_Store_Memory.InitialValue 
-            /begin IF_DATA E_TARGET
-                DP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA
-        /end CHARACTERISTIC 
-
-
-        /begin CHARACTERISTIC 
-            /* Name                */     Pedals_Susp_Sensors_P.DataStoreMemory_InitialValue_b 
-            /* Long identifier     */     "" 
-            /* Characteristic type */     VALUE 
-            /* Memory address      */     0x0 
-            /* Record layout       */     SCALAR_FLOAT64_IEEE 
-            /* Maxdiff             */     3.5e+305 
-            /* Conversion method   */     Pedals_Susp_Sensors_CM_double 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Suspension_RL_Data_Conv.Data_Store_Memory.InitialValue 
-            /begin IF_DATA E_TARGET
-                DP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA
-        /end CHARACTERISTIC 
-
-
-        /begin CHARACTERISTIC 
-            /* Name                */     Pedals_Susp_Sensors_P.DataStoreMemory_InitialValue_l 
-            /* Long identifier     */     "" 
-            /* Characteristic type */     VALUE 
-            /* Memory address      */     0x0 
-            /* Record layout       */     SCALAR_FLOAT64_IEEE 
-            /* Maxdiff             */     3.5e+305 
-            /* Conversion method   */     Pedals_Susp_Sensors_CM_double 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Suspension_RR_Data_Conv.Data_Store_Memory.InitialValue 
-            /begin IF_DATA E_TARGET
-                DP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA
-        /end CHARACTERISTIC 
-
-
-        /begin CHARACTERISTIC 
-            /* Name                */     Pedals_Susp_Sensors_P.DataStoreMemory_InitialValue_m 
-            /* Long identifier     */     "" 
-            /* Characteristic type */     VALUE 
-            /* Memory address      */     0x0 
-            /* Record layout       */     SCALAR_FLOAT64_IEEE 
-            /* Maxdiff             */     3.5e+305 
-            /* Conversion method   */     Pedals_Susp_Sensors_CM_double 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Suspension_FR_Data_Conv.Data_Store_Memory.InitialValue 
             /begin IF_DATA E_TARGET
                 DP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA
@@ -494,6 +234,23 @@ ASAP2_VERSION
 
 
         /begin CHARACTERISTIC 
+            /* Name                */     Pedals_Susp_Sensors_P.Zero_Bits_Experimental_Value 
+            /* Long identifier     */     "" 
+            /* Characteristic type */     VALUE 
+            /* Memory address      */     0x0 
+            /* Record layout       */     SCALAR_FLOAT64_IEEE 
+            /* Maxdiff             */     3.5e+305 
+            /* Conversion method   */     Pedals_Susp_Sensors_CM_double 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Zero_Bits_Experimental.Value 
+            /begin IF_DATA E_TARGET
+                DP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA
+        /end CHARACTERISTIC 
+
+
+        /begin CHARACTERISTIC 
             /* Name                */     Pedals_Susp_Sensors_P.bitsmax_Value 
             /* Long identifier     */     "" 
             /* Characteristic type */     VALUE 
@@ -511,7 +268,24 @@ ASAP2_VERSION
 
 
         /begin CHARACTERISTIC 
-            /* Name                */     Pedals_Susp_Sensors_P.bitsmax_Value_b 
+            /* Name                */     Pedals_Susp_Sensors_P.bitsmax_Value_a 
+            /* Long identifier     */     "" 
+            /* Characteristic type */     VALUE 
+            /* Memory address      */     0x0 
+            /* Record layout       */     SCALAR_FLOAT64_IEEE 
+            /* Maxdiff             */     3.5e+305 
+            /* Conversion method   */     Pedals_Susp_Sensors_CM_double 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Suspension_RL_Data_Conv.bitsmax.Value 
+            /begin IF_DATA E_TARGET
+                DP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA
+        /end CHARACTERISTIC 
+
+
+        /begin CHARACTERISTIC 
+            /* Name                */     Pedals_Susp_Sensors_P.bitsmax_Value_f 
             /* Long identifier     */     "" 
             /* Characteristic type */     VALUE 
             /* Memory address      */     0x0 
@@ -528,7 +302,7 @@ ASAP2_VERSION
 
 
         /begin CHARACTERISTIC 
-            /* Name                */     Pedals_Susp_Sensors_P.bitsmax_Value_e 
+            /* Name                */     Pedals_Susp_Sensors_P.bitsmax_Value_m 
             /* Long identifier     */     "" 
             /* Characteristic type */     VALUE 
             /* Memory address      */     0x0 
@@ -538,23 +312,6 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Suspension_FR_Data_Conv.bitsmax.Value 
-            /begin IF_DATA E_TARGET
-                DP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA
-        /end CHARACTERISTIC 
-
-
-        /begin CHARACTERISTIC 
-            /* Name                */     Pedals_Susp_Sensors_P.bitsmax_Value_o 
-            /* Long identifier     */     "" 
-            /* Characteristic type */     VALUE 
-            /* Memory address      */     0x0 
-            /* Record layout       */     SCALAR_FLOAT64_IEEE 
-            /* Maxdiff             */     3.5e+305 
-            /* Conversion method   */     Pedals_Susp_Sensors_CM_double 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            DISPLAY_IDENTIFIER Pedals_Susp_Sensors.Suspension_RL_Data_Conv.bitsmax.Value 
             /begin IF_DATA E_TARGET
                 DP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA

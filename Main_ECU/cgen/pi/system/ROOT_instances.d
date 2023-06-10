@@ -52,13 +52,15 @@ ROOT_instances.o: \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\ES910/..\i_salone.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO4.7\Target\Etarget\ES910/..\y_primit.h \
  c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\/./ROOT_instances.h \
- c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\/./Car_State_instances.h \
- c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\/./Accel_Data_instances.h \
- c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\/./Disconnections_instances.h \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\/./Ellipse_instances.h \
  c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\/./Inverters_Action_instances.h \
  c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\/./Inverters_Data_instances.h \
  c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\/./LVD_Data_instances.h \
- c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\/./Pedals_Susp_Sensors_instances.h \
  c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\/./Racing_Mode_instances.h \
  c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\/./Synchronism_instances.h \
- c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\/./Torque_Control_instances.h
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\/./Torque_Control_instances.h \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\/./SoC_instances.h \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\/./Car_State_instances.h \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\/./Disconnections_instances.h \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\/./Pedals_Susp_Sensors_instances.h \
+ c:\users\dwegg\desktop\etas-main\etas\main_ecu\cgen\pi\system\/./Accel_Data_instances.h

@@ -79,51 +79,75 @@ rtioHookTableEntry rtioHookTable22[1] = {NULL};
 /* rtio hook in task 23 SWT_CAN2_AP_ADCAN_Data2 */
 rtioHookTableEntry rtioHookTable23[1] = {NULL};
 
-/* rtio hook in task 24 SWT_CAN2_AP_LV_Derivation_LVData */
+/* rtio hook in task 24 SWT_CAN2_AP_ELLIPSE_EKF_EULER */
 rtioHookTableEntry rtioHookTable24[1] = {NULL};
 
-/* rtio hook in task 25 SWT_CAN2_NM_ACCEL_F_Keep_Alive */
+/* rtio hook in task 25 SWT_CAN2_AP_ELLIPSE_EKF_POS */
 rtioHookTableEntry rtioHookTable25[1] = {NULL};
 
-/* rtio hook in task 26 SWT_CAN2_NM_ACCEL_R_Keep_Alive */
+/* rtio hook in task 26 SWT_CAN2_AP_ELLIPSE_EKF_VEL_BODY */
 rtioHookTableEntry rtioHookTable26[1] = {NULL};
 
-/* rtio hook in task 27 SWT_CAN2_NM_ADCAN_Keep_Alive */
+/* rtio hook in task 27 SWT_CAN2_AP_ELLIPSE_IMU_ACCEL */
 rtioHookTableEntry rtioHookTable27[1] = {NULL};
 
-/* rtio hook in task 28 SWT_CAN2_NM_LV_Derivation_Keep_Alive */
+/* rtio hook in task 28 SWT_CAN2_AP_ELLIPSE_IMU_GYRO */
 rtioHookTableEntry rtioHookTable28[1] = {NULL};
 
-/* rtio hook in task 29 Sync_25ms */
+/* rtio hook in task 29 SWT_CAN2_AP_ELLIPSE_MAG */
 rtioHookTableEntry rtioHookTable29[1] = {NULL};
 
-/* rtio hook in task 30 Timer_1000ms */
+/* rtio hook in task 30 SWT_CAN2_AP_ELLIPSE_SLIP_CURV */
 rtioHookTableEntry rtioHookTable30[1] = {NULL};
 
-/* rtio hook in task 31 Timer_100ms */
+/* rtio hook in task 31 SWT_CAN2_AP_LV_Derivation_LVData */
 rtioHookTableEntry rtioHookTable31[1] = {NULL};
 
-/* rtio hook in task 32 Timer_25ms */
+/* rtio hook in task 32 SWT_CAN2_NM_ACCEL_F_Keep_Alive */
 rtioHookTableEntry rtioHookTable32[1] = {NULL};
 
-/* rtio hook in task 33 Timer_Inv */
+/* rtio hook in task 33 SWT_CAN2_NM_ACCEL_R_Keep_Alive */
 rtioHookTableEntry rtioHookTable33[1] = {NULL};
 
-/* rtio hook in task 34 ISR_CAN1 */
+/* rtio hook in task 34 SWT_CAN2_NM_ADCAN_Keep_Alive */
 rtioHookTableEntry rtioHookTable34[1] = {NULL};
 
-/* rtio hook in task 35 ISR_CAN2 */
+/* rtio hook in task 35 SWT_CAN2_NM_ELLIPSE_Status */
 rtioHookTableEntry rtioHookTable35[1] = {NULL};
 
-/* rtio hook in task 36 Init */
+/* rtio hook in task 36 SWT_CAN2_NM_LV_Derivation_Keep_Alive */
 rtioHookTableEntry rtioHookTable36[1] = {NULL};
 
-/* rtio hook in task 37 Exit */
+/* rtio hook in task 37 Sync_25ms */
 rtioHookTableEntry rtioHookTable37[1] = {NULL};
+
+/* rtio hook in task 38 Timer_1000ms */
+rtioHookTableEntry rtioHookTable38[1] = {NULL};
+
+/* rtio hook in task 39 Timer_100ms */
+rtioHookTableEntry rtioHookTable39[1] = {NULL};
+
+/* rtio hook in task 40 Timer_25ms */
+rtioHookTableEntry rtioHookTable40[1] = {NULL};
+
+/* rtio hook in task 41 Timer_Inv */
+rtioHookTableEntry rtioHookTable41[1] = {NULL};
+
+/* rtio hook in task 42 ISR_CAN1 */
+rtioHookTableEntry rtioHookTable42[1] = {NULL};
+
+/* rtio hook in task 43 ISR_CAN2 */
+rtioHookTableEntry rtioHookTable43[1] = {NULL};
+
+/* rtio hook in task 44 Init */
+rtioHookTableEntry rtioHookTable44[1] = {NULL};
+
+/* rtio hook in task 45 Exit */
+rtioHookTableEntry rtioHookTable45[1] = {NULL};
 
 
 /* rtio task table */
-rtioTaskTableEntry rtioTaskTable[38] =
+rtioTaskTableEntry rtioTaskTable[46] =
 {
 	{&rtioHookTable0[0]},
 	{&rtioHookTable1[0]},
@@ -162,7 +186,15 @@ rtioTaskTableEntry rtioTaskTable[38] =
 	{&rtioHookTable34[0]},
 	{&rtioHookTable35[0]},
 	{&rtioHookTable36[0]},
-	{&rtioHookTable37[0]}
+	{&rtioHookTable37[0]},
+	{&rtioHookTable38[0]},
+	{&rtioHookTable39[0]},
+	{&rtioHookTable40[0]},
+	{&rtioHookTable41[0]},
+	{&rtioHookTable42[0]},
+	{&rtioHookTable43[0]},
+	{&rtioHookTable44[0]},
+	{&rtioHookTable45[0]}
 };
 
 /* rtio hook processes */
@@ -385,13 +417,61 @@ void rtioHook_35_0(void)
 void rtioHook_36_0(void)
 {
 	rtioHook(36,0);
-	INIT_EXIT_FW_HOOK
 	return;
 }
 
 void rtioHook_37_0(void)
 {
 	rtioHook(37,0);
+	return;
+}
+
+void rtioHook_38_0(void)
+{
+	rtioHook(38,0);
+	return;
+}
+
+void rtioHook_39_0(void)
+{
+	rtioHook(39,0);
+	return;
+}
+
+void rtioHook_40_0(void)
+{
+	rtioHook(40,0);
+	return;
+}
+
+void rtioHook_41_0(void)
+{
+	rtioHook(41,0);
+	return;
+}
+
+void rtioHook_42_0(void)
+{
+	rtioHook(42,0);
+	return;
+}
+
+void rtioHook_43_0(void)
+{
+	rtioHook(43,0);
+	return;
+}
+
+void rtioHook_44_0(void)
+{
+	rtioHook(44,0);
+	INIT_EXIT_FW_HOOK
+	return;
+}
+
+void rtioHook_45_0(void)
+{
+	rtioHook(45,0);
 	INIT_EXIT_FW_HOOK
 	return;
 }

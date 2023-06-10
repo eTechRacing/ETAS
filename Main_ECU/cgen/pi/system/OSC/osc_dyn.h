@@ -56,26 +56,42 @@ extern uint Xcp_Event (uint eventId, uint doDaq);
 #define XCP_STIM_SWT_CAN2_AP_ADCAN_Data1 Xcp_Event(21,1);
 #define XCP_DAQ_SWT_CAN2_AP_ADCAN_Data2 Xcp_Event(22,0);
 #define XCP_STIM_SWT_CAN2_AP_ADCAN_Data2 Xcp_Event(22,1);
-#define XCP_DAQ_SWT_CAN2_AP_LV_Derivation_LVData Xcp_Event(23,0);
-#define XCP_STIM_SWT_CAN2_AP_LV_Derivation_LVData Xcp_Event(23,1);
-#define XCP_DAQ_SWT_CAN2_NM_ACCEL_F_Keep_Alive Xcp_Event(24,0);
-#define XCP_STIM_SWT_CAN2_NM_ACCEL_F_Keep_Alive Xcp_Event(24,1);
-#define XCP_DAQ_SWT_CAN2_NM_ACCEL_R_Keep_Alive Xcp_Event(25,0);
-#define XCP_STIM_SWT_CAN2_NM_ACCEL_R_Keep_Alive Xcp_Event(25,1);
-#define XCP_DAQ_SWT_CAN2_NM_ADCAN_Keep_Alive Xcp_Event(26,0);
-#define XCP_STIM_SWT_CAN2_NM_ADCAN_Keep_Alive Xcp_Event(26,1);
-#define XCP_DAQ_SWT_CAN2_NM_LV_Derivation_Keep_Alive Xcp_Event(27,0);
-#define XCP_STIM_SWT_CAN2_NM_LV_Derivation_Keep_Alive Xcp_Event(27,1);
-#define XCP_DAQ_Sync_25ms Xcp_Event(28,0);
-#define XCP_STIM_Sync_25ms Xcp_Event(28,1);
-#define XCP_DAQ_Timer_1000ms Xcp_Event(29,0);
-#define XCP_STIM_Timer_1000ms Xcp_Event(29,1);
-#define XCP_DAQ_Timer_100ms Xcp_Event(30,0);
-#define XCP_STIM_Timer_100ms Xcp_Event(30,1);
-#define XCP_DAQ_Timer_25ms Xcp_Event(31,0);
-#define XCP_STIM_Timer_25ms Xcp_Event(31,1);
-#define XCP_DAQ_Timer_Inv Xcp_Event(32,0);
-#define XCP_STIM_Timer_Inv Xcp_Event(32,1);
+#define XCP_DAQ_SWT_CAN2_AP_ELLIPSE_EKF_EULER Xcp_Event(23,0);
+#define XCP_STIM_SWT_CAN2_AP_ELLIPSE_EKF_EULER Xcp_Event(23,1);
+#define XCP_DAQ_SWT_CAN2_AP_ELLIPSE_EKF_POS Xcp_Event(24,0);
+#define XCP_STIM_SWT_CAN2_AP_ELLIPSE_EKF_POS Xcp_Event(24,1);
+#define XCP_DAQ_SWT_CAN2_AP_ELLIPSE_EKF_VEL_BODY Xcp_Event(25,0);
+#define XCP_STIM_SWT_CAN2_AP_ELLIPSE_EKF_VEL_BODY Xcp_Event(25,1);
+#define XCP_DAQ_SWT_CAN2_AP_ELLIPSE_IMU_ACCEL Xcp_Event(26,0);
+#define XCP_STIM_SWT_CAN2_AP_ELLIPSE_IMU_ACCEL Xcp_Event(26,1);
+#define XCP_DAQ_SWT_CAN2_AP_ELLIPSE_IMU_GYRO Xcp_Event(27,0);
+#define XCP_STIM_SWT_CAN2_AP_ELLIPSE_IMU_GYRO Xcp_Event(27,1);
+#define XCP_DAQ_SWT_CAN2_AP_ELLIPSE_MAG Xcp_Event(28,0);
+#define XCP_STIM_SWT_CAN2_AP_ELLIPSE_MAG Xcp_Event(28,1);
+#define XCP_DAQ_SWT_CAN2_AP_ELLIPSE_SLIP_CURV Xcp_Event(29,0);
+#define XCP_STIM_SWT_CAN2_AP_ELLIPSE_SLIP_CURV Xcp_Event(29,1);
+#define XCP_DAQ_SWT_CAN2_AP_LV_Derivation_LVData Xcp_Event(30,0);
+#define XCP_STIM_SWT_CAN2_AP_LV_Derivation_LVData Xcp_Event(30,1);
+#define XCP_DAQ_SWT_CAN2_NM_ACCEL_F_Keep_Alive Xcp_Event(31,0);
+#define XCP_STIM_SWT_CAN2_NM_ACCEL_F_Keep_Alive Xcp_Event(31,1);
+#define XCP_DAQ_SWT_CAN2_NM_ACCEL_R_Keep_Alive Xcp_Event(32,0);
+#define XCP_STIM_SWT_CAN2_NM_ACCEL_R_Keep_Alive Xcp_Event(32,1);
+#define XCP_DAQ_SWT_CAN2_NM_ADCAN_Keep_Alive Xcp_Event(33,0);
+#define XCP_STIM_SWT_CAN2_NM_ADCAN_Keep_Alive Xcp_Event(33,1);
+#define XCP_DAQ_SWT_CAN2_NM_ELLIPSE_Status Xcp_Event(34,0);
+#define XCP_STIM_SWT_CAN2_NM_ELLIPSE_Status Xcp_Event(34,1);
+#define XCP_DAQ_SWT_CAN2_NM_LV_Derivation_Keep_Alive Xcp_Event(35,0);
+#define XCP_STIM_SWT_CAN2_NM_LV_Derivation_Keep_Alive Xcp_Event(35,1);
+#define XCP_DAQ_Sync_25ms Xcp_Event(36,0);
+#define XCP_STIM_Sync_25ms Xcp_Event(36,1);
+#define XCP_DAQ_Timer_1000ms Xcp_Event(37,0);
+#define XCP_STIM_Timer_1000ms Xcp_Event(37,1);
+#define XCP_DAQ_Timer_100ms Xcp_Event(38,0);
+#define XCP_STIM_Timer_100ms Xcp_Event(38,1);
+#define XCP_DAQ_Timer_25ms Xcp_Event(39,0);
+#define XCP_STIM_Timer_25ms Xcp_Event(39,1);
+#define XCP_DAQ_Timer_Inv Xcp_Event(40,0);
+#define XCP_STIM_Timer_Inv Xcp_Event(40,1);
 
 #else
 #define XCP_DAQ_SWT_CAN1_AP_BMS_AIRs_State 
@@ -124,6 +140,20 @@ extern uint Xcp_Event (uint eventId, uint doDaq);
 #define XCP_STIM_SWT_CAN2_AP_ADCAN_Data1
 #define XCP_DAQ_SWT_CAN2_AP_ADCAN_Data2 
 #define XCP_STIM_SWT_CAN2_AP_ADCAN_Data2
+#define XCP_DAQ_SWT_CAN2_AP_ELLIPSE_EKF_EULER 
+#define XCP_STIM_SWT_CAN2_AP_ELLIPSE_EKF_EULER
+#define XCP_DAQ_SWT_CAN2_AP_ELLIPSE_EKF_POS 
+#define XCP_STIM_SWT_CAN2_AP_ELLIPSE_EKF_POS
+#define XCP_DAQ_SWT_CAN2_AP_ELLIPSE_EKF_VEL_BODY 
+#define XCP_STIM_SWT_CAN2_AP_ELLIPSE_EKF_VEL_BODY
+#define XCP_DAQ_SWT_CAN2_AP_ELLIPSE_IMU_ACCEL 
+#define XCP_STIM_SWT_CAN2_AP_ELLIPSE_IMU_ACCEL
+#define XCP_DAQ_SWT_CAN2_AP_ELLIPSE_IMU_GYRO 
+#define XCP_STIM_SWT_CAN2_AP_ELLIPSE_IMU_GYRO
+#define XCP_DAQ_SWT_CAN2_AP_ELLIPSE_MAG 
+#define XCP_STIM_SWT_CAN2_AP_ELLIPSE_MAG
+#define XCP_DAQ_SWT_CAN2_AP_ELLIPSE_SLIP_CURV 
+#define XCP_STIM_SWT_CAN2_AP_ELLIPSE_SLIP_CURV
 #define XCP_DAQ_SWT_CAN2_AP_LV_Derivation_LVData 
 #define XCP_STIM_SWT_CAN2_AP_LV_Derivation_LVData
 #define XCP_DAQ_SWT_CAN2_NM_ACCEL_F_Keep_Alive 
@@ -132,6 +162,8 @@ extern uint Xcp_Event (uint eventId, uint doDaq);
 #define XCP_STIM_SWT_CAN2_NM_ACCEL_R_Keep_Alive
 #define XCP_DAQ_SWT_CAN2_NM_ADCAN_Keep_Alive 
 #define XCP_STIM_SWT_CAN2_NM_ADCAN_Keep_Alive
+#define XCP_DAQ_SWT_CAN2_NM_ELLIPSE_Status 
+#define XCP_STIM_SWT_CAN2_NM_ELLIPSE_Status
 #define XCP_DAQ_SWT_CAN2_NM_LV_Derivation_Keep_Alive 
 #define XCP_STIM_SWT_CAN2_NM_LV_Derivation_Keep_Alive
 #define XCP_DAQ_Sync_25ms 
@@ -147,7 +179,7 @@ extern uint Xcp_Event (uint eventId, uint doDaq);
 
 #endif
 
-#define XCP_NUMBER_OF_EVENTS 33
+#define XCP_NUMBER_OF_EVENTS 41
 
 #endif /* __OSC_DYN_H__ */
 
