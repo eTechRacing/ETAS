@@ -9,7 +9,7 @@
  *
  * Model version              : 1.7
  * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Wed Mar 29 12:57:49 2023
+ * C source code generated on : Fri Nov 10 02:57:02 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -461,11 +461,11 @@ static void Inverters_Action_output(void)
   /* Outputs for IfAction SubSystem: '<S2>/Unsubscribe//Subscribe' incorporates:
    *  ActionPort: '<S33>/Action Port'
    */
-  /* SwitchCase: '<S1>/Action Selector' incorporates:
+  /* SwitchCase: '<S8>/Unsubscribe//Subscribe' incorporates:
    *  Inport: '<Root>/InvertersAction'
+   *  SwitchCase: '<S1>/Action Selector'
    *  SwitchCase: '<S2>/Action Selector'
    *  SwitchCase: '<S33>/Unsubscribe//Subscribe'
-   *  SwitchCase: '<S8>/Unsubscribe//Subscribe'
    */
   tmp_0 = trunc(Inverters_Action_U.InvertersAction);
 

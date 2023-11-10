@@ -1,4 +1,7 @@
-<?DTDVersion "4.6.3"?>
+<?DTDVersion "5.0.2.0"?>
+<?CompatibleDTDVersion "5.0.0.0"?>
+<?CompatibleDTDVersion "4.7.3.1"?>
+<?CompatibleDTDVersion "4.6.3"?>
 <?CompatibleDTDVersion "4.6.0"?>
 
 <!ENTITY % System SYSTEM "_System.DTD">
@@ -12,6 +15,10 @@
 
 <?SuperClass ESETKonXCPNodeETKController->ESETKFoundationNodeETKControllerBase ?>
 <?SuperClass ESETKonXCPNodeETKBypass->ESETKFoundationNodeETKBypassBase ?>
+<!-- only the ETKonXCP has a software interrupt, the ES900ETK has a fix hardware interrupt -->
+<?SuperClass ESETKonXCPNodeETKBypass->ESStandardResourcePoolIRQ ?>
+<?SuperClass ESETKonXCPNodeETKBypass->ESStandardResourcePoolInstance ?>
+<?SuperClass ESETKonXCPNodeETKBypass->StackLocationParametersNode ?>
 
 
 <!-- node controller -->
@@ -137,7 +144,11 @@
                                             ESETKonXCPNodeETKBypassParameters.IRQSource,
                                             ESETKonXCPNodeETKBypassParameters.UDPPort,
                                             ESETKonXCPNodeETKBypassParameters.IPAddress,
-                                            ESETKonXCPNodeETKBypassParameters.ETKType)>
+                                            ESETKonXCPNodeETKBypassParameters.ETKType,
+                                            ESETKonXCPNodeETKBypassParameters.ModuleType, 
+                                            ESETKonXCPNodeETKBypassParameters.ModuleTypeInstance, 
+                                            ESETKonXCPNodeETKBypassParameters.Port,
+                                            ESETKonXCPNodeETKBypassParameters.ParallelInit)>
 
 <!ELEMENT ESETKonXCPNodeETKBypassParameters.Name (ESParameterName)>
 <!ELEMENT ESETKonXCPNodeETKBypassParameters.Enabled (ESParameterBoolean)>
@@ -308,11 +319,16 @@
     EnumL1Value1     CDATA "0"
     EnumAvailable1 CDATA "1"
 
-    EnumText2      CDATA "FETK1"
+    EnumText2      CDATA "FETK"
     EnumL1Value2     CDATA "1"
     EnumAvailable2 CDATA "1"
 
     EnumText3      CDATA "FETK2"
     EnumL1Value3     CDATA "2"
-    EnumAvailable3 CDATA "1"
+    EnumAvailable3 CDATA "0"
 >
+
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ModuleType (ESParameterDynamicEnum)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ModuleTypeInstance (ESParameterUInt)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.Port (ESParameterDynamicEnum)>
+<!ELEMENT ESETKonXCPNodeETKBypassParameters.ParallelInit (ESParameterBoolean)>

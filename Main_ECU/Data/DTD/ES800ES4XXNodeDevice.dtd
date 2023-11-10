@@ -1,4 +1,6 @@
-<?DTDVersion "4.7.0"?>
+<?DTDVersion "5.0.0.1"?>
+<?CompatibleDTDVersion "5.0.0.0"?>
+<?CompatibleDTDVersion "4.7.0"?>
 
 <!ENTITY % System SYSTEM "_System.DTD">
 %System;
@@ -12,6 +14,10 @@
 <!NOTATION ofTypeES800ES4XXNodeDevice SYSTEM "ES800ES4XXNodeDevice">
 
 <?SuperClass ES800ES4XXNodeDevice->ES4XXFoundationNodeDeviceBase ?>
+<!-- only the ES800 Daisychain has a software interrupt, the ES900 Daisychain has a fix hardware interrupt -->
+<?SuperClass ES800ES4XXNodeDevice->ESStandardResourcePoolIRQ ?>
+<?SuperClass ES800ES4XXNodeDevice->ESStandardResourcePoolInstance ?>
+<?SuperClass ES800ES4XXNodeDevice->StackLocationParametersNode ?>
 
 <!-- node device -->
 
@@ -28,7 +34,7 @@
 <!ELEMENT ES800ES4XXNodeDevice.SubNodes (ES800ES4XXNodeDeviceSubNodeList)>
 <!ELEMENT ES800ES4XXNodeDevice.VariableParameters (ES4XXVariableParameters)>
 
-<!ELEMENT ES800ES4XXNodeDeviceParameters (ES800ES4XXNodeDeviceParameters.Name,ES800ES4XXNodeDeviceParameters.Enabled,ES800ES4XXNodeDeviceParameters.ChainName,ES800ES4XXNodeDeviceParameters.ConfigurationFile,ES800ES4XXNodeDeviceParameters.ConfigurationFileVersion,ES800ES4XXNodeDeviceParameters.GCFFileName,ES800ES4XXNodeDeviceParameters.IPAddress,ES800ES4XXNodeDeviceParameters.ShowStatusSignalForDevice, ES800ES4XXNodeDeviceParameters.XCPVersion, ES800ES4XXNodeDeviceParameters.UDPIPVersion, ES800ES4XXNodeDeviceParameters.Port, ES800ES4XXNodeDeviceParameters.EPKValue, ES800ES4XXNodeDeviceParameters.EPKAddress, ES800ES4XXNodeDeviceParameters.EPKValueLength, ES800ES4XXNodeDeviceParameters.DAQ_MaxODTEntrySize, ES800ES4XXNodeDeviceParameters.DAQ_MaxEntries,ES800ES4XXNodeDeviceParameters.DAQ_MinEntries, ES800ES4XXNodeDeviceParameters.STIM_MaxODTEntrySize, ES800ES4XXNodeDeviceParameters.STIM_MaxEntries, ES800ES4XXNodeDeviceParameters.STIM_MinEntries, ES800ES4XXNodeDeviceParameters.TimestampSize, ES800ES4XXNodeDeviceParameters.ISR, ES800ES4XXNodeDeviceParameters.RapidPrototypingEnabled)>
+<!ELEMENT ES800ES4XXNodeDeviceParameters (ES800ES4XXNodeDeviceParameters.Name,ES800ES4XXNodeDeviceParameters.Enabled,ES800ES4XXNodeDeviceParameters.ChainName,ES800ES4XXNodeDeviceParameters.ConfigurationFile,ES800ES4XXNodeDeviceParameters.ConfigurationFileVersion,ES800ES4XXNodeDeviceParameters.GCFFileName,ES800ES4XXNodeDeviceParameters.IPAddress,ES800ES4XXNodeDeviceParameters.ShowStatusSignalForDevice, ES800ES4XXNodeDeviceParameters.XCPVersion, ES800ES4XXNodeDeviceParameters.UDPIPVersion, ES800ES4XXNodeDeviceParameters.Port, ES800ES4XXNodeDeviceParameters.EPKValue, ES800ES4XXNodeDeviceParameters.EPKAddress, ES800ES4XXNodeDeviceParameters.EPKValueLength, ES800ES4XXNodeDeviceParameters.DAQ_MaxODTEntrySize, ES800ES4XXNodeDeviceParameters.DAQ_MaxEntries,ES800ES4XXNodeDeviceParameters.DAQ_MinEntries, ES800ES4XXNodeDeviceParameters.STIM_MaxODTEntrySize, ES800ES4XXNodeDeviceParameters.STIM_MaxEntries, ES800ES4XXNodeDeviceParameters.STIM_MinEntries, ES800ES4XXNodeDeviceParameters.TimestampSize, ES800ES4XXNodeDeviceParameters.ISR, ES800ES4XXNodeDeviceParameters.RapidPrototypingEnabled, ES800ES4XXNodeDeviceParameters.Instance, ES800ES4XXNodeDeviceParameters.IRQSource)>
 
 <!ELEMENT ES800ES4XXNodeDeviceParameters.Name (ESParameterName)>
 <!ELEMENT ES800ES4XXNodeDeviceParameters.Enabled (ESParameterBoolean)>
@@ -36,7 +42,7 @@
 <!ELEMENT ES800ES4XXNodeDeviceParameters.ConfigurationFile (ESParameterString)>
 <!ELEMENT ES800ES4XXNodeDeviceParameters.ConfigurationFileVersion (ESParameterUInt)>
 <!ELEMENT ES800ES4XXNodeDeviceParameters.GCFFileName (ESParameterString)>
-<!ELEMENT ES800ES4XXNodeDeviceParameters.IPAddress (ESParameterString)>
+<!ELEMENT ES800ES4XXNodeDeviceParameters.IPAddress (ESParameterIPAddress)>
 <!ELEMENT ES800ES4XXNodeDeviceParameters.ShowStatusSignalForDevice (ESParameterBoolean)>
 <!ELEMENT ES800ES4XXNodeDeviceParameters.XCPVersion (ESParameterUInt)>
 <!ELEMENT ES800ES4XXNodeDeviceParameters.UDPIPVersion (ESParameterUInt)>
@@ -62,6 +68,9 @@
 >
 <!ELEMENT ES800ES4XXNodeDeviceParameters.ISR (ESParameterString)>
 <!ELEMENT ES800ES4XXNodeDeviceParameters.RapidPrototypingEnabled (ESParameterBoolean)>
+<!ELEMENT ES800ES4XXNodeDeviceParameters.Instance (ESParameterUInt)>
+<!ELEMENT ES800ES4XXNodeDeviceParameters.IRQSource (ESParameterString)>
+
 
 <!ELEMENT ES800ES4XXNodeDeviceL1GenerationBlock (ES800ES4XXNodeDeviceL1GenerationBlock.UnionCase, ES800ES4XXNodeDeviceL1GenerationBlock.Reconnect)>
 <!ATTLIST ES800ES4XXNodeDeviceL1GenerationBlock

@@ -1,4 +1,5 @@
-<?DTDVersion "4.2.1"?>
+<?DTDVersion "4.7.3"?>
+<?CompatibleDTDVersion "4.2.1"?>
 <?CompatibleDTDVersion "4.0.0"?>
 <?CompatibleDTDVersion "3.0.1"?>
 <?CompatibleDTDVersion "2.2.1"?>
@@ -23,6 +24,10 @@
 <!NOTATION ofTypeYBODevice                SYSTEM "YBODevice">
 <!NOTATION ofTypeYBOSignalGroup           SYSTEM "YBOSignalGroup">
 <!NOTATION ofTypeYBOHWPort                SYSTEM "YBOHWPort">
+
+<?SuperClass ESStandardResourcePoolIRQ->ESStandardResourcePool ?>
+<?SuperClass ESStandardResourcePoolInstance->ESStandardResourcePool ?>
+<?SuperClass ESStandardResourcePoolBoardSpecific->ESStandardResourcePool ?>
 
 <?SuperClass ESNodeSubNode->ESNode ?>
 <?SuperClass ESNodeMain->ESNodeSubNode ?>
@@ -155,9 +160,17 @@
     Calibratable  ( False | True ) "False"
     Active ( False | True ) "True"
 >
-
-
 <!ELEMENT ESParameterEnum.ValidElements (ESValidElements)>
+
+<!ELEMENT ESParameterDynamicEnum EMPTY>
+<!ATTLIST ESParameterDynamicEnum
+    IndexValue CDATA "0"
+    Comment CDATA ""
+    ReadOnly ( False | True ) "False"
+    Consistent ( False | True ) "True"
+    Calibratable  ( False | True ) "False"
+    Active ( False | True ) "True"
+>
 
 <!ELEMENT ESParameterFloat EMPTY>
 <!ATTLIST ESParameterFloat

@@ -3,16 +3,6 @@
 #include "Ellipse_irtmacros.h"
 /* PATCH END */
 
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "Ellipse_irtmacros.h"
-/* PATCH END */
-
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "Ellipse_irtmacros.h"
-/* PATCH END */
-
 /*
  * Ellipse.h
  *
@@ -22,9 +12,9 @@
  *
  * Code generation for model "Ellipse".
  *
- * Model version              : 1.13
+ * Model version              : 1.14
  * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Sat Jun 10 10:43:30 2023
+ * C source code generated on : Fri Nov 10 02:56:45 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -855,30 +845,27 @@
 
 /* External inputs (root inport signals with auto storage) */
 typedef struct {
-  real_T ROLL;                         /* '<Root>/ROLL' */
-  real_T PITCH;                        /* '<Root>/PITCH' */
-  real_T YAW;                          /* '<Root>/YAW' */
-  real_T LATITUDE_EKF;                 /* '<Root>/LATITUDE_EKF' */
-  real_T LONGITUDE_EKF;                /* '<Root>/LONGITUDE_EKF' */
+  real_T el_ROLL;                      /* '<Root>/el_ROLL' */
+  real_T el_PITCH;                     /* '<Root>/el_PITCH' */
+  real_T el_YAW;                       /* '<Root>/el_YAW' */
+  real_T el_LATITUDE_EKF;              /* '<Root>/el_LATITUDE_EKF' */
+  real_T el_LONGITUDE_EKF;             /* '<Root>/el_LONGITUDE_EKF' */
   real_T el_Vel_X;                     /* '<Root>/el_Vel_X' */
   real_T el_Vel_Y;                     /* '<Root>/el_Vel_Y' */
   real_T el_Vel_Z;                     /* '<Root>/el_Vel_Z' */
-  real_T ACCEL_X_IMU;                  /* '<Root>/ACCEL_X_IMU' */
-  real_T ACCEL_Y_IMU;                  /* '<Root>/ACCEL_Y_IMU' */
-  real_T ACCEL_Z_IMU;                  /* '<Root>/ACCEL_Z_IMU' */
-  real_T GYRO_X;                       /* '<Root>/GYRO_X' */
-  real_T GYRO_Y;                       /* '<Root>/GYRO_Y' */
-  real_T GYRO_Z;                       /* '<Root>/GYRO_Z' */
-  real_T ACCEL_X_MAG;                  /* '<Root>/ACCEL_X_MAG' */
-  real_T ACCEL_Y_MAG;                  /* '<Root>/ACCEL_Y_MAG' */
-  real_T ACCEL_Z_MAG;                  /* '<Root>/ACCEL_Z_MAG' */
-  real_T ANGLE_TRACK;                  /* '<Root>/ANGLE_TRACK' */
-  real_T ANGLE_SLIP;                   /* '<Root>/ANGLE_SLIP' */
-  real_T CURVATURE_RADIUS;             /* '<Root>/CURVATURE_RADIUS' */
-  real_T AUTO_STATUS;                  /* '<Root>/AUTO_STATUS' */
-  real_T TIME_STAMP;                   /* '<Root>/TIME_STAMP' */
-  real_T GENERAL;                      /* '<Root>/GENERAL' */
-  real_T CLOCK;                        /* '<Root>/CLOCK' */
+  real_T el_ACCEL_X;                   /* '<Root>/el_ACCEL_X' */
+  real_T el_ACCEL_Y;                   /* '<Root>/el_ACCEL_Y' */
+  real_T el_ACCEL_Z;                   /* '<Root>/el_ACCEL_Z' */
+  real_T el_GYRO_X;                    /* '<Root>/el_GYRO_X' */
+  real_T el_GYRO_Y;                    /* '<Root>/el_GYRO_Y' */
+  real_T el_GYRO_Z;                    /* '<Root>/el_GYRO_Z' */
+  real_T el_AngleTrack;                /* '<Root>/el_AngleTrack' */
+  real_T el_SlipAngle;                 /* '<Root>/el_SlipAngle' */
+  real_T el_CurvatureRadius;           /* '<Root>/el_CurvatureRadius' */
+  real_T el_AUTO_STATUS;               /* '<Root>/el_AUTO_STATUS' */
+  real_T el_TIME_STAMP;                /* '<Root>/el_TIME_STAMP' */
+  real_T el_GENERAL;                   /* '<Root>/el_GENERAL' */
+  real_T el_CLOCK;                     /* '<Root>/el_CLOCK' */
 } ExtU_Ellipse_T;
 
 /* External outputs (root outports fed by signals with auto storage) */
@@ -897,9 +884,6 @@ typedef struct {
   real_T Gyro_X_Tx;                    /* '<Root>/Gyro_X_Tx' */
   real_T Gyro_Y_Tx;                    /* '<Root>/Gyro_Y_Tx' */
   real_T Gyro_Z_Tx;                    /* '<Root>/Gyro_Z_Tx' */
-  real_T Accel_X_Mag_Tx;               /* '<Root>/Accel_X_Mag_Tx' */
-  real_T Accel_Y_Mag_Tx;               /* '<Root>/Accel_Y_Mag_Tx' */
-  real_T Accel_Z_Mag_Tx;               /* '<Root>/Accel_Z_Mag_Tx' */
   real_T TrackAngle;                   /* '<Root>/TrackAngle' */
   real_T SlipAngle;                    /* '<Root>/SlipAngle' */
   real_T CurvRadius;                   /* '<Root>/CurvRadius' */

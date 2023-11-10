@@ -7,9 +7,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 1.57
+ * Model version              : 1.59
  * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Wed Mar 29 12:56:28 2023
+ * C source code generated on : Fri Nov 10 02:55:29 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -102,10 +102,10 @@ static void Car_State_output(void)
   real_T rtb_Merge_p;
   real_T rtb_Merge_a;
   boolean_T rtb_LogicalOperator1;
-  real_T rtb_Merge_b;
+  real_T rtb_Saturation;
   int32_T rtb_CarState;
   int32_T rtb_InvertersAction;
-  real_T rtb_Merge_c;
+  real_T rtb_Merge_m;
   boolean_T guard1 = false;
 
   /* If: '<S2>/If' incorporates:
@@ -240,14 +240,14 @@ static void Car_State_output(void)
     /* Outputs for IfAction SubSystem: '<S3>/TRUE' incorporates:
      *  ActionPort: '<S17>/Action Port'
      */
-    Car_State_TRUE(&rtb_Merge_b, &Car_State_P.TRUE_p);
+    Car_State_TRUE(&rtb_Saturation, &Car_State_P.TRUE_p);
 
     /* End of Outputs for SubSystem: '<S3>/TRUE' */
   } else {
     /* Outputs for IfAction SubSystem: '<S3>/FALSE' incorporates:
      *  ActionPort: '<S16>/Action Port'
      */
-    Car_State_FALSE(&rtb_Merge_b, &Car_State_P.FALSE_n);
+    Car_State_FALSE(&rtb_Saturation, &Car_State_P.FALSE_n);
 
     /* End of Outputs for SubSystem: '<S3>/FALSE' */
   }
@@ -259,19 +259,19 @@ static void Car_State_output(void)
    *  Inport: '<Root>/Accumulator_Voltage'
    *  Inport: '<Root>/InvertersMinDCBus'
    */
-  if ((rtb_Merge_b == 1.0) && (Car_State_U.InvertersMinDCBus >
+  if ((rtb_Saturation == 1.0) && (Car_State_U.InvertersMinDCBus >
        Car_State_P.Gain_Gain * Car_State_U.Accumulator_Voltage)) {
     /* Outputs for IfAction SubSystem: '<S10>/TRUE' incorporates:
      *  ActionPort: '<S30>/Action Port'
      */
-    Car_State_TRUE(&rtb_Merge_b, &Car_State_P.TRUE_f);
+    Car_State_TRUE(&rtb_Saturation, &Car_State_P.TRUE_f);
 
     /* End of Outputs for SubSystem: '<S10>/TRUE' */
   } else {
     /* Outputs for IfAction SubSystem: '<S10>/FALSE' incorporates:
      *  ActionPort: '<S29>/Action Port'
      */
-    Car_State_FALSE(&rtb_Merge_b, &Car_State_P.FALSE_m);
+    Car_State_FALSE(&rtb_Saturation, &Car_State_P.FALSE_m);
 
     /* End of Outputs for SubSystem: '<S10>/FALSE' */
   }
@@ -285,14 +285,14 @@ static void Car_State_output(void)
     /* Outputs for IfAction SubSystem: '<S1>/TRUE' incorporates:
      *  ActionPort: '<S13>/Action Port'
      */
-    Car_State_TRUE(&rtb_Merge_c, &Car_State_P.TRUE_i);
+    Car_State_TRUE(&rtb_Merge_m, &Car_State_P.TRUE_i);
 
     /* End of Outputs for SubSystem: '<S1>/TRUE' */
   } else {
     /* Outputs for IfAction SubSystem: '<S1>/FALSE' incorporates:
      *  ActionPort: '<S12>/Action Port'
      */
-    Car_State_FALSE(&rtb_Merge_c, &Car_State_P.FALSE_h);
+    Car_State_FALSE(&rtb_Merge_m, &Car_State_P.FALSE_h);
 
     /* End of Outputs for SubSystem: '<S1>/FALSE' */
   }
@@ -446,8 +446,8 @@ static void Car_State_output(void)
       /* Outport: '<Root>/TorqueEnable' */
       Car_State_Y.TorqueEnable = 0.0;
       rtb_InvertersAction = 20;
-      if (((rtb_Merge_b == 1.0) & (Car_State_DW.temporalCounter_i1 >= 100U)) !=
-          0) {
+      if (((rtb_Saturation == 1.0) & (Car_State_DW.temporalCounter_i1 >= 100U))
+          != 0) {
         Car_State_DW.is_c1_Car_State = Car_State_IN_PrechargeDONE;
         Car_State_DW.temporalCounter_i1 = 0U;
         rtb_CarState = 9;
@@ -513,7 +513,7 @@ static void Car_State_output(void)
      default:
       rtb_CarState = 21;
       rtb_InvertersAction = 20;
-      if (((rtb_Merge_c == 1.0) & (Car_State_DW.temporalCounter_i1 >= 40U)) != 0)
+      if (((rtb_Merge_m == 1.0) & (Car_State_DW.temporalCounter_i1 >= 40U)) != 0)
       {
         Car_State_DW.is_c1_Car_State = Car_State_IN_Init;
         Car_State_DW.temporalCounter_i1 = 0U;
@@ -615,7 +615,7 @@ static void Car_State_output(void)
   Car_State_Y.Car_OK = rtb_LogicalOperator1;
 
   /* Outport: '<Root>/PrechargeAssert' */
-  Car_State_Y.PrechargeAssert = rtb_Merge_b;
+  Car_State_Y.PrechargeAssert = rtb_Saturation;
 
   /* Outport: '<Root>/ShutdownClosed' */
   Car_State_Y.ShutdownClosed = rtb_Merge_a;

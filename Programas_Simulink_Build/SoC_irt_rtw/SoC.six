@@ -2,29 +2,29 @@
 <!DOCTYPE module [
     <!ENTITY szlig "&#223;">
     <!ENTITY copy "&#169;">
-    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/common/baseTypes-mlsl.six'>
+    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/baseTypes-mlsl.six'>
     ]>
-<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/common/showSCOOP-IX.xsl"?>
+<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/showSCOOP-IX.xsl"?>
 <!--
 <h1>SCOOP-IX</h1>
 <p>
     <strong>Copyright &copy; 2014 ETAS GmbH</strong>, Borsigstra&szlig;e 14, D-70469 Stuttgart. <em>All rights reserved.</em>
 </p>
 -->
-<module xmlns="http://www.etas.com/scoop-ix/1.4" xmlns:ix="http://www.etas.com/scoop-ix/1.4" xmlns:mlsl="http://www.etas.com/scoop-ix/1.4/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.4
-        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
+<module xmlns="http://www.etas.com/scoop-ix/1.5" xmlns:ix="http://www.etas.com/scoop-ix/1.5" xmlns:mlsl="http://www.etas.com/scoop-ix/1.5/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.5
+        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
 	<directoryLocations scheme="MATLAB 9.3">
-		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO4.7\MATLAB\"/>
+		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\"/>
 		<directory identifier="toolDir" path=".\"/>
-		<directory identifier="modelDir" path="C:\Users\dwegg\Desktop\ETAS-main\ETAS\Programas_Simulink\"/>
-		<directory identifier="codeDir" path="c:\users\dwegg\desktop\etas-main\etas\programas_simulink_build\soc_irt_rtw\"/>
+		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink\"/>
+		<directory identifier="codeDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\SoC_irt_rtw\"/>
 	</directoryLocations>
 	<moduleInfo identifier="SoC">
 		<name>SoC</name>
-		<modelLink href="mlsl://&quot;{{modelDir}}SoC.slx&quot;"/>
-		<version major="1" minor="7"/>
+		<modelLink href="mlsl:///&quot;{{modelDir}}SoC.slx&quot;"/>
+		<version major="1" minor="8"/>
 		<dateTime kind="created" year="2022" month="10" day="8" hour="20" minute="38" second="24"/>
-		<dateTime kind="lastModified" year="2023" month="6" day="10" hour="12" minute="55" second="6"/>
+		<dateTime kind="lastModified" year="2023" month="6" day="10" hour="13" minute="3" second="19"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -40,7 +40,6 @@
 				<version major="9" minor="0" year="2017" month="7" day="24" info="R2017b"/>
 			</tool>
 			<tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
-				<version major="9" minor="0" year="2017" month="7" day="24" info="R2017b"/>
 			</tool>
 			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
 				<version major="8" minor="13" year="2017" month="7" day="24" info="R2017b"/>
@@ -58,7 +57,6 @@
 				<version major="3" minor="4" year="2017" month="7" day="24" info="R2017b"/>
 			</tool>
 			<tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
-				<version major="4" minor="7" year="2018" month="1" day="1"/>
 				<configuration>
 					<option identifier="SCOOPIXFileName"><![CDATA[SoC.six]]></option>
 					<option identifier="ExternalMode">0</option>
@@ -71,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2023" month="6" day="10" hour="12" minute="55" second="15"/>
+		<dateTime kind="created" year="2023" month="11" day="10" hour="2" minute="58" second="46"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -127,7 +125,6 @@
 					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\src\]]></option>
 					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\libsrc\]]></option>
 					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\_sharedutils\]]></option>
-					<!-- S-Function specific includes directories -->
 				</configuration>
 			</tool>
 		</target>
@@ -138,6 +135,8 @@
 		<!-- Model specific source files -->
 		<file name="SoC_types.h" kind="header"/>
 		<file name="SoC.h" kind="header"/>
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\look1_binlxpw.c -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\look1_binlxpw.h -->
 		<file name="SoC.c" kind="body"/>
 		<file name="SoC_private.h" kind="header"/>
 		<file name="rtmodel.h" kind="header"/>
@@ -153,8 +152,10 @@
 		<file name="rtwSharedLib.lib" kind="symbolicLibrary"/>
 		<!-- Additional files -->
 	</fileContainer>
+	<fileContainer constitution="referencedModels">
+	</fileContainer>
 	<interface>
-		<modelLinkBase href="mlsl://{{modelDir}}SoC.slx?"/>
+		<modelLinkBase href="mlsl:///{{modelDir}}SoC.slx?"/>
 		<pathBase path="{{codeDir}}"/>
 		<fileOrigin name="SoC.c"/>
 		<fileOrigin name="SoC_data.c"/>
@@ -695,7 +696,8 @@
 					<pathNode name="Table" kind="mlsl:parameter" type="values"/>
 				</modelLocation>
 				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous"><width value="26"/>
+				<modelType type="continuous">
+					<width value="26"/><!-- rows (y-axis) -->
 					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 				<annotation>
@@ -705,6 +707,8 @@
 				<conversionRef name="SoC_CM_double"/>
 			</implementation>
 			<usage calibration="true" layoutFamily="mlsl:standardLayout">
+				<characteristic kind="group">
+				</characteristic>
 				<address kind="pseudo">
 					<BLOB kind="DP_BLOB" device="E_TARGET"/>
 				</address>
@@ -758,7 +762,8 @@
 					<pathNode name="BreakpointsForDimension1" kind="mlsl:parameter" type="axis"/>
 				</modelLocation>
 				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous"><width value="26"/>
+				<modelType type="continuous">
+					<width value="26"/><!-- rows (y-axis) -->
 					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 				<annotation>
@@ -821,7 +826,8 @@
 					<pathNode name="Table" kind="mlsl:parameter" type="values"/>
 				</modelLocation>
 				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous"><width value="26"/>
+				<modelType type="continuous">
+					<width value="26"/><!-- rows (y-axis) -->
 					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 				<annotation>
@@ -831,6 +837,8 @@
 				<conversionRef name="SoC_CM_double"/>
 			</implementation>
 			<usage calibration="true" layoutFamily="mlsl:standardLayout">
+				<characteristic kind="group">
+				</characteristic>
 				<address kind="pseudo">
 					<BLOB kind="DP_BLOB" device="E_TARGET"/>
 				</address>
@@ -884,7 +892,8 @@
 					<pathNode name="BreakpointsForDimension1" kind="mlsl:parameter" type="axis"/>
 				</modelLocation>
 				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous"><width value="26"/>
+				<modelType type="continuous">
+					<width value="26"/><!-- rows (y-axis) -->
 					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 				<annotation>

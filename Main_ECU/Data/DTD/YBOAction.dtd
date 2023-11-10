@@ -1,4 +1,5 @@
-<?DTDVersion "4.6.0"?>
+<?DTDVersion "4.7.1"?>
+<?CompatibleDTDVersion "4.6.0"?>
 <?CompatibleDTDVersion "4.5.0"?>
 <?CompatibleDTDVersion "4.4.1"?>
 <?CompatibleDTDVersion "4.4"?>
@@ -60,6 +61,8 @@
 <!NOTATION ofTypeYBOSystemProject SYSTEM "YBOSystemProject">
 <!NOTATION ofTypeYBOSystemProjects SYSTEM "YBOSystemProjects">
 <!NOTATION ofTypeYBOSystems SYSTEM "YBOSystems">
+<!NOTATION ofTypeYBOSharedSoftware SYSTEM "YBOSharedSoftware">
+<!NOTATION ofTypeYBOReferencedModules SYSTEM "YBOReferencedModules">
 <!NOTATION ofTypeYBOTask SYSTEM "YBOTask">
 <!NOTATION ofTypeYBOWorkspace SYSTEM "YBOWorkspace">
 
@@ -100,6 +103,8 @@
 <?SuperClass YBOSoftwareSystems->YBO ?>
 <?SuperClass YBOSystemProjects->YBO ?>
 <?SuperClass YBOSystems->YBOSystemProjects ?>
+<?SuperClass YBOSharedSoftware->YBO ?>
+<?SuperClass YBOReferencedModules->YBO ?>
 <?SuperClass YBOTask->YBO ?>
 
 <?SuperClass YBOConnectable->TreeViewNode ?>
@@ -368,7 +373,7 @@
 
 <!ELEMENT YBOMappedAction.Actions (YBOActionRefList)>
 
-<!-- The attribute HardwareIdentifier is an artefact. The access method was removed with revision 64019. It is only part of the data model to avoid an updater. --> 
+<!-- The attribute HardwareIdentifier is an artefact. The access method was removed with revision 64019. It is only part of the data model to avoid an updater. -->
 <!ELEMENT YBOMappedCPUBoard (YBOMappedCPUBoard.CPUBoards, YBOMappedCPUBoard.OS, YBOMappedCPUBoard.SignalGroups, YBOMappedCPUBoard.HardwareConfigs)>
 <!ATTLIST YBOMappedCPUBoard
     Name ID #REQUIRED
@@ -625,6 +630,29 @@
 
 <!ELEMENT YBOTask.Events (YBOEventRefList)>
 <!ELEMENT YBOTask.MappedActions (YBOMappedActionList)>
+
+
+<!ELEMENT YBOSharedSoftware (YBOSharedSoftware.ReferencedModules)>
+<!ATTLIST YBOSharedSoftware
+    Name ID #REQUIRED
+    VisibleName CDATA ""
+    Visible ( FALSE | TRUE ) "FALSE"
+>
+
+
+<!ELEMENT YBOSharedSoftware.ReferencedModules (YBOReferencedModules)>
+
+<!ELEMENT YBOReferencedModules (YBOReferencedModules.ReferencedModules)>
+<!ATTLIST YBOReferencedModules
+    Name ID #REQUIRED
+    VisibleName CDATA ""
+    Visible ( FALSE | TRUE ) "FALSE"
+>
+
+
+<!ELEMENT YBOReferencedModules.ReferencedModules (YBOModuleRefList)>
+
+
 
 <!ELEMENT YBORefList (YBORefList.EmbeddedLink)*>
 

@@ -1,4 +1,7 @@
-<?DTDVersion "4.7.0"?>
+<?DTDVersion "5.0.0.0"?>
+<?CompatibleDTDVersion "4.7.3.1"?>
+<?CompatibleDTDVersion "4.7.2"?>
+<?CompatibleDTDVersion "4.7.0"?>
 
 <!ENTITY % System SYSTEM "_System.DTD">
 %System;
@@ -38,7 +41,10 @@
 <!NOTATION ofTypeES920PoolSignal SYSTEM "ES920PoolSignal">
 
 <?SuperClass ESFlexRayNodeMainBase->ESNodeMain ?>
+
 <?SuperClass ESFlexRayNodeDeviceBase->ESNodeDevice ?>
+<?SuperClass ESFlexRayNodeDeviceBase->ESStandardResourcePoolIRQ ?>
+
 <?SuperClass ES920NodeChannel->ESNodeSubNode ?>
 <?SuperClass ES920NodeChannelA->ES920NodeChannel ?>
 <?SuperClass ES920NodeChannelB->ES920NodeChannel ?>
@@ -433,7 +439,7 @@
 <!ELEMENT ES920NodeSignalGroupEventStaticParameters.dTMonitoring (ESParameterBoolean)>
 <!ELEMENT ES920NodeSignalGroupEventStaticParameters.Task (ESParameterString)>
 
-<!ELEMENT ES920NodeSignalGroupEventStaticSubNodeList EMPTY>
+<!ELEMENT ES920NodeSignalGroupEventStaticSubNodeList (ES920NodeSignalStatus)*>
 
 <!-- node signal group status -->
 
@@ -1295,7 +1301,14 @@
     EnumText30      CDATA "PDUs_SignalGroupIndicators"
     EnumL1Value30     CDATA "29"
     EnumAvailable30 CDATA "1"
-
+    
+    EnumText31      CDATA "EventStatic_CycleCounterValue"
+    EnumL1Value31     CDATA "30"
+    EnumAvailable31 CDATA "1"
+    
+    EnumText32      CDATA "EventStatic_ProtocolOperationControlStatus"
+    EnumL1Value32     CDATA "31"
+    EnumAvailable32 CDATA "1"
 >
 
 <!ELEMENT ES920NodeSignalStatusParameters.Name (ESParameterName)>

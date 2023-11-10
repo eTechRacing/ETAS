@@ -1,4 +1,5 @@
-<?DTDVersion "4.7.0"?>
+<?DTDVersion "4.7.3.1"?>
+<?CompatibleDTDVersion "4.7.0"?>
 <?CompatibleDTDVersion "4.6.2"?>
 <?CompatibleDTDVersion "4.6.0"?>
 <?CompatibleDTDVersion "4.4.0"?>
@@ -117,6 +118,9 @@
 
 <!ELEMENT ES920NodeDeviceParameters (ES920NodeDeviceParameters.Name, 
                                     ES920NodeDeviceParameters.Enabled, 
+                                    ES920NodeDeviceParameters.ModuleType,
+                                    ES920NodeDeviceParameters.ModuleTypeInstance,
+                                    ES920NodeDeviceParameters.Port, 
                                     ES920NodeDeviceParameters.gdStaticSlot, 
                                     ES920NodeDeviceParameters.gNumberOfStaticSlots, 
                                     ES920NodeDeviceParameters.gdMinislot, 
@@ -276,10 +280,14 @@
                                     ES920NodeDeviceParameters.FIBEXVersion, 
                                     ES920NodeDeviceParameters.UsedTripleBuffers, 
                                     ES920NodeDeviceParameters.UsedSignalGroups,
-                                    ES920NodeDeviceParameters.pSecondKeySlotId)>
+                                    ES920NodeDeviceParameters.pSecondKeySlotId,
+                                    ES920NodeDeviceParameters.IRQSource)>
 
 <!ELEMENT ES920NodeDeviceParameters.Name (ESParameterName)>
 <!ELEMENT ES920NodeDeviceParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.ModuleType (ESParameterDynamicEnum)>
+<!ELEMENT ES920NodeDeviceParameters.ModuleTypeInstance (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.Port (ESParameterDynamicEnum)>
 <!ELEMENT ES920NodeDeviceParameters.gdStaticSlot (ESParameterUInt)>
 <!ELEMENT ES920NodeDeviceParameters.gNumberOfStaticSlots (ESParameterUInt)>
 <!ELEMENT ES920NodeDeviceParameters.gdMinislot (ESParameterUInt)>
@@ -533,5 +541,6 @@
 <!ELEMENT ES920NodeDeviceParameters.UsedTripleBuffers (ESParameterUInt)>
 <!ELEMENT ES920NodeDeviceParameters.UsedSignalGroups (ESParameterUInt)>
 <!ELEMENT ES920NodeDeviceParameters.pSecondKeySlotId (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.IRQSource (ESParameterString)>
 
 <!ELEMENT ES920NodeDeviceSubNodeList (ES920NodeChannels | ES920NodeStatus | ES920NodeFramePool | ES920NodePDUPool)*>

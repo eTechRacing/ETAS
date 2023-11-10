@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ellipse".
  *
- * Model version              : 1.13
+ * Model version              : 1.14
  * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Sat Jun 10 10:43:30 2023
+ * C source code generated on : Fri Nov 10 02:56:45 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -35,29 +35,29 @@ RT_MODEL_Ellipse_T *const Ellipse_M = &Ellipse_M_;
 static void Ellipse_output(void)
 {
   /* Outport: '<Root>/Roll_Tx' incorporates:
-   *  Inport: '<Root>/ROLL'
+   *  Inport: '<Root>/el_ROLL'
    */
-  Ellipse_Y.Roll_Tx = Ellipse_U.ROLL;
+  Ellipse_Y.Roll_Tx = Ellipse_U.el_ROLL;
 
   /* Outport: '<Root>/Pitch_Tx' incorporates:
-   *  Inport: '<Root>/PITCH'
+   *  Inport: '<Root>/el_PITCH'
    */
-  Ellipse_Y.Pitch_Tx = Ellipse_U.PITCH;
+  Ellipse_Y.Pitch_Tx = Ellipse_U.el_PITCH;
 
   /* Outport: '<Root>/Yaw_Tx' incorporates:
-   *  Inport: '<Root>/YAW'
+   *  Inport: '<Root>/el_YAW'
    */
-  Ellipse_Y.Yaw_Tx = Ellipse_U.YAW;
+  Ellipse_Y.Yaw_Tx = Ellipse_U.el_YAW;
 
   /* Outport: '<Root>/Lat_EKF' incorporates:
-   *  Inport: '<Root>/LATITUDE_EKF'
+   *  Inport: '<Root>/el_LATITUDE_EKF'
    */
-  Ellipse_Y.Lat_EKF = Ellipse_U.LATITUDE_EKF;
+  Ellipse_Y.Lat_EKF = Ellipse_U.el_LATITUDE_EKF;
 
   /* Outport: '<Root>/Long_EKF' incorporates:
-   *  Inport: '<Root>/LONGITUDE_EKF'
+   *  Inport: '<Root>/el_LONGITUDE_EKF'
    */
-  Ellipse_Y.Long_EKF = Ellipse_U.LONGITUDE_EKF;
+  Ellipse_Y.Long_EKF = Ellipse_U.el_LONGITUDE_EKF;
 
   /* Outport: '<Root>/Vel_X' incorporates:
    *  Inport: '<Root>/el_Vel_X'
@@ -75,84 +75,69 @@ static void Ellipse_output(void)
   Ellipse_Y.Vel_Z = Ellipse_U.el_Vel_Z;
 
   /* Outport: '<Root>/Accel_X_IMU_Tx' incorporates:
-   *  Inport: '<Root>/ACCEL_X_IMU'
+   *  Inport: '<Root>/el_ACCEL_X'
    */
-  Ellipse_Y.Accel_X_IMU_Tx = Ellipse_U.ACCEL_X_IMU;
+  Ellipse_Y.Accel_X_IMU_Tx = Ellipse_U.el_ACCEL_X;
 
   /* Outport: '<Root>/Accel_Y_IMU_Tx' incorporates:
-   *  Inport: '<Root>/ACCEL_Y_IMU'
+   *  Inport: '<Root>/el_ACCEL_Y'
    */
-  Ellipse_Y.Accel_Y_IMU_Tx = Ellipse_U.ACCEL_Y_IMU;
+  Ellipse_Y.Accel_Y_IMU_Tx = Ellipse_U.el_ACCEL_Y;
 
   /* Outport: '<Root>/Accel_Z_IMU_Tx' incorporates:
-   *  Inport: '<Root>/ACCEL_Z_IMU'
+   *  Inport: '<Root>/el_ACCEL_Z'
    */
-  Ellipse_Y.Accel_Z_IMU_Tx = Ellipse_U.ACCEL_Z_IMU;
+  Ellipse_Y.Accel_Z_IMU_Tx = Ellipse_U.el_ACCEL_Z;
 
   /* Outport: '<Root>/Gyro_X_Tx' incorporates:
-   *  Inport: '<Root>/GYRO_X'
+   *  Inport: '<Root>/el_GYRO_X'
    */
-  Ellipse_Y.Gyro_X_Tx = Ellipse_U.GYRO_X;
+  Ellipse_Y.Gyro_X_Tx = Ellipse_U.el_GYRO_X;
 
   /* Outport: '<Root>/Gyro_Y_Tx' incorporates:
-   *  Inport: '<Root>/GYRO_Y'
+   *  Inport: '<Root>/el_GYRO_Y'
    */
-  Ellipse_Y.Gyro_Y_Tx = Ellipse_U.GYRO_Y;
+  Ellipse_Y.Gyro_Y_Tx = Ellipse_U.el_GYRO_Y;
 
   /* Outport: '<Root>/Gyro_Z_Tx' incorporates:
-   *  Inport: '<Root>/GYRO_Z'
+   *  Inport: '<Root>/el_GYRO_Z'
    */
-  Ellipse_Y.Gyro_Z_Tx = Ellipse_U.GYRO_Z;
-
-  /* Outport: '<Root>/Accel_X_Mag_Tx' incorporates:
-   *  Inport: '<Root>/ACCEL_X_MAG'
-   */
-  Ellipse_Y.Accel_X_Mag_Tx = Ellipse_U.ACCEL_X_MAG;
-
-  /* Outport: '<Root>/Accel_Y_Mag_Tx' incorporates:
-   *  Inport: '<Root>/ACCEL_Y_MAG'
-   */
-  Ellipse_Y.Accel_Y_Mag_Tx = Ellipse_U.ACCEL_Y_MAG;
-
-  /* Outport: '<Root>/Accel_Z_Mag_Tx' incorporates:
-   *  Inport: '<Root>/ACCEL_Z_MAG'
-   */
-  Ellipse_Y.Accel_Z_Mag_Tx = Ellipse_U.ACCEL_Z_MAG;
+  Ellipse_Y.Gyro_Z_Tx = Ellipse_U.el_GYRO_Z;
 
   /* Outport: '<Root>/TrackAngle' incorporates:
-   *  Inport: '<Root>/ANGLE_TRACK'
+   *  Inport: '<Root>/el_AngleTrack'
    */
-  Ellipse_Y.TrackAngle = Ellipse_U.ANGLE_TRACK;
+  Ellipse_Y.TrackAngle = Ellipse_U.el_AngleTrack;
 
   /* Outport: '<Root>/SlipAngle' incorporates:
-   *  Inport: '<Root>/ANGLE_SLIP'
+   *  Inport: '<Root>/el_SlipAngle'
    */
-  Ellipse_Y.SlipAngle = Ellipse_U.ANGLE_SLIP;
+  Ellipse_Y.SlipAngle = Ellipse_U.el_SlipAngle;
 
   /* Outport: '<Root>/CurvRadius' incorporates:
-   *  Inport: '<Root>/CURVATURE_RADIUS'
+   *  Inport: '<Root>/el_CurvatureRadius'
    */
-  Ellipse_Y.CurvRadius = Ellipse_U.CURVATURE_RADIUS;
+  Ellipse_Y.CurvRadius = Ellipse_U.el_CurvatureRadius;
 
   /* Outport: '<Root>/Status_Auto' incorporates:
-   *  Inport: '<Root>/AUTO_STATUS'
+   *  Inport: '<Root>/el_AUTO_STATUS'
    */
-  Ellipse_Y.Status_Auto = Ellipse_U.AUTO_STATUS;
+  Ellipse_Y.Status_Auto = Ellipse_U.el_AUTO_STATUS;
 
   /* Outport: '<Root>/Time' incorporates:
-   *  Inport: '<Root>/TIME_STAMP'
+   *  Inport: '<Root>/el_TIME_STAMP'
    */
-  Ellipse_Y.Time = Ellipse_U.TIME_STAMP;
+  Ellipse_Y.Time = Ellipse_U.el_TIME_STAMP;
 
   /* Outport: '<Root>/General_Tx' incorporates:
-   *  Inport: '<Root>/GENERAL'
+   *  Inport: '<Root>/el_GENERAL'
    */
-  Ellipse_Y.General_Tx = Ellipse_U.GENERAL;
+  Ellipse_Y.General_Tx = Ellipse_U.el_GENERAL;
 
   /* Outport: '<Root>/Clock_Tx' incorporates:
-   *  Inport: '<Root>/CLOCK'
+   *  Inport: '<Root>/el_CLOCK'
    */
-  Ellipse_Y.Clock_Tx = Ellipse_U.CLOCK;
+  Ellipse_Y.Clock_Tx = Ellipse_U.el_CLOCK;
 }
 
 /* Model update function */
@@ -277,11 +262,11 @@ RT_MODEL_Ellipse_T *Ellipse(void)
 
   /* Initialize Sizes */
   Ellipse_M->Sizes.numContStates = (0);/* Number of continuous states */
-  Ellipse_M->Sizes.numY = (24);        /* Number of model outputs */
-  Ellipse_M->Sizes.numU = (24);        /* Number of model inputs */
+  Ellipse_M->Sizes.numY = (21);        /* Number of model outputs */
+  Ellipse_M->Sizes.numU = (21);        /* Number of model inputs */
   Ellipse_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Ellipse_M->Sizes.numSampTimes = (1); /* Number of sample times */
-  Ellipse_M->Sizes.numBlocks = (24);   /* Number of blocks */
+  Ellipse_M->Sizes.numBlocks = (21);   /* Number of blocks */
   return Ellipse_M;
 }
 

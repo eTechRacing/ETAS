@@ -1,4 +1,5 @@
-<?DTDVersion "4.6.2"?>
+<?DTDVersion "4.7.2"?>
+<?CompatibleDTDVersion "4.6.2"?>
 <?CompatibleDTDVersion "4.6.0"?>
 <?CompatibleDTDVersion "3.2.0"?>
 <?CompatibleDTDVersion "2.0"?>
@@ -220,9 +221,32 @@
                                              ES1000XCPBUdpNodeDeviceParameters.XCPonUDPIPVersion, 
                                              ES1000XCPBUdpNodeDeviceParameters.UDPPortSlave, 
                                              ES1000XCPBUdpNodeDeviceParameters.IPAddressSlave,
+                                             ES1000XCPBUdpNodeDeviceParameters.PacketAlignment, 
                                              ES1000XCPBUdpNodeDeviceParameters.Checksum,
                                              ES1000XCPBUdpNodeDeviceParameters.SeedAndKeyLibrary,
-                                             ES1000XCPBUdpNodeDeviceParameters.TransportLayerName)>
+                                             ES1000XCPBUdpNodeDeviceParameters.TransportLayerName,
+                                             ES1000XCPBUdpNodeDeviceParameters.MaxDTOSTIM,
+                                             ES1000XCPBUdpNodeDeviceParameters.StoreDAQSupported,
+                                             ES1000XCPBUdpNodeDeviceParameters.DTOCTRFieldSupported,
+                                             ES1000XCPBUdpNodeDeviceParameters.MaxDAQTotal,
+                                             ES1000XCPBUdpNodeDeviceParameters.MaxODTTotal,
+                                             ES1000XCPBUdpNodeDeviceParameters.MaxODTDAQTotal,
+                                             ES1000XCPBUdpNodeDeviceParameters.MaxODTSTIMTotal,
+                                             ES1000XCPBUdpNodeDeviceParameters.MaxODTEntriesDAQTotal,
+                                             ES1000XCPBUdpNodeDeviceParameters.MaxODTEntriesSTIMTotal,
+                                             ES1000XCPBUdpNodeDeviceParameters.MaxODTEntriesTotal,
+                                             ES1000XCPBUdpNodeDeviceParameters.DAQMemoryLimit,
+                                             ES1000XCPBUdpNodeDeviceParameters.DAQSize,
+                                             ES1000XCPBUdpNodeDeviceParameters.ODTSize,
+                                             ES1000XCPBUdpNodeDeviceParameters.ODTEntrySize,
+                                             ES1000XCPBUdpNodeDeviceParameters.ODTDAQBufferElementSize,
+                                             ES1000XCPBUdpNodeDeviceParameters.ODTSTIMBufferElementSize,
+                                             ES1000XCPBUdpNodeDeviceParameters.ODTDAQBufferElementReserve,
+                                             ES1000XCPBUdpNodeDeviceParameters.ODTSTIMBufferElementReserve,
+                                             ES1000XCPBUdpNodeDeviceParameters.OptimisationTypeODTStrict,
+                                             ES1000XCPBUdpNodeDeviceParameters.MinSTSTIM,
+                                             ES1000XCPBUdpNodeDeviceParameters.ImportSignalGroupforXCPEventwithoutConsistency,
+                                             ES1000XCPBUdpNodeDeviceParameters.RespectDataConsistencyDeclarationfromECUforSignalLists)>
 
 <!ELEMENT ES1000XCPBUdpNodeDeviceParameters.Name (ESParameterName)>
 <!ELEMENT ES1000XCPBUdpNodeDeviceParameters.Enabled (ESParameterBoolean)>
@@ -306,6 +330,26 @@
     EnumText1      CDATA "1.0"
     EnumL1Value1     CDATA "256"
     EnumAvailable1 CDATA "1"
+    
+    EnumText2      CDATA "1.1"
+    EnumL1Value2     CDATA "257"
+    EnumAvailable2 CDATA "1"
+    
+    EnumText3      CDATA "1.2"
+    EnumL1Value3     CDATA "258"
+    EnumAvailable3 CDATA "1"
+    
+    EnumText4      CDATA "1.3"
+    EnumL1Value4    CDATA "259"
+    EnumAvailable4 CDATA "1"
+    
+    EnumText5      CDATA "1.4"
+    EnumL1Value5     CDATA "260"
+    EnumAvailable5 CDATA "1"
+    
+    EnumText6      CDATA "1.5"
+    EnumL1Value6     CDATA "261"
+    EnumAvailable6 CDATA "1"
 >
 
 <!ELEMENT ES1000XCPBUdpNodeDeviceParameters.TimeoutT1 (ESParameterUInt)>
@@ -530,6 +574,18 @@
     EnumText10      CDATA "1 s"
     EnumL1Value10     CDATA "9"
     EnumAvailable10 CDATA "1"
+    
+    EnumText11      CDATA "1 ps"
+    EnumL1Value11     CDATA "10"
+    EnumAvailable11 CDATA "1"
+    
+    EnumText12      CDATA "10 ps"
+    EnumL1Value12     CDATA "11"
+    EnumAvailable12 CDATA "1"
+    
+    EnumText13      CDATA "100 ps"
+    EnumL1Value13     CDATA "12"
+    EnumAvailable13 CDATA "1"
  >
 
 
@@ -604,13 +660,71 @@
     EnumText1      CDATA "1.0"
     EnumL1Value1     CDATA "256"
     EnumAvailable1 CDATA "1"
+    
+    EnumText2      CDATA "1.1"
+    EnumL1Value2     CDATA "257"
+    EnumAvailable2 CDATA "1"
+    
+    EnumText3      CDATA "1.2"
+    EnumL1Value3     CDATA "258"
+    EnumAvailable3 CDATA "1"
+    
+    EnumText4      CDATA "1.3"
+    EnumL1Value4     CDATA "259"
+    EnumAvailable4 CDATA "1"
+    
+    EnumText5      CDATA "1.4"
+    EnumL1Value5     CDATA "260"
+    EnumAvailable5 CDATA "1"
+    
+    EnumText6      CDATA "1.5"
+    EnumL1Value6     CDATA "261"
+    EnumAvailable6 CDATA "1"
 >
 
 <!ELEMENT ES1000XCPBUdpNodeDeviceParameters.UDPPortSlave (ESParameterUInt)>
 <!ELEMENT ES1000XCPBUdpNodeDeviceParameters.IPAddressSlave (ESParameterIPAddress)>
+
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.PacketAlignment (ESParameterEnum)>
+<!ATTLIST ES1000XCPBUdpNodeDeviceParameters.PacketAlignment
+    EnumText1      CDATA "PACKET_ALIGNMENT_8"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+    
+    EnumText2      CDATA "PACKET_ALIGNMENT_16"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+    
+    EnumText3      CDATA "PACKET_ALIGNMENT_32"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
 <!ELEMENT ES1000XCPBUdpNodeDeviceParameters.Checksum (ESParameterString)>
 <!ELEMENT ES1000XCPBUdpNodeDeviceParameters.SeedAndKeyLibrary (ESParameterString)>
 <!ELEMENT ES1000XCPBUdpNodeDeviceParameters.TransportLayerName (ESParameterString)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.MaxDTOSTIM (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.StoreDAQSupported (ESParameterBoolean)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.DTOCTRFieldSupported (ESParameterBoolean)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.MaxDAQTotal (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.MaxODTTotal (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.MaxODTDAQTotal (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.MaxODTSTIMTotal (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.MaxODTEntriesDAQTotal (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.MaxODTEntriesSTIMTotal (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.MaxODTEntriesTotal (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.DAQMemoryLimit (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.DAQSize (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.ODTSize (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.ODTEntrySize (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.ODTDAQBufferElementSize (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.ODTSTIMBufferElementSize (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.ODTDAQBufferElementReserve (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.ODTSTIMBufferElementReserve (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.OptimisationTypeODTStrict (ESParameterBoolean)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.MinSTSTIM (ESParameterUInt)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.ImportSignalGroupforXCPEventwithoutConsistency (ESParameterBoolean)>
+<!ELEMENT ES1000XCPBUdpNodeDeviceParameters.RespectDataConsistencyDeclarationfromECUforSignalLists (ESParameterBoolean)>
 
 <!ELEMENT ES1000XCPBUdpNodeDeviceSubNodeList (ESXCPBNodeStatus| ESXCPBNodeRasters)*>
 

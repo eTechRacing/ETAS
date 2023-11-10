@@ -2,26 +2,26 @@
 <!DOCTYPE module [
     <!ENTITY szlig "&#223;">
     <!ENTITY copy "&#169;">
-    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/common/baseTypes-mlsl.six'>
+    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/baseTypes-mlsl.six'>
     ]>
-<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/common/showSCOOP-IX.xsl"?>
+<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/showSCOOP-IX.xsl"?>
 <!--
 <h1>SCOOP-IX</h1>
 <p>
     <strong>Copyright &copy; 2014 ETAS GmbH</strong>, Borsigstra&szlig;e 14, D-70469 Stuttgart. <em>All rights reserved.</em>
 </p>
 -->
-<module xmlns="http://www.etas.com/scoop-ix/1.4" xmlns:ix="http://www.etas.com/scoop-ix/1.4" xmlns:mlsl="http://www.etas.com/scoop-ix/1.4/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.4
-        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
+<module xmlns="http://www.etas.com/scoop-ix/1.5" xmlns:ix="http://www.etas.com/scoop-ix/1.5" xmlns:mlsl="http://www.etas.com/scoop-ix/1.5/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.5
+        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
 	<directoryLocations scheme="MATLAB 9.3">
-		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO4.7\MATLAB\"/>
+		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\"/>
 		<directory identifier="toolDir" path=".\"/>
-		<directory identifier="modelDir" path="C:\Users\dwegg\Desktop\ETAS-main\ETAS\Programas_Simulink\"/>
-		<directory identifier="codeDir" path="c:\users\dwegg\desktop\etas-main\etas\programas_simulink_build\torque_control_irt_rtw\"/>
+		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink\"/>
+		<directory identifier="codeDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\Torque_Control_irt_rtw\"/>
 	</directoryLocations>
 	<moduleInfo identifier="Torque_Control">
 		<name>Torque_Control</name>
-		<modelLink href="mlsl://&quot;{{modelDir}}Torque_Control.slx&quot;"/>
+		<modelLink href="mlsl:///&quot;{{modelDir}}Torque_Control.slx&quot;"/>
 		<version major="1" minor="182"/>
 		<dateTime kind="created" year="2021" month="2" day="22" hour="10" minute="32" second="7"/>
 		<dateTime kind="lastModified" year="2023" month="6" day="10" hour="13" minute="32" second="56"/>
@@ -40,7 +40,6 @@
 				<version major="9" minor="0" year="2017" month="7" day="24" info="R2017b"/>
 			</tool>
 			<tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
-				<version major="9" minor="0" year="2017" month="7" day="24" info="R2017b"/>
 			</tool>
 			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
 				<version major="8" minor="13" year="2017" month="7" day="24" info="R2017b"/>
@@ -58,7 +57,6 @@
 				<version major="3" minor="4" year="2017" month="7" day="24" info="R2017b"/>
 			</tool>
 			<tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
-				<version major="4" minor="7" year="2018" month="1" day="1"/>
 				<configuration>
 					<option identifier="SCOOPIXFileName"><![CDATA[Torque_Control.six]]></option>
 					<option identifier="ExternalMode">0</option>
@@ -71,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2023" month="6" day="10" hour="14" minute="35" second="54"/>
+		<dateTime kind="created" year="2023" month="11" day="10" hour="3" minute="1" second="16"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -127,7 +125,6 @@
 					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\src\]]></option>
 					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\libsrc\]]></option>
 					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\_sharedutils\]]></option>
-					<!-- S-Function specific includes directories -->
 				</configuration>
 			</tool>
 		</target>
@@ -140,6 +137,24 @@
 		<file name="Torque_Control.c" kind="body"/>
 		<file name="Torque_Control_private.h" kind="header"/>
 		<file name="Torque_Control.h" kind="header"/>
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\xnrm2_KgImAhi2.c -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\xnrm2_KgImAhi2.h -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\xnrm2_eCIH3nOp.c -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\xnrm2_eCIH3nOp.h -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\rt_hypotd_snf.c -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\rt_hypotd_snf.h -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\xgeqp3_BPnHOoPT.c -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\xgeqp3_BPnHOoPT.h -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\mldivide_u4svSR16.c -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\mldivide_u4svSR16.h -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\xnrm2_uObmRgAs.c -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\xnrm2_uObmRgAs.h -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\xnrm2_5MGhfn4R.c -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\xnrm2_5MGhfn4R.h -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\xgeqp3_wlXEYd7k.c -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\xgeqp3_wlXEYd7k.h -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\polyfit_vYlRX3XP.c -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\polyfit_vYlRX3XP.h -->
 		<file name="rtmodel.h" kind="header"/>
 		<file name="Torque_Control_data.c" kind="body"/>
 		<file name="Torque_Control_main.c" kind="body"/>
@@ -153,8 +168,10 @@
 		<file name="rtwSharedLib.lib" kind="symbolicLibrary"/>
 		<!-- Additional files -->
 	</fileContainer>
+	<fileContainer constitution="referencedModels">
+	</fileContainer>
 	<interface>
-		<modelLinkBase href="mlsl://{{modelDir}}Torque_Control.slx?"/>
+		<modelLinkBase href="mlsl:///{{modelDir}}Torque_Control.slx?"/>
 		<pathBase path="{{codeDir}}"/>
 		<fileOrigin name="Torque_Control.c"/>
 		<fileOrigin name="rt_nonfinite.c"/>
@@ -217,6 +234,13 @@
 					<documentation>Type of parameters data structure for system '&lt;S43&gt;/If Action Subsystem2'.</documentation>
 				</annotation>
 			</typeDef>
+			<typeDef name="">
+				<struct/><typeRef name="_"/>
+				<fileOrigin name="Torque_Control_types.h"/>
+				<annotation>
+					<documentation>Type of parameters data structure for system '&lt;S122&gt;/MATLAB Function'.</documentation>
+				</annotation>
+			</typeDef>
 			<structDef name="_P_BrakingwithRegenerative_Tor_T">
 				<fileOrigin name="Torque_Control.h"/>
 				<structMember identifier="Gain_Gain">
@@ -241,6 +265,27 @@
 					<documentation>Type of parameters data structure for system '&lt;S110&gt;/Braking with Regenerative'.</documentation>
 				</annotation>
 			</typeDef>
+			<typeDef name="">
+				<struct/><typeRef name="_"/>
+				<fileOrigin name="Torque_Control_types.h"/>
+				<annotation>
+					<documentation>Type of parameters data structure for system '&lt;S121&gt;/If Action 1'.</documentation>
+				</annotation>
+			</typeDef>
+			<typeDef name="">
+				<struct/><typeRef name="_"/>
+				<fileOrigin name="Torque_Control_types.h"/>
+				<annotation>
+					<documentation>Type of parameters data structure for system '&lt;S121&gt;/If Action 2'.</documentation>
+				</annotation>
+			</typeDef>
+			<typeDef name="">
+				<struct/><typeRef name="_"/>
+				<fileOrigin name="Torque_Control_types.h"/>
+				<annotation>
+					<documentation>Type of parameters data structure for system '&lt;S111&gt;/Accelerator behaviour '.</documentation>
+				</annotation>
+			</typeDef>
 			<structDef name="_P_Mech_Braking_Torque_Control_T">
 				<fileOrigin name="Torque_Control.h"/>
 				<structMember identifier="Constant_Value">
@@ -263,6 +308,62 @@
 				<fileOrigin name="Torque_Control_types.h"/>
 				<annotation>
 					<documentation>Type of parameters data structure for system '&lt;S111&gt;/Mech_Braking'.</documentation>
+				</annotation>
+			</typeDef>
+			<typeDef name="">
+				<struct/><typeRef name="_"/>
+				<fileOrigin name="Torque_Control_types.h"/>
+				<annotation>
+					<documentation>Type of parameters data structure for system '&lt;S78&gt;/MATLAB Function1'.</documentation>
+				</annotation>
+			</typeDef>
+			<typeDef name="">
+				<struct/><typeRef name="_"/>
+				<fileOrigin name="Torque_Control_types.h"/>
+				<annotation>
+					<documentation>Type of parameters data structure for system '&lt;S118&gt;/MATLAB Function'.</documentation>
+				</annotation>
+			</typeDef>
+			<typeDef name="">
+				<struct/><typeRef name="_"/>
+				<fileOrigin name="Torque_Control_types.h"/>
+				<annotation>
+					<documentation>Type of parameters data structure for system '&lt;S161&gt;/MATLAB Function'.</documentation>
+				</annotation>
+			</typeDef>
+			<typeDef name="">
+				<struct/><typeRef name="_"/>
+				<fileOrigin name="Torque_Control_types.h"/>
+				<annotation>
+					<documentation>Type of parameters data structure for system '&lt;S158&gt;/MATLAB Function'.</documentation>
+				</annotation>
+			</typeDef>
+			<typeDef name="">
+				<struct/><typeRef name="_"/>
+				<fileOrigin name="Torque_Control_types.h"/>
+				<annotation>
+					<documentation>Type of parameters data structure for system '&lt;S157&gt;/MATLAB Function1'.</documentation>
+				</annotation>
+			</typeDef>
+			<typeDef name="">
+				<struct/><typeRef name="_"/>
+				<fileOrigin name="Torque_Control_types.h"/>
+				<annotation>
+					<documentation>Type of parameters data structure for system '&lt;S115&gt;/MATLAB Function'.</documentation>
+				</annotation>
+			</typeDef>
+			<typeDef name="">
+				<struct/><typeRef name="_"/>
+				<fileOrigin name="Torque_Control_types.h"/>
+				<annotation>
+					<documentation>Type of parameters data structure for system '&lt;S120&gt;/MATLAB Function1'.</documentation>
+				</annotation>
+			</typeDef>
+			<typeDef name="">
+				<struct/><typeRef name="_"/>
+				<fileOrigin name="Torque_Control_types.h"/>
+				<annotation>
+					<documentation>Type of parameters data structure for system '&lt;S67&gt;/Automatic Failure Mode'.</documentation>
 				</annotation>
 			</typeDef>
 			<structDef name="_P_Torque_Control_T">
@@ -4940,7 +5041,8 @@
 					<pathNode name="Table" kind="mlsl:parameter" type="values"/>
 				</modelLocation>
 				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous"><width value="8"/>
+				<modelType type="continuous">
+					<width value="8"/><!-- columns (x-axis) -->
 					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 				<annotation>
@@ -4950,6 +5052,8 @@
 				<conversionRef name="Torque_Control_CM_double"/>
 			</implementation>
 			<usage calibration="true" layoutFamily="mlsl:standardLayout">
+				<characteristic kind="group">
+				</characteristic>
 				<address kind="pseudo">
 					<BLOB kind="DP_BLOB" device="E_TARGET"/>
 				</address>
@@ -4986,7 +5090,8 @@
 					<pathNode name="BreakpointsForDimension1" kind="mlsl:parameter" type="axis"/>
 				</modelLocation>
 				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous"><width value="8"/>
+				<modelType type="continuous">
+					<width value="8"/><!-- columns (x-axis) -->
 					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 				<annotation>
@@ -5709,7 +5814,8 @@
 					<pathNode name="Table" kind="mlsl:parameter" type="values"/>
 				</modelLocation>
 				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous"><width value="8"/>
+				<modelType type="continuous">
+					<width value="8"/><!-- columns (x-axis) -->
 					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 				<annotation>
@@ -5719,6 +5825,8 @@
 				<conversionRef name="Torque_Control_CM_double"/>
 			</implementation>
 			<usage calibration="true" layoutFamily="mlsl:standardLayout">
+				<characteristic kind="group">
+				</characteristic>
 				<address kind="pseudo">
 					<BLOB kind="DP_BLOB" device="E_TARGET"/>
 				</address>
@@ -5755,7 +5863,8 @@
 					<pathNode name="BreakpointsForDimension1" kind="mlsl:parameter" type="axis"/>
 				</modelLocation>
 				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous"><width value="8"/>
+				<modelType type="continuous">
+					<width value="8"/><!-- columns (x-axis) -->
 					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 				<annotation>
@@ -5798,7 +5907,8 @@
 					<pathNode name="Table" kind="mlsl:parameter" type="values"/>
 				</modelLocation>
 				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous"><width value="5"/>
+				<modelType type="continuous">
+					<width value="5"/><!-- columns (x-axis) -->
 					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 				<annotation>
@@ -5808,6 +5918,8 @@
 				<conversionRef name="Torque_Control_CM_double"/>
 			</implementation>
 			<usage calibration="true" layoutFamily="mlsl:standardLayout">
+				<characteristic kind="group">
+				</characteristic>
 				<address kind="pseudo">
 					<BLOB kind="DP_BLOB" device="E_TARGET"/>
 				</address>
@@ -5841,7 +5953,8 @@
 					<pathNode name="BreakpointsForDimension1" kind="mlsl:parameter" type="axis"/>
 				</modelLocation>
 				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous"><width value="5"/>
+				<modelType type="continuous">
+					<width value="5"/><!-- columns (x-axis) -->
 					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 				<annotation>
@@ -12872,7 +12985,8 @@
 					<pathNode name="Table" kind="mlsl:parameter" type="values"/>
 				</modelLocation>
 				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous"><width value="8"/>
+				<modelType type="continuous">
+					<width value="8"/><!-- columns (x-axis) -->
 					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 				<annotation>
@@ -12882,6 +12996,8 @@
 				<conversionRef name="Torque_Control_CM_double"/>
 			</implementation>
 			<usage calibration="true" layoutFamily="mlsl:standardLayout">
+				<characteristic kind="group">
+				</characteristic>
 				<address kind="pseudo">
 					<BLOB kind="DP_BLOB" device="E_TARGET"/>
 				</address>
@@ -12918,7 +13034,8 @@
 					<pathNode name="BreakpointsForDimension1" kind="mlsl:parameter" type="axis"/>
 				</modelLocation>
 				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous"><width value="8"/>
+				<modelType type="continuous">
+					<width value="8"/><!-- columns (x-axis) -->
 					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 				<annotation>
@@ -13641,7 +13758,8 @@
 					<pathNode name="Table" kind="mlsl:parameter" type="values"/>
 				</modelLocation>
 				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous"><width value="8"/>
+				<modelType type="continuous">
+					<width value="8"/><!-- columns (x-axis) -->
 					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 				<annotation>
@@ -13651,6 +13769,8 @@
 				<conversionRef name="Torque_Control_CM_double"/>
 			</implementation>
 			<usage calibration="true" layoutFamily="mlsl:standardLayout">
+				<characteristic kind="group">
+				</characteristic>
 				<address kind="pseudo">
 					<BLOB kind="DP_BLOB" device="E_TARGET"/>
 				</address>
@@ -13687,7 +13807,8 @@
 					<pathNode name="BreakpointsForDimension1" kind="mlsl:parameter" type="axis"/>
 				</modelLocation>
 				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous"><width value="8"/>
+				<modelType type="continuous">
+					<width value="8"/><!-- columns (x-axis) -->
 					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 				<annotation>
@@ -13730,7 +13851,8 @@
 					<pathNode name="Table" kind="mlsl:parameter" type="values"/>
 				</modelLocation>
 				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous"><width value="5"/>
+				<modelType type="continuous">
+					<width value="5"/><!-- columns (x-axis) -->
 					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 				<annotation>
@@ -13740,6 +13862,8 @@
 				<conversionRef name="Torque_Control_CM_double"/>
 			</implementation>
 			<usage calibration="true" layoutFamily="mlsl:standardLayout">
+				<characteristic kind="group">
+				</characteristic>
 				<address kind="pseudo">
 					<BLOB kind="DP_BLOB" device="E_TARGET"/>
 				</address>
@@ -13773,7 +13897,8 @@
 					<pathNode name="BreakpointsForDimension1" kind="mlsl:parameter" type="axis"/>
 				</modelLocation>
 				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous"><width value="5"/>
+				<modelType type="continuous">
+					<width value="5"/><!-- columns (x-axis) -->
 					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 				<annotation>

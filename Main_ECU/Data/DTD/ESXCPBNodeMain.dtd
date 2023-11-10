@@ -1,4 +1,8 @@
-<?DTDVersion "3.2.0"?>
+<?DTDVersion "5.0.1.1"?>
+<?CompatibleDTDVersion "5.0.1.0"?>
+<?CompatibleDTDVersion "4.7.3"?>
+<?CompatibleDTDVersion "4.7.2"?>
+<?CompatibleDTDVersion "3.2.0"?>
 <?CompatibleDTDVersion "3.0.1"?>
 <?CompatibleDTDVersion "3.0.0"?>
 
@@ -27,6 +31,12 @@
 <!NOTATION ofTypeCharacteristic SYSTEM "XCP_Event">
 <!NOTATION ofTypeDataElement SYSTEM "DataElement">
 
+<?SuperClass ESXCPBNodeMain->ESNodeMain ?>
+
+<?SuperClass ESXCPBNodeDevice->ESNodeDevice ?>
+<?SuperClass ESXCPBNodeDevice->ESStandardResourcePoolIRQ ?>
+<?SuperClass ESXCPBNodeDevice->ESStandardResourcePoolInstance ?>
+
 <?SuperClass ESXCPBNodeCalibrationBasedSignalBase->ESXCPBNodeSignal ?>
 <?SuperClass ESXCPBNodeCalibrationBasedSignal->ESXCPBNodeCalibrationBasedSignalBase ?>
 
@@ -39,8 +49,6 @@
 <?SuperClass ESXCPBNodeEventBasedSignalGroupBase->ESXCPBNodeSignalGroup ?>
 <?SuperClass ESXCPBNodeEventBasedSignalGroup->ESXCPBNodeEventBasedSignalGroupBase ?>
 
-<?SuperClass ESXCPBNodeDevice->ESNodeDevice ?>
-<?SuperClass ESXCPBNodeMain->ESNodeMain ?>
 
 <?SuperClass ESXCPBNodeSignal->ESNodeSignal ?>
 <?SuperClass ESXCPBNodeSignalGroup->ESNodeSignalGroup ?>
@@ -430,7 +438,20 @@
                                                             ESXCPBNodeEventBasedSignalGroupParameters.MaxDAQListDisplay, 
                                                             ESXCPBNodeEventBasedSignalGroupParameters.XCPDAQPriority, 
                                                             ESXCPBNodeEventBasedSignalGroupParameters.PrescalerValue,
-                                                            ESXCPBNodeEventBasedSignalGroupParameters.NumberTransferredSignals, ESXCPBNodeEventBasedSignalGroupParameters.Task)>
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.NumberTransferredSignals, 
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.Task,
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.XCPEventCounterPresent,
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.XCPRelatedEventChannelNumber,
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.XCPRelatedEventChannelNumberFixed,
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.XCPDTOCTRDAQMode,
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.XCPDTOCTRDAQModeFixed,
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.XCPSTIMDTOCTRCopyPresent,
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.XCPDTOCTRSTIMMode,
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.XCPDTOCTRSTIMModeFixed,
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.XCPDataConsistency,
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.XCPODTDAQBufferElementReserve,
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.XCPODTSTIMBufferElementReserve,
+                                                            ESXCPBNodeEventBasedSignalGroupParameters.ConfigureCounter)>
 
 <!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.Name (ESParameterName)>
 <!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.Enabled (ESParameterBoolean)>
@@ -481,6 +502,67 @@
 <!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.XCPDAQPriority (ESParameterUInt)>
 <!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.PrescalerValue (ESParameterUInt)>
 <!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.NumberTransferredSignals (ESParameterUInt)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.XCPEventCounterPresent (ESParameterBoolean)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.XCPRelatedEventChannelNumber (ESParameterUInt)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.XCPRelatedEventChannelNumberFixed (ESParameterBoolean)>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.XCPDTOCTRDAQMode (ESParameterEnum)>
+<!ATTLIST ESXCPBNodeEventBasedSignalGroupParameters.XCPDTOCTRDAQMode  
+    EnumText1      CDATA "Undefined"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+    
+    EnumText2      CDATA "Insert Counter"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Insert STIM Counter Copy"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.XCPDTOCTRDAQModeFixed (ESParameterBoolean)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.XCPSTIMDTOCTRCopyPresent (ESParameterBoolean)>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.XCPDTOCTRSTIMMode (ESParameterEnum)>
+<!ATTLIST ESXCPBNodeEventBasedSignalGroupParameters.XCPDTOCTRSTIMMode 
+    EnumText1      CDATA "Undefined"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Do not Check Counter"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Check Counter"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.XCPDTOCTRSTIMModeFixed (ESParameterBoolean)>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.XCPDataConsistency (ESParameterEnum)>
+<!ATTLIST ESXCPBNodeEventBasedSignalGroupParameters.XCPDataConsistency 
+    EnumText1      CDATA "None"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "ODT"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+    
+    EnumText3      CDATA "DAQ"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+    
+    EnumText4      CDATA "Event"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+>
+
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.XCPODTDAQBufferElementReserve (ESParameterUInt)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.XCPODTSTIMBufferElementReserve (ESParameterUInt)>
+<!ELEMENT ESXCPBNodeEventBasedSignalGroupParameters.ConfigureCounter (ESParameterBoolean)>
 
 <!ELEMENT ESXCPBNodeEventBasedSignalGroupSubNodeList (ESXCPBNodeEventBasedSignal|ESXCPBNodeStatusSignal)*>
 

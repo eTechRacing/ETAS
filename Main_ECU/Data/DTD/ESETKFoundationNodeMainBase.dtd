@@ -1,4 +1,6 @@
-<?DTDVersion "4.7.1"?>
+<?DTDVersion "5.0.4.1"?>
+<?CompatibleDTDVersion "4.7.3"?>
+<?CompatibleDTDVersion "4.7.1"?>
 <?CompatibleDTDVersion "4.7.0"?>
 <?CompatibleDTDVersion "4.6.1"?>
 <?CompatibleDTDVersion "4.6.0"?>
@@ -75,6 +77,8 @@
 
 <?SuperClass ESETKFoundationNodeMainBase->ESNodeMain ?>
 <?SuperClass ESETKFoundationNodeETKControllerBase->ESNodeController ?>
+
+<!-- only the ETKonXCP has a software interrupt, the ES900ETK has a fix hardware interrupt -->
 <?SuperClass ESETKFoundationNodeETKBypassBase->ESNodeDevice ?>
 
 <?SuperClass ESETKFoundationNodeSignalGroupBase->ESNodeSignalGroup ?>
@@ -443,6 +447,10 @@
     EnumText25      CDATA "ETK_XETK 2.5.0"
     EnumL1Value25     CDATA "27"
     EnumAvailable25 CDATA "1"
+
+    EnumText26      CDATA "ETK_XETK 2.6.0"
+    EnumL1Value26     CDATA "28"
+    EnumAvailable26 CDATA "1"
 >
 
 <!ELEMENT ESETKBaseNodeETKControllerParameters.HBBAvailable (ESParameterBoolean)>
@@ -1403,7 +1411,8 @@
                                                             ESETKFoundationNodeSignalGroupSBBReceiveParameters.SignalCountBitMask4Byte,
                                                             ESETKFoundationNodeSignalGroupSBBReceiveParameters.SignalCountBitMask2Byte,
                                                             ESETKFoundationNodeSignalGroupSBBReceiveParameters.SignalCountBitMask1Byte,
-                                                            ESETKFoundationNodeSignalGroupSBBReceiveParameters.AddressOfResourceFailedTriggerCounter)>
+                                                            ESETKFoundationNodeSignalGroupSBBReceiveParameters.AddressOfResourceFailedTriggerCounter,
+                                                            ESETKFoundationNodeSignalGroupSBBReceiveParameters.StartRTT)>
 
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBReceiveParameters.Name (ESParameterName)>
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBReceiveParameters.Enabled (ESParameterBoolean)>
@@ -1484,6 +1493,7 @@
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBReceiveParameters.SignalCountBitMask1Byte (ESParameterUInt)>
 
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBReceiveParameters.AddressOfResourceFailedTriggerCounter (ESParameterUInt)>
+<!ELEMENT ESETKFoundationNodeSignalGroupSBBReceiveParameters.StartRTT (ESParameterBoolean)>
 
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBReceiveSubNodeList (ESETKFoundationNodeSignalSBBReceive)*>
 
@@ -1556,7 +1566,8 @@
                                                             ESETKFoundationNodeSignalGroupSBBSendParameters.Task,
                                                             ESETKFoundationNodeSignalGroupSBBSendParameters.SignalCountBitMask4Byte,
                                                             ESETKFoundationNodeSignalGroupSBBSendParameters.SignalCountBitMask2Byte,
-                                                            ESETKFoundationNodeSignalGroupSBBSendParameters.SignalCountBitMask1Byte)>
+                                                            ESETKFoundationNodeSignalGroupSBBSendParameters.SignalCountBitMask1Byte,
+                                                            ESETKFoundationNodeSignalGroupSBBSendParameters.StopRTT)>
 
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBSendParameters.Name (ESParameterName)>
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBSendParameters.Enabled (ESParameterBoolean)>
@@ -1636,6 +1647,7 @@
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBSendParameters.SignalCountBitMask4Byte (ESParameterUInt)>
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBSendParameters.SignalCountBitMask2Byte (ESParameterUInt)>
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBSendParameters.SignalCountBitMask1Byte (ESParameterUInt)>
+<!ELEMENT ESETKFoundationNodeSignalGroupSBBSendParameters.StopRTT (ESParameterBoolean)>
 
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBSendSubNodeList (ESETKFoundationNodeSignalSBBSend)*>
 
@@ -2196,7 +2208,8 @@
                                                             ESETKFoundationNodeSignalGroupSBBClassicV31ReceiveParameters.SignalCountBitMask2Byte,
                                                             ESETKFoundationNodeSignalGroupSBBClassicV31ReceiveParameters.SignalCountBitMask1Byte,
                                                             ESETKFoundationNodeSignalGroupSBBClassicV31ReceiveParameters.AddressOfResourceFailedTriggerCounter,
-                                                            ESETKFoundationNodeSignalGroupSBBClassicV31ReceiveParameters.AddressOfResourceTriggerFlagAddress)>
+                                                            ESETKFoundationNodeSignalGroupSBBClassicV31ReceiveParameters.AddressOfResourceTriggerFlagAddress,
+                                                            ESETKFoundationNodeSignalGroupSBBClassicV31ReceiveParameters.StartRTT)>
 
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBClassicV31ReceiveParameters.Name (ESParameterName)>
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBClassicV31ReceiveParameters.Enabled (ESParameterBoolean)>
@@ -2264,6 +2277,7 @@
 
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBClassicV31ReceiveParameters.AddressOfResourceFailedTriggerCounter (ESParameterUInt)>
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBClassicV31ReceiveParameters.AddressOfResourceTriggerFlagAddress (ESParameterUInt)>
+<!ELEMENT ESETKFoundationNodeSignalGroupSBBClassicV31ReceiveParameters.StartRTT (ESParameterBoolean)>
 
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBClassicV31ReceiveSubNodeList (ESETKFoundationNodeSignalSBBClassicV31Receive)*>
 
@@ -2336,7 +2350,8 @@
                                                             ESETKFoundationNodeSignalGroupSBBClassicV31SendParameters.Task,
                                                             ESETKFoundationNodeSignalGroupSBBClassicV31SendParameters.SignalCountBitMask4Byte,
                                                             ESETKFoundationNodeSignalGroupSBBClassicV31SendParameters.SignalCountBitMask2Byte,
-                                                            ESETKFoundationNodeSignalGroupSBBClassicV31SendParameters.SignalCountBitMask1Byte)>
+                                                            ESETKFoundationNodeSignalGroupSBBClassicV31SendParameters.SignalCountBitMask1Byte,
+                                                            ESETKFoundationNodeSignalGroupSBBClassicV31SendParameters.StopRTT)>
 
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBClassicV31SendParameters.Name (ESParameterName)>
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBClassicV31SendParameters.Enabled (ESParameterBoolean)>
@@ -2415,6 +2430,7 @@
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBClassicV31SendParameters.SignalCountBitMask4Byte (ESParameterUInt)>
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBClassicV31SendParameters.SignalCountBitMask2Byte (ESParameterUInt)>
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBClassicV31SendParameters.SignalCountBitMask1Byte (ESParameterUInt)>
+<!ELEMENT ESETKFoundationNodeSignalGroupSBBClassicV31SendParameters.StopRTT (ESParameterBoolean)>
 
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBClassicV31SendSubNodeList (ESETKFoundationNodeSignalSBBClassicV31Send)*>
 
@@ -2897,7 +2913,8 @@
                                                             ESETKFoundationNodeSignalGroupSBBHookedV31ReceiveParameters.SignalCountBitMask2Byte,
                                                             ESETKFoundationNodeSignalGroupSBBHookedV31ReceiveParameters.SignalCountBitMask1Byte,
                                                             ESETKFoundationNodeSignalGroupSBBHookedV31ReceiveParameters.AddressOfResourceFailedTriggerCounter,
-                                                            ESETKFoundationNodeSignalGroupSBBHookedV31ReceiveParameters.AddressOfResourceTriggerFlagAddress)>
+                                                            ESETKFoundationNodeSignalGroupSBBHookedV31ReceiveParameters.AddressOfResourceTriggerFlagAddress,
+                                                            ESETKFoundationNodeSignalGroupSBBHookedV31ReceiveParameters.StartRTT)>
 
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV31ReceiveParameters.Name (ESParameterName)>
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV31ReceiveParameters.Enabled (ESParameterBoolean)>
@@ -2964,6 +2981,7 @@
 
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV31ReceiveParameters.AddressOfResourceFailedTriggerCounter (ESParameterUInt)>
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV31ReceiveParameters.AddressOfResourceTriggerFlagAddress (ESParameterUInt)>
+<!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV31ReceiveParameters.StartRTT (ESParameterBoolean)>
 
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV31ReceiveSubNodeList (ESETKFoundationNodeSignalSBBHookedReceive)*>
 
@@ -3029,7 +3047,8 @@
                                                             ESETKFoundationNodeSignalGroupSBBHookedV31SendParameters.ReactionOnLostCommunication,
                                                             ESETKFoundationNodeSignalGroupSBBHookedV31SendParameters.Timeout,
                                                             ESETKFoundationNodeSignalGroupSBBHookedV31SendParameters.TimeoutValueUnit,
-                                                            ESETKFoundationNodeSignalGroupSBBHookedV31SendParameters.ToleratedLostCycles)>
+                                                            ESETKFoundationNodeSignalGroupSBBHookedV31SendParameters.ToleratedLostCycles,
+                                                            ESETKFoundationNodeSignalGroupSBBHookedV31SendParameters.StopRTT)>
 
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV31SendParameters.Name (ESParameterName)>
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV31SendParameters.Enabled (ESParameterBoolean)>
@@ -3103,6 +3122,7 @@
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV31SendParameters.Timeout (ESParameterFloat)>
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV31SendParameters.TimeoutValueUnit (ESParameterString)>
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV31SendParameters.ToleratedLostCycles (ESParameterUInt)>
+<!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV31SendParameters.StopRTT (ESParameterBoolean)>
 
 
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV31SendSubNodeList (ESETKFoundationNodeSignalSBBHookedSend)*>
@@ -3224,7 +3244,8 @@
                                                             ESETKFoundationNodeSignalGroupSBBHookedV2SendParameters.ReactionOnLostCommunication,
                                                             ESETKFoundationNodeSignalGroupSBBHookedV2SendParameters.Timeout,
                                                             ESETKFoundationNodeSignalGroupSBBHookedV2SendParameters.TimeoutValueUnit,
-                                                            ESETKFoundationNodeSignalGroupSBBHookedV2SendParameters.ToleratedLostCycles)>
+                                                            ESETKFoundationNodeSignalGroupSBBHookedV2SendParameters.ToleratedLostCycles,
+                                                            ESETKFoundationNodeSignalGroupSBBHookedV2SendParameters.StopRTT)>
 
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV2SendParameters.Name (ESParameterName)>
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV2SendParameters.Enabled (ESParameterBoolean)>
@@ -3299,6 +3320,7 @@
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV2SendParameters.Timeout (ESParameterFloat)>
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV2SendParameters.TimeoutValueUnit (ESParameterString)>
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV2SendParameters.ToleratedLostCycles (ESParameterUInt)>
+<!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV2SendParameters.StopRTT (ESParameterBoolean)>
 
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV2SendSubNodeList (ESETKFoundationNodeSignalSBBHookedSend)*>
 <!--THD TODO SBBV21: rename to ESETKFoundationNodeSignalSBBHookedVSend -->
@@ -3377,7 +3399,8 @@
                                                             ESETKFoundationNodeSignalGroupSBBHookedV2ReceiveParameters.RasterPriority,
                                                             ESETKFoundationNodeSignalGroupSBBHookedV2ReceiveParameters.HardwareTrigger,
                                                             ESETKFoundationNodeSignalGroupSBBHookedV2ReceiveParameters.TriggerFlagAddress,
-                                                            ESETKFoundationNodeSignalGroupSBBHookedV2ReceiveParameters.TriggerType)>
+                                                            ESETKFoundationNodeSignalGroupSBBHookedV2ReceiveParameters.TriggerType,
+                                                            ESETKFoundationNodeSignalGroupSBBHookedV2ReceiveParameters.StartRTT)>
 
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV2ReceiveParameters.Name (ESParameterName)>
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV2ReceiveParameters.Enabled (ESParameterBoolean)>
@@ -3459,6 +3482,7 @@
     EnumAvailable2 CDATA "1"
 >
 
+<!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV2ReceiveParameters.StartRTT (ESParameterBoolean)>
 
 
 <!ELEMENT ESETKFoundationNodeSignalGroupSBBHookedV2ReceiveSubNodeList (ESETKFoundationNodeSignalSBBHookedReceive)*>

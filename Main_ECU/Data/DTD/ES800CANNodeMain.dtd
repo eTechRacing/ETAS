@@ -1,4 +1,7 @@
-<?DTDVersion "4.6.3"?>
+<?DTDVersion "5.0.0.0"?>
+<?CompatibleDTDVersion "4.7.3.1"?>
+<?CompatibleDTDVersion "4.7.2"?>
+<?CompatibleDTDVersion "4.6.3"?>
 
 <!ENTITY % System SYSTEM "_System.DTD">
 %System;
@@ -6,13 +9,18 @@
 <!ENTITY % ESNode SYSTEM "ESNode.DTD">
 %ESNode;
 
+<!ENTITY % ESXCPBNodeMain SYSTEM "ESXCPBNodeMain.DTD">
+%ESXCPBNodeMain;
+
 <!ENTITY % ESCANFoundationNodeMainBase SYSTEM "ESCANFoundationNodeMainBase.dtd">
 %ESCANFoundationNodeMainBase;
 
 <?SuperClass ES800CANNodeMain->ES800Component ?>
 <?SuperClass ES800CANNodeMain->ESCANFoundationNodeMainBase ?>
 <?SuperClass ES800CANNodeController->ESCANFoundationNodeControllerBase ?>
+<?SuperClass ES800CANNodeController->StackLocationParametersNode ?>
 <?SuperClass ES800CANNodeIODevice->ESCANFoundationNodeIODeviceBase ?>
+<?SuperClass ES800CANNodeXCPBDevice->ESCANBaseNodeXCPBDevice ?>
 
 <!-- Board -->
 
@@ -71,10 +79,12 @@
 <!ELEMENT ES800CANNodeController.SubNodes (ES800CANNodeControllerSubNodeList)>
 <!ELEMENT ES800CANNodeController.SignalPool (ESCANBasePoolSignal)>
 
-<!ELEMENT ES800CANNodeControllerSubNodeList (ES800CANNodeIODevice)*>
+<!ELEMENT ES800CANNodeControllerSubNodeList (ES800CANNodeIODevice, ES800CANNodeXCPBDevice)*>
 
 <!ELEMENT ES800CANNodeControllerParameters (ES800CANNodeControllerParameters.Name, 
                                                 ES800CANNodeControllerParameters.Enabled, 
+                                                ES800CANNodeControllerParameters.ModuleType, 
+                                                ES800CANNodeControllerParameters.ModuleTypeInstance, 
                                                 ES800CANNodeControllerParameters.Port, 
                                                 ES800CANNodeControllerParameters.BaudRate, 
                                                 ES800CANNodeControllerParameters.BaudRatePreScaler, 
@@ -103,32 +113,9 @@
 
 <!ELEMENT ES800CANNodeControllerParameters.Name (ESParameterName)>
 <!ELEMENT ES800CANNodeControllerParameters.Enabled (ESParameterBoolean)>
-
-<!-- The enum values differ from the other CAN types. This is not a problem because of CopyPaste and HWX2 Importer set the values by name. 
-And in case the value can not be set, the parameter is ignored with a warning. -->
-<!ELEMENT ES800CANNodeControllerParameters.Port (ESParameterEnum)>
-<!ATTLIST ES800CANNodeControllerParameters.Port 
-    EnumText1      CDATA "CAN1"
-    EnumL1Value1     CDATA "0"
-    EnumAvailable1 CDATA "1"
-
-    EnumText2      CDATA "CAN2"
-    EnumL1Value2     CDATA "1"
-    EnumAvailable2 CDATA "1"
-
-    EnumText3      CDATA "CAN3"
-    EnumL1Value3     CDATA "2"
-    EnumAvailable3 CDATA "1"
-
-    EnumText4      CDATA "CAN4"
-    EnumL1Value4     CDATA "3"
-    EnumAvailable4 CDATA "1"
-
-    EnumText5      CDATA "CAN5"
-    EnumL1Value5     CDATA "4"
-    EnumAvailable5 CDATA "1"
->
-
+<!ELEMENT ES800CANNodeControllerParameters.ModuleType (ESParameterDynamicEnum)>
+<!ELEMENT ES800CANNodeControllerParameters.ModuleTypeInstance (ESParameterUInt)>
+<!ELEMENT ES800CANNodeControllerParameters.Port (ESParameterDynamicEnum)>
 <!ELEMENT ES800CANNodeControllerParameters.BaudRate (ESParameterEnum)>
 <!ATTLIST ES800CANNodeControllerParameters.BaudRate
     EnumText1      CDATA "1000000"
@@ -423,3 +410,626 @@ And in case the value can not be set, the parameter is ignored with a warning. -
 <!ELEMENT ES800CANNodeIODeviceL1Generation.Reconnect (ESCANBaseNodeDeviceL1GenerationReconnect)>
 
 <!ELEMENT ES800CANNodeIODeviceSubNodeList (ESCANBaseNodeSignalGroup)*>
+
+<!-- XCP Device -->
+
+<!ELEMENT ES800CANNodeXCPBDevice (ES800CANNodeXCPBDevice.Parameters, ES800CANNodeXCPBDevice.L1Generation, ES800CANNodeXCPBDevice.SubNodes)>
+<!ATTLIST ES800CANNodeXCPBDevice
+    Name ID #REQUIRED
+
+  GlobalObject.ofTypeYBODevice ENTITY #REQUIRED
+  GlobalParent.ofTypeYBOBoard ENTITY #REQUIRED
+  
+  a2lFile.ofTypeA2LFile ENTITY #REQUIRED
+  BypassEnableLabel.ofTypeCharacteristic ENTITY #REQUIRED
+    
+>
+
+<!ELEMENT ES800CANNodeXCPBDevice.SubNodes (ES800CANNodeXCPBDeviceSubNodeList)>
+<!ELEMENT ES800CANNodeXCPBDevice.L1Generation (ES800CANNodeXCPBDeviceL1GenerationBlock)>
+<!ELEMENT ES800CANNodeXCPBDevice.Parameters (ES800CANNodeXCPBDeviceParameters)>
+
+<!ELEMENT ES800CANNodeXCPBDeviceSubNodeList (ESXCPBNodeStatus| ESXCPBNodeRasters)*>
+
+<!ELEMENT ES800CANNodeXCPBDeviceL1GenerationBlock (ES800CANNodeXCPBDeviceL1GenerationBlock.UnionCase, ES800CANNodeXCPBDeviceL1GenerationBlock.Reconnect)>
+<!ATTLIST ES800CANNodeXCPBDeviceL1GenerationBlock 
+    L1TreeIndex CDATA "-1"
+
+    APIROIDArray1 CDATA "-1"
+    APIROIDArray2 CDATA "-1"
+    APIROIDArray3 CDATA "-1"
+    APIROIDArray4 CDATA "-1"
+    APIROIDArray5 CDATA "-1"
+    APIROIDArray6 CDATA "-1"
+
+    IRQTriggeredSignalGroups CDATA "0"
+    RelevantSignalGroups CDATA "0"
+>
+
+<!ELEMENT ES800CANNodeXCPBDeviceL1GenerationBlock.UnionCase (ESCANBaseNodeXCPBDeviceL1GenerationUnionCase)>
+<!ELEMENT ES800CANNodeXCPBDeviceL1GenerationBlock.Reconnect (ESXCPBNodeDeviceL1GenerationReconnect)>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters (ES800CANNodeXCPBDeviceParameters.Name, 
+                                             ES800CANNodeXCPBDeviceParameters.Enabled,
+                                             ES800CANNodeXCPBDeviceParameters.ASAMMCD2File, 
+                                             ES800CANNodeXCPBDeviceParameters.ECUByteOrder, 
+                                             ES800CANNodeXCPBDeviceParameters.ECUSWVersion, 
+                                             ES800CANNodeXCPBDeviceParameters.SWConsistencyCheck, 
+                                             ES800CANNodeXCPBDeviceParameters.EPK, 
+                                             ES800CANNodeXCPBDeviceParameters.EPKAddress, 
+                                             ES800CANNodeXCPBDeviceParameters.AutomaticBypassActivation, 
+                                             ES800CANNodeXCPBDeviceParameters.BypassEnableLabel, 
+                                             ES800CANNodeXCPBDeviceParameters.BypassEnableLabelTransferMethod,
+                                             ES800CANNodeXCPBDeviceParameters.BypassEnableDelay, 
+                                             ES800CANNodeXCPBDeviceParameters.SignalSelectionMode, 
+                                             ES800CANNodeXCPBDeviceParameters.TransferMode, 
+                                             ES800CANNodeXCPBDeviceParameters.XCPProtocolLayerVersion, 
+                                             ES800CANNodeXCPBDeviceParameters.TimeoutT1,
+                                             ES800CANNodeXCPBDeviceParameters.TimeoutT2,
+                                             ES800CANNodeXCPBDeviceParameters.TimeoutT3,
+                                             ES800CANNodeXCPBDeviceParameters.TimeoutT4,
+                                             ES800CANNodeXCPBDeviceParameters.TimeoutT5,
+                                             ES800CANNodeXCPBDeviceParameters.TimeoutT6,
+                                             ES800CANNodeXCPBDeviceParameters.TimeoutT7,
+                                             ES800CANNodeXCPBDeviceParameters.MaxCTO, 
+                                             ES800CANNodeXCPBDeviceParameters.MaxDTO, 
+                                             ES800CANNodeXCPBDeviceParameters.AddressGranularity, 
+                                             ES800CANNodeXCPBDeviceParameters.DAQConfigType, 
+                                             ES800CANNodeXCPBDeviceParameters.MaxDAQ, 
+                                             ES800CANNodeXCPBDeviceParameters.MinDAQ, 
+                                             ES800CANNodeXCPBDeviceParameters.MaxEventChannel, 
+                                             ES800CANNodeXCPBDeviceParameters.OptimisationType, 
+                                             ES800CANNodeXCPBDeviceParameters.AddressExtensionType, 
+                                             ES800CANNodeXCPBDeviceParameters.IdentificationFieldType, 
+                                             ES800CANNodeXCPBDeviceParameters.GranularityODTEntrySizeDAQ, 
+                                             ES800CANNodeXCPBDeviceParameters.MaxODTEntrySizeDAQ, 
+                                             ES800CANNodeXCPBDeviceParameters.OverloadIndication, 
+                                             ES800CANNodeXCPBDeviceParameters.PrescalerSupported, 
+                                             ES800CANNodeXCPBDeviceParameters.ResumeSupported, 
+                                             ES800CANNodeXCPBDeviceParameters.ResumeMode, 
+                                             ES800CANNodeXCPBDeviceParameters.GranularityODTEntrySizeSTIM, 
+                                             ES800CANNodeXCPBDeviceParameters.MaxODTEntrySizeSTIM, 
+                                             ES800CANNodeXCPBDeviceParameters.BitSTIMSupported, 
+                                             ES800CANNodeXCPBDeviceParameters.TimestampSupported, 
+                                             ES800CANNodeXCPBDeviceParameters.TimestampTicks, 
+                                             ES800CANNodeXCPBDeviceParameters.TimestampUnit, 
+                                             ES800CANNodeXCPBDeviceParameters.TimestampFixed, 
+                                             ES800CANNodeXCPBDeviceParameters.TimestampSize, 
+                                             ES800CANNodeXCPBDeviceParameters.PIDOffSupported, 
+                                             ES800CANNodeXCPBDeviceParameters.AutomaticBypassDetection, 
+                                             ES800CANNodeXCPBDeviceParameters.BypassReceiveNamePrefix, 
+                                             ES800CANNodeXCPBDeviceParameters.BypassReceiveNameSuffix, 
+                                             ES800CANNodeXCPBDeviceParameters.BypassSendNamePrefix, 
+                                             ES800CANNodeXCPBDeviceParameters.BypassSendNameSuffix, 
+                                             ES800CANNodeXCPBDeviceParameters.LogCTO, 
+                                             ES800CANNodeXCPBDeviceParameters.LogDTO, 
+                                             ES800CANNodeXCPBDeviceParameters.LogCalibration, 
+                                             ES800CANNodeXCPBDeviceParameters.LogWarnings, 
+                                             ES800CANNodeXCPBDeviceParameters.LogInformation, 
+                                             ES800CANNodeXCPBDeviceParameters.BehaviorOnInconsistentA2LandECUConfiguration,
+                                             ES800CANNodeXCPBDeviceParameters.IRQSource,
+                                             ES800CANNodeXCPBDeviceParameters.XCPByteOrder,
+                                             ES800CANNodeXCPBDeviceParameters.XCPInstance,
+                                             ES800CANNodeXCPBDeviceParameters.XCPonCANVersion, 
+                                             ES800CANNodeXCPBDeviceParameters.CANIdentifierTypeMaster, 
+                                             ES800CANNodeXCPBDeviceParameters.CANIdentifierMaster, 
+                                             ES800CANNodeXCPBDeviceParameters.CANIdentifierTypeSlave, 
+                                             ES800CANNodeXCPBDeviceParameters.CANIdentifierSlave, 
+                                             ES800CANNodeXCPBDeviceParameters.MaxDLCRequired,
+                                             ES800CANNodeXCPBDeviceParameters.CANFDMaxDLC,
+                                             ES800CANNodeXCPBDeviceParameters.CANFDMaxDLCRequired,
+                                             ES800CANNodeXCPBDeviceParameters.MeasurementSplitAllowed,
+                                             ES800CANNodeXCPBDeviceParameters.Checksum,
+                                             ES800CANNodeXCPBDeviceParameters.ISR,
+                                             ES800CANNodeXCPBDeviceParameters.SeedAndKeyLibrary,
+                                             ES800CANNodeXCPBDeviceParameters.TransportLayerName,
+                                             ES800CANNodeXCPBDeviceParameters.MaxDTOSTIM,
+                                             ES800CANNodeXCPBDeviceParameters.StoreDAQSupported,
+                                             ES800CANNodeXCPBDeviceParameters.DTOCTRFieldSupported,
+                                             ES800CANNodeXCPBDeviceParameters.MaxDAQTotal,
+                                             ES800CANNodeXCPBDeviceParameters.MaxODTTotal,
+                                             ES800CANNodeXCPBDeviceParameters.MaxODTDAQTotal,
+                                             ES800CANNodeXCPBDeviceParameters.MaxODTSTIMTotal,
+                                             ES800CANNodeXCPBDeviceParameters.MaxODTEntriesDAQTotal,
+                                             ES800CANNodeXCPBDeviceParameters.MaxODTEntriesSTIMTotal,
+                                             ES800CANNodeXCPBDeviceParameters.MaxODTEntriesTotal,
+                                             ES800CANNodeXCPBDeviceParameters.DAQMemoryLimit,
+                                             ES800CANNodeXCPBDeviceParameters.DAQSize,
+                                             ES800CANNodeXCPBDeviceParameters.ODTSize,
+                                             ES800CANNodeXCPBDeviceParameters.ODTEntrySize,
+                                             ES800CANNodeXCPBDeviceParameters.ODTDAQBufferElementSize,
+                                             ES800CANNodeXCPBDeviceParameters.ODTSTIMBufferElementSize,
+                                             ES800CANNodeXCPBDeviceParameters.ODTDAQBufferElementReserve,
+                                             ES800CANNodeXCPBDeviceParameters.ODTSTIMBufferElementReserve,
+                                             ES800CANNodeXCPBDeviceParameters.OptimisationTypeODTStrict,
+                                             ES800CANNodeXCPBDeviceParameters.MinSTSTIM,
+                                             ES800CANNodeXCPBDeviceParameters.ImportSignalGroupforXCPEventwithoutConsistency,
+                                             ES800CANNodeXCPBDeviceParameters.RespectDataConsistencyDeclarationfromECUforSignalLists)>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.Name (ESParameterName)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.ASAMMCD2File (ESParameterString)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.ECUByteOrder (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.ECUByteOrder
+    EnumText1      CDATA "little endian (Intel)"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "big endian (Motorola)"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.ECUSWVersion (ESParameterString)>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.SWConsistencyCheck (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.SWConsistencyCheck 
+    EnumText1      CDATA "enabled"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "disabled"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.EPK (ESParameterString)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.EPKAddress (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.AutomaticBypassActivation (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.BypassEnableLabel (ESXCPBParameterBypassEnableLabel)>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.BypassEnableLabelTransferMethod (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.BypassEnableLabelTransferMethod  
+    EnumText1      CDATA "DOWNLOAD"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "DAQ_STIM_LIST"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.BypassEnableDelay (ESParameterUInt)>
+
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.SignalSelectionMode (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.SignalSelectionMode 
+    EnumText1      CDATA "Declared Fixed or Default for Event"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+    
+    EnumText2      CDATA "Declared Fixed, Default or Available for Event"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "All"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.TransferMode (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.TransferMode 
+    EnumText1      CDATA "Bypass"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Bypass and Measurement"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Bypass, Measurement and Calibration"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.XCPProtocolLayerVersion (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.XCPProtocolLayerVersion  
+    EnumText1      CDATA "1.0"
+    EnumL1Value1     CDATA "256"
+    EnumAvailable1 CDATA "1"
+    
+    EnumText2      CDATA "1.1"
+    EnumL1Value2     CDATA "257"
+    EnumAvailable2 CDATA "1"
+    
+    EnumText3      CDATA "1.2"
+    EnumL1Value3     CDATA "258"
+    EnumAvailable3 CDATA "1"
+    
+    EnumText4      CDATA "1.3"
+    EnumL1Value4    CDATA "259"
+    EnumAvailable4 CDATA "1"
+    
+    EnumText5      CDATA "1.4"
+    EnumL1Value5     CDATA "260"
+    EnumAvailable5 CDATA "1"
+    
+    EnumText6      CDATA "1.5"
+    EnumL1Value6     CDATA "261"
+    EnumAvailable6 CDATA "1"
+>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.TimeoutT1 (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.TimeoutT2 (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.TimeoutT3 (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.TimeoutT4 (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.TimeoutT5 (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.TimeoutT6 (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.TimeoutT7 (ESParameterUInt)>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.MaxCTO (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.MaxDTO (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.AddressGranularity (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.AddressGranularity   
+    EnumText1      CDATA "Missing"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "BYTE"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "WORD"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "DWORD"
+    EnumL1Value4     CDATA "4"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "DLONG"
+    EnumL1Value5     CDATA "8"
+    EnumAvailable5 CDATA "1"
+  >
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.DAQConfigType (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.DAQConfigType  
+    EnumText1      CDATA "Static"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Dynamic"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.MaxDAQ (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.MinDAQ (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.MaxEventChannel (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.OptimisationType (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.OptimisationType   
+    EnumText1      CDATA "Default"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "ODT_Type_16"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "ODT_Type_32"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "ODT_Type_64"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+  
+    EnumText5      CDATA "ODT_Type_Alignment"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+  
+    EnumText6      CDATA "Max_Entry_Size"
+    EnumL1Value6     CDATA "5"
+    EnumAvailable6 CDATA "1"
+>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.AddressExtensionType (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.AddressExtensionType    
+    EnumText1      CDATA "Free"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "ODT"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "DAQ"
+    EnumL1Value3     CDATA "3"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.IdentificationFieldType (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.IdentificationFieldType     
+    EnumText1      CDATA "Absolute"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Relative Byte"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Relative Word"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "Relative Word Aligned"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.GranularityODTEntrySizeDAQ (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.GranularityODTEntrySizeDAQ      
+    EnumText1      CDATA "Missing"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "BYTE"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "WORD"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "DWORD"
+    EnumL1Value4     CDATA "4"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "DLONG"
+    EnumL1Value5     CDATA "8"
+    EnumAvailable5 CDATA "1"
+  >
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.MaxODTEntrySizeDAQ (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.OverloadIndication (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.OverloadIndication       
+    EnumText1      CDATA "No"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "PID"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Event"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.PrescalerSupported (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.ResumeSupported (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.ResumeMode (ESParameterBoolean)>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.GranularityODTEntrySizeSTIM (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.GranularityODTEntrySizeSTIM     
+    EnumText1      CDATA "Missing"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "BYTE"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "WORD"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "DWORD"
+    EnumL1Value4     CDATA "4"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "DLONG"
+    EnumL1Value5     CDATA "8"
+    EnumAvailable5 CDATA "1"
+  >
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.MaxODTEntrySizeSTIM (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.BitSTIMSupported (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.TimestampSupported (ESParameterBoolean)>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.TimestampTicks (ESParameterUInt)>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.TimestampUnit (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.TimestampUnit        
+    EnumText1      CDATA "1 ns"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "10 ns"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "100 ns"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "1 us"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "10 us"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+
+    EnumText6      CDATA "100 us"
+    EnumL1Value6     CDATA "5"
+    EnumAvailable6 CDATA "1"
+
+    EnumText7      CDATA "1 ms"
+    EnumL1Value7     CDATA "6"
+    EnumAvailable7 CDATA "1"
+
+    EnumText8      CDATA "10 ms"
+    EnumL1Value8     CDATA "7"
+    EnumAvailable8 CDATA "1"
+
+    EnumText9      CDATA "100 ms"
+    EnumL1Value9     CDATA "8"
+    EnumAvailable9 CDATA "1"
+
+    EnumText10      CDATA "1 s"
+    EnumL1Value10     CDATA "9"
+    EnumAvailable10 CDATA "1"
+    
+    EnumText11      CDATA "1 ps"
+    EnumL1Value11     CDATA "10"
+    EnumAvailable11 CDATA "1"
+    
+    EnumText12      CDATA "10 ps"
+    EnumL1Value12     CDATA "11"
+    EnumAvailable12 CDATA "1"
+    
+    EnumText13      CDATA "100 ps"
+    EnumL1Value13     CDATA "12"
+    EnumAvailable13 CDATA "1"
+ >
+
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.TimestampFixed (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.TimestampSize (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.TimestampSize        
+    EnumText1      CDATA "Missing"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "BYTE"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "WORD"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "DWORD"
+    EnumL1Value4     CDATA "4"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "DLONG"
+    EnumL1Value5     CDATA "8"
+    EnumAvailable5 CDATA "1"
+  >
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.PIDOffSupported (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.AutomaticBypassDetection (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.BypassReceiveNamePrefix (ESParameterString)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.BypassReceiveNameSuffix (ESParameterString)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.BypassSendNamePrefix (ESParameterString)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.BypassSendNameSuffix (ESParameterString)>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.LogCTO (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.LogDTO (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.LogCalibration (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.LogWarnings (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.LogInformation (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.BehaviorOnInconsistentA2LandECUConfiguration (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.BehaviorOnInconsistentA2LandECUConfiguration          
+    EnumText1      CDATA "Use Configuration from ASAM-MCD2 file"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Use Configuration reported from ECU"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "Abort start of XCP System"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+ >
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.IRQSource (ESParameterString)>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.XCPByteOrder (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.XCPByteOrder         
+    EnumText1      CDATA "little endian (Intel)"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "big endian (Motorola)"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.XCPInstance (ESParameterUInt)>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.XCPonCANVersion (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.XCPonCANVersion         
+    EnumText1      CDATA "1.0"
+    EnumL1Value1     CDATA "256"
+    EnumAvailable1 CDATA "1"
+    
+    EnumText2      CDATA "1.1"
+    EnumL1Value2     CDATA "257"
+    EnumAvailable2 CDATA "1"
+    
+    EnumText3      CDATA "1.2"
+    EnumL1Value3     CDATA "258"
+    EnumAvailable3 CDATA "1"
+    
+    EnumText4      CDATA "1.3"
+    EnumL1Value4     CDATA "259"
+    EnumAvailable4 CDATA "1"
+    
+    EnumText5      CDATA "1.4"
+    EnumL1Value5     CDATA "260"
+    EnumAvailable5 CDATA "1"
+    
+    EnumText6      CDATA "1.5"
+    EnumL1Value6     CDATA "261"
+    EnumAvailable6 CDATA "1"
+>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.CANIdentifierTypeMaster (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.CANIdentifierTypeMaster    
+    EnumText1      CDATA "standard (11 bit)"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "extended (29 bit)"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.CANIdentifierMaster (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.CANIdentifierTypeSlave (ESParameterEnum)>
+<!ATTLIST ES800CANNodeXCPBDeviceParameters.CANIdentifierTypeSlave     
+    EnumText1      CDATA "standard (11 bit)"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "extended (29 bit)"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.CANIdentifierSlave (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.MaxDLCRequired (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.CANFDMaxDLC (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.CANFDMaxDLCRequired (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.MeasurementSplitAllowed (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.Checksum (ESParameterString)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.ISR (ESParameterString)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.SeedAndKeyLibrary (ESParameterString)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.TransportLayerName (ESParameterString)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.MaxDTOSTIM (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.StoreDAQSupported (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.DTOCTRFieldSupported (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.MaxDAQTotal (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.MaxODTTotal (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.MaxODTDAQTotal (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.MaxODTSTIMTotal (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.MaxODTEntriesDAQTotal (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.MaxODTEntriesSTIMTotal (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.MaxODTEntriesTotal (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.DAQMemoryLimit (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.DAQSize (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.ODTSize (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.ODTEntrySize (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.ODTDAQBufferElementSize (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.ODTSTIMBufferElementSize (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.ODTDAQBufferElementReserve (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.ODTSTIMBufferElementReserve (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.OptimisationTypeODTStrict (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.MinSTSTIM (ESParameterUInt)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.ImportSignalGroupforXCPEventwithoutConsistency (ESParameterBoolean)>
+<!ELEMENT ES800CANNodeXCPBDeviceParameters.RespectDataConsistencyDeclarationfromECUforSignalLists (ESParameterBoolean)>

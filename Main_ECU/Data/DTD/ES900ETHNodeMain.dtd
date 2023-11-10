@@ -1,4 +1,5 @@
-<?DTDVersion "4.7.0"?>
+<?DTDVersion "4.7.2"?>
+<?CompatibleDTDVersion "4.7.0"?>
 <?CompatibleDTDVersion "4.6.2"?>
 <?CompatibleDTDVersion "4.6.0"?>
 <?CompatibleDTDVersion "3.2.0"?>
@@ -227,11 +228,34 @@
                                              ES900XCPBUdpNodeDeviceParameters.XCPInstance,
                                              ES900XCPBUdpNodeDeviceParameters.XCPonUDPIPVersion, 
                                              ES900XCPBUdpNodeDeviceParameters.UDPPortSlave, 
+                                             ES900XCPBUdpNodeDeviceParameters.PacketAlignment, 
                                              ES900XCPBUdpNodeDeviceParameters.IPAddressSlave,
                                              ES900XCPBUdpNodeDeviceParameters.Checksum,
                                              ES900XCPBUdpNodeDeviceParameters.ISR,
                                              ES900XCPBUdpNodeDeviceParameters.SeedAndKeyLibrary,
-                                             ES900XCPBUdpNodeDeviceParameters.TransportLayerName)>
+                                             ES900XCPBUdpNodeDeviceParameters.TransportLayerName,
+                                             ES900XCPBUdpNodeDeviceParameters.MaxDTOSTIM,
+                                             ES900XCPBUdpNodeDeviceParameters.StoreDAQSupported,
+                                             ES900XCPBUdpNodeDeviceParameters.DTOCTRFieldSupported,
+                                             ES900XCPBUdpNodeDeviceParameters.MaxDAQTotal,
+                                             ES900XCPBUdpNodeDeviceParameters.MaxODTTotal,
+                                             ES900XCPBUdpNodeDeviceParameters.MaxODTDAQTotal,
+                                             ES900XCPBUdpNodeDeviceParameters.MaxODTSTIMTotal,
+                                             ES900XCPBUdpNodeDeviceParameters.MaxODTEntriesDAQTotal,
+                                             ES900XCPBUdpNodeDeviceParameters.MaxODTEntriesSTIMTotal,
+                                             ES900XCPBUdpNodeDeviceParameters.MaxODTEntriesTotal,
+                                             ES900XCPBUdpNodeDeviceParameters.DAQMemoryLimit,
+                                             ES900XCPBUdpNodeDeviceParameters.DAQSize,
+                                             ES900XCPBUdpNodeDeviceParameters.ODTSize,
+                                             ES900XCPBUdpNodeDeviceParameters.ODTEntrySize,
+                                             ES900XCPBUdpNodeDeviceParameters.ODTDAQBufferElementSize,
+                                             ES900XCPBUdpNodeDeviceParameters.ODTSTIMBufferElementSize,
+                                             ES900XCPBUdpNodeDeviceParameters.ODTDAQBufferElementReserve,
+                                             ES900XCPBUdpNodeDeviceParameters.ODTSTIMBufferElementReserve,
+                                             ES900XCPBUdpNodeDeviceParameters.OptimisationTypeODTStrict,
+                                             ES900XCPBUdpNodeDeviceParameters.MinSTSTIM,
+                                             ES900XCPBUdpNodeDeviceParameters.ImportSignalGroupforXCPEventwithoutConsistency,
+                                             ES900XCPBUdpNodeDeviceParameters.RespectDataConsistencyDeclarationfromECUforSignalLists)>
 
 <!ELEMENT ES900XCPBUdpNodeDeviceParameters.Name (ESParameterName)>
 <!ELEMENT ES900XCPBUdpNodeDeviceParameters.Enabled (ESParameterBoolean)>
@@ -315,6 +339,26 @@
     EnumText1      CDATA "1.0"
     EnumL1Value1     CDATA "256"
     EnumAvailable1 CDATA "1"
+    
+    EnumText2      CDATA "1.1"
+    EnumL1Value2     CDATA "257"
+    EnumAvailable2 CDATA "1"
+    
+    EnumText3      CDATA "1.2"
+    EnumL1Value3     CDATA "258"
+    EnumAvailable3 CDATA "1"
+    
+    EnumText4      CDATA "1.3"
+    EnumL1Value4    CDATA "259"
+    EnumAvailable4 CDATA "1"
+    
+    EnumText5      CDATA "1.4"
+    EnumL1Value5     CDATA "260"
+    EnumAvailable5 CDATA "1"
+    
+    EnumText6      CDATA "1.5"
+    EnumL1Value6     CDATA "261"
+    EnumAvailable6 CDATA "1"
 >
 
 <!ELEMENT ES900XCPBUdpNodeDeviceParameters.TimeoutT1 (ESParameterUInt)>
@@ -539,6 +583,18 @@
     EnumText10      CDATA "1 s"
     EnumL1Value10     CDATA "9"
     EnumAvailable10 CDATA "1"
+    
+    EnumText11      CDATA "1 ps"
+    EnumL1Value11     CDATA "10"
+    EnumAvailable11 CDATA "1"
+    
+    EnumText12      CDATA "10 ps"
+    EnumL1Value12     CDATA "11"
+    EnumAvailable12 CDATA "1"
+    
+    EnumText13      CDATA "100 ps"
+    EnumL1Value13     CDATA "12"
+    EnumAvailable13 CDATA "1"
  >
 
 
@@ -613,14 +669,72 @@
     EnumText1      CDATA "1.0"
     EnumL1Value1     CDATA "256"
     EnumAvailable1 CDATA "1"
+    
+    EnumText2      CDATA "1.1"
+    EnumL1Value2     CDATA "257"
+    EnumAvailable2 CDATA "1"
+    
+    EnumText3      CDATA "1.2"
+    EnumL1Value3     CDATA "258"
+    EnumAvailable3 CDATA "1"
+    
+    EnumText4      CDATA "1.3"
+    EnumL1Value4     CDATA "259"
+    EnumAvailable4 CDATA "1"
+    
+    EnumText5      CDATA "1.4"
+    EnumL1Value5     CDATA "260"
+    EnumAvailable5 CDATA "1"
+    
+    EnumText6      CDATA "1.5"
+    EnumL1Value6     CDATA "261"
+    EnumAvailable6 CDATA "1"
 >
 
 <!ELEMENT ES900XCPBUdpNodeDeviceParameters.UDPPortSlave (ESParameterUInt)>
 <!ELEMENT ES900XCPBUdpNodeDeviceParameters.IPAddressSlave (ESParameterIPAddress)>
+
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.PacketAlignment (ESParameterEnum)>
+<!ATTLIST ES900XCPBUdpNodeDeviceParameters.PacketAlignment
+    EnumText1      CDATA "PACKET_ALIGNMENT_8"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+    
+    EnumText2      CDATA "PACKET_ALIGNMENT_16"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+    
+    EnumText3      CDATA "PACKET_ALIGNMENT_32"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
 <!ELEMENT ES900XCPBUdpNodeDeviceParameters.Checksum (ESParameterString)>
 <!ELEMENT ES900XCPBUdpNodeDeviceParameters.ISR (ESParameterString)>
 <!ELEMENT ES900XCPBUdpNodeDeviceParameters.SeedAndKeyLibrary (ESParameterString)>
 <!ELEMENT ES900XCPBUdpNodeDeviceParameters.TransportLayerName (ESParameterString)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.MaxDTOSTIM (ESParameterUInt)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.StoreDAQSupported (ESParameterBoolean)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.DTOCTRFieldSupported (ESParameterBoolean)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.MaxDAQTotal (ESParameterUInt)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.MaxODTTotal (ESParameterUInt)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.MaxODTDAQTotal (ESParameterUInt)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.MaxODTSTIMTotal (ESParameterUInt)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.MaxODTEntriesDAQTotal (ESParameterUInt)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.MaxODTEntriesSTIMTotal (ESParameterUInt)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.MaxODTEntriesTotal (ESParameterUInt)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.DAQMemoryLimit (ESParameterUInt)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.DAQSize (ESParameterUInt)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.ODTSize (ESParameterUInt)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.ODTEntrySize (ESParameterUInt)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.ODTDAQBufferElementSize (ESParameterUInt)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.ODTSTIMBufferElementSize (ESParameterUInt)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.ODTDAQBufferElementReserve (ESParameterUInt)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.ODTSTIMBufferElementReserve (ESParameterUInt)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.OptimisationTypeODTStrict (ESParameterBoolean)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.MinSTSTIM (ESParameterUInt)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.ImportSignalGroupforXCPEventwithoutConsistency (ESParameterBoolean)>
+<!ELEMENT ES900XCPBUdpNodeDeviceParameters.RespectDataConsistencyDeclarationfromECUforSignalLists (ESParameterBoolean)>
 
 <!ELEMENT ES900XCPBUdpNodeDeviceSubNodeList (ESXCPBNodeStatus| ESXCPBNodeRasters)*>
 

@@ -1,4 +1,5 @@
-<?DTDVersion "4.7.0"?>
+<?DTDVersion "4.7.3.1"?>
+<?CompatibleDTDVersion "4.7.0"?>
 
 <!ENTITY % System SYSTEM "_System.DTD">
 %System;
@@ -15,6 +16,7 @@
 <?SuperClass ES800FlexRayNodeMain->ES800Component ?>
 <?SuperClass ES800FlexRayNodeMain->ESFlexRayNodeMainBase ?>
 <?SuperClass ES800FlexRayNodeDevice->ESFlexRayNodeDeviceBase ?>
+<?SuperClass ES800FlexRayNodeDevice->StackLocationParametersNode ?>
 
 <!-- node main -->
 
@@ -101,7 +103,10 @@
 <!ELEMENT ES800FlexRayNodeDeviceL1GenerationReconnect EMPTY>
 
 <!ELEMENT ES800FlexRayNodeDeviceParameters (ES800FlexRayNodeDeviceParameters.Name, 
-                                          ES800FlexRayNodeDeviceParameters.Enabled, 
+                                          ES800FlexRayNodeDeviceParameters.Enabled,
+                                          ES800FlexRayNodeDeviceParameters.ModuleType,
+                                          ES800FlexRayNodeDeviceParameters.ModuleTypeInstance,
+                                          ES800FlexRayNodeDeviceParameters.Port, 
                                           ES800FlexRayNodeDeviceParameters.gdStaticSlot, 
                                           ES800FlexRayNodeDeviceParameters.gNumberOfStaticSlots, 
                                           ES800FlexRayNodeDeviceParameters.gdMinislot, 
@@ -261,10 +266,14 @@
                                           ES800FlexRayNodeDeviceParameters.FIBEXVersion, 
                                           ES800FlexRayNodeDeviceParameters.UsedTripleBuffers, 
                                           ES800FlexRayNodeDeviceParameters.UsedSignalGroups,
-                                          ES800FlexRayNodeDeviceParameters.pSecondKeySlotId)>
+                                          ES800FlexRayNodeDeviceParameters.pSecondKeySlotId,
+                                          ES800FlexRayNodeDeviceParameters.IRQSource)>
 
 <!ELEMENT ES800FlexRayNodeDeviceParameters.Name (ESParameterName)>
 <!ELEMENT ES800FlexRayNodeDeviceParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.ModuleType (ESParameterDynamicEnum)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.ModuleTypeInstance (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.Port (ESParameterDynamicEnum)>
 <!ELEMENT ES800FlexRayNodeDeviceParameters.gdStaticSlot (ESParameterUInt)>
 <!ELEMENT ES800FlexRayNodeDeviceParameters.gNumberOfStaticSlots (ESParameterUInt)>
 <!ELEMENT ES800FlexRayNodeDeviceParameters.gdMinislot (ESParameterUInt)>
@@ -518,5 +527,6 @@
 <!ELEMENT ES800FlexRayNodeDeviceParameters.UsedTripleBuffers (ESParameterUInt)>
 <!ELEMENT ES800FlexRayNodeDeviceParameters.UsedSignalGroups (ESParameterUInt)>
 <!ELEMENT ES800FlexRayNodeDeviceParameters.pSecondKeySlotId (ESParameterUInt)>
+<!ELEMENT ES800FlexRayNodeDeviceParameters.IRQSource (ESParameterString)>
 
 <!ELEMENT ES800FlexRayNodeDeviceSubNodeList (ES920NodeChannels | ES920NodeStatus | ES920NodeFramePool | ES920NodePDUPool)*>

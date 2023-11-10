@@ -38,7 +38,7 @@
 
 MAKECMD         = @"rtw_build.bat"
 HOST            = PC
-BUILD           = yes
+BUILD           = no
 SYS_TARGET_FILE = irt.tlc
 BUILD_SUCCESS = successful
 

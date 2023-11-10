@@ -1,25 +1,30 @@
-<?DTDVersion "4.6.3"?>
+<?DTDVersion "5.0.2.1"?>
+<?CompatibleDTDVersion "4.7.3.1"?>
+<?CompatibleDTDVersion "4.7.2"?>
+<?CompatibleDTDVersion "4.6.3"?>
 <?CompatibleDTDVersion "4.6.2"?>
 <?CompatibleDTDVersion "4.6.0"?>
 <?CompatibleDTDVersion "4.3.0"?>
-<?CompatibleDTDVersion "2.0"?>
-<?CompatibleDTDVersion "3.0"?>
-<?CompatibleDTDVersion "3.1"?>
-<?CompatibleDTDVersion "3.1.1"?>
-<?CompatibleDTDVersion "3.1.2"?>
-<?CompatibleDTDVersion "3.1.3"?>
-<?CompatibleDTDVersion "3.1.4"?>
-<?CompatibleDTDVersion "3.1.5"?>
-<?CompatibleDTDVersion "3.3"?>
 <?CompatibleDTDVersion "4.1"?>
+<?CompatibleDTDVersion "3.3"?>
+<?CompatibleDTDVersion "3.1.5"?>
+<?CompatibleDTDVersion "3.1.4"?>
+<?CompatibleDTDVersion "3.1.3"?>
+<?CompatibleDTDVersion "3.1.2"?>
+<?CompatibleDTDVersion "3.1.1"?>
+<?CompatibleDTDVersion "3.1"?>
+<?CompatibleDTDVersion "3.0"?>
+<?CompatibleDTDVersion "2.0"?>
 
 <!NOTATION ofTypeA2LFile SYSTEM "A2LFile">
 <!NOTATION ofTypeA2LFile_ETKBypass SYSTEM "A2LFile_ETKBypass">
 <!NOTATION ofTypeA2LProject SYSTEM "A2LProject">
 <!NOTATION ofTypeADDRESS_MAPPING SYSTEM "ADDRESS_MAPPING">
+<!NOTATION ofTypeCAN_ID_Entry SYSTEM "CAN_ID_Entry">
 <!NOTATION ofTypeCharacteristic SYSTEM "Characteristic">
 <!NOTATION ofTypeCompu_Method SYSTEM "Compu_Method">
 <!NOTATION ofTypeDataElement SYSTEM "DataElement">
+<!NOTATION ofTypeEvent_CAN_Data SYSTEM "Event_CAN_Data">
 <!NOTATION ofTypeFunction SYSTEM "Function">
 <!NOTATION ofTypeGroup SYSTEM "Group">
 <!NOTATION ofTypeMEMORY_SEGMENT SYSTEM "MEMORY_SEGMENT">
@@ -33,6 +38,8 @@
 <!NOTATION ofTypeModule_XCPBypass_on_TCP_IP SYSTEM "Module_XCPBypass_on_TCP_IP">
 <!NOTATION ofTypeModule_XCPBypass_on_UDP_IP SYSTEM "Module_XCPBypass_on_UDP_IP">
 <!NOTATION ofTypeOptionalXCPCommand SYSTEM "OptionalXCPCommand">
+<!NOTATION ofTypeOptionalXCPonCANCommand SYSTEM "OptionalXCPonCANCommand">
+<!NOTATION ofTypeOptionalXCPonUDPCommand SYSTEM "OptionalXCPonUDPCommand">
 <!NOTATION ofTypePossibleSource SYSTEM "PossibleSource">
 <!NOTATION ofTypeRaster SYSTEM "Raster">
 <!NOTATION ofTypeRaster_ETKBypass SYSTEM "Raster_ETKBypass">
@@ -66,8 +73,8 @@
 
 <!ELEMENT A2LProject (A2LProject.Modules)>
 <!ATTLIST A2LProject
-	Name ID #REQUIRED
-	Description CDATA ""
+    Name ID #REQUIRED
+    Description CDATA ""
 >
 
 
@@ -75,59 +82,73 @@
 
 <!ELEMENT ADDRESS_MAPPING EMPTY>
 <!ATTLIST ADDRESS_MAPPING
-	Name ID #REQUIRED
-	Orig_Address CDATA "0"
-	Mapping_Address CDATA "0"
-	Length CDATA "0"
+    Name ID #REQUIRED
+    Orig_Address CDATA "0"
+    Mapping_Address CDATA "0"
+    Length CDATA "0"
 >
 
 
 
+<!ELEMENT CAN_ID_Entry EMPTY>
+<!ATTLIST CAN_ID_Entry
+    Name ID #REQUIRED
+    CAN_ID CDATA "-1"
+>
 <!ELEMENT Characteristic EMPTY>
 <!ATTLIST Characteristic
-	Name ID #REQUIRED
-	A2LName CDATA ""
-	IndexMode ( ROW_DIR | COLUMN_DIR ) "ROW_DIR"
-	Description CDATA ""
-	Signal_ADDRESS CDATA "0"
-	ECU_Address_Extension CDATA "0"
-	DataType ( UBYTE | SBYTE | UWORD | SWORD | ULONG | SLONG | FLOAT32_IEEE | FLOAT64_IEEE ) "FLOAT64_IEEE"
-	Min CDATA "0.0"
-	Max CDATA "0.0"
-	Bit_Mask CDATA "-1"
-	IsForRead ( YES | ADDRESS_UNCLASSIFIED | NO ) "YES"
-	IsForWrite ( YES | ADDRESS_UNCLASSIFIED | NO ) "YES"
-	Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
-	Matrix_Dim_X CDATA "1"
-	Matrix_Dim_Y CDATA "1"
-	Matrix_Dim_Z CDATA "1"
-	NonSupportedConversion ( FALSE | TRUE ) "FALSE"
-	IsHookable ( FALSE | TRUE ) "TRUE"
-	Compu_Method.ofTypeCompu_Method ENTITY #IMPLIED
+    Name ID #REQUIRED
+    A2LName CDATA ""
+    IndexMode ( COLUMN_DIR | ROW_DIR ) "ROW_DIR"
+    Description CDATA ""
+    Signal_ADDRESS CDATA "0"
+    ECU_Address_Extension CDATA "0"
+    DataType ( UBYTE | SBYTE | UWORD | SWORD | ULONG | SLONG | FLOAT32_IEEE | FLOAT64_IEEE ) "FLOAT64_IEEE"
+    Min CDATA "0.0"
+    Max CDATA "0.0"
+    Bit_Mask CDATA "-1"
+    IsForRead ( YES | ADDRESS_UNCLASSIFIED | NO ) "YES"
+    IsForWrite ( YES | ADDRESS_UNCLASSIFIED | NO ) "YES"
+    Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
+    Matrix_Dim_X CDATA "1"
+    Matrix_Dim_Y CDATA "1"
+    Matrix_Dim_Z CDATA "1"
+    NonSupportedConversion ( FALSE | TRUE ) "FALSE"
+    IsHookable ( FALSE | TRUE ) "TRUE"
+    Compu_Method.ofTypeCompu_Method ENTITY #IMPLIED
 >
 
 
 
 <!ELEMENT Compu_Method EMPTY>
 <!ATTLIST Compu_Method
-	Name ID #REQUIRED
-	Description CDATA ""
-	Unit CDATA ""
-	Coeff_A CDATA "0.0"
-	Coeff_B CDATA "0.0"
-	Coeff_C CDATA "0.0"
-	Coeff_D CDATA "0.0"
-	Coeff_E CDATA "0.0"
-	Coeff_F CDATA "0.0"
+    Name ID #REQUIRED
+    Description CDATA ""
+    Unit CDATA ""
+    Coeff_A CDATA "0.0"
+    Coeff_B CDATA "0.0"
+    Coeff_C CDATA "0.0"
+    Coeff_D CDATA "0.0"
+    Coeff_E CDATA "0.0"
+    Coeff_F CDATA "0.0"
 >
 
 
 
+<!ELEMENT Event_CAN_Data (Event_CAN_Data.CAN_ID_Entries)>
+<!ATTLIST Event_CAN_Data
+    Name ID #REQUIRED
+    Event_number CDATA "-1"
+>
+
+
+<!ELEMENT Event_CAN_Data.CAN_ID_Entries (CAN_ID_Entry_List)>
+
 <!ELEMENT Function (Function.Functions, Function.Measurements)>
 <!ATTLIST Function
-	Name ID #REQUIRED
-	FunctionName CDATA ""
-	IsRoot ( FALSE | TRUE ) "FALSE"
+    Name ID #REQUIRED
+    FunctionName CDATA ""
+    IsRoot ( FALSE | TRUE ) "FALSE"
 >
 
 
@@ -136,9 +157,9 @@
 
 <!ELEMENT Group (Group.Groups, Group.Functions, Group.Measurements)>
 <!ATTLIST Group
-	Name ID #REQUIRED
-	GroupName CDATA ""
-	IsRoot ( FALSE | TRUE ) "FALSE"
+    Name ID #REQUIRED
+    GroupName CDATA ""
+    IsRoot ( FALSE | TRUE ) "FALSE"
 >
 
 
@@ -148,11 +169,11 @@
 
 <!ELEMENT MEMORY_SEGMENT (MEMORY_SEGMENT.ADDRESS_MAPPINGs)>
 <!ATTLIST MEMORY_SEGMENT
-	Name ID #REQUIRED
-	MemoryType ( EEPROM | EPROM | ROM | FLASH | RAM ) "RAM"
-	Address CDATA "0"
-	Size CDATA "0"
-	Attribute ( INTERN | EXTERN | FAR ) "EXTERN"
+    Name ID #REQUIRED
+    MemoryType ( EEPROM | EPROM | ROM | FLASH | RAM ) "RAM"
+    Address CDATA "0"
+    Size CDATA "0"
+    Attribute ( INTERN | EXTERN | FAR ) "EXTERN"
 >
 
 
@@ -160,84 +181,88 @@
 
 <!ELEMENT Measurement_ETKBypass (Measurement_ETKBypass.PossibleSources)>
 <!ATTLIST Measurement_ETKBypass
-	Name ID #REQUIRED
-	A2LName CDATA ""
-	Source_ID CDATA ""
-	Bit_Offset CDATA ""
-	Buffer_Offset CDATA ""
-	MemoryType ( INTERN | EXTERN | FAR ) "INTERN"
-	IsForBypass ( FALSE | TRUE ) "FALSE"
-	Description CDATA ""
-	Signal_ADDRESS CDATA "0"
-	ECU_Address_Extension CDATA "0"
-	DataType ( UBYTE | SBYTE | UWORD | SWORD | ULONG | SLONG | FLOAT32_IEEE | FLOAT64_IEEE ) "FLOAT64_IEEE"
-	Min CDATA "0.0"
-	Max CDATA "0.0"
-	Bit_Mask CDATA "-1"
-	IsForRead ( YES | ADDRESS_UNCLASSIFIED | NO ) "YES"
-	IsForWrite ( YES | ADDRESS_UNCLASSIFIED | NO ) "YES"
-	Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
-	Matrix_Dim_X CDATA "1"
-	Matrix_Dim_Y CDATA "1"
-	Matrix_Dim_Z CDATA "1"
-	NonSupportedConversion ( FALSE | TRUE ) "FALSE"
-	IsHookable ( FALSE | TRUE ) "TRUE"
-	Compu_Method.ofTypeCompu_Method ENTITY #IMPLIED
+    Name ID #REQUIRED
+    A2LName CDATA ""
+    Source_ID CDATA ""
+    Bit_Offset CDATA ""
+    Buffer_Offset CDATA ""
+    MemoryType ( INTERN | EXTERN | FAR ) "INTERN"
+    IsForBypass ( FALSE | TRUE ) "FALSE"
+    Description CDATA ""
+    Signal_ADDRESS CDATA "0"
+    ECU_Address_Extension CDATA "0"
+    DataType ( UBYTE | SBYTE | UWORD | SWORD | ULONG | SLONG | FLOAT32_IEEE | FLOAT64_IEEE ) "FLOAT64_IEEE"
+    Min CDATA "0.0"
+    Max CDATA "0.0"
+    Bit_Mask CDATA "-1"
+    IsForRead ( YES | ADDRESS_UNCLASSIFIED | NO ) "YES"
+    IsForWrite ( YES | ADDRESS_UNCLASSIFIED | NO ) "YES"
+    Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
+    Matrix_Dim_X CDATA "1"
+    Matrix_Dim_Y CDATA "1"
+    Matrix_Dim_Z CDATA "1"
+    NonSupportedConversion ( FALSE | TRUE ) "FALSE"
+    IsHookable ( FALSE | TRUE ) "TRUE"
+    Compu_Method.ofTypeCompu_Method ENTITY #IMPLIED
+    IndexMode ( COLUMN_DIR | ROW_DIR ) "ROW_DIR"
 >
 
 
 <!ELEMENT Measurement_ETKBypass.PossibleSources (PossibleSourceList)>
 
-<!ELEMENT Measurement_XCPBypass (Measurement_XCPBypass.FixedEvents, Measurement_XCPBypass.Variable_Available_Events, Measurement_XCPBypass.Variable_Default_Events)>
+<!ELEMENT Measurement_XCPBypass (Measurement_XCPBypass.FixedEvents, Measurement_XCPBypass.Variable_Available_Events, Measurement_XCPBypass.Variable_Default_Events, Measurement_XCPBypass.Variable_Consistency_Events)>
 <!ATTLIST Measurement_XCPBypass
-	Name ID #REQUIRED
-	A2LName CDATA ""
-	Measurement_XCPBypassType ( UNDEFINED | FIXED | VARIABLE ) "UNDEFINED"
-	Description CDATA ""
-	Signal_ADDRESS CDATA "0"
-	ECU_Address_Extension CDATA "0"
-	DataType ( UBYTE | SBYTE | UWORD | SWORD | ULONG | SLONG | FLOAT32_IEEE | FLOAT64_IEEE ) "FLOAT64_IEEE"
-	Min CDATA "0.0"
-	Max CDATA "0.0"
-	Bit_Mask CDATA "-1"
-	IsForRead ( YES | ADDRESS_UNCLASSIFIED | NO ) "YES"
-	IsForWrite ( YES | ADDRESS_UNCLASSIFIED | NO ) "YES"
-	Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
-	Matrix_Dim_X CDATA "1"
-	Matrix_Dim_Y CDATA "1"
-	Matrix_Dim_Z CDATA "1"
-	NonSupportedConversion ( FALSE | TRUE ) "FALSE"
-	IsHookable ( FALSE | TRUE ) "TRUE"
-	Compu_Method.ofTypeCompu_Method ENTITY #IMPLIED
+    Name ID #REQUIRED
+    A2LName CDATA ""
+    Measurement_XCPBypassType ( UNDEFINED | FIXED | VARIABLE ) "UNDEFINED"
+    Description CDATA ""
+    Signal_ADDRESS CDATA "0"
+    ECU_Address_Extension CDATA "0"
+    DataType ( UBYTE | SBYTE | UWORD | SWORD | ULONG | SLONG | FLOAT32_IEEE | FLOAT64_IEEE ) "FLOAT64_IEEE"
+    Min CDATA "0.0"
+    Max CDATA "0.0"
+    Bit_Mask CDATA "-1"
+    IsForRead ( YES | ADDRESS_UNCLASSIFIED | NO ) "YES"
+    IsForWrite ( YES | ADDRESS_UNCLASSIFIED | NO ) "YES"
+    Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
+    Matrix_Dim_X CDATA "1"
+    Matrix_Dim_Y CDATA "1"
+    Matrix_Dim_Z CDATA "1"
+    NonSupportedConversion ( FALSE | TRUE ) "FALSE"
+    IsHookable ( FALSE | TRUE ) "TRUE"
+    Compu_Method.ofTypeCompu_Method ENTITY #IMPLIED
+    IndexMode ( COLUMN_DIR | ROW_DIR ) "ROW_DIR"
 >
 
 
 <!ELEMENT Measurement_XCPBypass.FixedEvents (XCP_EventRefList)>
 <!ELEMENT Measurement_XCPBypass.Variable_Available_Events (XCP_EventRefList)>
 <!ELEMENT Measurement_XCPBypass.Variable_Default_Events (XCP_EventRefList)>
+<!ELEMENT Measurement_XCPBypass.Variable_Consistency_Events (XCP_EventRefList)>
 
 <!ELEMENT Module_ETKBypass (Module_ETKBypass.MEMORY_SEGMENTs, Module_ETKBypass.Rasters, Module_ETKBypass.Characteristics, Module_ETKBypass.Measurements, Module_ETKBypass.Compu_Methods, Module_ETKBypass.Groups, Module_ETKBypass.Functions, Module_ETKBypass.Services)>
 <!ATTLIST Module_ETKBypass
-	Name ID #REQUIRED
-	ETK_Speed ( 8MBIT | 100MBIT ) "8MBIT"
-	DisTabType CDATA "0"
-	TrgSegAd CDATA "0"
-	DisplayName CDATA ""
-	Description CDATA ""
-	Version CDATA ""
-	Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
-	ECU_Calibration_Offset CDATA "0"
-	ECU_SW_Version CDATA ""
-	ECU_SW_Version_Addr CDATA "0"
-	BaseOffsetValue CDATA "-1"
-	FarAddressBegin CDATA "0"
-	FarAddressLength CDATA "0"
-	AddressMapping ( none | Mask16Bit | DPP0  | DPP1  | DPP2  | DPP3 ) "none"
-	SoftwareRevisionAddress CDATA "0"
-	SoftwareRevisionValue CDATA ""
-	EcuInternals CDATA ""
-	TableAlignment ( 2Byte| 4Byte | 8Byte  | 16Byte ) "4Byte"
-	ETK_XETK_ID CDATA "0"
+    Name ID #REQUIRED
+    ETK_Speed ( 8MBIT | 100MBIT ) "8MBIT"
+    DisTabType CDATA "0"
+    TrgSegAd CDATA "0"
+    DisplayName CDATA ""
+    Description CDATA ""
+    Version CDATA ""
+    Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
+    ECU_Calibration_Offset CDATA "0"
+    ECU_SW_Version CDATA ""
+    ECU_SW_Version_Addr CDATA "0"
+    BaseOffsetValue CDATA "-1"
+    FarAddressBegin CDATA "0"
+    FarAddressLength CDATA "0"
+    AddressMapping ( none | Mask16Bit | DPP0  | DPP1  | DPP2  | DPP3 ) "none"
+    SoftwareRevisionAddress CDATA "0"
+    SoftwareRevisionValue CDATA ""
+    EcuInternals CDATA ""
+    TableAlignment ( 2Byte| 4Byte | 8Byte  | 16Byte ) "4Byte"
+    ETK_XETK_ID CDATA "0"
+    ETK_Type ( UNDEFINED | ETK | XETK | FETK ) "UNDEFINED"
 >
 
 
@@ -252,49 +277,71 @@
 
 <!ELEMENT Module_XCPBypass (Module_XCPBypass.OptionalXCPCommands, Module_XCPBypass.XCP_DAQ_Lists, Module_XCPBypass.XCP_Events, Module_XCPBypass.MEMORY_SEGMENTs, Module_XCPBypass.Rasters, Module_XCPBypass.Characteristics, Module_XCPBypass.Measurements, Module_XCPBypass.Compu_Methods, Module_XCPBypass.Groups, Module_XCPBypass.Functions, Module_XCPBypass.Services)>
 <!ATTLIST Module_XCPBypass
-	Name ID #REQUIRED
-	XCP_Protocol_Layer_Version CDATA "0"
-	Max_CTO CDATA "0"
-	T1 CDATA "0"
-	T2 CDATA "0"
-	T3 CDATA "0"
-	T4 CDATA "0"
-	T5 CDATA "0"
-	T6 CDATA "0"
-	T7 CDATA "0"
-	Max_DTO CDATA "0"
-	Address_Granularity ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
-	DAQ_Config_Type ( STATIC | DYNAMIC ) "STATIC"
-	Max_DAQ CDATA "0"
-	Min_DAQ CDATA "0"
-	Max_Event_Channel CDATA "0"
-	Optimisation_Type ( DEFAULT | ODT_TYPE_16 | ODT_TYPE_32 | ODT_TYPE_64 | ODT_TYPE_ALIGNMENT | MAX_ENTRY_SIZE ) "DEFAULT"
-	Address_Extension_Type ( FREE | ODT | DAQ ) "FREE"
-	Identification_Field_Type ( ABSOLUTE | RELATIVE_BYTE | RELATIVE_WORD | RELATIVE_WORD_ALIGNED ) "ABSOLUTE"
-	Granularity_ODT_Entry_Size_DAQ ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
-	Max_ODT_Entry_Size_DAQ CDATA "0"
-	Overload_Indication ( NO | PID | EVENT ) "NO"
-	Prescaler_Supported ( FALSE | TRUE ) "FALSE"
-	Resume_Supported ( FALSE | TRUE ) "FALSE"
-	Granularity_ODT_Entry_Size_STIM ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
-	Max_ODT_Entry_Size_STIM CDATA "-1"
-	Bit_STIM_Supported ( FALSE | TRUE ) "FALSE"
-	Timestamp_Supported ( FALSE | TRUE ) "FALSE"
-	Timestamp_Ticks CDATA "-1"
-	Timestamp_Size ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
-	Timestamp_Resolution ( 1NS | 10NS | 100NS | 1US | 10US | 100US | 1MS | 10MS | 100MS | 1S | MISSING ) "MISSING"
-	Timestamp_Fixed ( FALSE | TRUE ) "FALSE"
-	PID_Off_Supported ( FALSE | TRUE ) "FALSE"
-	XCP_Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
-	Seed_And_Key_External_Function CDATA ""
-	Description CDATA ""
-	Version CDATA ""
-	Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
-	ECU_Calibration_Offset CDATA "0"
-	ECU_SW_Version CDATA ""
-	ECU_SW_Version_Addr CDATA "0"
-	EcuInternals CDATA ""
-	Transport_Layer_Name CDATA ""
+    Name ID #REQUIRED
+    XCP_Protocol_Layer_Version CDATA "0"
+    Max_CTO CDATA "0"
+    T1 CDATA "0"
+    T2 CDATA "0"
+    T3 CDATA "0"
+    T4 CDATA "0"
+    T5 CDATA "0"
+    T6 CDATA "0"
+    T7 CDATA "0"
+    Max_DTO CDATA "0"
+    Address_Granularity ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
+    DAQ_Config_Type ( STATIC | DYNAMIC ) "STATIC"
+    Max_DAQ CDATA "0"
+    Min_DAQ CDATA "0"
+    Max_Event_Channel CDATA "0"
+    Optimisation_Type ( DEFAULT | ODT_TYPE_16 | ODT_TYPE_32 | ODT_TYPE_64 | ODT_TYPE_ALIGNMENT | MAX_ENTRY_SIZE ) "DEFAULT"
+    Address_Extension_Type ( FREE | ODT | DAQ ) "FREE"
+    Identification_Field_Type ( ABSOLUTE | RELATIVE_BYTE | RELATIVE_WORD | RELATIVE_WORD_ALIGNED ) "ABSOLUTE"
+    Granularity_ODT_Entry_Size_DAQ ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
+    Max_ODT_Entry_Size_DAQ CDATA "0"
+    Overload_Indication ( NO | PID | EVENT ) "NO"
+    Prescaler_Supported ( FALSE | TRUE ) "FALSE"
+    Resume_Supported ( FALSE | TRUE ) "FALSE"
+    Granularity_ODT_Entry_Size_STIM ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
+    Max_ODT_Entry_Size_STIM CDATA "-1"
+    Bit_STIM_Supported ( FALSE | TRUE ) "FALSE"
+    Timestamp_Supported ( FALSE | TRUE ) "FALSE"
+    Timestamp_Ticks CDATA "-1"
+    Timestamp_Size ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
+    Timestamp_Resolution ( MISSING | 1NS | 10NS | 100NS | 1US | 10US | 100US | 1MS | 10MS | 100MS | 1S | 1PS | 10PS | 100PS ) "MISSING"
+    Timestamp_Fixed ( FALSE | TRUE ) "FALSE"
+    PID_Off_Supported ( FALSE | TRUE ) "FALSE"
+    XCP_Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
+    Seed_And_Key_External_Function CDATA ""
+    Description CDATA ""
+    Version CDATA ""
+    Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
+    ECU_Calibration_Offset CDATA "0"
+    ECU_SW_Version CDATA ""
+    ECU_SW_Version_Addr CDATA "0"
+    EcuInternals CDATA ""
+    Transport_Layer_Name CDATA ""
+    Max_DTO_STIM CDATA "0"
+    Store_DAQ_Supported ( FALSE | TRUE ) "FALSE"
+    DTO_CTR_Field_Supported ( FALSE | TRUE ) "FALSE"
+    Max_DAQ_Total CDATA "-1"
+    Max_ODT_Total CDATA "-1"
+    Max_ODT_DAQ_Total CDATA "-1"
+    Max_ODT_STIM_Total CDATA "-1"
+    Max_ODT_Entries_Total CDATA "-1"
+    Max_ODT_Entries_DAQ_Total CDATA "-1"
+    Max_ODT_Entries_STIM_Total CDATA "-1"
+    Optimisation_Type_ODT_Strict ( FALSE | TRUE ) "FALSE"
+    Min_ST_STIM CDATA "-1"
+    DAQ_Memory_Consumption ( FALSE | TRUE ) "FALSE"
+    DAQ_Memory_Limit CDATA "0"
+    DAQ_Size CDATA "0"
+    ODT_Size CDATA "0"
+    ODT_Entry_Size CDATA "0"
+    ODT_DAQ_Buffer_Element_Size CDATA "0"
+    ODT_STIM_Buffer_Element_Size CDATA "0"
+    Buffer_Reserve ( FALSE | TRUE ) "FALSE"
+    ODT_DAQ_Buffer_Element_Reserve CDATA "0"
+    ODT_STIM_Buffer_Element_Reserve CDATA "0"
 >
 
 
@@ -310,64 +357,99 @@
 <!ELEMENT Module_XCPBypass.Functions (FunctionList)>
 <!ELEMENT Module_XCPBypass.Services (ServiceBasedBypassList)>
 
-<!ELEMENT Module_XCPBypass_on_CAN (Module_XCPBypass_on_CAN.OptionalXCPCommands, Module_XCPBypass_on_CAN.XCP_DAQ_Lists, Module_XCPBypass_on_CAN.XCP_Events, Module_XCPBypass_on_CAN.MEMORY_SEGMENTs, Module_XCPBypass_on_CAN.Rasters, Module_XCPBypass_on_CAN.Characteristics, Module_XCPBypass_on_CAN.Measurements, Module_XCPBypass_on_CAN.Compu_Methods, Module_XCPBypass_on_CAN.Groups, Module_XCPBypass_on_CAN.Functions, Module_XCPBypass_on_CAN.Services)>
+<!ELEMENT Module_XCPBypass_on_CAN (Module_XCPBypass_on_CAN.OptionalXCPonCANCommands, Module_XCPBypass_on_CAN.Event_CAN_Datas, Module_XCPBypass_on_CAN.OptionalXCPCommands, Module_XCPBypass_on_CAN.XCP_DAQ_Lists, Module_XCPBypass_on_CAN.XCP_Events, Module_XCPBypass_on_CAN.MEMORY_SEGMENTs, Module_XCPBypass_on_CAN.Rasters, Module_XCPBypass_on_CAN.Characteristics, Module_XCPBypass_on_CAN.Measurements, Module_XCPBypass_on_CAN.Compu_Methods, Module_XCPBypass_on_CAN.Groups, Module_XCPBypass_on_CAN.Functions, Module_XCPBypass_on_CAN.Services)>
 <!ATTLIST Module_XCPBypass_on_CAN
-	Name ID #REQUIRED
-	XCP_on_CAN_Version CDATA "0"
-	CAN_ID_Master CDATA "-1"
-	CAN_ID_Slave CDATA "-1"
-	Baudrate CDATA "-1"
-	Sample_Point CDATA "-1"
-	Sample_Rate ( MISSING | SINGLE | TRIPLE ) "MISSING"
-	BTL_Cycles CDATA "-1"
-	SJW CDATA "-1"
-	Sync_Edge ( MISSING | SINGLE | DUAL ) "MISSING"
-	Max_DLC_Required ( FALSE | TRUE ) "FALSE"
-	XCP_Protocol_Layer_Version CDATA "0"
-	Max_CTO CDATA "0"
-	T1 CDATA "0"
-	T2 CDATA "0"
-	T3 CDATA "0"
-	T4 CDATA "0"
-	T5 CDATA "0"
-	T6 CDATA "0"
-	T7 CDATA "0"
-	Max_DTO CDATA "0"
-	Address_Granularity ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
-	DAQ_Config_Type ( STATIC | DYNAMIC ) "STATIC"
-	Max_DAQ CDATA "0"
-	Min_DAQ CDATA "0"
-	Max_Event_Channel CDATA "0"
-	Optimisation_Type ( DEFAULT | ODT_TYPE_16 | ODT_TYPE_32 | ODT_TYPE_64 | ODT_TYPE_ALIGNMENT | MAX_ENTRY_SIZE ) "DEFAULT"
-	Address_Extension_Type ( FREE | ODT | DAQ ) "FREE"
-	Identification_Field_Type ( ABSOLUTE | RELATIVE_BYTE | RELATIVE_WORD | RELATIVE_WORD_ALIGNED ) "ABSOLUTE"
-	Granularity_ODT_Entry_Size_DAQ ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
-	Max_ODT_Entry_Size_DAQ CDATA "0"
-	Overload_Indication ( NO | PID | EVENT ) "NO"
-	Prescaler_Supported ( FALSE | TRUE ) "FALSE"
-	Resume_Supported ( FALSE | TRUE ) "FALSE"
-	Granularity_ODT_Entry_Size_STIM ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
-	Max_ODT_Entry_Size_STIM CDATA "-1"
-	Bit_STIM_Supported ( FALSE | TRUE ) "FALSE"
-	Timestamp_Supported ( FALSE | TRUE ) "FALSE"
-	Timestamp_Ticks CDATA "-1"
-	Timestamp_Size ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
-	Timestamp_Resolution ( 1NS | 10NS | 100NS | 1US | 10US | 100US | 1MS | 10MS | 100MS | 1S | MISSING ) "MISSING"
-	Timestamp_Fixed ( FALSE | TRUE ) "FALSE"
-	PID_Off_Supported ( FALSE | TRUE ) "FALSE"
-	XCP_Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
-	Seed_And_Key_External_Function CDATA ""
-	Description CDATA ""
-	Version CDATA ""
-	Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
-	ECU_Calibration_Offset CDATA "0"
-	ECU_SW_Version CDATA ""
-	ECU_SW_Version_Addr CDATA "0"
-	EcuInternals CDATA ""
-	Transport_Layer_Name CDATA ""
+    Name ID #REQUIRED
+    XCP_on_CAN_Version CDATA "0"
+    CAN_ID_Master CDATA "-1"
+    CAN_ID_Slave CDATA "-1"
+    Baudrate CDATA "-1"
+    Sample_Point CDATA "-1"
+    Sample_Rate ( MISSING | SINGLE | TRIPLE ) "MISSING"
+    BTL_Cycles CDATA "-1"
+    SJW CDATA "-1"
+    Sync_Edge ( MISSING | SINGLE | DUAL ) "MISSING"
+    Max_DLC_Required ( FALSE | TRUE ) "FALSE"
+    Measurement_Split_Allowed ( FALSE | TRUE ) "FALSE"
+    CAN_FD_Enable ( FALSE | TRUE ) "FALSE"
+    CAN_FD_Max_DLC CDATA "64"
+    CAN_FD_Data_Transfer_Baudrate CDATA "-1"
+    CAN_FD_Sample_Point CDATA "-1"
+    CAN_FD_BTL_Cycles CDATA "-1"
+    CAN_FD_SJW CDATA "-1"
+    CAN_FD_Sync_Edge ( MISSING | SINGLE | DUAL ) "MISSING"
+    CAN_FD_Max_DLC_Required ( FALSE | TRUE ) "FALSE"
+    CAN_FD_Secondary_Sample_Point CDATA "-1"
+    CAN_FD_Transceiver_Delay_Compensation ( MISSING | OFF | ON ) "MISSING"
+    XCP_Protocol_Layer_Version CDATA "0"
+    Max_CTO CDATA "0"
+    T1 CDATA "0"
+    T2 CDATA "0"
+    T3 CDATA "0"
+    T4 CDATA "0"
+    T5 CDATA "0"
+    T6 CDATA "0"
+    T7 CDATA "0"
+    Max_DTO CDATA "0"
+    Address_Granularity ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
+    DAQ_Config_Type ( STATIC | DYNAMIC ) "STATIC"
+    Max_DAQ CDATA "0"
+    Min_DAQ CDATA "0"
+    Max_Event_Channel CDATA "0"
+    Optimisation_Type ( DEFAULT | ODT_TYPE_16 | ODT_TYPE_32 | ODT_TYPE_64 | ODT_TYPE_ALIGNMENT | MAX_ENTRY_SIZE ) "DEFAULT"
+    Address_Extension_Type ( FREE | ODT | DAQ ) "FREE"
+    Identification_Field_Type ( ABSOLUTE | RELATIVE_BYTE | RELATIVE_WORD | RELATIVE_WORD_ALIGNED ) "ABSOLUTE"
+    Granularity_ODT_Entry_Size_DAQ ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
+    Max_ODT_Entry_Size_DAQ CDATA "0"
+    Overload_Indication ( NO | PID | EVENT ) "NO"
+    Prescaler_Supported ( FALSE | TRUE ) "FALSE"
+    Resume_Supported ( FALSE | TRUE ) "FALSE"
+    Granularity_ODT_Entry_Size_STIM ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
+    Max_ODT_Entry_Size_STIM CDATA "-1"
+    Bit_STIM_Supported ( FALSE | TRUE ) "FALSE"
+    Timestamp_Supported ( FALSE | TRUE ) "FALSE"
+    Timestamp_Ticks CDATA "-1"
+    Timestamp_Size ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
+    Timestamp_Resolution ( MISSING | 1NS | 10NS | 100NS | 1US | 10US | 100US | 1MS | 10MS | 100MS | 1S | 1PS | 10PS | 100PS ) "MISSING"
+    Timestamp_Fixed ( FALSE | TRUE ) "FALSE"
+    PID_Off_Supported ( FALSE | TRUE ) "FALSE"
+    XCP_Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
+    Seed_And_Key_External_Function CDATA ""
+    Description CDATA ""
+    Version CDATA ""
+    Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
+    ECU_Calibration_Offset CDATA "0"
+    ECU_SW_Version CDATA ""
+    ECU_SW_Version_Addr CDATA "0"
+    EcuInternals CDATA ""
+    Transport_Layer_Name CDATA ""
+    Max_DTO_STIM CDATA "0"
+    Store_DAQ_Supported ( FALSE | TRUE ) "FALSE"
+    DTO_CTR_Field_Supported ( FALSE | TRUE ) "FALSE"
+    Max_DAQ_Total CDATA "-1"
+    Max_ODT_Total CDATA "-1"
+    Max_ODT_DAQ_Total CDATA "-1"
+    Max_ODT_STIM_Total CDATA "-1"
+    Max_ODT_Entries_Total CDATA "-1"
+    Max_ODT_Entries_DAQ_Total CDATA "-1"
+    Max_ODT_Entries_STIM_Total CDATA "-1"
+    Optimisation_Type_ODT_Strict ( FALSE | TRUE ) "FALSE"
+    Min_ST_STIM CDATA "-1"
+    DAQ_Memory_Consumption ( FALSE | TRUE ) "FALSE"
+    DAQ_Memory_Limit CDATA "0"
+    DAQ_Size CDATA "0"
+    ODT_Size CDATA "0"
+    ODT_Entry_Size CDATA "0"
+    ODT_DAQ_Buffer_Element_Size CDATA "0"
+    ODT_STIM_Buffer_Element_Size CDATA "0"
+    Buffer_Reserve ( FALSE | TRUE ) "FALSE"
+    ODT_DAQ_Buffer_Element_Reserve CDATA "0"
+    ODT_STIM_Buffer_Element_Reserve CDATA "0"
 >
 
 
+<!ELEMENT Module_XCPBypass_on_CAN.OptionalXCPonCANCommands (OptionalXCPonCANCommandList)>
+<!ELEMENT Module_XCPBypass_on_CAN.Event_CAN_Datas (Event_CAN_Data_List)>
 <!ELEMENT Module_XCPBypass_on_CAN.OptionalXCPCommands (OptionalXCPCommandList)>
 <!ELEMENT Module_XCPBypass_on_CAN.XCP_DAQ_Lists (XCP_DAQ_ListList)>
 <!ELEMENT Module_XCPBypass_on_CAN.XCP_Events (XCP_EventList)>
@@ -382,52 +464,74 @@
 
 <!ELEMENT Module_XCPBypass_on_TCP_IP (Module_XCPBypass_on_TCP_IP.OptionalXCPCommands, Module_XCPBypass_on_TCP_IP.XCP_DAQ_Lists, Module_XCPBypass_on_TCP_IP.XCP_Events, Module_XCPBypass_on_TCP_IP.MEMORY_SEGMENTs, Module_XCPBypass_on_TCP_IP.Rasters, Module_XCPBypass_on_TCP_IP.Characteristics, Module_XCPBypass_on_TCP_IP.Measurements, Module_XCPBypass_on_TCP_IP.Compu_Methods, Module_XCPBypass_on_TCP_IP.Groups, Module_XCPBypass_on_TCP_IP.Functions, Module_XCPBypass_on_TCP_IP.Services)>
 <!ATTLIST Module_XCPBypass_on_TCP_IP
-	Name ID #REQUIRED
-	XCP_on_TCP_IP_Version CDATA "0"
-	Port CDATA "0"
-	IP_Address CDATA ""
-	XCP_Protocol_Layer_Version CDATA "0"
-	Max_CTO CDATA "0"
-	T1 CDATA "0"
-	T2 CDATA "0"
-	T3 CDATA "0"
-	T4 CDATA "0"
-	T5 CDATA "0"
-	T6 CDATA "0"
-	T7 CDATA "0"
-	Max_DTO CDATA "0"
-	Address_Granularity ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
-	DAQ_Config_Type ( STATIC | DYNAMIC ) "STATIC"
-	Max_DAQ CDATA "0"
-	Min_DAQ CDATA "0"
-	Max_Event_Channel CDATA "0"
-	Optimisation_Type ( DEFAULT | ODT_TYPE_16 | ODT_TYPE_32 | ODT_TYPE_64 | ODT_TYPE_ALIGNMENT | MAX_ENTRY_SIZE ) "DEFAULT"
-	Address_Extension_Type ( FREE | ODT | DAQ ) "FREE"
-	Identification_Field_Type ( ABSOLUTE | RELATIVE_BYTE | RELATIVE_WORD | RELATIVE_WORD_ALIGNED ) "ABSOLUTE"
-	Granularity_ODT_Entry_Size_DAQ ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
-	Max_ODT_Entry_Size_DAQ CDATA "0"
-	Overload_Indication ( NO | PID | EVENT ) "NO"
-	Prescaler_Supported ( FALSE | TRUE ) "FALSE"
-	Resume_Supported ( FALSE | TRUE ) "FALSE"
-	Granularity_ODT_Entry_Size_STIM ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
-	Max_ODT_Entry_Size_STIM CDATA "-1"
-	Bit_STIM_Supported ( FALSE | TRUE ) "FALSE"
-	Timestamp_Supported ( FALSE | TRUE ) "FALSE"
-	Timestamp_Ticks CDATA "-1"
-	Timestamp_Size ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
-	Timestamp_Resolution ( 1NS | 10NS | 100NS | 1US | 10US | 100US | 1MS | 10MS | 100MS | 1S | MISSING ) "MISSING"
-	Timestamp_Fixed ( FALSE | TRUE ) "FALSE"
-	PID_Off_Supported ( FALSE | TRUE ) "FALSE"
-	XCP_Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
-	Seed_And_Key_External_Function CDATA ""
-	Description CDATA ""
-	Version CDATA ""
-	Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
-	ECU_Calibration_Offset CDATA "0"
-	ECU_SW_Version CDATA ""
-	ECU_SW_Version_Addr CDATA "0"
-	EcuInternals CDATA ""
-	Transport_Layer_Name CDATA ""
+    Name ID #REQUIRED
+    XCP_on_TCP_IP_Version CDATA "0"
+    Port CDATA "0"
+    IP_Address CDATA ""
+    XCP_Protocol_Layer_Version CDATA "0"
+    Max_CTO CDATA "0"
+    T1 CDATA "0"
+    T2 CDATA "0"
+    T3 CDATA "0"
+    T4 CDATA "0"
+    T5 CDATA "0"
+    T6 CDATA "0"
+    T7 CDATA "0"
+    Max_DTO CDATA "0"
+    Address_Granularity ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
+    DAQ_Config_Type ( STATIC | DYNAMIC ) "STATIC"
+    Max_DAQ CDATA "0"
+    Min_DAQ CDATA "0"
+    Max_Event_Channel CDATA "0"
+    Optimisation_Type ( DEFAULT | ODT_TYPE_16 | ODT_TYPE_32 | ODT_TYPE_64 | ODT_TYPE_ALIGNMENT | MAX_ENTRY_SIZE ) "DEFAULT"
+    Address_Extension_Type ( FREE | ODT | DAQ ) "FREE"
+    Identification_Field_Type ( ABSOLUTE | RELATIVE_BYTE | RELATIVE_WORD | RELATIVE_WORD_ALIGNED ) "ABSOLUTE"
+    Granularity_ODT_Entry_Size_DAQ ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
+    Max_ODT_Entry_Size_DAQ CDATA "0"
+    Overload_Indication ( NO | PID | EVENT ) "NO"
+    Prescaler_Supported ( FALSE | TRUE ) "FALSE"
+    Resume_Supported ( FALSE | TRUE ) "FALSE"
+    Granularity_ODT_Entry_Size_STIM ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
+    Max_ODT_Entry_Size_STIM CDATA "-1"
+    Bit_STIM_Supported ( FALSE | TRUE ) "FALSE"
+    Timestamp_Supported ( FALSE | TRUE ) "FALSE"
+    Timestamp_Ticks CDATA "-1"
+    Timestamp_Size ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
+    Timestamp_Resolution ( MISSING | 1NS | 10NS | 100NS | 1US | 10US | 100US | 1MS | 10MS | 100MS | 1S | 1PS | 10PS | 100PS ) "MISSING"
+    Timestamp_Fixed ( FALSE | TRUE ) "FALSE"
+    PID_Off_Supported ( FALSE | TRUE ) "FALSE"
+    XCP_Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
+    Seed_And_Key_External_Function CDATA ""
+    Description CDATA ""
+    Version CDATA ""
+    Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
+    ECU_Calibration_Offset CDATA "0"
+    ECU_SW_Version CDATA ""
+    ECU_SW_Version_Addr CDATA "0"
+    EcuInternals CDATA ""
+    Transport_Layer_Name CDATA ""
+    Max_DTO_STIM CDATA "0"
+    Store_DAQ_Supported ( FALSE | TRUE ) "FALSE"
+    DTO_CTR_Field_Supported ( FALSE | TRUE ) "FALSE"
+    Max_DAQ_Total CDATA "-1"
+    Max_ODT_Total CDATA "-1"
+    Max_ODT_DAQ_Total CDATA "-1"
+    Max_ODT_STIM_Total CDATA "-1"
+    Max_ODT_Entries_Total CDATA "-1"
+    Max_ODT_Entries_DAQ_Total CDATA "-1"
+    Max_ODT_Entries_STIM_Total CDATA "-1"
+    Optimisation_Type_ODT_Strict ( FALSE | TRUE ) "FALSE"
+    Min_ST_STIM CDATA "-1"
+    DAQ_Memory_Consumption ( FALSE | TRUE ) "FALSE"
+    DAQ_Memory_Limit CDATA "0"
+    DAQ_Size CDATA "0"
+    ODT_Size CDATA "0"
+    ODT_Entry_Size CDATA "0"
+    ODT_DAQ_Buffer_Element_Size CDATA "0"
+    ODT_STIM_Buffer_Element_Size CDATA "0"
+    Buffer_Reserve ( FALSE | TRUE ) "FALSE"
+    ODT_DAQ_Buffer_Element_Reserve CDATA "0"
+    ODT_STIM_Buffer_Element_Reserve CDATA "0"
 >
 
 
@@ -443,57 +547,81 @@
 <!ELEMENT Module_XCPBypass_on_TCP_IP.Functions (FunctionList)>
 <!ELEMENT Module_XCPBypass_on_TCP_IP.Services (ServiceBasedBypassList)>
 
-<!ELEMENT Module_XCPBypass_on_UDP_IP (Module_XCPBypass_on_UDP_IP.OptionalXCPCommands, Module_XCPBypass_on_UDP_IP.XCP_DAQ_Lists, Module_XCPBypass_on_UDP_IP.XCP_Events, Module_XCPBypass_on_UDP_IP.MEMORY_SEGMENTs, Module_XCPBypass_on_UDP_IP.Rasters, Module_XCPBypass_on_UDP_IP.Characteristics, Module_XCPBypass_on_UDP_IP.Measurements, Module_XCPBypass_on_UDP_IP.Compu_Methods, Module_XCPBypass_on_UDP_IP.Groups, Module_XCPBypass_on_UDP_IP.Functions, Module_XCPBypass_on_UDP_IP.Services)>
+<!ELEMENT Module_XCPBypass_on_UDP_IP (Module_XCPBypass_on_UDP_IP.OptionalXCPonUDPCommands, Module_XCPBypass_on_UDP_IP.OptionalXCPCommands, Module_XCPBypass_on_UDP_IP.XCP_DAQ_Lists, Module_XCPBypass_on_UDP_IP.XCP_Events, Module_XCPBypass_on_UDP_IP.MEMORY_SEGMENTs, Module_XCPBypass_on_UDP_IP.Rasters, Module_XCPBypass_on_UDP_IP.Characteristics, Module_XCPBypass_on_UDP_IP.Measurements, Module_XCPBypass_on_UDP_IP.Compu_Methods, Module_XCPBypass_on_UDP_IP.Groups, Module_XCPBypass_on_UDP_IP.Functions, Module_XCPBypass_on_UDP_IP.Services)>
 <!ATTLIST Module_XCPBypass_on_UDP_IP
-	Name ID #REQUIRED
-	XCP_on_UDP_IP_Version CDATA "0"
-	Port CDATA "0"
-	IP_Address CDATA ""
-	XCP_Protocol_Layer_Version CDATA "0"
-	Max_CTO CDATA "0"
-	T1 CDATA "0"
-	T2 CDATA "0"
-	T3 CDATA "0"
-	T4 CDATA "0"
-	T5 CDATA "0"
-	T6 CDATA "0"
-	T7 CDATA "0"
-	Max_DTO CDATA "0"
-	Address_Granularity ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
-	DAQ_Config_Type ( STATIC | DYNAMIC ) "STATIC"
-	Max_DAQ CDATA "0"
-	Min_DAQ CDATA "0"
-	Max_Event_Channel CDATA "0"
-	Optimisation_Type ( DEFAULT | ODT_TYPE_16 | ODT_TYPE_32 | ODT_TYPE_64 | ODT_TYPE_ALIGNMENT | MAX_ENTRY_SIZE ) "DEFAULT"
-	Address_Extension_Type ( FREE | ODT | DAQ ) "FREE"
-	Identification_Field_Type ( ABSOLUTE | RELATIVE_BYTE | RELATIVE_WORD | RELATIVE_WORD_ALIGNED ) "ABSOLUTE"
-	Granularity_ODT_Entry_Size_DAQ ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
-	Max_ODT_Entry_Size_DAQ CDATA "0"
-	Overload_Indication ( NO | PID | EVENT ) "NO"
-	Prescaler_Supported ( FALSE | TRUE ) "FALSE"
-	Resume_Supported ( FALSE | TRUE ) "FALSE"
-	Granularity_ODT_Entry_Size_STIM ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
-	Max_ODT_Entry_Size_STIM CDATA "-1"
-	Bit_STIM_Supported ( FALSE | TRUE ) "FALSE"
-	Timestamp_Supported ( FALSE | TRUE ) "FALSE"
-	Timestamp_Ticks CDATA "-1"
-	Timestamp_Size ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
-	Timestamp_Resolution ( 1NS | 10NS | 100NS | 1US | 10US | 100US | 1MS | 10MS | 100MS | 1S | MISSING ) "MISSING"
-	Timestamp_Fixed ( FALSE | TRUE ) "FALSE"
-	PID_Off_Supported ( FALSE | TRUE ) "FALSE"
-	XCP_Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
-	Seed_And_Key_External_Function CDATA ""
-	Description CDATA ""
-	Version CDATA ""
-	Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
-	ECU_Calibration_Offset CDATA "0"
-	ECU_SW_Version CDATA ""
-	ECU_SW_Version_Addr CDATA "0"
-	EcuInternals CDATA ""
-	Transport_Layer_Name CDATA ""    
+    Name ID #REQUIRED
+    XCP_on_UDP_IP_Version CDATA "0"
+    Port CDATA "0"
+    IP_Address CDATA ""
+    Packet_Alignment ( PACKET_ALIGNMENT_8 | PACKET_ALIGNMENT_16 | PACKET_ALIGNMENT_32 ) "PACKET_ALIGNMENT_8"
+    XCP_Protocol_Layer_Version CDATA "0"
+    Max_CTO CDATA "0"
+    T1 CDATA "0"
+    T2 CDATA "0"
+    T3 CDATA "0"
+    T4 CDATA "0"
+    T5 CDATA "0"
+    T6 CDATA "0"
+    T7 CDATA "0"
+    Max_DTO CDATA "0"
+    Address_Granularity ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
+    DAQ_Config_Type ( STATIC | DYNAMIC ) "STATIC"
+    Max_DAQ CDATA "0"
+    Min_DAQ CDATA "0"
+    Max_Event_Channel CDATA "0"
+    Optimisation_Type ( DEFAULT | ODT_TYPE_16 | ODT_TYPE_32 | ODT_TYPE_64 | ODT_TYPE_ALIGNMENT | MAX_ENTRY_SIZE ) "DEFAULT"
+    Address_Extension_Type ( FREE | ODT | DAQ ) "FREE"
+    Identification_Field_Type ( ABSOLUTE | RELATIVE_BYTE | RELATIVE_WORD | RELATIVE_WORD_ALIGNED ) "ABSOLUTE"
+    Granularity_ODT_Entry_Size_DAQ ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
+    Max_ODT_Entry_Size_DAQ CDATA "0"
+    Overload_Indication ( NO | PID | EVENT ) "NO"
+    Prescaler_Supported ( FALSE | TRUE ) "FALSE"
+    Resume_Supported ( FALSE | TRUE ) "FALSE"
+    Granularity_ODT_Entry_Size_STIM ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
+    Max_ODT_Entry_Size_STIM CDATA "-1"
+    Bit_STIM_Supported ( FALSE | TRUE ) "FALSE"
+    Timestamp_Supported ( FALSE | TRUE ) "FALSE"
+    Timestamp_Ticks CDATA "-1"
+    Timestamp_Size ( MISSING | BYTE | WORD | DWORD | DLONG ) "MISSING"
+    Timestamp_Resolution ( MISSING | 1NS | 10NS | 100NS | 1US | 10US | 100US | 1MS | 10MS | 100MS | 1S | 1PS | 10PS | 100PS ) "MISSING"
+    Timestamp_Fixed ( FALSE | TRUE ) "FALSE"
+    PID_Off_Supported ( FALSE | TRUE ) "FALSE"
+    XCP_Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
+    Seed_And_Key_External_Function CDATA ""
+    Description CDATA ""
+    Version CDATA ""
+    Byte_Order ( MSB_FIRST | MSB_LAST ) "MSB_LAST"
+    ECU_Calibration_Offset CDATA "0"
+    ECU_SW_Version CDATA ""
+    ECU_SW_Version_Addr CDATA "0"
+    EcuInternals CDATA ""
+    Transport_Layer_Name CDATA ""
+    Max_DTO_STIM CDATA "0"
+    Store_DAQ_Supported ( FALSE | TRUE ) "FALSE"
+    DTO_CTR_Field_Supported ( FALSE | TRUE ) "FALSE"
+    Max_DAQ_Total CDATA "-1"
+    Max_ODT_Total CDATA "-1"
+    Max_ODT_DAQ_Total CDATA "-1"
+    Max_ODT_STIM_Total CDATA "-1"
+    Max_ODT_Entries_Total CDATA "-1"
+    Max_ODT_Entries_DAQ_Total CDATA "-1"
+    Max_ODT_Entries_STIM_Total CDATA "-1"
+    Optimisation_Type_ODT_Strict ( FALSE | TRUE ) "FALSE"
+    Min_ST_STIM CDATA "-1"
+    DAQ_Memory_Consumption ( FALSE | TRUE ) "FALSE"
+    DAQ_Memory_Limit CDATA "0"
+    DAQ_Size CDATA "0"
+    ODT_Size CDATA "0"
+    ODT_Entry_Size CDATA "0"
+    ODT_DAQ_Buffer_Element_Size CDATA "0"
+    ODT_STIM_Buffer_Element_Size CDATA "0"
+    Buffer_Reserve ( FALSE | TRUE ) "FALSE"
+    ODT_DAQ_Buffer_Element_Reserve CDATA "0"
+    ODT_STIM_Buffer_Element_Reserve CDATA "0"
 >
 
 
+<!ELEMENT Module_XCPBypass_on_UDP_IP.OptionalXCPonUDPCommands (OptionalXCPonUDPCommandList)>
 <!ELEMENT Module_XCPBypass_on_UDP_IP.OptionalXCPCommands (OptionalXCPCommandList)>
 <!ELEMENT Module_XCPBypass_on_UDP_IP.XCP_DAQ_Lists (XCP_DAQ_ListList)>
 <!ELEMENT Module_XCPBypass_on_UDP_IP.XCP_Events (XCP_EventList)>
@@ -508,61 +636,77 @@
 
 <!ELEMENT OptionalXCPCommand EMPTY>
 <!ATTLIST OptionalXCPCommand
-	Name ID #REQUIRED
-	Command ( UNKNOWN | GET_COMM_MODE_INFO | GET_ID | SET_REQUEST | GET_SEED | UNLOCK | SET_MTA | UPLOAD | SHORT_UPLOAD | BUILD_CHECKSUM | TRANSPORT_LAYER_CMD | USER_CMD | DOWNLOAD | DOWNLOAD_NEXT | DOWNLOAD_MAX | SHORT_DOWNLOAD | MODIFY_BITS | SET_CAL_PAGE | GET_CAL_PAGE | GET_PAG_PROCESSOR_INFO | GET_SEGMENT_INFO | GET_PAGE_INFO | SET_SEGMENT_MODE | GET_SEGMENT_MODE | COPY_CAL_PAGE | CLEAR_DAQ_LIST | SET_DAQ_PTR | WRITE_DAQ | SET_DAQ_LIST_MODE | GET_DAQ_LIST_MODE | START_STOP_DAQ_LIST | START_STOP_SYNCH | GET_DAQ_CLOCK | READ_DAQ | GET_DAQ_PROCESSOR_INFO | GET_DAQ_RESOLUTION_INFO | GET_DAQ_LIST_INFO | GET_DAQ_EVENT_INFO | FREE_DAQ | ALLOC_DAQ | ALLOC_ODT | ALLOC_ODT_ENTRY | PROGRAM_START | PROGRAM_CLEAR | PROGRAM | PROGRAM_RESET | GET_PGM_PROCESSOR_INFO | GET_SECTOR_INFO | PROGRAM_PREPARE | PROGRAM_FORMAT | PROGRAM_NEXT | PROGRAM_MAX | PROGRAM_VERIFY ) "UNKNOWN"
+    Name ID #REQUIRED
+    Command ( UNKNOWN | GET_COMM_MODE_INFO | GET_ID | SET_REQUEST | GET_SEED | UNLOCK | SET_MTA | UPLOAD | SHORT_UPLOAD | BUILD_CHECKSUM | TRANSPORT_LAYER_CMD | USER_CMD | DOWNLOAD | DOWNLOAD_NEXT | DOWNLOAD_MAX | SHORT_DOWNLOAD | MODIFY_BITS | SET_CAL_PAGE | GET_CAL_PAGE | GET_PAG_PROCESSOR_INFO | GET_SEGMENT_INFO | GET_PAGE_INFO | SET_SEGMENT_MODE | GET_SEGMENT_MODE | COPY_CAL_PAGE | CLEAR_DAQ_LIST | SET_DAQ_PTR | WRITE_DAQ | SET_DAQ_LIST_MODE | GET_DAQ_LIST_MODE | START_STOP_DAQ_LIST | START_STOP_SYNCH | GET_DAQ_CLOCK | READ_DAQ | GET_DAQ_PROCESSOR_INFO | GET_DAQ_RESOLUTION_INFO | GET_DAQ_LIST_INFO | GET_DAQ_EVENT_INFO | FREE_DAQ | ALLOC_DAQ | ALLOC_ODT | ALLOC_ODT_ENTRY | PROGRAM_START | PROGRAM_CLEAR | PROGRAM | PROGRAM_RESET | GET_PGM_PROCESSOR_INFO | GET_SECTOR_INFO | PROGRAM_PREPARE | PROGRAM_FORMAT | PROGRAM_NEXT | PROGRAM_MAX | PROGRAM_VERIFY | WRITE_DAQ_MULTIPLE | TIME_CORRELATION_PROPERTIES | DTO_CTR_PROPERTIES | GET_VERSION | SET_DAQ_PACKED_MODE | GET_DAQ_PACKED_MODE | SW_DBG_COMMAND_SPACE | POD_COMMAND_SPACE ) "UNKNOWN"
+>
+
+
+
+<!ELEMENT OptionalXCPonCANCommand EMPTY>
+<!ATTLIST OptionalXCPonCANCommand
+    Name ID #REQUIRED
+    Command ( UNKNOWN | GET_SLAVE_ID | GET_DAQ_ID | SET_DAQ_ID | GET_DAQ_CLOCK_MULTICAST ) "UNKNOWN"
+>
+
+
+
+<!ELEMENT OptionalXCPonUDPCommand EMPTY>
+<!ATTLIST OptionalXCPonUDPCommand
+    Name ID #REQUIRED
+    Command ( UNKNOWN | GET_SLAVE_ID | GET_SLAVE_ID_EXTENDED | SET_SLAVE_IP_ADDRESS | GET_DAQ_CLOCK_MULTICAST ) "UNKNOWN"
 >
 
 
 
 <!ELEMENT PossibleSource EMPTY>
 <!ATTLIST PossibleSource
-	Name ID #REQUIRED
-	Raster CDATA "0"
+    Name ID #REQUIRED
+    Raster CDATA "0"
 >
 
 
 
 <!ELEMENT Raster_ETKBypass EMPTY>
 <!ATTLIST Raster_ETKBypass
-	Name ID #REQUIRED
-	TRG_NBR CDATA "0"
-	TRG_TYPE ( DIRECT | INDIRECT ) "DIRECT"
-	RSTR_PRIO CDATA "0"
-	TRG_FLG_ADDR CDATA "0"
-	DSPL_OUTTBL_LEN CDATA "0"
-	DSPL_ADDRTBL_ADDR CDATA "0"
-	DSPL_OUTTBL_ADDR CDATA "0"
-	BYPS_OUTTBL_LEN CDATA "0"
-	BYPS_OUTTBL_ADDR CDATA "0"
-	DSPL_ADDRTBL_MAX CDATA "0"
-	DSPL_ADDRTBL_ADDRinRam ( FALSE | TRUE ) "FALSE"
-	RSTR_TYPE ( Measurement | Bypass | Stimulation ) "Bypass"
-	RasterName CDATA ""
-	SendSignalGroup.ofTypeESNode ENTITY #IMPLIED
-	ReceiveSignalGroup.ofTypeESNode ENTITY #IMPLIED
+    Name ID #REQUIRED
+    TRG_NBR CDATA "0"
+    TRG_TYPE ( DIRECT | INDIRECT ) "DIRECT"
+    RSTR_PRIO CDATA "0"
+    TRG_FLG_ADDR CDATA "0"
+    DSPL_OUTTBL_LEN CDATA "0"
+    DSPL_ADDRTBL_ADDR CDATA "0"
+    DSPL_OUTTBL_ADDR CDATA "0"
+    BYPS_OUTTBL_LEN CDATA "0"
+    BYPS_OUTTBL_ADDR CDATA "0"
+    DSPL_ADDRTBL_MAX CDATA "0"
+    DSPL_ADDRTBL_ADDRinRam ( FALSE | TRUE ) "FALSE"
+    RSTR_TYPE ( Measurement | Bypass | Stimulation ) "Bypass"
+    RasterName CDATA ""
+    SendSignalGroup.ofTypeESNode ENTITY #IMPLIED
+    ReceiveSignalGroup.ofTypeESNode ENTITY #IMPLIED
 >
 
 
 
 <!ELEMENT Raster_SBB EMPTY>
 <!ATTLIST Raster_SBB
-	Name ID #REQUIRED
-	RSTR_TYPE ( Measurement | Bypass | Stimulation ) "Bypass"
-	RasterName CDATA ""
-	Trigger_ETK.ofTypeSBBTrgEtk ENTITY #IMPLIED
-	SendSignalGroup.ofTypeESNode ENTITY #IMPLIED
-	ReceiveSignalGroup.ofTypeESNode ENTITY #IMPLIED
+    Name ID #REQUIRED
+    RSTR_TYPE ( Measurement | Bypass | Stimulation ) "Bypass"
+    RasterName CDATA ""
+    Trigger_ETK.ofTypeSBBTrgEtk ENTITY #IMPLIED
+    SendSignalGroup.ofTypeESNode ENTITY #IMPLIED
+    ReceiveSignalGroup.ofTypeESNode ENTITY #IMPLIED
 >
 
 
 
 <!ELEMENT Raster_XCPBypass (Raster_XCPBypass.ReceiveEvents, Raster_XCPBypass.SendEvents)>
 <!ATTLIST Raster_XCPBypass
-	Name ID #REQUIRED
-	RSTR_TYPE ( Measurement | Bypass | Stimulation ) "Bypass"
-	RasterName CDATA ""
-	SendSignalGroup.ofTypeESNode ENTITY #IMPLIED
-	ReceiveSignalGroup.ofTypeESNode ENTITY #IMPLIED
+    Name ID #REQUIRED
+    RSTR_TYPE ( Measurement | Bypass | Stimulation ) "Bypass"
+    RasterName CDATA ""
+    SendSignalGroup.ofTypeESNode ENTITY #IMPLIED
+    ReceiveSignalGroup.ofTypeESNode ENTITY #IMPLIED
 >
 
 
@@ -571,20 +715,20 @@
 
 <!ELEMENT SBBDataAcquisition EMPTY>
 <!ATTLIST SBBDataAcquisition
-	Name ID #REQUIRED
-	DataAcquisitionPriority CDATA "0"
+    Name ID #REQUIRED
+    DataAcquisitionPriority CDATA "0"
 >
 
 
 
 <!ELEMENT SBBDynStruc (SBBDynStruc.SBBTrgEtks, SBBDynStruc.SBBDataAcquisitions, SBBDynStruc.SBBTriggerCfgs)>
 <!ATTLIST SBBDynStruc
-	Name ID #REQUIRED
-	Version CDATA "0"
-	ResWorkArea CDATA "0"
-	ResWorkAreaLength CDATA "0"
-	EcuWrtlbResWorkArea CDATA "0"
-	EcuWrtlbResWorkAreaLength CDATA "0"
+    Name ID #REQUIRED
+    Version CDATA "0"
+    ResWorkArea CDATA "0"
+    ResWorkAreaLength CDATA "0"
+    EcuWrtlbResWorkArea CDATA "0"
+    EcuWrtlbResWorkAreaLength CDATA "0"
 >
 
 
@@ -594,42 +738,42 @@
 
 <!ELEMENT SBBTrgEtk EMPTY>
 <!ATTLIST SBBTrgEtk
-	Name ID #REQUIRED
-	TrgNbr CDATA "-1"
-	RstPrio CDATA "-1"
-	TrgType ( DIRECT | INDIRECT ) "DIRECT"
-	TrgFlgAddr CDATA "0"
-	ECU_ID CDATA "-1"
+    Name ID #REQUIRED
+    TrgNbr CDATA "-1"
+    RstPrio CDATA "-1"
+    TrgType ( DIRECT | INDIRECT ) "DIRECT"
+    TrgFlgAddr CDATA "0"
+    ECU_ID CDATA "-1"
 >
 
 
 
 <!ELEMENT SBBTriggerCfg EMPTY>
 <!ATTLIST SBBTriggerCfg
-	Name ID #REQUIRED
-	TrgNbr CDATA "-1"
-	ECU_ID CDATA "-1"
-	TrgType ( DIRECT | INDIRECT ) "DIRECT"
+    Name ID #REQUIRED
+    TrgNbr CDATA "-1"
+    ECU_ID CDATA "-1"
+    TrgType ( DIRECT | INDIRECT ) "DIRECT"
 >
 
 
 
 <!ELEMENT ServiceBasedBypass (ServiceBasedBypass.DynStrucs, ServiceBasedBypass.ServicePoints)>
 <!ATTLIST ServiceBasedBypass
-	Name ID #REQUIRED
-	AMLVersion CDATA "-1"
-	SrvPtResId CDATA ""
-	NumSrvPts CDATA "0"
-	SrvPtEnabled CDATA ""
-	TimeOutMaxPre CDATA ""
-	TimeOutMaxPost CDATA ""
-	Buffering ( DoubleBufferingUsed | DoubleBufferingNotUsed ) "DoubleBufferingUsed"
-	ResIdSrvPt CDATA ""
-	BasicFeature ( FALSE | TRUE ) "FALSE"
-	ExtendedFeature ( FALSE | TRUE ) "FALSE"
-	DSPL_ADDRTBL_ADDRinRam ( FALSE | TRUE ) "FALSE"
-	DisableFctExec CDATA ""
-	SBBVersion ( UNDEFINED | SBB_V1_0 | SBB_V2_0 | SBB_V2_1 | SBB_V2_2 | SBB_V2_3 | SBB_V3_0 | SBB_V3_1 ) "UNDEFINED"
+    Name ID #REQUIRED
+    AMLVersion CDATA "-1"
+    SrvPtResId CDATA ""
+    NumSrvPts CDATA "0"
+    SrvPtEnabled CDATA ""
+    TimeOutMaxPre CDATA ""
+    TimeOutMaxPost CDATA ""
+    Buffering ( DoubleBufferingUsed | DoubleBufferingNotUsed ) "DoubleBufferingUsed"
+    ResIdSrvPt CDATA ""
+    BasicFeature ( FALSE | TRUE ) "FALSE"
+    ExtendedFeature ( FALSE | TRUE ) "FALSE"
+    DSPL_ADDRTBL_ADDRinRam ( FALSE | TRUE ) "FALSE"
+    DisableFctExec CDATA ""
+    SBBVersion ( UNDEFINED | SBB_V1_0 | SBB_V2_0 | SBB_V2_1 | SBB_V2_2 | SBB_V2_3 | SBB_V3_0 | SBB_V3_1 ) "UNDEFINED"
 >
 
 
@@ -638,14 +782,14 @@
 
 <!ELEMENT ServicePoint (ServicePoint.Raster_SBBs)>
 <!ATTLIST ServicePoint
-	Name ID #REQUIRED
-	ServicePointName CDATA ""
-	Number CDATA "-1"
-	Priority CDATA "0"
-	SPCluster CDATA "-1"
-	SPClusterGroup CDATA "-1"
-	IsHooked ( FALSE | TRUE ) "FALSE"
-	SrvPtETCRef.ofTypeESNode ENTITY #IMPLIED
+    Name ID #REQUIRED
+    ServicePointName CDATA ""
+    Number CDATA "-1"
+    Priority CDATA "0"
+    SPCluster CDATA "-1"
+    SPClusterGroup CDATA "-1"
+    IsHooked ( FALSE | TRUE ) "FALSE"
+    SrvPtETCRef.ofTypeESNode ENTITY #IMPLIED
 >
 
 
@@ -653,12 +797,12 @@
 
 <!ELEMENT XCP_DAQ_List (XCP_DAQ_List.Event_Fixed)>
 <!ATTLIST XCP_DAQ_List
-	Name ID #REQUIRED
-	DAQ_List_Number CDATA "0"
-	DAQ_List_Type ( DAQ | STIM | DAQ_STIM ) "DAQ"
-	Max_ODT CDATA "-1"
-	Max_ODT_Entries CDATA "-1"
-	XCP_First_PID CDATA "-1"
+    Name ID #REQUIRED
+    DAQ_List_Number CDATA "0"
+    DAQ_List_Type ( DAQ | STIM | DAQ_STIM ) "DAQ"
+    Max_ODT CDATA "-1"
+    Max_ODT_Entries CDATA "-1"
+    XCP_First_PID CDATA "-1"
 >
 
 
@@ -666,14 +810,14 @@
 
 <!ELEMENT XCP_DAQ_List_on_CAN (XCP_DAQ_List_on_CAN.Event_Fixed)>
 <!ATTLIST XCP_DAQ_List_on_CAN
-	Name ID #REQUIRED
-	Fixed_CAN_ID ( FALSE | TRUE ) "FALSE"
-	CAN_ID CDATA "-1"
-	DAQ_List_Number CDATA "0"
-	DAQ_List_Type ( DAQ | STIM | DAQ_STIM ) "DAQ"
-	Max_ODT CDATA "-1"
-	Max_ODT_Entries CDATA "-1"
-	XCP_First_PID CDATA "-1"
+    Name ID #REQUIRED
+    Fixed_CAN_ID ( FALSE | TRUE ) "FALSE"
+    CAN_ID CDATA "-1"
+    DAQ_List_Number CDATA "0"
+    DAQ_List_Type ( DAQ | STIM | DAQ_STIM ) "DAQ"
+    Max_ODT CDATA "-1"
+    Max_ODT_Entries CDATA "-1"
+    XCP_First_PID CDATA "-1"
 >
 
 
@@ -681,15 +825,28 @@
 
 <!ELEMENT XCP_Event EMPTY>
 <!ATTLIST XCP_Event
-	Name ID #REQUIRED
-	A2LName CDATA ""
-	Event_Channel_Short_Name CDATA ""
-	Event_Channel_Number CDATA "0"
-	Direction ( DAQ | STIM | DAQ_STIM ) "DAQ"
-	Max_DAQ_List CDATA "0"
-	Time_Cycle CDATA "0"
-	Time_Unit ( 1NS | 10NS | 100NS | 1US | 10US | 100US | 1MS | 10MS | 100MS | 1S | MISSING ) "1NS"
-	Priority CDATA "0"
+    Name ID #REQUIRED
+    A2LName CDATA ""
+    Event_Channel_Short_Name CDATA ""
+    Event_Channel_Number CDATA "0"
+    Direction ( DAQ | STIM | DAQ_STIM ) "DAQ"
+    Max_DAQ_List CDATA "0"
+    Time_Cycle CDATA "0"
+    Time_Unit ( MISSING | 1NS | 10NS | 100NS | 1US | 10US | 100US | 1MS | 10MS | 100MS | 1S | 1PS | 10PS | 100PS ) "1NS"
+    Priority CDATA "0"
+    Complementary_Bypass_Event_Channel_Number CDATA "-1"
+    Consistency ( MISSING | DAQ | EVENT | ODT | NONE ) "xdcMISSING"
+    Event_Counter_Present ( FALSE | TRUE ) "FALSE"
+    Related_Event_Channel_Number CDATA "-1"
+    Related_Event_Channel_Number_Fixed ( FALSE | TRUE ) "FALSE"
+    DTO_CTR_DAQ_Mode ( MISSING | INSERT_COUNTER | INSERT_STIM_COUNTER_COPY ) "xdtodaqMISSING"
+    DTO_CTR_DAQ_Mode_Fixed ( FALSE | TRUE ) "FALSE"
+    DTO_CTR_STIM_Mode ( MISSING | DO_NOT_CHECK_COUNTER | CHECK_COUNTER ) "xdtostimMISSING"
+    DTO_CTR_STIM_Mode_Fixed ( FALSE | TRUE ) "FALSE"
+    STIM_DTO_CTR_Copy_Present ( FALSE | TRUE ) "FALSE"
+    Buffer_Reserve_Event ( FALSE | TRUE ) "FALSE"
+    ODT_DAQ_Buffer_Element_Reserve CDATA "0"
+    ODT_STIM_Buffer_Element_Reserve CDATA "0"
 >
 
 
@@ -698,7 +855,7 @@
 
 <!ELEMENT MeasurementRefList.EmbeddedLink EMPTY>
 <!ATTLIST MeasurementRefList.EmbeddedLink
-	EmbeddedLink.ofTypeMeasurement_ETKBypass.ofTypeMeasurement_XCPBypass ENTITY #IMPLIED
+    EmbeddedLink.ofTypeMeasurement_ETKBypass.ofTypeMeasurement_XCPBypass ENTITY #IMPLIED
 >
 
 
@@ -706,7 +863,7 @@
 
 <!ELEMENT FunctionRefList.EmbeddedLink EMPTY>
 <!ATTLIST FunctionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeFunction ENTITY #IMPLIED
+    EmbeddedLink.ofTypeFunction ENTITY #IMPLIED
 >
 
 
@@ -714,7 +871,7 @@
 
 <!ELEMENT GroupRefList.EmbeddedLink EMPTY>
 <!ATTLIST GroupRefList.EmbeddedLink
-	EmbeddedLink.ofTypeGroup ENTITY #IMPLIED
+    EmbeddedLink.ofTypeGroup ENTITY #IMPLIED
 >
 
 
@@ -722,7 +879,7 @@
 
 <!ELEMENT XCP_EventRefList.EmbeddedLink EMPTY>
 <!ATTLIST XCP_EventRefList.EmbeddedLink
-	EmbeddedLink.ofTypeXCP_Event ENTITY #IMPLIED
+    EmbeddedLink.ofTypeXCP_Event ENTITY #IMPLIED
 >
 
 
@@ -730,7 +887,7 @@
 
 <!ELEMENT Raster_SBBRefList.EmbeddedLink EMPTY>
 <!ATTLIST Raster_SBBRefList.EmbeddedLink
-	EmbeddedLink.ofTypeRaster_SBB ENTITY #IMPLIED
+    EmbeddedLink.ofTypeRaster_SBB ENTITY #IMPLIED
 >
 
 
@@ -765,6 +922,18 @@
 
 
 <!ELEMENT OptionalXCPCommandList (OptionalXCPCommand)*>
+
+
+<!ELEMENT OptionalXCPonCANCommandList (OptionalXCPonCANCommand)*>
+
+
+<!ELEMENT OptionalXCPonUDPCommandList (OptionalXCPonUDPCommand)*>
+
+
+<!ELEMENT Event_CAN_Data_List (Event_CAN_Data)*>
+
+
+<!ELEMENT CAN_ID_Entry_List (CAN_ID_Entry)*>
 
 
 <!ELEMENT XCP_DAQ_ListList (XCP_DAQ_List | XCP_DAQ_List_on_CAN)*>
