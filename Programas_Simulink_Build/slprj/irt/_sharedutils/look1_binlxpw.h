@@ -1,23 +1,23 @@
 /*
- * C:\Users\dwegg\Desktop\ETAS-main\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\look1_binlxpw.h
+ * look1_binlxpw.h
  *
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * Code generation for model "Torque_Control".
+ * Code generation for model "SoC".
  *
- * Model version              : 1.181
- * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Wed Mar 29 13:03:35 2023
- * Created for block: Torque_Control
+ * Model version              : 10.0
+ * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
+ * C source code generated on : Fri Nov 17 17:15:27 2023
+ * Created for block: SoC
  */
 
-#ifndef SHARE_look1_binlxpw
-#define SHARE_look1_binlxpw
+#ifndef RTW_HEADER_look1_binlxpw_h_
+#define RTW_HEADER_look1_binlxpw_h_
 #include "rtwtypes.h"
 
 extern real_T look1_binlxpw(real_T u0, const real_T bp0[], const real_T table[],
   uint32_T maxIndex);
 
-#endif
+#endif                                 /* RTW_HEADER_look1_binlxpw_h_ */

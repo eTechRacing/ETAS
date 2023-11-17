@@ -1,40 +1,33 @@
-/* Copyright 2010 The MathWorks, Inc. */
+/* Copyright 2010-2021 The MathWorks, Inc. */
 #ifndef __SL_COMMON_TYPES_DEF_H__
 #define __SL_COMMON_TYPES_DEF_H__
 
 #include "sl_types_def.h"
 #include "sl_fixpt.h"
 #include "sl_datatype_access.h"
+#include "rtw_storage.h"
 
-#define DYNAMICALLY_SIZED  (-1)
-#define DYNAMICALLY_TYPED  (-1)
+#define DYNAMICALLY_SIZED (-1)
+#define DYNAMICALLY_TYPED (-1)
 
-#define OVERWRITE_INPUT_ANY     (-2)
-#define OVERWRITE_INPUT_NONE    (-1)
+#define OVERWRITE_INPUT_ANY (-2)
+#define OVERWRITE_INPUT_NONE (-1)
 
-#define INVALID_PORT_IDX       (-1)
+#define INVALID_PORT_IDX (-1)
 
-typedef enum {
-    COMPLEX_INHERITED = -1,
-    COMPLEX_NO,
-    COMPLEX_YES
-} ssComplexity;
+typedef enum { COMPLEX_INHERITED = -1, COMPLEX_NO, COMPLEX_YES } ssComplexity;
 
 /*
  * Frame enum
  */
-typedef enum {
-    FRAME_INHERITED = -1,
-    FRAME_NO,
-    FRAME_YES
-} Frame_T;
+typedef enum { FRAME_INHERITED = -1, FRAME_NO, FRAME_YES } Frame_T;
 
 /*
  * ssSetNumSampleTimes(S,PORT_BASED_SAMPLE_TIMES) - Indicates that the sample
  * times are assigned on a per port basis.
  */
 #if !SS_SFCN_LEVEL_1
-# define PORT_BASED_SAMPLE_TIMES -1
+#define PORT_BASED_SAMPLE_TIMES -1
 #endif
 
 #ifndef _DIMENSION_MODE_T
@@ -51,17 +44,13 @@ typedef enum {
  * 3) VARIABLE_DIMS_MODE
  *    - Signal dimensions are allowed to change during simulation.
  */
-typedef enum {
-    INHERIT_DIMS_MODE = -1,
-    FIXED_DIMS_MODE,
-    VARIABLE_DIMS_MODE
-} DimensionsMode_T; 
+typedef enum { INHERIT_DIMS_MODE = -1, FIXED_DIMS_MODE, VARIABLE_DIMS_MODE } DimensionsMode_T;
 
 #endif
 
 typedef enum {
-    SS_VARIABLE_SIZE_FROM_INPUT_SIZE = 0,       /* Output sizes only depend on input sizes */
-    SS_VARIABLE_SIZE_FROM_INPUT_VALUE_AND_SIZE  /* Output sizes depend on input values     */
+    SS_VARIABLE_SIZE_FROM_INPUT_SIZE = 0,      /* Output sizes only depend on input sizes */
+    SS_VARIABLE_SIZE_FROM_INPUT_VALUE_AND_SIZE /* Output sizes depend on input values     */
 } SS_VariableSizeComputeType;
 
 typedef enum {
@@ -69,56 +58,37 @@ typedef enum {
     SS_VARIABLE_SIZE_REQUIRE_STATE_RESET
 } SS_VariableSizeStateResetType;
 
-typedef enum {
-    SS_PRM_NOT_TUNABLE  = 0,
-    SS_PRM_TUNABLE,
-    SS_PRM_SIM_ONLY_TUNABLE
-} ssParamTunability;
+typedef enum { SS_PRM_NOT_TUNABLE = 0, SS_PRM_TUNABLE, SS_PRM_SIM_ONLY_TUNABLE } ssParamTunability;
 
-#define SS_NOT_REUSABLE_AND_GLOBAL  0U /* default */
-#define SS_REUSABLE_AND_LOCAL       1U
-#define SS_REUSABLE_AND_GLOBAL      2U
-#define SS_NOT_REUSABLE_AND_LOCAL   3U
+#define SS_NOT_REUSABLE_AND_GLOBAL 0U /* default */
+#define SS_REUSABLE_AND_LOCAL 1U
+#define SS_REUSABLE_AND_GLOBAL 2U
+#define SS_NOT_REUSABLE_AND_LOCAL 3U
 
 
 /* For mdlRTW ssWriteRTWParamSettings macro */
-# define SSWRITE_VALUE_STR              0
-# define SSWRITE_VALUE_QSTR             1
-# define SSWRITE_VALUE_VECT_STR         2
-# define SSWRITE_VALUE_NUM              3
-# define SSWRITE_VALUE_VECT             4
-# define SSWRITE_VALUE_2DMAT            5
-# define SSWRITE_VALUE_DTYPE_NUM        6
-# define SSWRITE_VALUE_DTYPE_VECT       7
-# define SSWRITE_VALUE_DTYPE_2DMAT      8
-# define SSWRITE_VALUE_DTYPE_ML_VECT    9
-# define SSWRITE_VALUE_DTYPE_ML_2DMAT   10
-# define SSWRITE_VALUE_LIST_STR         11
+#define SSWRITE_VALUE_STR 0
+#define SSWRITE_VALUE_QSTR 1
+#define SSWRITE_VALUE_VECT_STR 2
+#define SSWRITE_VALUE_NUM 3
+#define SSWRITE_VALUE_VECT 4
+#define SSWRITE_VALUE_2DMAT 5
+#define SSWRITE_VALUE_DTYPE_NUM 6
+#define SSWRITE_VALUE_DTYPE_VECT 7
+#define SSWRITE_VALUE_DTYPE_2DMAT 8
+#define SSWRITE_VALUE_DTYPE_ML_VECT 9
+#define SSWRITE_VALUE_DTYPE_ML_2DMAT 10
+#define SSWRITE_VALUE_LIST_STR 11
 
-#define DTINFO(id, complexSignal)    ((complexSignal)?((id) | 0x10000):(id))
+#define DTINFO(id, complexSignal) ((complexSignal) ? ((id) | 0x10000) : (id))
 
 /*
- * Enumeration of RTW storage class
+ *  Operating point used to be called SimState. For backward compatibility, the SimState flags are
+ * preserved.
  */
 typedef enum {
-    SS_RTW_STORAGE_INVALID = -1,
-    SS_RTW_STORAGE_AUTO,
-    SS_RTW_STORAGE_EXPORTED_GLOBAL,
-    SS_RTW_STORAGE_IMPORTED_EXTERN,
-    SS_RTW_STORAGE_IMPORTED_EXTERN_POINTER,
-    SS_RTW_STORAGE_CUSTOM,
-    SS_RTW_STORAGE_SIMULINK_GLOBAL,
-    SS_RTW_STORAGE_NUM_CLASSES
-} ssRTWStorageType;
-
-/*
- * Enumerations to specify the S-Function's compliance level with the
- * SimState save/restore feature
- */
-typedef enum
-{
     SIM_STATE_COMPLIANCE_INVALID = -1,
-    SIM_STATE_COMPLIANCE_UNKNOWN =  0,
+    SIM_STATE_COMPLIANCE_UNKNOWN = 0,
     USE_DEFAULT_SIM_STATE,
     HAS_NO_SIM_STATE,
     USE_CUSTOM_SIM_STATE,
@@ -126,18 +96,31 @@ typedef enum
 
 } ssSimStateCompliance;
 
+/*
+ * Enumerations to specify the S-function's compliance level with the
+ * Operating Point save/restore feature
+ */
+typedef enum {
+    OPERATING_POINT_COMPLIANCE_INVALID = (int)SIM_STATE_COMPLIANCE_INVALID,
+    OPERATING_POINT_COMPLIANCE_UNKNOWN = (int)SIM_STATE_COMPLIANCE_UNKNOWN,
+    USE_DEFAULT_OPERATING_POINT = (int)USE_DEFAULT_SIM_STATE,
+    USE_EMPTY_OPERATING_POINT = (int)HAS_NO_SIM_STATE,
+    USE_CUSTOM_OPERATING_POINT = (int)USE_CUSTOM_SIM_STATE,
+    DISALLOW_OPERATING_POINT = (int)DISALLOW_SIM_STATE
+} ssOperatingPointCompliance;
+
 typedef enum {
     SIMULATION_ROLLBACK_UNINITIALIZED = 0U,
     SIMULATION_ROLLBACK_COMPLIANT = 1U,
-    SIMULATION_ROLLBACK_NONCOMPLIANT_NEUTRAL  = 2U,
-    SIMULATION_ROLLBACK_NONCOMPLIANT_FATAL  = 3U
+    SIMULATION_ROLLBACK_NONCOMPLIANT_NEUTRAL = 2U,
+    SIMULATION_ROLLBACK_NONCOMPLIANT_FATAL = 3U
 } SimulationRollbackCompliance;
 
 typedef enum {
     SIMULATION_FASTRESTART_UNINITIALIZED = 0U,
     SIMULATION_FASTRESTART_COMPLIANT = 1U,
-    SIMULATION_FASTRESTART_NONCOMPLIANT_NEUTRAL  = 2U,
-    SIMULATION_FASTRESTART_NONCOMPLIANT_FATAL  = 3U
+    SIMULATION_FASTRESTART_NONCOMPLIANT_NEUTRAL = 2U,
+    SIMULATION_FASTRESTART_NONCOMPLIANT_FATAL = 3U
 } SimulationFastRestartCompliance;
 
 typedef enum {
@@ -150,8 +133,7 @@ typedef enum {
  * Enumerations to specify the S-Function's compliance level of
  * runtime method thread safety.
  */
-typedef enum
-{
+typedef enum {
     RUNTIME_THREAD_SAFETY_COMPLIANCE_UNKNOWN = 0,
     RUNTIME_THREAD_SAFETY_COMPLIANCE_FALSE,
     RUNTIME_THREAD_SAFETY_COMPLIANCE_TRUE
@@ -178,13 +160,10 @@ typedef enum {
 } ssModelReferenceNormalModeSupport;
 
 /* Used by macro ssAddVariableSizeSignalsRuntimeChecker */
-typedef enum {
-    INPUTS_DIMS_MATCH = 0,
-    INPUTS_DISALLOW_EMPTY_SIGNAL
-} RuntimeCheckerType_T;
+typedef enum { INPUTS_DIMS_MATCH = 0, INPUTS_DISALLOW_EMPTY_SIGNAL } RuntimeCheckerType_T;
 
 #ifndef _SS_PARAM_REC
-# define _SS_PARAM_REC
+#define _SS_PARAM_REC
 /*
  * Typedef for the enumeration that keeps track of the "transformed"
  * status of run-time parameters.
@@ -220,23 +199,29 @@ typedef struct ssParamRec_tag {
     /*
      * The parameter characteristics
      */
-    const char *name;          /* Name of the parameter. This must point
-                                * to persistent memory. Do not set to a local
-                                * variable (static char name[32] or strings
-                                * "name" are okay)
-                                */
+    const char* name; /* Name of the parameter. This must point
+                       * to persistent memory. Do not set to a local
+                       * variable (static char name[32] or strings
+                       * "name" are okay)
+                       */
 #ifdef SYSTEM_OBJECTS_DEF
-    char*      mName;
+    char* mName;
 #endif
-    int_T      nDimensions;    /* Number of dimensions for this parameter     */
-    int_T      *dimensions;    /* Array giving the dimension (sizes) of
-                                * the parameter                                */
+    int_T nDimensions; /* Number of dimensions for this parameter     */
+
+#if defined(SFCN64)
+    void* unusedPtr;
+#else
+    int_T* dimensions; /* Array giving the dimension (sizes) of
+                        * the parameter                                */
+#endif
+
 #ifdef SYSTEM_OBJECTS_DEF
-    int_T      numTotalElements;
+    int_T numTotalElements;
 #endif
-    DTypeId    dataTypeId;     /* For built-in data types, see BuiltInDTypeId
-                                * in simstruc_types.h                         */
-    boolean_T  complexSignal;  /* FALSE or TRUE                               */
+    DTypeId dataTypeId;      /* For built-in data types, see BuiltInDTypeId
+                              * in simstruc_types.h                         */
+    boolean_T complexSignal; /* FALSE or TRUE                               */
 
     /*
      * The data pointer.  This is the data values for the run-time parameter.
@@ -248,14 +233,14 @@ typedef struct ssParamRec_tag {
      * matrices as two separate contiguous pieces of data instead of
      * interleaving the real and complex parts.  */
 
-    void       *data;
+    void* data;
 
     /*
      * The data attributes pointer is a persistent storage location where the
      * user can store additional information describing the data and then
      * recover this information later (potentially in a different function).
      */
-    const void *dataAttributes;
+    const void* dataAttributes;
 
     /*
      * Run-time parameters to dialog parameter map.
@@ -283,15 +268,23 @@ typedef struct ssParamRec_tag {
      * the 'Tunable Parameters Dialog'.
      */
 
-    int_T      nDlgParamIndices;
-    int_T      *dlgParamIndices;  /* Array of length nDialogParamIndices
-                                   * indicating the dialog parameters that
-                                   * are used in deriving the run-time
-                                   * parameter */
-    TransformedFlag transformed;  /* Transformed status */
-    boolean_T  outputAsMatrix;    /* Write out parameter as a vector (false)
-                                   * [default] or a matrix (true)
-                                   */
+    int_T nDlgParamIndices;
+    int_T* dlgParamIndices;      /* Array of length nDialogParamIndices
+                                  * indicating the dialog parameters that
+                                  * are used in deriving the run-time
+                                  * parameter */
+    TransformedFlag transformed; /* Transformed status */
+    boolean_T outputAsMatrix;    /* Write out parameter as a vector (false)
+                                  * [default] or a matrix (true)
+                                  */
+#if defined(SFCN64)
+    int_T* dimensions;
+#elif defined(SL_INTERNAL)
+    int_T* dimensions64;
+#else
+    void* unusedPtr;
+#endif
+
 } ssParamRec;
 #endif
 
@@ -302,13 +295,13 @@ typedef struct ssParamRec_tag {
 #else
 
 #if SS_SL_INTERNAL || SS_SFCN_FOR_SIM
-    #ifdef __cplusplus
-    extern "C" {
-    #endif
-    extern const DimsInfo_T *DYNAMIC_DIMENSION;
-    #ifdef __cplusplus
-    }
-    #endif
+#ifdef __cplusplus
+extern "C" {
+#endif
+extern const DimsInfo_T* DYNAMIC_DIMENSION;
+#ifdef __cplusplus
+}
+#endif
 #else
 #define DYNAMIC_DIMENSION NULL
 #endif
@@ -318,23 +311,19 @@ typedef struct ssParamRec_tag {
 /*
  * Used to determine the indexing type of a port
  */
-typedef enum {
-    INDEX_BASE0,
-    INDEX_BASE1,
-    NONINDEX
-} slIdxPortType;
+typedef enum { INDEX_BASE0, INDEX_BASE1, NONINDEX } slIdxPortType;
 
 /*
  * NUM_MAT_DIMS
  */
 #ifndef NUM_MAT_DIMS
-  #define NUM_MAT_DIMS (2)
+#define NUM_MAT_DIMS (2)
 #endif
 
-/* 
+/*
  * Enumeration values used in dimension propagation algorithms
  */
-typedef enum ssVectorMode_tag{
+typedef enum ssVectorMode_tag {
     SS_UNKNOWN_MODE,
     SS_1_D_OR_COL_VECT,
     SS_1_D_OR_ROW_VECT,
@@ -356,35 +345,31 @@ typedef enum ssVectorMode_tag{
  */
 #ifndef _BUS_MODE_T
 #define _BUS_MODE_T
-typedef enum {
-    SL_INHERIT_BUS_MODE=-1,
-    SL_NON_BUS_MODE,
-    SL_BUS_MODE
-} BusMode_T;
+typedef enum { SL_INHERIT_BUS_MODE = -1, SL_NON_BUS_MODE, SL_BUS_MODE } BusMode_T;
 #endif
 
-/* 
- * Specify the capabilities to handle data types with 
+/*
+ * Specify the capabilities to handle data types with
  * various word lengths. By default, it is assumed that
  * S-Function blocks are not implemented with necessary
  * RTW support for word lengths beyond 32 bits. If a block
- * has implemented necessary support for longer word 
- * lengths, then two different levels of support can be 
+ * has implemented necessary support for longer word
+ * lengths, then two different levels of support can be
  * declared. One option is support up to the size of long
- * on the current code generation target. The second 
+ * on the current code generation target. The second
  * option is no limitation which means the block is designed
- * to handle MultiWord situations. 
- * 
- * If limitations are declared and code generation is 
- * attempted, then Simulink will automatically check 
- * if any of the following items,  input ports, output 
- * ports, run-time parameters or DWorks have data types 
- * with word lengths beyond the limit. If the limit is 
- * exceeded, Simulink will issue an error message. 
+ * to handle MultiWord situations.
+ *
+ * If limitations are declared and code generation is
+ * attempted, then Simulink will automatically check
+ * if any of the following items,  input ports, output
+ * ports, run-time parameters or DWorks have data types
+ * with word lengths beyond the limit. If the limit is
+ * exceeded, Simulink will issue an error message.
  */
 typedef enum {
     RTW_SUPPORT_BEYOND_32_BITS_NO = 0U, /* S-Function default */
-    RTW_SUPPORT_BEYOND_32_BITS_FULLY  = 1U,
+    RTW_SUPPORT_BEYOND_32_BITS_FULLY = 1U,
     RTW_SUPPORT_BEYOND_32_BITS_UP_TO_TARGET_LONG = 2U
 } SupportDataTypeBeyond32BitsInRTWFlag;
 
@@ -392,7 +377,7 @@ typedef enum {
  * Enumeration of work vector origin flag values.
  */
 typedef enum {
-    SS_DWORK_ORIGINATED_AS_DWORK  = 0,  /* default */
+    SS_DWORK_ORIGINATED_AS_DWORK = 0, /* default */
     SS_DWORK_ORIGINATED_AS_MODE,
     SS_DWORK_ORIGINATED_AS_RWORK,
     SS_DWORK_ORIGINATED_AS_IWORK,
@@ -436,14 +421,11 @@ typedef int_T UnitId;
 /*
  * Definition of Simulink builtin unit IDs
  */
-enum
-{
-    INVALID_UNIT_ID        = -10,
-    SL_UNITS_MIXED         =  -2,
-    SL_UNITS_INHERIT       =  -1,
-    SL_UNSPECIFIED         =   0
-};
+enum { INVALID_UNIT_ID = -10, SL_UNITS_MIXED = -2, SL_UNITS_INHERIT = -1, SL_UNSPECIFIED = 0 };
 #endif /* _PRE_DEFINED_UNIT_IDS */
 
 
 #endif
+
+/* LocalWords:  DType
+ */

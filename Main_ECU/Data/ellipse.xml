@@ -1,811 +1,403 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<!DOCTYPE YBOModule SYSTEM ".\dtd\ybomodule.dtd" [ <?RequiredDTDVersion "3.1"?>
+<!DOCTYPE YBOModule SYSTEM ".\dtd\ybomodule.dtd" [ <?RequiredDTDVersion "4.7.1"?>
 
 <!NOTATION _OSrvLink SYSTEM "_OSrvLink" >
-<!ENTITY _3550 SYSTEM "OSrv://ObjectHandle#3550" NDATA _OIDLink >
-<!ENTITY _13053 SYSTEM "OSrv://ObjectHandle#13053" NDATA _OIDLink >
-<!ENTITY _12441 SYSTEM "OSrv://ObjectHandle#12441" NDATA _OIDLink >
-<!ENTITY _12929 SYSTEM "OSrv://ObjectHandle#12929" NDATA _OIDLink >
-<!ENTITY _12492 SYSTEM "OSrv://ObjectHandle#12492" NDATA _OIDLink >
-<!ENTITY _12476 SYSTEM "OSrv://ObjectHandle#12476" NDATA _OIDLink >
-<!ENTITY _7218 SYSTEM "OSrv://ObjectHandle#7218" NDATA _OIDLink >
-<!ENTITY _12293 SYSTEM "OSrv://ObjectHandle#12293" NDATA _OIDLink >
-<!ENTITY _12277 SYSTEM "OSrv://ObjectHandle#12277" NDATA _OIDLink >
-<!ENTITY _12511 SYSTEM "OSrv://ObjectHandle#12511" NDATA _OIDLink >
-<!ENTITY _12509 SYSTEM "OSrv://ObjectHandle#12509" NDATA _OIDLink >
-<!ENTITY _12500 SYSTEM "OSrv://ObjectHandle#12500" NDATA _OIDLink >
-<!ENTITY _12301 SYSTEM "OSrv://ObjectHandle#12301" NDATA _OIDLink >
-<!ENTITY _12289 SYSTEM "OSrv://ObjectHandle#12289" NDATA _OIDLink >
-<!ENTITY _12275 SYSTEM "OSrv://ObjectHandle#12275" NDATA _OIDLink >
-<!ENTITY _12242 SYSTEM "OSrv://ObjectHandle#12242" NDATA _OIDLink >
-<!ENTITY _12254 SYSTEM "OSrv://ObjectHandle#12254" NDATA _OIDLink >
-<!ENTITY _12223 SYSTEM "OSrv://ObjectHandle#12223" NDATA _OIDLink >
-<!ENTITY _12240 SYSTEM "OSrv://ObjectHandle#12240" NDATA _OIDLink >
-<!ENTITY _13027 SYSTEM "OSrv://ObjectHandle#13027" NDATA _OIDLink >
-<!ENTITY _12523 SYSTEM "OSrv://ObjectHandle#12523" NDATA _OIDLink >
-<!ENTITY _12231 SYSTEM "OSrv://ObjectHandle#12231" NDATA _OIDLink >
-<!ENTITY _13024 SYSTEM "OSrv://ObjectHandle#13024" NDATA _OIDLink >
-<!ENTITY _13001 SYSTEM "OSrv://ObjectHandle#13001" NDATA _OIDLink >
-<!ENTITY _12881 SYSTEM "OSrv://ObjectHandle#12881" NDATA _OIDLink >
-<!ENTITY _12877 SYSTEM "OSrv://ObjectHandle#12877" NDATA _OIDLink >
-<!ENTITY _12865 SYSTEM "OSrv://ObjectHandle#12865" NDATA _OIDLink >
-<!ENTITY _12897 SYSTEM "OSrv://ObjectHandle#12897" NDATA _OIDLink >
-<!ENTITY _12930 SYSTEM "OSrv://ObjectHandle#12930" NDATA _OIDLink >
-<!ENTITY _13077 SYSTEM "OSrv://ObjectHandle#13077" NDATA _OIDLink >
-<!ENTITY _12914 SYSTEM "OSrv://ObjectHandle#12914" NDATA _OIDLink >
-<!ENTITY _12903 SYSTEM "OSrv://ObjectHandle#12903" NDATA _OIDLink >
-<!ENTITY _12946 SYSTEM "OSrv://ObjectHandle#12946" NDATA _OIDLink >
-<!ENTITY _12952 SYSTEM "OSrv://ObjectHandle#12952" NDATA _OIDLink >
-<!ENTITY _12854 SYSTEM "OSrv://ObjectHandle#12854" NDATA _OIDLink >
-<!ENTITY _12880 SYSTEM "OSrv://ObjectHandle#12880" NDATA _OIDLink >
-<!ENTITY _12831 SYSTEM "OSrv://ObjectHandle#12831" NDATA _OIDLink >
-<!ENTITY _12782 SYSTEM "OSrv://ObjectHandle#12782" NDATA _OIDLink >
-<!ENTITY _13050 SYSTEM "OSrv://ObjectHandle#13050" NDATA _OIDLink >
-<!ENTITY _13044 SYSTEM "OSrv://ObjectHandle#13044" NDATA _OIDLink >
-<!ENTITY _13028 SYSTEM "OSrv://ObjectHandle#13028" NDATA _OIDLink >
-<!ENTITY _12857 SYSTEM "OSrv://ObjectHandle#12857" NDATA _OIDLink >
-<!ENTITY _12808 SYSTEM "OSrv://ObjectHandle#12808" NDATA _OIDLink >
-<!ENTITY _12759 SYSTEM "OSrv://ObjectHandle#12759" NDATA _OIDLink >
-<!ENTITY _13061 SYSTEM "OSrv://ObjectHandle#13061" NDATA _OIDLink >
-<!ENTITY _13093 SYSTEM "OSrv://ObjectHandle#13093" NDATA _OIDLink >
-<!ENTITY _39 SYSTEM "OSrv://ObjectHandle#39" NDATA _OIDLink >
-<!ENTITY _40 SYSTEM "OSrv://ObjectHandle#40" NDATA _OIDLink >
-<!ENTITY _3972 SYSTEM "OSrv://ObjectHandle#3972" NDATA _OIDLink >
-<!ENTITY _2331 SYSTEM "OSrv://ObjectHandle#2331" NDATA _OIDLink >
-<!ENTITY _2336 SYSTEM "OSrv://ObjectHandle#2336" NDATA _OIDLink >
-<!ENTITY _2337 SYSTEM "OSrv://ObjectHandle#2337" NDATA _OIDLink >
-<!ENTITY _2338 SYSTEM "OSrv://ObjectHandle#2338" NDATA _OIDLink >
-<!ENTITY _2339 SYSTEM "OSrv://ObjectHandle#2339" NDATA _OIDLink >
-<!ENTITY _2340 SYSTEM "OSrv://ObjectHandle#2340" NDATA _OIDLink >
-<!ENTITY _2346 SYSTEM "OSrv://ObjectHandle#2346" NDATA _OIDLink >
-<!ENTITY _2347 SYSTEM "OSrv://ObjectHandle#2347" NDATA _OIDLink >
-<!ENTITY _2348 SYSTEM "OSrv://ObjectHandle#2348" NDATA _OIDLink >
-<!ENTITY _2349 SYSTEM "OSrv://ObjectHandle#2349" NDATA _OIDLink >
-<!ENTITY _2350 SYSTEM "OSrv://ObjectHandle#2350" NDATA _OIDLink >
-<!ENTITY _2351 SYSTEM "OSrv://ObjectHandle#2351" NDATA _OIDLink >
-<!ENTITY _2355 SYSTEM "OSrv://ObjectHandle#2355" NDATA _OIDLink >
-<!ENTITY _2356 SYSTEM "OSrv://ObjectHandle#2356" NDATA _OIDLink >
-<!ENTITY _2357 SYSTEM "OSrv://ObjectHandle#2357" NDATA _OIDLink >
-<!ENTITY _2358 SYSTEM "OSrv://ObjectHandle#2358" NDATA _OIDLink >
-<!ENTITY _2359 SYSTEM "OSrv://ObjectHandle#2359" NDATA _OIDLink >
-<!ENTITY _2360 SYSTEM "OSrv://ObjectHandle#2360" NDATA _OIDLink >
-<!ENTITY _2361 SYSTEM "OSrv://ObjectHandle#2361" NDATA _OIDLink >
-<!ENTITY _2362 SYSTEM "OSrv://ObjectHandle#2362" NDATA _OIDLink >
-<!ENTITY _2363 SYSTEM "OSrv://ObjectHandle#2363" NDATA _OIDLink >
-<!ENTITY _2364 SYSTEM "OSrv://ObjectHandle#2364" NDATA _OIDLink >
-<!ENTITY _48 SYSTEM "OSrv://ObjectHandle#48" NDATA _OIDLink >
-<!ENTITY _49 SYSTEM "OSrv://ObjectHandle#49" NDATA _OIDLink >
-<!ENTITY _867 SYSTEM "OSrv://ObjectHandle#867" NDATA _OIDLink >
-<!ENTITY _2372 SYSTEM "OSrv://ObjectHandle#2372" NDATA _OIDLink >
-<!ENTITY _2373 SYSTEM "OSrv://ObjectHandle#2373" NDATA _OIDLink >
-<!ENTITY _2374 SYSTEM "OSrv://ObjectHandle#2374" NDATA _OIDLink >
-<!ENTITY _2375 SYSTEM "OSrv://ObjectHandle#2375" NDATA _OIDLink >
-<!ENTITY _2376 SYSTEM "OSrv://ObjectHandle#2376" NDATA _OIDLink >
-<!ENTITY _2391 SYSTEM "OSrv://ObjectHandle#2391" NDATA _OIDLink >
-<!ENTITY _2392 SYSTEM "OSrv://ObjectHandle#2392" NDATA _OIDLink >
-<!ENTITY _2393 SYSTEM "OSrv://ObjectHandle#2393" NDATA _OIDLink >
-<!ENTITY _2394 SYSTEM "OSrv://ObjectHandle#2394" NDATA _OIDLink >
-<!ENTITY _2395 SYSTEM "OSrv://ObjectHandle#2395" NDATA _OIDLink >
-<!ENTITY _5031 SYSTEM "OSrv://ObjectHandle#5031" NDATA _OIDLink >
-<!ENTITY _5032 SYSTEM "OSrv://ObjectHandle#5032" NDATA _OIDLink >
-<!ENTITY _5033 SYSTEM "OSrv://ObjectHandle#5033" NDATA _OIDLink >
-<!ENTITY _5034 SYSTEM "OSrv://ObjectHandle#5034" NDATA _OIDLink >
-<!ENTITY _5035 SYSTEM "OSrv://ObjectHandle#5035" NDATA _OIDLink >
-<!ENTITY _5039 SYSTEM "OSrv://ObjectHandle#5039" NDATA _OIDLink >
-<!ENTITY _5040 SYSTEM "OSrv://ObjectHandle#5040" NDATA _OIDLink >
-<!ENTITY _5041 SYSTEM "OSrv://ObjectHandle#5041" NDATA _OIDLink >
-<!ENTITY _5042 SYSTEM "OSrv://ObjectHandle#5042" NDATA _OIDLink >
-<!ENTITY _5043 SYSTEM "OSrv://ObjectHandle#5043" NDATA _OIDLink >
-<!ENTITY _5044 SYSTEM "OSrv://ObjectHandle#5044" NDATA _OIDLink >
-<!ENTITY _5045 SYSTEM "OSrv://ObjectHandle#5045" NDATA _OIDLink >
-<!ENTITY _5046 SYSTEM "OSrv://ObjectHandle#5046" NDATA _OIDLink >
-<!ENTITY _5047 SYSTEM "OSrv://ObjectHandle#5047" NDATA _OIDLink >
+<!ENTITY _2227 SYSTEM "OSrv://ObjectHandle#2227" NDATA _OIDLink >
+<!ENTITY _6270 SYSTEM "OSrv://ObjectHandle#6270" NDATA _OIDLink >
+<!ENTITY _6263 SYSTEM "OSrv://ObjectHandle#6263" NDATA _OIDLink >
+<!ENTITY _6312 SYSTEM "OSrv://ObjectHandle#6312" NDATA _OIDLink >
+<!ENTITY _6249 SYSTEM "OSrv://ObjectHandle#6249" NDATA _OIDLink >
+<!ENTITY _6256 SYSTEM "OSrv://ObjectHandle#6256" NDATA _OIDLink >
+<!ENTITY _6291 SYSTEM "OSrv://ObjectHandle#6291" NDATA _OIDLink >
+<!ENTITY _6298 SYSTEM "OSrv://ObjectHandle#6298" NDATA _OIDLink >
+<!ENTITY _6305 SYSTEM "OSrv://ObjectHandle#6305" NDATA _OIDLink >
+<!ENTITY _6172 SYSTEM "OSrv://ObjectHandle#6172" NDATA _OIDLink >
+<!ENTITY _6179 SYSTEM "OSrv://ObjectHandle#6179" NDATA _OIDLink >
+<!ENTITY _6186 SYSTEM "OSrv://ObjectHandle#6186" NDATA _OIDLink >
+<!ENTITY _6228 SYSTEM "OSrv://ObjectHandle#6228" NDATA _OIDLink >
+<!ENTITY _6235 SYSTEM "OSrv://ObjectHandle#6235" NDATA _OIDLink >
+<!ENTITY _6242 SYSTEM "OSrv://ObjectHandle#6242" NDATA _OIDLink >
+<!ENTITY _6193 SYSTEM "OSrv://ObjectHandle#6193" NDATA _OIDLink >
+<!ENTITY _6277 SYSTEM "OSrv://ObjectHandle#6277" NDATA _OIDLink >
+<!ENTITY _6214 SYSTEM "OSrv://ObjectHandle#6214" NDATA _OIDLink >
+<!ENTITY _6200 SYSTEM "OSrv://ObjectHandle#6200" NDATA _OIDLink >
+<!ENTITY _6284 SYSTEM "OSrv://ObjectHandle#6284" NDATA _OIDLink >
+<!ENTITY _6221 SYSTEM "OSrv://ObjectHandle#6221" NDATA _OIDLink >
+<!ENTITY _6207 SYSTEM "OSrv://ObjectHandle#6207" NDATA _OIDLink >
+<!ENTITY _6403 SYSTEM "OSrv://ObjectHandle#6403" NDATA _OIDLink >
+<!ENTITY _6396 SYSTEM "OSrv://ObjectHandle#6396" NDATA _OIDLink >
+<!ENTITY _6459 SYSTEM "OSrv://ObjectHandle#6459" NDATA _OIDLink >
+<!ENTITY _6382 SYSTEM "OSrv://ObjectHandle#6382" NDATA _OIDLink >
+<!ENTITY _6389 SYSTEM "OSrv://ObjectHandle#6389" NDATA _OIDLink >
+<!ENTITY _6438 SYSTEM "OSrv://ObjectHandle#6438" NDATA _OIDLink >
+<!ENTITY _6445 SYSTEM "OSrv://ObjectHandle#6445" NDATA _OIDLink >
+<!ENTITY _6452 SYSTEM "OSrv://ObjectHandle#6452" NDATA _OIDLink >
+<!ENTITY _6319 SYSTEM "OSrv://ObjectHandle#6319" NDATA _OIDLink >
+<!ENTITY _6326 SYSTEM "OSrv://ObjectHandle#6326" NDATA _OIDLink >
+<!ENTITY _6333 SYSTEM "OSrv://ObjectHandle#6333" NDATA _OIDLink >
+<!ENTITY _6361 SYSTEM "OSrv://ObjectHandle#6361" NDATA _OIDLink >
+<!ENTITY _6368 SYSTEM "OSrv://ObjectHandle#6368" NDATA _OIDLink >
+<!ENTITY _6375 SYSTEM "OSrv://ObjectHandle#6375" NDATA _OIDLink >
+<!ENTITY _6431 SYSTEM "OSrv://ObjectHandle#6431" NDATA _OIDLink >
+<!ENTITY _6410 SYSTEM "OSrv://ObjectHandle#6410" NDATA _OIDLink >
+<!ENTITY _6347 SYSTEM "OSrv://ObjectHandle#6347" NDATA _OIDLink >
+<!ENTITY _6417 SYSTEM "OSrv://ObjectHandle#6417" NDATA _OIDLink >
+<!ENTITY _6424 SYSTEM "OSrv://ObjectHandle#6424" NDATA _OIDLink >
+<!ENTITY _6354 SYSTEM "OSrv://ObjectHandle#6354" NDATA _OIDLink >
+<!ENTITY _6340 SYSTEM "OSrv://ObjectHandle#6340" NDATA _OIDLink >
+<!ENTITY _1063 SYSTEM "OSrv://ObjectHandle#1063" NDATA _OIDLink >
+<!ENTITY _1064 SYSTEM "OSrv://ObjectHandle#1064" NDATA _OIDLink >
+<!ENTITY _1065 SYSTEM "OSrv://ObjectHandle#1065" NDATA _OIDLink >
+<!ENTITY _1066 SYSTEM "OSrv://ObjectHandle#1066" NDATA _OIDLink >
+<!ENTITY _1067 SYSTEM "OSrv://ObjectHandle#1067" NDATA _OIDLink >
+<!ENTITY _1068 SYSTEM "OSrv://ObjectHandle#1068" NDATA _OIDLink >
+<!ENTITY _1069 SYSTEM "OSrv://ObjectHandle#1069" NDATA _OIDLink >
+<!ENTITY _1070 SYSTEM "OSrv://ObjectHandle#1070" NDATA _OIDLink >
+<!ENTITY _1071 SYSTEM "OSrv://ObjectHandle#1071" NDATA _OIDLink >
+<!ENTITY _1072 SYSTEM "OSrv://ObjectHandle#1072" NDATA _OIDLink >
+<!ENTITY _1073 SYSTEM "OSrv://ObjectHandle#1073" NDATA _OIDLink >
+<!ENTITY _1074 SYSTEM "OSrv://ObjectHandle#1074" NDATA _OIDLink >
+<!ENTITY _1075 SYSTEM "OSrv://ObjectHandle#1075" NDATA _OIDLink >
+<!ENTITY _1076 SYSTEM "OSrv://ObjectHandle#1076" NDATA _OIDLink >
+<!ENTITY _1077 SYSTEM "OSrv://ObjectHandle#1077" NDATA _OIDLink >
+<!ENTITY _1078 SYSTEM "OSrv://ObjectHandle#1078" NDATA _OIDLink >
+<!ENTITY _1079 SYSTEM "OSrv://ObjectHandle#1079" NDATA _OIDLink >
+<!ENTITY _1080 SYSTEM "OSrv://ObjectHandle#1080" NDATA _OIDLink >
+<!ENTITY _1081 SYSTEM "OSrv://ObjectHandle#1081" NDATA _OIDLink >
+<!ENTITY _1082 SYSTEM "OSrv://ObjectHandle#1082" NDATA _OIDLink >
+<!ENTITY _1083 SYSTEM "OSrv://ObjectHandle#1083" NDATA _OIDLink >
+<!ENTITY _1084 SYSTEM "OSrv://ObjectHandle#1084" NDATA _OIDLink >
+<!ENTITY _1085 SYSTEM "OSrv://ObjectHandle#1085" NDATA _OIDLink >
+<!ENTITY _1086 SYSTEM "OSrv://ObjectHandle#1086" NDATA _OIDLink >
+<!ENTITY _1087 SYSTEM "OSrv://ObjectHandle#1087" NDATA _OIDLink >
+<!ENTITY _1088 SYSTEM "OSrv://ObjectHandle#1088" NDATA _OIDLink >
+<!ENTITY _1089 SYSTEM "OSrv://ObjectHandle#1089" NDATA _OIDLink >
+<!ENTITY _1090 SYSTEM "OSrv://ObjectHandle#1090" NDATA _OIDLink >
+<!ENTITY _1091 SYSTEM "OSrv://ObjectHandle#1091" NDATA _OIDLink >
+<!ENTITY _1092 SYSTEM "OSrv://ObjectHandle#1092" NDATA _OIDLink >
+<!ENTITY _1093 SYSTEM "OSrv://ObjectHandle#1093" NDATA _OIDLink >
+<!ENTITY _1094 SYSTEM "OSrv://ObjectHandle#1094" NDATA _OIDLink >
+<!ENTITY _1095 SYSTEM "OSrv://ObjectHandle#1095" NDATA _OIDLink >
+<!ENTITY _1096 SYSTEM "OSrv://ObjectHandle#1096" NDATA _OIDLink >
+<!ENTITY _1097 SYSTEM "OSrv://ObjectHandle#1097" NDATA _OIDLink >
+<!ENTITY _1098 SYSTEM "OSrv://ObjectHandle#1098" NDATA _OIDLink >
+<!ENTITY _1099 SYSTEM "OSrv://ObjectHandle#1099" NDATA _OIDLink >
+<!ENTITY _1100 SYSTEM "OSrv://ObjectHandle#1100" NDATA _OIDLink >
+<!ENTITY _1101 SYSTEM "OSrv://ObjectHandle#1101" NDATA _OIDLink >
+<!ENTITY _1102 SYSTEM "OSrv://ObjectHandle#1102" NDATA _OIDLink >
+<!ENTITY _1103 SYSTEM "OSrv://ObjectHandle#1103" NDATA _OIDLink >
+<!ENTITY _1104 SYSTEM "OSrv://ObjectHandle#1104" NDATA _OIDLink >
+<!ENTITY _1105 SYSTEM "OSrv://ObjectHandle#1105" NDATA _OIDLink >
 ]><YBOModule
 	Name="Ellipse"
-	ScoopIXSource="c:\users\dwegg\desktop\etas-main\etas\programas_simulink_build\ellipse_irt_rtw\ellipse.six"
-	FileDateTime="133308739373178441"
+	ScoopIXSource="c:\users\joser\onedrive\documentos\github\etas\programas_simulink_build\ellipse_irt_rtw\ellipse.six"
+	FileDateTime="133447133244573293"
 	ModelingTool="MATLAB"
 	Kind="SOFTWARE"
 	VisibleName="Ellipse"><_System><_AdminInfo/><_LinkTarget><_LinkTarget
 	Name="SoftwareSystem"
-	Index="3550"
+	Index="2227"
 	Type="YBOSoftwareSystem"><_LinkTarget
-	Name="Connection312"
-	Index="13053"
+	Name="Connection273"
+	Index="6270"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection333"
-	Index="12441"
+	Name="Connection271"
+	Index="6263"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection322"
-	Index="12929"
+	Name="Connection285"
+	Index="6312"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection319"
-	Index="12492"
+	Name="Connection268"
+	Index="6249"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection323"
-	Index="12476"
+	Name="Connection270"
+	Index="6256"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection286"
-	Index="7218"
+	Name="Connection279"
+	Index="6291"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection290"
-	Index="12293"
+	Name="Connection281"
+	Index="6298"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection283"
+	Index="6305"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection246"
+	Index="6172"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection248"
+	Index="6179"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection250"
+	Index="6186"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection262"
+	Index="6228"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection264"
+	Index="6235"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection266"
+	Index="6242"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection252"
+	Index="6193"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection275"
+	Index="6277"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection258"
+	Index="6214"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection254"
+	Index="6200"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection277"
+	Index="6284"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection260"
+	Index="6221"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection256"
+	Index="6207"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection284"
+	Index="6403"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection282"
+	Index="6396"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection299"
+	Index="6459"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection278"
+	Index="6382"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection280"
+	Index="6389"
 	Type="YBOConnection"/><_LinkTarget
 	Name="Connection294"
-	Index="12277"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection313"
-	Index="12511"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection315"
-	Index="12509"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection317"
-	Index="12500"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection288"
-	Index="12301"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection292"
-	Index="12289"
+	Index="6438"
 	Type="YBOConnection"/><_LinkTarget
 	Name="Connection296"
-	Index="12275"
+	Index="6445"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection304"
-	Index="12242"
+	Name="Connection298"
+	Index="6452"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection302"
-	Index="12254"
+	Name="Connection287"
+	Index="6319"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection310"
-	Index="12223"
+	Name="Connection289"
+	Index="6326"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection306"
-	Index="12240"
+	Name="Connection291"
+	Index="6333"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection314"
-	Index="13027"
+	Name="Connection272"
+	Index="6361"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection311"
-	Index="12523"
+	Name="Connection274"
+	Index="6368"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection308"
-	Index="12231"
+	Name="Connection276"
+	Index="6375"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection353"
-	Index="13024"
+	Name="Connection292"
+	Index="6431"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection357"
-	Index="13001"
+	Name="Connection286"
+	Index="6410"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection354"
-	Index="12881"
+	Name="Connection295"
+	Index="6347"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection356"
-	Index="12877"
+	Name="Connection288"
+	Index="6417"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection358"
-	Index="12865"
+	Name="Connection290"
+	Index="6424"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection352"
-	Index="12897"
+	Name="Connection297"
+	Index="6354"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection344"
-	Index="12930"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection341"
-	Index="13077"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection348"
-	Index="12914"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection350"
-	Index="12903"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection342"
-	Index="12946"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection340"
-	Index="12952"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection360"
-	Index="12854"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection326"
-	Index="12880"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection330"
-	Index="12831"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection334"
-	Index="12782"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection347"
-	Index="13050"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection349"
-	Index="13044"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection351"
-	Index="13028"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection328"
-	Index="12857"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection332"
-	Index="12808"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection336"
-	Index="12759"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection345"
-	Index="13061"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection339"
-	Index="13093"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection396"
-	Index="39"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection398"
-	Index="40"
-	Type="YBOConnection"/><_LinkTarget
-	Name="Connection400"
-	Index="3972"
+	Name="Connection293"
+	Index="6340"
 	Type="YBOConnection"/></_LinkTarget><_LinkTarget
 	Name="Ellipse"
-	Index="2331"
+	Index="1063"
 	Type="YBOModule"><_LinkTarget
-	Name="Ellipse_U.ROLL"
-	Index="2336"
+	Name="Ellipse_U.el_ROLL"
+	Index="1064"
 	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_U.PITCH"
-	Index="2337"
+	Name="Ellipse_U.el_PITCH"
+	Index="1065"
 	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_U.YAW"
-	Index="2338"
+	Name="Ellipse_U.el_YAW"
+	Index="1066"
 	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_U.LATITUDE_EKF"
-	Index="2339"
+	Name="Ellipse_U.el_LATITUDE_EKF"
+	Index="1067"
 	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_U.LONGITUDE_EKF"
-	Index="2340"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_U.ACCEL_X_IMU"
-	Index="2346"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_U.ACCEL_Y_IMU"
-	Index="2347"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_U.ACCEL_Z_IMU"
-	Index="2348"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_U.GYRO_X"
-	Index="2349"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_U.GYRO_Y"
-	Index="2350"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_U.GYRO_Z"
-	Index="2351"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_U.ACCEL_X_MAG"
-	Index="2355"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_U.ACCEL_Y_MAG"
-	Index="2356"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_U.ACCEL_Z_MAG"
-	Index="2357"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_U.ANGLE_TRACK"
-	Index="2358"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_U.ANGLE_SLIP"
-	Index="2359"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_U.CURVATURE_RADIUS"
-	Index="2360"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_U.AUTO_STATUS"
-	Index="2361"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_U.TIME_STAMP"
-	Index="2362"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_U.GENERAL"
-	Index="2363"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_U.CLOCK"
-	Index="2364"
+	Name="Ellipse_U.el_LONGITUDE_EKF"
+	Index="1068"
 	Type="YBOSWPort"/><_LinkTarget
 	Name="Ellipse_U.el_Vel_X"
-	Index="48"
+	Index="1069"
 	Type="YBOSWPort"/><_LinkTarget
 	Name="Ellipse_U.el_Vel_Y"
-	Index="49"
+	Index="1070"
 	Type="YBOSWPort"/><_LinkTarget
 	Name="Ellipse_U.el_Vel_Z"
-	Index="867"
+	Index="1071"
 	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.Lat_EKF"
-	Index="2372"
+	Name="Ellipse_U.el_ACCEL_X"
+	Index="1072"
 	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.Long_EKF"
-	Index="2373"
+	Name="Ellipse_U.el_ACCEL_Y"
+	Index="1073"
 	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.Vel_X"
-	Index="2374"
+	Name="Ellipse_U.el_ACCEL_Z"
+	Index="1074"
 	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.Vel_Y"
-	Index="2375"
+	Name="Ellipse_U.el_GYRO_X"
+	Index="1075"
 	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.Vel_Z"
-	Index="2376"
+	Name="Ellipse_U.el_GYRO_Y"
+	Index="1076"
 	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.TrackAngle"
-	Index="2391"
+	Name="Ellipse_U.el_GYRO_Z"
+	Index="1077"
 	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.SlipAngle"
-	Index="2392"
+	Name="Ellipse_U.el_AngleTrack"
+	Index="1078"
 	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.CurvRadius"
-	Index="2393"
+	Name="Ellipse_U.el_SlipAngle"
+	Index="1079"
 	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.Status_Auto"
-	Index="2394"
+	Name="Ellipse_U.el_CurvatureRadius"
+	Index="1080"
 	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.Time"
-	Index="2395"
+	Name="Ellipse_U.el_AUTO_STATUS"
+	Index="1081"
 	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.Clock_Tx"
-	Index="5031"
+	Name="Ellipse_U.el_TIME_STAMP"
+	Index="1082"
 	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.General_Tx"
-	Index="5032"
+	Name="Ellipse_U.el_GENERAL"
+	Index="1083"
 	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.Accel_Z_Mag_Tx"
-	Index="5033"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.Accel_Y_Mag_Tx"
-	Index="5034"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.Accel_X_Mag_Tx"
-	Index="5035"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.Gyro_Z_Tx"
-	Index="5039"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.Gyro_Y_Tx"
-	Index="5040"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.Gyro_X_Tx"
-	Index="5041"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.Accel_Z_IMU_Tx"
-	Index="5042"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.Accel_Y_IMU_Tx"
-	Index="5043"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.Accel_X_IMU_Tx"
-	Index="5044"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.Yaw_Tx"
-	Index="5045"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Ellipse_Y.Pitch_Tx"
-	Index="5046"
+	Name="Ellipse_U.el_CLOCK"
+	Index="1084"
 	Type="YBOSWPort"/><_LinkTarget
 	Name="Ellipse_Y.Roll_Tx"
-	Index="5047"
+	Index="1085"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Ellipse_Y.Pitch_Tx"
+	Index="1086"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Ellipse_Y.Yaw_Tx"
+	Index="1087"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Ellipse_Y.Lat_EKF"
+	Index="1088"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Ellipse_Y.Long_EKF"
+	Index="1089"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Ellipse_Y.Vel_X"
+	Index="1090"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Ellipse_Y.Vel_Y"
+	Index="1091"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Ellipse_Y.Vel_Z"
+	Index="1092"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Ellipse_Y.Accel_X_IMU_Tx"
+	Index="1093"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Ellipse_Y.Accel_Y_IMU_Tx"
+	Index="1094"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Ellipse_Y.Accel_Z_IMU_Tx"
+	Index="1095"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Ellipse_Y.Gyro_X_Tx"
+	Index="1096"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Ellipse_Y.Gyro_Y_Tx"
+	Index="1097"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Ellipse_Y.Gyro_Z_Tx"
+	Index="1098"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Ellipse_Y.TrackAngle"
+	Index="1099"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Ellipse_Y.SlipAngle"
+	Index="1100"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Ellipse_Y.CurvRadius"
+	Index="1101"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Ellipse_Y.Status_Auto"
+	Index="1102"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Ellipse_Y.Time"
+	Index="1103"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Ellipse_Y.General_Tx"
+	Index="1104"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Ellipse_Y.Clock_Tx"
+	Index="1105"
 	Type="YBOSWPort"/></_LinkTarget></_LinkTarget></_System><YBOModule.Ports><YBOPortList><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.ROLL"
+	Name="Ellipse.Ellipse_5FU_5C.el_5FROLL"
 	Size="REAL64"
 	PortType="CONTINUOUS"
 	Direction="IN"
 	Format="IMPLEMENTED"
 	LowerBound="-1.6999999999999999388e+308"
 	UpperBound="1.6999999999999999388e+308"
-	VisibleName="ROLL"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_13053"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.PITCH"
+	VisibleName="el_ROLL"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6270"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FU_5C.el_5FPITCH"
 	Size="REAL64"
 	PortType="CONTINUOUS"
 	Direction="IN"
 	Format="IMPLEMENTED"
 	LowerBound="-1.6999999999999999388e+308"
 	UpperBound="1.6999999999999999388e+308"
-	VisibleName="PITCH"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12441"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.YAW"
+	VisibleName="el_PITCH"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6263"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FU_5C.el_5FYAW"
 	Size="REAL64"
 	PortType="CONTINUOUS"
 	Direction="IN"
 	Format="IMPLEMENTED"
 	LowerBound="-1.6999999999999999388e+308"
 	UpperBound="1.6999999999999999388e+308"
-	VisibleName="YAW"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12929"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.LATITUDE_5FEKF"
+	VisibleName="el_YAW"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6312"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FU_5C.el_5FLATITUDE_5FEKF"
 	Size="REAL64"
 	PortType="CONTINUOUS"
 	Direction="IN"
 	Format="IMPLEMENTED"
 	LowerBound="-1.6999999999999999388e+308"
 	UpperBound="1.6999999999999999388e+308"
-	VisibleName="LATITUDE_EKF"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12492"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.LONGITUDE_5FEKF"
+	VisibleName="el_LATITUDE_EKF"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6249"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FU_5C.el_5FLONGITUDE_5FEKF"
 	Size="REAL64"
 	PortType="CONTINUOUS"
 	Direction="IN"
 	Format="IMPLEMENTED"
 	LowerBound="-1.6999999999999999388e+308"
 	UpperBound="1.6999999999999999388e+308"
-	VisibleName="LONGITUDE_EKF"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12476"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.ACCEL_5FX_5FIMU"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="IN"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="ACCEL_X_IMU"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_7218"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.ACCEL_5FY_5FIMU"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="IN"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="ACCEL_Y_IMU"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12293"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.ACCEL_5FZ_5FIMU"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="IN"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="ACCEL_Z_IMU"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12277"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.GYRO_5FX"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="IN"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="GYRO_X"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12511"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.GYRO_5FY"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="IN"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="GYRO_Y"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12509"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.GYRO_5FZ"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="IN"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="GYRO_Z"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12500"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.ACCEL_5FX_5FMAG"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="IN"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="ACCEL_X_MAG"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12301"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.ACCEL_5FY_5FMAG"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="IN"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="ACCEL_Y_MAG"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12289"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.ACCEL_5FZ_5FMAG"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="IN"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="ACCEL_Z_MAG"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12275"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.ANGLE_5FTRACK"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="IN"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="ANGLE_TRACK"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12242"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.ANGLE_5FSLIP"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="IN"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="ANGLE_SLIP"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12254"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.CURVATURE_5FRADIUS"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="IN"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="CURVATURE_RADIUS"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12223"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.AUTO_5FSTATUS"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="IN"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="AUTO_STATUS"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12240"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.TIME_5FSTAMP"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="IN"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="TIME_STAMP"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_13027"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.GENERAL"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="IN"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="GENERAL"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12523"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FU_5C.CLOCK"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="IN"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="CLOCK"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12231"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.Lat_5FEKF"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="Lat_EKF"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_13024"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.Long_5FEKF"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="Long_EKF"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_13001"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.Vel_5FX"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="Vel_X"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12881"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.Vel_5FY"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="Vel_Y"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12877"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.Vel_5FZ"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="Vel_Z"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12865"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.TrackAngle"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="TrackAngle"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12897"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.SlipAngle"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="SlipAngle"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12930"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.CurvRadius"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="CurvRadius"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_13077"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.Status_5FAuto"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="Status_Auto"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12914"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.Time"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="Time"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12903"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.Roll_5FTx"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="Roll_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12946"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.Pitch_5FTx"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="Pitch_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12952"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.Yaw_5FTx"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="Yaw_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12854"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.Accel_5FX_5FIMU_5FTx"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="Accel_X_IMU_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12880"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.Accel_5FY_5FIMU_5FTx"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="Accel_Y_IMU_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12831"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.Accel_5FZ_5FIMU_5FTx"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="Accel_Z_IMU_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12782"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.Gyro_5FX_5FTx"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="Gyro_X_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_13050"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.Gyro_5FY_5FTx"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="Gyro_Y_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_13044"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.Gyro_5FZ_5FTx"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="Gyro_Z_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_13028"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.Accel_5FX_5FMag_5FTx"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="Accel_X_Mag_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12857"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.Accel_5FY_5FMag_5FTx"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="Accel_Y_Mag_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12808"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.Accel_5FZ_5FMag_5FTx"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="Accel_Z_Mag_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_12759"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.General_5FTx"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="General_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_13061"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
-	Name="Ellipse.Ellipse_5FY_5C.Clock_5FTx"
-	Size="REAL64"
-	PortType="CONTINUOUS"
-	Direction="OUT"
-	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
-	VisibleName="Clock_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_13093"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	VisibleName="el_LONGITUDE_EKF"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6256"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
 	Name="Ellipse.Ellipse_5FU_5C.el_5FVel_5FX"
 	Size="REAL64"
 	PortType="CONTINUOUS"
@@ -814,7 +406,7 @@
 	LowerBound="-1.6999999999999999388e+308"
 	UpperBound="1.6999999999999999388e+308"
 	VisibleName="el_Vel_X"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_39"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	EmbeddedLink.ofTypeYBOConnection="_6291"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
 	Name="Ellipse.Ellipse_5FU_5C.el_5FVel_5FY"
 	Size="REAL64"
 	PortType="CONTINUOUS"
@@ -823,7 +415,7 @@
 	LowerBound="-1.6999999999999999388e+308"
 	UpperBound="1.6999999999999999388e+308"
 	VisibleName="el_Vel_Y"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_40"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	EmbeddedLink.ofTypeYBOConnection="_6298"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
 	Name="Ellipse.Ellipse_5FU_5C.el_5FVel_5FZ"
 	Size="REAL64"
 	PortType="CONTINUOUS"
@@ -832,7 +424,313 @@
 	LowerBound="-1.6999999999999999388e+308"
 	UpperBound="1.6999999999999999388e+308"
 	VisibleName="el_Vel_Z"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_3972"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort></YBOPortList></YBOModule.Ports><YBOModule.Processes><YBOProcessList><YBOProcess
+	EmbeddedLink.ofTypeYBOConnection="_6305"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FU_5C.el_5FACCEL_5FX"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="el_ACCEL_X"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6172"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FU_5C.el_5FACCEL_5FY"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="el_ACCEL_Y"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6179"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FU_5C.el_5FACCEL_5FZ"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="el_ACCEL_Z"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6186"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FU_5C.el_5FGYRO_5FX"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="el_GYRO_X"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6228"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FU_5C.el_5FGYRO_5FY"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="el_GYRO_Y"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6235"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FU_5C.el_5FGYRO_5FZ"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="el_GYRO_Z"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6242"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FU_5C.el_5FAngleTrack"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="el_AngleTrack"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6193"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FU_5C.el_5FSlipAngle"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="el_SlipAngle"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6277"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FU_5C.el_5FCurvatureRadius"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="el_CurvatureRadius"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6214"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FU_5C.el_5FAUTO_5FSTATUS"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="el_AUTO_STATUS"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6200"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FU_5C.el_5FTIME_5FSTAMP"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="el_TIME_STAMP"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6284"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FU_5C.el_5FGENERAL"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="el_GENERAL"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6221"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FU_5C.el_5FCLOCK"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="el_CLOCK"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6207"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.Roll_5FTx"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Roll_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6403"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.Pitch_5FTx"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Pitch_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6396"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.Yaw_5FTx"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Yaw_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6459"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.Lat_5FEKF"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Lat_EKF"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6382"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.Long_5FEKF"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Long_EKF"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6389"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.Vel_5FX"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Vel_X"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6438"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.Vel_5FY"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Vel_Y"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6445"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.Vel_5FZ"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Vel_Z"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6452"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.Accel_5FX_5FIMU_5FTx"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Accel_X_IMU_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6319"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.Accel_5FY_5FIMU_5FTx"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Accel_Y_IMU_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6326"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.Accel_5FZ_5FIMU_5FTx"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Accel_Z_IMU_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6333"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.Gyro_5FX_5FTx"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Gyro_X_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6361"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.Gyro_5FY_5FTx"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Gyro_Y_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6368"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.Gyro_5FZ_5FTx"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Gyro_Z_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6375"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.TrackAngle"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="TrackAngle"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6431"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.SlipAngle"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="SlipAngle"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6410"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.CurvRadius"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="CurvRadius"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6347"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.Status_5FAuto"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Status_Auto"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6417"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.Time"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Time"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6424"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.General_5FTx"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="General_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6354"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Ellipse.Ellipse_5FY_5C.Clock_5FTx"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Clock_Tx"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6340"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort></YBOPortList></YBOModule.Ports><YBOModule.Processes><YBOProcessList><YBOProcess
 	Name="Ellipse.irt_5FStart_5FEllipse"
 	Kind="INITIALIZATION"
 	Priority="0.5"
@@ -864,60 +762,54 @@
 	Name="Ellipse.irt_5FOneStep_5FEllipse.irt_5FOneStep_5FEllipse_5FSourceCopy.Action"
 	Hidden="TRUE"
 	Kind="SOURCE_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2336"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2337"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2338"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2339"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2340"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2346"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2347"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2348"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2349"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2350"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2351"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2355"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2356"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2357"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2358"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2359"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2360"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2361"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2362"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2363"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2364"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_48"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_49"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_867"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
+	EmbeddedLink.ofTypeYBOSWPort="_1064"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1065"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1066"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1067"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1068"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1069"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1070"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1071"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1072"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1073"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1074"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1075"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1076"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1077"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1078"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1079"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1080"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1081"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1082"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1083"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1084"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
 	Name="Ellipse.irt_5FOneStep_5FEllipse.irt_5FOneStep_5FEllipse_5FSinkCopy"
 	Kind="SINK"
 	VisibleName="irt_OneStep_Ellipse_SinkCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
 	Name="Ellipse.irt_5FOneStep_5FEllipse.irt_5FOneStep_5FEllipse_5FSinkCopy.Action"
 	Hidden="TRUE"
 	Kind="SINK_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2372"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2373"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2374"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2375"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2376"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2391"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2392"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2393"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2394"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2395"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_5031"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_5032"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_5033"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_5034"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_5035"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_5039"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_5040"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_5041"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_5042"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_5043"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_5044"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_5045"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_5046"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_5047"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess><YBOProcess
+	EmbeddedLink.ofTypeYBOSWPort="_1085"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1086"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1087"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1088"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1089"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1090"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1091"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1092"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1093"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1094"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1095"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1096"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1097"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1098"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1099"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1100"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1101"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1102"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1103"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1104"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1105"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess><YBOProcess
 	Name="Ellipse.irt_5FTerminate_5FEllipse"
 	Kind="TERMINATION"
 	Priority="0.5"
@@ -935,4 +827,4 @@
 	VisibleName="irt_Terminate_Ellipse_SinkCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
 	Name="Ellipse.irt_5FTerminate_5FEllipse.irt_5FTerminate_5FEllipse_5FSinkCopy.Action"
 	Hidden="TRUE"
-	Kind="SINK_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList/></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess></YBOProcessList></YBOModule.Processes><YBOModule.ArXMLSources><YBOArXMLSourceList/></YBOModule.ArXMLSources><YBOModule.ArCSources><YBOArCSourceList/></YBOModule.ArCSources></YBOModule>
+	Kind="SINK_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList/></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess></YBOProcessList></YBOModule.Processes><YBOModule.ArXMLSources><YBOArXMLSourceList/></YBOModule.ArXMLSources><YBOModule.ArCSources><YBOArCSourceList/></YBOModule.ArCSources><YBOModule.ReferencedModules><YBOModuleRefList/></YBOModule.ReferencedModules></YBOModule>

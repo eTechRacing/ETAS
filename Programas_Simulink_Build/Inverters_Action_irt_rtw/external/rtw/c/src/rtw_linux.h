@@ -2,7 +2,7 @@
 #define RTW_LINUX_H
 
 /*
- * Copyright 2011 The MathWorks, Inc.
+ * Copyright 2011-2018 The MathWorks, Inc.
  *
  * File: rtw_linux.h
  *
@@ -21,7 +21,12 @@
 extern "C" {
 #endif
 
+
 extern void rtw_pthread_mutex_init( void** mutexDW );        
+extern void* rtw_register_task(void (*)(void));
+extern void rtw_trigger_task(void*);
+extern void rtw_waitfor_task(void*);
+extern void rtw_deregister_task(void*);
 
 #ifdef __cplusplus
 }

@@ -1,4 +1,4 @@
-/* Copyright 2014-2015 The MathWorks, Inc. */
+/* Copyright 2014-2017 The MathWorks, Inc. */
 #ifndef _RGB2GRAY_TBB_H_
 #define _RGB2GRAY_TBB_H_
 
@@ -23,21 +23,25 @@
 EXTERN_C LIBMWRGB2GRAY_TBB_API void rgb2gray_tbb_real64(
 	const real64_T* inputImage,
 	const real64_T numPixels,
-	real64_T* outputImage);
+	real64_T* outputImage,
+    const boolean_T isColumnMajor);
 
 EXTERN_C LIBMWRGB2GRAY_TBB_API void rgb2gray_tbb_real32(
 	const real32_T* inputImage,
 	const real64_T numPixels,
-	real32_T* outputImage);
+	real32_T* outputImage,
+    const boolean_T isColumnMajor);
 
 EXTERN_C LIBMWRGB2GRAY_TBB_API void rgb2gray_tbb_uint16(
 	const uint16_T* inputImage,
 	const real64_T numPixels,
-	uint16_T* outputImage);
+	uint16_T* outputImage,
+    const boolean_T isColumnMajor);
 
 EXTERN_C LIBMWRGB2GRAY_TBB_API void rgb2gray_tbb_uint8(
 	const uint8_T* inputImage,
 	const real64_T numPixels,
-	uint8_T* outputImage);
+	uint8_T* outputImage,
+    const boolean_T isColumnMajor);
 
 #endif /* _RGB2GRAY_TBB_H_ */

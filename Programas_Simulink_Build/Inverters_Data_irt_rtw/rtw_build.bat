@@ -7,7 +7,7 @@ rem  Copyright 2009-2014 ETAS GmbH, all rights reserved.
 rem
 rem  $LastChangedBy: tir9fe $
 rem  $LastChangedRevision: 102875 $
-rem  $LastChangedDate: 2015-10-02 18:10:04 +0200 (Fr, 02 Okt 2015) $
+rem  $LastChangedDate: 2015-10-02 18:10:04 +0200 (Fri, 02 Oct 2015) $
 rem
 rem ###########################################################################
 @echo off

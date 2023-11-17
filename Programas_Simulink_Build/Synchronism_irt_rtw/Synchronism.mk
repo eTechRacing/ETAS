@@ -38,23 +38,23 @@
 
 MAKECMD         = @"rtw_build.bat"
 HOST            = PC
-BUILD           = yes
+BUILD           = no
 SYS_TARGET_FILE = irt.tlc
 BUILD_SUCCESS = successful
 
 # make matlab happy
 MODEL                = Synchronism
-MODULES              = Synchronism_data.c Synchronism_main.c
+MODULES              = rt_logging.c Synchronism_main.c rt_sim.c
 MAKEFILE             = Synchronism.mk
-MATLAB_ROOT          = C:\Program Files\MATLAB\R2017b
-MATLAB_BIN           = C:\Program Files\MATLAB\R2017b\bin
+MATLAB_ROOT          = C:\Program Files\MATLAB\R2022a
+MATLAB_BIN           = C:\Program Files\MATLAB\R2022a\bin
 S_FUNCTIONS          = 
-S_FUNCTIONS_LIB      = 
+S_FUNCTIONS_LIB      = C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\rtwshared.lib
 SOLVER               = 
 NUMST                = 1
 TID01EQ              = 0
 NCSTATES             = 0
-BUILDARGS            =  MODELLIB=Synchronismlib.lib MODELREF_TARGET_TYPE=NONE ISPROTECTINGMODEL=NOTPROTECTING RELATIVE_PATH_TO_ANCHOR=.. MAT_FILE=0 IRTWaitForStartMsg=0
+BUILDARGS            =  MAT_FILE=1 IRTWaitForStartMsg=0 COMBINE_OUTPUT_UPDATE_FCNS=0 INCLUDE_MDL_TERMINATE_FCN=1 MULTI_INSTANCE_CODE=0 MODELREF_TARGET_TYPE=NONE RELATIVE_PATH_TO_ANCHOR=.. OPTS="-DTID01EQ=0"
 MULTITASKING         = 0
 EXT_MODE             = 0
 TMW_EXTMODE_TESTING  = 0

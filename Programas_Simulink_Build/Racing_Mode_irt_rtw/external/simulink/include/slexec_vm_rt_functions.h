@@ -8,7 +8,7 @@
  * 
  */
 
-/* Copyright 2015 The MathWorks, Inc. */
+/* Copyright 2015-2020 The MathWorks, Inc. */
 
 #include "tmwtypes.h"
 
@@ -34,5 +34,15 @@ SLEXEC_SIMBRIDGE_PUBLISHED_C void rtSizeEqCheck1D(
 
 SLEXEC_SIMBRIDGE_PUBLISHED_C void rtSizeEqCheckND(
     void*  S, int* dims1, int* dims2, int  nDims);
+
+// g2104313 : Matlab crash during accelerator mode simulation of attached model
+// Adding the definition of these functions which will be required for llvm 
+// based accelerated mode simulation.
+SLEXEC_SIMBRIDGE_PUBLISHED_C real_T rtGetInf();
+
+SLEXEC_SIMBRIDGE_PUBLISHED_C real_T rtGetNaN();
+
+SLEXEC_SIMBRIDGE_PUBLISHED_C real_T rtGetMinusInf();
+//end of changes for g2104313
 
 #endif

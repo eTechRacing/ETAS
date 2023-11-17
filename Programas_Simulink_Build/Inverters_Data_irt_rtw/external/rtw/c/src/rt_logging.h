@@ -1,4 +1,4 @@
-/* Copyright 2012-2015 The MathWorks, Inc. */
+/* Copyright 2012-2020 The MathWorks, Inc. */
 
 #ifndef rt_logging_h
 #define rt_logging_h
@@ -16,7 +16,11 @@
 #include "rtwtypes.h"
 #include "builtin_typeid_types.h"
 #include "multiword_types.h"
+#ifdef IS_RAPID_ACCEL
+#include "matrix.h"
+#else
 #include "rt_mxclassid.h"
+#endif
 #include "rtw_matlogging.h"
 
 #ifndef TMW_NAME_LENGTH_MAX
@@ -127,6 +131,7 @@ typedef struct SignalsStruct_Tag {
                                          we also should log 'valueDimensions'
                                          field                                 */
     boolean_T    *isVarDims;         /* is this signal a variable-size signal? */
+
 } SignalsStruct;
 
 struct StructLogVar_Tag {

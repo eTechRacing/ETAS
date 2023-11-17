@@ -1,33 +1,32 @@
 /*
- * C:\Users\dwegg\Desktop\ETAS-main\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\look1_binlxpw.c
+ * look1_binlxpw.c
  *
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * Code generation for model "Torque_Control".
+ * Code generation for model "SoC".
  *
- * Model version              : 1.181
- * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Wed Mar 29 13:03:35 2023
- * Created for block: Torque_Control
+ * Model version              : 10.0
+ * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
+ * C source code generated on : Fri Nov 17 17:15:27 2023
+ * Created for block: SoC
  */
 
-#include "rtwtypes.h"
 #include "look1_binlxpw.h"
+#include "rtwtypes.h"
 
 real_T look1_binlxpw(real_T u0, const real_T bp0[], const real_T table[],
                      uint32_T maxIndex)
 {
   real_T frac;
-  uint32_T iRght;
+  real_T yL_0d0;
   uint32_T iLeft;
-  uint32_T bpIdx;
 
-  /* Lookup 1-D
+  /* Column-major Lookup 1-D
      Search method: 'binary'
      Use previous index: 'off'
-     Interpolation method: 'Linear'
+     Interpolation method: 'Linear point-slope'
      Extrapolation method: 'Linear'
      Use last breakpoint for index at or above upper limit: 'off'
      Remove protection against out-of-range input in generated code: 'off'
@@ -43,6 +42,9 @@ real_T look1_binlxpw(real_T u0, const real_T bp0[], const real_T table[],
     iLeft = 0U;
     frac = (u0 - bp0[0U]) / (bp0[1U] - bp0[0U]);
   } else if (u0 < bp0[maxIndex]) {
+    uint32_T bpIdx;
+    uint32_T iRght;
+
     /* Binary Search */
     bpIdx = maxIndex >> 1U;
     iLeft = 0U;
@@ -63,10 +65,11 @@ real_T look1_binlxpw(real_T u0, const real_T bp0[], const real_T table[],
     frac = (u0 - bp0[maxIndex - 1U]) / (bp0[maxIndex] - bp0[maxIndex - 1U]);
   }
 
-  /* Interpolation 1-D
-     Interpolation method: 'Linear'
+  /* Column-major Interpolation 1-D
+     Interpolation method: 'Linear point-slope'
      Use last breakpoint for index at or above upper limit: 'off'
      Overflow mode: 'portable wrapping'
    */
-  return (table[iLeft + 1U] - table[iLeft]) * frac + table[iLeft];
+  yL_0d0 = table[iLeft];
+  return (table[iLeft + 1U] - yL_0d0) * frac + yL_0d0;
 }

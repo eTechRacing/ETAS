@@ -11,7 +11,7 @@
 
 
 /*
- * Copyright 1994-2015 The MathWorks, Inc.
+ * Copyright 1994-2020 The MathWorks, Inc.
  */
 
 /*==========*
@@ -116,6 +116,10 @@ extern real_T rtNaN;
 
 /* NOTE: mxGetPr() of an empty matrix does NOT return NULL */
 #define mxGetPr(pa) \
+        ( &((pa)[2]) )
+
+/* NOTE: mxGetDoubles() of an empty matrix does NOT return NULL */
+#define mxGetDoubles(pa) \
         ( &((pa)[2]) )
 
 #define mxGetScalar(pa) \

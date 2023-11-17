@@ -157,7 +157,7 @@ const char_T *rt_ODECreateSolverInfo(SimStruct *S)
     rtsiSetContStatesPtr(si, &ssGetContStates(S));
 
     /* Copy over a pointer to the location of the number of cont states */
-    rtsiSetNumContStatesPtr(si, &ssGetNumContStates(S));
+    rtsiSetNumContStatesPtr(si, ssGetNumContStatesPtr(S));
 
     /* Copy over a pointer to the location of the wrapped cont states */
     rtsiSetPeriodicContStateIndicesPtr(si, &ssGetPeriodicContStateIndices(S));

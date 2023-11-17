@@ -3,16 +3,6 @@
 #include "Ellipse_irtmacros.h"
 /* PATCH END */
 
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "Ellipse_irtmacros.h"
-/* PATCH END */
-
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "Ellipse_irtmacros.h"
-/* PATCH END */
-
 /*
  * Ellipse.h
  *
@@ -22,9 +12,9 @@
  *
  * Code generation for model "Ellipse".
  *
- * Model version              : 1.13
- * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Sat Jun 10 10:43:30 2023
+ * Model version              : 10.0
+ * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
+ * C source code generated on : Fri Nov 17 17:13:30 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -35,813 +25,820 @@
 
 #ifndef RTW_HEADER_Ellipse_h_
 #define RTW_HEADER_Ellipse_h_
-#include <string.h>
 #ifndef Ellipse_COMMON_INCLUDES_
-# define Ellipse_COMMON_INCLUDES_
+#define Ellipse_COMMON_INCLUDES_
 #include "rtwtypes.h"
-#include "zero_crossing_types.h"
 #include "simstruc.h"
 #include "fixedpoint.h"
+#include "rt_logging.h"
 #endif                                 /* Ellipse_COMMON_INCLUDES_ */
 
 #include "Ellipse_types.h"
-
-/* Shared type includes */
-#include "multiword_types.h"
 #include "rt_defines.h"
+#include <string.h>
+#include <stddef.h>
 #include "rt_nonfinite.h"
+#include "zero_crossing_types.h"
 
 /* Macros for accessing real-time model data structure */
 #ifndef rtmGetBlockIO
-# define rtmGetBlockIO(rtm)            ((rtm)->blockIO)
+#define rtmGetBlockIO(rtm)             ((rtm)->blockIO)
 #endif
 
 #ifndef rtmSetBlockIO
-# define rtmSetBlockIO(rtm, val)       ((rtm)->blockIO = (val))
+#define rtmSetBlockIO(rtm, val)        ((rtm)->blockIO = (val))
 #endif
 
 #ifndef rtmGetChecksums
-# define rtmGetChecksums(rtm)          ((rtm)->Sizes.checksums)
+#define rtmGetChecksums(rtm)           ((rtm)->Sizes.checksums)
 #endif
 
 #ifndef rtmSetChecksums
-# define rtmSetChecksums(rtm, val)     ((rtm)->Sizes.checksums = (val))
+#define rtmSetChecksums(rtm, val)      ((rtm)->Sizes.checksums = (val))
 #endif
 
 #ifndef rtmGetConstBlockIO
-# define rtmGetConstBlockIO(rtm)       ((rtm)->constBlockIO)
+#define rtmGetConstBlockIO(rtm)        ((rtm)->constBlockIO)
 #endif
 
 #ifndef rtmSetConstBlockIO
-# define rtmSetConstBlockIO(rtm, val)  ((rtm)->constBlockIO = (val))
+#define rtmSetConstBlockIO(rtm, val)   ((rtm)->constBlockIO = (val))
 #endif
 
 #ifndef rtmGetContStateDisabled
-# define rtmGetContStateDisabled(rtm)  ((rtm)->contStateDisabled)
+#define rtmGetContStateDisabled(rtm)   ((rtm)->contStateDisabled)
 #endif
 
 #ifndef rtmSetContStateDisabled
-# define rtmSetContStateDisabled(rtm, val) ((rtm)->contStateDisabled = (val))
+#define rtmSetContStateDisabled(rtm, val) ((rtm)->contStateDisabled = (val))
 #endif
 
 #ifndef rtmGetContStates
-# define rtmGetContStates(rtm)         ((rtm)->contStates)
+#define rtmGetContStates(rtm)          ((rtm)->contStates)
 #endif
 
 #ifndef rtmSetContStates
-# define rtmSetContStates(rtm, val)    ((rtm)->contStates = (val))
+#define rtmSetContStates(rtm, val)     ((rtm)->contStates = (val))
 #endif
 
 #ifndef rtmGetContTimeOutputInconsistentWithStateAtMajorStepFlag
-# define rtmGetContTimeOutputInconsistentWithStateAtMajorStepFlag(rtm) ((rtm)->CTOutputIncnstWithState)
+#define rtmGetContTimeOutputInconsistentWithStateAtMajorStepFlag(rtm) ((rtm)->CTOutputIncnstWithState)
 #endif
 
 #ifndef rtmSetContTimeOutputInconsistentWithStateAtMajorStepFlag
-# define rtmSetContTimeOutputInconsistentWithStateAtMajorStepFlag(rtm, val) ((rtm)->CTOutputIncnstWithState = (val))
+#define rtmSetContTimeOutputInconsistentWithStateAtMajorStepFlag(rtm, val) ((rtm)->CTOutputIncnstWithState = (val))
+#endif
+
+#ifndef rtmGetCtrlRateMdlRefTiming
+#define rtmGetCtrlRateMdlRefTiming(rtm) ()
+#endif
+
+#ifndef rtmSetCtrlRateMdlRefTiming
+#define rtmSetCtrlRateMdlRefTiming(rtm, val) ()
+#endif
+
+#ifndef rtmGetCtrlRateMdlRefTimingPtr
+#define rtmGetCtrlRateMdlRefTimingPtr(rtm) ()
+#endif
+
+#ifndef rtmSetCtrlRateMdlRefTimingPtr
+#define rtmSetCtrlRateMdlRefTimingPtr(rtm, val) ()
+#endif
+
+#ifndef rtmGetCtrlRateNumTicksToNextHit
+#define rtmGetCtrlRateNumTicksToNextHit(rtm) ()
+#endif
+
+#ifndef rtmSetCtrlRateNumTicksToNextHit
+#define rtmSetCtrlRateNumTicksToNextHit(rtm, val) ()
 #endif
 
 #ifndef rtmGetDataMapInfo
-# define rtmGetDataMapInfo(rtm)        ()
+#define rtmGetDataMapInfo(rtm)         ()
 #endif
 
 #ifndef rtmSetDataMapInfo
-# define rtmSetDataMapInfo(rtm, val)   ()
+#define rtmSetDataMapInfo(rtm, val)    ()
 #endif
 
 #ifndef rtmGetDefaultParam
-# define rtmGetDefaultParam(rtm)       ((rtm)->defaultParam)
+#define rtmGetDefaultParam(rtm)        ((rtm)->defaultParam)
 #endif
 
 #ifndef rtmSetDefaultParam
-# define rtmSetDefaultParam(rtm, val)  ((rtm)->defaultParam = (val))
+#define rtmSetDefaultParam(rtm, val)   ((rtm)->defaultParam = (val))
 #endif
 
 #ifndef rtmGetDerivCacheNeedsReset
-# define rtmGetDerivCacheNeedsReset(rtm) ((rtm)->derivCacheNeedsReset)
+#define rtmGetDerivCacheNeedsReset(rtm) ((rtm)->derivCacheNeedsReset)
 #endif
 
 #ifndef rtmSetDerivCacheNeedsReset
-# define rtmSetDerivCacheNeedsReset(rtm, val) ((rtm)->derivCacheNeedsReset = (val))
+#define rtmSetDerivCacheNeedsReset(rtm, val) ((rtm)->derivCacheNeedsReset = (val))
 #endif
 
 #ifndef rtmGetDirectFeedThrough
-# define rtmGetDirectFeedThrough(rtm)  ((rtm)->Sizes.sysDirFeedThru)
+#define rtmGetDirectFeedThrough(rtm)   ((rtm)->Sizes.sysDirFeedThru)
 #endif
 
 #ifndef rtmSetDirectFeedThrough
-# define rtmSetDirectFeedThrough(rtm, val) ((rtm)->Sizes.sysDirFeedThru = (val))
+#define rtmSetDirectFeedThrough(rtm, val) ((rtm)->Sizes.sysDirFeedThru = (val))
 #endif
 
 #ifndef rtmGetErrorStatusFlag
-# define rtmGetErrorStatusFlag(rtm)    ((rtm)->errorStatus)
+#define rtmGetErrorStatusFlag(rtm)     ((rtm)->errorStatus)
 #endif
 
 #ifndef rtmSetErrorStatusFlag
-# define rtmSetErrorStatusFlag(rtm, val) ((rtm)->errorStatus = (val))
+#define rtmSetErrorStatusFlag(rtm, val) ((rtm)->errorStatus = (val))
 #endif
 
 #ifndef rtmGetFinalTime
-# define rtmGetFinalTime(rtm)          ((rtm)->Timing.tFinal)
+#define rtmGetFinalTime(rtm)           ((rtm)->Timing.tFinal)
 #endif
 
 #ifndef rtmSetFinalTime
-# define rtmSetFinalTime(rtm, val)     ((rtm)->Timing.tFinal = (val))
+#define rtmSetFinalTime(rtm, val)      ((rtm)->Timing.tFinal = (val))
 #endif
 
 #ifndef rtmGetFirstInitCondFlag
-# define rtmGetFirstInitCondFlag(rtm)  ()
+#define rtmGetFirstInitCondFlag(rtm)   ()
 #endif
 
 #ifndef rtmSetFirstInitCondFlag
-# define rtmSetFirstInitCondFlag(rtm, val) ()
+#define rtmSetFirstInitCondFlag(rtm, val) ()
 #endif
 
 #ifndef rtmGetIntgData
-# define rtmGetIntgData(rtm)           ()
+#define rtmGetIntgData(rtm)            ()
 #endif
 
 #ifndef rtmSetIntgData
-# define rtmSetIntgData(rtm, val)      ()
+#define rtmSetIntgData(rtm, val)       ()
+#endif
+
+#ifndef rtmGetMdlRefGlobalRuntimeEventIndices
+#define rtmGetMdlRefGlobalRuntimeEventIndices(rtm) ()
+#endif
+
+#ifndef rtmSetMdlRefGlobalRuntimeEventIndices
+#define rtmSetMdlRefGlobalRuntimeEventIndices(rtm, val) ()
 #endif
 
 #ifndef rtmGetMdlRefGlobalTID
-# define rtmGetMdlRefGlobalTID(rtm)    ()
+#define rtmGetMdlRefGlobalTID(rtm)     ()
 #endif
 
 #ifndef rtmSetMdlRefGlobalTID
-# define rtmSetMdlRefGlobalTID(rtm, val) ()
+#define rtmSetMdlRefGlobalTID(rtm, val) ()
 #endif
 
 #ifndef rtmGetMdlRefTriggerTID
-# define rtmGetMdlRefTriggerTID(rtm)   ()
+#define rtmGetMdlRefTriggerTID(rtm)    ()
 #endif
 
 #ifndef rtmSetMdlRefTriggerTID
-# define rtmSetMdlRefTriggerTID(rtm, val) ()
+#define rtmSetMdlRefTriggerTID(rtm, val) ()
 #endif
 
 #ifndef rtmGetModelMappingInfo
-# define rtmGetModelMappingInfo(rtm)   ((rtm)->SpecialInfo.mappingInfo)
+#define rtmGetModelMappingInfo(rtm)    ((rtm)->SpecialInfo.mappingInfo)
 #endif
 
 #ifndef rtmSetModelMappingInfo
-# define rtmSetModelMappingInfo(rtm, val) ((rtm)->SpecialInfo.mappingInfo = (val))
+#define rtmSetModelMappingInfo(rtm, val) ((rtm)->SpecialInfo.mappingInfo = (val))
 #endif
 
 #ifndef rtmGetModelName
-# define rtmGetModelName(rtm)          ((rtm)->modelName)
+#define rtmGetModelName(rtm)           ((rtm)->modelName)
 #endif
 
 #ifndef rtmSetModelName
-# define rtmSetModelName(rtm, val)     ((rtm)->modelName = (val))
+#define rtmSetModelName(rtm, val)      ((rtm)->modelName = (val))
 #endif
 
 #ifndef rtmGetNonInlinedSFcns
-# define rtmGetNonInlinedSFcns(rtm)    ()
+#define rtmGetNonInlinedSFcns(rtm)     ()
 #endif
 
 #ifndef rtmSetNonInlinedSFcns
-# define rtmSetNonInlinedSFcns(rtm, val) ()
+#define rtmSetNonInlinedSFcns(rtm, val) ()
 #endif
 
 #ifndef rtmGetNumBlockIO
-# define rtmGetNumBlockIO(rtm)         ((rtm)->Sizes.numBlockIO)
+#define rtmGetNumBlockIO(rtm)          ((rtm)->Sizes.numBlockIO)
 #endif
 
 #ifndef rtmSetNumBlockIO
-# define rtmSetNumBlockIO(rtm, val)    ((rtm)->Sizes.numBlockIO = (val))
+#define rtmSetNumBlockIO(rtm, val)     ((rtm)->Sizes.numBlockIO = (val))
 #endif
 
 #ifndef rtmGetNumBlockParams
-# define rtmGetNumBlockParams(rtm)     ((rtm)->Sizes.numBlockPrms)
+#define rtmGetNumBlockParams(rtm)      ((rtm)->Sizes.numBlockPrms)
 #endif
 
 #ifndef rtmSetNumBlockParams
-# define rtmSetNumBlockParams(rtm, val) ((rtm)->Sizes.numBlockPrms = (val))
+#define rtmSetNumBlockParams(rtm, val) ((rtm)->Sizes.numBlockPrms = (val))
 #endif
 
 #ifndef rtmGetNumBlocks
-# define rtmGetNumBlocks(rtm)          ((rtm)->Sizes.numBlocks)
+#define rtmGetNumBlocks(rtm)           ((rtm)->Sizes.numBlocks)
 #endif
 
 #ifndef rtmSetNumBlocks
-# define rtmSetNumBlocks(rtm, val)     ((rtm)->Sizes.numBlocks = (val))
+#define rtmSetNumBlocks(rtm, val)      ((rtm)->Sizes.numBlocks = (val))
 #endif
 
 #ifndef rtmGetNumContStates
-# define rtmGetNumContStates(rtm)      ((rtm)->Sizes.numContStates)
+#define rtmGetNumContStates(rtm)       ((rtm)->Sizes.numContStates)
 #endif
 
 #ifndef rtmSetNumContStates
-# define rtmSetNumContStates(rtm, val) ((rtm)->Sizes.numContStates = (val))
+#define rtmSetNumContStates(rtm, val)  ((rtm)->Sizes.numContStates = (val))
 #endif
 
 #ifndef rtmGetNumDWork
-# define rtmGetNumDWork(rtm)           ((rtm)->Sizes.numDwork)
+#define rtmGetNumDWork(rtm)            ((rtm)->Sizes.numDwork)
 #endif
 
 #ifndef rtmSetNumDWork
-# define rtmSetNumDWork(rtm, val)      ((rtm)->Sizes.numDwork = (val))
+#define rtmSetNumDWork(rtm, val)       ((rtm)->Sizes.numDwork = (val))
 #endif
 
 #ifndef rtmGetNumInputPorts
-# define rtmGetNumInputPorts(rtm)      ((rtm)->Sizes.numIports)
+#define rtmGetNumInputPorts(rtm)       ((rtm)->Sizes.numIports)
 #endif
 
 #ifndef rtmSetNumInputPorts
-# define rtmSetNumInputPorts(rtm, val) ((rtm)->Sizes.numIports = (val))
+#define rtmSetNumInputPorts(rtm, val)  ((rtm)->Sizes.numIports = (val))
 #endif
 
 #ifndef rtmGetNumNonSampledZCs
-# define rtmGetNumNonSampledZCs(rtm)   ((rtm)->Sizes.numNonSampZCs)
+#define rtmGetNumNonSampledZCs(rtm)    ((rtm)->Sizes.numNonSampZCs)
 #endif
 
 #ifndef rtmSetNumNonSampledZCs
-# define rtmSetNumNonSampledZCs(rtm, val) ((rtm)->Sizes.numNonSampZCs = (val))
+#define rtmSetNumNonSampledZCs(rtm, val) ((rtm)->Sizes.numNonSampZCs = (val))
 #endif
 
 #ifndef rtmGetNumOutputPorts
-# define rtmGetNumOutputPorts(rtm)     ((rtm)->Sizes.numOports)
+#define rtmGetNumOutputPorts(rtm)      ((rtm)->Sizes.numOports)
 #endif
 
 #ifndef rtmSetNumOutputPorts
-# define rtmSetNumOutputPorts(rtm, val) ((rtm)->Sizes.numOports = (val))
+#define rtmSetNumOutputPorts(rtm, val) ((rtm)->Sizes.numOports = (val))
 #endif
 
 #ifndef rtmGetNumPeriodicContStates
-# define rtmGetNumPeriodicContStates(rtm) ((rtm)->Sizes.numPeriodicContStates)
+#define rtmGetNumPeriodicContStates(rtm) ((rtm)->Sizes.numPeriodicContStates)
 #endif
 
 #ifndef rtmSetNumPeriodicContStates
-# define rtmSetNumPeriodicContStates(rtm, val) ((rtm)->Sizes.numPeriodicContStates = (val))
+#define rtmSetNumPeriodicContStates(rtm, val) ((rtm)->Sizes.numPeriodicContStates = (val))
 #endif
 
 #ifndef rtmGetNumSFcnParams
-# define rtmGetNumSFcnParams(rtm)      ((rtm)->Sizes.numSFcnPrms)
+#define rtmGetNumSFcnParams(rtm)       ((rtm)->Sizes.numSFcnPrms)
 #endif
 
 #ifndef rtmSetNumSFcnParams
-# define rtmSetNumSFcnParams(rtm, val) ((rtm)->Sizes.numSFcnPrms = (val))
+#define rtmSetNumSFcnParams(rtm, val)  ((rtm)->Sizes.numSFcnPrms = (val))
 #endif
 
 #ifndef rtmGetNumSFunctions
-# define rtmGetNumSFunctions(rtm)      ((rtm)->Sizes.numSFcns)
+#define rtmGetNumSFunctions(rtm)       ((rtm)->Sizes.numSFcns)
 #endif
 
 #ifndef rtmSetNumSFunctions
-# define rtmSetNumSFunctions(rtm, val) ((rtm)->Sizes.numSFcns = (val))
+#define rtmSetNumSFunctions(rtm, val)  ((rtm)->Sizes.numSFcns = (val))
 #endif
 
 #ifndef rtmGetNumSampleTimes
-# define rtmGetNumSampleTimes(rtm)     ((rtm)->Sizes.numSampTimes)
+#define rtmGetNumSampleTimes(rtm)      ((rtm)->Sizes.numSampTimes)
 #endif
 
 #ifndef rtmSetNumSampleTimes
-# define rtmSetNumSampleTimes(rtm, val) ((rtm)->Sizes.numSampTimes = (val))
+#define rtmSetNumSampleTimes(rtm, val) ((rtm)->Sizes.numSampTimes = (val))
 #endif
 
 #ifndef rtmGetNumU
-# define rtmGetNumU(rtm)               ((rtm)->Sizes.numU)
+#define rtmGetNumU(rtm)                ((rtm)->Sizes.numU)
 #endif
 
 #ifndef rtmSetNumU
-# define rtmSetNumU(rtm, val)          ((rtm)->Sizes.numU = (val))
+#define rtmSetNumU(rtm, val)           ((rtm)->Sizes.numU = (val))
 #endif
 
 #ifndef rtmGetNumY
-# define rtmGetNumY(rtm)               ((rtm)->Sizes.numY)
+#define rtmGetNumY(rtm)                ((rtm)->Sizes.numY)
 #endif
 
 #ifndef rtmSetNumY
-# define rtmSetNumY(rtm, val)          ((rtm)->Sizes.numY = (val))
+#define rtmSetNumY(rtm, val)           ((rtm)->Sizes.numY = (val))
 #endif
 
 #ifndef rtmGetOdeF
-# define rtmGetOdeF(rtm)               ()
+#define rtmGetOdeF(rtm)                ()
 #endif
 
 #ifndef rtmSetOdeF
-# define rtmSetOdeF(rtm, val)          ()
+#define rtmSetOdeF(rtm, val)           ()
 #endif
 
 #ifndef rtmGetOdeY
-# define rtmGetOdeY(rtm)               ()
+#define rtmGetOdeY(rtm)                ()
 #endif
 
 #ifndef rtmSetOdeY
-# define rtmSetOdeY(rtm, val)          ()
+#define rtmSetOdeY(rtm, val)           ()
 #endif
 
 #ifndef rtmGetOffsetTimeArray
-# define rtmGetOffsetTimeArray(rtm)    ((rtm)->Timing.offsetTimesArray)
+#define rtmGetOffsetTimeArray(rtm)     ((rtm)->Timing.offsetTimesArray)
 #endif
 
 #ifndef rtmSetOffsetTimeArray
-# define rtmSetOffsetTimeArray(rtm, val) ((rtm)->Timing.offsetTimesArray = (val))
+#define rtmSetOffsetTimeArray(rtm, val) ((rtm)->Timing.offsetTimesArray = (val))
 #endif
 
 #ifndef rtmGetOffsetTimePtr
-# define rtmGetOffsetTimePtr(rtm)      ((rtm)->Timing.offsetTimes)
+#define rtmGetOffsetTimePtr(rtm)       ((rtm)->Timing.offsetTimes)
 #endif
 
 #ifndef rtmSetOffsetTimePtr
-# define rtmSetOffsetTimePtr(rtm, val) ((rtm)->Timing.offsetTimes = (val))
+#define rtmSetOffsetTimePtr(rtm, val)  ((rtm)->Timing.offsetTimes = (val))
 #endif
 
 #ifndef rtmGetOptions
-# define rtmGetOptions(rtm)            ((rtm)->Sizes.options)
+#define rtmGetOptions(rtm)             ((rtm)->Sizes.options)
 #endif
 
 #ifndef rtmSetOptions
-# define rtmSetOptions(rtm, val)       ((rtm)->Sizes.options = (val))
+#define rtmSetOptions(rtm, val)        ((rtm)->Sizes.options = (val))
 #endif
 
 #ifndef rtmGetParamIsMalloced
-# define rtmGetParamIsMalloced(rtm)    ()
+#define rtmGetParamIsMalloced(rtm)     ()
 #endif
 
 #ifndef rtmSetParamIsMalloced
-# define rtmSetParamIsMalloced(rtm, val) ()
+#define rtmSetParamIsMalloced(rtm, val) ()
 #endif
 
 #ifndef rtmGetPath
-# define rtmGetPath(rtm)               ((rtm)->path)
+#define rtmGetPath(rtm)                ((rtm)->path)
 #endif
 
 #ifndef rtmSetPath
-# define rtmSetPath(rtm, val)          ((rtm)->path = (val))
+#define rtmSetPath(rtm, val)           ((rtm)->path = (val))
 #endif
 
 #ifndef rtmGetPerTaskSampleHits
-# define rtmGetPerTaskSampleHits(rtm)  ()
+#define rtmGetPerTaskSampleHits(rtm)   ()
 #endif
 
 #ifndef rtmSetPerTaskSampleHits
-# define rtmSetPerTaskSampleHits(rtm, val) ()
+#define rtmSetPerTaskSampleHits(rtm, val) ()
 #endif
 
 #ifndef rtmGetPerTaskSampleHitsArray
-# define rtmGetPerTaskSampleHitsArray(rtm) ((rtm)->Timing.perTaskSampleHitsArray)
+#define rtmGetPerTaskSampleHitsArray(rtm) ((rtm)->Timing.perTaskSampleHitsArray)
 #endif
 
 #ifndef rtmSetPerTaskSampleHitsArray
-# define rtmSetPerTaskSampleHitsArray(rtm, val) ((rtm)->Timing.perTaskSampleHitsArray = (val))
+#define rtmSetPerTaskSampleHitsArray(rtm, val) ((rtm)->Timing.perTaskSampleHitsArray = (val))
 #endif
 
 #ifndef rtmGetPerTaskSampleHitsPtr
-# define rtmGetPerTaskSampleHitsPtr(rtm) ((rtm)->Timing.perTaskSampleHits)
+#define rtmGetPerTaskSampleHitsPtr(rtm) ((rtm)->Timing.perTaskSampleHits)
 #endif
 
 #ifndef rtmSetPerTaskSampleHitsPtr
-# define rtmSetPerTaskSampleHitsPtr(rtm, val) ((rtm)->Timing.perTaskSampleHits = (val))
+#define rtmSetPerTaskSampleHitsPtr(rtm, val) ((rtm)->Timing.perTaskSampleHits = (val))
 #endif
 
 #ifndef rtmGetPeriodicContStateIndices
-# define rtmGetPeriodicContStateIndices(rtm) ((rtm)->periodicContStateIndices)
+#define rtmGetPeriodicContStateIndices(rtm) ((rtm)->periodicContStateIndices)
 #endif
 
 #ifndef rtmSetPeriodicContStateIndices
-# define rtmSetPeriodicContStateIndices(rtm, val) ((rtm)->periodicContStateIndices = (val))
+#define rtmSetPeriodicContStateIndices(rtm, val) ((rtm)->periodicContStateIndices = (val))
 #endif
 
 #ifndef rtmGetPeriodicContStateRanges
-# define rtmGetPeriodicContStateRanges(rtm) ((rtm)->periodicContStateRanges)
+#define rtmGetPeriodicContStateRanges(rtm) ((rtm)->periodicContStateRanges)
 #endif
 
 #ifndef rtmSetPeriodicContStateRanges
-# define rtmSetPeriodicContStateRanges(rtm, val) ((rtm)->periodicContStateRanges = (val))
+#define rtmSetPeriodicContStateRanges(rtm, val) ((rtm)->periodicContStateRanges = (val))
 #endif
 
 #ifndef rtmGetPrevZCSigState
-# define rtmGetPrevZCSigState(rtm)     ((rtm)->prevZCSigState)
+#define rtmGetPrevZCSigState(rtm)      ((rtm)->prevZCSigState)
 #endif
 
 #ifndef rtmSetPrevZCSigState
-# define rtmSetPrevZCSigState(rtm, val) ((rtm)->prevZCSigState = (val))
+#define rtmSetPrevZCSigState(rtm, val) ((rtm)->prevZCSigState = (val))
 #endif
 
 #ifndef rtmGetRTWExtModeInfo
-# define rtmGetRTWExtModeInfo(rtm)     ((rtm)->extModeInfo)
+#define rtmGetRTWExtModeInfo(rtm)      ((rtm)->extModeInfo)
 #endif
 
 #ifndef rtmSetRTWExtModeInfo
-# define rtmSetRTWExtModeInfo(rtm, val) ((rtm)->extModeInfo = (val))
+#define rtmSetRTWExtModeInfo(rtm, val) ((rtm)->extModeInfo = (val))
 #endif
 
 #ifndef rtmGetRTWGeneratedSFcn
-# define rtmGetRTWGeneratedSFcn(rtm)   ((rtm)->Sizes.rtwGenSfcn)
+#define rtmGetRTWGeneratedSFcn(rtm)    ((rtm)->Sizes.rtwGenSfcn)
 #endif
 
 #ifndef rtmSetRTWGeneratedSFcn
-# define rtmSetRTWGeneratedSFcn(rtm, val) ((rtm)->Sizes.rtwGenSfcn = (val))
+#define rtmSetRTWGeneratedSFcn(rtm, val) ((rtm)->Sizes.rtwGenSfcn = (val))
 #endif
 
 #ifndef rtmGetRTWLogInfo
-# define rtmGetRTWLogInfo(rtm)         ()
+#define rtmGetRTWLogInfo(rtm)          ((rtm)->rtwLogInfo)
 #endif
 
 #ifndef rtmSetRTWLogInfo
-# define rtmSetRTWLogInfo(rtm, val)    ()
+#define rtmSetRTWLogInfo(rtm, val)     ((rtm)->rtwLogInfo = (val))
 #endif
 
 #ifndef rtmGetRTWRTModelMethodsInfo
-# define rtmGetRTWRTModelMethodsInfo(rtm) ()
+#define rtmGetRTWRTModelMethodsInfo(rtm) ()
 #endif
 
 #ifndef rtmSetRTWRTModelMethodsInfo
-# define rtmSetRTWRTModelMethodsInfo(rtm, val) ()
+#define rtmSetRTWRTModelMethodsInfo(rtm, val) ()
 #endif
 
 #ifndef rtmGetRTWSfcnInfo
-# define rtmGetRTWSfcnInfo(rtm)        ((rtm)->sfcnInfo)
+#define rtmGetRTWSfcnInfo(rtm)         ((rtm)->sfcnInfo)
 #endif
 
 #ifndef rtmSetRTWSfcnInfo
-# define rtmSetRTWSfcnInfo(rtm, val)   ((rtm)->sfcnInfo = (val))
+#define rtmSetRTWSfcnInfo(rtm, val)    ((rtm)->sfcnInfo = (val))
 #endif
 
 #ifndef rtmGetRTWSolverInfo
-# define rtmGetRTWSolverInfo(rtm)      ((rtm)->solverInfo)
+#define rtmGetRTWSolverInfo(rtm)       ((rtm)->solverInfo)
 #endif
 
 #ifndef rtmSetRTWSolverInfo
-# define rtmSetRTWSolverInfo(rtm, val) ((rtm)->solverInfo = (val))
+#define rtmSetRTWSolverInfo(rtm, val)  ((rtm)->solverInfo = (val))
 #endif
 
 #ifndef rtmGetRTWSolverInfoPtr
-# define rtmGetRTWSolverInfoPtr(rtm)   ((rtm)->solverInfoPtr)
+#define rtmGetRTWSolverInfoPtr(rtm)    ((rtm)->solverInfoPtr)
 #endif
 
 #ifndef rtmSetRTWSolverInfoPtr
-# define rtmSetRTWSolverInfoPtr(rtm, val) ((rtm)->solverInfoPtr = (val))
+#define rtmSetRTWSolverInfoPtr(rtm, val) ((rtm)->solverInfoPtr = (val))
 #endif
 
 #ifndef rtmGetReservedForXPC
-# define rtmGetReservedForXPC(rtm)     ((rtm)->SpecialInfo.xpcData)
+#define rtmGetReservedForXPC(rtm)      ((rtm)->SpecialInfo.xpcData)
 #endif
 
 #ifndef rtmSetReservedForXPC
-# define rtmSetReservedForXPC(rtm, val) ((rtm)->SpecialInfo.xpcData = (val))
+#define rtmSetReservedForXPC(rtm, val) ((rtm)->SpecialInfo.xpcData = (val))
 #endif
 
 #ifndef rtmGetRootDWork
-# define rtmGetRootDWork(rtm)          ((rtm)->dwork)
+#define rtmGetRootDWork(rtm)           ((rtm)->dwork)
 #endif
 
 #ifndef rtmSetRootDWork
-# define rtmSetRootDWork(rtm, val)     ((rtm)->dwork = (val))
+#define rtmSetRootDWork(rtm, val)      ((rtm)->dwork = (val))
 #endif
 
 #ifndef rtmGetSFunctions
-# define rtmGetSFunctions(rtm)         ((rtm)->childSfunctions)
+#define rtmGetSFunctions(rtm)          ((rtm)->childSfunctions)
 #endif
 
 #ifndef rtmSetSFunctions
-# define rtmSetSFunctions(rtm, val)    ((rtm)->childSfunctions = (val))
+#define rtmSetSFunctions(rtm, val)     ((rtm)->childSfunctions = (val))
 #endif
 
 #ifndef rtmGetSampleHitArray
-# define rtmGetSampleHitArray(rtm)     ((rtm)->Timing.sampleHitArray)
+#define rtmGetSampleHitArray(rtm)      ((rtm)->Timing.sampleHitArray)
 #endif
 
 #ifndef rtmSetSampleHitArray
-# define rtmSetSampleHitArray(rtm, val) ((rtm)->Timing.sampleHitArray = (val))
+#define rtmSetSampleHitArray(rtm, val) ((rtm)->Timing.sampleHitArray = (val))
 #endif
 
 #ifndef rtmGetSampleHitPtr
-# define rtmGetSampleHitPtr(rtm)       ((rtm)->Timing.sampleHits)
+#define rtmGetSampleHitPtr(rtm)        ((rtm)->Timing.sampleHits)
 #endif
 
 #ifndef rtmSetSampleHitPtr
-# define rtmSetSampleHitPtr(rtm, val)  ((rtm)->Timing.sampleHits = (val))
+#define rtmSetSampleHitPtr(rtm, val)   ((rtm)->Timing.sampleHits = (val))
 #endif
 
 #ifndef rtmGetSampleTimeArray
-# define rtmGetSampleTimeArray(rtm)    ((rtm)->Timing.sampleTimesArray)
+#define rtmGetSampleTimeArray(rtm)     ((rtm)->Timing.sampleTimesArray)
 #endif
 
 #ifndef rtmSetSampleTimeArray
-# define rtmSetSampleTimeArray(rtm, val) ((rtm)->Timing.sampleTimesArray = (val))
+#define rtmSetSampleTimeArray(rtm, val) ((rtm)->Timing.sampleTimesArray = (val))
 #endif
 
 #ifndef rtmGetSampleTimePtr
-# define rtmGetSampleTimePtr(rtm)      ((rtm)->Timing.sampleTimes)
+#define rtmGetSampleTimePtr(rtm)       ((rtm)->Timing.sampleTimes)
 #endif
 
 #ifndef rtmSetSampleTimePtr
-# define rtmSetSampleTimePtr(rtm, val) ((rtm)->Timing.sampleTimes = (val))
+#define rtmSetSampleTimePtr(rtm, val)  ((rtm)->Timing.sampleTimes = (val))
 #endif
 
 #ifndef rtmGetSampleTimeTaskIDArray
-# define rtmGetSampleTimeTaskIDArray(rtm) ((rtm)->Timing.sampleTimeTaskIDArray)
+#define rtmGetSampleTimeTaskIDArray(rtm) ((rtm)->Timing.sampleTimeTaskIDArray)
 #endif
 
 #ifndef rtmSetSampleTimeTaskIDArray
-# define rtmSetSampleTimeTaskIDArray(rtm, val) ((rtm)->Timing.sampleTimeTaskIDArray = (val))
+#define rtmSetSampleTimeTaskIDArray(rtm, val) ((rtm)->Timing.sampleTimeTaskIDArray = (val))
 #endif
 
 #ifndef rtmGetSampleTimeTaskIDPtr
-# define rtmGetSampleTimeTaskIDPtr(rtm) ((rtm)->Timing.sampleTimeTaskIDPtr)
+#define rtmGetSampleTimeTaskIDPtr(rtm) ((rtm)->Timing.sampleTimeTaskIDPtr)
 #endif
 
 #ifndef rtmSetSampleTimeTaskIDPtr
-# define rtmSetSampleTimeTaskIDPtr(rtm, val) ((rtm)->Timing.sampleTimeTaskIDPtr = (val))
+#define rtmSetSampleTimeTaskIDPtr(rtm, val) ((rtm)->Timing.sampleTimeTaskIDPtr = (val))
 #endif
 
 #ifndef rtmGetSelf
-# define rtmGetSelf(rtm)               ()
+#define rtmGetSelf(rtm)                ()
 #endif
 
 #ifndef rtmSetSelf
-# define rtmSetSelf(rtm, val)          ()
+#define rtmSetSelf(rtm, val)           ()
 #endif
 
 #ifndef rtmGetSimMode
-# define rtmGetSimMode(rtm)            ((rtm)->simMode)
+#define rtmGetSimMode(rtm)             ((rtm)->simMode)
 #endif
 
 #ifndef rtmSetSimMode
-# define rtmSetSimMode(rtm, val)       ((rtm)->simMode = (val))
+#define rtmSetSimMode(rtm, val)        ((rtm)->simMode = (val))
 #endif
 
 #ifndef rtmGetSimTimeStep
-# define rtmGetSimTimeStep(rtm)        ((rtm)->Timing.simTimeStep)
+#define rtmGetSimTimeStep(rtm)         ((rtm)->Timing.simTimeStep)
 #endif
 
 #ifndef rtmSetSimTimeStep
-# define rtmSetSimTimeStep(rtm, val)   ((rtm)->Timing.simTimeStep = (val))
+#define rtmSetSimTimeStep(rtm, val)    ((rtm)->Timing.simTimeStep = (val))
 #endif
 
 #ifndef rtmGetStartTime
-# define rtmGetStartTime(rtm)          ((rtm)->Timing.tStart)
+#define rtmGetStartTime(rtm)           ((rtm)->Timing.tStart)
 #endif
 
 #ifndef rtmSetStartTime
-# define rtmSetStartTime(rtm, val)     ((rtm)->Timing.tStart = (val))
+#define rtmSetStartTime(rtm, val)      ((rtm)->Timing.tStart = (val))
 #endif
 
 #ifndef rtmGetStepSize
-# define rtmGetStepSize(rtm)           ((rtm)->Timing.stepSize)
+#define rtmGetStepSize(rtm)            ((rtm)->Timing.stepSize)
 #endif
 
 #ifndef rtmSetStepSize
-# define rtmSetStepSize(rtm, val)      ((rtm)->Timing.stepSize = (val))
+#define rtmSetStepSize(rtm, val)       ((rtm)->Timing.stepSize = (val))
 #endif
 
 #ifndef rtmGetStopRequestedFlag
-# define rtmGetStopRequestedFlag(rtm)  ((rtm)->Timing.stopRequestedFlag)
+#define rtmGetStopRequestedFlag(rtm)   ((rtm)->Timing.stopRequestedFlag)
 #endif
 
 #ifndef rtmSetStopRequestedFlag
-# define rtmSetStopRequestedFlag(rtm, val) ((rtm)->Timing.stopRequestedFlag = (val))
+#define rtmSetStopRequestedFlag(rtm, val) ((rtm)->Timing.stopRequestedFlag = (val))
 #endif
 
 #ifndef rtmGetTaskCounters
-# define rtmGetTaskCounters(rtm)       ()
+#define rtmGetTaskCounters(rtm)        ()
 #endif
 
 #ifndef rtmSetTaskCounters
-# define rtmSetTaskCounters(rtm, val)  ()
+#define rtmSetTaskCounters(rtm, val)   ()
 #endif
 
 #ifndef rtmGetTaskTimeArray
-# define rtmGetTaskTimeArray(rtm)      ((rtm)->Timing.tArray)
+#define rtmGetTaskTimeArray(rtm)       ((rtm)->Timing.tArray)
 #endif
 
 #ifndef rtmSetTaskTimeArray
-# define rtmSetTaskTimeArray(rtm, val) ((rtm)->Timing.tArray = (val))
+#define rtmSetTaskTimeArray(rtm, val)  ((rtm)->Timing.tArray = (val))
 #endif
 
 #ifndef rtmGetTimePtr
-# define rtmGetTimePtr(rtm)            ((rtm)->Timing.t)
+#define rtmGetTimePtr(rtm)             ((rtm)->Timing.t)
 #endif
 
 #ifndef rtmSetTimePtr
-# define rtmSetTimePtr(rtm, val)       ((rtm)->Timing.t = (val))
+#define rtmSetTimePtr(rtm, val)        ((rtm)->Timing.t = (val))
 #endif
 
 #ifndef rtmGetTimingData
-# define rtmGetTimingData(rtm)         ((rtm)->Timing.timingData)
+#define rtmGetTimingData(rtm)          ((rtm)->Timing.timingData)
 #endif
 
 #ifndef rtmSetTimingData
-# define rtmSetTimingData(rtm, val)    ((rtm)->Timing.timingData = (val))
+#define rtmSetTimingData(rtm, val)     ((rtm)->Timing.timingData = (val))
 #endif
 
 #ifndef rtmGetU
-# define rtmGetU(rtm)                  ((rtm)->inputs)
+#define rtmGetU(rtm)                   ((rtm)->inputs)
 #endif
 
 #ifndef rtmSetU
-# define rtmSetU(rtm, val)             ((rtm)->inputs = (val))
-#endif
-
-#ifndef rtmGetVDRMdlRefTiming
-# define rtmGetVDRMdlRefTiming(rtm)    ()
-#endif
-
-#ifndef rtmSetVDRMdlRefTiming
-# define rtmSetVDRMdlRefTiming(rtm, val) ()
-#endif
-
-#ifndef rtmGetVDRMdlRefTimingPtr
-# define rtmGetVDRMdlRefTimingPtr(rtm) ()
-#endif
-
-#ifndef rtmSetVDRMdlRefTimingPtr
-# define rtmSetVDRMdlRefTimingPtr(rtm, val) ()
-#endif
-
-#ifndef rtmGetVDRNumTicksToNextHit
-# define rtmGetVDRNumTicksToNextHit(rtm) ()
-#endif
-
-#ifndef rtmSetVDRNumTicksToNextHit
-# define rtmSetVDRNumTicksToNextHit(rtm, val) ()
+#define rtmSetU(rtm, val)              ((rtm)->inputs = (val))
 #endif
 
 #ifndef rtmGetVarNextHitTimesListPtr
-# define rtmGetVarNextHitTimesListPtr(rtm) ((rtm)->Timing.varNextHitTimesList)
+#define rtmGetVarNextHitTimesListPtr(rtm) ((rtm)->Timing.varNextHitTimesList)
 #endif
 
 #ifndef rtmSetVarNextHitTimesListPtr
-# define rtmSetVarNextHitTimesListPtr(rtm, val) ((rtm)->Timing.varNextHitTimesList = (val))
+#define rtmSetVarNextHitTimesListPtr(rtm, val) ((rtm)->Timing.varNextHitTimesList = (val))
 #endif
 
 #ifndef rtmGetY
-# define rtmGetY(rtm)                  ((rtm)->outputs)
+#define rtmGetY(rtm)                   ((rtm)->outputs)
 #endif
 
 #ifndef rtmSetY
-# define rtmSetY(rtm, val)             ((rtm)->outputs = (val))
+#define rtmSetY(rtm, val)              ((rtm)->outputs = (val))
 #endif
 
 #ifndef rtmGetZCCacheNeedsReset
-# define rtmGetZCCacheNeedsReset(rtm)  ((rtm)->zCCacheNeedsReset)
+#define rtmGetZCCacheNeedsReset(rtm)   ((rtm)->zCCacheNeedsReset)
 #endif
 
 #ifndef rtmSetZCCacheNeedsReset
-# define rtmSetZCCacheNeedsReset(rtm, val) ((rtm)->zCCacheNeedsReset = (val))
+#define rtmSetZCCacheNeedsReset(rtm, val) ((rtm)->zCCacheNeedsReset = (val))
 #endif
 
 #ifndef rtmGetZCSignalValues
-# define rtmGetZCSignalValues(rtm)     ((rtm)->zcSignalValues)
+#define rtmGetZCSignalValues(rtm)      ((rtm)->zcSignalValues)
 #endif
 
 #ifndef rtmSetZCSignalValues
-# define rtmSetZCSignalValues(rtm, val) ((rtm)->zcSignalValues = (val))
+#define rtmSetZCSignalValues(rtm, val) ((rtm)->zcSignalValues = (val))
 #endif
 
 #ifndef rtmGet_TimeOfLastOutput
-# define rtmGet_TimeOfLastOutput(rtm)  ((rtm)->Timing.timeOfLastOutput)
+#define rtmGet_TimeOfLastOutput(rtm)   ((rtm)->Timing.timeOfLastOutput)
 #endif
 
 #ifndef rtmSet_TimeOfLastOutput
-# define rtmSet_TimeOfLastOutput(rtm, val) ((rtm)->Timing.timeOfLastOutput = (val))
+#define rtmSet_TimeOfLastOutput(rtm, val) ((rtm)->Timing.timeOfLastOutput = (val))
 #endif
 
 #ifndef rtmGetdX
-# define rtmGetdX(rtm)                 ((rtm)->derivs)
+#define rtmGetdX(rtm)                  ((rtm)->derivs)
 #endif
 
 #ifndef rtmSetdX
-# define rtmSetdX(rtm, val)            ((rtm)->derivs = (val))
+#define rtmSetdX(rtm, val)             ((rtm)->derivs = (val))
 #endif
 
 #ifndef rtmGettimingBridge
-# define rtmGettimingBridge(rtm)       ()
+#define rtmGettimingBridge(rtm)        ()
 #endif
 
 #ifndef rtmSettimingBridge
-# define rtmSettimingBridge(rtm, val)  ()
+#define rtmSettimingBridge(rtm, val)   ()
 #endif
 
 #ifndef rtmGetChecksumVal
-# define rtmGetChecksumVal(rtm, idx)   ((rtm)->Sizes.checksums[idx])
+#define rtmGetChecksumVal(rtm, idx)    ((rtm)->Sizes.checksums[idx])
 #endif
 
 #ifndef rtmSetChecksumVal
-# define rtmSetChecksumVal(rtm, idx, val) ((rtm)->Sizes.checksums[idx] = (val))
+#define rtmSetChecksumVal(rtm, idx, val) ((rtm)->Sizes.checksums[idx] = (val))
 #endif
 
 #ifndef rtmGetDWork
-# define rtmGetDWork(rtm, idx)         ((rtm)->dwork[idx])
+#define rtmGetDWork(rtm, idx)          ((rtm)->dwork[idx])
 #endif
 
 #ifndef rtmSetDWork
-# define rtmSetDWork(rtm, idx, val)    ((rtm)->dwork[idx] = (val))
+#define rtmSetDWork(rtm, idx, val)     ((rtm)->dwork[idx] = (val))
 #endif
 
 #ifndef rtmGetOffsetTime
-# define rtmGetOffsetTime(rtm, idx)    ((rtm)->Timing.offsetTimes[idx])
+#define rtmGetOffsetTime(rtm, idx)     ((rtm)->Timing.offsetTimes[idx])
 #endif
 
 #ifndef rtmSetOffsetTime
-# define rtmSetOffsetTime(rtm, idx, val) ((rtm)->Timing.offsetTimes[idx] = (val))
+#define rtmSetOffsetTime(rtm, idx, val) ((rtm)->Timing.offsetTimes[idx] = (val))
 #endif
 
 #ifndef rtmGetSFunction
-# define rtmGetSFunction(rtm, idx)     ((rtm)->childSfunctions[idx])
+#define rtmGetSFunction(rtm, idx)      ((rtm)->childSfunctions[idx])
 #endif
 
 #ifndef rtmSetSFunction
-# define rtmSetSFunction(rtm, idx, val) ((rtm)->childSfunctions[idx] = (val))
+#define rtmSetSFunction(rtm, idx, val) ((rtm)->childSfunctions[idx] = (val))
 #endif
 
 #ifndef rtmGetSampleTime
-# define rtmGetSampleTime(rtm, idx)    ((rtm)->Timing.sampleTimes[idx])
+#define rtmGetSampleTime(rtm, idx)     ((rtm)->Timing.sampleTimes[idx])
 #endif
 
 #ifndef rtmSetSampleTime
-# define rtmSetSampleTime(rtm, idx, val) ((rtm)->Timing.sampleTimes[idx] = (val))
+#define rtmSetSampleTime(rtm, idx, val) ((rtm)->Timing.sampleTimes[idx] = (val))
 #endif
 
 #ifndef rtmGetSampleTimeTaskID
-# define rtmGetSampleTimeTaskID(rtm, idx) ((rtm)->Timing.sampleTimeTaskIDPtr[idx])
+#define rtmGetSampleTimeTaskID(rtm, idx) ((rtm)->Timing.sampleTimeTaskIDPtr[idx])
 #endif
 
 #ifndef rtmSetSampleTimeTaskID
-# define rtmSetSampleTimeTaskID(rtm, idx, val) ((rtm)->Timing.sampleTimeTaskIDPtr[idx] = (val))
+#define rtmSetSampleTimeTaskID(rtm, idx, val) ((rtm)->Timing.sampleTimeTaskIDPtr[idx] = (val))
 #endif
 
 #ifndef rtmGetVarNextHitTimeList
-# define rtmGetVarNextHitTimeList(rtm, idx) ((rtm)->Timing.varNextHitTimesList[idx])
+#define rtmGetVarNextHitTimeList(rtm, idx) ((rtm)->Timing.varNextHitTimesList[idx])
 #endif
 
 #ifndef rtmSetVarNextHitTimeList
-# define rtmSetVarNextHitTimeList(rtm, idx, val) ((rtm)->Timing.varNextHitTimesList[idx] = (val))
+#define rtmSetVarNextHitTimeList(rtm, idx, val) ((rtm)->Timing.varNextHitTimesList[idx] = (val))
 #endif
 
 #ifndef rtmIsContinuousTask
-# define rtmIsContinuousTask(rtm, tid) 0
+#define rtmIsContinuousTask(rtm, tid)  0
 #endif
 
 #ifndef rtmGetErrorStatus
-# define rtmGetErrorStatus(rtm)        ((rtm)->errorStatus)
+#define rtmGetErrorStatus(rtm)         ((rtm)->errorStatus)
 #endif
 
 #ifndef rtmSetErrorStatus
-# define rtmSetErrorStatus(rtm, val)   ((rtm)->errorStatus = (val))
+#define rtmSetErrorStatus(rtm, val)    ((rtm)->errorStatus = (val))
 #endif
 
 #ifndef rtmIsSampleHit
-# define rtmIsSampleHit(rtm, sti, tid) ((rtm)->Timing.sampleHits[(rtm)->Timing.sampleTimeTaskIDPtr[sti]])
+#define rtmIsSampleHit(rtm, sti, tid)  ((rtm)->Timing.sampleHits[(rtm)->Timing.sampleTimeTaskIDPtr[sti]])
 #endif
 
 #ifndef rtmGetStopRequested
-# define rtmGetStopRequested(rtm)      ((rtm)->Timing.stopRequestedFlag)
+#define rtmGetStopRequested(rtm)       ((rtm)->Timing.stopRequestedFlag)
 #endif
 
 #ifndef rtmSetStopRequested
-# define rtmSetStopRequested(rtm, val) ((rtm)->Timing.stopRequestedFlag = (val))
+#define rtmSetStopRequested(rtm, val)  ((rtm)->Timing.stopRequestedFlag = (val))
 #endif
 
 #ifndef rtmGetStopRequestedPtr
-# define rtmGetStopRequestedPtr(rtm)   (&((rtm)->Timing.stopRequestedFlag))
+#define rtmGetStopRequestedPtr(rtm)    (&((rtm)->Timing.stopRequestedFlag))
 #endif
 
 #ifndef rtmGetT
-# define rtmGetT(rtm)                  (rtmGetTPtr((rtm))[0])
+#define rtmGetT(rtm)                   (rtmGetTPtr((rtm))[0])
 #endif
 
 #ifndef rtmSetT
-# define rtmSetT(rtm, val)                                       /* Do Nothing */
+#define rtmSetT(rtm, val)                                        /* Do Nothing */
 #endif
 
 #ifndef rtmGetTFinal
-# define rtmGetTFinal(rtm)             ((rtm)->Timing.tFinal)
+#define rtmGetTFinal(rtm)              ((rtm)->Timing.tFinal)
 #endif
 
 #ifndef rtmSetTFinal
-# define rtmSetTFinal(rtm, val)        ((rtm)->Timing.tFinal = (val))
+#define rtmSetTFinal(rtm, val)         ((rtm)->Timing.tFinal = (val))
 #endif
 
 #ifndef rtmGetTPtr
-# define rtmGetTPtr(rtm)               ((rtm)->Timing.t)
+#define rtmGetTPtr(rtm)                ((rtm)->Timing.t)
 #endif
 
 #ifndef rtmSetTPtr
-# define rtmSetTPtr(rtm, val)          ((rtm)->Timing.t = (val))
+#define rtmSetTPtr(rtm, val)           ((rtm)->Timing.t = (val))
 #endif
 
 #ifndef rtmGetTStart
-# define rtmGetTStart(rtm)             ((rtm)->Timing.tStart)
+#define rtmGetTStart(rtm)              ((rtm)->Timing.tStart)
 #endif
 
 #ifndef rtmSetTStart
-# define rtmSetTStart(rtm, val)        ((rtm)->Timing.tStart = (val))
+#define rtmSetTStart(rtm, val)         ((rtm)->Timing.tStart = (val))
 #endif
 
 #ifndef rtmGetTaskTime
-# define rtmGetTaskTime(rtm, sti)      (rtmGetTPtr((rtm))[(rtm)->Timing.sampleTimeTaskIDPtr[sti]])
+#define rtmGetTaskTime(rtm, sti)       (rtmGetTPtr((rtm))[(rtm)->Timing.sampleTimeTaskIDPtr[sti]])
 #endif
 
 #ifndef rtmSetTaskTime
-# define rtmSetTaskTime(rtm, sti, val) (rtmGetTPtr((rtm))[sti] = (val))
+#define rtmSetTaskTime(rtm, sti, val)  (rtmGetTPtr((rtm))[sti] = (val))
 #endif
 
 #ifndef rtmGetTimeOfLastOutput
-# define rtmGetTimeOfLastOutput(rtm)   ((rtm)->Timing.timeOfLastOutput)
+#define rtmGetTimeOfLastOutput(rtm)    ((rtm)->Timing.timeOfLastOutput)
 #endif
 
 #ifdef rtmGetRTWSolverInfo
@@ -853,35 +850,32 @@
 /* Definition for use in the target main file */
 #define Ellipse_rtModel                RT_MODEL_Ellipse_T
 
-/* External inputs (root inport signals with auto storage) */
+/* External inputs (root inport signals with default storage) */
 typedef struct {
-  real_T ROLL;                         /* '<Root>/ROLL' */
-  real_T PITCH;                        /* '<Root>/PITCH' */
-  real_T YAW;                          /* '<Root>/YAW' */
-  real_T LATITUDE_EKF;                 /* '<Root>/LATITUDE_EKF' */
-  real_T LONGITUDE_EKF;                /* '<Root>/LONGITUDE_EKF' */
+  real_T el_ROLL;                      /* '<Root>/el_ROLL' */
+  real_T el_PITCH;                     /* '<Root>/el_PITCH' */
+  real_T el_YAW;                       /* '<Root>/el_YAW' */
+  real_T el_LATITUDE_EKF;              /* '<Root>/el_LATITUDE_EKF' */
+  real_T el_LONGITUDE_EKF;             /* '<Root>/el_LONGITUDE_EKF' */
   real_T el_Vel_X;                     /* '<Root>/el_Vel_X' */
   real_T el_Vel_Y;                     /* '<Root>/el_Vel_Y' */
   real_T el_Vel_Z;                     /* '<Root>/el_Vel_Z' */
-  real_T ACCEL_X_IMU;                  /* '<Root>/ACCEL_X_IMU' */
-  real_T ACCEL_Y_IMU;                  /* '<Root>/ACCEL_Y_IMU' */
-  real_T ACCEL_Z_IMU;                  /* '<Root>/ACCEL_Z_IMU' */
-  real_T GYRO_X;                       /* '<Root>/GYRO_X' */
-  real_T GYRO_Y;                       /* '<Root>/GYRO_Y' */
-  real_T GYRO_Z;                       /* '<Root>/GYRO_Z' */
-  real_T ACCEL_X_MAG;                  /* '<Root>/ACCEL_X_MAG' */
-  real_T ACCEL_Y_MAG;                  /* '<Root>/ACCEL_Y_MAG' */
-  real_T ACCEL_Z_MAG;                  /* '<Root>/ACCEL_Z_MAG' */
-  real_T ANGLE_TRACK;                  /* '<Root>/ANGLE_TRACK' */
-  real_T ANGLE_SLIP;                   /* '<Root>/ANGLE_SLIP' */
-  real_T CURVATURE_RADIUS;             /* '<Root>/CURVATURE_RADIUS' */
-  real_T AUTO_STATUS;                  /* '<Root>/AUTO_STATUS' */
-  real_T TIME_STAMP;                   /* '<Root>/TIME_STAMP' */
-  real_T GENERAL;                      /* '<Root>/GENERAL' */
-  real_T CLOCK;                        /* '<Root>/CLOCK' */
+  real_T el_ACCEL_X;                   /* '<Root>/el_ACCEL_X' */
+  real_T el_ACCEL_Y;                   /* '<Root>/el_ACCEL_Y' */
+  real_T el_ACCEL_Z;                   /* '<Root>/el_ACCEL_Z' */
+  real_T el_GYRO_X;                    /* '<Root>/el_GYRO_X' */
+  real_T el_GYRO_Y;                    /* '<Root>/el_GYRO_Y' */
+  real_T el_GYRO_Z;                    /* '<Root>/el_GYRO_Z' */
+  real_T el_AngleTrack;                /* '<Root>/el_AngleTrack' */
+  real_T el_SlipAngle;                 /* '<Root>/el_SlipAngle' */
+  real_T el_CurvatureRadius;           /* '<Root>/el_CurvatureRadius' */
+  real_T el_AUTO_STATUS;               /* '<Root>/el_AUTO_STATUS' */
+  real_T el_TIME_STAMP;                /* '<Root>/el_TIME_STAMP' */
+  real_T el_GENERAL;                   /* '<Root>/el_GENERAL' */
+  real_T el_CLOCK;                     /* '<Root>/el_CLOCK' */
 } ExtU_Ellipse_T;
 
-/* External outputs (root outports fed by signals with auto storage) */
+/* External outputs (root outports fed by signals with default storage) */
 typedef struct {
   real_T Roll_Tx;                      /* '<Root>/Roll_Tx' */
   real_T Pitch_Tx;                     /* '<Root>/Pitch_Tx' */
@@ -897,9 +891,6 @@ typedef struct {
   real_T Gyro_X_Tx;                    /* '<Root>/Gyro_X_Tx' */
   real_T Gyro_Y_Tx;                    /* '<Root>/Gyro_Y_Tx' */
   real_T Gyro_Z_Tx;                    /* '<Root>/Gyro_Z_Tx' */
-  real_T Accel_X_Mag_Tx;               /* '<Root>/Accel_X_Mag_Tx' */
-  real_T Accel_Y_Mag_Tx;               /* '<Root>/Accel_Y_Mag_Tx' */
-  real_T Accel_Z_Mag_Tx;               /* '<Root>/Accel_Z_Mag_Tx' */
   real_T TrackAngle;                   /* '<Root>/TrackAngle' */
   real_T SlipAngle;                    /* '<Root>/SlipAngle' */
   real_T CurvRadius;                   /* '<Root>/CurvRadius' */
@@ -922,6 +913,7 @@ struct tag_RTM_Ellipse_T {
   struct SimStruct_tag * *childSfunctions;
   const char_T *errorStatus;
   SS_SimMode simMode;
+  RTWLogInfo *rtwLogInfo;
   RTWExtModeInfo *extModeInfo;
   RTWSolverInfo solverInfo;
   RTWSolverInfo *solverInfoPtr;
@@ -1012,10 +1004,10 @@ struct tag_RTM_Ellipse_T {
   } Timing;
 };
 
-/* External inputs (root inport signals with auto storage) */
+/* External inputs (root inport signals with default storage) */
 extern ExtU_Ellipse_T Ellipse_U;
 
-/* External outputs (root outports fed by signals with auto storage) */
+/* External outputs (root outports fed by signals with default storage) */
 extern ExtY_Ellipse_T Ellipse_Y;
 
 /*====================*

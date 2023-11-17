@@ -1,6 +1,5 @@
 /*
- * Copyright 1984-2016 The MathWorks, Inc.
- * All Rights Reserved.
+ * Copyright 1984-2018 The MathWorks, Inc.
  */
 
 #if defined(_MSC_VER)
@@ -26,10 +25,24 @@
  *      Define NO_FLOATS to eliminate reference to real_T, etc.
  */
 
+#ifdef MW_LIBTOOLING
+#include "mwstdint.h"
+#endif
+
 #include <limits.h>
 
-#ifdef __APPLE_CC__
+/* __STDC_VERSION__ version check below means "check for a C99 compiler".
+
+   Visual Studio (checked on versions 2015 and 2017) does
+   not define __STDC_VERSION__, however  it has stdbool.h available,
+   thus a separate check for _MSC_VER below.
+ */
+#if defined(__APPLE_CC__) \
+    || (defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)) \
+    || (defined(_MSC_VER) && (_MSC_VER >= 1900))
+#ifndef tmwtypes_do_not_include_stdbool
 #include <stdbool.h>
+#endif
 #endif
 
 #define LOGICAL_IS_A_TYPE
@@ -46,8 +59,12 @@
 # ifdef __STDC__
 #  include <float.h>
 # else
-#  define FLT_MANT_DIG 24
-#  define DBL_MANT_DIG 53
+#  ifndef FLT_MANT_DIG
+#   define FLT_MANT_DIG 24
+#  endif
+#  ifndef DBL_MANT_DIG
+#   define DBL_MANT_DIG 53
+#  endif
 # endif
 #endif
 
@@ -189,7 +206,9 @@ typedef unsigned long long  ulonglong_T;
  */
 
 #ifndef INT8_T
-# if   TMW_BITS_PER_INT   == 8
+# if   defined(MW_LIBTOOLING)
+#  define INT8_T  int8_t
+# elif TMW_BITS_PER_INT   == 8
 #  define  INT8_T int
 # elif TMW_BITS_PER_LONG  == 8
 #  define  INT8_T long
@@ -204,7 +223,9 @@ typedef unsigned long long  ulonglong_T;
 #endif
 
 #ifndef UINT8_T
-# if   TMW_BITS_PER_INT   == 8
+# if   defined(MW_LIBTOOLING)
+#  define  UINT8_T uint8_t
+# elif   TMW_BITS_PER_INT   == 8
 #  define  UINT8_T unsigned int
 # elif TMW_BITS_PER_LONG  == 8
 #  define  UINT8_T unsigned long
@@ -220,7 +241,9 @@ typedef unsigned long long  ulonglong_T;
 
 
 #ifndef INT16_T
-# if   TMW_BITS_PER_INT   == 16
+# if   defined(MW_LIBTOOLING)
+#  define  INT16_T int16_t
+# elif   TMW_BITS_PER_INT   == 16
 #  define  INT16_T int
 # elif TMW_BITS_PER_LONG  == 16
 #  define  INT16_T long
@@ -236,7 +259,9 @@ typedef unsigned long long  ulonglong_T;
 
 
 #ifndef UINT16_T
-# if   TMW_BITS_PER_INT   == 16
+# if   defined(MW_LIBTOOLING)
+#  define  UINT16_T uint16_t
+# elif TMW_BITS_PER_INT   == 16
 #  define  UINT16_T unsigned int
 # elif TMW_BITS_PER_LONG  == 16
 #  define  UINT16_T unsigned long
@@ -252,7 +277,9 @@ typedef unsigned long long  ulonglong_T;
 
 
 #ifndef INT32_T
-# if   TMW_BITS_PER_INT   == 32
+# if   defined(MW_LIBTOOLING)
+#  define  INT32_T int32_t
+# elif TMW_BITS_PER_INT   == 32
 #  define  INT32_T int
 # elif TMW_BITS_PER_LONG  == 32
 #  define  INT32_T long
@@ -268,7 +295,9 @@ typedef unsigned long long  ulonglong_T;
 
 
 #ifndef UINT32_T
-# if   TMW_BITS_PER_INT   == 32
+# if   defined(MW_LIBTOOLING)
+#  define  UINT32_T uint32_t
+# elif TMW_BITS_PER_INT   == 32
 #  define  UINT32_T unsigned int
 # elif TMW_BITS_PER_LONG  == 32
 #  define  UINT32_T unsigned long
@@ -365,33 +394,68 @@ typedef unsigned long long  ulonglong_T;
  *   uint64_T                     - unsigned 64 bit integers             *
  *=======================================================================*/
 
-
-
-#ifndef INT64_T
-# if defined(__APPLE__)
-#  define INT64_T long long
-#  define FMT64 "ll"
+# if   defined(MW_LIBTOOLING)
+#  ifdef INT64_T
+#    undef  INT64_T
+#  endif
+#  define  INT64_T int64_t
+#  ifdef UINT64_T
+#    undef  UINT64_T
+#  endif
+#  define  UINT64_T uint64_t
+# endif
+#if !defined(INT64_T) || !defined(UINT64_T) || !defined(FMT64)
+# if defined(__APPLE__) || defined(__clang__)
+#  ifndef INT64_T
+#   define INT64_T long long
+#  endif
+#  ifndef UINT64_T
+#   define UINT64_T unsigned long long
+#  endif
+#  ifndef FMT64
+#   define FMT64 "ll"
+#  endif
 #  if defined(__LP64__) && !defined(INT_TYPE_64_IS_LONG)
 #    define INT_TYPE_64_IS_LONG
 #  endif
-# elif (defined(__x86_64__) || defined(__LP64__))&& !defined(__MINGW64__)
-#  define INT64_T long
-#  define FMT64 "l"
+# elif (defined(__x86_64__) || defined(__LP64__))&& !defined(__MINGW64__) 
+#  ifndef INT64_T
+#   define INT64_T long
+#  endif
+#  ifndef UINT64_T
+#   define UINT64_T unsigned long
+#  endif
+#  ifndef FMT64
+#   define FMT64 "l"
+#  endif
 #  if !defined(INT_TYPE_64_IS_LONG)
 #    define INT_TYPE_64_IS_LONG
 #  endif
 # elif defined(_MSC_VER) || (defined(__BORLANDC__) && __BORLANDC__ >= 0x530) \
                          || (defined(__WATCOMC__)  && __WATCOMC__  >= 1100)
-#  define INT64_T __int64
-#  define FMT64 "I64"
+#  ifndef INT64_T
+#   define INT64_T __int64
+#  endif
+#  ifndef UINT64_T
+#   define UINT64_T unsigned __int64
+#  endif
+#  ifndef FMT64
+#   define FMT64 "I64"
+#  endif
 # elif defined(__GNUC__) || defined(TMW_ENABLE_INT64) \
                          || defined(__LCC64__)
-#  define INT64_T long long
-#  define FMT64 "ll"
+#  ifndef INT64_T
+#   define INT64_T long long
+#  endif
+#  ifndef UINT64_T
+#   define UINT64_T unsigned long long
+#  endif
+#  ifndef FMT64
+#   define FMT64 "ll"
+#  endif
 # endif
+
 #endif
-
-
 
 #if defined(INT64_T)
 # if defined(__GNUC__) && \
@@ -399,32 +463,6 @@ typedef unsigned long long  ulonglong_T;
   __extension__
 # endif
  typedef INT64_T int64_T;
-#endif
-
-
-
-#ifndef UINT64_T
-# if defined(__APPLE__)
-#  define UINT64_T unsigned long long
-#  define FMT64 "ll"
-#  if defined(__LP64__) && !defined(INT_TYPE_64_IS_LONG)
-#    define INT_TYPE_64_IS_LONG
-#  endif
-# elif (defined(__x86_64__) || defined(__LP64__))&& !defined(__MINGW64__)
-#  define UINT64_T unsigned long
-#  define FMT64 "l"
-#  if !defined(INT_TYPE_64_IS_LONG)
-#    define INT_TYPE_64_IS_LONG
-#  endif
-# elif defined(_MSC_VER) || (defined(__BORLANDC__) && __BORLANDC__ >= 0x530) \
-                         || (defined(__WATCOMC__)  && __WATCOMC__  >= 1100)
-#  define UINT64_T unsigned __int64
-#  define FMT64 "I64"
-# elif defined(__GNUC__) || defined(TMW_ENABLE_INT64) \
-                         || defined(__LCC64__)
-#  define UINT64_T unsigned long long
-#  define FMT64 "ll"
-# endif
 #endif
 
 #if defined(_WIN64) || (defined(__APPLE__) && defined(__LP64__)) \
@@ -701,8 +739,9 @@ typedef BYTE_T byte_T;
 #  endif
 #endif
 
-#ifdef _MSC_VER
-/* Conversion from unsigned __int64 to double is not implemented in windows
+#if (defined(_MSC_VER) && !defined(__clang__))
+
+/* Conversion from unsigned __int64 to double is not implemented in Visual Studio
  * and results in a compile error, thus the value must first be cast to
  * signed __int64, and then to double.
  *
@@ -796,6 +835,26 @@ typedef size_t    mwSize;         /* unsigned pointer-width integer */
 typedef size_t    mwIndex;        /* unsigned pointer-width integer */
 typedef ptrdiff_t mwSignedIndex;  /* a signed pointer-width integer */
 #endif
+
+                                  /* for the individual dim */
+/* If updating SLSize or SLIndex, update defintions in sl_types_def.h
+   as well. */
+#ifndef SLSIZE_SLINDEX
+  #define SLSIZE_SLINDEX
+  #ifdef INT_TYPE_64_IS_SUPPORTED
+    typedef int64_T SLIndex;
+    typedef int64_T SLSize;
+  #else
+    typedef int SLIndex;
+    typedef int SLSize;
+  #endif
+#endif
+
+/* for the total size */
+#define SLIndexType size_t
+#define INVALID_SIZET_VALUE   (std::numeric_limits<SLIndexType>::max())
+#define MAX_VALID_SIZET_VALUE   (std::numeric_limits<SLIndexType>::max() -1)
+
 
 #if (defined(_LP64) || defined(_WIN64)) && !defined(MX_COMPAT_32)
 /* Currently 2^48 based on hardware limitations */

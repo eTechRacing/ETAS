@@ -2,29 +2,29 @@
 <!DOCTYPE module [
     <!ENTITY szlig "&#223;">
     <!ENTITY copy "&#169;">
-    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/common/baseTypes-mlsl.six'>
+    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/baseTypes-mlsl.six'>
     ]>
-<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/common/showSCOOP-IX.xsl"?>
+<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/showSCOOP-IX.xsl"?>
 <!--
 <h1>SCOOP-IX</h1>
 <p>
     <strong>Copyright &copy; 2014 ETAS GmbH</strong>, Borsigstra&szlig;e 14, D-70469 Stuttgart. <em>All rights reserved.</em>
 </p>
 -->
-<module xmlns="http://www.etas.com/scoop-ix/1.4" xmlns:ix="http://www.etas.com/scoop-ix/1.4" xmlns:mlsl="http://www.etas.com/scoop-ix/1.4/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.4
-        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
-	<directoryLocations scheme="MATLAB 9.3">
-		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO4.7\MATLAB\"/>
+<module xmlns="http://www.etas.com/scoop-ix/1.5" xmlns:ix="http://www.etas.com/scoop-ix/1.5" xmlns:mlsl="http://www.etas.com/scoop-ix/1.5/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.5
+        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
+	<directoryLocations scheme="MATLAB 9.12">
+		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\"/>
 		<directory identifier="toolDir" path=".\"/>
-		<directory identifier="modelDir" path="C:\Users\dwegg\Desktop\ETAS-main\ETAS\Programas_Simulink\"/>
-		<directory identifier="codeDir" path="c:\users\dwegg\desktop\etas-main\etas\programas_simulink_build\inverters_data_irt_rtw\"/>
+		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink\"/>
+		<directory identifier="codeDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\Inverters_Data_irt_rtw\"/>
 	</directoryLocations>
 	<moduleInfo identifier="Inverters_Data">
 		<name>Inverters_Data</name>
-		<modelLink href="mlsl://&quot;{{modelDir}}Inverters_Data.slx&quot;"/>
-		<version major="1" minor="51"/>
+		<modelLink href="mlsl:///&quot;{{modelDir}}Inverters_Data.slx&quot;"/>
+		<version major="10" minor="0"/>
 		<dateTime kind="created" year="2021" month="2" day="22" hour="11" minute="1" second="38"/>
-		<dateTime kind="lastModified" year="2023" month="3" day="26" hour="0" minute="24" second="1"/>
+		<dateTime kind="lastModified" year="2023" month="11" day="17" hour="17" minute="8" second="7"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -34,19 +34,18 @@
 		<creators>
 			<user lastName="cspt" role="creator"/>
 			<tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
-				<version major="9" minor="3" year="2017" month="7" day="24" info="R2017b"/>
+				<version major="9" minor="12" year="2021" month="11" day="13" info="R2022a"/>
 			</tool>
 			<tool kind="modeler" vendor="The Mathworks, Inc." name="Simulink">
-				<version major="9" minor="0" year="2017" month="7" day="24" info="R2017b"/>
+				<version major="10" minor="5" year="2021" month="11" day="13" info="R2022a"/>
 			</tool>
 			<tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
-				<version major="9" minor="0" year="2017" month="7" day="24" info="R2017b"/>
 			</tool>
 			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
-				<version major="8" minor="13" year="2017" month="7" day="24" info="R2017b"/>
+				<version major="9" minor="7" year="2021" month="11" day="13" info="R2022a"/>
 				<mode name="target" value="INTECRIO Real-Time Target"/>
 				<configuration>
-					<option identifier="InlineParameters">2</option>
+					<option identifier="InlineParameters">1</option>
 					<option identifier="InlineInvariantSignals">0</option>
 					<option identifier="Solver">FixedStepDiscrete</option>
 					<option identifier="SolverType">FixedStep</option>
@@ -55,10 +54,9 @@
 				</configuration>
 			</tool>
 			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="MATLAB Coder">
-				<version major="3" minor="4" year="2017" month="7" day="24" info="R2017b"/>
+				<version major="5" minor="4" year="2021" month="11" day="13" info="R2022a"/>
 			</tool>
 			<tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
-				<version major="4" minor="7" year="2018" month="1" day="1"/>
 				<configuration>
 					<option identifier="SCOOPIXFileName"><![CDATA[Inverters_Data.six]]></option>
 					<option identifier="ExternalMode">0</option>
@@ -71,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2023" month="3" day="29" hour="12" minute="58" second="24"/>
+		<dateTime kind="created" year="2023" month="11" day="17" hour="17" minute="14" second="23"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -127,7 +125,6 @@
 					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\src\]]></option>
 					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\libsrc\]]></option>
 					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\_sharedutils\]]></option>
-					<!-- S-Function specific includes directories -->
 				</configuration>
 			</tool>
 		</target>
@@ -138,8 +135,8 @@
 		<!-- Model specific source files -->
 		<file name="Inverters_Data_types.h" kind="header"/>
 		<file name="Inverters_Data.h" kind="header"/>
-		<!-- used through rtwShared.lib: C:\Users\dwegg\Desktop\ETAS-main\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\rt_powd_snf.c -->
-		<!-- used through rtwShared.lib: C:\Users\dwegg\Desktop\ETAS-main\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\rt_powd_snf.h -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\rt_powd_snf.c -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\rt_powd_snf.h -->
 		<file name="Inverters_Data.c" kind="body"/>
 		<file name="Inverters_Data_private.h" kind="header"/>
 		<file name="rtmodel.h" kind="header"/>
@@ -152,11 +149,13 @@
 		<file name="rtwSharedLib.lib" kind="symbolicLibrary"/>
 		<!-- Additional files -->
 	</fileContainer>
+	<fileContainer constitution="referencedModels">
+	</fileContainer>
 	<interface>
-		<modelLinkBase href="mlsl://{{modelDir}}Inverters_Data.slx?"/>
+		<modelLinkBase href="mlsl:///{{modelDir}}Inverters_Data.slx?"/>
 		<pathBase path="{{codeDir}}"/>
-		<fileOrigin name="Inverters_Data.c"/>
 		<fileOrigin name="rt_nonfinite.c"/>
+		<fileOrigin name="Inverters_Data.c"/>
 		<fileOrigin name="Inverters_Data_data.c"/>
 		<fileOrigin name="Inverters_Data_main.c"/>
 		<headerFile name="Inverters_Data.h"/>
@@ -165,273 +164,26 @@
 		<!-- "import" MATLAB/Simulink base type and complex struct definitions via external entity -->
 		&baseTypes-mlsl;
 		<definitions>
-			<structDef name="_P_Inverters_Data_T">
+			<structDef name="_ConstB_Inverters_Data_T">
 				<fileOrigin name="Inverters_Data.h"/>
-				<structMember identifier="Constant1_Value">
-					<type><typeRef name="real_T"/></type>
+				<structMember identifier="Divide">
+					<type><const/><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>Expression: 3 -- Referenced by: '&lt;S15&gt;/Constant1'
-  </documentation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="A1_Value">
-					<type><typeRef name="real_T"/></type>
+				<structMember identifier="Divide_k">
+					<type><const/><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>Expression: 9.69483e-11 -- Referenced by: '&lt;S15&gt;/A1'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="B1_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: -6.6188e-6 -- Referenced by: '&lt;S15&gt;/B1'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="C1_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0.158535 -- Referenced by: '&lt;S15&gt;/C1'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="D1_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: -1260.62 -- Referenced by: '&lt;S15&gt;/D1'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Constant1_Value_e">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 3 -- Referenced by: '&lt;S16&gt;/Constant1'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="A1_Value_e">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 9.69483e-11 -- Referenced by: '&lt;S16&gt;/A1'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="B1_Value_i">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: -6.6188e-6 -- Referenced by: '&lt;S16&gt;/B1'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="C1_Value_n">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0.158535 -- Referenced by: '&lt;S16&gt;/C1'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="D1_Value_f">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: -1260.62 -- Referenced by: '&lt;S16&gt;/D1'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="C1_Value_d">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0.03282 -- Referenced by: '&lt;S17&gt;/C1'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="D1_Value_d">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: -114.92892 -- Referenced by: '&lt;S17&gt;/D1'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="C1_Value_n0">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0.03282 -- Referenced by: '&lt;S18&gt;/C1'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="D1_Value_j">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: -114.92892 -- Referenced by: '&lt;S18&gt;/D1'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="direction_Gain">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 1 -- Referenced by: '&lt;S8&gt;/direction'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="MaxRPM_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 5000 -- Referenced by: '&lt;S8&gt;/Max RPM'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Bitct_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 32767 -- Referenced by: '&lt;S8&gt;/Bit ct'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="upi60_Gain">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 2*3.14/60 -- Referenced by: '&lt;S24&gt;/2*pi//60'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="direction_Gain_f">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 1 -- Referenced by: '&lt;S2&gt;/direction'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="MaxRPM_Value_m">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 5000 -- Referenced by: '&lt;S2&gt;/Max RPM'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Bitct_Value_h">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 32767 -- Referenced by: '&lt;S2&gt;/Bit ct'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="upi60_Gain_i">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 2*3.14/60 -- Referenced by: '&lt;S20&gt;/2*pi//60'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Gain_Gain">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 1/4 -- Referenced by: '&lt;S25&gt;/Gain'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Diameterm_Gain">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0.457 -- Referenced by: '&lt;S26&gt;/Diameter [m]'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="ratio_Gain">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 3600/1000 -- Referenced by: '&lt;S27&gt;/ratio'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Gain_Gain_a">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 1/4 -- Referenced by: '&lt;S21&gt;/Gain'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Diameterm_Gain_p">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0.456 -- Referenced by: '&lt;S22&gt;/Diameter [m]'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="ratio_Gain_k">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 3600/1000 -- Referenced by: '&lt;S23&gt;/ratio'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Gain_Gain_m">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 1/2 -- Referenced by: '&lt;S1&gt;/Gain'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Gain_Gain_e">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 1 -- Referenced by: '&lt;S11&gt;/Gain'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Gain_Gain_f">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 1 -- Referenced by: '&lt;S14&gt;/Gain'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="conversionratio_Gain">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 400/1070 -- Referenced by: '&lt;S6&gt;/conversion ratio'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="conversionratio_Gain_o">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 400/1070 -- Referenced by: '&lt;S7&gt;/conversion ratio'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="conversionratio1_Gain">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 400/1070 -- Referenced by: '&lt;S9&gt;/conversion ratio1'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="conversionratio_Gain_k">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 400/1070 -- Referenced by: '&lt;S5&gt;/conversion ratio'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="conversionratio_Gain_j">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 400/1070 -- Referenced by: '&lt;S3&gt;/conversion ratio'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="conversionratio_Gain_c">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 400/1070 -- Referenced by: '&lt;S4&gt;/conversion ratio'
-  </documentation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
-			<typeDef name="P_Inverters_Data_T">
-				<struct/><typeRef name="_P_Inverters_Data_T"/>
-				<fileOrigin name="Inverters_Data_types.h"/>
+			<typeDef name="ConstB_Inverters_Data_T">
+				<struct/><typeRef name="_ConstB_Inverters_Data_T"/>
+				<fileOrigin name="Inverters_Data.h"/>
 				<annotation>
-					<documentation>Parameters (auto storage)</documentation>
+					<documentation>Invariant block signals (auto storage)</documentation>
 				</annotation>
 			</typeDef>
 			<structDef name="ExtU_Inverters_Data_T_tag">
@@ -682,11 +434,11 @@
 				<struct/><typeRef name="ExtY_Inverters_Data_T_tag"/>
 				<fileOrigin name="Inverters_Data.h"/>
 			</typeDef>
-			<baseDef identifier="Inverters_Data_P">
-				<type><typeRef name="P_Inverters_Data_T"/></type>
+			<baseDef identifier="Inverters_Data_ConstB">
+				<type><typeRef name="ConstB_Inverters_Data_T"/></type>
 				<fileOrigin name="Inverters_Data_data.c"/>
 				<annotation>
-					<documentation>The rtP data structure for parameters.</documentation>
+					<documentation>The rtC data structure for constant (invariant) signals.</documentation>
 				</annotation>
 			</baseDef>
 			<baseDef identifier="Inverters_Data_U">
@@ -714,1277 +466,79 @@
 			</conversion>
 		</definitions>
 		<!-- rtP parameters following -->
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.Constant1_Value">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="Constant1_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="3.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Subsystem4.Constant1.Constant1_Value">
-				<name>Constant1_Value</name>
-				<modelLink href="Inverters_Data/Subsystem4/Constant1"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem4" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Constant1" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.A1_Value">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="A1_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="9.69483E-11"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Subsystem4.A1.A1_Value">
-				<name>A1_Value</name>
-				<modelLink href="Inverters_Data/Subsystem4/A1"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem4" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="A1" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.B1_Value">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="B1_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="-6.6188E-6"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Subsystem4.B1.B1_Value">
-				<name>B1_Value</name>
-				<modelLink href="Inverters_Data/Subsystem4/B1"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem4" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="B1" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.C1_Value">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="C1_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="0.158535"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Subsystem4.C1.C1_Value">
-				<name>C1_Value</name>
-				<modelLink href="Inverters_Data/Subsystem4/C1"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem4" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="C1" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.D1_Value">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="D1_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="-1260.62"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Subsystem4.D1.D1_Value">
-				<name>D1_Value</name>
-				<modelLink href="Inverters_Data/Subsystem4/D1"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem4" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="D1" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.Constant1_Value_e">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="Constant1_Value_e"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="3.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Subsystem5.Constant1.Constant1_Value_e">
-				<name>Constant1_Value_e</name>
-				<modelLink href="Inverters_Data/Subsystem5/Constant1"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem5" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Constant1" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.A1_Value_e">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="A1_Value_e"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="9.69483E-11"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Subsystem5.A1.A1_Value_e">
-				<name>A1_Value_e</name>
-				<modelLink href="Inverters_Data/Subsystem5/A1"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem5" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="A1" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.B1_Value_i">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="B1_Value_i"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="-6.6188E-6"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Subsystem5.B1.B1_Value_i">
-				<name>B1_Value_i</name>
-				<modelLink href="Inverters_Data/Subsystem5/B1"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem5" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="B1" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.C1_Value_n">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="C1_Value_n"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="0.158535"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Subsystem5.C1.C1_Value_n">
-				<name>C1_Value_n</name>
-				<modelLink href="Inverters_Data/Subsystem5/C1"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem5" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="C1" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.D1_Value_f">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="D1_Value_f"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="-1260.62"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Subsystem5.D1.D1_Value_f">
-				<name>D1_Value_f</name>
-				<modelLink href="Inverters_Data/Subsystem5/D1"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem5" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="D1" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.C1_Value_d">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="C1_Value_d"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="0.03282"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Subsystem6.C1.C1_Value_d">
-				<name>C1_Value_d</name>
-				<modelLink href="Inverters_Data/Subsystem6/C1"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem6" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="C1" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.D1_Value_d">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="D1_Value_d"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="-114.92892"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Subsystem6.D1.D1_Value_d">
-				<name>D1_Value_d</name>
-				<modelLink href="Inverters_Data/Subsystem6/D1"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem6" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="D1" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.C1_Value_n0">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="C1_Value_n0"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="0.03282"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Subsystem7.C1.C1_Value_n0">
-				<name>C1_Value_n0</name>
-				<modelLink href="Inverters_Data/Subsystem7/C1"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem7" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="C1" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.D1_Value_j">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="D1_Value_j"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="-114.92892"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Subsystem7.D1.D1_Value_j">
-				<name>D1_Value_j</name>
-				<modelLink href="Inverters_Data/Subsystem7/D1"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem7" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="D1" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.direction_Gain">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="direction_Gain"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="1.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Opaque.direction_Gain">
-				<name>direction_Gain</name>
-				<modelLink href="Inverters_Data/Opaque"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="IL1" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="direction" kind="mlsl:block"/>
-					<pathNode name="Gain" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.MaxRPM_Value">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="MaxRPM_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="5000.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.IL1.Max_RPM.MaxRPM_Value">
-				<name>MaxRPM_Value</name>
-				<modelLink href="Inverters_Data/IL1/Max RPM"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="IL1" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Max RPM" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.Bitct_Value">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="Bitct_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="32767.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.IL1.Bit_ct.Bitct_Value">
-				<name>Bitct_Value</name>
-				<modelLink href="Inverters_Data/IL1/Bit ct"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="IL1" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Bit ct" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.upi60_Gain">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="upi60_Gain"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="0.10466666666666667"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Opaque.upi60_Gain">
-				<name>upi60_Gain</name>
-				<modelLink href="Inverters_Data/Opaque"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem2" kind="mlsl:subsystem"/>
-					<pathNode name="RPM to rad//s" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="2*pi//60" kind="mlsl:block"/>
-					<pathNode name="Gain" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.direction_Gain_f">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="direction_Gain_f"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="1.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Opaque.direction_Gain_f">
-				<name>direction_Gain_f</name>
-				<modelLink href="Inverters_Data/Opaque"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="IL" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="direction" kind="mlsl:block"/>
-					<pathNode name="Gain" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.MaxRPM_Value_m">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="MaxRPM_Value_m"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="5000.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.IL.Max_RPM.MaxRPM_Value_m">
-				<name>MaxRPM_Value_m</name>
-				<modelLink href="Inverters_Data/IL/Max RPM"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="IL" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Max RPM" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.Bitct_Value_h">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="Bitct_Value_h"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="32767.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.IL.Bit_ct.Bitct_Value_h">
-				<name>Bitct_Value_h</name>
-				<modelLink href="Inverters_Data/IL/Bit ct"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="IL" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Bit ct" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.upi60_Gain_i">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="upi60_Gain_i"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="0.10466666666666667"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Opaque.upi60_Gain_i">
-				<name>upi60_Gain_i</name>
-				<modelLink href="Inverters_Data/Opaque"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem1" kind="mlsl:subsystem"/>
-					<pathNode name="RPM to rad//s" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="2*pi//60" kind="mlsl:block"/>
-					<pathNode name="Gain" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.Gain_Gain">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="Gain_Gain"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="0.25"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Opaque.Gain_Gain">
-				<name>Gain_Gain</name>
-				<modelLink href="Inverters_Data/Opaque"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem2" kind="mlsl:subsystem"/>
-					<pathNode name="Transmission" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Gain" kind="mlsl:block"/>
-					<pathNode name="Gain" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.Diameterm_Gain">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="Diameterm_Gain"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="0.457"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Opaque.Diameterm_Gain">
-				<name>Diameterm_Gain</name>
-				<modelLink href="Inverters_Data/Opaque"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem2" kind="mlsl:subsystem"/>
-					<pathNode name="Wheel" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Diameter [m]" kind="mlsl:block"/>
-					<pathNode name="Gain" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.ratio_Gain">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="ratio_Gain"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="3.6"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Opaque.ratio_Gain">
-				<name>ratio_Gain</name>
-				<modelLink href="Inverters_Data/Opaque"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem2" kind="mlsl:subsystem"/>
-					<pathNode name="m//s to km//h" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="ratio" kind="mlsl:block"/>
-					<pathNode name="Gain" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.Gain_Gain_a">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="Gain_Gain_a"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="0.25"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Opaque.Gain_Gain_a">
-				<name>Gain_Gain_a</name>
-				<modelLink href="Inverters_Data/Opaque"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem1" kind="mlsl:subsystem"/>
-					<pathNode name="Transmission" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Gain" kind="mlsl:block"/>
-					<pathNode name="Gain" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.Diameterm_Gain_p">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="Diameterm_Gain_p"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="0.456"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Opaque.Diameterm_Gain_p">
-				<name>Diameterm_Gain_p</name>
-				<modelLink href="Inverters_Data/Opaque"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem1" kind="mlsl:subsystem"/>
-					<pathNode name="Wheel" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Diameter [m]" kind="mlsl:block"/>
-					<pathNode name="Gain" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.ratio_Gain_k">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="ratio_Gain_k"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="3.6"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Opaque.ratio_Gain_k">
-				<name>ratio_Gain_k</name>
-				<modelLink href="Inverters_Data/Opaque"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem1" kind="mlsl:subsystem"/>
-					<pathNode name="m//s to km//h" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="ratio" kind="mlsl:block"/>
-					<pathNode name="Gain" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.Gain_Gain_m">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="Gain_Gain_m"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="0.5"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Opaque.Gain_Gain_m">
-				<name>Gain_Gain_m</name>
-				<modelLink href="Inverters_Data/Opaque"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Average" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Gain" kind="mlsl:block"/>
-					<pathNode name="Gain" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.Gain_Gain_e">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="Gain_Gain_e"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="1.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Opaque.Gain_Gain_e">
-				<name>Gain_Gain_e</name>
-				<modelLink href="Inverters_Data/Opaque"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Gain" kind="mlsl:block"/>
-					<pathNode name="Gain" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.Gain_Gain_f">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="Gain_Gain_f"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="1.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Opaque.Gain_Gain_f">
-				<name>Gain_Gain_f</name>
-				<modelLink href="Inverters_Data/Opaque"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Subsystem3" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Gain" kind="mlsl:block"/>
-					<pathNode name="Gain" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.conversionratio_Gain">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="conversionratio_Gain"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="0.37383177570093457"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Opaque.conversionratio_Gain">
-				<name>conversionratio_Gain</name>
-				<modelLink href="Inverters_Data/Opaque"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="IL 4" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="conversion ratio" kind="mlsl:block"/>
-					<pathNode name="Gain" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.conversionratio_Gain_o">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="conversionratio_Gain_o"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="0.37383177570093457"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Opaque.conversionratio_Gain_o">
-				<name>conversionratio_Gain_o</name>
-				<modelLink href="Inverters_Data/Opaque"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="IL 5" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="conversion ratio" kind="mlsl:block"/>
-					<pathNode name="Gain" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.conversionratio1_Gain">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="conversionratio1_Gain"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="0.37383177570093457"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Opaque.conversionratio1_Gain">
-				<name>conversionratio1_Gain</name>
-				<modelLink href="Inverters_Data/Opaque"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="IL2" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="conversion ratio1" kind="mlsl:block"/>
-					<pathNode name="Gain" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.conversionratio_Gain_k">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="conversionratio_Gain_k"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="0.37383177570093457"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Opaque.conversionratio_Gain_k">
-				<name>conversionratio_Gain_k</name>
-				<modelLink href="Inverters_Data/Opaque"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="IL 3" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="conversion ratio" kind="mlsl:block"/>
-					<pathNode name="Gain" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.conversionratio_Gain_j">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="conversionratio_Gain_j"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="0.37383177570093457"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Opaque.conversionratio_Gain_j">
-				<name>conversionratio_Gain_j</name>
-				<modelLink href="Inverters_Data/Opaque"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="IL 1" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="conversion ratio" kind="mlsl:block"/>
-					<pathNode name="Gain" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_P.conversionratio_Gain_c">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_P"/>
-					<memberRef identifier="conversionratio_Gain_c"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data_data.c"/>
-				<initValue value="0.37383177570093457"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Opaque.conversionratio_Gain_c">
-				<name>conversionratio_Gain_c</name>
-				<modelLink href="Inverters_Data/Opaque"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="IL 2" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="conversion ratio" kind="mlsl:block"/>
-					<pathNode name="Gain" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
 		<!-- Constant parameters following -->
 		<!-- Exported global parameters following -->
 		<!-- Imported extern parameters following -->
 		<!-- Global BlockIO (rtB) signals following -->
 		<!-- Global constant BlockIO (rtC) signals following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_ConstB.Divide">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_ConstB"/>
+					<memberRef identifier="Divide"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Opaque.Divide">
+				<name>Divide</name>
+				<modelLink href="Inverters_Data/Opaque"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="IL" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Divide" kind="mlsl:block"/>
+					<pathNode name="Divide" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_ConstB.Divide_k">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_ConstB"/>
+					<memberRef identifier="Divide_k"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Opaque.Divide_k">
+				<name>Divide_k</name>
+				<modelLink href="Inverters_Data/Opaque"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="IL1" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Divide" kind="mlsl:block"/>
+					<pathNode name="Divide_k" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
 		<!-- Exported global and imported extern signals following -->
 		<!-- Global IRT DWork port signals following -->
 		<!-- rtU input ports following -->

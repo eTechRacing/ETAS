@@ -7,9 +7,9 @@
  *
  * Code generation for model "Racing_Mode".
  *
- * Model version              : 1.14
- * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Wed Mar 29 13:00:07 2023
+ * Model version              : 10.0
+ * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
+ * C source code generated on : Fri Nov 17 17:14:43 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -19,59 +19,24 @@
  */
 
 #include "Racing_Mode.h"
+#include "rtwtypes.h"
 #include "Racing_Mode_private.h"
+#include <string.h>
+#include <math.h>
+#include "rt_nonfinite.h"
 
-/* Block signals (auto storage) */
+/* Block signals (default storage) */
 B_Racing_Mode_T Racing_Mode_B;
 
-/* External inputs (root inport signals with auto storage) */
+/* External inputs (root inport signals with default storage) */
 ExtU_Racing_Mode_T Racing_Mode_U;
 
-/* External outputs (root outports fed by signals with auto storage) */
+/* External outputs (root outports fed by signals with default storage) */
 ExtY_Racing_Mode_T Racing_Mode_Y;
 
 /* Real-time model */
-RT_MODEL_Racing_Mode_T Racing_Mode_M_;
+static RT_MODEL_Racing_Mode_T Racing_Mode_M_;
 RT_MODEL_Racing_Mode_T *const Racing_Mode_M = &Racing_Mode_M_;
-
-/*
- * Output and update for action system:
- *    '<Root>/Workshop Test (01)'
- *    '<S4>/Acceleration (2). Driver 1 (1) '
- *    '<S4>/Skidpad (3). Driver 1 (1)'
- *    '<S4>/AutoX (4). Driver 1 (1)'
- *    '<S4>/Endurance (5). Driver 1 (1)'
- *    '<S5>/Acceleration (2). Driver 2 (2) '
- *    '<S5>/Skidpad (3). Driver 2 (2)'
- *    '<S5>/AutoX (4). Driver 2 (2)'
- *    '<S5>/Endurance (5). Driver 2 (2)'
- */
-void Racing_Mode_WorkshopTest01(real_T rty_Params[10],
-  P_WorkshopTest01_Racing_Mode_T *localP)
-{
-  /* SignalConversion: '<S7>/OutportBufferForParams' incorporates:
-   *  Constant: '<S7>/Apps_Sat_Dwn'
-   *  Constant: '<S7>/Apps_Sat_Up'
-   *  Constant: '<S7>/CKF_Initial'
-   *  Constant: '<S7>/Cte_CKF'
-   *  Constant: '<S7>/Cte_SKF'
-   *  Constant: '<S7>/K_Reduction_P'
-   *  Constant: '<S7>/K_Reduction_Temperature'
-   *  Constant: '<S7>/Max_Regenerative_Torque'
-   *  Constant: '<S7>/Power_Limit'
-   *  Constant: '<S7>/SKF_Initial'
-   */
-  rty_Params[0] = localP->SKF_Initial_Value;
-  rty_Params[1] = localP->CKF_Initial_Value;
-  rty_Params[2] = localP->Cte_SKF_Value;
-  rty_Params[3] = localP->Cte_CKF_Value;
-  rty_Params[4] = localP->Apps_Sat_Dwn_Value;
-  rty_Params[5] = localP->Apps_Sat_Up_Value;
-  rty_Params[6] = localP->Max_Regenerative_Torque_Value;
-  rty_Params[7] = localP->Power_Limit_Value;
-  rty_Params[8] = localP->K_Reduction_P_Value;
-  rty_Params[9] = localP->K_Reduction_Temperature_Value;
-}
 
 /*
  * System initialize for action system:
@@ -79,16 +44,13 @@ void Racing_Mode_WorkshopTest01(real_T rty_Params[10],
  *    '<S2>/CKF_Initial'
  *    '<S2>/Cte_SKF'
  *    '<S2>/Cte_CKF'
- *    '<S2>/Apps_Sat_Dwn'
- *    '<S2>/Apps_Sat_Up'
- *    '<S2>/K_Reduction_P'
- *    '<S2>/K_Reduction_Temperature'
  */
-void Racing_Mode_SKF_Initial_Init(B_SKF_Initial_Racing_Mode_T *localB,
-  P_SKF_Initial_Racing_Mode_T *localP)
+void Racing_Mode_SKF_Initial_Init(B_SKF_Initial_Racing_Mode_T *localB)
 {
-  /* SystemInitialize for Outport: '<S17>/Out1' */
-  localB->Gain = localP->Out1_Y0;
+  /* SystemInitialize for Gain: '<S17>/Gain' incorporates:
+   *  Outport: '<S17>/Out1'
+   */
+  localB->Gain = 0.0;
 }
 
 /*
@@ -97,16 +59,40 @@ void Racing_Mode_SKF_Initial_Init(B_SKF_Initial_Racing_Mode_T *localB,
  *    '<S2>/CKF_Initial'
  *    '<S2>/Cte_SKF'
  *    '<S2>/Cte_CKF'
+ */
+void Racing_Mode_SKF_Initial(real_T rtu_In1, B_SKF_Initial_Racing_Mode_T *localB)
+{
+  /* Gain: '<S17>/Gain' */
+  localB->Gain = 0.001 * rtu_In1;
+}
+
+/*
+ * System initialize for action system:
  *    '<S2>/Apps_Sat_Dwn'
  *    '<S2>/Apps_Sat_Up'
  *    '<S2>/K_Reduction_P'
  *    '<S2>/K_Reduction_Temperature'
  */
-void Racing_Mode_SKF_Initial(real_T rtu_In1, B_SKF_Initial_Racing_Mode_T *localB,
-  P_SKF_Initial_Racing_Mode_T *localP)
+void Racing_Mode_Apps_Sat_Dwn_Init(B_Apps_Sat_Dwn_Racing_Mode_T *localB)
 {
-  /* Gain: '<S17>/Gain' */
-  localB->Gain = localP->Gain_Gain * rtu_In1;
+  /* SystemInitialize for Gain: '<S8>/Gain' incorporates:
+   *  Outport: '<S8>/Out1'
+   */
+  localB->Gain = 0.0;
+}
+
+/*
+ * Output and update for action system:
+ *    '<S2>/Apps_Sat_Dwn'
+ *    '<S2>/Apps_Sat_Up'
+ *    '<S2>/K_Reduction_P'
+ *    '<S2>/K_Reduction_Temperature'
+ */
+void Racing_Mode_Apps_Sat_Dwn(real_T rtu_In1, B_Apps_Sat_Dwn_Racing_Mode_T
+  *localB)
+{
+  /* Gain: '<S8>/Gain' */
+  localB->Gain = 0.01 * rtu_In1;
 }
 
 /*
@@ -114,11 +100,12 @@ void Racing_Mode_SKF_Initial(real_T rtu_In1, B_SKF_Initial_Racing_Mode_T *localB
  *    '<S2>/Max_Regenerative_Torque'
  *    '<S2>/Power_Limit'
  */
-void Ra_Max_Regenerative_Torque_Init(B_Max_Regenerative_Torque_Rac_T *localB,
-  P_Max_Regenerative_Torque_Rac_T *localP)
+void Ra_Max_Regenerative_Torque_Init(B_Max_Regenerative_Torque_Rac_T *localB)
 {
-  /* SystemInitialize for Outport: '<S15>/Out1' */
-  localB->In1 = localP->Out1_Y0;
+  /* SystemInitialize for SignalConversion generated from: '<S15>/In1' incorporates:
+   *  Outport: '<S15>/Out1'
+   */
+  localB->In1 = 0.0;
 }
 
 /*
@@ -129,198 +116,284 @@ void Ra_Max_Regenerative_Torque_Init(B_Max_Regenerative_Torque_Rac_T *localB,
 void Racing__Max_Regenerative_Torque(real_T rtu_In1,
   B_Max_Regenerative_Torque_Rac_T *localB)
 {
-  /* Inport: '<S15>/In1' */
+  /* SignalConversion generated from: '<S15>/In1' */
   localB->In1 = rtu_In1;
+}
+
+/*
+ * Output and update for action system:
+ *    '<S5>/Acceleration (2). Driver 2 (2) '
+ *    '<S5>/Skidpad (3). Driver 2 (2)'
+ *    '<S5>/AutoX (4). Driver 2 (2)'
+ *    '<S5>/Endurance (5). Driver 2 (2)'
+ */
+void Racing_Mo_Acceleration2Driver22(real_T rty_Params[10])
+{
+  /* SignalConversion generated from: '<S22>/Params' incorporates:
+   *  Constant: '<S22>/Apps_Sat_Dwn'
+   *  Constant: '<S22>/Apps_Sat_Up'
+   *  Constant: '<S22>/CKF_Initial'
+   *  Constant: '<S22>/Cte_CKF'
+   *  Constant: '<S22>/Cte_SKF'
+   *  Constant: '<S22>/K_Reduction_P'
+   *  Constant: '<S22>/K_Reduction_Temperature'
+   *  Constant: '<S22>/Max_Regenerative_Torque'
+   *  Constant: '<S22>/Power_Limit'
+   *  Constant: '<S22>/SKF_Initial'
+   */
+  rty_Params[0] = 0.5;
+  rty_Params[1] = 0.4;
+  rty_Params[2] = 0.98;
+  rty_Params[3] = 0.98;
+  rty_Params[4] = 0.0;
+  rty_Params[5] = 1.0;
+  rty_Params[6] = 1000.0;
+  rty_Params[7] = 80.0;
+  rty_Params[8] = 0.2;
+  rty_Params[9] = 0.6;
 }
 
 /* Model output function */
 static void Racing_Mode_output(void)
 {
-  real_T tmp;
-
   /* SwitchCase: '<Root>/Selecció de Mode' incorporates:
-   *  Constant: '<S6>/CEE_Apps_Sat_Dwn'
-   *  Constant: '<S6>/CEE_Apps_Sat_Up'
-   *  Constant: '<S6>/CEE_CKF_Initial'
-   *  Constant: '<S6>/CEE_Cte_CKF'
-   *  Constant: '<S6>/CEE_Cte_SKF'
-   *  Constant: '<S6>/CEE_K_Reduction_P'
-   *  Constant: '<S6>/CEE_K_Reduction_Temperature'
-   *  Constant: '<S6>/CEE_Max_Regenerative_Torque'
-   *  Constant: '<S6>/CEE_Power_Limit'
-   *  Constant: '<S6>/CEE_SKF_Initial'
    *  Inport: '<Root>/RacingMode'
-   *  Inport: '<S3>/Apps_Sat_Dwn'
-   *  Inport: '<S3>/Apps_Sat_Up'
-   *  Inport: '<S3>/CKF_Initial'
-   *  Inport: '<S3>/Cte_CKF'
-   *  Inport: '<S3>/Cte_SKF'
-   *  Inport: '<S3>/K_Reduction_P'
-   *  Inport: '<S3>/K_Reduction_Temperature'
-   *  Inport: '<S3>/Max_Regenerative_Torque'
-   *  Inport: '<S3>/Power_Limit'
-   *  Inport: '<S3>/SKF_Initial'
    */
   switch (Racing_Mode_U.RacingMode) {
    case 1:
     /* Outputs for IfAction SubSystem: '<Root>/Workshop Test (01)' incorporates:
      *  ActionPort: '<S7>/Action Port'
      */
-    Racing_Mode_WorkshopTest01(Racing_Mode_B.Merge,
-      &Racing_Mode_P.WorkshopTest01);
+    /* Merge: '<Root>/Merge' incorporates:
+     *  Constant: '<S7>/Apps_Sat_Dwn'
+     *  Constant: '<S7>/Apps_Sat_Up'
+     *  Constant: '<S7>/CKF_Initial'
+     *  Constant: '<S7>/Cte_CKF'
+     *  Constant: '<S7>/Cte_SKF'
+     *  Constant: '<S7>/K_Reduction_P'
+     *  Constant: '<S7>/K_Reduction_Temperature'
+     *  Constant: '<S7>/Max_Regenerative_Torque'
+     *  Constant: '<S7>/Power_Limit'
+     *  Constant: '<S7>/SKF_Initial'
+     *  SignalConversion generated from: '<S7>/Params'
+     */
+    Racing_Mode_B.Merge[0] = 0.9;
+    Racing_Mode_B.Merge[1] = 0.9;
+    Racing_Mode_B.Merge[2] = 0.98;
+    Racing_Mode_B.Merge[3] = 0.98;
+    Racing_Mode_B.Merge[4] = 0.2;
+    Racing_Mode_B.Merge[5] = 0.8;
+    Racing_Mode_B.Merge[6] = 10.0;
+    Racing_Mode_B.Merge[7] = 1.0;
+    Racing_Mode_B.Merge[8] = 0.5;
+    Racing_Mode_B.Merge[9] = 0.6;
 
     /* End of Outputs for SubSystem: '<Root>/Workshop Test (01)' */
     break;
 
    case 11:
-    /* Outputs for IfAction SubSystem: '<Root>/Custom Dash (11)' incorporates:
-     *  ActionPort: '<S2>/Action Port'
-     */
-    /* SwitchCase: '<S2>/Switch Case' incorporates:
-     *  Inport: '<Root>/CustomMode_Data'
-     *  Inport: '<Root>/CustomMode_Identifier'
-     */
-    tmp = trunc(Racing_Mode_U.CustomMode_Identifier);
-    if (rtIsNaN(tmp) || rtIsInf(tmp)) {
-      tmp = 0.0;
-    } else {
-      tmp = fmod(tmp, 4.294967296E+9);
+    {
+      real_T tmp;
+
+      /* Outputs for IfAction SubSystem: '<Root>/Custom Dash (11)' incorporates:
+       *  ActionPort: '<S2>/Action Port'
+       */
+      /* SwitchCase: '<S2>/Switch Case' incorporates:
+       *  Inport: '<Root>/CustomMode_Data'
+       *  Inport: '<Root>/CustomMode_Identifier'
+       */
+      tmp = trunc(Racing_Mode_U.CustomMode_Identifier);
+      if (rtIsNaN(tmp) || rtIsInf(tmp)) {
+        tmp = 0.0;
+      } else {
+        tmp = fmod(tmp, 4.294967296E+9);
+      }
+
+      switch (tmp < 0.0 ? -(int32_T)(uint32_T)-tmp : (int32_T)(uint32_T)tmp) {
+       case 1:
+        /* Outputs for IfAction SubSystem: '<S2>/SKF_Initial' incorporates:
+         *  ActionPort: '<S17>/Action Port'
+         */
+        Racing_Mode_SKF_Initial(Racing_Mode_U.CustomMode_Data,
+          &Racing_Mode_B.SKF_Initial_g);
+
+        /* End of Outputs for SubSystem: '<S2>/SKF_Initial' */
+        break;
+
+       case 2:
+        /* Outputs for IfAction SubSystem: '<S2>/CKF_Initial' incorporates:
+         *  ActionPort: '<S10>/Action Port'
+         */
+        Racing_Mode_SKF_Initial(Racing_Mode_U.CustomMode_Data,
+          &Racing_Mode_B.CKF_Initial_p);
+
+        /* End of Outputs for SubSystem: '<S2>/CKF_Initial' */
+        break;
+
+       case 3:
+        /* Outputs for IfAction SubSystem: '<S2>/Cte_SKF' incorporates:
+         *  ActionPort: '<S12>/Action Port'
+         */
+        Racing_Mode_SKF_Initial(Racing_Mode_U.CustomMode_Data,
+          &Racing_Mode_B.Cte_SKF_d);
+
+        /* End of Outputs for SubSystem: '<S2>/Cte_SKF' */
+        break;
+
+       case 4:
+        /* Outputs for IfAction SubSystem: '<S2>/Cte_CKF' incorporates:
+         *  ActionPort: '<S11>/Action Port'
+         */
+        Racing_Mode_SKF_Initial(Racing_Mode_U.CustomMode_Data,
+          &Racing_Mode_B.Cte_CKF_o);
+
+        /* End of Outputs for SubSystem: '<S2>/Cte_CKF' */
+        break;
+
+       case 5:
+        /* Outputs for IfAction SubSystem: '<S2>/Apps_Sat_Dwn' incorporates:
+         *  ActionPort: '<S8>/Action Port'
+         */
+        Racing_Mode_Apps_Sat_Dwn(Racing_Mode_U.CustomMode_Data,
+          &Racing_Mode_B.Apps_Sat_Dwn_k);
+
+        /* End of Outputs for SubSystem: '<S2>/Apps_Sat_Dwn' */
+        break;
+
+       case 6:
+        /* Outputs for IfAction SubSystem: '<S2>/Apps_Sat_Up' incorporates:
+         *  ActionPort: '<S9>/Action Port'
+         */
+        Racing_Mode_Apps_Sat_Dwn(Racing_Mode_U.CustomMode_Data,
+          &Racing_Mode_B.Apps_Sat_Up_p);
+
+        /* End of Outputs for SubSystem: '<S2>/Apps_Sat_Up' */
+        break;
+
+       case 7:
+        /* Outputs for IfAction SubSystem: '<S2>/Max_Regenerative_Torque' incorporates:
+         *  ActionPort: '<S15>/Action Port'
+         */
+        Racing__Max_Regenerative_Torque(Racing_Mode_U.CustomMode_Data,
+          &Racing_Mode_B.Max_Regenerative_Torque_e);
+
+        /* End of Outputs for SubSystem: '<S2>/Max_Regenerative_Torque' */
+        break;
+
+       case 8:
+        /* Outputs for IfAction SubSystem: '<S2>/Power_Limit' incorporates:
+         *  ActionPort: '<S16>/Action Port'
+         */
+        Racing__Max_Regenerative_Torque(Racing_Mode_U.CustomMode_Data,
+          &Racing_Mode_B.Power_Limit_g);
+
+        /* End of Outputs for SubSystem: '<S2>/Power_Limit' */
+        break;
+
+       case 9:
+        /* Outputs for IfAction SubSystem: '<S2>/K_Reduction_P' incorporates:
+         *  ActionPort: '<S13>/Action Port'
+         */
+        Racing_Mode_Apps_Sat_Dwn(Racing_Mode_U.CustomMode_Data,
+          &Racing_Mode_B.K_Reduction_P_g);
+
+        /* End of Outputs for SubSystem: '<S2>/K_Reduction_P' */
+        break;
+
+       case 10:
+        /* Outputs for IfAction SubSystem: '<S2>/K_Reduction_Temperature' incorporates:
+         *  ActionPort: '<S14>/Action Port'
+         */
+        Racing_Mode_Apps_Sat_Dwn(Racing_Mode_U.CustomMode_Data,
+          &Racing_Mode_B.K_Reduction_Temperature_h);
+
+        /* End of Outputs for SubSystem: '<S2>/K_Reduction_Temperature' */
+        break;
+      }
+
+      /* End of SwitchCase: '<S2>/Switch Case' */
+
+      /* Merge: '<Root>/Merge' incorporates:
+       *  SignalConversion generated from: '<S2>/Params'
+       */
+      Racing_Mode_B.Merge[0] = Racing_Mode_B.SKF_Initial_g.Gain;
+      Racing_Mode_B.Merge[1] = Racing_Mode_B.CKF_Initial_p.Gain;
+      Racing_Mode_B.Merge[2] = Racing_Mode_B.Cte_SKF_d.Gain;
+      Racing_Mode_B.Merge[3] = Racing_Mode_B.Cte_CKF_o.Gain;
+      Racing_Mode_B.Merge[4] = Racing_Mode_B.Apps_Sat_Dwn_k.Gain;
+      Racing_Mode_B.Merge[5] = Racing_Mode_B.Apps_Sat_Up_p.Gain;
+      Racing_Mode_B.Merge[6] = Racing_Mode_B.Max_Regenerative_Torque_e.In1;
+      Racing_Mode_B.Merge[7] = Racing_Mode_B.Power_Limit_g.In1;
+      Racing_Mode_B.Merge[8] = Racing_Mode_B.K_Reduction_P_g.Gain;
+      Racing_Mode_B.Merge[9] = Racing_Mode_B.K_Reduction_Temperature_h.Gain;
+
+      /* End of Outputs for SubSystem: '<Root>/Custom Dash (11)' */
     }
-
-    switch (tmp < 0.0 ? -(int32_T)(uint32_T)-tmp : (int32_T)(uint32_T)tmp) {
-     case 1:
-      /* Outputs for IfAction SubSystem: '<S2>/SKF_Initial' incorporates:
-       *  ActionPort: '<S17>/Action Port'
-       */
-      Racing_Mode_SKF_Initial(Racing_Mode_U.CustomMode_Data,
-        &Racing_Mode_B.SKF_Initial, &Racing_Mode_P.SKF_Initial);
-
-      /* End of Outputs for SubSystem: '<S2>/SKF_Initial' */
-      break;
-
-     case 2:
-      /* Outputs for IfAction SubSystem: '<S2>/CKF_Initial' incorporates:
-       *  ActionPort: '<S10>/Action Port'
-       */
-      Racing_Mode_SKF_Initial(Racing_Mode_U.CustomMode_Data,
-        &Racing_Mode_B.CKF_Initial, &Racing_Mode_P.CKF_Initial);
-
-      /* End of Outputs for SubSystem: '<S2>/CKF_Initial' */
-      break;
-
-     case 3:
-      /* Outputs for IfAction SubSystem: '<S2>/Cte_SKF' incorporates:
-       *  ActionPort: '<S12>/Action Port'
-       */
-      Racing_Mode_SKF_Initial(Racing_Mode_U.CustomMode_Data,
-        &Racing_Mode_B.Cte_SKF, &Racing_Mode_P.Cte_SKF);
-
-      /* End of Outputs for SubSystem: '<S2>/Cte_SKF' */
-      break;
-
-     case 4:
-      /* Outputs for IfAction SubSystem: '<S2>/Cte_CKF' incorporates:
-       *  ActionPort: '<S11>/Action Port'
-       */
-      Racing_Mode_SKF_Initial(Racing_Mode_U.CustomMode_Data,
-        &Racing_Mode_B.Cte_CKF, &Racing_Mode_P.Cte_CKF);
-
-      /* End of Outputs for SubSystem: '<S2>/Cte_CKF' */
-      break;
-
-     case 5:
-      /* Outputs for IfAction SubSystem: '<S2>/Apps_Sat_Dwn' incorporates:
-       *  ActionPort: '<S8>/Action Port'
-       */
-      Racing_Mode_SKF_Initial(Racing_Mode_U.CustomMode_Data,
-        &Racing_Mode_B.Apps_Sat_Dwn, &Racing_Mode_P.Apps_Sat_Dwn);
-
-      /* End of Outputs for SubSystem: '<S2>/Apps_Sat_Dwn' */
-      break;
-
-     case 6:
-      /* Outputs for IfAction SubSystem: '<S2>/Apps_Sat_Up' incorporates:
-       *  ActionPort: '<S9>/Action Port'
-       */
-      Racing_Mode_SKF_Initial(Racing_Mode_U.CustomMode_Data,
-        &Racing_Mode_B.Apps_Sat_Up, &Racing_Mode_P.Apps_Sat_Up);
-
-      /* End of Outputs for SubSystem: '<S2>/Apps_Sat_Up' */
-      break;
-
-     case 7:
-      /* Outputs for IfAction SubSystem: '<S2>/Max_Regenerative_Torque' incorporates:
-       *  ActionPort: '<S15>/Action Port'
-       */
-      Racing__Max_Regenerative_Torque(Racing_Mode_U.CustomMode_Data,
-        &Racing_Mode_B.Max_Regenerative_Torque);
-
-      /* End of Outputs for SubSystem: '<S2>/Max_Regenerative_Torque' */
-      break;
-
-     case 8:
-      /* Outputs for IfAction SubSystem: '<S2>/Power_Limit' incorporates:
-       *  ActionPort: '<S16>/Action Port'
-       */
-      Racing__Max_Regenerative_Torque(Racing_Mode_U.CustomMode_Data,
-        &Racing_Mode_B.Power_Limit);
-
-      /* End of Outputs for SubSystem: '<S2>/Power_Limit' */
-      break;
-
-     case 9:
-      /* Outputs for IfAction SubSystem: '<S2>/K_Reduction_P' incorporates:
-       *  ActionPort: '<S13>/Action Port'
-       */
-      Racing_Mode_SKF_Initial(Racing_Mode_U.CustomMode_Data,
-        &Racing_Mode_B.K_Reduction_P, &Racing_Mode_P.K_Reduction_P);
-
-      /* End of Outputs for SubSystem: '<S2>/K_Reduction_P' */
-      break;
-
-     case 10:
-      /* Outputs for IfAction SubSystem: '<S2>/K_Reduction_Temperature' incorporates:
-       *  ActionPort: '<S14>/Action Port'
-       */
-      Racing_Mode_SKF_Initial(Racing_Mode_U.CustomMode_Data,
-        &Racing_Mode_B.K_Reduction_Temperature,
-        &Racing_Mode_P.K_Reduction_Temperature);
-
-      /* End of Outputs for SubSystem: '<S2>/K_Reduction_Temperature' */
-      break;
-    }
-
-    /* End of SwitchCase: '<S2>/Switch Case' */
-
-    /* SignalConversion: '<S2>/OutportBufferForParams' */
-    Racing_Mode_B.Merge[0] = Racing_Mode_B.SKF_Initial.Gain;
-    Racing_Mode_B.Merge[1] = Racing_Mode_B.CKF_Initial.Gain;
-    Racing_Mode_B.Merge[2] = Racing_Mode_B.Cte_SKF.Gain;
-    Racing_Mode_B.Merge[3] = Racing_Mode_B.Cte_CKF.Gain;
-    Racing_Mode_B.Merge[4] = Racing_Mode_B.Apps_Sat_Dwn.Gain;
-    Racing_Mode_B.Merge[5] = Racing_Mode_B.Apps_Sat_Up.Gain;
-    Racing_Mode_B.Merge[6] = Racing_Mode_B.Max_Regenerative_Torque.In1;
-    Racing_Mode_B.Merge[7] = Racing_Mode_B.Power_Limit.In1;
-    Racing_Mode_B.Merge[8] = Racing_Mode_B.K_Reduction_P.Gain;
-    Racing_Mode_B.Merge[9] = Racing_Mode_B.K_Reduction_Temperature.Gain;
-
-    /* End of Outputs for SubSystem: '<Root>/Custom Dash (11)' */
     break;
 
    case 12:
     /* Outputs for IfAction SubSystem: '<Root>/Custom Experiment Environment (12)' incorporates:
      *  ActionPort: '<S3>/Action Port'
      */
-    Racing_Mode_B.Merge[4] = Racing_Mode_P.CEE_Apps_Sat_Dwn_Value;
-    Racing_Mode_B.Merge[5] = Racing_Mode_P.CEE_Apps_Sat_Up_Value;
-    Racing_Mode_B.Merge[1] = Racing_Mode_P.CEE_CKF_Initial_Value;
-    Racing_Mode_B.Merge[3] = Racing_Mode_P.CEE_Cte_CKF_Value;
-    Racing_Mode_B.Merge[2] = Racing_Mode_P.CEE_Cte_SKF_Value;
-    Racing_Mode_B.Merge[8] = Racing_Mode_P.CEE_K_Reduction_P_Value;
-    Racing_Mode_B.Merge[9] = Racing_Mode_P.CEE_K_Reduction_Temperature_Val;
-    Racing_Mode_B.Merge[6] = Racing_Mode_P.CEE_Max_Regenerative_Torque_Val;
-    Racing_Mode_B.Merge[7] = Racing_Mode_P.CEE_Power_Limit_Value;
-    Racing_Mode_B.Merge[0] = Racing_Mode_P.CEE_SKF_Initial_Value;
+    /* SignalConversion generated from: '<S3>/Apps_Sat_Dwn' incorporates:
+     *  Constant: '<S6>/CEE_Apps_Sat_Dwn'
+     *  Merge: '<Root>/Merge'
+     */
+    Racing_Mode_B.Merge[4] = 0.0;
+
+    /* SignalConversion generated from: '<S3>/Apps_Sat_Up' incorporates:
+     *  Constant: '<S6>/CEE_Apps_Sat_Up'
+     *  Merge: '<Root>/Merge'
+     */
+    Racing_Mode_B.Merge[5] = 0.0;
+
+    /* SignalConversion generated from: '<S3>/CKF_Initial' incorporates:
+     *  Constant: '<S6>/CEE_CKF_Initial'
+     *  Merge: '<Root>/Merge'
+     */
+    Racing_Mode_B.Merge[1] = 0.0;
+
+    /* SignalConversion generated from: '<S3>/Cte_CKF' incorporates:
+     *  Constant: '<S6>/CEE_Cte_CKF'
+     *  Merge: '<Root>/Merge'
+     */
+    Racing_Mode_B.Merge[3] = 0.0;
+
+    /* SignalConversion generated from: '<S3>/Cte_SKF' incorporates:
+     *  Constant: '<S6>/CEE_Cte_SKF'
+     *  Merge: '<Root>/Merge'
+     */
+    Racing_Mode_B.Merge[2] = 0.0;
+
+    /* SignalConversion generated from: '<S3>/K_Reduction_P' incorporates:
+     *  Constant: '<S6>/CEE_K_Reduction_P'
+     *  Merge: '<Root>/Merge'
+     */
+    Racing_Mode_B.Merge[8] = 0.0;
+
+    /* SignalConversion generated from: '<S3>/K_Reduction_Temperature' incorporates:
+     *  Constant: '<S6>/CEE_K_Reduction_Temperature'
+     *  Merge: '<Root>/Merge'
+     */
+    Racing_Mode_B.Merge[9] = 0.0;
+
+    /* SignalConversion generated from: '<S3>/Max_Regenerative_Torque' incorporates:
+     *  Constant: '<S6>/CEE_Max_Regenerative_Torque'
+     *  Merge: '<Root>/Merge'
+     */
+    Racing_Mode_B.Merge[6] = 0.0;
+
+    /* SignalConversion generated from: '<S3>/Power_Limit' incorporates:
+     *  Constant: '<S6>/CEE_Power_Limit'
+     *  Merge: '<Root>/Merge'
+     */
+    Racing_Mode_B.Merge[7] = 0.0;
+
+    /* SignalConversion generated from: '<S3>/SKF_Initial' incorporates:
+     *  Constant: '<S6>/CEE_SKF_Initial'
+     *  Merge: '<Root>/Merge'
+     */
+    Racing_Mode_B.Merge[0] = 0.0;
 
     /* End of Outputs for SubSystem: '<Root>/Custom Experiment Environment (12)' */
     break;
@@ -338,8 +411,29 @@ static void Racing_Mode_output(void)
       /* Outputs for IfAction SubSystem: '<S4>/Acceleration (2). Driver 1 (1) ' incorporates:
        *  ActionPort: '<S18>/Action Port'
        */
-      Racing_Mode_WorkshopTest01(Racing_Mode_B.Merge,
-        &Racing_Mode_P.Acceleration2Driver11);
+      /* Merge: '<Root>/Merge' incorporates:
+       *  Constant: '<S18>/Apps_Sat_Dwn'
+       *  Constant: '<S18>/Apps_Sat_Up'
+       *  Constant: '<S18>/CKF_Initial'
+       *  Constant: '<S18>/Cte_CKF'
+       *  Constant: '<S18>/Cte_SKF'
+       *  Constant: '<S18>/K_Reduction_P'
+       *  Constant: '<S18>/K_Reduction_Temperature'
+       *  Constant: '<S18>/Max_Regenerative_Torque'
+       *  Constant: '<S18>/Power_Limit'
+       *  Constant: '<S18>/SKF_Initial'
+       *  SignalConversion generated from: '<S18>/Params'
+       */
+      Racing_Mode_B.Merge[0] = 1.0;
+      Racing_Mode_B.Merge[1] = 1.0;
+      Racing_Mode_B.Merge[2] = 0.93;
+      Racing_Mode_B.Merge[3] = 0.93;
+      Racing_Mode_B.Merge[4] = 0.0;
+      Racing_Mode_B.Merge[5] = 1.0;
+      Racing_Mode_B.Merge[6] = 140.0;
+      Racing_Mode_B.Merge[7] = 80.0;
+      Racing_Mode_B.Merge[8] = 0.2;
+      Racing_Mode_B.Merge[9] = 0.6;
 
       /* End of Outputs for SubSystem: '<S4>/Acceleration (2). Driver 1 (1) ' */
       break;
@@ -348,8 +442,29 @@ static void Racing_Mode_output(void)
       /* Outputs for IfAction SubSystem: '<S4>/Skidpad (3). Driver 1 (1)' incorporates:
        *  ActionPort: '<S21>/Action Port'
        */
-      Racing_Mode_WorkshopTest01(Racing_Mode_B.Merge,
-        &Racing_Mode_P.Skidpad3Driver11);
+      /* Merge: '<Root>/Merge' incorporates:
+       *  Constant: '<S21>/Apps_Sat_Dwn'
+       *  Constant: '<S21>/Apps_Sat_Up'
+       *  Constant: '<S21>/CKF_Initial'
+       *  Constant: '<S21>/Cte_CKF'
+       *  Constant: '<S21>/Cte_SKF'
+       *  Constant: '<S21>/K_Reduction_P'
+       *  Constant: '<S21>/K_Reduction_Temperature'
+       *  Constant: '<S21>/Max_Regenerative_Torque'
+       *  Constant: '<S21>/Power_Limit'
+       *  Constant: '<S21>/SKF_Initial'
+       *  SignalConversion generated from: '<S21>/Params'
+       */
+      Racing_Mode_B.Merge[0] = 1.0;
+      Racing_Mode_B.Merge[1] = 1.0;
+      Racing_Mode_B.Merge[2] = 0.97;
+      Racing_Mode_B.Merge[3] = 0.97;
+      Racing_Mode_B.Merge[4] = 0.0;
+      Racing_Mode_B.Merge[5] = 1.0;
+      Racing_Mode_B.Merge[6] = 140.0;
+      Racing_Mode_B.Merge[7] = 80.0;
+      Racing_Mode_B.Merge[8] = 0.2;
+      Racing_Mode_B.Merge[9] = 0.6;
 
       /* End of Outputs for SubSystem: '<S4>/Skidpad (3). Driver 1 (1)' */
       break;
@@ -358,8 +473,29 @@ static void Racing_Mode_output(void)
       /* Outputs for IfAction SubSystem: '<S4>/AutoX (4). Driver 1 (1)' incorporates:
        *  ActionPort: '<S19>/Action Port'
        */
-      Racing_Mode_WorkshopTest01(Racing_Mode_B.Merge,
-        &Racing_Mode_P.AutoX4Driver11);
+      /* Merge: '<Root>/Merge' incorporates:
+       *  Constant: '<S19>/Apps_Sat_Dwn'
+       *  Constant: '<S19>/Apps_Sat_Up'
+       *  Constant: '<S19>/CKF_Initial'
+       *  Constant: '<S19>/Cte_CKF'
+       *  Constant: '<S19>/Cte_SKF'
+       *  Constant: '<S19>/K_Reduction_P'
+       *  Constant: '<S19>/K_Reduction_Temperature'
+       *  Constant: '<S19>/Max_Regenerative_Torque'
+       *  Constant: '<S19>/Power_Limit'
+       *  Constant: '<S19>/SKF_Initial'
+       *  SignalConversion generated from: '<S19>/Params'
+       */
+      Racing_Mode_B.Merge[0] = 0.6;
+      Racing_Mode_B.Merge[1] = 0.6;
+      Racing_Mode_B.Merge[2] = 0.98;
+      Racing_Mode_B.Merge[3] = 0.98;
+      Racing_Mode_B.Merge[4] = 0.0;
+      Racing_Mode_B.Merge[5] = 1.0;
+      Racing_Mode_B.Merge[6] = 1000.0;
+      Racing_Mode_B.Merge[7] = 80.0;
+      Racing_Mode_B.Merge[8] = 0.2;
+      Racing_Mode_B.Merge[9] = 0.6;
 
       /* End of Outputs for SubSystem: '<S4>/AutoX (4). Driver 1 (1)' */
       break;
@@ -368,8 +504,29 @@ static void Racing_Mode_output(void)
       /* Outputs for IfAction SubSystem: '<S4>/Endurance (5). Driver 1 (1)' incorporates:
        *  ActionPort: '<S20>/Action Port'
        */
-      Racing_Mode_WorkshopTest01(Racing_Mode_B.Merge,
-        &Racing_Mode_P.Endurance5Driver11);
+      /* Merge: '<Root>/Merge' incorporates:
+       *  Constant: '<S20>/Apps_Sat_Dwn'
+       *  Constant: '<S20>/Apps_Sat_Up'
+       *  Constant: '<S20>/CKF_Initial'
+       *  Constant: '<S20>/Cte_CKF'
+       *  Constant: '<S20>/Cte_SKF'
+       *  Constant: '<S20>/K_Reduction_P'
+       *  Constant: '<S20>/K_Reduction_Temperature'
+       *  Constant: '<S20>/Max_Regenerative_Torque'
+       *  Constant: '<S20>/Power_Limit'
+       *  Constant: '<S20>/SKF_Initial'
+       *  SignalConversion generated from: '<S20>/Params'
+       */
+      Racing_Mode_B.Merge[0] = 0.4;
+      Racing_Mode_B.Merge[1] = 0.4;
+      Racing_Mode_B.Merge[2] = 0.98;
+      Racing_Mode_B.Merge[3] = 0.98;
+      Racing_Mode_B.Merge[4] = 0.0;
+      Racing_Mode_B.Merge[5] = 1.0;
+      Racing_Mode_B.Merge[6] = 1000.0;
+      Racing_Mode_B.Merge[7] = 80.0;
+      Racing_Mode_B.Merge[8] = 0.2;
+      Racing_Mode_B.Merge[9] = 0.6;
 
       /* End of Outputs for SubSystem: '<S4>/Endurance (5). Driver 1 (1)' */
       break;
@@ -392,8 +549,7 @@ static void Racing_Mode_output(void)
       /* Outputs for IfAction SubSystem: '<S5>/Acceleration (2). Driver 2 (2) ' incorporates:
        *  ActionPort: '<S22>/Action Port'
        */
-      Racing_Mode_WorkshopTest01(Racing_Mode_B.Merge,
-        &Racing_Mode_P.Acceleration2Driver22);
+      Racing_Mo_Acceleration2Driver22(Racing_Mode_B.Merge);
 
       /* End of Outputs for SubSystem: '<S5>/Acceleration (2). Driver 2 (2) ' */
       break;
@@ -402,8 +558,7 @@ static void Racing_Mode_output(void)
       /* Outputs for IfAction SubSystem: '<S5>/Skidpad (3). Driver 2 (2)' incorporates:
        *  ActionPort: '<S25>/Action Port'
        */
-      Racing_Mode_WorkshopTest01(Racing_Mode_B.Merge,
-        &Racing_Mode_P.Skidpad3Driver22);
+      Racing_Mo_Acceleration2Driver22(Racing_Mode_B.Merge);
 
       /* End of Outputs for SubSystem: '<S5>/Skidpad (3). Driver 2 (2)' */
       break;
@@ -412,8 +567,7 @@ static void Racing_Mode_output(void)
       /* Outputs for IfAction SubSystem: '<S5>/AutoX (4). Driver 2 (2)' incorporates:
        *  ActionPort: '<S23>/Action Port'
        */
-      Racing_Mode_WorkshopTest01(Racing_Mode_B.Merge,
-        &Racing_Mode_P.AutoX4Driver22);
+      Racing_Mo_Acceleration2Driver22(Racing_Mode_B.Merge);
 
       /* End of Outputs for SubSystem: '<S5>/AutoX (4). Driver 2 (2)' */
       break;
@@ -422,8 +576,7 @@ static void Racing_Mode_output(void)
       /* Outputs for IfAction SubSystem: '<S5>/Endurance (5). Driver 2 (2)' incorporates:
        *  ActionPort: '<S24>/Action Port'
        */
-      Racing_Mode_WorkshopTest01(Racing_Mode_B.Merge,
-        &Racing_Mode_P.Endurance5Driver22);
+      Racing_Mo_Acceleration2Driver22(Racing_Mode_B.Merge);
 
       /* End of Outputs for SubSystem: '<S5>/Endurance (5). Driver 2 (2)' */
       break;
@@ -437,13 +590,12 @@ static void Racing_Mode_output(void)
   /* End of SwitchCase: '<Root>/Selecció de Mode' */
 
   /* Saturate: '<Root>/SKF_Initial Saturation' */
-  if (Racing_Mode_B.Merge[0] > Racing_Mode_P.SKF_InitialSaturation_UpperSat) {
+  if (Racing_Mode_B.Merge[0] > 0.9) {
     /* Outport: '<Root>/VDC_SKF_Initial' */
-    Racing_Mode_Y.VDC_SKF_Initial = Racing_Mode_P.SKF_InitialSaturation_UpperSat;
-  } else if (Racing_Mode_B.Merge[0] <
-             Racing_Mode_P.SKF_InitialSaturation_LowerSat) {
+    Racing_Mode_Y.VDC_SKF_Initial = 0.9;
+  } else if (Racing_Mode_B.Merge[0] < 0.0) {
     /* Outport: '<Root>/VDC_SKF_Initial' */
-    Racing_Mode_Y.VDC_SKF_Initial = Racing_Mode_P.SKF_InitialSaturation_LowerSat;
+    Racing_Mode_Y.VDC_SKF_Initial = 0.0;
   } else {
     /* Outport: '<Root>/VDC_SKF_Initial' */
     Racing_Mode_Y.VDC_SKF_Initial = Racing_Mode_B.Merge[0];
@@ -452,13 +604,12 @@ static void Racing_Mode_output(void)
   /* End of Saturate: '<Root>/SKF_Initial Saturation' */
 
   /* Saturate: '<Root>/CKF_Initial Saturation' */
-  if (Racing_Mode_B.Merge[1] > Racing_Mode_P.CKF_InitialSaturation_UpperSat) {
+  if (Racing_Mode_B.Merge[1] > 0.9) {
     /* Outport: '<Root>/VDC_CKF_Initial' */
-    Racing_Mode_Y.VDC_CKF_Initial = Racing_Mode_P.CKF_InitialSaturation_UpperSat;
-  } else if (Racing_Mode_B.Merge[1] <
-             Racing_Mode_P.CKF_InitialSaturation_LowerSat) {
+    Racing_Mode_Y.VDC_CKF_Initial = 0.9;
+  } else if (Racing_Mode_B.Merge[1] < 0.0) {
     /* Outport: '<Root>/VDC_CKF_Initial' */
-    Racing_Mode_Y.VDC_CKF_Initial = Racing_Mode_P.CKF_InitialSaturation_LowerSat;
+    Racing_Mode_Y.VDC_CKF_Initial = 0.0;
   } else {
     /* Outport: '<Root>/VDC_CKF_Initial' */
     Racing_Mode_Y.VDC_CKF_Initial = Racing_Mode_B.Merge[1];
@@ -467,13 +618,12 @@ static void Racing_Mode_output(void)
   /* End of Saturate: '<Root>/CKF_Initial Saturation' */
 
   /* Saturate: '<Root>/Cte_SKF Saturation' */
-  if (Racing_Mode_B.Merge[2] > Racing_Mode_P.Cte_SKFSaturation_UpperSat) {
+  if (Racing_Mode_B.Merge[2] > 1.0) {
     /* Outport: '<Root>/VDC_Cte_SKF' */
-    Racing_Mode_Y.VDC_Cte_SKF = Racing_Mode_P.Cte_SKFSaturation_UpperSat;
-  } else if (Racing_Mode_B.Merge[2] < Racing_Mode_P.Cte_SKFSaturation_LowerSat)
-  {
+    Racing_Mode_Y.VDC_Cte_SKF = 1.0;
+  } else if (Racing_Mode_B.Merge[2] < 0.0) {
     /* Outport: '<Root>/VDC_Cte_SKF' */
-    Racing_Mode_Y.VDC_Cte_SKF = Racing_Mode_P.Cte_SKFSaturation_LowerSat;
+    Racing_Mode_Y.VDC_Cte_SKF = 0.0;
   } else {
     /* Outport: '<Root>/VDC_Cte_SKF' */
     Racing_Mode_Y.VDC_Cte_SKF = Racing_Mode_B.Merge[2];
@@ -482,13 +632,12 @@ static void Racing_Mode_output(void)
   /* End of Saturate: '<Root>/Cte_SKF Saturation' */
 
   /* Saturate: '<Root>/Cte_CKF Saturation' */
-  if (Racing_Mode_B.Merge[3] > Racing_Mode_P.Cte_CKFSaturation_UpperSat) {
+  if (Racing_Mode_B.Merge[3] > 1.0) {
     /* Outport: '<Root>/VDC_Cte_CKF' */
-    Racing_Mode_Y.VDC_Cte_CKF = Racing_Mode_P.Cte_CKFSaturation_UpperSat;
-  } else if (Racing_Mode_B.Merge[3] < Racing_Mode_P.Cte_CKFSaturation_LowerSat)
-  {
+    Racing_Mode_Y.VDC_Cte_CKF = 1.0;
+  } else if (Racing_Mode_B.Merge[3] < 0.0) {
     /* Outport: '<Root>/VDC_Cte_CKF' */
-    Racing_Mode_Y.VDC_Cte_CKF = Racing_Mode_P.Cte_CKFSaturation_LowerSat;
+    Racing_Mode_Y.VDC_Cte_CKF = 0.0;
   } else {
     /* Outport: '<Root>/VDC_Cte_CKF' */
     Racing_Mode_Y.VDC_Cte_CKF = Racing_Mode_B.Merge[3];
@@ -497,15 +646,12 @@ static void Racing_Mode_output(void)
   /* End of Saturate: '<Root>/Cte_CKF Saturation' */
 
   /* Saturate: '<Root>/Apps_Sat_Dwn Saturation' */
-  if (Racing_Mode_B.Merge[4] > Racing_Mode_P.Apps_Sat_DwnSaturation_UpperSat) {
+  if (Racing_Mode_B.Merge[4] > 0.5) {
     /* Outport: '<Root>/VDC_Apps_Sat_Down' */
-    Racing_Mode_Y.VDC_Apps_Sat_Down =
-      Racing_Mode_P.Apps_Sat_DwnSaturation_UpperSat;
-  } else if (Racing_Mode_B.Merge[4] <
-             Racing_Mode_P.Apps_Sat_DwnSaturation_LowerSat) {
+    Racing_Mode_Y.VDC_Apps_Sat_Down = 0.5;
+  } else if (Racing_Mode_B.Merge[4] < 0.0) {
     /* Outport: '<Root>/VDC_Apps_Sat_Down' */
-    Racing_Mode_Y.VDC_Apps_Sat_Down =
-      Racing_Mode_P.Apps_Sat_DwnSaturation_LowerSat;
+    Racing_Mode_Y.VDC_Apps_Sat_Down = 0.0;
   } else {
     /* Outport: '<Root>/VDC_Apps_Sat_Down' */
     Racing_Mode_Y.VDC_Apps_Sat_Down = Racing_Mode_B.Merge[4];
@@ -514,13 +660,12 @@ static void Racing_Mode_output(void)
   /* End of Saturate: '<Root>/Apps_Sat_Dwn Saturation' */
 
   /* Saturate: '<Root>/Apps_Sat_Up Saturation' */
-  if (Racing_Mode_B.Merge[5] > Racing_Mode_P.Apps_Sat_UpSaturation_UpperSat) {
+  if (Racing_Mode_B.Merge[5] > 1.0) {
     /* Outport: '<Root>/VDC_Apps_Sat_Up' */
-    Racing_Mode_Y.VDC_Apps_Sat_Up = Racing_Mode_P.Apps_Sat_UpSaturation_UpperSat;
-  } else if (Racing_Mode_B.Merge[5] <
-             Racing_Mode_P.Apps_Sat_UpSaturation_LowerSat) {
+    Racing_Mode_Y.VDC_Apps_Sat_Up = 1.0;
+  } else if (Racing_Mode_B.Merge[5] < 0.0) {
     /* Outport: '<Root>/VDC_Apps_Sat_Up' */
-    Racing_Mode_Y.VDC_Apps_Sat_Up = Racing_Mode_P.Apps_Sat_UpSaturation_LowerSat;
+    Racing_Mode_Y.VDC_Apps_Sat_Up = 0.0;
   } else {
     /* Outport: '<Root>/VDC_Apps_Sat_Up' */
     Racing_Mode_Y.VDC_Apps_Sat_Up = Racing_Mode_B.Merge[5];
@@ -529,15 +674,12 @@ static void Racing_Mode_output(void)
   /* End of Saturate: '<Root>/Apps_Sat_Up Saturation' */
 
   /* Saturate: '<Root>/Max_Regenerative_Torque Saturation' */
-  if (Racing_Mode_B.Merge[6] > Racing_Mode_P.Max_Regenerative_TorqueSaturati) {
+  if (Racing_Mode_B.Merge[6] > 10.0) {
     /* Outport: '<Root>/VDC_Max_Regenerative_Torque' */
-    Racing_Mode_Y.VDC_Max_Regenerative_Torque =
-      Racing_Mode_P.Max_Regenerative_TorqueSaturati;
-  } else if (Racing_Mode_B.Merge[6] <
-             Racing_Mode_P.Max_Regenerative_TorqueSatura_o) {
+    Racing_Mode_Y.VDC_Max_Regenerative_Torque = 10.0;
+  } else if (Racing_Mode_B.Merge[6] < 0.0) {
     /* Outport: '<Root>/VDC_Max_Regenerative_Torque' */
-    Racing_Mode_Y.VDC_Max_Regenerative_Torque =
-      Racing_Mode_P.Max_Regenerative_TorqueSatura_o;
+    Racing_Mode_Y.VDC_Max_Regenerative_Torque = 0.0;
   } else {
     /* Outport: '<Root>/VDC_Max_Regenerative_Torque' */
     Racing_Mode_Y.VDC_Max_Regenerative_Torque = Racing_Mode_B.Merge[6];
@@ -546,13 +688,12 @@ static void Racing_Mode_output(void)
   /* End of Saturate: '<Root>/Max_Regenerative_Torque Saturation' */
 
   /* Saturate: '<Root>/Power_Limit Saturation' */
-  if (Racing_Mode_B.Merge[7] > Racing_Mode_P.Power_LimitSaturation_UpperSat) {
+  if (Racing_Mode_B.Merge[7] > 77.0) {
     /* Outport: '<Root>/VDC_Power_Limit' */
-    Racing_Mode_Y.VDC_Power_Limit = Racing_Mode_P.Power_LimitSaturation_UpperSat;
-  } else if (Racing_Mode_B.Merge[7] <
-             Racing_Mode_P.Power_LimitSaturation_LowerSat) {
+    Racing_Mode_Y.VDC_Power_Limit = 77.0;
+  } else if (Racing_Mode_B.Merge[7] < 0.0) {
     /* Outport: '<Root>/VDC_Power_Limit' */
-    Racing_Mode_Y.VDC_Power_Limit = Racing_Mode_P.Power_LimitSaturation_LowerSat;
+    Racing_Mode_Y.VDC_Power_Limit = 0.0;
   } else {
     /* Outport: '<Root>/VDC_Power_Limit' */
     Racing_Mode_Y.VDC_Power_Limit = Racing_Mode_B.Merge[7];
@@ -561,15 +702,12 @@ static void Racing_Mode_output(void)
   /* End of Saturate: '<Root>/Power_Limit Saturation' */
 
   /* Saturate: '<Root>/K_Reduction_P Saturation' */
-  if (Racing_Mode_B.Merge[8] > Racing_Mode_P.K_Reduction_PSaturation_UpperSa) {
+  if (Racing_Mode_B.Merge[8] > 1.0) {
     /* Outport: '<Root>/VDC_K_Reduction_P' */
-    Racing_Mode_Y.VDC_K_Reduction_P =
-      Racing_Mode_P.K_Reduction_PSaturation_UpperSa;
-  } else if (Racing_Mode_B.Merge[8] <
-             Racing_Mode_P.K_Reduction_PSaturation_LowerSa) {
+    Racing_Mode_Y.VDC_K_Reduction_P = 1.0;
+  } else if (Racing_Mode_B.Merge[8] < 0.0) {
     /* Outport: '<Root>/VDC_K_Reduction_P' */
-    Racing_Mode_Y.VDC_K_Reduction_P =
-      Racing_Mode_P.K_Reduction_PSaturation_LowerSa;
+    Racing_Mode_Y.VDC_K_Reduction_P = 0.0;
   } else {
     /* Outport: '<Root>/VDC_K_Reduction_P' */
     Racing_Mode_Y.VDC_K_Reduction_P = Racing_Mode_B.Merge[8];
@@ -578,15 +716,12 @@ static void Racing_Mode_output(void)
   /* End of Saturate: '<Root>/K_Reduction_P Saturation' */
 
   /* Saturate: '<Root>/K_Reduction_Temperature Saturation' */
-  if (Racing_Mode_B.Merge[9] > Racing_Mode_P.K_Reduction_TemperatureSaturati) {
+  if (Racing_Mode_B.Merge[9] > 1.0) {
     /* Outport: '<Root>/VDC_K_Reduction_Temperature' */
-    Racing_Mode_Y.VDC_K_Reduction_Temperature =
-      Racing_Mode_P.K_Reduction_TemperatureSaturati;
-  } else if (Racing_Mode_B.Merge[9] <
-             Racing_Mode_P.K_Reduction_TemperatureSatura_m) {
+    Racing_Mode_Y.VDC_K_Reduction_Temperature = 1.0;
+  } else if (Racing_Mode_B.Merge[9] < 0.0) {
     /* Outport: '<Root>/VDC_K_Reduction_Temperature' */
-    Racing_Mode_Y.VDC_K_Reduction_Temperature =
-      Racing_Mode_P.K_Reduction_TemperatureSatura_m;
+    Racing_Mode_Y.VDC_K_Reduction_Temperature = 0.0;
   } else {
     /* Outport: '<Root>/VDC_K_Reduction_Temperature' */
     Racing_Mode_Y.VDC_K_Reduction_Temperature = Racing_Mode_B.Merge[9];
@@ -599,8 +734,7 @@ static void Racing_Mode_output(void)
    *  Inport: '<Root>/RacingMode'
    *  RelationalOperator: '<S1>/Compare'
    */
-  Racing_Mode_Y.Workshop_Mode_Enable = (Racing_Mode_U.RacingMode ==
-    Racing_Mode_P.CompareToConstant_const);
+  Racing_Mode_Y.Workshop_Mode_Enable = (Racing_Mode_U.RacingMode == 1);
 }
 
 /* Model update function */
@@ -627,78 +761,60 @@ static void Racing_Mode_update(void)
 /* Model initialize function */
 static void Racing_Mode_initialize(void)
 {
-  {
-    int32_T i;
+  /* SystemInitialize for IfAction SubSystem: '<Root>/Custom Dash (11)' */
+  /* SystemInitialize for IfAction SubSystem: '<S2>/SKF_Initial' */
+  Racing_Mode_SKF_Initial_Init(&Racing_Mode_B.SKF_Initial_g);
 
-    /* SystemInitialize for IfAction SubSystem: '<Root>/Custom Dash (11)' */
+  /* End of SystemInitialize for SubSystem: '<S2>/SKF_Initial' */
 
-    /* SystemInitialize for IfAction SubSystem: '<S2>/SKF_Initial' */
-    Racing_Mode_SKF_Initial_Init(&Racing_Mode_B.SKF_Initial,
-      &Racing_Mode_P.SKF_Initial);
+  /* SystemInitialize for IfAction SubSystem: '<S2>/CKF_Initial' */
+  Racing_Mode_SKF_Initial_Init(&Racing_Mode_B.CKF_Initial_p);
 
-    /* End of SystemInitialize for SubSystem: '<S2>/SKF_Initial' */
+  /* End of SystemInitialize for SubSystem: '<S2>/CKF_Initial' */
 
-    /* SystemInitialize for IfAction SubSystem: '<S2>/CKF_Initial' */
-    Racing_Mode_SKF_Initial_Init(&Racing_Mode_B.CKF_Initial,
-      &Racing_Mode_P.CKF_Initial);
+  /* SystemInitialize for IfAction SubSystem: '<S2>/Cte_SKF' */
+  Racing_Mode_SKF_Initial_Init(&Racing_Mode_B.Cte_SKF_d);
 
-    /* End of SystemInitialize for SubSystem: '<S2>/CKF_Initial' */
+  /* End of SystemInitialize for SubSystem: '<S2>/Cte_SKF' */
 
-    /* SystemInitialize for IfAction SubSystem: '<S2>/Cte_SKF' */
-    Racing_Mode_SKF_Initial_Init(&Racing_Mode_B.Cte_SKF, &Racing_Mode_P.Cte_SKF);
+  /* SystemInitialize for IfAction SubSystem: '<S2>/Cte_CKF' */
+  Racing_Mode_SKF_Initial_Init(&Racing_Mode_B.Cte_CKF_o);
 
-    /* End of SystemInitialize for SubSystem: '<S2>/Cte_SKF' */
+  /* End of SystemInitialize for SubSystem: '<S2>/Cte_CKF' */
 
-    /* SystemInitialize for IfAction SubSystem: '<S2>/Cte_CKF' */
-    Racing_Mode_SKF_Initial_Init(&Racing_Mode_B.Cte_CKF, &Racing_Mode_P.Cte_CKF);
+  /* SystemInitialize for IfAction SubSystem: '<S2>/Apps_Sat_Dwn' */
+  Racing_Mode_Apps_Sat_Dwn_Init(&Racing_Mode_B.Apps_Sat_Dwn_k);
 
-    /* End of SystemInitialize for SubSystem: '<S2>/Cte_CKF' */
+  /* End of SystemInitialize for SubSystem: '<S2>/Apps_Sat_Dwn' */
 
-    /* SystemInitialize for IfAction SubSystem: '<S2>/Apps_Sat_Dwn' */
-    Racing_Mode_SKF_Initial_Init(&Racing_Mode_B.Apps_Sat_Dwn,
-      &Racing_Mode_P.Apps_Sat_Dwn);
+  /* SystemInitialize for IfAction SubSystem: '<S2>/Apps_Sat_Up' */
+  Racing_Mode_Apps_Sat_Dwn_Init(&Racing_Mode_B.Apps_Sat_Up_p);
 
-    /* End of SystemInitialize for SubSystem: '<S2>/Apps_Sat_Dwn' */
+  /* End of SystemInitialize for SubSystem: '<S2>/Apps_Sat_Up' */
 
-    /* SystemInitialize for IfAction SubSystem: '<S2>/Apps_Sat_Up' */
-    Racing_Mode_SKF_Initial_Init(&Racing_Mode_B.Apps_Sat_Up,
-      &Racing_Mode_P.Apps_Sat_Up);
+  /* SystemInitialize for IfAction SubSystem: '<S2>/Max_Regenerative_Torque' */
+  Ra_Max_Regenerative_Torque_Init(&Racing_Mode_B.Max_Regenerative_Torque_e);
 
-    /* End of SystemInitialize for SubSystem: '<S2>/Apps_Sat_Up' */
+  /* End of SystemInitialize for SubSystem: '<S2>/Max_Regenerative_Torque' */
 
-    /* SystemInitialize for IfAction SubSystem: '<S2>/Max_Regenerative_Torque' */
-    Ra_Max_Regenerative_Torque_Init(&Racing_Mode_B.Max_Regenerative_Torque,
-      &Racing_Mode_P.Max_Regenerative_Torque);
+  /* SystemInitialize for IfAction SubSystem: '<S2>/Power_Limit' */
+  Ra_Max_Regenerative_Torque_Init(&Racing_Mode_B.Power_Limit_g);
 
-    /* End of SystemInitialize for SubSystem: '<S2>/Max_Regenerative_Torque' */
+  /* End of SystemInitialize for SubSystem: '<S2>/Power_Limit' */
 
-    /* SystemInitialize for IfAction SubSystem: '<S2>/Power_Limit' */
-    Ra_Max_Regenerative_Torque_Init(&Racing_Mode_B.Power_Limit,
-      &Racing_Mode_P.Power_Limit);
+  /* SystemInitialize for IfAction SubSystem: '<S2>/K_Reduction_P' */
+  Racing_Mode_Apps_Sat_Dwn_Init(&Racing_Mode_B.K_Reduction_P_g);
 
-    /* End of SystemInitialize for SubSystem: '<S2>/Power_Limit' */
+  /* End of SystemInitialize for SubSystem: '<S2>/K_Reduction_P' */
 
-    /* SystemInitialize for IfAction SubSystem: '<S2>/K_Reduction_P' */
-    Racing_Mode_SKF_Initial_Init(&Racing_Mode_B.K_Reduction_P,
-      &Racing_Mode_P.K_Reduction_P);
+  /* SystemInitialize for IfAction SubSystem: '<S2>/K_Reduction_Temperature' */
+  Racing_Mode_Apps_Sat_Dwn_Init(&Racing_Mode_B.K_Reduction_Temperature_h);
 
-    /* End of SystemInitialize for SubSystem: '<S2>/K_Reduction_P' */
+  /* End of SystemInitialize for SubSystem: '<S2>/K_Reduction_Temperature' */
+  /* End of SystemInitialize for SubSystem: '<Root>/Custom Dash (11)' */
 
-    /* SystemInitialize for IfAction SubSystem: '<S2>/K_Reduction_Temperature' */
-    Racing_Mode_SKF_Initial_Init(&Racing_Mode_B.K_Reduction_Temperature,
-      &Racing_Mode_P.K_Reduction_Temperature);
-
-    /* End of SystemInitialize for SubSystem: '<S2>/K_Reduction_Temperature' */
-
-    /* End of SystemInitialize for SubSystem: '<Root>/Custom Dash (11)' */
-
-    /* SystemInitialize for Merge: '<Root>/Merge' */
-    for (i = 0; i < 10; i++) {
-      Racing_Mode_B.Merge[i] = Racing_Mode_P.Merge_InitialOutput;
-    }
-
-    /* End of SystemInitialize for Merge: '<Root>/Merge' */
-  }
+  /* SystemInitialize for Merge: '<Root>/Merge' */
+  memset(&Racing_Mode_B.Merge[0], 0, 10U * sizeof(real_T));
 }
 
 /* Model terminate function */
@@ -760,6 +876,9 @@ RT_MODEL_Racing_Mode_T *Racing_Mode(void)
   {
     int_T *mdlTsMap = Racing_Mode_M->Timing.sampleTimeTaskIDArray;
     mdlTsMap[0] = 0;
+
+    /* polyspace +2 MISRA2012:D4.1 [Justified:Low] "Racing_Mode_M points to
+       static memory which is guaranteed to be non-NULL" */
     Racing_Mode_M->Timing.sampleTimeTaskIDPtr = (&mdlTsMap[0]);
     Racing_Mode_M->Timing.sampleTimes = (&Racing_Mode_M->
       Timing.sampleTimesArray[0]);
@@ -783,6 +902,30 @@ RT_MODEL_Racing_Mode_T *Racing_Mode(void)
 
   rtmSetTFinal(Racing_Mode_M, 10.0);
   Racing_Mode_M->Timing.stepSize0 = 0.2;
+
+  /* Setup for data logging */
+  {
+    static RTWLogInfo rt_DataLoggingInfo;
+    rt_DataLoggingInfo.loggingInterval = (NULL);
+    Racing_Mode_M->rtwLogInfo = &rt_DataLoggingInfo;
+  }
+
+  /* Setup for data logging */
+  {
+    rtliSetLogXSignalInfo(Racing_Mode_M->rtwLogInfo, (NULL));
+    rtliSetLogXSignalPtrs(Racing_Mode_M->rtwLogInfo, (NULL));
+    rtliSetLogT(Racing_Mode_M->rtwLogInfo, "tout");
+    rtliSetLogX(Racing_Mode_M->rtwLogInfo, "");
+    rtliSetLogXFinal(Racing_Mode_M->rtwLogInfo, "");
+    rtliSetLogVarNameModifier(Racing_Mode_M->rtwLogInfo, "rt_");
+    rtliSetLogFormat(Racing_Mode_M->rtwLogInfo, 4);
+    rtliSetLogMaxRows(Racing_Mode_M->rtwLogInfo, 0);
+    rtliSetLogDecimation(Racing_Mode_M->rtwLogInfo, 1);
+    rtliSetLogY(Racing_Mode_M->rtwLogInfo, "");
+    rtliSetLogYSignalInfo(Racing_Mode_M->rtwLogInfo, (NULL));
+    rtliSetLogYSignalPtrs(Racing_Mode_M->rtwLogInfo, (NULL));
+  }
+
   Racing_Mode_M->solverInfoPtr = (&Racing_Mode_M->solverInfo);
   Racing_Mode_M->Timing.stepSize = (0.2);
   rtsiSetFixedStepSize(&Racing_Mode_M->solverInfo, 0.2);
@@ -793,17 +936,13 @@ RT_MODEL_Racing_Mode_T *Racing_Mode(void)
   (void) memset(((void *) &Racing_Mode_B), 0,
                 sizeof(B_Racing_Mode_T));
 
-  /* parameters */
-  Racing_Mode_M->defaultParam = ((real_T *)&Racing_Mode_P);
-
   /* external inputs */
   Racing_Mode_M->inputs = (((void*)&Racing_Mode_U));
-  (void)memset((void *)&Racing_Mode_U, 0, sizeof(ExtU_Racing_Mode_T));
+  (void)memset(&Racing_Mode_U, 0, sizeof(ExtU_Racing_Mode_T));
 
   /* external outputs */
   Racing_Mode_M->outputs = (&Racing_Mode_Y);
-  (void) memset((void *)&Racing_Mode_Y, 0,
-                sizeof(ExtY_Racing_Mode_T));
+  (void)memset(&Racing_Mode_Y, 0, sizeof(ExtY_Racing_Mode_T));
 
   /* Initialize Sizes */
   Racing_Mode_M->Sizes.numContStates = (0);/* Number of continuous states */
@@ -811,9 +950,8 @@ RT_MODEL_Racing_Mode_T *Racing_Mode(void)
   Racing_Mode_M->Sizes.numU = (3);     /* Number of model inputs */
   Racing_Mode_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Racing_Mode_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  Racing_Mode_M->Sizes.numBlocks = (87);/* Number of blocks */
+  Racing_Mode_M->Sizes.numBlocks = (143);/* Number of blocks */
   Racing_Mode_M->Sizes.numBlockIO = (11);/* Number of block outputs */
-  Racing_Mode_M->Sizes.numBlockPrms = (140);/* Sum of parameter "widths" */
   return Racing_Mode_M;
 }
 

@@ -65,4 +65,17 @@ SL_SERVICES_PUBLISHED_C void dl_report_from_diagnostic(dl_logger_sid_t, int type
 
 SL_SERVICES_PUBLISHED_C char* dl_get_object_path(dl_logger_sid_t, int sysId, int objId);
 
+SL_SERVICES_PUBLISHED_C void slsvRegisterDiagnosticListenerCG(const char *id, bool enable);
+SL_SERVICES_PUBLISHED_C void slsvUnRegisterDiagnosticListenerCG();
+
+SL_SERVICES_PUBLISHED_C void slsvEnableDiagnosticListenerCG();
+SL_SERVICES_PUBLISHED_C void slsvDisableDiagnosticListenerCG();
+
+SL_SERVICES_PUBLISHED_C void slsvClearListenerCG(const char *id);
+SL_SERVICES_PUBLISHED_C void slsvClearAllListenersCG();
+
+SL_SERVICES_PUBLISHED_C void slsvSetUserDataDiagnosticListenerCG(const void *data);
+
+SL_SERVICES_PUBLISHED_C void    slsvTic();
+SL_SERVICES_PUBLISHED_C double  slsvToc();
 #endif /* slsv_diagnostic_codegen_c_api_h */

@@ -53,6 +53,9 @@ LIBMWENGINE_PUBLISHED_API_EXTERN_C int engGetVisible(Engine *ep, bool* bVal);
 /* Start matlab process */
 LIBMWENGINE_PUBLISHED_API_EXTERN_C Engine *engOpen(const char *startcmd);
 
+/* Start matlab process */
+LIBMWENGINE_PUBLISHED_API_EXTERN_C Engine *fengOpen(const char *startcmd);
+
 /* Close down matlab server */
 LIBMWENGINE_PUBLISHED_API_EXTERN_C int engClose(Engine *ep);
 

@@ -1,0 +1,40 @@
+<?DTDVersion "2.0"?>
+
+<!NOTATION ofTypePCOptionsBO SYSTEM "PCOptionsBO">
+<!NOTATION ofTypePCOptionsPartBO SYSTEM "PCOptionsPartBO">
+<!NOTATION ofTypePCOptionsRootBO SYSTEM "PCOptionsRootBO">
+<!NOTATION ofTypePCPropertyBO SYSTEM "PCPropertyBO">
+
+
+<!ELEMENT PCOptionsBO (PCOptionsBO.Parts)>
+<!ATTLIST PCOptionsBO
+    Name ID #REQUIRED
+>
+
+
+<!ELEMENT PCOptionsBO.Parts (PCOptionsPartBOList)>
+
+<!ELEMENT PCOptionsPartBO (PCOptionsPartBO.Parts, PCOptionsPartBO.Properties)>
+<!ATTLIST PCOptionsPartBO
+    Name ID #REQUIRED
+>
+
+
+<!ELEMENT PCOptionsPartBO.Parts (PCOptionsPartBOList)>
+<!ELEMENT PCOptionsPartBO.Properties (PCPropertyBOList)>
+
+<!ELEMENT PCPropertyBO EMPTY>
+<!ATTLIST PCPropertyBO
+    Name ID #REQUIRED
+    Value CDATA ""
+    PropertyType CDATA ""
+>
+
+
+
+<!ELEMENT PCOptionsPartBOList (PCOptionsPartBO)*>
+
+
+<!ELEMENT PCPropertyBOList (PCPropertyBO)*>
+
+

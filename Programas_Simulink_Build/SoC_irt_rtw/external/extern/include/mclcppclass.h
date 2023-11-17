@@ -1,4 +1,4 @@
-/* Copyright 2004-2016 The MathWorks, Inc.
+/* Copyright 2004-2021 The MathWorks, Inc.
  *
  * ATTENTION! ATTENTION! ATTENTION! 
  *
@@ -28,10 +28,25 @@
 #include <string>
 #include <exception>
 #include <iostream>
+#include <vector>
 
 #include "mclmcr.h"
 
 class mwArray;
+
+/**
+ * An enum to facilitate the creation of MATLAB string array.
+ * It is awkward to modify the existing constructors to accommodate the creation of 
+ * array of MATLAB string type. With this enum as a parameter in the constructors,
+ * similar constructors can be adapted for MATLAB string type. It has one member as of now,
+ * but the list can be expanded when the need arises. Use enum instead of enum class since
+ * C++ 11 or later is not a requirement.
+ */
+enum MWObjectType { MLString };
+
+typedef std::basic_string<mxChar> mwUString;
+
+static const char* STRING_ONLY_METHOD_ERROR = "Method can only be called on a MATLAB string.";
 
 template<class T>
 class mwArraySharedCopy : public T
@@ -53,7 +68,6 @@ public:
             mwException::raise_error();
         validate();
     }
-
     mwArray(mxClassID mxID) : m_pa(0)
     {
         if (mclGetEmptyArray((void**)&m_pa, mxID) == MCLCPP_ERR)
@@ -66,9 +80,49 @@ public:
             mwException::raise_error();
         validate();
     }
+    /**
+     * Constructor to create a MxN MATLAB string array.
+     * All elemenets are in the initial <missing> state.
+     */
+    mwArray(mwSize num_rows, mwSize num_cols, MWObjectType T) : m_pa(0)
+    {
+        mwSize dim[2] = { num_rows, num_cols };
+        if (mclGetMatlabStringArray((void**)&m_pa, 2, dim) == MCLCPP_ERR)
+            mwException::raise_error();
+        validate();
+    }
     mwArray(mwSize num_dims, const mwSize* dims, mxClassID mxID, mxComplexity cmplx = mxREAL) : m_pa(0)
     {
         if (mclGetArray((void**)&m_pa, num_dims, dims, mxID, cmplx) == MCLCPP_ERR)
+            mwException::raise_error();
+        validate();
+    }
+    /**
+     * Constructor to create a N-dimensional MATLAB string array.
+     * All elements are in the initial <missing> state.
+     */
+    mwArray(mwSize num_dims, const mwSize* dims, MWObjectType T) : m_pa(0)
+    {
+        if (mclGetMatlabStringArray((void**)&m_pa, num_dims, dims) == MCLCPP_ERR)
+            mwException::raise_error();
+        validate();
+    }
+    /**
+     * Constructor to create a one-element MATLAB string array from a string.
+     */
+    mwArray(const mxChar* ustr, MWObjectType T) : m_pa(0)
+    {
+        auto status = mclGetMatlabString((void**)&m_pa, 1, &ustr);
+        if (status == MCLCPP_ERR)
+            mwException::raise_error();
+        validate();
+    }
+    /**
+     * Constructor to create a 1xN MATLAB string array from a string array.
+     */
+    mwArray(mwSize num_strings, const mxChar** ustrs, MWObjectType T) : m_pa(0)
+    {
+        if (mclGetMatlabString((void**)&m_pa, num_strings, ustrs) == MCLCPP_ERR)
             mwException::raise_error();
         validate();
     }
@@ -343,6 +397,39 @@ public:
     {
         return array_ref_is_complex(m_pa);
     }
+    bool IsMatlabString() const
+    {
+        return array_ref_is_matlab_string(m_pa);
+    }
+    bool IsMissingElement(mwSize index = 1) const
+    {
+        return array_ref_is_missing_string_element(m_pa, index);
+    }
+    void SetStringData(const std::vector<mwUString>& data)
+    {
+        auto size = data.size();
+        if (size == 0)
+            return;
+        std::vector< const mxChar*> cdata(size);
+        for (std::size_t i = 0; i < size; ++i)
+            cdata[i] = data[i].c_str();
+        SetStringData(&cdata[0], size);
+    }
+    void SetStringData(const mxChar** data, mwSize array_size) 
+    {
+        if (array_ref_set_matlab_string(m_pa, data, array_size) == MCLCPP_ERR)
+            mwException::raise_error();
+    }
+    void SetStringElement(mwSize index, const mwUString& str)
+    {
+        if (array_ref_set_string_element(m_pa, index, str.c_str()) == MCLCPP_ERR)
+            mwException::raise_error();
+    }
+    void SetStringElement(mwSize index, const mxChar* str)
+    {
+        if (array_ref_set_string_element(m_pa, index, str) == MCLCPP_ERR)
+            mwException::raise_error();
+    }
     bool Equals(const mwArray& arr) const
     {
         return array_ref_equals(m_pa, arr.m_pa);
@@ -442,7 +529,7 @@ public:
     mwArray GetA(const char* name, mwSize num_indices, const mwIndex* index)
     {
         array_ref* p = array_ref_get_const_char(m_pa, name, num_indices,
-						index);
+                        index);
         if (!p)
             mwException::raise_error();
         return mwArray(p);
@@ -450,7 +537,7 @@ public:
     const mwArray GetA(const char* name, mwSize num_indices, const mwIndex* index) const
     {
         array_ref* p = array_ref_get_const_char(m_pa, name, num_indices,
-						index);
+                        index);
         if (!p)
             mwException::raise_error();
         return mwArray(p);
@@ -992,7 +1079,7 @@ public:
         va_list vargs;
         va_start(vargs, num_indices);
         array_ref* p = array_ref_getV_const_char(m_pa, name, num_indices,
-						 vargs);
+                         vargs);
         va_end(vargs);
         if (!p)
             mwException::raise_error();
@@ -1003,7 +1090,7 @@ public:
         va_list vargs;
         va_start(vargs, num_indices);
         array_ref* p = array_ref_getV_const_char(m_pa, name, num_indices,
-						 vargs);
+                         vargs);
         va_end(vargs);
         if (!p)
             mwException::raise_error();
@@ -1050,6 +1137,18 @@ public:
         }
         ref_count_obj_release(m_pa);
         m_pa = pa_sharedCopy;
+    }
+    void Set(const mwUString& str) 
+    {
+        if (!IsMatlabString())
+            throw mwException(STRING_ONLY_METHOD_ERROR);
+        SetStringElement(1, str);
+    }
+    void Set(const mxChar* str)
+    {
+        if (!IsMatlabString())
+            throw mwException(STRING_ONLY_METHOD_ERROR);
+        SetStringElement(1, str);
     }
     void GetData(mxDouble* buffer, mwSize len) const
     {
@@ -1123,58 +1222,85 @@ public:
         if (array_ref_get_char(m_pa, buffer, len) == MCLCPP_ERR)
             mwException::raise_error();
     }
-    void SetData(mxDouble* buffer, mwSize len)
+    void GetStringData(const mxChar** data, mwSize* array_size, mwSize* data_size) const
+    {
+        if (array_ref_get_matlab_string(m_pa, data, array_size, data_size) == MCLCPP_ERR)
+            mwException::raise_error();
+    }
+    std::vector<mwUString> GetStringData() const
+    {
+        mwSize m = NumberOfElements();
+        std::vector<mwUString> ret(m);
+        if (m > 0) {
+            std::vector<const mxChar*> data(m);
+            if (array_ref_get_matlab_string(m_pa, (const mxChar**)&data[0], &m, nullptr) == MCLCPP_ERR)
+                mwException::raise_error();
+            for (mwSize i = 0; i < m; ++i) {
+                if (data[i])
+                    ret[i] = data[i];
+            }
+        }
+        return ret;
+    }
+    const mxChar* GetStringElement(mwSize index = 1) const
+    {
+        const mxChar* str = nullptr;
+        if (array_ref_get_string_element(m_pa, index, &str, nullptr) == MCLCPP_ERR)
+            mwException::raise_error();
+        return str;
+    }
+    void SetData(const mxDouble* buffer, mwSize len)
     {
         if (array_ref_set_numeric_mxDouble(m_pa, buffer, len) == MCLCPP_ERR)
             mwException::raise_error();
     }
-    void SetData(mxSingle* buffer, mwSize len)
+    void SetData(const mxSingle* buffer, mwSize len)
     {
         if (array_ref_set_numeric_mxSingle(m_pa, buffer, len) == MCLCPP_ERR)
             mwException::raise_error();
     }
-    void SetData(mxInt8* buffer, mwSize len)
+    void SetData(const mxInt8* buffer, mwSize len)
     {
         if (array_ref_set_numeric_mxInt8(m_pa, buffer, len) == MCLCPP_ERR)
             mwException::raise_error();
     }
-    void SetData(mxUint8* buffer, mwSize len)
+    void SetData(const mxUint8* buffer, mwSize len)
     {
         if (array_ref_set_numeric_mxUint8(m_pa, buffer, len) == MCLCPP_ERR)
             mwException::raise_error();
     }
-    void SetData(mxInt16* buffer, mwSize len)
+    void SetData(const mxInt16* buffer, mwSize len)
     {
         if (array_ref_set_numeric_mxInt16(m_pa, buffer, len) == MCLCPP_ERR)
             mwException::raise_error();
     }
-    void SetData(mxUint16* buffer, mwSize len)
+    void SetData(const mxUint16* buffer, mwSize len)
     {
         if (array_ref_set_numeric_mxUint16(m_pa, buffer, len) == MCLCPP_ERR)
             mwException::raise_error();
     }
-    void SetData(mxInt32* buffer, mwSize len)
+    void SetData(const mxInt32* buffer, mwSize len)
     {
         if (array_ref_set_numeric_mxInt32(m_pa, buffer, len) == MCLCPP_ERR)
             mwException::raise_error();
     }
-    void SetData(mxUint32* buffer, mwSize len)
+    void SetData(const mxUint32* buffer, mwSize len)
     {
         if (array_ref_set_numeric_mxUint32(m_pa, buffer, len) == MCLCPP_ERR)
             mwException::raise_error();
     }
-    void SetData(mxInt64* buffer, mwSize len)
+    void SetData(const mxInt64* buffer, mwSize len)
     {
         if (array_ref_set_numeric_mxInt64(m_pa, buffer, len) == MCLCPP_ERR)
             mwException::raise_error();
     }
-    void SetData(mxUint64* buffer, mwSize len)
+    void SetData(const mxUint64* buffer, mwSize len)
     {
         if (array_ref_set_numeric_mxUint64(m_pa, buffer, len) == MCLCPP_ERR)
             mwException::raise_error();
     }
 #ifdef __APPLE
-    void SetData(mwIndex* buffer, mwSize len)
+    void SetData(const mwIndex* buffer, mwSize len)
     {
 #ifdef _LP64
         if (array_ref_set_numeric_mxUint64(m_pa, static_cast<mxUint64 *>(static_cast<void *>(buffer))buffer, len) == MCLCPP_ERR)
@@ -1185,12 +1311,12 @@ public:
 #endif
     }
 #endif
-    void SetLogicalData(mxLogical* buffer, mwSize len)
+    void SetLogicalData(const mxLogical* buffer, mwSize len)
     {
         if (array_ref_set_logical(m_pa, buffer, len) == MCLCPP_ERR)
             mwException::raise_error();
     }
-    void SetCharData(mxChar* buffer, mwSize len)
+    void SetCharData(const mxChar* buffer, mwSize len)
     {
         if (array_ref_set_char(m_pa, buffer, len) == MCLCPP_ERR)
             mwException::raise_error();
@@ -1213,15 +1339,15 @@ public:
     }
     mwArray operator()(mwIndex i1)
     {
-	    return GetPromoted(1, i1);
+        return GetPromoted(1, i1);
     }
     const mwArray operator()(mwIndex i1) const
     {
-	    return GetPromoted(1, i1);
+        return GetPromoted(1, i1);
     }
     mwArray operator()(mwIndex i1, mwIndex i2)
     {
-	    return GetPromoted(2, i1, i2);
+        return GetPromoted(2, i1, i2);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2) const
     {
@@ -1229,7 +1355,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3)
     {
-	    return GetPromoted(3, i1, i2, i3);
+        return GetPromoted(3, i1, i2, i3);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3) const
     {
@@ -1237,7 +1363,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4)
     {
-	    return GetPromoted(4, i1, i2, i3, i4);
+        return GetPromoted(4, i1, i2, i3, i4);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4) const
     {
@@ -1245,7 +1371,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5)
     {
-	    return GetPromoted(5, i1, i2, i3, i4, i5);
+        return GetPromoted(5, i1, i2, i3, i4, i5);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5) const
     {
@@ -1253,7 +1379,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6)
     {
-	    return GetPromoted(6, i1, i2, i3, i4, i5, i6);
+        return GetPromoted(6, i1, i2, i3, i4, i5, i6);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6) const
     {
@@ -1261,7 +1387,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7)
     {
-	    return GetPromoted(7, i1, i2, i3, i4, i5, i6, i7);
+        return GetPromoted(7, i1, i2, i3, i4, i5, i6, i7);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7) const
     {
@@ -1269,7 +1395,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8)
     {
-	    return GetPromoted(8, i1, i2, i3, i4, i5, i6, i7, i8);
+        return GetPromoted(8, i1, i2, i3, i4, i5, i6, i7, i8);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8) const
     {
@@ -1277,7 +1403,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9)
     {
-	    return GetPromoted(9, i1, i2, i3, i4, i5, i6, i7, i8, i9);
+        return GetPromoted(9, i1, i2, i3, i4, i5, i6, i7, i8, i9);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9) const
     {
@@ -1285,7 +1411,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10)
     {
-	    return GetPromoted(10, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10);
+        return GetPromoted(10, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10) const
     {
@@ -1293,7 +1419,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11)
     {
-	    return GetPromoted(11, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11);
+        return GetPromoted(11, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11) const
     {
@@ -1301,7 +1427,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12)
     {
-	    return GetPromoted(12, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12);
+        return GetPromoted(12, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12) const
     {
@@ -1309,7 +1435,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13)
     {
-	    return GetPromoted(13, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13);
+        return GetPromoted(13, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13) const
     {
@@ -1317,7 +1443,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14)
     {
-	    return GetPromoted(14, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14);
+        return GetPromoted(14, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14) const
     {
@@ -1325,7 +1451,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15)
     {
-	    return GetPromoted(15, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15);
+        return GetPromoted(15, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15) const
     {
@@ -1333,7 +1459,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16)
     {
-	    return GetPromoted(16, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16);
+        return GetPromoted(16, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16) const
     {
@@ -1341,7 +1467,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17)
     {
-	    return GetPromoted(17, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16, i17);
+        return GetPromoted(17, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16, i17);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17) const
     {
@@ -1349,7 +1475,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18)
     {
-	    return GetPromoted(18, i1, i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18);
+        return GetPromoted(18, i1, i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18) const
     {
@@ -1357,7 +1483,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19)
     {
-	    return GetPromoted(19, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19);
+        return GetPromoted(19, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19) const
     {
@@ -1365,7 +1491,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20)
     {
-	    return GetPromoted(20, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20);
+        return GetPromoted(20, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20) const
     {
@@ -1373,7 +1499,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21)
     {
-	    return GetPromoted(21, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21);
+        return GetPromoted(21, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21) const
     {
@@ -1381,7 +1507,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22)
     {
-	    return GetPromoted(22, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22);
+        return GetPromoted(22, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22) const
     {
@@ -1389,7 +1515,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23)
     {
-	    return GetPromoted(23, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23);
+        return GetPromoted(23, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23) const
     {
@@ -1397,7 +1523,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24)
     {
-	    return GetPromoted(24, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24);
+        return GetPromoted(24, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24) const
     {
@@ -1405,15 +1531,15 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25)
     {
-	    return GetPromoted(25, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25);
+        return GetPromoted(25, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25) const
     {
-	    return GetPromoted(25, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25);
+        return GetPromoted(25, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25);
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26)
     {
-	    return GetPromoted(26, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25, i26);
+        return GetPromoted(26, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25, i26);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26) const
     {
@@ -1421,7 +1547,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27)
     {
-	    return GetPromoted(27, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27);
+        return GetPromoted(27, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27) const
     {
@@ -1429,7 +1555,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27, mwIndex i28)
     {
-	    return GetPromoted(28, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28);
+        return GetPromoted(28, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27, mwIndex i28) const
     {
@@ -1437,7 +1563,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27, mwIndex i28, mwIndex i29)
     {
-	    return GetPromoted(29, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28, i29);
+        return GetPromoted(29, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28, i29);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27, mwIndex i28, mwIndex i29) const
     {
@@ -1445,7 +1571,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27, mwIndex i28, mwIndex i29, mwIndex i30)
     {
-	    return GetPromoted(30, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28, i29, i30);
+        return GetPromoted(30, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28, i29, i30);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27, mwIndex i28, mwIndex i29, mwIndex i30) const
     {
@@ -1453,7 +1579,7 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27, mwIndex i28, mwIndex i29, mwIndex i30, mwIndex i31)
     {
-	    return GetPromoted(31, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28, i29, i30, i31);
+        return GetPromoted(31, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28, i29, i30, i31);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27, mwIndex i28, mwIndex i29, mwIndex i30, mwIndex i31) const
     {
@@ -1461,23 +1587,23 @@ public:
     }
     mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27, mwIndex i28, mwIndex i29, mwIndex i30, mwIndex i31, mwIndex i32)
     {
-	    return GetPromoted(32, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28, i29, i30, i31, i32);
+        return GetPromoted(32, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28, i29, i30, i31, i32);
     }
     const mwArray operator()(mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27, mwIndex i28, mwIndex i29, mwIndex i30, mwIndex i31, mwIndex i32) const
     {
-	    return GetPromoted(32, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28, i29, i30, i31, i32);
+        return GetPromoted(32, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28, i29, i30, i31, i32);
     }
     mwArray operator()(const char* name, mwIndex i1)
     {
-	    return GetPromoted(name, 1, i1);
+        return GetPromoted(name, 1, i1);
     }
     const mwArray operator()(const char* name, mwIndex i1) const
     {
-	    return GetPromoted(name, 1, i1);
+        return GetPromoted(name, 1, i1);
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2)
     {
-	    return GetPromoted(name, 2, i1, i2);
+        return GetPromoted(name, 2, i1, i2);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2) const
     {
@@ -1485,7 +1611,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3)
     {
-	    return GetPromoted(name, 3, i1, i2, i3);
+        return GetPromoted(name, 3, i1, i2, i3);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3) const
     {
@@ -1493,7 +1619,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4)
     {
-	    return GetPromoted(name, 4, i1, i2, i3, i4);
+        return GetPromoted(name, 4, i1, i2, i3, i4);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4) const
     {
@@ -1501,7 +1627,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5)
     {
-	    return GetPromoted(name, 5, i1, i2, i3, i4, i5);
+        return GetPromoted(name, 5, i1, i2, i3, i4, i5);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5) const
     {
@@ -1509,7 +1635,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6)
     {
-	    return GetPromoted(name, 6, i1, i2, i3, i4, i5, i6);
+        return GetPromoted(name, 6, i1, i2, i3, i4, i5, i6);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6) const
     {
@@ -1517,7 +1643,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7)
     {
-	    return GetPromoted(name, 7, i1, i2, i3, i4, i5, i6, i7);
+        return GetPromoted(name, 7, i1, i2, i3, i4, i5, i6, i7);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7) const
     {
@@ -1525,7 +1651,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8)
     {
-	    return GetPromoted(name, 8, i1, i2, i3, i4, i5, i6, i7, i8);
+        return GetPromoted(name, 8, i1, i2, i3, i4, i5, i6, i7, i8);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8) const
     {
@@ -1533,7 +1659,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9)
     {
-	    return GetPromoted(name, 9, i1, i2, i3, i4, i5, i6, i7, i8, i9);
+        return GetPromoted(name, 9, i1, i2, i3, i4, i5, i6, i7, i8, i9);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9) const
     {
@@ -1541,7 +1667,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10)
     {
-	    return GetPromoted(name, 10, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10);
+        return GetPromoted(name, 10, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10) const
     {
@@ -1549,7 +1675,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11)
     {
-	    return GetPromoted(name, 11, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11);
+        return GetPromoted(name, 11, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11) const
     {
@@ -1557,7 +1683,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12)
     {
-	    return GetPromoted(name, 12, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12);
+        return GetPromoted(name, 12, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12) const
     {
@@ -1565,7 +1691,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13)
     {
-	    return GetPromoted(name, 13, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13);
+        return GetPromoted(name, 13, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13) const
     {
@@ -1573,7 +1699,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14)
     {
-	    return GetPromoted(name, 14, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14);
+        return GetPromoted(name, 14, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14) const
     {
@@ -1581,7 +1707,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15)
     {
-	    return GetPromoted(name, 15, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15);
+        return GetPromoted(name, 15, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15) const
     {
@@ -1589,7 +1715,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16)
     {
-	    return GetPromoted(name, 16, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16);
+        return GetPromoted(name, 16, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16) const
     {
@@ -1597,7 +1723,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17)
     {
-	    return GetPromoted(name, 17, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16, i17);
+        return GetPromoted(name, 17, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16, i17);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17) const
     {
@@ -1605,7 +1731,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18)
     {
-	    return GetPromoted(name, 18, i1, i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18);
+        return GetPromoted(name, 18, i1, i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18) const
     {
@@ -1613,7 +1739,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19)
     {
-	    return GetPromoted(name, 19, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19);
+        return GetPromoted(name, 19, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19) const
     {
@@ -1621,7 +1747,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20)
     {
-	    return GetPromoted(name, 20, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20);
+        return GetPromoted(name, 20, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20) const
     {
@@ -1629,7 +1755,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21)
     {
-	    return GetPromoted(name, 21, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21);
+        return GetPromoted(name, 21, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21) const
     {
@@ -1637,7 +1763,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22)
     {
-	    return GetPromoted(name, 22, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22);
+        return GetPromoted(name, 22, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22) const
     {
@@ -1645,7 +1771,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23)
     {
-	    return GetPromoted(name, 23, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23);
+        return GetPromoted(name, 23, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23) const
     {
@@ -1653,7 +1779,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24)
     {
-	    return GetPromoted(name, 24, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24);
+        return GetPromoted(name, 24, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24) const
     {
@@ -1661,15 +1787,15 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25)
     {
-	    return GetPromoted(name, 25, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25);
+        return GetPromoted(name, 25, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25) const
     {
-	    return GetPromoted(name, 25, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25);
+        return GetPromoted(name, 25, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25);
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26)
     {
-	    return GetPromoted(name, 26, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25, i26);
+        return GetPromoted(name, 26, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25, i26);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26) const
     {
@@ -1677,7 +1803,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27)
     {
-	    return GetPromoted(name, 27, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27);
+        return GetPromoted(name, 27, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27) const
     {
@@ -1685,7 +1811,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27, mwIndex i28)
     {
-	    return GetPromoted(name, 28, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28);
+        return GetPromoted(name, 28, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27, mwIndex i28) const
     {
@@ -1693,7 +1819,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27, mwIndex i28, mwIndex i29)
     {
-	    return GetPromoted(name, 29, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28, i29);
+        return GetPromoted(name, 29, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28, i29);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27, mwIndex i28, mwIndex i29) const
     {
@@ -1701,7 +1827,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27, mwIndex i28, mwIndex i29, mwIndex i30)
     {
-	    return GetPromoted(name, 30, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28, i29, i30);
+        return GetPromoted(name, 30, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28, i29, i30);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27, mwIndex i28, mwIndex i29, mwIndex i30) const
     {
@@ -1709,7 +1835,7 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27, mwIndex i28, mwIndex i29, mwIndex i30, mwIndex i31)
     {
-	    return GetPromoted(name, 31, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28, i29, i30, i31);
+        return GetPromoted(name, 31, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28, i29, i30, i31);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27, mwIndex i28, mwIndex i29, mwIndex i30, mwIndex i31) const
     {
@@ -1717,11 +1843,11 @@ public:
     }
     mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27, mwIndex i28, mwIndex i29, mwIndex i30, mwIndex i31, mwIndex i32)
     {
-	    return GetPromoted(name, 32, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28, i29, i30, i31, i32);
+        return GetPromoted(name, 32, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28, i29, i30, i31, i32);
     }
     const mwArray operator()(const char* name, mwIndex i1, mwIndex i2, mwIndex i3, mwIndex i4, mwIndex i5, mwIndex i6, mwIndex i7, mwIndex i8, mwIndex i9, mwIndex i10, mwIndex i11, mwIndex i12, mwIndex i13, mwIndex i14, mwIndex i15, mwIndex i16, mwIndex i17, mwIndex i18, mwIndex i19, mwIndex i20, mwIndex i21, mwIndex i22, mwIndex i23, mwIndex i24, mwIndex i25, mwIndex i26, mwIndex i27, mwIndex i28, mwIndex i29, mwIndex i30, mwIndex i31, mwIndex i32) const
     {
-	    return GetPromoted(name, 32, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28, i29, i30, i31, i32);
+        return GetPromoted(name, 32, i1,  i2,  i3,  i4,  i5,  i6,  i7,  i8,  i9,  i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25,  i26, i27, i28, i29, i30, i31, i32);
     }
     mwArray& operator=(const mxDouble& x)
     {
@@ -1781,6 +1907,20 @@ public:
     {
         if (array_ref_set_numeric_mxUint64(m_pa, &x, 1) == MCLCPP_ERR)
             mwException::raise_error();
+        return *this;
+    }
+    mwArray& operator=(const mwUString& x)
+    {
+        if (!IsMatlabString())
+            throw mwException(STRING_ONLY_METHOD_ERROR);
+        SetStringElement(1, x);
+        return *this;
+    }
+    mwArray& operator=(const mxChar* x)
+    {
+        if (!IsMatlabString())
+            throw mwException(STRING_ONLY_METHOD_ERROR);
+        SetStringElement(1, x);
         return *this;
     }
 #if !defined(__APPLE_CC__)
@@ -1861,6 +2001,10 @@ public:
             mwException::raise_error();
         return x;
     }
+    operator const mxChar*() const
+    {
+        return GetStringElement();
+    }
 #if !defined(__APPLE_CC__)
     operator mxLogical() const
     {
@@ -1872,7 +2016,7 @@ public:
 #endif
     static double GetNaN()
     {
-	    return mclGetNaN();
+        return mclGetNaN();
     }
     static double GetEps()
     {
@@ -1880,7 +2024,7 @@ public:
     } 
     static double GetInf()
     {
-	    return mclGetInf();
+        return mclGetInf();
     }
     static bool IsFinite(double x)
     {
@@ -1907,79 +2051,93 @@ public:
         array_ref* p = 0;
         int retval = 0;
         if (mxID == mxLOGICAL_CLASS)
+        {
             retval = mclGetLogicalSparse((void **)&p, 0, NULL, 0, NULL, 0, NULL, num_rows, num_cols, nzmax);
+        }
         else
+        {
             retval = mclGetNumericSparse((void**)&p, 0, NULL, 0, NULL, 0, NULL, NULL, num_rows, num_cols, nzmax, mxID, cmplx);
-	    if (retval)
+        }
+        if (retval)
+        {
             mwException::raise_error();
+        }
         return mwArray(p);
     }
     static mwArray NewSparse(mwSize rowindex_size, const mwIndex* rowindex,
-			     mwSize colindex_size, const mwIndex* colindex, mwSize data_size, 
+                 mwSize colindex_size, const mwIndex* colindex, mwSize data_size, 
                  const mxDouble* rData, mwSize num_rows, mwSize num_cols, mwSize nzmax)
     {
         array_ref* p = 0;
-	    if (mclGetNumericSparse((void **)&p, rowindex_size, rowindex, colindex_size, colindex, 
+        if (mclGetNumericSparse((void **)&p, rowindex_size, rowindex, colindex_size, colindex, 
             data_size, rData, NULL, num_rows, num_cols, nzmax, mxDOUBLE_CLASS, mxREAL))
-	            mwException::raise_error();
+                mwException::raise_error();
         return mwArray(p);
     }
     static mwArray NewSparse(mwSize rowindex_size, const mwIndex* rowindex,
-			     mwSize colindex_size, const mwIndex* colindex, mwSize data_size, 
+                 mwSize colindex_size, const mwIndex* colindex, mwSize data_size, 
                  const mxDouble* rData, mwSize nzmax)
     {
         array_ref* p = 0;
-	    if (mclGetNumericSparseInferRowsCols((void **)&p, rowindex_size, rowindex, colindex_size, colindex, 
+        if (mclGetNumericSparseInferRowsCols((void **)&p, rowindex_size, rowindex, colindex_size, colindex, 
             data_size, rData, NULL, nzmax, mxDOUBLE_CLASS, mxREAL))
-	            mwException::raise_error();
+                mwException::raise_error();
         return mwArray(p);
     }
     static mwArray NewSparse(mwSize rowindex_size, const mwIndex* rowindex,
-			     mwSize colindex_size, const mwIndex* colindex, mwSize data_size, 
+                 mwSize colindex_size, const mwIndex* colindex, mwSize data_size, 
                  const mxDouble* rData, const mxDouble* iData, mwSize num_rows, mwSize num_cols, mwSize nzmax)
     {
         array_ref* p = 0;
-	    if (mclGetNumericSparse((void **)&p, rowindex_size, rowindex, colindex_size, colindex, 
+        if (mclGetNumericSparse((void **)&p, rowindex_size, rowindex, colindex_size, colindex, 
             data_size, rData, iData, num_rows, num_cols, nzmax, mxDOUBLE_CLASS, mxCOMPLEX))
-	            mwException::raise_error();
+                mwException::raise_error();
         return mwArray(p);
     }
     static mwArray NewSparse(mwSize rowindex_size, const mwIndex* rowindex,
-			     mwSize colindex_size, const mwIndex* colindex, mwSize data_size, 
+                 mwSize colindex_size, const mwIndex* colindex, mwSize data_size, 
                  const mxDouble* rData, const mxDouble* iData, mwSize nzmax)
     {
         array_ref* p = 0;
-	    if (mclGetNumericSparseInferRowsCols((void **)&p, rowindex_size, rowindex, colindex_size, colindex, 
+        if (mclGetNumericSparseInferRowsCols((void **)&p, rowindex_size, rowindex, colindex_size, colindex, 
             data_size, rData, iData, nzmax, mxDOUBLE_CLASS, mxCOMPLEX))
-	            mwException::raise_error();
+                mwException::raise_error();
         return mwArray(p);
     }
     static mwArray NewSparse(mwSize rowindex_size, const mwIndex* rowindex,
-			     mwSize colindex_size, const mwIndex* colindex, mwSize data_size, 
+                 mwSize colindex_size, const mwIndex* colindex, mwSize data_size, 
                  const mxLogical* rData, mwSize num_rows, mwSize num_cols, mwSize nzmax)
     {
         array_ref* p = 0;
-	    if (mclGetLogicalSparse((void **)&p, rowindex_size, rowindex, colindex_size, colindex, 
+        if (mclGetLogicalSparse((void **)&p, rowindex_size, rowindex, colindex_size, colindex, 
             data_size, rData, num_rows, num_cols, nzmax))
-	            mwException::raise_error();
+                mwException::raise_error();
         return mwArray(p);
     }
     static mwArray NewSparse(mwSize rowindex_size, const mwIndex* rowindex,
-			     mwSize colindex_size, const mwIndex* colindex, mwSize data_size, 
+                 mwSize colindex_size, const mwIndex* colindex, mwSize data_size, 
                  const mxLogical* rData, mwSize nzmax)
     {
         array_ref* p = 0;
-	    if (mclGetLogicalSparseInferRowsCols((void **)&p, rowindex_size, rowindex, colindex_size, colindex, 
+        if (mclGetLogicalSparseInferRowsCols((void **)&p, rowindex_size, rowindex, colindex_size, colindex, 
             data_size, rData, nzmax))
-	            mwException::raise_error();
+                mwException::raise_error();
         return mwArray(p);
     }
 protected:
     array_ref* m_pa;
+private:
+    /**
+     * Prevent this operator from being used by applications.
+     */
+    mwArray& operator=(const char*)
+    {
+        return *this;
+    }
 };
 
 inline void mclcppMlfFeval(HMCRINSTANCE inst, const char* name, int nargout,
-			   int fnout, int fnin, ...)
+               int fnout, int fnin, ...)
 {
     va_list ap;
     mw_auto_ptr_t<array_buffer> rhs;
@@ -2019,7 +2177,7 @@ inline void mclcppMlfFeval(HMCRINSTANCE inst, const char* name, int nargout,
             for (ixIndx=1; ixIndx<=varargin->NumberOfElements(); ixIndx++)
             {
                 if (array_buffer_add(rhs, varargin->Get(1, ixIndx).get_ptr())
-		    == MCLCPP_ERR)
+            == MCLCPP_ERR)
                     mwException::raise_error();
             }
         }
@@ -2034,7 +2192,7 @@ inline void mclcppMlfFeval(HMCRINSTANCE inst, const char* name, int nargout,
 
     // Execute function
     if (mclcppFeval(inst, name, nargout, (void**)&lhs,
-		    (void*)((array_buffer*)rhs)) == MCLCPP_ERR)
+            (void*)((array_buffer*)rhs)) == MCLCPP_ERR)
         mwException::raise_error();
     // Process outputs
 

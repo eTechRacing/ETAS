@@ -1,7 +1,7 @@
 /*
  * PUBLISHed header for libmclmcr, the mclmcr library.
  *
- * Copyright 1984-2016 The MathWorks, Inc.
+ * Copyright 1984-2020 The MathWorks, Inc.
  */
 
 #if defined(_MSC_VER)
@@ -211,6 +211,8 @@ class array_ref: public ref_count_obj
     virtual bool is_sparse() = 0;
     virtual bool is_numeric() = 0;
     virtual bool is_complex() = 0;
+    virtual bool is_string() = 0;
+    virtual bool is_missing_element(mwSize index) = 0;
     virtual int make_complex() = 0;
     virtual bool equals(array_ref* p) = 0;
     virtual int compare_to(array_ref* p) = 0;
@@ -236,9 +238,10 @@ class array_ref: public ref_count_obj
     virtual int get_numeric(mxUint32* x, mwSize len) = 0;
     virtual int get_numeric(mxInt64* x, mwSize len) = 0;
     virtual int get_numeric(mxUint64* x, mwSize len) = 0;
-
     virtual int get_char(mxChar* x, mwSize len) = 0;
     virtual int get_logical(mxLogical* x, mwSize len) = 0;
+    virtual int get_string_element(mwSize index, const mxChar** str, mwSize* len) = 0;
+    virtual int get_string_data(const mxChar** data, mwSize* array_size, mwSize *data_size) = 0;
     virtual int set_numeric(const mxDouble* x, mwSize len) = 0;
     virtual int set_numeric(const mxSingle* x, mwSize len) = 0;
     virtual int set_numeric(const mxInt8* x, mwSize len) = 0;
@@ -251,6 +254,8 @@ class array_ref: public ref_count_obj
     virtual int set_numeric(const mxUint64* x, mwSize len) = 0;
     virtual int set_char(const mxChar* x, mwSize len) = 0;
     virtual int set_logical(const mxLogical* x, mwSize len) = 0;
+    virtual int set_string_element(mwSize index, const mxChar* x) = 0;
+    virtual int set_string_data(const mxChar** x, mwSize array_size) = 0;
 };
 
 class array_buffer: public ref_count_obj
@@ -370,6 +375,12 @@ LIBMWMCLMCR_API_EXTERN_C bool array_ref_is_numeric(array_ref *obj);
 LIBMWMCLMCR_API_EXTERN_C bool array_ref_is_complex(array_ref *obj);
 
 
+LIBMWMCLMCR_API_EXTERN_C bool array_ref_is_matlab_string(array_ref* obj);
+
+
+LIBMWMCLMCR_API_EXTERN_C bool array_ref_is_missing_string_element(array_ref* obj, mwSize index);
+
+
 LIBMWMCLMCR_API_EXTERN_C int array_ref_make_complex(array_ref *obj);
 
 
@@ -445,6 +456,12 @@ LIBMWMCLMCR_API_EXTERN_C int array_ref_get_numeric_mxUint64(array_ref *obj, mxUi
 LIBMWMCLMCR_API_EXTERN_C int array_ref_get_char(array_ref *obj, mxChar* x, mwSize len);
 
 
+LIBMWMCLMCR_API_EXTERN_C int array_ref_get_string_element(array_ref *obj, mwSize index, const mxChar** str, mwSize* len);
+
+
+LIBMWMCLMCR_API_EXTERN_C int array_ref_get_matlab_string(array_ref *obj, const mxChar** data, mwSize* array_size, mwSize *data_size);
+
+
 LIBMWMCLMCR_API_EXTERN_C int array_ref_get_logical(array_ref *obj, mxLogical* x, mwSize len);
 
 
@@ -479,6 +496,12 @@ LIBMWMCLMCR_API_EXTERN_C int array_ref_set_numeric_mxUint64(array_ref *obj, cons
 
 
 LIBMWMCLMCR_API_EXTERN_C int array_ref_set_char(array_ref *obj, const mxChar* x, mwSize len);
+
+
+LIBMWMCLMCR_API_EXTERN_C int array_ref_set_string_element(array_ref* obj, mwSize index, const mxChar* x);
+
+
+LIBMWMCLMCR_API_EXTERN_C int array_ref_set_matlab_string(array_ref* obj, const mxChar** x, mwSize array_size);
 
 
 LIBMWMCLMCR_API_EXTERN_C int array_ref_set_logical(array_ref *obj, const mxLogical* x, mwSize len);
@@ -530,6 +553,7 @@ LIBMWMCLMCR_API_EXTERN_C void mclcppSetLastError(const char* msg);
 LIBMWMCLMCR_API_EXTERN_C int mclcppErrorCheck(void);
 
 
+LIBMWMCLMCR_API_EXTERN_C const char* mclcppGetLastErrorMessage(void);
 
 #ifdef __cplusplus
 
@@ -947,6 +971,45 @@ LIBMWMCLMCR_API_EXTERN_C int mclGetString(void** ppv, const char* str);
 LIBMWMCLMCR_API_EXTERN_C int mclGetCharMatrixFromStrings(void** ppv, mwSize m, const char** str);
 
 
+LIBMWMCLMCR_API_EXTERN_C bool mclIsMatlabString(const mxArray* pa);
+
+
+LIBMWMCLMCR_API_EXTERN_C bool mclIsMissingStringElement(const mxArray* pa, mwSize index);
+
+
+LIBMWMCLMCR_API_EXTERN_C mxArray* mclCreateMatlabString(mwSize m, const mxChar** strs);
+
+
+LIBMWMCLMCR_API_EXTERN_C mxArray *mclCreateMatlabStringArray(mwSize m, const mwSize* dims);
+
+
+LIBMWMCLMCR_API_EXTERN_C int mclMatlabStringGetElement(const mxArray* src, mwSize index, const mxChar** str, mwSize* len);
+
+
+LIBMWMCLMCR_API_EXTERN_C int mclMatlabStringSetElement(mxArray* src, mwSize index, const mxChar* str);
+
+
+LIBMWMCLMCR_API_EXTERN_C int mclMatlabStringGetData(const mxArray* src, const mxChar** data, mwSize* array_size, mwSize *data_size);
+
+
+LIBMWMCLMCR_API_EXTERN_C int mclMatlabStringSetData(mxArray* src, const mxChar** data, mwSize array_size);
+
+
+LIBMWMCLMCR_API_EXTERN_C int mclMatlabStringGetNumberOfDimensions(const mxArray* src, mwSize* num_dims);
+
+
+LIBMWMCLMCR_API_EXTERN_C int mclMatlabStringGetDimensions(const mxArray* src, const mwSize** dims);
+
+
+LIBMWMCLMCR_API_EXTERN_C int mclMatlabStringGetNumberOfElements(const mxArray* src, mwSize* num_elms);
+
+
+LIBMWMCLMCR_API_EXTERN_C int mclGetMatlabString(void** ppv, mwSize m, const mxChar** strs);
+
+
+LIBMWMCLMCR_API_EXTERN_C int mclGetMatlabStringArray(void** ppv, mwSize m, const mwSize* dims);
+
+
 LIBMWMCLMCR_API_EXTERN_C int mclGetLogicalMatrix(void** ppv, mwSize num_rows, mwSize num_cols);
 
 
@@ -1079,9 +1142,13 @@ LIBMWMCLMCR_API_EXTERN_C mxArray *mclMxRefDeserialize(const void* pa,
 
 LIBMWMCLMCR_API_EXTERN_C size_t mclMxRefMvmId(mxArray *pa);
 
-LIBMWMCLMCR_API_EXTERN_C size_t mclHashNBytes(size_t u, size_t n,
-                                              const char * pb);
+LIBMWMCLMCR_API_EXTERN_C size_t mclHashNBytes(size_t u, size_t n, const char * pb);
 
+LIBMWMCLMCR_API_EXTERN_C mwIndex mclCalcSingleSubscript(const mxArray *pa, mwSize num_dims, const mwIndex* index);
+
+LIBMWMCLMCR_API_EXTERN_C mxArray* mclCreateCharMatrixFromUTF16Strings(mwSize m, const mxChar** strs);
+
+LIBMWMCLMCR_API_EXTERN_C int mcl2DCharArrayToUTF16Strings(const mxArray* src, mxChar** data, mwSize* array_size);
 
 #include "matrix.h"
 
@@ -1440,12 +1507,9 @@ LIBMWMCLMCR_API_EXTERN_C char* mclGetTempFileName(char* tempFileName);
 
 LIBMWMCLMCR_API_EXTERN_C bool mclTerminateInstance(HMCRINSTANCE* inst);
 
-LIBMWMCLMCR_API_EXTERN_C  void stopImpersonationOnMCRThread();
+LIBMWMCLMCR_API_EXTERN_C void stopImpersonationOnMCRThread(HMCRINSTANCE inst);
 
-
-LIBMWMCLMCR_API_EXTERN_C void stopImpersonationOnMCRThread();
-
-LIBMWMCLMCR_API_EXTERN_C bool mclMxIsA(mxArray* pa, const char *cname);
+LIBMWMCLMCR_API_EXTERN_C bool mclMxIsA(HMCRINSTANCE inst, mxArray* pa, const char *cname);
 
 LIBMWMCLMCR_API_EXTERN_C bool mclMxIsRef(mxArray* pa);
 
@@ -1466,6 +1530,10 @@ LIBMWMCLMCR_API_EXTERN_C mxArray* mclMxReleaseRef(mxArray * pa);
 
 LIBMWMCLMCR_API_EXTERN_C MVMID_t mclMxRefLocalMvm(mxArray *pa);
 
-LIBMWMCLMCR_API_EXTERN_C void mclMxDestroyArray(mxArray* pa, bool onInterpreterThread);
+LIBMWMCLMCR_API_EXTERN_C void mclMxDestroyArray(HMCRINSTANCE inst, mxArray* pa );
+
+LIBMWMCLMCR_API_EXTERN_C void mclNonDefaultAppDomainInUse();
+
+LIBMWMCLMCR_API_EXTERN_C bool mclIsNonDefaultAppDomainInUse();
 
 #endif /* mclmcr_published_api_hpp */

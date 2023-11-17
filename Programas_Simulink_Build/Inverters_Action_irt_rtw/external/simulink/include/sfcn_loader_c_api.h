@@ -1,7 +1,7 @@
 /* \file sfcn_loader_c_api.h */
 /* The C API for dynamic mex s-function loading and mex file management */
 
-/* Copyright 2017 The Mathworks, Inc.*/
+/* Copyright 2017-2021 The MathWorks, Inc. */
 
 #ifndef SFCN_LOADER_C_API_H
 #define SFCN_LOADER_C_API_H
@@ -15,7 +15,7 @@
 #endif
 
 #ifdef __cplusplus
-# define SL_SFCN_LOADER_EXPORT_EXTERN_C extern "C" DLL_EXPORT_SYM
+#define SL_SFCN_LOADER_EXPORT_EXTERN_C extern "C" DLL_EXPORT_SYM
 #include <cstdarg>
 #else
 #define SL_SFCN_LOADER_EXPORT_EXTERN_C extern DLL_EXPORT_SYM
@@ -34,8 +34,7 @@
 
 /*******************************************************************************/
 /* for calling mexFunction */
-typedef struct MexArgs_T
-{
+typedef struct MexArgs_T {
     int nlhs;
     mxArray** plhs;
     int nrhs;
@@ -45,8 +44,7 @@ typedef struct MexArgs_T
 
 /*******************************************************************************/
 /* s-function parameter information */
-typedef struct ParameterInfo_T
-{
+typedef struct ParameterInfo_T {
     bool isString;
 } ParameterInfo;
 
@@ -55,8 +53,7 @@ typedef struct ParameterInfo_T
 /* ports */
 typedef int_T (*SetRegNumPortsFcn)(void*, int_T);
 
-typedef struct PortInfoFcns_T
-{
+typedef struct PortInfoFcns_T {
     SetRegNumPortsFcn setRegNumInputPorts;
     SetRegNumPortsFcn setRegNumOutputPorts;
 } PortInfoFcns;
@@ -65,159 +62,110 @@ typedef struct PortInfoFcns_T
 /*******************************************************************************/
 /* data type access */
 
-typedef DTypeId (*DTARegisterDataTypeFcn)(
-    void* v,
-    const char_T* c1,
-    const char_T* c2
-    );
+typedef DTypeId (*DTARegisterDataTypeFcn)(void* v, const char_T* c1, const char_T* c2);
 
 typedef int_T (*DTAGetNumDataTypesFcn)(void* v);
 
-typedef DTypeId (*DTAGetDataTypeIdFcn)(
-    void* v,
-    const char_T* c
-    );
-    
-typedef int_T (*DTAGetGenericDTAIntPropFcn)(
-    void* v,
-    const char_T* c,
-    DTypeId d,
-    GenDTAIntPropType g
-    );
+typedef DTypeId (*DTAGetDataTypeIdFcn)(void* v, const char_T* c);
 
-typedef int_T (*DTASetGenericDTAIntPropFcn)(
-    void*,
-    const char_T*,
-    DTypeId,
-    int_T,
-    GenDTAIntPropType
-    );
+typedef int_T (*DTAGetGenericDTAIntPropFcn)(void* v,
+                                            const char_T* c,
+                                            DTypeId d,
+                                            GenDTAIntPropType g);
 
-typedef const void* (*DTAGetGenericDTAVoidPropFcn)(
-    void * v,
-    const char_T * c1,
-    DTypeId d,
-    GenDTAVoidPropType g
-    );
+typedef int_T (
+    *DTASetGenericDTAIntPropFcn)(void*, const char_T*, DTypeId, int_T, GenDTAIntPropType);
 
-typedef int_T (*DTASetGenericDTAVoidPropFcn)(
-    void * v1,
-    const char_T * c1,
-    DTypeId d,
-    const void * v2,
-    GenDTAVoidPropType g
-    );
+typedef const void* (*DTAGetGenericDTAVoidPropFcn)(void* v,
+                                                   const char_T* c1,
+                                                   DTypeId d,
+                                                   GenDTAVoidPropType g);
 
-typedef GenericDTAUnaryFcn (*DTAGetGenericDTAUnaryFcnGWFcn)(
-    void * v,
-    const char_T * c1,
-    DTypeId d,
-    GenDTAUnaryFcnType g
-    );
+typedef int_T (*DTASetGenericDTAVoidPropFcn)(void* v1,
+                                             const char_T* c1,
+                                             DTypeId d,
+                                             const void* v2,
+                                             GenDTAVoidPropType g);
 
-typedef int_T (*DTASetGenericDTAUnaryFcnGWFcn)(
-    void * v,
-    const char_T * c1,
-    DTypeId d,
-    GenericDTAUnaryFcn f,
-    GenDTAUnaryFcnType g
-    );
+typedef GenericDTAUnaryFcn (*DTAGetGenericDTAUnaryFcnGWFcn)(void* v,
+                                                            const char_T* c1,
+                                                            DTypeId d,
+                                                            GenDTAUnaryFcnType g);
 
-typedef GenericDTABinaryFcn (*DTAGetGenericDTABinaryFcnGWFcn)(
-    void * v,
-    const char_T * c1,
-    DTypeId d,
-    GenDTABinaryFcnType g
-    );
+typedef int_T (*DTASetGenericDTAUnaryFcnGWFcn)(void* v,
+                                               const char_T* c1,
+                                               DTypeId d,
+                                               GenericDTAUnaryFcn f,
+                                               GenDTAUnaryFcnType g);
 
-typedef int_T (*DTASetGenericDTABinaryFcnGWFcn)(
-    void * v,
-    const char_T * c1,
-    DTypeId d,
-    GenericDTABinaryFcn f,
-    GenDTABinaryFcnType g
-    );
+typedef GenericDTABinaryFcn (*DTAGetGenericDTABinaryFcnGWFcn)(void* v,
+                                                              const char_T* c1,
+                                                              DTypeId d,
+                                                              GenDTABinaryFcnType g);
 
-typedef ConvertBetweenFcn (*DTAGetConvertBetweenFcnFcn)(
-    void * v,
-    const char_T * c1,
-    DTypeId d
-    );
+typedef int_T (*DTASetGenericDTABinaryFcnGWFcn)(void* v,
+                                                const char_T* c1,
+                                                DTypeId d,
+                                                GenericDTABinaryFcn f,
+                                                GenDTABinaryFcnType g);
 
-typedef int_T (*DTASetConvertBetweenFcnFcn)(
-    void * v,
-    const char_T * c1,
-    DTypeId d,
-    ConvertBetweenFcn f
-    );
+typedef ConvertBetweenFcn (*DTAGetConvertBetweenFcnFcn)(void* v, const char_T* c1, DTypeId d);
 
-typedef int_T (*DTAGetGenericDTADiagnosticFcn)(
-    void * v,
-    const char_T * c1,
-    GenDTADiagnosticType g,
-    BDErrorValue * b
-    );
+typedef int_T (*DTASetConvertBetweenFcnFcn)(void* v,
+                                            const char_T* c1,
+                                            DTypeId d,
+                                            ConvertBetweenFcn f);
 
-typedef void * (*DTARegisterDataTypeWithCheckFcn)(
-    void * v,
-    const char_T * c1,
-    const char_T * c2,
-    DTypeId * d
-    );
+typedef int_T (*DTAGetGenericDTADiagnosticFcn)(void* v,
+                                               const char_T* c1,
+                                               GenDTADiagnosticType g,
+                                               BDErrorValue* b);
 
-typedef int_T (*DTAGetGenericDTAIntElemPropFcn)(
-    void * v,
-    const char_T * c1,
-    DTypeId d,
-    int_T i,
-    GenDTAIntElemPropType g
-    );
+typedef void* (*DTARegisterDataTypeWithCheckFcn)(void* v,
+                                                 const char_T* c1,
+                                                 const char_T* c2,
+                                                 DTypeId* d);
 
-typedef int_T (*DTASetGenericDTAIntElemPropFcn)(
-    void * v,
-    const char_T * c1 ,
-    DTypeId d,
-    int_T i,
-    int_T j,
-    GenDTAIntElemPropType g
-    );
+typedef int_T (*DTAGetGenericDTAIntElemPropFcn)(void* v,
+                                                const char_T* c1,
+                                                DTypeId d,
+                                                int_T i,
+                                                GenDTAIntElemPropType g);
 
-typedef const void* (*DTAGetGenericDTAVoidElemPropFcn)(
-    void * v,
-    const char_T * c1,
-    DTypeId d,
-    int_T i,
-    GenDTAVoidElemPropType g
-    );
+typedef int_T (*DTASetGenericDTAIntElemPropFcn)(void* v,
+                                                const char_T* c1,
+                                                DTypeId d,
+                                                int_T i,
+                                                int_T j,
+                                                GenDTAIntElemPropType g);
 
-typedef int_T (*DTASetGenericDTAVoidElemPropFcn)(
-    void * v1,
-    const char_T * c1,
-    DTypeId d,
-    int_T i,
-    const void * v2,
-    GenDTAVoidElemPropType g
-    );
+typedef const void* (*DTAGetGenericDTAVoidElemPropFcn)(void* v,
+                                                       const char_T* c1,
+                                                       DTypeId d,
+                                                       int_T i,
+                                                       GenDTAVoidElemPropType g);
 
-typedef real_T (*DTAGetGenericDTARealElemPropFcn)(
-    void * v,
-    const char_T * c1,
-    DTypeId d,
-    int_T i,
-    GenDTARealElemPropType g
-    );
+typedef int_T (*DTASetGenericDTAVoidElemPropFcn)(void* v1,
+                                                 const char_T* c1,
+                                                 DTypeId d,
+                                                 int_T i,
+                                                 const void* v2,
+                                                 GenDTAVoidElemPropType g);
 
-typedef int_T (*DTASetGenericDTARealElemPropFcn)(
-    void * v,
-    const char_T * c1,
-    DTypeId d,
-    int_T i,
-    int_T j,
-    GenDTARealElemPropType g
-    );
+typedef real_T (*DTAGetGenericDTARealElemPropFcn)(void* v,
+                                                  const char_T* c1,
+                                                  DTypeId d,
+                                                  int_T i,
+                                                  GenDTARealElemPropType g);
 
-typedef struct DataTypeAccessFcns_T
-{
+typedef int_T (*DTASetGenericDTARealElemPropFcn)(void* v,
+                                                 const char_T* c1,
+                                                 DTypeId d,
+                                                 int_T i,
+                                                 int_T j,
+                                                 GenDTARealElemPropType g);
+
+typedef struct DataTypeAccessFcns_T {
     DTARegisterDataTypeFcn registerDataType;
     DTAGetNumDataTypesFcn getNumDataTypes;
     DTAGetDataTypeIdFcn getDataTypeId;
@@ -238,67 +186,35 @@ typedef struct DataTypeAccessFcns_T
     DTAGetGenericDTAVoidElemPropFcn getGenericDTAVoidElemProp;
     DTASetGenericDTAVoidElemPropFcn setGenericDTAVoidElemProp;
     DTAGetGenericDTARealElemPropFcn getGenericDTARealElemProp;
-    DTASetGenericDTARealElemPropFcn setGenericDTARealElemProp;    
+    DTASetGenericDTARealElemPropFcn setGenericDTARealElemProp;
 } DataTypeAccessFcns;
 
 
 /*******************************************************************************/
 /* generic function */
-typedef int_T (*GenericFcn) (
-    SimStruct*,
-    GenFcnType,
-    int_T,
-    void*
-    );
+typedef int_T (*GenericFcn)(SimStruct*, GenFcnType, int_T, void*);
 
 
 /*******************************************************************************/
 /* register data type */
 
-typedef DTypeId (*RDTRegisterFcnFcn)(
-    void * v,
-    const char * c
-    );
+typedef DTypeId (*RDTRegisterFcnFcn)(void* v, const char* c);
 
-typedef int_T (*RDTSetDataTypeSizeFcn)(
-    void *v,
-    DTypeId d,
-    int_T i
-    );
+typedef int_T (*RDTSetDataTypeSizeFcn)(void* v, DTypeId d, int_T i);
 
-typedef int_T (*RDTGetDataTypeSizeFcn)(
-    void *v,
-    DTypeId d
-    );
+typedef int_T (*RDTGetDataTypeSizeFcn)(void* v, DTypeId d);
 
-typedef int_T (*RDTSetDataTypeZeroFcn)(
-    void *v1,
-    DTypeId d,
-    void *v2
-    );
+typedef int_T (*RDTSetDataTypeZeroFcn)(void* v1, DTypeId d, void* v2);
 
-typedef const void* (*RDTGetDataTypeZeroFcn)(
-    void *v,
-    DTypeId d
-    );
+typedef const void* (*RDTGetDataTypeZeroFcn)(void* v, DTypeId d);
 
-typedef const char_T* (*RDTGetDataTypeNameFcn)(
-    void *v,
-    DTypeId d
-    );
+typedef const char_T* (*RDTGetDataTypeNameFcn)(void* v, DTypeId d);
 
-typedef DTypeId (*RDTGetDataTypeIdFcn)(
-    void *v,
-    const char_T *c
-    );
+typedef DTypeId (*RDTGetDataTypeIdFcn)(void* v, const char_T* c);
 
-typedef int_T (*RDTSetNumDWorkFcnFcn)(
-    SimStruct * s,
-    int_T i
-    );
+typedef int_T (*RDTSetNumDWorkFcnFcn)(SimStruct* s, int_T i);
 
-typedef struct  RegisterDataTypeFcns_T
-{
+typedef struct RegisterDataTypeFcns_T {
     RDTRegisterFcnFcn registerFcn;
     RDTSetDataTypeSizeFcn setDataTypeSize;
     RDTGetDataTypeSizeFcn getDataTypeSize;
@@ -314,96 +230,46 @@ typedef struct  RegisterDataTypeFcns_T
 /* mex API */
 typedef bool (*MexIsLockedFcn)(void);
 
-typedef int (*MexPutVarFcn)(
-    const char*,
-    const char*,
-    const mxArray*
-    );
+typedef int (*MexPutVarFcn)(const char*, const char*, const mxArray*);
 
-typedef const mxArray * (*MexGetVarPtrFcn)(
-    const char*,
-    const char*
-    );
+typedef const mxArray* (*MexGetVarPtrFcn)(const char*, const char*);
 
-typedef mxArray * (*MexGetVarFcn)(
-    const char*,
-    const char *
-    );
+typedef mxArray* (*MexGetVarFcn)(const char*, const char*);
 
 typedef void (*MexLockFcn)(void);
 
 typedef void (*MexUnlockFcn)(void);
 
-typedef const char * (*MexFunctionNameFcn)(void);
+typedef const char* (*MexFunctionNameFcn)(void);
 
-typedef int (*MexEvalStringFcn)(
-    const char *
-    );
+typedef int (*MexEvalStringFcn)(const char*);
 
-typedef mxArray * (*MexEvalStringWithTrapFcn)(
-    const char *
-    );
+typedef mxArray* (*MexEvalStringWithTrapFcn)(const char*);
 
-typedef int (*MexSetFcn)(
-    double,
-    const char *,
-    mxArray *
-    );
+typedef int (*MexSetFcn)(double, const char*, mxArray*);
 
-typedef const mxArray* (*MexGetFcn)(
-    double,
-    const char *
-    );
+typedef const mxArray* (*MexGetFcn)(double, const char*);
 
-typedef int (*MexCallMatlabFcn)(
-    int,
-    mxArray *plhs[],
-    int,
-    mxArray *prhs[],
-    const char *,
-    bool
-    );
+typedef int (*MexCallMatlabFcn)(int, mxArray* plhs[], int, mxArray* prhs[], const char*, bool);
 
-typedef mxArray * (*MexCallMatlabWithTrapFcn)(
-    int,
-    mxArray *plhs[],
-    int,
-    mxArray *prhs[],
-    const char *
-    );
+typedef mxArray* (
+    *MexCallMatlabWithTrapFcn)(int, mxArray* plhs[], int, mxArray* prhs[], const char*);
 
-typedef mxArray * (*MexCreateSimpleFunctionHandleFcn)(
-    mxFunctionPtr f
-    );
+typedef mxArray* (*MexCreateSimpleFunctionHandleFcn)(mxFunctionPtr f);
 
-typedef int (*MexAtExitFcn)(
-    void (*exitFcn)(void)
-    );
+typedef int (*MexAtExitFcn)(void (*exitFcn)(void));
 
-typedef void (*MexErrMsgIdAndTxtFcn)(
-    const char*,
-    const char*,
-    va_list
-    );
+typedef void (*MexErrMsgIdAndTxtFcn)(const char*, const char*, va_list);
 
-typedef void (*MexErrMsgTxtFcn)(
-    const char*
-    );
+typedef void (*MexErrMsgTxtFcn)(const char*);
 
-typedef void (*MexWarnMsgTxtFcn)(
-    const char*
-    );
+typedef void (*MexWarnMsgTxtFcn)(const char*);
 
-typedef void (*MexWarnMsgIdAndTxtFcn)(
-    const char*,
-    const char*,
-    va_list
-    );
+typedef void (*MexWarnMsgIdAndTxtFcn)(const char*, const char*, va_list);
 
 typedef bool (*MexSetMexTrapFlagFcn)(void);
 
-typedef struct MexCallbacks_T
-{
+typedef struct MexCallbacks_T {
     MexIsLockedFcn isLocked_;
     MexPutVarFcn putVar_;
     MexGetVarPtrFcn getVarPtr_;
@@ -429,25 +295,40 @@ typedef struct MexCallbacks_T
 
 /*******************************************************************************/
 /* C API */
-SL_SFCN_LOADER_EXPORT_EXTERN_C void
-sfcnLoader_initialize_for_rapid_accelerator(
-    const char** gblErrorStatusPtr,    
+SL_SFCN_LOADER_EXPORT_EXTERN_C void sfcnLoader_initialize_for_rapid_accelerator(
+    const char** gblErrorStatusPtr,
     const char* const sFcnInfoFileName,
     const MexCallbacks* const mexCallbacks,
     const PortInfoFcns* const portInfoFcns,
     const DataTypeAccessFcns* const dataTypeAccessFcns,
     const GenericFcn* const genericFcn,
-    const RegisterDataTypeFcns* const registerDataTypeFcns    
-    );
+    const RegisterDataTypeFcns* const registerDataTypeFcns);
 
-SL_SFCN_LOADER_EXPORT_EXTERN_C void
-sfcnLoader_callSFcn(
-    const char* const sFcnName,
-    const char* const blockSID,
-    SimStruct* simstruct
-    );
+SL_SFCN_LOADER_EXPORT_EXTERN_C void sfcnLoader_callSFcn(const char* const sFcnName,
+                                                        const char* const blockSID,
+                                                        SimStruct* simstruct);
 
-SL_SFCN_LOADER_EXPORT_EXTERN_C size_t
-sfcnLoader_numSFcnBlocks();
+SL_SFCN_LOADER_EXPORT_EXTERN_C size_t sfcnLoader_numSFcnBlocks();
 
+SL_SFCN_LOADER_EXPORT_EXTERN_C void sfcnLoader_interleavedComplexHandler_noTID(
+    SimStruct* simstruct,
+    void (*sfcnMethodPtr)(SimStruct*));
+
+SL_SFCN_LOADER_EXPORT_EXTERN_C void sfcnLoader_interleavedComplexHandler_withTID(
+    SimStruct* simstruct,
+    void (*sfcnMethodPtr)(SimStruct*, int),
+    int tid);
+
+SL_SFCN_LOADER_EXPORT_EXTERN_C void sfcnLoader_setCurrentSFcnBlockSID(const char* const blockSID);
+
+SL_SFCN_LOADER_EXPORT_EXTERN_C const char* sfcnLoader_getCurrentSFcnName();
+
+SL_SFCN_LOADER_EXPORT_EXTERN_C void sfcnLoader_separateComplexHandler(
+    SimStruct* simstruct,
+    void (*const sfcnMethod)(SimStruct*));
+
+SL_SFCN_LOADER_EXPORT_EXTERN_C void sfcnLoader_separateComplexHandler_withTID(
+    SimStruct* simstruct,
+    void (*const sfcnMethod)(SimStruct*, int),
+    int tid);
 #endif

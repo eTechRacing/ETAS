@@ -23,21 +23,25 @@
 EXTERN_C LIBMWRGB2HSV_TBB_API void rgb2hsv_tbb_real64(
 	const real64_T* inputImage, 
 	const real64_T numPixels,
-	real64_T* outputImage);
+	real64_T* outputImage,
+    const boolean_T isColumnMajor);
 
 EXTERN_C LIBMWRGB2HSV_TBB_API void rgb2hsv_tbb_real32(
 	const real32_T* inputImage, 
 	const real64_T numPixels,
-	real32_T* outputImage);
+	real32_T* outputImage,
+    const boolean_T isColumnMajor);
 
 EXTERN_C LIBMWRGB2HSV_TBB_API void rgb2hsv_tbb_uint16(
 	const uint16_T* inputImage, 
 	const real64_T numPixels,
-	real64_T* outputImage);
+	real64_T* outputImage,
+    const boolean_T isColumnMajor);
 
 EXTERN_C LIBMWRGB2HSV_TBB_API void rgb2hsv_tbb_uint8(
 	const uint8_T* inputImage, 
 	const real64_T numPixels,
-	real64_T* outputImage);
+	real64_T* outputImage,
+    const boolean_T isColumnMajor);
 
 #endif /* _RGB2HSV_H_ */

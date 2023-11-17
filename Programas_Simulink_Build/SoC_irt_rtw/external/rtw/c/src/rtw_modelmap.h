@@ -1,4 +1,4 @@
-/* Copyright 1994-2014 The MathWorks, Inc. */
+/* Copyright 1994-2020 The MathWorks, Inc. */
 
 /*
  * File: rtw_modelmap.h
@@ -16,7 +16,7 @@
 #ifdef SL_INTERNAL
 
 # include "version.h"
-# include "util.h"
+# include "util/memmgr/memalloc.hpp"
 # include "simstruct/simstruc_types.h"
 # include "simulinkcoder_capi_export.hpp"
 
@@ -117,6 +117,7 @@ struct rtwCAPI_ModelMappingInfo_tag {
         rtwCAPI_ModelMapLoggingInstanceInfo *instanceLogInfo;
         int32_T**                      vardimsAddrMap;   /* Vardims Address map   */
         void*			       rtpAddress;
+        RTWLoggingFcnPtr* RTWLoggingPtrs;   /* MatFile logging information */
     } InstanceMap;
 };
 
@@ -178,6 +179,7 @@ struct rtwCAPI_ModelMappingInfo_tag {
 #define rtwCAPI_GetVersion(MMI)           ((MMI)->versionNum)
 #define rtwCAPI_GetDataAddressMap(MMI)    ((MMI)->InstanceMap.dataAddrMap)
 #define rtwCAPI_GetVarDimsAddressMap(MMI) ((MMI)->InstanceMap.vardimsAddrMap)
+#define rtwCAPI_GetRTWLoggingPtrsMap(MMI) ((MMI)->InstanceMap.RTWLoggingPtrs)
 #define rtwCAPI_GetPath(MMI)              ((MMI)->InstanceMap.path)
 #define rtwCAPI_GetFullPath(MMI)          ((MMI)->InstanceMap.fullPath)
 #define rtwCAPI_GetChildMMI(MMI,i)        ((MMI)->InstanceMap.childMMIArray[i])
@@ -192,6 +194,7 @@ struct rtwCAPI_ModelMappingInfo_tag {
 #define rtwCAPI_SetLoggingStaticMap(MMI,lStatMap) (MMI).staticMap->staticLogInfo = (lStatMap)
 #define rtwCAPI_SetDataAddressMap(MMI, dAddr) (MMI).InstanceMap.dataAddrMap = (dAddr)
 #define rtwCAPI_SetVarDimsAddressMap(MMI, vAddr) (MMI).InstanceMap.vardimsAddrMap = (vAddr)
+#define rtwCAPI_SetLoggingPtrs(MMI, lAddr)    (MMI).InstanceMap.RTWLoggingPtrs = (lAddr)
 #define rtwCAPI_SetPath(MMI,p)                (MMI).InstanceMap.path = (p)
 #define rtwCAPI_SetFullPath(MMI,p)            (MMI).InstanceMap.fullPath = (p)
 #define rtwCAPI_SetChildMMI(MMI,i,cMMI)       (MMI).InstanceMap.childMMIArray[i] = (cMMI)
@@ -230,6 +233,7 @@ SIMULINKCODER_CAPI_API const char_T* rtwCAPI_GetStateRecordInfo(const rtwCAPI_Mo
                                                                                 int_T*                          logDataType,
                                                                                 int_T*                          sigComplexity,
                                                                                 void**                          sigDataAddr,
+                                                                                RTWLoggingFcnPtr*               RTWLoggingPtrs,
                                                                                 boolean_T*                      sigCrossMdlRef,
                                                                                 boolean_T*                      sigInProtectedMdl,
                                                                                 const char_T**                  sigPathAlias,

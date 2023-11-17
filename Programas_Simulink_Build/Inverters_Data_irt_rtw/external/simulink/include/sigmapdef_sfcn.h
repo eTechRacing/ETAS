@@ -1,22 +1,16 @@
 /*
- * Copyright 1990-2003 The MathWorks, Inc.
+ * Copyright 1990-2018 The MathWorks, Inc.
+ *
  * MathWorks grants you the right to copy this file to other 
  * computer systems and embed this file within your products. You 
  * can make modifications for your application.
  *
- * File: simgmapdef_sfcn.h     $Revision $
- *
- * Abstract:
  *  Data structures and access methods for sigmaps, siglists and sigregions.
  *
- *  Allows access to simulink signals.  See <matlabroot>/simulink/src/barplot.c
- *  for example code and 
- *  <matlabroot>\toolbox\simulink\simdemos\sfcndemo_barplot.mdl for an example
- *  model.  Also see the 'PUBLIC DESCRIPTION' section at the bottom of 
- *  of the file for further explanation and the list of macro assessors that
- *  should be used to access the sigmap and siglist info.  Note that direct
- *  access to these structures is not recomended as the structures may
- *  change in future releases.
+ *  Allows access to Simulink signals.  See matlab/simulink/src/barplot.c
+ *  for example code and sfcndemo_barplot for an example model.  Note that direct
+ *  access to these structures is not recommended as the structures may change
+ *  in future releases.
  */
 
 #ifndef sigmapdef_sfcn_h
@@ -237,19 +231,19 @@ typedef struct SL_SigList_tag {  /* an array of sigInfos */
  * Number of regions comprising the 'listIdx-th' signal in the list.
  */
 #define gsl_nSigRegions(S, sigList, lstIdx) \
-         ssCallSigListGetNumRegionsFcn(S, sigList, lstIdx)
+    ssCallSigListGetNumRegionsFcn(S, sigList, lstIdx)
 
 /*
- * A pointer to the first region of the 'listIdx-th'signal in the list.
+ * A pointer to the first region of the 'listIdx-th' signal in the list.
  */
 #define gsl_FirstReg(S, sigList, lstIdx) \
-         (SL_SigRegion *)(ssCallSigListGetFirstRegFcn(S,(void *)sigList,lstIdx))
+    (SL_SigRegion *)(ssCallSigListGetFirstRegFcn(S,(void *)sigList,lstIdx))
 
 /*
  * The total number of elements comprising the 'listIdx-th' signal in the list.
  */
 #define gsl_NumElements(S, sigList,lstIdx) \
-         ssCallSigListGetNumElementsFcn(S, sigList, lstIdx)
+    ssCallSigListGetNumElementsFcn(S, sigList, lstIdx)
 
 /*
  * Returns true if the signal is a tie wrap.  This means that the signal map
@@ -276,7 +270,7 @@ typedef struct SL_SigList_tag {  /* an array of sigInfos */
  *
  */
 #define gsl_TieWrap(S, sigList, lstIdx) \
-           ssCallSigListGetIfTieWrapFcn(S, sigList, lstIdx)
+    ssCallSigListGetIfTieWrapFcn(S, sigList, lstIdx)
 
 /*
  * Get the pointer to the port associated with the 'listIdx-th' signal in the
