@@ -22,9 +22,9 @@
 	<moduleInfo identifier="Ellipse">
 		<name>Ellipse</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Ellipse.slx&quot;"/>
-		<version major="10" minor="0"/>
+		<version major="10" minor="2"/>
 		<dateTime kind="created" year="2022" month="8" day="20" hour="10" minute="22" second="41"/>
-		<dateTime kind="lastModified" year="2023" month="11" day="17" hour="17" minute="6" second="56"/>
+		<dateTime kind="lastModified" year="2023" month="11" day="21" hour="19" minute="0" second="46"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2023" month="11" day="17" hour="17" minute="13" second="30"/>
+		<dateTime kind="created" year="2023" month="11" day="21" hour="19" minute="0" second="57"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -270,10 +270,10 @@
 						<documentation>&lt;Root&gt;/el_AUTO_STATUS</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="el_TIME_STAMP">
+				<structMember identifier="Ellipse_Alive">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/el_TIME_STAMP</documentation>
+						<documentation>&lt;Root&gt;/Ellipse_Alive</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="el_GENERAL">
@@ -403,10 +403,10 @@
 						<documentation>&lt;Root&gt;/Status_Auto</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Time">
+				<structMember identifier="el_Timer">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/Time</documentation>
+						<documentation>&lt;Root&gt;/el_Timer</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="General_Tx">
@@ -1014,19 +1014,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.el_TIME_STAMP">
+			<dataCInterface identifier="Ellipse_U.Ellipse_Alive">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="el_TIME_STAMP"/>
+					<memberRef identifier="Ellipse_Alive"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.el_TIME_STAMP">
-				<name>el_TIME_STAMP</name>
-				<modelLink href="Ellipse/el_TIME_STAMP"/>
+			<modelOrigin identifier="Ellipse.Ellipse_Alive">
+				<name>Ellipse_Alive</name>
+				<modelLink href="Ellipse/Ellipse_Alive"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="el_TIME_STAMP" kind="mlsl:block" type="Inport"/>
+					<pathNode name="Ellipse_Alive" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -1666,19 +1666,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_Y.Time">
+			<dataCInterface identifier="Ellipse_Y.el_Timer">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_Y"/>
-					<memberRef identifier="Time"/>
+					<memberRef identifier="el_Timer"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.Time">
-				<name>Time</name>
-				<modelLink href="Ellipse/Time"/>
+			<modelOrigin identifier="Ellipse.el_Timer">
+				<name>el_Timer</name>
+				<modelLink href="Ellipse/el_Timer"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="Time" kind="mlsl:block" type="Outport"/>
+					<pathNode name="el_Timer" kind="mlsl:block" type="Outport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection out="true"/>
@@ -1827,7 +1827,7 @@
 						<message identifier="Ellipse_U.el_SlipAngle" send="false"></message>
 						<message identifier="Ellipse_U.el_CurvatureRadius" send="false"></message>
 						<message identifier="Ellipse_U.el_AUTO_STATUS" send="false"></message>
-						<message identifier="Ellipse_U.el_TIME_STAMP" send="false"></message>
+						<message identifier="Ellipse_U.Ellipse_Alive" send="false"></message>
 						<message identifier="Ellipse_U.el_GENERAL" send="false"></message>
 						<message identifier="Ellipse_U.el_CLOCK" send="false"></message>
 						<message identifier="Ellipse_Y.Roll_Tx" send="true"></message>
@@ -1848,7 +1848,7 @@
 						<message identifier="Ellipse_Y.SlipAngle" send="true"></message>
 						<message identifier="Ellipse_Y.CurvRadius" send="true"></message>
 						<message identifier="Ellipse_Y.Status_Auto" send="true"></message>
-						<message identifier="Ellipse_Y.Time" send="true"></message>
+						<message identifier="Ellipse_Y.el_Timer" send="true"></message>
 						<message identifier="Ellipse_Y.General_Tx" send="true"></message>
 						<message identifier="Ellipse_Y.Clock_Tx" send="true"></message>
 					</messageAccess>

@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ellipse".
  *
- * Model version              : 10.0
+ * Model version              : 10.2
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Nov 17 17:13:30 2023
+ * C source code generated on : Tue Nov 21 19:00:57 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -125,10 +125,10 @@ static void Ellipse_output(void)
    */
   Ellipse_Y.Status_Auto = Ellipse_U.el_AUTO_STATUS;
 
-  /* Outport: '<Root>/Time' incorporates:
-   *  Inport: '<Root>/el_TIME_STAMP'
+  /* Outport: '<Root>/el_Timer' incorporates:
+   *  Inport: '<Root>/Ellipse_Alive'
    */
-  Ellipse_Y.Time = Ellipse_U.el_TIME_STAMP;
+  Ellipse_Y.el_Timer = Ellipse_U.Ellipse_Alive;
 
   /* Outport: '<Root>/General_Tx' incorporates:
    *  Inport: '<Root>/el_GENERAL'

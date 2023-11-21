@@ -12,9 +12,9 @@
  *
  * Code generation for model "Ellipse".
  *
- * Model version              : 10.0
+ * Model version              : 10.2
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Nov 17 17:13:30 2023
+ * C source code generated on : Tue Nov 21 19:00:57 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -870,7 +870,7 @@ typedef struct {
   real_T el_SlipAngle;                 /* '<Root>/el_SlipAngle' */
   real_T el_CurvatureRadius;           /* '<Root>/el_CurvatureRadius' */
   real_T el_AUTO_STATUS;               /* '<Root>/el_AUTO_STATUS' */
-  real_T el_TIME_STAMP;                /* '<Root>/el_TIME_STAMP' */
+  real_T Ellipse_Alive;                /* '<Root>/Ellipse_Alive' */
   real_T el_GENERAL;                   /* '<Root>/el_GENERAL' */
   real_T el_CLOCK;                     /* '<Root>/el_CLOCK' */
 } ExtU_Ellipse_T;
@@ -895,7 +895,7 @@ typedef struct {
   real_T SlipAngle;                    /* '<Root>/SlipAngle' */
   real_T CurvRadius;                   /* '<Root>/CurvRadius' */
   real_T Status_Auto;                  /* '<Root>/Status_Auto' */
-  real_T Time;                         /* '<Root>/Time' */
+  real_T el_Timer;                     /* '<Root>/el_Timer' */
   real_T General_Tx;                   /* '<Root>/General_Tx' */
   real_T Clock_Tx;                     /* '<Root>/Clock_Tx' */
 } ExtY_Ellipse_T;

@@ -12,9 +12,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 10.1
+ * Model version              : 10.3
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Nov 17 17:12:23 2023
+ * C source code generated on : Tue Nov 21 18:26:05 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -873,7 +873,7 @@ typedef struct {
   real_T Critical_CAN_Disconnection;   /* '<Root>/Critical_CAN_Disconnection' */
   real_T InvertersSubscribed;          /* '<Root>/InvertersSubscribed' */
   real_T InvertersMinDCBus;            /* '<Root>/InvertersMinDCBus' */
-  boolean_T Shutdown_OK;               /* '<Root>/Shutdown_OK' */
+  boolean_T Shutdown_PackageIntck;     /* '<Root>/Shutdown_PackageIntck' */
 } ExtU_Car_State_T;
 
 /* External outputs (root outports fed by signals with default storage) */

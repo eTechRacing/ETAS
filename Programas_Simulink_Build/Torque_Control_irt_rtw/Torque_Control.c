@@ -7,9 +7,9 @@
  *
  * Code generation for model "Torque_Control".
  *
- * Model version              : 10.1
+ * Model version              : 10.2
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Nov 17 17:17:31 2023
+ * C source code generated on : Tue Nov 21 18:27:38 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -539,12 +539,13 @@ void Torque_Control_output(void)
    *  Constant: '<S57>/Constant'
    *  Inport: '<Root>/Car_State'
    *  Inport: '<Root>/CriticalDisconnection'
-   *  Inport: '<Root>/Shutdown_OK'
+   *  Inport: '<Root>/Shutdown_PackageIntck'
    *  Inport: '<Root>/TorqueEnable'
    *  Logic: '<S10>/NOT'
+   *  Logic: '<S10>/NOT1'
    *  RelationalOperator: '<S57>/Compare'
    */
-  Torque_Control_B.LogicalOperator = (Torque_Control_U.Shutdown_OK &&
+  Torque_Control_B.LogicalOperator = ((!Torque_Control_U.Shutdown_PackageIntck) &&
     Torque_Control_U.TorqueEnable && (!Torque_Control_U.CriticalDisconnection) &&
     (Torque_Control_U.Car_State == 15.0) && Torque_Control_B.Merge_j);
 
@@ -7035,7 +7036,7 @@ RT_MODEL_Torque_Control_T *Torque_Control(void)
   Torque_Control_M->Sizes.numU = (42); /* Number of model inputs */
   Torque_Control_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Torque_Control_M->Sizes.numSampTimes = (2);/* Number of sample times */
-  Torque_Control_M->Sizes.numBlocks = (751);/* Number of blocks */
+  Torque_Control_M->Sizes.numBlocks = (752);/* Number of blocks */
   Torque_Control_M->Sizes.numBlockIO = (136);/* Number of block outputs */
   return Torque_Control_M;
 }

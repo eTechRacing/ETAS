@@ -7,9 +7,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 10.1
+ * Model version              : 10.3
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Nov 17 17:12:23 2023
+ * C source code generated on : Tue Nov 21 18:26:05 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -178,12 +178,13 @@ static void Car_State_output(void)
    *  Inport: '<Root>/Accumulator_Voltage'
    *  Inport: '<Root>/Critical_CAN_Disconnection'
    *  Inport: '<Root>/PrechargeRequest'
-   *  Inport: '<Root>/Shutdown_OK'
+   *  Inport: '<Root>/Shutdown_PackageIntck'
+   *  Logic: '<S6>/NOT'
    *  RelationalOperator: '<S19>/Compare'
    *  RelationalOperator: '<S20>/Compare'
    *  RelationalOperator: '<S21>/Compare'
    */
-  rtb_LogicalOperator1 = (Car_State_U.Shutdown_OK &&
+  rtb_LogicalOperator1 = ((!Car_State_U.Shutdown_PackageIntck) &&
     (Car_State_U.Accumulator_Voltage > 420.0) &&
     (Car_State_U.DashPrechargeRequest == 0.0) &&
     (Car_State_U.Critical_CAN_Disconnection == 0.0));
@@ -752,7 +753,7 @@ RT_MODEL_Car_State_T *Car_State(void)
   Car_State_M->Sizes.numU = (9);       /* Number of model inputs */
   Car_State_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Car_State_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  Car_State_M->Sizes.numBlocks = (67); /* Number of blocks */
+  Car_State_M->Sizes.numBlocks = (68); /* Number of blocks */
   Car_State_M->Sizes.numBlockIO = (3); /* Number of block outputs */
   return Car_State_M;
 }

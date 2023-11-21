@@ -22,9 +22,9 @@
 	<moduleInfo identifier="Torque_Control">
 		<name>Torque_Control</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Torque_Control.slx&quot;"/>
-		<version major="10" minor="1"/>
+		<version major="10" minor="2"/>
 		<dateTime kind="created" year="2021" month="2" day="22" hour="10" minute="32" second="7"/>
-		<dateTime kind="lastModified" year="2023" month="11" day="17" hour="17" minute="4" second="0"/>
+		<dateTime kind="lastModified" year="2023" month="11" day="21" hour="18" minute="25" second="40"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2023" month="11" day="17" hour="17" minute="17" second="31"/>
+		<dateTime kind="created" year="2023" month="11" day="21" hour="18" minute="27" second="38"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -137,20 +137,7 @@
 		<file name="Torque_Control.c" kind="body"/>
 		<file name="Torque_Control_private.h" kind="header"/>
 		<file name="Torque_Control.h" kind="header"/>
-		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\xnrm2_5V7JofQH.c -->
-		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\xnrm2_5V7JofQH.h -->
-		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\rt_hypotd_snf.c -->
-		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\rt_hypotd_snf.h -->
-		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\qrpf_tu7wheJf.c -->
-		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\qrpf_tu7wheJf.h -->
-		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\mldivide_8ZFDevWm.c -->
-		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\mldivide_8ZFDevWm.h -->
-		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\xnrm2_5D3RImKI.c -->
-		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\xnrm2_5D3RImKI.h -->
-		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\qrpf_X6HM2OpU.c -->
-		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\qrpf_X6HM2OpU.h -->
-		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\polyfit_qSahpz3o.c -->
-		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\polyfit_qSahpz3o.h -->
+		<!-- used through rtwShared.lib: const_params.c -->
 		<file name="rtmodel.h" kind="header"/>
 		<file name="Torque_Control_data.c" kind="body"/>
 		<file name="Torque_Control_main.c" kind="body"/>
@@ -170,6 +157,7 @@
 		<modelLinkBase href="mlsl:///{{modelDir}}Torque_Control.slx?"/>
 		<pathBase path="{{codeDir}}"/>
 		<fileOrigin name="Torque_Control.c"/>
+		<fileOrigin name="const_params.c"/>
 		<fileOrigin name="rt_nonfinite.c"/>
 		<fileOrigin name="Torque_Control_data.c"/>
 		<fileOrigin name="Torque_Control_main.c"/>
@@ -1495,10 +1483,10 @@
 						<documentation>&lt;Root&gt;/SteeringSensor_Value</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Shutdown_OK">
+				<structMember identifier="Shutdown_PackageIntck">
 					<type><typeRef name="boolean_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/Shutdown_OK</documentation>
+						<documentation>&lt;Root&gt;/Shutdown_PackageIntck</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -9234,19 +9222,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Torque_Control_U.Shutdown_OK">
+			<dataCInterface identifier="Torque_Control_U.Shutdown_PackageIntck">
 				<definitionLocation>
 					<baseRef identifier="Torque_Control_U"/>
-					<memberRef identifier="Shutdown_OK"/>
+					<memberRef identifier="Shutdown_PackageIntck"/>
 				</definitionLocation>
 				<fileOrigin name="Torque_Control.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Torque_Control.Shutdown_OK">
-				<name>Shutdown_OK</name>
-				<modelLink href="Torque_Control/Shutdown_OK"/>
+			<modelOrigin identifier="Torque_Control.Shutdown_PackageIntck">
+				<name>Shutdown_PackageIntck</name>
+				<modelLink href="Torque_Control/Shutdown_PackageIntck"/>
 				<modelLocation>
 					<pathNode name="Torque_Control" kind="mlsl:model"/>
-					<pathNode name="Shutdown_OK" kind="mlsl:block" type="Inport"/>
+					<pathNode name="Shutdown_PackageIntck" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -10253,7 +10241,7 @@
 						<message identifier="Torque_Control_U.SoC_Low" send="false"></message>
 						<message identifier="Torque_Control_U.SoC_High" send="false"></message>
 						<message identifier="Torque_Control_U.SteeringSensor_Value" send="false"></message>
-						<message identifier="Torque_Control_U.Shutdown_OK" send="false"></message>
+						<message identifier="Torque_Control_U.Shutdown_PackageIntck" send="false"></message>
 						<message identifier="Torque_Control_Y.Torque_RRwc" send="true"></message>
 						<message identifier="Torque_Control_Y.Torque_RLwc" send="true"></message>
 						<message identifier="Torque_Control_Y.Max_Torque_RR" send="true"></message>

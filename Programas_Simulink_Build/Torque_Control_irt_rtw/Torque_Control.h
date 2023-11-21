@@ -12,9 +12,9 @@
  *
  * Code generation for model "Torque_Control".
  *
- * Model version              : 10.1
+ * Model version              : 10.2
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Nov 17 17:17:31 2023
+ * C source code generated on : Tue Nov 21 18:27:38 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1205,7 +1205,7 @@ typedef struct {
   real_T SoC_Low;                      /* '<Root>/SoC_Low' */
   real_T SoC_High;                     /* '<Root>/SoC_High' */
   real_T SteeringSensor_Value;         /* '<Root>/SteeringSensor_Value' */
-  boolean_T Shutdown_OK;               /* '<Root>/Shutdown_OK' */
+  boolean_T Shutdown_PackageIntck;     /* '<Root>/Shutdown_PackageIntck' */
 } ExtU_Torque_Control_T;
 
 /* External outputs (root outports fed by signals with default storage) */
