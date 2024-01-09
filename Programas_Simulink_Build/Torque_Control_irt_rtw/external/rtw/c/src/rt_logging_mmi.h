@@ -13,9 +13,13 @@
 #include <stdlib.h>
 #include "rtwtypes.h"
 #include "builtin_typeid_types.h"
+#ifdef IS_SIM_TARGET
+#include "rtw_matlogging_simtarget.h"
+#include "rtw_modelmap_simtarget.h"
+#else
 #include "rtw_matlogging.h"
 #include "rtw_modelmap.h"
-
+#endif
 #ifdef __cplusplus
 extern "C" {
 #endif

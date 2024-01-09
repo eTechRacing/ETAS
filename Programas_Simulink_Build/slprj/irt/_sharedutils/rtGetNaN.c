@@ -5,18 +5,17 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * Code generation for model "Accel_Data".
+ * Code generation for model "Car_State".
  *
- * Model version              : 1.31
- * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Wed Mar 29 12:54:57 2023
+ * Model version              : 10.1
+ * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
+ * C source code generated on : Fri Nov 17 17:12:23 2023
  */
 
-/*
- * Abstract:
- *      Function to initialize non-finite, NaN
- */
+#include "rtwtypes.h"
 #include "rtGetNaN.h"
+#include <stddef.h>
+#include "rt_nonfinite.h"
 #define NumBitsPerChar                 8U
 
 /*
@@ -73,7 +72,7 @@ real_T rtGetNaN(void)
  */
 real32_T rtGetNaNF(void)
 {
-  IEEESingle nanF = { { 0 } };
+  IEEESingle nanF = { { 0.0F } };
 
   uint16_T one = 1U;
   enum {

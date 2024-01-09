@@ -282,52 +282,40 @@
 #endif /* fxpsimulinkscalingintro_h */
 /* Copyright 2011-2102 The MathWorks, Inc.
  */
-
-#ifdef SUPPORTS_PRAGMA_ONCE
-#pragma once
-#endif
-
 #ifndef SL_TYPES_FXPMODEOVERFLOW_HPP
 #define SL_TYPES_FXPMODEOVERFLOW_HPP
 
-/* The enums specify the overflow handling modes supported by most fixed-point 
+/* The enums specify the overflow handling modes supported by most fixed-point
  * math functions.
  */
 typedef enum fxpModeOverflow_tag {
-  FXP_OVERFLOW_WRAP = 0, /* must be zero */
-  FXP_OVERFLOW_SATURATE
+    FXP_OVERFLOW_WRAP = 0, /* must be zero */
+    FXP_OVERFLOW_SATURATE
 
 } fxpModeOverflow;
 
 #endif /* SL_TYPES_FXPMODEOVERFLOW_HPP */
-
 /* Copyright 2011-2012 The MathWorks, Inc.
  */
-
-#ifdef SUPPORTS_PRAGMA_ONCE
-#pragma once
-#endif
-
 #ifndef SL_TYPES_FXPMODEROUNDING_HPP
 #define SL_TYPES_FXPMODEROUNDING_HPP
 
-/* The enums specify the rounding modes supported by most fixed-point 
+/* The enums specify the rounding modes supported by most fixed-point
  * math functions.
  */
 typedef enum fxpModeRounding_tag {
-  FXP_ROUND_ZERO = 0, /* must be zero */
-  FXP_ROUND_NEAR,
-  FXP_ROUND_CEIL,
-  FXP_ROUND_FLOOR,
-  FXP_ROUND_SIMPLEST,
-  FXP_ROUND_NEAR_ML, /* Round -x.5 to -(x+1) not -x so as to match MATLAB. */
-  FXP_ROUND_CONVERGENT
+    FXP_ROUND_ZERO = 0, /* must be zero */
+    FXP_ROUND_NEAR,
+    FXP_ROUND_CEIL,
+    FXP_ROUND_FLOOR,
+    FXP_ROUND_SIMPLEST,
+    FXP_ROUND_NEAR_ML, /* Round -x.5 to -(x+1) not -x so as to match MATLAB. */
+    FXP_ROUND_CONVERGENT
 } fxpModeRounding;
 
-#define FXP_ROUND_METHOD_COUNT ((FXP_ROUND_CONVERGENT)+1)
+#define FXP_ROUND_METHOD_COUNT ((FXP_ROUND_CONVERGENT) + 1)
 
 #endif /* SL_TYPES_FXPMODEROUNDING_HPP */
-
 /* Copyright 1994-2010 The MathWorks, Inc.
  */
 
@@ -361,7 +349,7 @@ typedef struct fxpOverflowLogs_tag
 } fxpOverflowLogs;
 
 #endif /* fix_published_fxpOverflowLogs_h */
-/* Copyright 1994-2011 The MathWorks, Inc.
+/* Copyright 1994-2019 The MathWorks, Inc.
  * 
  * 
  */
@@ -385,6 +373,63 @@ typedef struct fxpOverflowLogs_tag
 #  include "simstruc.h"    
 # endif
 #endif
+
+
+/* Function: ssRegisterDataTypeInteger ===============================
+ * 
+ * This function fully registers any integer data type with Simulink and 
+ * returns a Data Type Id. Supported types are
+ *    Unsigned with wordlength 1 up to 128
+ *    Signed   with wordlength 2 up to 128
+ * 
+ * This function is available for any Simulink install, even if 
+ * Fixed-Point Designer is not installed.
+ * If the registered wordlength of the integer is 8, 16, 32, or 64,
+ * then a Simulink license is sufficient.
+ * For any of the other 124 possible wordlengths,
+ * a Fixed-Point Designer license is required.
+ *
+ *
+ * Unlike the standard Simulink function, ssRegisterDataType, additional 
+ * registration steps do not need to be taken 
+ * and should not be taken.  The returned Data Type Id can be used to specify
+ * the data types of input ports, output ports, RunTimeParameters, and DWork
+ * states.  The Data Type Id can also be used with all the standard 
+ * data type access methods in simstruc.h such as ssGetDataTypeSize. 
+ *    
+ * The input arguments are
+ *    isSigned              TRUE if signed, FALSE if unsigned
+ *    wordLength            total number of bits including any sign bit
+ *    obeyDataTypeOverride  if FALSE ignore system's setting for Data Type Override
+ *                          if TRUE obey Data Type Override setting, depending
+ *                          on Data Type Override, resulting data type could be
+ *                          True Double, True Single, Scaled Double, or the 
+ *                          requested fixed point type.
+ *
+ * Cautions:
+ *
+ * 1) If the registered data type is not one of the builtin data types, then
+ * a Fixed-Point License will be checked out.  To prevent, a Fixed-Point
+ * License from being checked out when a user simply opens or views a model,
+ * calls to registration should be protected with
+ *    if ( ssGetSimMode(S) != SS_SIMMODE_SIZES_CALL_ONLY )
+ *       ssRegisterDataType ...
+ * 
+ * 2) In general, there is no fixed relationship between the Data Type Id value 
+ * and the input arguments.  Simulink hands out data type Ids on a first come,
+ * first served basis, so small changes to a model can cause a different data
+ * type id value to be returned.  Always use functions to get data type
+ * attributes from the data type id; never directly rely on the data type
+ * id value.  
+ */
+FIXPOINT_EXPORT_EXTERN_C DTypeId ssRegisterDataTypeInteger(
+    SimStruct *S,
+    int isSigned,
+    int wordLength,
+    int obeyDataTypeOverride
+    );
+
+
 
 /* Function: ssRegisterDataTypeFxpBinaryPoint ===============================
  * 
@@ -417,7 +462,7 @@ typedef struct fxpOverflowLogs_tag
  * 
  * 2) There is no fixed relationship between the Data Type Id value and
  * the input arguments.  Simulink hands out data type Ids on a first come, first
- * served basis, so small changes to a model can cause the a different data
+ * served basis, so small changes to a model can cause a different data
  * type id value to be returned.  Always uses functions to get data type
  * attributes from the data type id; never directly rely on the data type
  * id value.  
@@ -464,7 +509,7 @@ FIXPOINT_EXPORT_EXTERN_C DTypeId ssRegisterDataTypeFxpBinaryPoint(
  * 
  * 2) There is no fixed relationship between the Data Type Id value and
  * the input arguments.  Simulink hands out data type Ids on a first come, first
- * served basis, so small changes to a model can cause the a different data
+ * served basis, so small changes to a model can cause a different data
  * type id value to be returned.  Always uses functions to get data type
  * attributes from the data type id; never directly rely on the data type
  * id value.  
@@ -513,7 +558,7 @@ FIXPOINT_EXPORT_EXTERN_C DTypeId ssRegisterDataTypeFxpSlopeBias(
  * 
  * 2) There is no fixed relationship between the Data Type Id value and
  * the input arguments.  Simulink hands out data type Ids on a first come, first
- * served basis, so small changes to a model can cause the a different data
+ * served basis, so small changes to a model can cause a different data
  * type id value to be returned.  Always uses functions to get data type
  * attributes from the data type id; never directly rely on the data type
  * id value.  
@@ -563,7 +608,7 @@ FIXPOINT_EXPORT_EXTERN_C DTypeId ssRegisterDataTypeFxpFSlopeFixExpBias(
  * 
  * 2) There is no fixed relationship between the Data Type Id value and
  * the input arguments.  Simulink hands out data type Ids on a first come, first
- * served basis, so small changes to a model can cause the a different data
+ * served basis, so small changes to a model can cause a different data
  * type id value to be returned.  Always uses functions to get data type
  * attributes from the data type id; never directly rely on the data type
  * id value.
@@ -575,6 +620,54 @@ FIXPOINT_EXPORT_EXTERN_C DTypeId ssRegisterDataTypeFxpScaledDouble(
     double fractionalSlope,
     int fixedExponent,
     double bias,
+    int obeyDataTypeOverride
+    );
+
+
+/* Function: ssRegisterDataTypeHalfPrecision =============================
+ * 
+ * This function fully registers a Half precision data type with Simulink and 
+ * returns a Data Type Id.  Unlike the standard Simulink function, 
+ * ssRegisterDataType, additional registration steps do not need to be taken 
+ * and should not be taken.  The returned Data Type Id can be used to specify
+ * the data types of input ports, output ports, RunTimeParameters, and DWork
+ * states.  The Data Type Id can also be used with all the standard 
+ * data type access methods in simstruc.h such as ssGetDataTypeSize. 
+ * 
+ * The supported half precision (binary16) floating-point format is specified 
+ * in IEEE 754 standard with following format: 
+ * . Sign bit: 1 bit      
+ * . Exponent width: 5 bits 
+ * . Significand precision 11 bits (10 explicitly stored)
+ * 
+ *  sign  exponent:5bits    fraction:10bits
+ * | b15 | b14... ... b10 | b9 ... ... b0   |
+ *    
+ * The input arguments are
+ *    obeyDataTypeOverride  if FALSE ignore system's setting for Data Type Override
+ *                          if TRUE obey Data Type Override setting, depending
+ *                          on Data Type Override, resulting data type could be
+ *                          True Double, True Single, Scaled Double, or the 
+ *                          requested fixed point type.
+ *
+ * Cautions:
+ *
+ * 1) When registering Half precision data type, a Fixed-point Designer
+ * License will be checked out. To prevent a Fixed-Point Designer License
+ * from being checked out when a user simply opens or views a model,
+ * calls to registration should be protected with
+ *    if ( ssGetSimMode(S) != SS_SIMMODE_SIZES_CALL_ONLY )
+ *       ssRegisterDataType ...
+ * 
+ * 2) There is no fixed relationship between the Data Type Id value and
+ * the input arguments.  Simulink hands out data type Ids on a first come, first
+ * served basis, so small changes to a model can cause a different data
+ * type id value to be returned.  It is recommended to always use functions to 
+ * get data type attributes from the data type id; never directly rely on 
+ * the data type id value.
+ */
+FIXPOINT_EXPORT_EXTERN_C DTypeId ssRegisterDataTypeHalfPrecision(
+    SimStruct *S,
     int obeyDataTypeOverride
     );
 
@@ -606,7 +699,8 @@ typedef enum fxpStorageContainerCategory_tag {
     FXP_STORAGE_CHUNKARRAY,
     FXP_STORAGE_SCALEDDOUBLE,
     FXP_STORAGE_OTHER_SINGLE_WORD,
-    FXP_STORAGE_MULTIWORD
+    FXP_STORAGE_MULTIWORD,
+    FXP_STORAGE_HALFPRECISION
 } fxpStorageContainerCategory;
 
 
@@ -656,7 +750,7 @@ FIXPOINT_EXPORT_EXTERN_C size_t ssGetDataTypeStorageContainerSize(
  * Giving a registered Data Type Id as input, determine the if the data
  * type is a fixed-point type.  Pure integers including the standard Simulink
  * integer types uint8, int8, uint16, uint32, and int32 are classified
- * as fixed-point types by this function.  Double, Single, and 
+ * as fixed-point types by this function.  Double, Single, Half and 
  * ScaledDouble are NOT classified as fixed-point types.
  *   This function will error out if ssGetDataTypeIsFxpFltApiCompat
  * returns false.
@@ -669,13 +763,40 @@ FIXPOINT_EXPORT_EXTERN_C int ssGetDataTypeIsFixedPoint(
 
 /* Function: ssGetDataTypeIsFloatingPoint ===============================
  * 
- * Giving a registered Data Type Id as input, determine the if the data
- * type is a true floating-point type.  Double and Single are true floating-
- * point types.  ScaledDouble is NOT classified as true float-point.
+ * Giving a registered Data Type Id as input, determine if the data
+ * type is a traditional floating-point type.  Double and Single  
+ * are traditional floating-point types.  ScaledDouble and Half is NOT classified
+ * as traditional floating-point types.
  *   This function will error out if ssGetDataTypeIsFxpFltApiCompat
  * returns false.
  */
 FIXPOINT_EXPORT_EXTERN_C int ssGetDataTypeIsFloatingPoint(
+    SimStruct *S,
+    DTypeId dataTypeId
+    );
+
+/* Function: ssGetDataTypeIsDoubleSingleOrHalf ===============================
+ * 
+ * Giving a registered Data Type Id as input, determine if the data
+ * type is double, single or half precision type specified by IEEE 754 standard.
+ * This function will error out if ssGetDataTypeIsFxpFltApiCompat
+ * returns false.
+ */
+FIXPOINT_EXPORT_EXTERN_C int ssGetDataTypeIsDoubleSingleOrHalf(
+    SimStruct *S,
+    DTypeId dataTypeId
+    );
+
+
+
+/* Function: ssGetDataTypeIsHalfPrecision ===============================
+ * 
+ * Giving a registered Data Type Id as input, determine if the data
+ * type is a Half precision type, which is specified in IEEE754 standard.
+ *   This function will error out if ssGetDataTypeIsFxpFltApiCompat
+ * returns false.
+ */
+FIXPOINT_EXPORT_EXTERN_C int ssGetDataTypeIsHalfPrecision(
     SimStruct *S,
     DTypeId dataTypeId
     );
@@ -919,6 +1040,31 @@ FIXPOINT_EXPORT_EXTERN_C int ssGetDataTypeFixedExponent(
     );
 
 
+/* Function: ssGetDataTypeIsInteger
+ * 
+ * Giving a registered Data Type Id, determine the if the data
+ * type is one of 255 integer types supported by Simulink.
+ *     Unsigned with wordlength 1 up to 128
+ *     Signed   with wordlength 2 up to 128
+ */
+FIXPOINT_EXPORT_EXTERN_C int ssGetDataTypeIsInteger(
+    SimStruct *S,
+    DTypeId dataTypeId
+    );
+
+/* Function: ssGetDataTypeIsSpecifiedInteger
+ * 
+ * Giving a registered Data Type Id, determine
+ * if the data type is an integer with the specified
+ * signedness and wordlength.
+ */
+FIXPOINT_EXPORT_EXTERN_C int ssGetDataTypeIsSpecifiedInteger(
+    SimStruct *S,
+    DTypeId dataTypeId,
+    int isSigned,
+    int wordLength
+    );
+
 
 FIXPOINT_EXPORT_EXTERN_C void ssFxpConvert(
     SimStruct *S,
@@ -1049,41 +1195,22 @@ FIXPOINT_EXPORT_EXTERN_C void ssLogFixptInstrumentation(
     );
 
  
-/* Function ssFxpSetU32BitRegionCompliant
- *
- * In a user defined S-Function, if it contains fixed point data type 
- * which is larger than 32 bits, it has to call this function to utilize the 
- * new memory footprint.
- *
- * The input parameters are:
- *
- *           S:       A point to SimStruct.
- *           Value:   1 means that this S-Function is compliant with new memory footprint.
- *                    0 means that it is not compliant with new memory footprint.
- */ 
+/* These two functions are obsolete and can be ignored.
+ * They no longer have any impact on the memory layout for inputs and outputs.
+ * The memory layout introduced in R2008a is always used.
+ */
 FIXPOINT_EXPORT_EXTERN_C void ssFxpSetU32BitRegionCompliant(  
     SimStruct *S,  
     int value
 );
-
- 
-/* Function ssFxpGetU32BitRegionCompliant
- *
- * This function checks whether the S-Function sets the FxpU32BitRegionCompliant.
- *
- * The input parameters are:
- *
- *           S:       A point to SimStruct.
- *           result:  is the point to returned value. 
- */ 
 FIXPOINT_EXPORT_EXTERN_C void ssFxpGetU32BitRegionCompliant(  
     SimStruct *S,  
     int *result
 );
 
-  
+
 #endif /* fix_published_sfun_api_h */
-/* Copyright 1994-2010 The MathWorks, Inc.
+/* Copyright 1994-2019 The MathWorks, Inc.
  */
 
 #ifdef SUPPORTS_PRAGMA_ONCE
@@ -1103,7 +1230,7 @@ FIXPOINT_EXPORT_EXTERN_C void ssFxpGetU32BitRegionCompliant(
 #define FXP_STORAGE_DOUBLESOVERRIDE FXP_STORAGE_SCALEDDOUBLE
 #define FXP_DT_FIXPT_DBL_OVER FXP_DT_SCALED_DOUBLE
 #define fxpIsDataTypeFixPtDblOver(pFxpDataTypeProp)   fxpIsDataTypeScaledDouble(pFxpDataTypeProp)
-#define fxpIsDataTypeFloatOrDblOver(pFxpDataTypeProp) fxpIsDataTypeFloatOrSclDbl(pFxpDataTypeProp)
+#define fxpIsDataTypeFloatOrDblOver(pFxpDataTypeProp) (fxpIsDataTypeDoubleOrSclDbl(pFxpDataTypeProp) || fxpIsDataTypeSingle(pFxpDataTypeProp))
 
 
 #endif /* fix_published_deprecated_h */

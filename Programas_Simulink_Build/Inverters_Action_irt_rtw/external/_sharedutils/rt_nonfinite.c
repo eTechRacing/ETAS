@@ -5,21 +5,19 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * Code generation for model "Accel_Data".
+ * Code generation for model "Car_State".
  *
- * Model version              : 1.31
- * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Wed Mar 29 12:54:57 2023
+ * Model version              : 10.1
+ * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
+ * C source code generated on : Fri Nov 17 17:12:23 2023
  */
 
-/*
- * Abstract:
- *      Function to initialize non-finites,
- *      (Inf, NaN and -Inf).
- */
-#include "rt_nonfinite.h"
 #include "rtGetNaN.h"
 #include "rtGetInf.h"
+#include <stddef.h>
+#include "rtwtypes.h"
+#include "rt_nonfinite.h"
+#define NumBitsPerChar                 8U
 
 real_T rtInf;
 real_T rtMinusInf;
@@ -58,11 +56,30 @@ boolean_T rtIsInfF(real32_T value)
 /* Test if value is not a number */
 boolean_T rtIsNaN(real_T value)
 {
-  return (boolean_T)((value!=value) ? 1U : 0U);
+  boolean_T result = (boolean_T) 0;
+  size_t bitsPerReal = sizeof(real_T) * (NumBitsPerChar);
+  if (bitsPerReal == 32U) {
+    result = rtIsNaNF((real32_T)value);
+  } else {
+    union {
+      LittleEndianIEEEDouble bitVal;
+      real_T fltVal;
+    } tmpVal;
+
+    tmpVal.fltVal = value;
+    result = (boolean_T)((tmpVal.bitVal.words.wordH & 0x7FF00000) == 0x7FF00000 &&
+                         ( (tmpVal.bitVal.words.wordH & 0x000FFFFF) != 0 ||
+                          (tmpVal.bitVal.words.wordL != 0) ));
+  }
+
+  return result;
 }
 
 /* Test if single-precision value is not a number */
 boolean_T rtIsNaNF(real32_T value)
 {
-  return (boolean_T)(((value!=value) ? 1U : 0U));
+  IEEESingle tmp;
+  tmp.wordL.wordLreal = value;
+  return (boolean_T)( (tmp.wordL.wordLuint & 0x7F800000) == 0x7F800000 &&
+                     (tmp.wordL.wordLuint & 0x007FFFFF) != 0 );
 }

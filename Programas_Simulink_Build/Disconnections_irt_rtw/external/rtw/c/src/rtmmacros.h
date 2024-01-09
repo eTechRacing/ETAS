@@ -1,5 +1,5 @@
 /*
- * Copyright 1994-2005 The MathWorks, Inc.
+ * Copyright 1994-2021 The MathWorks, Inc.
  *
  * File: rtmmacros.h     
  *
@@ -52,8 +52,6 @@
 #define rtmSetSolverZcThreshold         ssSetSolverZcThreshold
 #define rtmGetSolverConsecutiveZCsError     ssGetSolverConsecutiveZCsError
 #define rtmSetSolverConsecutiveZCsError     ssSetSolverConsecutiveZCsError
-#define rtmGetSolverZeroCrossAlgorithm  ssGetSolverZeroCrossAlgorithm
-#define rtmSetSolverZeroCrossAlgorithm  ssSetSolverZeroCrossAlgorithm
 #define rtmGetSolverShapePreserveControl   ssGetSolverShapePreserveControl
 #define rtmSetSolverShapePreserveControl   ssSetSolverShapePreserveControl
 #define rtmGetModelMappingInfo          ssGetModelMappingInfo

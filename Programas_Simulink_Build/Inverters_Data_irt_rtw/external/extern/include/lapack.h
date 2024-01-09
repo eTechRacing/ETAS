@@ -1,5 +1,5 @@
 /*
- * Copyright 1984-2012 The MathWorks, Inc.
+ * Copyright 1984-2021 The MathWorks, Inc.
  * All Rights Reserved.
  */
 
@@ -21,6 +21,8 @@
 #if !defined(MW_HAVE_LAPACK_DECLS) && defined(_LAPACKE_H_) /* %#ok */
 #error "The files lapack.h and lapacke.h may not be simultaneously included because of conflicting declarations of LAPACK routines. Include at most one of these headers in each source file." /* %#ok */
 #else  /* %#ok */
+#include <stddef.h>
+
 #if defined(_WIN32) || defined(__hpux)
 #define FORTRAN_WRAPPER(x) x
 #else
@@ -53,21 +55,13 @@ extern double dlamc3(
 
 /* Source: slamch.f */
 #define slamch FORTRAN_WRAPPER(slamch)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double slamch(
-#else
 extern float slamch(
-#endif 
     const char   *cmach
 );
 
 /* Source: slamch.f */
 #define slamc3 FORTRAN_WRAPPER(slamc3)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double slamc3(
-#else
 extern float slamc3(
-#endif 
     const float  *a,
     const float  *b
 );
@@ -503,50 +497,6 @@ extern void cgeevx(
     ptrdiff_t *info
 );
 
-/* Source: cgegs.f */
-#define cgegs FORTRAN_WRAPPER(cgegs)
-extern void cgegs(
-    const char   *jobvsl,
-    const char   *jobvsr,
-    const ptrdiff_t *n,
-    float  *a,
-    const ptrdiff_t *lda,
-    float  *b,
-    const ptrdiff_t *ldb,
-    float  *alpha,
-    float  *beta,
-    float  *vsl,
-    const ptrdiff_t *ldvsl,
-    float  *vsr,
-    const ptrdiff_t *ldvsr,
-    float  *work,
-    const ptrdiff_t *lwork,
-    float  *rwork,
-    ptrdiff_t *info
-);
-
-/* Source: cgegv.f */
-#define cgegv FORTRAN_WRAPPER(cgegv)
-extern void cgegv(
-    const char   *jobvl,
-    const char   *jobvr,
-    const ptrdiff_t *n,
-    float  *a,
-    const ptrdiff_t *lda,
-    float  *b,
-    const ptrdiff_t *ldb,
-    float  *alpha,
-    float  *beta,
-    float  *vl,
-    const ptrdiff_t *ldvl,
-    float  *vr,
-    const ptrdiff_t *ldvr,
-    float  *work,
-    const ptrdiff_t *lwork,
-    float  *rwork,
-    ptrdiff_t *info
-);
-
 /* Source: cgehd2.f */
 #define cgehd2 FORTRAN_WRAPPER(cgehd2)
 extern void cgehd2(
@@ -574,6 +524,46 @@ extern void cgehrd(
     ptrdiff_t *info
 );
 
+/* Source: cgejsv.f */
+#define cgejsv FORTRAN_WRAPPER(cgejsv)
+extern void cgejsv(
+    const char   *joba,
+    const char   *jobu,
+    const char   *jobv,
+    const char   *jobr,
+    const char   *jobt,
+    const char   *jobp,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *sva,
+    float  *u,
+    const ptrdiff_t *ldu,
+    float  *v,
+    const ptrdiff_t *ldv,
+    float  *cwork,
+    const ptrdiff_t *lwork,
+    float  *rwork,
+    const ptrdiff_t *lrwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *info
+);
+
+/* Source: cgelq.f */
+#define cgelq FORTRAN_WRAPPER(cgelq)
+extern void cgelq(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *t,
+    const ptrdiff_t *tsize,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: cgelq2.f */
 #define cgelq2 FORTRAN_WRAPPER(cgelq2)
 extern void cgelq2(
@@ -596,6 +586,32 @@ extern void cgelqf(
     float  *tau,
     float  *work,
     const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: cgelqt.f */
+#define cgelqt FORTRAN_WRAPPER(cgelqt)
+extern void cgelqt(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *mb,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *t,
+    const ptrdiff_t *ldt,
+    float  *work,
+    ptrdiff_t *info
+);
+
+/* Source: cgelqt3.f */
+#define cgelqt3 FORTRAN_WRAPPER(cgelqt3)
+extern void cgelqt3(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *t,
+    const ptrdiff_t *ldt,
     ptrdiff_t *info
 );
 
@@ -654,24 +670,6 @@ extern void cgelss(
     ptrdiff_t *info
 );
 
-/* Source: cgelsx.f */
-#define cgelsx FORTRAN_WRAPPER(cgelsx)
-extern void cgelsx(
-    const ptrdiff_t *m,
-    const ptrdiff_t *n,
-    const ptrdiff_t *nrhs,
-    float  *a,
-    const ptrdiff_t *lda,
-    float  *b,
-    const ptrdiff_t *ldb,
-    ptrdiff_t *jpvt,
-    const float  *rcond,
-    ptrdiff_t *rank,
-    float  *work,
-    float  *rwork,
-    ptrdiff_t *info
-);
-
 /* Source: cgelsy.f */
 #define cgelsy FORTRAN_WRAPPER(cgelsy)
 extern void cgelsy(
@@ -688,6 +686,63 @@ extern void cgelsy(
     float  *work,
     const ptrdiff_t *lwork,
     float  *rwork,
+    ptrdiff_t *info
+);
+
+/* Source: cgemlq.f */
+#define cgemlq FORTRAN_WRAPPER(cgemlq)
+extern void cgemlq(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const float  *a,
+    const ptrdiff_t *lda,
+    const float  *t,
+    const ptrdiff_t *tsize,
+    float  *c,
+    const ptrdiff_t *ldc,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: cgemlqt.f */
+#define cgemlqt FORTRAN_WRAPPER(cgemlqt)
+extern void cgemlqt(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const ptrdiff_t *mb,
+    const float  *v,
+    const ptrdiff_t *ldv,
+    const float  *t,
+    const ptrdiff_t *ldt,
+    float  *c,
+    const ptrdiff_t *ldc,
+    float  *work,
+    ptrdiff_t *info
+);
+
+/* Source: cgemqr.f */
+#define cgemqr FORTRAN_WRAPPER(cgemqr)
+extern void cgemqr(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const float  *a,
+    const ptrdiff_t *lda,
+    const float  *t,
+    const ptrdiff_t *tsize,
+    float  *c,
+    const ptrdiff_t *ldc,
+    float  *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -750,17 +805,17 @@ extern void cgeqp3(
     ptrdiff_t *info
 );
 
-/* Source: cgeqpf.f */
-#define cgeqpf FORTRAN_WRAPPER(cgeqpf)
-extern void cgeqpf(
+/* Source: cgeqr.f */
+#define cgeqr FORTRAN_WRAPPER(cgeqr)
+extern void cgeqr(
     const ptrdiff_t *m,
     const ptrdiff_t *n,
     float  *a,
     const ptrdiff_t *lda,
-    ptrdiff_t *jpvt,
-    float  *tau,
+    float  *t,
+    const ptrdiff_t *tsize,
     float  *work,
-    float  *rwork,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -964,6 +1019,54 @@ extern void cgesvd(
     ptrdiff_t *info
 );
 
+/* Source: cgesvdx.f */
+#define cgesvdx FORTRAN_WRAPPER(cgesvdx)
+extern void cgesvdx(
+    const char   *jobu,
+    const char   *jobvt,
+    const char   *range,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    const float  *vl,
+    const float  *vu,
+    const ptrdiff_t *il,
+    const ptrdiff_t *iu,
+    ptrdiff_t *ns,
+    float  *s,
+    float  *u,
+    const ptrdiff_t *ldu,
+    float  *vt,
+    const ptrdiff_t *ldvt,
+    float  *work,
+    const ptrdiff_t *lwork,
+    float  *rwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *info
+);
+
+/* Source: cgesvj.f */
+#define cgesvj FORTRAN_WRAPPER(cgesvj)
+extern void cgesvj(
+    const char   *joba,
+    const char   *jobu,
+    const char   *jobv,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *sva,
+    const ptrdiff_t *mv,
+    float  *v,
+    const ptrdiff_t *ldv,
+    float  *cwork,
+    const ptrdiff_t *lwork,
+    float  *rwork,
+    const ptrdiff_t *lrwork,
+    ptrdiff_t *info
+);
+
 /* Source: cgesvx.f */
 #define cgesvx FORTRAN_WRAPPER(cgesvx)
 extern void cgesvx(
@@ -1024,6 +1127,17 @@ extern void cgetrf(
     ptrdiff_t *info
 );
 
+/* Source: cgetrf2.f */
+#define cgetrf2 FORTRAN_WRAPPER(cgetrf2)
+extern void cgetrf2(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    ptrdiff_t *info
+);
+
 /* Source: cgetri.f */
 #define cgetri FORTRAN_WRAPPER(cgetri)
 extern void cgetri(
@@ -1047,6 +1161,22 @@ extern void cgetrs(
     const ptrdiff_t *ipiv,
     float  *b,
     const ptrdiff_t *ldb,
+    ptrdiff_t *info
+);
+
+/* Source: cgetsls.f */
+#define cgetsls FORTRAN_WRAPPER(cgetsls)
+extern void cgetsls(
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *nrhs,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    float  *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -1086,6 +1216,32 @@ extern void cggbal(
 /* Source: cgges.f */
 #define cgges FORTRAN_WRAPPER(cgges)
 extern void cgges(
+    const char   *jobvsl,
+    const char   *jobvsr,
+    const char   *sort,
+    ptrdiff_t (*selctg)(),
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    ptrdiff_t *sdim,
+    float  *alpha,
+    float  *beta,
+    float  *vsl,
+    const ptrdiff_t *ldvsl,
+    float  *vsr,
+    const ptrdiff_t *ldvsr,
+    float  *work,
+    const ptrdiff_t *lwork,
+    float  *rwork,
+    ptrdiff_t *bwork,
+    ptrdiff_t *info
+);
+
+/* Source: cgges3.f */
+#define cgges3 FORTRAN_WRAPPER(cgges3)
+extern void cgges3(
     const char   *jobvsl,
     const char   *jobvsr,
     const char   *sort,
@@ -1162,6 +1318,28 @@ extern void cggev(
     ptrdiff_t *info
 );
 
+/* Source: cggev3.f */
+#define cggev3 FORTRAN_WRAPPER(cggev3)
+extern void cggev3(
+    const char   *jobvl,
+    const char   *jobvr,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    float  *alpha,
+    float  *beta,
+    float  *vl,
+    const ptrdiff_t *ldvl,
+    float  *vr,
+    const ptrdiff_t *ldvr,
+    float  *work,
+    const ptrdiff_t *lwork,
+    float  *rwork,
+    ptrdiff_t *info
+);
+
 /* Source: cggevx.f */
 #define cggevx FORTRAN_WRAPPER(cggevx)
 extern void cggevx(
@@ -1209,6 +1387,27 @@ extern void cggglm(
     float  *d,
     float  *x,
     float  *y,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: cgghd3.f */
+#define cgghd3 FORTRAN_WRAPPER(cgghd3)
+extern void cgghd3(
+    const char   *compq,
+    const char   *compz,
+    const ptrdiff_t *n,
+    const ptrdiff_t *ilo,
+    const ptrdiff_t *ihi,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    float  *q,
+    const ptrdiff_t *ldq,
+    float  *z,
+    const ptrdiff_t *ldz,
     float  *work,
     const ptrdiff_t *lwork,
     ptrdiff_t *info
@@ -1285,9 +1484,9 @@ extern void cggrqf(
     ptrdiff_t *info
 );
 
-/* Source: cggsvd.f */
-#define cggsvd FORTRAN_WRAPPER(cggsvd)
-extern void cggsvd(
+/* Source: cggsvd3.f */
+#define cggsvd3 FORTRAN_WRAPPER(cggsvd3)
+extern void cggsvd3(
     const char   *jobu,
     const char   *jobv,
     const char   *jobq,
@@ -1309,14 +1508,15 @@ extern void cggsvd(
     float  *q,
     const ptrdiff_t *ldq,
     float  *work,
+    const ptrdiff_t *lwork,
     float  *rwork,
     ptrdiff_t *iwork,
     ptrdiff_t *info
 );
 
-/* Source: cggsvp.f */
-#define cggsvp FORTRAN_WRAPPER(cggsvp)
-extern void cggsvp(
+/* Source: cggsvp3.f */
+#define cggsvp3 FORTRAN_WRAPPER(cggsvp3)
+extern void cggsvp3(
     const char   *jobu,
     const char   *jobv,
     const char   *jobq,
@@ -1341,6 +1541,52 @@ extern void cggsvp(
     float  *rwork,
     float  *tau,
     float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: cgsvj0.f */
+#define cgsvj0 FORTRAN_WRAPPER(cgsvj0)
+extern void cgsvj0(
+    const char   *jobv,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *d,
+    float  *sva,
+    const ptrdiff_t *mv,
+    float  *v,
+    const ptrdiff_t *ldv,
+    const float  *eps,
+    const float  *sfmin,
+    const float  *tol,
+    const ptrdiff_t *nsweep,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: cgsvj1.f */
+#define cgsvj1 FORTRAN_WRAPPER(cgsvj1)
+extern void cgsvj1(
+    const char   *jobv,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *n1,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *d,
+    float  *sva,
+    const ptrdiff_t *mv,
+    float  *v,
+    const ptrdiff_t *ldv,
+    const float  *eps,
+    const float  *sfmin,
+    const float  *tol,
+    const ptrdiff_t *nsweep,
+    float  *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -1468,6 +1714,26 @@ extern void cgtts2(
     const ptrdiff_t *ldb
 );
 
+/* Source: chb2st_kernels.f */
+#define chb2st_kernels FORTRAN_WRAPPER(chb2st_kernels)
+extern void chb2st_kernels(
+    char   *uplo,
+    ptrdiff_t *wantz,
+    ptrdiff_t *ttype,
+    ptrdiff_t *st,
+    ptrdiff_t *ed,
+    ptrdiff_t *sweep,
+    ptrdiff_t *n,
+    ptrdiff_t *nb,
+    ptrdiff_t *ib,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *v,
+    float  *tau,
+    ptrdiff_t *ldvt,
+    float  *work
+);
+
 /* Source: chbev.f */
 #define chbev FORTRAN_WRAPPER(chbev)
 extern void chbev(
@@ -1481,6 +1747,24 @@ extern void chbev(
     float  *z,
     const ptrdiff_t *ldz,
     float  *work,
+    float  *rwork,
+    ptrdiff_t *info
+);
+
+/* Source: chbev_2stage.f */
+#define chbev_2stage FORTRAN_WRAPPER(chbev_2stage)
+extern void chbev_2stage(
+    char   *jobz,
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *kd,
+    float  *ab,
+    ptrdiff_t *ldab,
+    float  *w,
+    float  *z,
+    ptrdiff_t *ldz,
+    float  *work,
+    ptrdiff_t *lwork,
     float  *rwork,
     ptrdiff_t *info
 );
@@ -1506,6 +1790,27 @@ extern void chbevd(
     ptrdiff_t *info
 );
 
+/* Source: chbevd_2stage.f */
+#define chbevd_2stage FORTRAN_WRAPPER(chbevd_2stage)
+extern void chbevd_2stage(
+    char   *jobz,
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *kd,
+    float  *ab,
+    ptrdiff_t *ldab,
+    float  *w,
+    float  *z,
+    ptrdiff_t *ldz,
+    float  *work,
+    ptrdiff_t *lwork,
+    float  *rwork,
+    ptrdiff_t *lrwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *liwork,
+    ptrdiff_t *info
+);
+
 /* Source: chbevx.f */
 #define chbevx FORTRAN_WRAPPER(chbevx)
 extern void chbevx(
@@ -1528,6 +1833,35 @@ extern void chbevx(
     float  *z,
     const ptrdiff_t *ldz,
     float  *work,
+    float  *rwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *ifail,
+    ptrdiff_t *info
+);
+
+/* Source: chbevx_2stage.f */
+#define chbevx_2stage FORTRAN_WRAPPER(chbevx_2stage)
+extern void chbevx_2stage(
+    char   *jobz,
+    char   *range,
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *kd,
+    float  *ab,
+    ptrdiff_t *ldab,
+    float  *q,
+    ptrdiff_t *ldq,
+    float  *vl,
+    float  *vu,
+    ptrdiff_t *il,
+    ptrdiff_t *iu,
+    float  *abstol,
+    ptrdiff_t *m,
+    float  *w,
+    float  *z,
+    ptrdiff_t *ldz,
+    float  *work,
+    ptrdiff_t *lwork,
     float  *rwork,
     ptrdiff_t *iwork,
     ptrdiff_t *ifail,
@@ -1659,6 +1993,21 @@ extern void checon(
     ptrdiff_t *info
 );
 
+/* Source: checon_3.f */
+#define checon_3 FORTRAN_WRAPPER(checon_3)
+extern void checon_3(
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *anorm,
+    float  *rcond,
+    float  *work,
+    ptrdiff_t *info
+);
+
 /* Source: checon_rook.f */
 #define checon_rook FORTRAN_WRAPPER(checon_rook)
 extern void checon_rook(
@@ -1702,6 +2051,21 @@ extern void cheev(
     ptrdiff_t *info
 );
 
+/* Source: cheev_2stage.f */
+#define cheev_2stage FORTRAN_WRAPPER(cheev_2stage)
+extern void cheev_2stage(
+    char   *jobz,
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *w,
+    float  *work,
+    ptrdiff_t *lwork,
+    float  *rwork,
+    ptrdiff_t *info
+);
+
 /* Source: cheevd.f */
 #define cheevd FORTRAN_WRAPPER(cheevd)
 extern void cheevd(
@@ -1717,6 +2081,24 @@ extern void cheevd(
     const ptrdiff_t *lrwork,
     ptrdiff_t *iwork,
     const ptrdiff_t *liwork,
+    ptrdiff_t *info
+);
+
+/* Source: cheevd_2stage.f */
+#define cheevd_2stage FORTRAN_WRAPPER(cheevd_2stage)
+extern void cheevd_2stage(
+    char   *jobz,
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *w,
+    float  *work,
+    ptrdiff_t *lwork,
+    float  *rwork,
+    ptrdiff_t *lrwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *liwork,
     ptrdiff_t *info
 );
 
@@ -1748,6 +2130,34 @@ extern void cheevr(
     ptrdiff_t *info
 );
 
+/* Source: cheevr_2stage.f */
+#define cheevr_2stage FORTRAN_WRAPPER(cheevr_2stage)
+extern void cheevr_2stage(
+    char   *jobz,
+    char   *range,
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *vl,
+    float  *vu,
+    ptrdiff_t *il,
+    ptrdiff_t *iu,
+    float  *abstol,
+    ptrdiff_t *m,
+    float  *w,
+    float  *z,
+    ptrdiff_t *ldz,
+    ptrdiff_t *isuppz,
+    float  *work,
+    ptrdiff_t *lwork,
+    float  *rwork,
+    ptrdiff_t *lrwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *liwork,
+    ptrdiff_t *info
+);
+
 /* Source: cheevx.f */
 #define cheevx FORTRAN_WRAPPER(cheevx)
 extern void cheevx(
@@ -1768,6 +2178,32 @@ extern void cheevx(
     const ptrdiff_t *ldz,
     float  *work,
     const ptrdiff_t *lwork,
+    float  *rwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *ifail,
+    ptrdiff_t *info
+);
+
+/* Source: cheevx_2stage.f */
+#define cheevx_2stage FORTRAN_WRAPPER(cheevx_2stage)
+extern void cheevx_2stage(
+    char   *jobz,
+    char   *range,
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *vl,
+    float  *vu,
+    ptrdiff_t *il,
+    ptrdiff_t *iu,
+    float  *abstol,
+    ptrdiff_t *m,
+    float  *w,
+    float  *z,
+    ptrdiff_t *ldz,
+    float  *work,
+    ptrdiff_t *lwork,
     float  *rwork,
     ptrdiff_t *iwork,
     ptrdiff_t *ifail,
@@ -1814,6 +2250,24 @@ extern void chegv(
     float  *w,
     float  *work,
     const ptrdiff_t *lwork,
+    float  *rwork,
+    ptrdiff_t *info
+);
+
+/* Source: chegv_2stage.f */
+#define chegv_2stage FORTRAN_WRAPPER(chegv_2stage)
+extern void chegv_2stage(
+    ptrdiff_t *itype,
+    char   *jobz,
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *b,
+    ptrdiff_t *ldb,
+    float  *w,
+    float  *work,
+    ptrdiff_t *lwork,
     float  *rwork,
     ptrdiff_t *info
 );
@@ -1906,6 +2360,39 @@ extern void chesv(
     ptrdiff_t *info
 );
 
+/* Source: chesv_aa.f */
+#define chesv_aa FORTRAN_WRAPPER(chesv_aa)
+extern void chesv_aa(
+    const char   *uplo,
+    const ptrdiff_t *n,
+    const ptrdiff_t *nrhs,
+    float  *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    float  *b,
+    const ptrdiff_t *ldb,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: chesv_rk.f */
+#define chesv_rk FORTRAN_WRAPPER(chesv_rk)
+extern void chesv_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nrhs,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *b,
+    ptrdiff_t *ldb,
+    float  *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: chesv_rook.f */
 #define chesv_rook FORTRAN_WRAPPER(chesv_rook)
 extern void chesv_rook(
@@ -1982,6 +2469,18 @@ extern void chetf2(
     ptrdiff_t *info
 );
 
+/* Source: chetf2_rk.f */
+#define chetf2_rk FORTRAN_WRAPPER(chetf2_rk)
+extern void chetf2_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    ptrdiff_t *info
+);
+
 /* Source: chetf2_rook.f */
 #define chetf2_rook FORTRAN_WRAPPER(chetf2_rook)
 extern void chetf2_rook(
@@ -2008,6 +2507,59 @@ extern void chetrd(
     ptrdiff_t *info
 );
 
+/* Source: chetrd_2stage.f */
+#define chetrd_2stage FORTRAN_WRAPPER(chetrd_2stage)
+extern void chetrd_2stage(
+    char   *vect,
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *d,
+    float  *e,
+    float  *tau,
+    float  *hous2,
+    ptrdiff_t *lhous2,
+    float  *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: chetrd_hb2st.f */
+#define chetrd_hb2st FORTRAN_WRAPPER(chetrd_hb2st)
+extern void chetrd_hb2st(
+    char   *stage1,
+    char   *vect,
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *kd,
+    float  *ab,
+    ptrdiff_t *ldab,
+    float  *d,
+    float  *e,
+    float  *hous,
+    ptrdiff_t *lhous,
+    float  *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: chetrd_he2hb.f */
+#define chetrd_he2hb FORTRAN_WRAPPER(chetrd_he2hb)
+extern void chetrd_he2hb(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *kd,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *ab,
+    ptrdiff_t *ldab,
+    float  *tau,
+    float  *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: chetrf.f */
 #define chetrf FORTRAN_WRAPPER(chetrf)
 extern void chetrf(
@@ -2018,6 +2570,33 @@ extern void chetrf(
     ptrdiff_t *ipiv,
     float  *work,
     const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: chetrf_aa.f */
+#define chetrf_aa FORTRAN_WRAPPER(chetrf_aa)
+extern void chetrf_aa(
+    const char   *uplo,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: chetrf_rk.f */
+#define chetrf_rk FORTRAN_WRAPPER(chetrf_rk)
+extern void chetrf_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *work,
+    ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -2072,6 +2651,34 @@ extern void chetri2x(
     ptrdiff_t *info
 );
 
+/* Source: chetri_3.f */
+#define chetri_3 FORTRAN_WRAPPER(chetri_3)
+extern void chetri_3(
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: chetri_3x.f */
+#define chetri_3x FORTRAN_WRAPPER(chetri_3x)
+extern void chetri_3x(
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *work,
+    ptrdiff_t *nb,
+    ptrdiff_t *info
+);
+
 /* Source: chetri_rook.f */
 #define chetri_rook FORTRAN_WRAPPER(chetri_rook)
 extern void chetri_rook(
@@ -2110,6 +2717,37 @@ extern void chetrs2(
     float  *b,
     const ptrdiff_t *ldb,
     float  *work,
+    ptrdiff_t *info
+);
+
+/* Source: chetrs_3.f */
+#define chetrs_3 FORTRAN_WRAPPER(chetrs_3)
+extern void chetrs_3(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nrhs,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *b,
+    ptrdiff_t *ldb,
+    ptrdiff_t *info
+);
+
+/* Source: chetrs_aa.f */
+#define chetrs_aa FORTRAN_WRAPPER(chetrs_aa)
+extern void chetrs_aa(
+    const char   *uplo,
+    const ptrdiff_t *n,
+    const ptrdiff_t *nrhs,
+    const float  *a,
+    const ptrdiff_t *lda,
+    const ptrdiff_t *ipiv,
+    float  *b,
+    const ptrdiff_t *ldb,
+    const float  *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -2542,7 +3180,7 @@ extern void clacrm(
     const ptrdiff_t *lda,
     const float  *b,
     const ptrdiff_t *ldb,
-    const float  *c,
+    float  *c,
     const ptrdiff_t *ldc,
     float  *rwork
 );
@@ -2561,12 +3199,8 @@ extern void clacrt(
 
 /* Source: cladiv.f */
 #define cladiv FORTRAN_WRAPPER(cladiv)
-#ifndef FORTRAN_COMPLEX_FUNCTIONS_RETURN_VOID
-extern complex cladiv(
-#else
 extern void cladiv(
     complex* retval,
-#endif 
     const float  *x,
     const float  *y
 );
@@ -2745,6 +3379,38 @@ extern void clahef(
     ptrdiff_t *info
 );
 
+/* Source: clahef_aa.f */
+#define clahef_aa FORTRAN_WRAPPER(clahef_aa)
+extern void clahef_aa(
+    const char   *uplo,
+    const ptrdiff_t *j1_,
+    const ptrdiff_t *m,
+    const ptrdiff_t *nb,
+    float  *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    float  *h,
+    const ptrdiff_t *ldh,
+    float  *work,
+    ptrdiff_t *info
+);
+
+/* Source: clahef_rk.f */
+#define clahef_rk FORTRAN_WRAPPER(clahef_rk)
+extern void clahef_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nb,
+    ptrdiff_t *kb,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *w,
+    ptrdiff_t *ldw,
+    ptrdiff_t *info
+);
+
 /* Source: clahef_rook.f */
 #define clahef_rook FORTRAN_WRAPPER(clahef_rook)
 extern void clahef_rook(
@@ -2781,21 +3447,6 @@ extern void clahqr(
 /* Source: clahr2.f */
 #define clahr2 FORTRAN_WRAPPER(clahr2)
 extern void clahr2(
-    const ptrdiff_t *n,
-    const ptrdiff_t *k,
-    const ptrdiff_t *nb,
-    float  *a,
-    const ptrdiff_t *lda,
-    float  *tau,
-    float  *t,
-    const ptrdiff_t *ldt,
-    float  *y,
-    const ptrdiff_t *ldy
-);
-
-/* Source: clahrd.f */
-#define clahrd FORTRAN_WRAPPER(clahrd)
-extern void clahrd(
     const ptrdiff_t *n,
     const ptrdiff_t *k,
     const ptrdiff_t *nb,
@@ -2901,13 +3552,51 @@ extern void clalsd(
     ptrdiff_t *info
 );
 
+/* Source: clamswlq.f */
+#define clamswlq FORTRAN_WRAPPER(clamswlq)
+extern void clamswlq(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const ptrdiff_t *mb,
+    const ptrdiff_t *nb,
+    float  *a,
+    const ptrdiff_t *lda,
+    const float  *t,
+    const ptrdiff_t *ldt,
+    float  *c,
+    const ptrdiff_t *ldc,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: clamtsqr.f */
+#define clamtsqr FORTRAN_WRAPPER(clamtsqr)
+extern void clamtsqr(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const ptrdiff_t *mb,
+    const ptrdiff_t *nb,
+    float  *a,
+    const ptrdiff_t *lda,
+    const float  *t,
+    const ptrdiff_t *ldt,
+    float  *c,
+    const ptrdiff_t *ldc,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: clangb.f */
 #define clangb FORTRAN_WRAPPER(clangb)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double clangb(
-#else
 extern float clangb(
-#endif 
     const char   *norm,
     const ptrdiff_t *n,
     const ptrdiff_t *kl,
@@ -2919,11 +3608,7 @@ extern float clangb(
 
 /* Source: clange.f */
 #define clange FORTRAN_WRAPPER(clange)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double clange(
-#else
 extern float clange(
-#endif 
     const char   *norm,
     const ptrdiff_t *m,
     const ptrdiff_t *n,
@@ -2934,11 +3619,7 @@ extern float clange(
 
 /* Source: clangt.f */
 #define clangt FORTRAN_WRAPPER(clangt)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double clangt(
-#else
 extern float clangt(
-#endif 
     const char   *norm,
     const ptrdiff_t *n,
     const float  *dl,
@@ -2948,11 +3629,7 @@ extern float clangt(
 
 /* Source: clanhb.f */
 #define clanhb FORTRAN_WRAPPER(clanhb)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double clanhb(
-#else
 extern float clanhb(
-#endif 
     const char   *norm,
     const char   *uplo,
     const ptrdiff_t *n,
@@ -2964,11 +3641,7 @@ extern float clanhb(
 
 /* Source: clanhe.f */
 #define clanhe FORTRAN_WRAPPER(clanhe)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double clanhe(
-#else
 extern float clanhe(
-#endif 
     const char   *norm,
     const char   *uplo,
     const ptrdiff_t *n,
@@ -2979,11 +3652,7 @@ extern float clanhe(
 
 /* Source: clanhf.f */
 #define clanhf FORTRAN_WRAPPER(clanhf)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double clanhf(
-#else
 extern float clanhf(
-#endif 
     const char   *norm,
     const char   *transr,
     const char   *uplo,
@@ -2994,11 +3663,7 @@ extern float clanhf(
 
 /* Source: clanhp.f */
 #define clanhp FORTRAN_WRAPPER(clanhp)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double clanhp(
-#else
 extern float clanhp(
-#endif 
     const char   *norm,
     const char   *uplo,
     const ptrdiff_t *n,
@@ -3008,11 +3673,7 @@ extern float clanhp(
 
 /* Source: clanhs.f */
 #define clanhs FORTRAN_WRAPPER(clanhs)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double clanhs(
-#else
 extern float clanhs(
-#endif 
     const char   *norm,
     const ptrdiff_t *n,
     const float  *a,
@@ -3022,11 +3683,7 @@ extern float clanhs(
 
 /* Source: clanht.f */
 #define clanht FORTRAN_WRAPPER(clanht)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double clanht(
-#else
 extern float clanht(
-#endif 
     const char   *norm,
     const ptrdiff_t *n,
     const float  *d,
@@ -3035,11 +3692,7 @@ extern float clanht(
 
 /* Source: clansb.f */
 #define clansb FORTRAN_WRAPPER(clansb)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double clansb(
-#else
 extern float clansb(
-#endif 
     const char   *norm,
     const char   *uplo,
     const ptrdiff_t *n,
@@ -3051,11 +3704,7 @@ extern float clansb(
 
 /* Source: clansp.f */
 #define clansp FORTRAN_WRAPPER(clansp)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double clansp(
-#else
 extern float clansp(
-#endif 
     const char   *norm,
     const char   *uplo,
     const ptrdiff_t *n,
@@ -3065,11 +3714,7 @@ extern float clansp(
 
 /* Source: clansy.f */
 #define clansy FORTRAN_WRAPPER(clansy)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double clansy(
-#else
 extern float clansy(
-#endif 
     const char   *norm,
     const char   *uplo,
     const ptrdiff_t *n,
@@ -3080,11 +3725,7 @@ extern float clansy(
 
 /* Source: clantb.f */
 #define clantb FORTRAN_WRAPPER(clantb)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double clantb(
-#else
 extern float clantb(
-#endif 
     const char   *norm,
     const char   *uplo,
     const char   *diag,
@@ -3097,11 +3738,7 @@ extern float clantb(
 
 /* Source: clantp.f */
 #define clantp FORTRAN_WRAPPER(clantp)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double clantp(
-#else
 extern float clantp(
-#endif 
     const char   *norm,
     const char   *uplo,
     const char   *diag,
@@ -3112,11 +3749,7 @@ extern float clantp(
 
 /* Source: clantr.f */
 #define clantr FORTRAN_WRAPPER(clantr)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double clantr(
-#else
 extern float clantr(
-#endif 
     const char   *norm,
     const char   *uplo,
     const char   *diag,
@@ -3492,7 +4125,7 @@ extern void clarcm(
     const ptrdiff_t *lda,
     const float  *b,
     const ptrdiff_t *ldb,
-    const float  *c,
+    float  *c,
     const ptrdiff_t *ldc,
     float  *rwork
 );
@@ -3558,7 +4191,7 @@ extern void clarft(
     const char   *storev,
     const ptrdiff_t *n,
     const ptrdiff_t *k,
-    float  *v,
+    const float  *v,
     const ptrdiff_t *ldv,
     const float  *tau,
     float  *t,
@@ -3575,6 +4208,19 @@ extern void clarfx(
     const float  *tau,
     float  *c,
     const ptrdiff_t *ldc,
+    float  *work
+);
+
+/* Source: clarfy.f */
+#define clarfy FORTRAN_WRAPPER(clarfy)
+extern void clarfy(
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *v,
+    ptrdiff_t *incv,
+    float  *tau,
+    float  *c,
+    ptrdiff_t *ldc,
     float  *work
 );
 
@@ -3753,6 +4399,22 @@ extern void classq(
     float  *sumsq
 );
 
+/* Source: claswlq.f */
+#define claswlq FORTRAN_WRAPPER(claswlq)
+extern void claswlq(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *mb,
+    const ptrdiff_t *nb,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *t,
+    const ptrdiff_t *ldt,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: claswp.f */
 #define claswp FORTRAN_WRAPPER(claswp)
 extern void claswp(
@@ -3777,6 +4439,38 @@ extern void clasyf(
     ptrdiff_t *ipiv,
     float  *w,
     const ptrdiff_t *ldw,
+    ptrdiff_t *info
+);
+
+/* Source: clasyf_aa.f */
+#define clasyf_aa FORTRAN_WRAPPER(clasyf_aa)
+extern void clasyf_aa(
+    char   *uplo,
+    ptrdiff_t *j1_,
+    ptrdiff_t *m,
+    ptrdiff_t *nb,
+    float  *a,
+    ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    float  *h,
+    ptrdiff_t *ldh,
+    float  *work,
+    ptrdiff_t *info
+);
+
+/* Source: clasyf_rk.f */
+#define clasyf_rk FORTRAN_WRAPPER(clasyf_rk)
+extern void clasyf_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nb,
+    ptrdiff_t *kb,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *w,
+    ptrdiff_t *ldw,
     ptrdiff_t *info
 );
 
@@ -3883,19 +4577,20 @@ extern void clatrz(
     float  *work
 );
 
-/* Source: clatzm.f */
-#define clatzm FORTRAN_WRAPPER(clatzm)
-extern void clatzm(
-    const char   *side,
+/* Source: clatsqr.f */
+#define clatsqr FORTRAN_WRAPPER(clatsqr)
+extern void clatsqr(
     const ptrdiff_t *m,
     const ptrdiff_t *n,
-    const float  *v,
-    const ptrdiff_t *incv,
-    const float  *tau,
-    float  *c1,
-    float  *c2,
-    const ptrdiff_t *ldc,
-    float  *work
+    const ptrdiff_t *mb,
+    const ptrdiff_t *nb,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *t,
+    const ptrdiff_t *ldt,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
 );
 
 /* Source: clauu2.f */
@@ -4199,6 +4894,16 @@ extern void cpotf2(
 /* Source: cpotrf.f */
 #define cpotrf FORTRAN_WRAPPER(cpotrf)
 extern void cpotrf(
+    const char   *uplo,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *info
+);
+
+/* Source: cpotrf2.f */
+#define cpotrf2 FORTRAN_WRAPPER(cpotrf2)
+extern void cpotrf2(
     const char   *uplo,
     const ptrdiff_t *n,
     float  *a,
@@ -4742,6 +5447,21 @@ extern void csycon(
     ptrdiff_t *info
 );
 
+/* Source: csycon_3.f */
+#define csycon_3 FORTRAN_WRAPPER(csycon_3)
+extern void csycon_3(
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *anorm,
+    float  *rcond,
+    float  *work,
+    ptrdiff_t *info
+);
+
 /* Source: csycon_rook.f */
 #define csycon_rook FORTRAN_WRAPPER(csycon_rook)
 extern void csycon_rook(
@@ -4765,7 +5485,33 @@ extern void csyconv(
     float  *a,
     const ptrdiff_t *lda,
     const ptrdiff_t *ipiv,
-    float  *work,
+    float  *e,
+    ptrdiff_t *info
+);
+
+/* Source: csyconvf.f */
+#define csyconvf FORTRAN_WRAPPER(csyconvf)
+extern void csyconvf(
+    char   *uplo,
+    char   *way,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    ptrdiff_t *info
+);
+
+/* Source: csyconvf_rook.f */
+#define csyconvf_rook FORTRAN_WRAPPER(csyconvf_rook)
+extern void csyconvf_rook(
+    char   *uplo,
+    char   *way,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
     ptrdiff_t *info
 );
 
@@ -4848,6 +5594,39 @@ extern void csysv(
     ptrdiff_t *info
 );
 
+/* Source: csysv_aa.f */
+#define csysv_aa FORTRAN_WRAPPER(csysv_aa)
+extern void csysv_aa(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nrhs,
+    float  *a,
+    ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    float  *b,
+    ptrdiff_t *ldb,
+    float  *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: csysv_rk.f */
+#define csysv_rk FORTRAN_WRAPPER(csysv_rk)
+extern void csysv_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nrhs,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *b,
+    ptrdiff_t *ldb,
+    float  *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: csysv_rook.f */
 #define csysv_rook FORTRAN_WRAPPER(csysv_rook)
 extern void csysv_rook(
@@ -4911,6 +5690,18 @@ extern void csytf2(
     ptrdiff_t *info
 );
 
+/* Source: csytf2_rk.f */
+#define csytf2_rk FORTRAN_WRAPPER(csytf2_rk)
+extern void csytf2_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    ptrdiff_t *info
+);
+
 /* Source: csytf2_rook.f */
 #define csytf2_rook FORTRAN_WRAPPER(csytf2_rook)
 extern void csytf2_rook(
@@ -4932,6 +5723,33 @@ extern void csytrf(
     ptrdiff_t *ipiv,
     float  *work,
     const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: csytrf_aa.f */
+#define csytrf_aa FORTRAN_WRAPPER(csytrf_aa)
+extern void csytrf_aa(
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    float  *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: csytrf_rk.f */
+#define csytrf_rk FORTRAN_WRAPPER(csytrf_rk)
+extern void csytrf_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *work,
+    ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -4986,6 +5804,34 @@ extern void csytri2x(
     ptrdiff_t *info
 );
 
+/* Source: csytri_3.f */
+#define csytri_3 FORTRAN_WRAPPER(csytri_3)
+extern void csytri_3(
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: csytri_3x.f */
+#define csytri_3x FORTRAN_WRAPPER(csytri_3x)
+extern void csytri_3x(
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *work,
+    ptrdiff_t *nb,
+    ptrdiff_t *info
+);
+
 /* Source: csytri_rook.f */
 #define csytri_rook FORTRAN_WRAPPER(csytri_rook)
 extern void csytri_rook(
@@ -5024,6 +5870,37 @@ extern void csytrs2(
     float  *b,
     const ptrdiff_t *ldb,
     float  *work,
+    ptrdiff_t *info
+);
+
+/* Source: csytrs_3.f */
+#define csytrs_3 FORTRAN_WRAPPER(csytrs_3)
+extern void csytrs_3(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nrhs,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *b,
+    ptrdiff_t *ldb,
+    ptrdiff_t *info
+);
+
+/* Source: csytrs_aa.f */
+#define csytrs_aa FORTRAN_WRAPPER(csytrs_aa)
+extern void csytrs_aa(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nrhs,
+    float  *a,
+    ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    float  *b,
+    ptrdiff_t *ldb,
+    float  *work,
+    ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -5354,6 +6231,60 @@ extern void ctpcon(
     ptrdiff_t *info
 );
 
+/* Source: ctplqt.f */
+#define ctplqt FORTRAN_WRAPPER(ctplqt)
+extern void ctplqt(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *l,
+    const ptrdiff_t *mb,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    float  *t,
+    const ptrdiff_t *ldt,
+    float  *work,
+    ptrdiff_t *info
+);
+
+/* Source: ctplqt2.f */
+#define ctplqt2 FORTRAN_WRAPPER(ctplqt2)
+extern void ctplqt2(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *l,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    float  *t,
+    const ptrdiff_t *ldt,
+    ptrdiff_t *info
+);
+
+/* Source: ctpmlqt.f */
+#define ctpmlqt FORTRAN_WRAPPER(ctpmlqt)
+extern void ctpmlqt(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const ptrdiff_t *l,
+    const ptrdiff_t *mb,
+    const float  *v,
+    const ptrdiff_t *ldv,
+    const float  *t,
+    const ptrdiff_t *ldt,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    float  *work,
+    ptrdiff_t *info
+);
+
 /* Source: ctpmqrt.f */
 #define ctpmqrt FORTRAN_WRAPPER(ctpmqrt)
 extern void ctpmqrt(
@@ -5383,13 +6314,13 @@ extern void ctpqrt(
     const ptrdiff_t *n,
     const ptrdiff_t *l,
     const ptrdiff_t *nb,
-    const float  *a,
+    float  *a,
     const ptrdiff_t *lda,
-    const float  *b,
+    float  *b,
     const ptrdiff_t *ldb,
-    const float  *t,
+    float  *t,
     const ptrdiff_t *ldt,
-    const float  *work,
+    float  *work,
     ptrdiff_t *info
 );
 
@@ -5529,6 +6460,28 @@ extern void ctrevc(
     ptrdiff_t *m,
     float  *work,
     float  *rwork,
+    ptrdiff_t *info
+);
+
+/* Source: ctrevc3.f */
+#define ctrevc3 FORTRAN_WRAPPER(ctrevc3)
+extern void ctrevc3(
+    char   *side,
+    char   *howmny,
+    ptrdiff_t *select,
+    ptrdiff_t *n,
+    float  *t,
+    ptrdiff_t *ldt,
+    float  *vl,
+    ptrdiff_t *ldvl,
+    float  *vr,
+    ptrdiff_t *ldvr,
+    ptrdiff_t *mm,
+    ptrdiff_t *m,
+    float  *work,
+    ptrdiff_t *lwork,
+    float  *rwork,
+    ptrdiff_t *lrwork,
     ptrdiff_t *info
 );
 
@@ -5685,17 +6638,6 @@ extern void ctrttp(
     const float  *a,
     const ptrdiff_t *lda,
     float  *ap,
-    ptrdiff_t *info
-);
-
-/* Source: ctzrqf.f */
-#define ctzrqf FORTRAN_WRAPPER(ctzrqf)
-extern void ctzrqf(
-    const ptrdiff_t *m,
-    const ptrdiff_t *n,
-    float  *a,
-    const ptrdiff_t *lda,
-    float  *tau,
     ptrdiff_t *info
 );
 
@@ -6073,6 +7015,24 @@ extern void cungtr(
     ptrdiff_t *info
 );
 
+/* Source: cunm22.f */
+#define cunm22 FORTRAN_WRAPPER(cunm22)
+extern void cunm22(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *n1,
+    const ptrdiff_t *n2,
+    const float  *q,
+    const ptrdiff_t *ldq,
+    float  *c,
+    const ptrdiff_t *ldc,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: cunm2l.f */
 #define cunm2l FORTRAN_WRAPPER(cunm2l)
 extern void cunm2l(
@@ -6408,6 +7368,28 @@ extern void dbdsqr(
     ptrdiff_t *info
 );
 
+/* Source: dbdsvdx.f */
+#define dbdsvdx FORTRAN_WRAPPER(dbdsvdx)
+extern void dbdsvdx(
+    const char   *uplo,
+    const char   *jobz,
+    const char   *range,
+    const ptrdiff_t *n,
+    const double *d,
+    const double *e,
+    const double *vl,
+    const double *vu,
+    const ptrdiff_t *il,
+    const ptrdiff_t *iu,
+    ptrdiff_t *ns,
+    double *s,
+    double *z,
+    const ptrdiff_t *ldz,
+    double *work,
+    ptrdiff_t *iwork,
+    ptrdiff_t *info
+);
+
 /* Source: ddisna.f */
 #define ddisna FORTRAN_WRAPPER(ddisna)
 extern void ddisna(
@@ -6416,6 +7398,702 @@ extern void ddisna(
     const ptrdiff_t *n,
     const double *d,
     double *sep,
+    ptrdiff_t *info
+);
+
+/* Source: cgegs.f */
+#define cgegs FORTRAN_WRAPPER(cgegs)
+extern void cgegs(
+    const char   *jobvsl,
+    const char   *jobvsr,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    float  *alpha,
+    float  *beta,
+    float  *vsl,
+    const ptrdiff_t *ldvsl,
+    float  *vsr,
+    const ptrdiff_t *ldvsr,
+    float  *work,
+    const ptrdiff_t *lwork,
+    float  *rwork,
+    ptrdiff_t *info
+);
+
+/* Source: cgegv.f */
+#define cgegv FORTRAN_WRAPPER(cgegv)
+extern void cgegv(
+    const char   *jobvl,
+    const char   *jobvr,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    float  *alpha,
+    float  *beta,
+    float  *vl,
+    const ptrdiff_t *ldvl,
+    float  *vr,
+    const ptrdiff_t *ldvr,
+    float  *work,
+    const ptrdiff_t *lwork,
+    float  *rwork,
+    ptrdiff_t *info
+);
+
+/* Source: cgelsx.f */
+#define cgelsx FORTRAN_WRAPPER(cgelsx)
+extern void cgelsx(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *nrhs,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    ptrdiff_t *jpvt,
+    const float  *rcond,
+    ptrdiff_t *rank,
+    float  *work,
+    float  *rwork,
+    ptrdiff_t *info
+);
+
+/* Source: cgeqpf.f */
+#define cgeqpf FORTRAN_WRAPPER(cgeqpf)
+extern void cgeqpf(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *jpvt,
+    float  *tau,
+    float  *work,
+    float  *rwork,
+    ptrdiff_t *info
+);
+
+/* Source: cggsvd.f */
+#define cggsvd FORTRAN_WRAPPER(cggsvd)
+extern void cggsvd(
+    const char   *jobu,
+    const char   *jobv,
+    const char   *jobq,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *p,
+    ptrdiff_t *k,
+    ptrdiff_t *l,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    float  *alpha,
+    float  *beta,
+    float  *u,
+    const ptrdiff_t *ldu,
+    float  *v,
+    const ptrdiff_t *ldv,
+    float  *q,
+    const ptrdiff_t *ldq,
+    float  *work,
+    float  *rwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *info
+);
+
+/* Source: cggsvp.f */
+#define cggsvp FORTRAN_WRAPPER(cggsvp)
+extern void cggsvp(
+    const char   *jobu,
+    const char   *jobv,
+    const char   *jobq,
+    const ptrdiff_t *m,
+    const ptrdiff_t *p,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    const float  *tola,
+    const float  *tolb,
+    ptrdiff_t *k,
+    ptrdiff_t *l,
+    float  *u,
+    const ptrdiff_t *ldu,
+    float  *v,
+    const ptrdiff_t *ldv,
+    float  *q,
+    const ptrdiff_t *ldq,
+    ptrdiff_t *iwork,
+    float  *rwork,
+    float  *tau,
+    float  *work,
+    ptrdiff_t *info
+);
+
+/* Source: clahrd.f */
+#define clahrd FORTRAN_WRAPPER(clahrd)
+extern void clahrd(
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const ptrdiff_t *nb,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *tau,
+    float  *t,
+    const ptrdiff_t *ldt,
+    float  *y,
+    const ptrdiff_t *ldy
+);
+
+/* Source: clatzm.f */
+#define clatzm FORTRAN_WRAPPER(clatzm)
+extern void clatzm(
+    const char   *side,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const float  *v,
+    const ptrdiff_t *incv,
+    const float  *tau,
+    float  *c1,
+    float  *c2,
+    const ptrdiff_t *ldc,
+    float  *work
+);
+
+/* Source: ctzrqf.f */
+#define ctzrqf FORTRAN_WRAPPER(ctzrqf)
+extern void ctzrqf(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *tau,
+    ptrdiff_t *info
+);
+
+/* Source: dgegs.f */
+#define dgegs FORTRAN_WRAPPER(dgegs)
+extern void dgegs(
+    const char   *jobvsl,
+    const char   *jobvsr,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    double *alphar,
+    double *alphai,
+    double *beta,
+    double *vsl,
+    const ptrdiff_t *ldvsl,
+    double *vsr,
+    const ptrdiff_t *ldvsr,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: dgegv.f */
+#define dgegv FORTRAN_WRAPPER(dgegv)
+extern void dgegv(
+    const char   *jobvl,
+    const char   *jobvr,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    double *alphar,
+    double *alphai,
+    double *beta,
+    double *vl,
+    const ptrdiff_t *ldvl,
+    double *vr,
+    const ptrdiff_t *ldvr,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: dgelsx.f */
+#define dgelsx FORTRAN_WRAPPER(dgelsx)
+extern void dgelsx(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *nrhs,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    ptrdiff_t *jpvt,
+    const double *rcond,
+    ptrdiff_t *rank,
+    double *work,
+    ptrdiff_t *info
+);
+
+/* Source: dgeqpf.f */
+#define dgeqpf FORTRAN_WRAPPER(dgeqpf)
+extern void dgeqpf(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *jpvt,
+    double *tau,
+    double *work,
+    ptrdiff_t *info
+);
+
+/* Source: dggsvd.f */
+#define dggsvd FORTRAN_WRAPPER(dggsvd)
+extern void dggsvd(
+    const char   *jobu,
+    const char   *jobv,
+    const char   *jobq,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *p,
+    ptrdiff_t *k,
+    ptrdiff_t *l,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    double *alpha,
+    double *beta,
+    double *u,
+    const ptrdiff_t *ldu,
+    double *v,
+    const ptrdiff_t *ldv,
+    double *q,
+    const ptrdiff_t *ldq,
+    double *work,
+    ptrdiff_t *iwork,
+    ptrdiff_t *info
+);
+
+/* Source: dggsvp.f */
+#define dggsvp FORTRAN_WRAPPER(dggsvp)
+extern void dggsvp(
+    const char   *jobu,
+    const char   *jobv,
+    const char   *jobq,
+    const ptrdiff_t *m,
+    const ptrdiff_t *p,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    const double *tola,
+    const double *tolb,
+    ptrdiff_t *k,
+    ptrdiff_t *l,
+    double *u,
+    const ptrdiff_t *ldu,
+    double *v,
+    const ptrdiff_t *ldv,
+    double *q,
+    const ptrdiff_t *ldq,
+    ptrdiff_t *iwork,
+    double *tau,
+    double *work,
+    ptrdiff_t *info
+);
+
+/* Source: dlahrd.f */
+#define dlahrd FORTRAN_WRAPPER(dlahrd)
+extern void dlahrd(
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const ptrdiff_t *nb,
+    double *a,
+    const ptrdiff_t *lda,
+    double *tau,
+    double *t,
+    const ptrdiff_t *ldt,
+    double *y,
+    const ptrdiff_t *ldy
+);
+
+/* Source: dlatzm.f */
+#define dlatzm FORTRAN_WRAPPER(dlatzm)
+extern void dlatzm(
+    const char   *side,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const double *v,
+    const ptrdiff_t *incv,
+    const double *tau,
+    double *c1,
+    double *c2,
+    const ptrdiff_t *ldc,
+    double *work
+);
+
+/* Source: dtzrqf.f */
+#define dtzrqf FORTRAN_WRAPPER(dtzrqf)
+extern void dtzrqf(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    double *tau,
+    ptrdiff_t *info
+);
+
+/* Source: sgegs.f */
+#define sgegs FORTRAN_WRAPPER(sgegs)
+extern void sgegs(
+    const char   *jobvsl,
+    const char   *jobvsr,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    float  *alphar,
+    float  *alphai,
+    float  *beta,
+    float  *vsl,
+    const ptrdiff_t *ldvsl,
+    float  *vsr,
+    const ptrdiff_t *ldvsr,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: sgegv.f */
+#define sgegv FORTRAN_WRAPPER(sgegv)
+extern void sgegv(
+    const char   *jobvl,
+    const char   *jobvr,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    float  *alphar,
+    float  *alphai,
+    float  *beta,
+    float  *vl,
+    const ptrdiff_t *ldvl,
+    float  *vr,
+    const ptrdiff_t *ldvr,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: sgelsx.f */
+#define sgelsx FORTRAN_WRAPPER(sgelsx)
+extern void sgelsx(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *nrhs,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    ptrdiff_t *jpvt,
+    const float  *rcond,
+    ptrdiff_t *rank,
+    float  *work,
+    ptrdiff_t *info
+);
+
+/* Source: sgeqpf.f */
+#define sgeqpf FORTRAN_WRAPPER(sgeqpf)
+extern void sgeqpf(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *jpvt,
+    float  *tau,
+    float  *work,
+    ptrdiff_t *info
+);
+
+/* Source: sggsvd.f */
+#define sggsvd FORTRAN_WRAPPER(sggsvd)
+extern void sggsvd(
+    const char   *jobu,
+    const char   *jobv,
+    const char   *jobq,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *p,
+    ptrdiff_t *k,
+    ptrdiff_t *l,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    float  *alpha,
+    float  *beta,
+    float  *u,
+    const ptrdiff_t *ldu,
+    float  *v,
+    const ptrdiff_t *ldv,
+    float  *q,
+    const ptrdiff_t *ldq,
+    float  *work,
+    ptrdiff_t *iwork,
+    ptrdiff_t *info
+);
+
+/* Source: sggsvp.f */
+#define sggsvp FORTRAN_WRAPPER(sggsvp)
+extern void sggsvp(
+    const char   *jobu,
+    const char   *jobv,
+    const char   *jobq,
+    const ptrdiff_t *m,
+    const ptrdiff_t *p,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    const float  *tola,
+    const float  *tolb,
+    ptrdiff_t *k,
+    ptrdiff_t *l,
+    float  *u,
+    const ptrdiff_t *ldu,
+    float  *v,
+    const ptrdiff_t *ldv,
+    float  *q,
+    const ptrdiff_t *ldq,
+    ptrdiff_t *iwork,
+    float  *tau,
+    float  *work,
+    ptrdiff_t *info
+);
+
+/* Source: slahrd.f */
+#define slahrd FORTRAN_WRAPPER(slahrd)
+extern void slahrd(
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const ptrdiff_t *nb,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *tau,
+    float  *t,
+    const ptrdiff_t *ldt,
+    float  *y,
+    const ptrdiff_t *ldy
+);
+
+/* Source: slatzm.f */
+#define slatzm FORTRAN_WRAPPER(slatzm)
+extern void slatzm(
+    const char   *side,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const float  *v,
+    const ptrdiff_t *incv,
+    const float  *tau,
+    float  *c1,
+    float  *c2,
+    const ptrdiff_t *ldc,
+    float  *work
+);
+
+/* Source: stzrqf.f */
+#define stzrqf FORTRAN_WRAPPER(stzrqf)
+extern void stzrqf(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *tau,
+    ptrdiff_t *info
+);
+
+/* Source: zgegs.f */
+#define zgegs FORTRAN_WRAPPER(zgegs)
+extern void zgegs(
+    const char   *jobvsl,
+    const char   *jobvsr,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    double *alpha,
+    double *beta,
+    double *vsl,
+    const ptrdiff_t *ldvsl,
+    double *vsr,
+    const ptrdiff_t *ldvsr,
+    double *work,
+    const ptrdiff_t *lwork,
+    double *rwork,
+    ptrdiff_t *info
+);
+
+/* Source: zgegv.f */
+#define zgegv FORTRAN_WRAPPER(zgegv)
+extern void zgegv(
+    const char   *jobvl,
+    const char   *jobvr,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    double *alpha,
+    double *beta,
+    double *vl,
+    const ptrdiff_t *ldvl,
+    double *vr,
+    const ptrdiff_t *ldvr,
+    double *work,
+    const ptrdiff_t *lwork,
+    double *rwork,
+    ptrdiff_t *info
+);
+
+/* Source: zgelsx.f */
+#define zgelsx FORTRAN_WRAPPER(zgelsx)
+extern void zgelsx(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *nrhs,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    ptrdiff_t *jpvt,
+    const double *rcond,
+    ptrdiff_t *rank,
+    double *work,
+    double *rwork,
+    ptrdiff_t *info
+);
+
+/* Source: zgeqpf.f */
+#define zgeqpf FORTRAN_WRAPPER(zgeqpf)
+extern void zgeqpf(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *jpvt,
+    double *tau,
+    double *work,
+    double *rwork,
+    ptrdiff_t *info
+);
+
+/* Source: zggsvd.f */
+#define zggsvd FORTRAN_WRAPPER(zggsvd)
+extern void zggsvd(
+    const char   *jobu,
+    const char   *jobv,
+    const char   *jobq,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *p,
+    ptrdiff_t *k,
+    ptrdiff_t *l,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    double *alpha,
+    double *beta,
+    double *u,
+    const ptrdiff_t *ldu,
+    double *v,
+    const ptrdiff_t *ldv,
+    double *q,
+    const ptrdiff_t *ldq,
+    double *work,
+    double *rwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *info
+);
+
+/* Source: zggsvp.f */
+#define zggsvp FORTRAN_WRAPPER(zggsvp)
+extern void zggsvp(
+    const char   *jobu,
+    const char   *jobv,
+    const char   *jobq,
+    const ptrdiff_t *m,
+    const ptrdiff_t *p,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    const double *tola,
+    const double *tolb,
+    ptrdiff_t *k,
+    ptrdiff_t *l,
+    double *u,
+    const ptrdiff_t *ldu,
+    double *v,
+    const ptrdiff_t *ldv,
+    double *q,
+    const ptrdiff_t *ldq,
+    ptrdiff_t *iwork,
+    double *rwork,
+    double *tau,
+    double *work,
+    ptrdiff_t *info
+);
+
+/* Source: zlahrd.f */
+#define zlahrd FORTRAN_WRAPPER(zlahrd)
+extern void zlahrd(
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const ptrdiff_t *nb,
+    double *a,
+    const ptrdiff_t *lda,
+    double *tau,
+    double *t,
+    const ptrdiff_t *ldt,
+    double *y,
+    const ptrdiff_t *ldy
+);
+
+/* Source: zlatzm.f */
+#define zlatzm FORTRAN_WRAPPER(zlatzm)
+extern void zlatzm(
+    const char   *side,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const double *v,
+    const ptrdiff_t *incv,
+    const double *tau,
+    double *c1,
+    double *c2,
+    const ptrdiff_t *ldc,
+    double *work
+);
+
+/* Source: ztzrqf.f */
+#define ztzrqf FORTRAN_WRAPPER(ztzrqf)
+extern void ztzrqf(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    double *tau,
     ptrdiff_t *info
 );
 
@@ -6798,50 +8476,6 @@ extern void dgeevx(
     ptrdiff_t *info
 );
 
-/* Source: dgegs.f */
-#define dgegs FORTRAN_WRAPPER(dgegs)
-extern void dgegs(
-    const char   *jobvsl,
-    const char   *jobvsr,
-    const ptrdiff_t *n,
-    double *a,
-    const ptrdiff_t *lda,
-    double *b,
-    const ptrdiff_t *ldb,
-    double *alphar,
-    double *alphai,
-    double *beta,
-    double *vsl,
-    const ptrdiff_t *ldvsl,
-    double *vsr,
-    const ptrdiff_t *ldvsr,
-    double *work,
-    const ptrdiff_t *lwork,
-    ptrdiff_t *info
-);
-
-/* Source: dgegv.f */
-#define dgegv FORTRAN_WRAPPER(dgegv)
-extern void dgegv(
-    const char   *jobvl,
-    const char   *jobvr,
-    const ptrdiff_t *n,
-    double *a,
-    const ptrdiff_t *lda,
-    double *b,
-    const ptrdiff_t *ldb,
-    double *alphar,
-    double *alphai,
-    double *beta,
-    double *vl,
-    const ptrdiff_t *ldvl,
-    double *vr,
-    const ptrdiff_t *ldvr,
-    double *work,
-    const ptrdiff_t *lwork,
-    ptrdiff_t *info
-);
-
 /* Source: dgehd2.f */
 #define dgehd2 FORTRAN_WRAPPER(dgehd2)
 extern void dgehd2(
@@ -6872,12 +8506,12 @@ extern void dgehrd(
 /* Source: dgejsv.f */
 #define dgejsv FORTRAN_WRAPPER(dgejsv)
 extern void dgejsv(
-    char   *joba,
-    char   *jobu,
-    char   *jobv,
-    char   *jobr,
-    char   *jobt,
-    char   *jobp,
+    const char   *joba,
+    const char   *jobu,
+    const char   *jobv,
+    const char   *jobr,
+    const char   *jobt,
+    const char   *jobp,
     const ptrdiff_t *m,
     const ptrdiff_t *n,
     double *a,
@@ -6890,6 +8524,20 @@ extern void dgejsv(
     double *work,
     const ptrdiff_t *lwork,
     ptrdiff_t *iwork,
+    ptrdiff_t *info
+);
+
+/* Source: dgelq.f */
+#define dgelq FORTRAN_WRAPPER(dgelq)
+extern void dgelq(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    double *t,
+    const ptrdiff_t *tsize,
+    double *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -6915,6 +8563,32 @@ extern void dgelqf(
     double *tau,
     double *work,
     const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: dgelqt.f */
+#define dgelqt FORTRAN_WRAPPER(dgelqt)
+extern void dgelqt(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *mb,
+    double *a,
+    const ptrdiff_t *lda,
+    double *t,
+    const ptrdiff_t *ldt,
+    double *work,
+    ptrdiff_t *info
+);
+
+/* Source: dgelqt3.f */
+#define dgelqt3 FORTRAN_WRAPPER(dgelqt3)
+extern void dgelqt3(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    double *t,
+    const ptrdiff_t *ldt,
     ptrdiff_t *info
 );
 
@@ -6971,23 +8645,6 @@ extern void dgelss(
     ptrdiff_t *info
 );
 
-/* Source: dgelsx.f */
-#define dgelsx FORTRAN_WRAPPER(dgelsx)
-extern void dgelsx(
-    const ptrdiff_t *m,
-    const ptrdiff_t *n,
-    const ptrdiff_t *nrhs,
-    double *a,
-    const ptrdiff_t *lda,
-    double *b,
-    const ptrdiff_t *ldb,
-    ptrdiff_t *jpvt,
-    const double *rcond,
-    ptrdiff_t *rank,
-    double *work,
-    ptrdiff_t *info
-);
-
 /* Source: dgelsy.f */
 #define dgelsy FORTRAN_WRAPPER(dgelsy)
 extern void dgelsy(
@@ -7001,6 +8658,63 @@ extern void dgelsy(
     ptrdiff_t *jpvt,
     const double *rcond,
     ptrdiff_t *rank,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: dgemlq.f */
+#define dgemlq FORTRAN_WRAPPER(dgemlq)
+extern void dgemlq(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const double *a,
+    const ptrdiff_t *lda,
+    const double *t,
+    const ptrdiff_t *tsize,
+    double *c,
+    const ptrdiff_t *ldc,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: dgemlqt.f */
+#define dgemlqt FORTRAN_WRAPPER(dgemlqt)
+extern void dgemlqt(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const ptrdiff_t *mb,
+    const double *v,
+    const ptrdiff_t *ldv,
+    const double *t,
+    const ptrdiff_t *ldt,
+    double *c,
+    const ptrdiff_t *ldc,
+    double *work,
+    ptrdiff_t *info
+);
+
+/* Source: dgemqr.f */
+#define dgemqr FORTRAN_WRAPPER(dgemqr)
+extern void dgemqr(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const double *a,
+    const ptrdiff_t *lda,
+    const double *t,
+    const ptrdiff_t *tsize,
+    double *c,
+    const ptrdiff_t *ldc,
     double *work,
     const ptrdiff_t *lwork,
     ptrdiff_t *info
@@ -7064,16 +8778,17 @@ extern void dgeqp3(
     ptrdiff_t *info
 );
 
-/* Source: dgeqpf.f */
-#define dgeqpf FORTRAN_WRAPPER(dgeqpf)
-extern void dgeqpf(
+/* Source: dgeqr.f */
+#define dgeqr FORTRAN_WRAPPER(dgeqr)
+extern void dgeqr(
     const ptrdiff_t *m,
     const ptrdiff_t *n,
     double *a,
     const ptrdiff_t *lda,
-    ptrdiff_t *jpvt,
-    double *tau,
+    double *t,
+    const ptrdiff_t *tsize,
     double *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -7275,6 +8990,32 @@ extern void dgesvd(
     ptrdiff_t *info
 );
 
+/* Source: dgesvdx.f */
+#define dgesvdx FORTRAN_WRAPPER(dgesvdx)
+extern void dgesvdx(
+    const char   *jobu,
+    const char   *jobvt,
+    const char   *range,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    const double *vl,
+    const double *vu,
+    const ptrdiff_t *il,
+    const ptrdiff_t *iu,
+    ptrdiff_t *ns,
+    double *s,
+    double *u,
+    const ptrdiff_t *ldu,
+    double *vt,
+    const ptrdiff_t *ldvt,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *info
+);
+
 /* Source: dgesvj.f */
 #define dgesvj FORTRAN_WRAPPER(dgesvj)
 extern void dgesvj(
@@ -7290,7 +9031,7 @@ extern void dgesvj(
     double *v,
     const ptrdiff_t *ldv,
     double *work,
-    ptrdiff_t *lwork,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -7354,6 +9095,17 @@ extern void dgetrf(
     ptrdiff_t *info
 );
 
+/* Source: dgetrf2.f */
+#define dgetrf2 FORTRAN_WRAPPER(dgetrf2)
+extern void dgetrf2(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    ptrdiff_t *info
+);
+
 /* Source: dgetri.f */
 #define dgetri FORTRAN_WRAPPER(dgetri)
 extern void dgetri(
@@ -7377,6 +9129,22 @@ extern void dgetrs(
     const ptrdiff_t *ipiv,
     double *b,
     const ptrdiff_t *ldb,
+    ptrdiff_t *info
+);
+
+/* Source: dgetsls.f */
+#define dgetsls FORTRAN_WRAPPER(dgetsls)
+extern void dgetsls(
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *nrhs,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    double *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -7416,6 +9184,32 @@ extern void dggbal(
 /* Source: dgges.f */
 #define dgges FORTRAN_WRAPPER(dgges)
 extern void dgges(
+    const char   *jobvsl,
+    const char   *jobvsr,
+    const char   *sort,
+    ptrdiff_t (*selctg)(),
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    ptrdiff_t *sdim,
+    double *alphar,
+    double *alphai,
+    double *beta,
+    double *vsl,
+    const ptrdiff_t *ldvsl,
+    double *vsr,
+    const ptrdiff_t *ldvsr,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *bwork,
+    ptrdiff_t *info
+);
+
+/* Source: dgges3.f */
+#define dgges3 FORTRAN_WRAPPER(dgges3)
+extern void dgges3(
     const char   *jobvsl,
     const char   *jobvsr,
     const char   *sort,
@@ -7492,6 +9286,28 @@ extern void dggev(
     ptrdiff_t *info
 );
 
+/* Source: dggev3.f */
+#define dggev3 FORTRAN_WRAPPER(dggev3)
+extern void dggev3(
+    const char   *jobvl,
+    const char   *jobvr,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    double *alphar,
+    double *alphai,
+    double *beta,
+    double *vl,
+    const ptrdiff_t *ldvl,
+    double *vr,
+    const ptrdiff_t *ldvr,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: dggevx.f */
 #define dggevx FORTRAN_WRAPPER(dggevx)
 extern void dggevx(
@@ -7539,6 +9355,27 @@ extern void dggglm(
     double *d,
     double *x,
     double *y,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: dgghd3.f */
+#define dgghd3 FORTRAN_WRAPPER(dgghd3)
+extern void dgghd3(
+    const char   *compq,
+    const char   *compz,
+    const ptrdiff_t *n,
+    const ptrdiff_t *ilo,
+    const ptrdiff_t *ihi,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    double *q,
+    const ptrdiff_t *ldq,
+    double *z,
+    const ptrdiff_t *ldz,
     double *work,
     const ptrdiff_t *lwork,
     ptrdiff_t *info
@@ -7615,9 +9452,9 @@ extern void dggrqf(
     ptrdiff_t *info
 );
 
-/* Source: dggsvd.f */
-#define dggsvd FORTRAN_WRAPPER(dggsvd)
-extern void dggsvd(
+/* Source: dggsvd3.f */
+#define dggsvd3 FORTRAN_WRAPPER(dggsvd3)
+extern void dggsvd3(
     const char   *jobu,
     const char   *jobv,
     const char   *jobq,
@@ -7639,13 +9476,14 @@ extern void dggsvd(
     double *q,
     const ptrdiff_t *ldq,
     double *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *iwork,
     ptrdiff_t *info
 );
 
-/* Source: dggsvp.f */
-#define dggsvp FORTRAN_WRAPPER(dggsvp)
-extern void dggsvp(
+/* Source: dggsvp3.f */
+#define dggsvp3 FORTRAN_WRAPPER(dggsvp3)
+extern void dggsvp3(
     const char   *jobu,
     const char   *jobv,
     const char   *jobq,
@@ -7669,6 +9507,7 @@ extern void dggsvp(
     ptrdiff_t *iwork,
     double *tau,
     double *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -7990,10 +9829,10 @@ extern void dladiv(
 /* Source: dladiv.f */
 #define dladiv1 FORTRAN_WRAPPER(dladiv1)
 extern void dladiv1(
-    const double *a,
-    const double *b,
-    const double *c,
-    const double *d,
+    double *a,
+    double *b,
+    double *c,
+    double *d,
     double *p,
     double *q
 );
@@ -8001,10 +9840,10 @@ extern void dladiv1(
 /* Source: dladiv.f */
 #define dladiv2 FORTRAN_WRAPPER(dladiv2)
 extern double dladiv2(
-    const double *a,
-    const double *b,
-    const double *c,
-    const double *d,
+    double *a,
+    double *b,
+    double *c,
+    double *d,
     double *r,
     double *t
 );
@@ -8435,21 +10274,6 @@ extern void dlahr2(
     const ptrdiff_t *ldy
 );
 
-/* Source: dlahrd.f */
-#define dlahrd FORTRAN_WRAPPER(dlahrd)
-extern void dlahrd(
-    const ptrdiff_t *n,
-    const ptrdiff_t *k,
-    const ptrdiff_t *nb,
-    double *a,
-    const ptrdiff_t *lda,
-    double *tau,
-    double *t,
-    const ptrdiff_t *ldt,
-    double *y,
-    const ptrdiff_t *ldy
-);
-
 /* Source: dlaic1.f */
 #define dlaic1 FORTRAN_WRAPPER(dlaic1)
 extern void dlaic1(
@@ -8581,6 +10405,48 @@ extern void dlamrg(
     const ptrdiff_t *dtrd1,
     const ptrdiff_t *dtrd2,
     ptrdiff_t *index
+);
+
+/* Source: dlamswlq.f */
+#define dlamswlq FORTRAN_WRAPPER(dlamswlq)
+extern void dlamswlq(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const ptrdiff_t *mb,
+    const ptrdiff_t *nb,
+    double *a,
+    const ptrdiff_t *lda,
+    const double *t,
+    const ptrdiff_t *ldt,
+    double *c,
+    const ptrdiff_t *ldc,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: dlamtsqr.f */
+#define dlamtsqr FORTRAN_WRAPPER(dlamtsqr)
+extern void dlamtsqr(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const ptrdiff_t *mb,
+    const ptrdiff_t *nb,
+    double *a,
+    const ptrdiff_t *lda,
+    const double *t,
+    const ptrdiff_t *ldt,
+    double *c,
+    const ptrdiff_t *ldc,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
 );
 
 /* Source: dlaneg.f */
@@ -9158,7 +11024,7 @@ extern void dlarft(
     const char   *storev,
     const ptrdiff_t *n,
     const ptrdiff_t *k,
-    double *v,
+    const double *v,
     const ptrdiff_t *ldv,
     const double *tau,
     double *t,
@@ -9175,6 +11041,19 @@ extern void dlarfx(
     const double *tau,
     double *c,
     const ptrdiff_t *ldc,
+    double *work
+);
+
+/* Source: dlarfy.f */
+#define dlarfy FORTRAN_WRAPPER(dlarfy)
+extern void dlarfy(
+    char   *uplo,
+    ptrdiff_t *n,
+    double *v,
+    ptrdiff_t *incv,
+    double *tau,
+    double *c,
+    ptrdiff_t *ldc,
     double *work
 );
 
@@ -9946,6 +11825,22 @@ extern void dlasv2(
     double *csl
 );
 
+/* Source: dlaswlq.f */
+#define dlaswlq FORTRAN_WRAPPER(dlaswlq)
+extern void dlaswlq(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *mb,
+    const ptrdiff_t *nb,
+    double *a,
+    const ptrdiff_t *lda,
+    double *t,
+    const ptrdiff_t *ldt,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: dlaswp.f */
 #define dlaswp FORTRAN_WRAPPER(dlaswp)
 extern void dlaswp(
@@ -9991,6 +11886,38 @@ extern void dlasyf(
     ptrdiff_t *ipiv,
     double *w,
     const ptrdiff_t *ldw,
+    ptrdiff_t *info
+);
+
+/* Source: dlasyf_aa.f */
+#define dlasyf_aa FORTRAN_WRAPPER(dlasyf_aa)
+extern void dlasyf_aa(
+    const char   *uplo,
+    const ptrdiff_t *j1_,
+    const ptrdiff_t *m,
+    const ptrdiff_t *nb,
+    double *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    double *h,
+    const ptrdiff_t *ldh,
+    double *work,
+    ptrdiff_t *info
+);
+
+/* Source: dlasyf_rk.f */
+#define dlasyf_rk FORTRAN_WRAPPER(dlasyf_rk)
+extern void dlasyf_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nb,
+    ptrdiff_t *kb,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *w,
+    ptrdiff_t *ldw,
     ptrdiff_t *info
 );
 
@@ -10109,19 +12036,20 @@ extern void dlatrz(
     double *work
 );
 
-/* Source: dlatzm.f */
-#define dlatzm FORTRAN_WRAPPER(dlatzm)
-extern void dlatzm(
-    const char   *side,
+/* Source: dlatsqr.f */
+#define dlatsqr FORTRAN_WRAPPER(dlatsqr)
+extern void dlatsqr(
     const ptrdiff_t *m,
     const ptrdiff_t *n,
-    const double *v,
-    const ptrdiff_t *incv,
-    const double *tau,
-    double *c1,
-    double *c2,
-    const ptrdiff_t *ldc,
-    double *work
+    const ptrdiff_t *mb,
+    const ptrdiff_t *nb,
+    double *a,
+    const ptrdiff_t *lda,
+    double *t,
+    const ptrdiff_t *ldt,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
 );
 
 /* Source: dlauu2.f */
@@ -10525,6 +12453,24 @@ extern void dorgtr(
     double *a,
     const ptrdiff_t *lda,
     const double *tau,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: dorm22.f */
+#define dorm22 FORTRAN_WRAPPER(dorm22)
+extern void dorm22(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *n1,
+    const ptrdiff_t *n2,
+    const double *q,
+    const ptrdiff_t *ldq,
+    double *c,
+    const ptrdiff_t *ldc,
     double *work,
     const ptrdiff_t *lwork,
     ptrdiff_t *info
@@ -11051,6 +12997,16 @@ extern void dpotrf(
     ptrdiff_t *info
 );
 
+/* Source: dpotrf2.f */
+#define dpotrf2 FORTRAN_WRAPPER(dpotrf2)
+extern void dpotrf2(
+    const char   *uplo,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *info
+);
+
 /* Source: dpotri.f */
 #define dpotri FORTRAN_WRAPPER(dpotri)
 extern void dpotri(
@@ -11329,6 +13285,26 @@ extern void drscl(
     const ptrdiff_t *incx
 );
 
+/* Source: dsb2st_kernels.f */
+#define dsb2st_kernels FORTRAN_WRAPPER(dsb2st_kernels)
+extern void dsb2st_kernels(
+    char   *uplo,
+    ptrdiff_t *wantz,
+    ptrdiff_t *ttype,
+    ptrdiff_t *st,
+    ptrdiff_t *ed,
+    ptrdiff_t *sweep,
+    ptrdiff_t *n,
+    ptrdiff_t *nb,
+    ptrdiff_t *ib,
+    double *a,
+    ptrdiff_t *lda,
+    double *v,
+    double *tau,
+    ptrdiff_t *ldvt,
+    double *work
+);
+
 /* Source: dsbev.f */
 #define dsbev FORTRAN_WRAPPER(dsbev)
 extern void dsbev(
@@ -11342,6 +13318,23 @@ extern void dsbev(
     double *z,
     const ptrdiff_t *ldz,
     double *work,
+    ptrdiff_t *info
+);
+
+/* Source: dsbev_2stage.f */
+#define dsbev_2stage FORTRAN_WRAPPER(dsbev_2stage)
+extern void dsbev_2stage(
+    char   *jobz,
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *kd,
+    double *ab,
+    ptrdiff_t *ldab,
+    double *w,
+    double *z,
+    ptrdiff_t *ldz,
+    double *work,
+    ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -11361,6 +13354,25 @@ extern void dsbevd(
     const ptrdiff_t *lwork,
     ptrdiff_t *iwork,
     const ptrdiff_t *liwork,
+    ptrdiff_t *info
+);
+
+/* Source: dsbevd_2stage.f */
+#define dsbevd_2stage FORTRAN_WRAPPER(dsbevd_2stage)
+extern void dsbevd_2stage(
+    char   *jobz,
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *kd,
+    double *ab,
+    ptrdiff_t *ldab,
+    double *w,
+    double *z,
+    ptrdiff_t *ldz,
+    double *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *liwork,
     ptrdiff_t *info
 );
 
@@ -11386,6 +13398,34 @@ extern void dsbevx(
     double *z,
     const ptrdiff_t *ldz,
     double *work,
+    ptrdiff_t *iwork,
+    ptrdiff_t *ifail,
+    ptrdiff_t *info
+);
+
+/* Source: dsbevx_2stage.f */
+#define dsbevx_2stage FORTRAN_WRAPPER(dsbevx_2stage)
+extern void dsbevx_2stage(
+    char   *jobz,
+    char   *range,
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *kd,
+    double *ab,
+    ptrdiff_t *ldab,
+    double *q,
+    ptrdiff_t *ldq,
+    double *vl,
+    double *vu,
+    ptrdiff_t *il,
+    ptrdiff_t *iu,
+    double *abstol,
+    ptrdiff_t *m,
+    double *w,
+    double *z,
+    ptrdiff_t *ldz,
+    double *work,
+    ptrdiff_t *lwork,
     ptrdiff_t *iwork,
     ptrdiff_t *ifail,
     ptrdiff_t *info
@@ -12010,6 +14050,22 @@ extern void dsycon(
     ptrdiff_t *info
 );
 
+/* Source: dsycon_3.f */
+#define dsycon_3 FORTRAN_WRAPPER(dsycon_3)
+extern void dsycon_3(
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *anorm,
+    double *rcond,
+    double *work,
+    ptrdiff_t *iwork,
+    ptrdiff_t *info
+);
+
 /* Source: dsycon_rook.f */
 #define dsycon_rook FORTRAN_WRAPPER(dsycon_rook)
 extern void dsycon_rook(
@@ -12034,7 +14090,33 @@ extern void dsyconv(
     double *a,
     const ptrdiff_t *lda,
     const ptrdiff_t *ipiv,
-    double *work,
+    double *e,
+    ptrdiff_t *info
+);
+
+/* Source: dsyconvf.f */
+#define dsyconvf FORTRAN_WRAPPER(dsyconvf)
+extern void dsyconvf(
+    char   *uplo,
+    char   *way,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    ptrdiff_t *info
+);
+
+/* Source: dsyconvf_rook.f */
+#define dsyconvf_rook FORTRAN_WRAPPER(dsyconvf_rook)
+extern void dsyconvf_rook(
+    char   *uplo,
+    char   *way,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
     ptrdiff_t *info
 );
 
@@ -12066,6 +14148,20 @@ extern void dsyev(
     ptrdiff_t *info
 );
 
+/* Source: dsyev_2stage.f */
+#define dsyev_2stage FORTRAN_WRAPPER(dsyev_2stage)
+extern void dsyev_2stage(
+    char   *jobz,
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *w,
+    double *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: dsyevd.f */
 #define dsyevd FORTRAN_WRAPPER(dsyevd)
 extern void dsyevd(
@@ -12079,6 +14175,22 @@ extern void dsyevd(
     const ptrdiff_t *lwork,
     ptrdiff_t *iwork,
     const ptrdiff_t *liwork,
+    ptrdiff_t *info
+);
+
+/* Source: dsyevd_2stage.f */
+#define dsyevd_2stage FORTRAN_WRAPPER(dsyevd_2stage)
+extern void dsyevd_2stage(
+    char   *jobz,
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *w,
+    double *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *liwork,
     ptrdiff_t *info
 );
 
@@ -12108,6 +14220,32 @@ extern void dsyevr(
     ptrdiff_t *info
 );
 
+/* Source: dsyevr_2stage.f */
+#define dsyevr_2stage FORTRAN_WRAPPER(dsyevr_2stage)
+extern void dsyevr_2stage(
+    char   *jobz,
+    char   *range,
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *vl,
+    double *vu,
+    ptrdiff_t *il,
+    ptrdiff_t *iu,
+    double *abstol,
+    ptrdiff_t *m,
+    double *w,
+    double *z,
+    ptrdiff_t *ldz,
+    ptrdiff_t *isuppz,
+    double *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *liwork,
+    ptrdiff_t *info
+);
+
 /* Source: dsyevx.f */
 #define dsyevx FORTRAN_WRAPPER(dsyevx)
 extern void dsyevx(
@@ -12128,6 +14266,31 @@ extern void dsyevx(
     const ptrdiff_t *ldz,
     double *work,
     const ptrdiff_t *lwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *ifail,
+    ptrdiff_t *info
+);
+
+/* Source: dsyevx_2stage.f */
+#define dsyevx_2stage FORTRAN_WRAPPER(dsyevx_2stage)
+extern void dsyevx_2stage(
+    char   *jobz,
+    char   *range,
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *vl,
+    double *vu,
+    ptrdiff_t *il,
+    ptrdiff_t *iu,
+    double *abstol,
+    ptrdiff_t *m,
+    double *w,
+    double *z,
+    ptrdiff_t *ldz,
+    double *work,
+    ptrdiff_t *lwork,
     ptrdiff_t *iwork,
     ptrdiff_t *ifail,
     ptrdiff_t *info
@@ -12173,6 +14336,23 @@ extern void dsygv(
     double *w,
     double *work,
     const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: dsygv_2stage.f */
+#define dsygv_2stage FORTRAN_WRAPPER(dsygv_2stage)
+extern void dsygv_2stage(
+    ptrdiff_t *itype,
+    char   *jobz,
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *b,
+    ptrdiff_t *ldb,
+    double *w,
+    double *work,
+    ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -12261,6 +14441,39 @@ extern void dsysv(
     ptrdiff_t *info
 );
 
+/* Source: dsysv_aa.f */
+#define dsysv_aa FORTRAN_WRAPPER(dsysv_aa)
+extern void dsysv_aa(
+    const char   *uplo,
+    const ptrdiff_t *n,
+    const ptrdiff_t *nrhs,
+    double *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    double *b,
+    const ptrdiff_t *ldb,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: dsysv_rk.f */
+#define dsysv_rk FORTRAN_WRAPPER(dsysv_rk)
+extern void dsysv_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nrhs,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *b,
+    ptrdiff_t *ldb,
+    double *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: dsysv_rook.f */
 #define dsysv_rook FORTRAN_WRAPPER(dsysv_rook)
 extern void dsysv_rook(
@@ -12337,6 +14550,18 @@ extern void dsytf2(
     ptrdiff_t *info
 );
 
+/* Source: dsytf2_rk.f */
+#define dsytf2_rk FORTRAN_WRAPPER(dsytf2_rk)
+extern void dsytf2_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    ptrdiff_t *info
+);
+
 /* Source: dsytf2_rook.f */
 #define dsytf2_rook FORTRAN_WRAPPER(dsytf2_rook)
 extern void dsytf2_rook(
@@ -12363,6 +14588,59 @@ extern void dsytrd(
     ptrdiff_t *info
 );
 
+/* Source: dsytrd_2stage.f */
+#define dsytrd_2stage FORTRAN_WRAPPER(dsytrd_2stage)
+extern void dsytrd_2stage(
+    char   *vect,
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *d,
+    double *e,
+    double *tau,
+    double *hous2,
+    ptrdiff_t *lhous2,
+    double *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: dsytrd_sb2st.f */
+#define dsytrd_sb2st FORTRAN_WRAPPER(dsytrd_sb2st)
+extern void dsytrd_sb2st(
+    char   *stage1,
+    char   *vect,
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *kd,
+    double *ab,
+    ptrdiff_t *ldab,
+    double *d,
+    double *e,
+    double *hous,
+    ptrdiff_t *lhous,
+    double *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: dsytrd_sy2sb.f */
+#define dsytrd_sy2sb FORTRAN_WRAPPER(dsytrd_sy2sb)
+extern void dsytrd_sy2sb(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *kd,
+    double *a,
+    ptrdiff_t *lda,
+    double *ab,
+    ptrdiff_t *ldab,
+    double *tau,
+    double *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: dsytrf.f */
 #define dsytrf FORTRAN_WRAPPER(dsytrf)
 extern void dsytrf(
@@ -12373,6 +14651,33 @@ extern void dsytrf(
     ptrdiff_t *ipiv,
     double *work,
     const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: dsytrf_aa.f */
+#define dsytrf_aa FORTRAN_WRAPPER(dsytrf_aa)
+extern void dsytrf_aa(
+    const char   *uplo,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: dsytrf_rk.f */
+#define dsytrf_rk FORTRAN_WRAPPER(dsytrf_rk)
+extern void dsytrf_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *work,
+    ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -12427,6 +14732,34 @@ extern void dsytri2x(
     ptrdiff_t *info
 );
 
+/* Source: dsytri_3.f */
+#define dsytri_3 FORTRAN_WRAPPER(dsytri_3)
+extern void dsytri_3(
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: dsytri_3x.f */
+#define dsytri_3x FORTRAN_WRAPPER(dsytri_3x)
+extern void dsytri_3x(
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *work,
+    ptrdiff_t *nb,
+    ptrdiff_t *info
+);
+
 /* Source: dsytri_rook.f */
 #define dsytri_rook FORTRAN_WRAPPER(dsytri_rook)
 extern void dsytri_rook(
@@ -12465,6 +14798,37 @@ extern void dsytrs2(
     double *b,
     const ptrdiff_t *ldb,
     double *work,
+    ptrdiff_t *info
+);
+
+/* Source: dsytrs_3.f */
+#define dsytrs_3 FORTRAN_WRAPPER(dsytrs_3)
+extern void dsytrs_3(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nrhs,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *b,
+    ptrdiff_t *ldb,
+    ptrdiff_t *info
+);
+
+/* Source: dsytrs_aa.f */
+#define dsytrs_aa FORTRAN_WRAPPER(dsytrs_aa)
+extern void dsytrs_aa(
+    const char   *uplo,
+    const ptrdiff_t *n,
+    const ptrdiff_t *nrhs,
+    const double *a,
+    const ptrdiff_t *lda,
+    const ptrdiff_t *ipiv,
+    double *b,
+    const ptrdiff_t *ldb,
+    const double *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -12803,6 +15167,60 @@ extern void dtpcon(
     ptrdiff_t *info
 );
 
+/* Source: dtplqt.f */
+#define dtplqt FORTRAN_WRAPPER(dtplqt)
+extern void dtplqt(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *l,
+    const ptrdiff_t *mb,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    double *t,
+    const ptrdiff_t *ldt,
+    double *work,
+    ptrdiff_t *info
+);
+
+/* Source: dtplqt2.f */
+#define dtplqt2 FORTRAN_WRAPPER(dtplqt2)
+extern void dtplqt2(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *l,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    double *t,
+    const ptrdiff_t *ldt,
+    ptrdiff_t *info
+);
+
+/* Source: dtpmlqt.f */
+#define dtpmlqt FORTRAN_WRAPPER(dtpmlqt)
+extern void dtpmlqt(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const ptrdiff_t *l,
+    const ptrdiff_t *mb,
+    const double *v,
+    const ptrdiff_t *ldv,
+    const double *t,
+    const ptrdiff_t *ldt,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    double *work,
+    ptrdiff_t *info
+);
+
 /* Source: dtpmqrt.f */
 #define dtpmqrt FORTRAN_WRAPPER(dtpmqrt)
 extern void dtpmqrt(
@@ -12832,13 +15250,13 @@ extern void dtpqrt(
     const ptrdiff_t *n,
     const ptrdiff_t *l,
     const ptrdiff_t *nb,
-    const double *a,
+    double *a,
     const ptrdiff_t *lda,
-    const double *b,
+    double *b,
     const ptrdiff_t *ldb,
-    const double *t,
+    double *t,
     const ptrdiff_t *ldt,
-    const double *work,
+    double *work,
     ptrdiff_t *info
 );
 
@@ -12977,6 +15395,26 @@ extern void dtrevc(
     const ptrdiff_t *mm,
     ptrdiff_t *m,
     double *work,
+    ptrdiff_t *info
+);
+
+/* Source: dtrevc3.f */
+#define dtrevc3 FORTRAN_WRAPPER(dtrevc3)
+extern void dtrevc3(
+    char   *side,
+    char   *howmny,
+    ptrdiff_t *select,
+    ptrdiff_t *n,
+    double *t,
+    ptrdiff_t *ldt,
+    double *vl,
+    ptrdiff_t *ldvl,
+    double *vr,
+    ptrdiff_t *ldvr,
+    ptrdiff_t *mm,
+    ptrdiff_t *m,
+    double *work,
+    ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -13140,17 +15578,6 @@ extern void dtrttp(
     ptrdiff_t *info
 );
 
-/* Source: dtzrqf.f */
-#define dtzrqf FORTRAN_WRAPPER(dtzrqf)
-extern void dtzrqf(
-    const ptrdiff_t *m,
-    const ptrdiff_t *n,
-    double *a,
-    const ptrdiff_t *lda,
-    double *tau,
-    ptrdiff_t *info
-);
-
 /* Source: dtzrzf.f */
 #define dtzrzf FORTRAN_WRAPPER(dtzrzf)
 extern void dtzrzf(
@@ -13306,6 +15733,20 @@ extern ptrdiff_t ilazlr(
     const ptrdiff_t *lda
 );
 
+/* Source: iparam2stage.f */
+#define iparam2stage FORTRAN_WRAPPER(iparam2stage)
+extern ptrdiff_t iparam2stage(
+    ptrdiff_t *ispec,
+    char   *name,
+    char   *opts,
+    ptrdiff_t *ni,
+    ptrdiff_t *nbi,
+    ptrdiff_t *ibi,
+    ptrdiff_t *nxi,
+    ptrdiff_t name_len,
+    ptrdiff_t opts_len
+);
+
 /* Source: iparmq.f */
 #define iparmq FORTRAN_WRAPPER(iparmq)
 extern ptrdiff_t iparmq(
@@ -13322,7 +15763,7 @@ extern ptrdiff_t iparmq(
 #define izmax1 FORTRAN_WRAPPER(izmax1)
 extern ptrdiff_t izmax1(
     const ptrdiff_t *n,
-    const double *cx,
+    const double *zx,
     const ptrdiff_t *incx
 );
 
@@ -13409,13 +15850,31 @@ extern void sbdsqr(
     ptrdiff_t *info
 );
 
+/* Source: sbdsvdx.f */
+#define sbdsvdx FORTRAN_WRAPPER(sbdsvdx)
+extern void sbdsvdx(
+    const char   *uplo,
+    const char   *jobz,
+    const char   *range,
+    const ptrdiff_t *n,
+    const float  *d,
+    const float  *e,
+    const float  *vl,
+    const float  *vu,
+    const ptrdiff_t *il,
+    const ptrdiff_t *iu,
+    ptrdiff_t *ns,
+    float  *s,
+    float  *z,
+    const ptrdiff_t *ldz,
+    float  *work,
+    ptrdiff_t *iwork,
+    ptrdiff_t *info
+);
+
 /* Source: scsum1.f */
 #define scsum1 FORTRAN_WRAPPER(scsum1)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double scsum1(
-#else
 extern float scsum1(
-#endif 
     const ptrdiff_t *n,
     const float  *cx,
     const ptrdiff_t *incx
@@ -13811,50 +16270,6 @@ extern void sgeevx(
     ptrdiff_t *info
 );
 
-/* Source: sgegs.f */
-#define sgegs FORTRAN_WRAPPER(sgegs)
-extern void sgegs(
-    const char   *jobvsl,
-    const char   *jobvsr,
-    const ptrdiff_t *n,
-    float  *a,
-    const ptrdiff_t *lda,
-    float  *b,
-    const ptrdiff_t *ldb,
-    float  *alphar,
-    float  *alphai,
-    float  *beta,
-    float  *vsl,
-    const ptrdiff_t *ldvsl,
-    float  *vsr,
-    const ptrdiff_t *ldvsr,
-    float  *work,
-    const ptrdiff_t *lwork,
-    ptrdiff_t *info
-);
-
-/* Source: sgegv.f */
-#define sgegv FORTRAN_WRAPPER(sgegv)
-extern void sgegv(
-    const char   *jobvl,
-    const char   *jobvr,
-    const ptrdiff_t *n,
-    float  *a,
-    const ptrdiff_t *lda,
-    float  *b,
-    const ptrdiff_t *ldb,
-    float  *alphar,
-    float  *alphai,
-    float  *beta,
-    float  *vl,
-    const ptrdiff_t *ldvl,
-    float  *vr,
-    const ptrdiff_t *ldvr,
-    float  *work,
-    const ptrdiff_t *lwork,
-    ptrdiff_t *info
-);
-
 /* Source: sgehd2.f */
 #define sgehd2 FORTRAN_WRAPPER(sgehd2)
 extern void sgehd2(
@@ -13885,12 +16300,12 @@ extern void sgehrd(
 /* Source: sgejsv.f */
 #define sgejsv FORTRAN_WRAPPER(sgejsv)
 extern void sgejsv(
-    char   *joba,
-    char   *jobu,
-    char   *jobv,
-    char   *jobr,
-    char   *jobt,
-    char   *jobp,
+    const char   *joba,
+    const char   *jobu,
+    const char   *jobv,
+    const char   *jobr,
+    const char   *jobt,
+    const char   *jobp,
     const ptrdiff_t *m,
     const ptrdiff_t *n,
     float  *a,
@@ -13903,6 +16318,20 @@ extern void sgejsv(
     float  *work,
     const ptrdiff_t *lwork,
     ptrdiff_t *iwork,
+    ptrdiff_t *info
+);
+
+/* Source: sgelq.f */
+#define sgelq FORTRAN_WRAPPER(sgelq)
+extern void sgelq(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *t,
+    const ptrdiff_t *tsize,
+    float  *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -13928,6 +16357,32 @@ extern void sgelqf(
     float  *tau,
     float  *work,
     const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: sgelqt.f */
+#define sgelqt FORTRAN_WRAPPER(sgelqt)
+extern void sgelqt(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *mb,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *t,
+    const ptrdiff_t *ldt,
+    float  *work,
+    ptrdiff_t *info
+);
+
+/* Source: sgelqt3.f */
+#define sgelqt3 FORTRAN_WRAPPER(sgelqt3)
+extern void sgelqt3(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *t,
+    const ptrdiff_t *ldt,
     ptrdiff_t *info
 );
 
@@ -14019,6 +16474,63 @@ extern void sgelsy(
     ptrdiff_t *info
 );
 
+/* Source: sgemlq.f */
+#define sgemlq FORTRAN_WRAPPER(sgemlq)
+extern void sgemlq(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const float  *a,
+    const ptrdiff_t *lda,
+    const float  *t,
+    const ptrdiff_t *tsize,
+    float  *c,
+    const ptrdiff_t *ldc,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: sgemlqt.f */
+#define sgemlqt FORTRAN_WRAPPER(sgemlqt)
+extern void sgemlqt(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const ptrdiff_t *mb,
+    const float  *v,
+    const ptrdiff_t *ldv,
+    const float  *t,
+    const ptrdiff_t *ldt,
+    float  *c,
+    const ptrdiff_t *ldc,
+    float  *work,
+    ptrdiff_t *info
+);
+
+/* Source: sgemqr.f */
+#define sgemqr FORTRAN_WRAPPER(sgemqr)
+extern void sgemqr(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const float  *a,
+    const ptrdiff_t *lda,
+    const float  *t,
+    const ptrdiff_t *tsize,
+    float  *c,
+    const ptrdiff_t *ldc,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: sgemqrt.f */
 #define sgemqrt FORTRAN_WRAPPER(sgemqrt)
 extern void sgemqrt(
@@ -14077,16 +16589,17 @@ extern void sgeqp3(
     ptrdiff_t *info
 );
 
-/* Source: sgeqpf.f */
-#define sgeqpf FORTRAN_WRAPPER(sgeqpf)
-extern void sgeqpf(
+/* Source: sgeqr.f */
+#define sgeqr FORTRAN_WRAPPER(sgeqr)
+extern void sgeqr(
     const ptrdiff_t *m,
     const ptrdiff_t *n,
     float  *a,
     const ptrdiff_t *lda,
-    ptrdiff_t *jpvt,
-    float  *tau,
+    float  *t,
+    const ptrdiff_t *tsize,
     float  *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -14288,6 +16801,32 @@ extern void sgesvd(
     ptrdiff_t *info
 );
 
+/* Source: sgesvdx.f */
+#define sgesvdx FORTRAN_WRAPPER(sgesvdx)
+extern void sgesvdx(
+    const char   *jobu,
+    const char   *jobvt,
+    const char   *range,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    const float  *vl,
+    const float  *vu,
+    const ptrdiff_t *il,
+    const ptrdiff_t *iu,
+    ptrdiff_t *ns,
+    float  *s,
+    float  *u,
+    const ptrdiff_t *ldu,
+    float  *vt,
+    const ptrdiff_t *ldvt,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *info
+);
+
 /* Source: sgesvj.f */
 #define sgesvj FORTRAN_WRAPPER(sgesvj)
 extern void sgesvj(
@@ -14303,7 +16842,7 @@ extern void sgesvj(
     float  *v,
     const ptrdiff_t *ldv,
     float  *work,
-    ptrdiff_t *lwork,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -14367,6 +16906,17 @@ extern void sgetrf(
     ptrdiff_t *info
 );
 
+/* Source: sgetrf2.f */
+#define sgetrf2 FORTRAN_WRAPPER(sgetrf2)
+extern void sgetrf2(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    ptrdiff_t *info
+);
+
 /* Source: sgetri.f */
 #define sgetri FORTRAN_WRAPPER(sgetri)
 extern void sgetri(
@@ -14390,6 +16940,22 @@ extern void sgetrs(
     const ptrdiff_t *ipiv,
     float  *b,
     const ptrdiff_t *ldb,
+    ptrdiff_t *info
+);
+
+/* Source: sgetsls.f */
+#define sgetsls FORTRAN_WRAPPER(sgetsls)
+extern void sgetsls(
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *nrhs,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    float  *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -14429,6 +16995,32 @@ extern void sggbal(
 /* Source: sgges.f */
 #define sgges FORTRAN_WRAPPER(sgges)
 extern void sgges(
+    const char   *jobvsl,
+    const char   *jobvsr,
+    const char   *sort,
+    ptrdiff_t (*selctg)(),
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    ptrdiff_t *sdim,
+    float  *alphar,
+    float  *alphai,
+    float  *beta,
+    float  *vsl,
+    const ptrdiff_t *ldvsl,
+    float  *vsr,
+    const ptrdiff_t *ldvsr,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *bwork,
+    ptrdiff_t *info
+);
+
+/* Source: sgges3.f */
+#define sgges3 FORTRAN_WRAPPER(sgges3)
+extern void sgges3(
     const char   *jobvsl,
     const char   *jobvsr,
     const char   *sort,
@@ -14505,6 +17097,28 @@ extern void sggev(
     ptrdiff_t *info
 );
 
+/* Source: sggev3.f */
+#define sggev3 FORTRAN_WRAPPER(sggev3)
+extern void sggev3(
+    const char   *jobvl,
+    const char   *jobvr,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    float  *alphar,
+    float  *alphai,
+    float  *beta,
+    float  *vl,
+    const ptrdiff_t *ldvl,
+    float  *vr,
+    const ptrdiff_t *ldvr,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: sggevx.f */
 #define sggevx FORTRAN_WRAPPER(sggevx)
 extern void sggevx(
@@ -14552,6 +17166,27 @@ extern void sggglm(
     float  *d,
     float  *x,
     float  *y,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: sgghd3.f */
+#define sgghd3 FORTRAN_WRAPPER(sgghd3)
+extern void sgghd3(
+    const char   *compq,
+    const char   *compz,
+    const ptrdiff_t *n,
+    const ptrdiff_t *ilo,
+    const ptrdiff_t *ihi,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    float  *q,
+    const ptrdiff_t *ldq,
+    float  *z,
+    const ptrdiff_t *ldz,
     float  *work,
     const ptrdiff_t *lwork,
     ptrdiff_t *info
@@ -14628,9 +17263,9 @@ extern void sggrqf(
     ptrdiff_t *info
 );
 
-/* Source: sggsvd.f */
-#define sggsvd FORTRAN_WRAPPER(sggsvd)
-extern void sggsvd(
+/* Source: sggsvd3.f */
+#define sggsvd3 FORTRAN_WRAPPER(sggsvd3)
+extern void sggsvd3(
     const char   *jobu,
     const char   *jobv,
     const char   *jobq,
@@ -14652,13 +17287,14 @@ extern void sggsvd(
     float  *q,
     const ptrdiff_t *ldq,
     float  *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *iwork,
     ptrdiff_t *info
 );
 
-/* Source: sggsvp.f */
-#define sggsvp FORTRAN_WRAPPER(sggsvp)
-extern void sggsvp(
+/* Source: sggsvp3.f */
+#define sggsvp3 FORTRAN_WRAPPER(sggsvp3)
+extern void sggsvp3(
     const char   *jobu,
     const char   *jobv,
     const char   *jobq,
@@ -14682,6 +17318,7 @@ extern void sggsvp(
     ptrdiff_t *iwork,
     float  *tau,
     float  *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -15003,25 +17640,21 @@ extern void sladiv(
 /* Source: sladiv.f */
 #define sladiv1 FORTRAN_WRAPPER(sladiv1)
 extern void sladiv1(
-    const float  *a,
-    const float  *b,
-    const float  *c,
-    const float  *d,
+    float  *a,
+    float  *b,
+    float  *c,
+    float  *d,
     float  *p,
     float  *q
 );
 
 /* Source: sladiv.f */
 #define sladiv2 FORTRAN_WRAPPER(sladiv2)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double sladiv2(
-#else
 extern float sladiv2(
-#endif 
-    const float  *a,
-    const float  *b,
-    const float  *c,
-    const float  *d,
+    float  *a,
+    float  *b,
+    float  *c,
+    float  *d,
     float  *r,
     float  *t
 );
@@ -15452,21 +18085,6 @@ extern void slahr2(
     const ptrdiff_t *ldy
 );
 
-/* Source: slahrd.f */
-#define slahrd FORTRAN_WRAPPER(slahrd)
-extern void slahrd(
-    const ptrdiff_t *n,
-    const ptrdiff_t *k,
-    const ptrdiff_t *nb,
-    float  *a,
-    const ptrdiff_t *lda,
-    float  *tau,
-    float  *t,
-    const ptrdiff_t *ldt,
-    float  *y,
-    const ptrdiff_t *ldy
-);
-
 /* Source: slaic1.f */
 #define slaic1 FORTRAN_WRAPPER(slaic1)
 extern void slaic1(
@@ -15600,6 +18218,48 @@ extern void slamrg(
     ptrdiff_t *index
 );
 
+/* Source: slamswlq.f */
+#define slamswlq FORTRAN_WRAPPER(slamswlq)
+extern void slamswlq(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const ptrdiff_t *mb,
+    const ptrdiff_t *nb,
+    float  *a,
+    const ptrdiff_t *lda,
+    const float  *t,
+    const ptrdiff_t *ldt,
+    float  *c,
+    const ptrdiff_t *ldc,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: slamtsqr.f */
+#define slamtsqr FORTRAN_WRAPPER(slamtsqr)
+extern void slamtsqr(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const ptrdiff_t *mb,
+    const ptrdiff_t *nb,
+    float  *a,
+    const ptrdiff_t *lda,
+    const float  *t,
+    const ptrdiff_t *ldt,
+    float  *c,
+    const ptrdiff_t *ldc,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: slaneg.f */
 #define slaneg FORTRAN_WRAPPER(slaneg)
 extern ptrdiff_t slaneg(
@@ -15613,11 +18273,7 @@ extern ptrdiff_t slaneg(
 
 /* Source: slangb.f */
 #define slangb FORTRAN_WRAPPER(slangb)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double slangb(
-#else
 extern float slangb(
-#endif 
     const char   *norm,
     const ptrdiff_t *n,
     const ptrdiff_t *kl,
@@ -15629,11 +18285,7 @@ extern float slangb(
 
 /* Source: slange.f */
 #define slange FORTRAN_WRAPPER(slange)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double slange(
-#else
 extern float slange(
-#endif 
     const char   *norm,
     const ptrdiff_t *m,
     const ptrdiff_t *n,
@@ -15644,11 +18296,7 @@ extern float slange(
 
 /* Source: slangt.f */
 #define slangt FORTRAN_WRAPPER(slangt)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double slangt(
-#else
 extern float slangt(
-#endif 
     const char   *norm,
     const ptrdiff_t *n,
     const float  *dl,
@@ -15658,11 +18306,7 @@ extern float slangt(
 
 /* Source: slanhs.f */
 #define slanhs FORTRAN_WRAPPER(slanhs)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double slanhs(
-#else
 extern float slanhs(
-#endif 
     const char   *norm,
     const ptrdiff_t *n,
     const float  *a,
@@ -15672,11 +18316,7 @@ extern float slanhs(
 
 /* Source: slansb.f */
 #define slansb FORTRAN_WRAPPER(slansb)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double slansb(
-#else
 extern float slansb(
-#endif 
     const char   *norm,
     const char   *uplo,
     const ptrdiff_t *n,
@@ -15688,11 +18328,7 @@ extern float slansb(
 
 /* Source: slansf.f */
 #define slansf FORTRAN_WRAPPER(slansf)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double slansf(
-#else
 extern float slansf(
-#endif 
     const char   *norm,
     const char   *transr,
     const char   *uplo,
@@ -15703,11 +18339,7 @@ extern float slansf(
 
 /* Source: slansp.f */
 #define slansp FORTRAN_WRAPPER(slansp)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double slansp(
-#else
 extern float slansp(
-#endif 
     const char   *norm,
     const char   *uplo,
     const ptrdiff_t *n,
@@ -15717,11 +18349,7 @@ extern float slansp(
 
 /* Source: slanst.f */
 #define slanst FORTRAN_WRAPPER(slanst)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double slanst(
-#else
 extern float slanst(
-#endif 
     const char   *norm,
     const ptrdiff_t *n,
     const float  *d,
@@ -15730,11 +18358,7 @@ extern float slanst(
 
 /* Source: slansy.f */
 #define slansy FORTRAN_WRAPPER(slansy)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double slansy(
-#else
 extern float slansy(
-#endif 
     const char   *norm,
     const char   *uplo,
     const ptrdiff_t *n,
@@ -15745,11 +18369,7 @@ extern float slansy(
 
 /* Source: slantb.f */
 #define slantb FORTRAN_WRAPPER(slantb)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double slantb(
-#else
 extern float slantb(
-#endif 
     const char   *norm,
     const char   *uplo,
     const char   *diag,
@@ -15762,11 +18382,7 @@ extern float slantb(
 
 /* Source: slantp.f */
 #define slantp FORTRAN_WRAPPER(slantp)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double slantp(
-#else
 extern float slantp(
-#endif 
     const char   *norm,
     const char   *uplo,
     const char   *diag,
@@ -15777,11 +18393,7 @@ extern float slantp(
 
 /* Source: slantr.f */
 #define slantr FORTRAN_WRAPPER(slantr)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double slantr(
-#else
 extern float slantr(
-#endif 
     const char   *norm,
     const char   *uplo,
     const char   *diag,
@@ -15842,22 +18454,14 @@ extern void slapmt(
 
 /* Source: slapy2.f */
 #define slapy2 FORTRAN_WRAPPER(slapy2)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double slapy2(
-#else
 extern float slapy2(
-#endif 
     const float  *x,
     const float  *y
 );
 
 /* Source: slapy3.f */
 #define slapy3 FORTRAN_WRAPPER(slapy3)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double slapy3(
-#else
 extern float slapy3(
-#endif 
     const float  *x,
     const float  *y,
     const float  *z
@@ -16231,7 +18835,7 @@ extern void slarft(
     const char   *storev,
     const ptrdiff_t *n,
     const ptrdiff_t *k,
-    float  *v,
+    const float  *v,
     const ptrdiff_t *ldv,
     const float  *tau,
     float  *t,
@@ -16248,6 +18852,19 @@ extern void slarfx(
     const float  *tau,
     float  *c,
     const ptrdiff_t *ldc,
+    float  *work
+);
+
+/* Source: slarfy.f */
+#define slarfy FORTRAN_WRAPPER(slarfy)
+extern void slarfy(
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *v,
+    ptrdiff_t *incv,
+    float  *tau,
+    float  *c,
+    ptrdiff_t *ldc,
     float  *work
 );
 
@@ -17019,6 +19636,22 @@ extern void slasv2(
     float  *csl
 );
 
+/* Source: slaswlq.f */
+#define slaswlq FORTRAN_WRAPPER(slaswlq)
+extern void slaswlq(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *mb,
+    const ptrdiff_t *nb,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *t,
+    const ptrdiff_t *ldt,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: slaswp.f */
 #define slaswp FORTRAN_WRAPPER(slaswp)
 extern void slaswp(
@@ -17064,6 +19697,38 @@ extern void slasyf(
     ptrdiff_t *ipiv,
     float  *w,
     const ptrdiff_t *ldw,
+    ptrdiff_t *info
+);
+
+/* Source: slasyf_aa.f */
+#define slasyf_aa FORTRAN_WRAPPER(slasyf_aa)
+extern void slasyf_aa(
+    const char   *uplo,
+    const ptrdiff_t *j1_,
+    const ptrdiff_t *m,
+    const ptrdiff_t *nb,
+    float  *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    float  *h,
+    const ptrdiff_t *ldh,
+    float  *work,
+    ptrdiff_t *info
+);
+
+/* Source: slasyf_rk.f */
+#define slasyf_rk FORTRAN_WRAPPER(slasyf_rk)
+extern void slasyf_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nb,
+    ptrdiff_t *kb,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *w,
+    ptrdiff_t *ldw,
     ptrdiff_t *info
 );
 
@@ -17170,19 +19835,20 @@ extern void slatrz(
     float  *work
 );
 
-/* Source: slatzm.f */
-#define slatzm FORTRAN_WRAPPER(slatzm)
-extern void slatzm(
-    const char   *side,
+/* Source: slatsqr.f */
+#define slatsqr FORTRAN_WRAPPER(slatsqr)
+extern void slatsqr(
     const ptrdiff_t *m,
     const ptrdiff_t *n,
-    const float  *v,
-    const ptrdiff_t *incv,
-    const float  *tau,
-    float  *c1,
-    float  *c2,
-    const ptrdiff_t *ldc,
-    float  *work
+    const ptrdiff_t *mb,
+    const ptrdiff_t *nb,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *t,
+    const ptrdiff_t *ldt,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
 );
 
 /* Source: slauu2.f */
@@ -17586,6 +20252,24 @@ extern void sorgtr(
     float  *a,
     const ptrdiff_t *lda,
     const float  *tau,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: sorm22.f */
+#define sorm22 FORTRAN_WRAPPER(sorm22)
+extern void sorm22(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *n1,
+    const ptrdiff_t *n2,
+    const float  *q,
+    const ptrdiff_t *ldq,
+    float  *c,
+    const ptrdiff_t *ldc,
     float  *work,
     const ptrdiff_t *lwork,
     ptrdiff_t *info
@@ -18112,6 +20796,16 @@ extern void spotrf(
     ptrdiff_t *info
 );
 
+/* Source: spotrf2.f */
+#define spotrf2 FORTRAN_WRAPPER(spotrf2)
+extern void spotrf2(
+    const char   *uplo,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *info
+);
+
 /* Source: spotri.f */
 #define spotri FORTRAN_WRAPPER(spotri)
 extern void spotri(
@@ -18390,6 +21084,26 @@ extern void srscl(
     const ptrdiff_t *incx
 );
 
+/* Source: ssb2st_kernels.f */
+#define ssb2st_kernels FORTRAN_WRAPPER(ssb2st_kernels)
+extern void ssb2st_kernels(
+    char   *uplo,
+    ptrdiff_t *wantz,
+    ptrdiff_t *ttype,
+    ptrdiff_t *st,
+    ptrdiff_t *ed,
+    ptrdiff_t *sweep,
+    ptrdiff_t *n,
+    ptrdiff_t *nb,
+    ptrdiff_t *ib,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *v,
+    float  *tau,
+    ptrdiff_t *ldvt,
+    float  *work
+);
+
 /* Source: ssbev.f */
 #define ssbev FORTRAN_WRAPPER(ssbev)
 extern void ssbev(
@@ -18403,6 +21117,23 @@ extern void ssbev(
     float  *z,
     const ptrdiff_t *ldz,
     float  *work,
+    ptrdiff_t *info
+);
+
+/* Source: ssbev_2stage.f */
+#define ssbev_2stage FORTRAN_WRAPPER(ssbev_2stage)
+extern void ssbev_2stage(
+    char   *jobz,
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *kd,
+    float  *ab,
+    ptrdiff_t *ldab,
+    float  *w,
+    float  *z,
+    ptrdiff_t *ldz,
+    float  *work,
+    ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -18422,6 +21153,25 @@ extern void ssbevd(
     const ptrdiff_t *lwork,
     ptrdiff_t *iwork,
     const ptrdiff_t *liwork,
+    ptrdiff_t *info
+);
+
+/* Source: ssbevd_2stage.f */
+#define ssbevd_2stage FORTRAN_WRAPPER(ssbevd_2stage)
+extern void ssbevd_2stage(
+    char   *jobz,
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *kd,
+    float  *ab,
+    ptrdiff_t *ldab,
+    float  *w,
+    float  *z,
+    ptrdiff_t *ldz,
+    float  *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *liwork,
     ptrdiff_t *info
 );
 
@@ -18447,6 +21197,34 @@ extern void ssbevx(
     float  *z,
     const ptrdiff_t *ldz,
     float  *work,
+    ptrdiff_t *iwork,
+    ptrdiff_t *ifail,
+    ptrdiff_t *info
+);
+
+/* Source: ssbevx_2stage.f */
+#define ssbevx_2stage FORTRAN_WRAPPER(ssbevx_2stage)
+extern void ssbevx_2stage(
+    char   *jobz,
+    char   *range,
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *kd,
+    float  *ab,
+    ptrdiff_t *ldab,
+    float  *q,
+    ptrdiff_t *ldq,
+    float  *vl,
+    float  *vu,
+    ptrdiff_t *il,
+    ptrdiff_t *iu,
+    float  *abstol,
+    ptrdiff_t *m,
+    float  *w,
+    float  *z,
+    ptrdiff_t *ldz,
+    float  *work,
+    ptrdiff_t *lwork,
     ptrdiff_t *iwork,
     ptrdiff_t *ifail,
     ptrdiff_t *info
@@ -19035,6 +21813,22 @@ extern void ssycon(
     ptrdiff_t *info
 );
 
+/* Source: ssycon_3.f */
+#define ssycon_3 FORTRAN_WRAPPER(ssycon_3)
+extern void ssycon_3(
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *anorm,
+    float  *rcond,
+    float  *work,
+    ptrdiff_t *iwork,
+    ptrdiff_t *info
+);
+
 /* Source: ssycon_rook.f */
 #define ssycon_rook FORTRAN_WRAPPER(ssycon_rook)
 extern void ssycon_rook(
@@ -19059,7 +21853,33 @@ extern void ssyconv(
     float  *a,
     const ptrdiff_t *lda,
     const ptrdiff_t *ipiv,
-    float  *work,
+    float  *e,
+    ptrdiff_t *info
+);
+
+/* Source: ssyconvf.f */
+#define ssyconvf FORTRAN_WRAPPER(ssyconvf)
+extern void ssyconvf(
+    char   *uplo,
+    char   *way,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    ptrdiff_t *info
+);
+
+/* Source: ssyconvf_rook.f */
+#define ssyconvf_rook FORTRAN_WRAPPER(ssyconvf_rook)
+extern void ssyconvf_rook(
+    char   *uplo,
+    char   *way,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
     ptrdiff_t *info
 );
 
@@ -19091,6 +21911,20 @@ extern void ssyev(
     ptrdiff_t *info
 );
 
+/* Source: ssyev_2stage.f */
+#define ssyev_2stage FORTRAN_WRAPPER(ssyev_2stage)
+extern void ssyev_2stage(
+    char   *jobz,
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *w,
+    float  *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: ssyevd.f */
 #define ssyevd FORTRAN_WRAPPER(ssyevd)
 extern void ssyevd(
@@ -19104,6 +21938,22 @@ extern void ssyevd(
     const ptrdiff_t *lwork,
     ptrdiff_t *iwork,
     const ptrdiff_t *liwork,
+    ptrdiff_t *info
+);
+
+/* Source: ssyevd_2stage.f */
+#define ssyevd_2stage FORTRAN_WRAPPER(ssyevd_2stage)
+extern void ssyevd_2stage(
+    char   *jobz,
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *w,
+    float  *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *liwork,
     ptrdiff_t *info
 );
 
@@ -19133,6 +21983,32 @@ extern void ssyevr(
     ptrdiff_t *info
 );
 
+/* Source: ssyevr_2stage.f */
+#define ssyevr_2stage FORTRAN_WRAPPER(ssyevr_2stage)
+extern void ssyevr_2stage(
+    char   *jobz,
+    char   *range,
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *vl,
+    float  *vu,
+    ptrdiff_t *il,
+    ptrdiff_t *iu,
+    float  *abstol,
+    ptrdiff_t *m,
+    float  *w,
+    float  *z,
+    ptrdiff_t *ldz,
+    ptrdiff_t *isuppz,
+    float  *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *liwork,
+    ptrdiff_t *info
+);
+
 /* Source: ssyevx.f */
 #define ssyevx FORTRAN_WRAPPER(ssyevx)
 extern void ssyevx(
@@ -19153,6 +22029,31 @@ extern void ssyevx(
     const ptrdiff_t *ldz,
     float  *work,
     const ptrdiff_t *lwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *ifail,
+    ptrdiff_t *info
+);
+
+/* Source: ssyevx_2stage.f */
+#define ssyevx_2stage FORTRAN_WRAPPER(ssyevx_2stage)
+extern void ssyevx_2stage(
+    char   *jobz,
+    char   *range,
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *vl,
+    float  *vu,
+    ptrdiff_t *il,
+    ptrdiff_t *iu,
+    float  *abstol,
+    ptrdiff_t *m,
+    float  *w,
+    float  *z,
+    ptrdiff_t *ldz,
+    float  *work,
+    ptrdiff_t *lwork,
     ptrdiff_t *iwork,
     ptrdiff_t *ifail,
     ptrdiff_t *info
@@ -19198,6 +22099,23 @@ extern void ssygv(
     float  *w,
     float  *work,
     const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: ssygv_2stage.f */
+#define ssygv_2stage FORTRAN_WRAPPER(ssygv_2stage)
+extern void ssygv_2stage(
+    ptrdiff_t *itype,
+    char   *jobz,
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *b,
+    ptrdiff_t *ldb,
+    float  *w,
+    float  *work,
+    ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -19286,6 +22204,39 @@ extern void ssysv(
     ptrdiff_t *info
 );
 
+/* Source: ssysv_aa.f */
+#define ssysv_aa FORTRAN_WRAPPER(ssysv_aa)
+extern void ssysv_aa(
+    const char   *uplo,
+    const ptrdiff_t *n,
+    const ptrdiff_t *nrhs,
+    float  *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    float  *b,
+    const ptrdiff_t *ldb,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: ssysv_rk.f */
+#define ssysv_rk FORTRAN_WRAPPER(ssysv_rk)
+extern void ssysv_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nrhs,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *b,
+    ptrdiff_t *ldb,
+    float  *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: ssysv_rook.f */
 #define ssysv_rook FORTRAN_WRAPPER(ssysv_rook)
 extern void ssysv_rook(
@@ -19362,6 +22313,18 @@ extern void ssytf2(
     ptrdiff_t *info
 );
 
+/* Source: ssytf2_rk.f */
+#define ssytf2_rk FORTRAN_WRAPPER(ssytf2_rk)
+extern void ssytf2_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    ptrdiff_t *info
+);
+
 /* Source: ssytf2_rook.f */
 #define ssytf2_rook FORTRAN_WRAPPER(ssytf2_rook)
 extern void ssytf2_rook(
@@ -19388,6 +22351,59 @@ extern void ssytrd(
     ptrdiff_t *info
 );
 
+/* Source: ssytrd_2stage.f */
+#define ssytrd_2stage FORTRAN_WRAPPER(ssytrd_2stage)
+extern void ssytrd_2stage(
+    char   *vect,
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *d,
+    float  *e,
+    float  *tau,
+    float  *hous2,
+    ptrdiff_t *lhous2,
+    float  *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: ssytrd_sb2st.f */
+#define ssytrd_sb2st FORTRAN_WRAPPER(ssytrd_sb2st)
+extern void ssytrd_sb2st(
+    char   *stage1,
+    char   *vect,
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *kd,
+    float  *ab,
+    ptrdiff_t *ldab,
+    float  *d,
+    float  *e,
+    float  *hous,
+    ptrdiff_t *lhous,
+    float  *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: ssytrd_sy2sb.f */
+#define ssytrd_sy2sb FORTRAN_WRAPPER(ssytrd_sy2sb)
+extern void ssytrd_sy2sb(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *kd,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *ab,
+    ptrdiff_t *ldab,
+    float  *tau,
+    float  *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: ssytrf.f */
 #define ssytrf FORTRAN_WRAPPER(ssytrf)
 extern void ssytrf(
@@ -19398,6 +22414,33 @@ extern void ssytrf(
     ptrdiff_t *ipiv,
     float  *work,
     const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: ssytrf_aa.f */
+#define ssytrf_aa FORTRAN_WRAPPER(ssytrf_aa)
+extern void ssytrf_aa(
+    const char   *uplo,
+    const ptrdiff_t *n,
+    float  *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    float  *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: ssytrf_rk.f */
+#define ssytrf_rk FORTRAN_WRAPPER(ssytrf_rk)
+extern void ssytrf_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *work,
+    ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -19452,6 +22495,34 @@ extern void ssytri2x(
     ptrdiff_t *info
 );
 
+/* Source: ssytri_3.f */
+#define ssytri_3 FORTRAN_WRAPPER(ssytri_3)
+extern void ssytri_3(
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: ssytri_3x.f */
+#define ssytri_3x FORTRAN_WRAPPER(ssytri_3x)
+extern void ssytri_3x(
+    char   *uplo,
+    ptrdiff_t *n,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *work,
+    ptrdiff_t *nb,
+    ptrdiff_t *info
+);
+
 /* Source: ssytri_rook.f */
 #define ssytri_rook FORTRAN_WRAPPER(ssytri_rook)
 extern void ssytri_rook(
@@ -19490,6 +22561,37 @@ extern void ssytrs2(
     float  *b,
     const ptrdiff_t *ldb,
     float  *work,
+    ptrdiff_t *info
+);
+
+/* Source: ssytrs_3.f */
+#define ssytrs_3 FORTRAN_WRAPPER(ssytrs_3)
+extern void ssytrs_3(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nrhs,
+    float  *a,
+    ptrdiff_t *lda,
+    float  *e,
+    ptrdiff_t *ipiv,
+    float  *b,
+    ptrdiff_t *ldb,
+    ptrdiff_t *info
+);
+
+/* Source: ssytrs_aa.f */
+#define ssytrs_aa FORTRAN_WRAPPER(ssytrs_aa)
+extern void ssytrs_aa(
+    const char   *uplo,
+    const ptrdiff_t *n,
+    const ptrdiff_t *nrhs,
+    const float  *a,
+    const ptrdiff_t *lda,
+    const ptrdiff_t *ipiv,
+    float  *b,
+    const ptrdiff_t *ldb,
+    const float  *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -19828,6 +22930,60 @@ extern void stpcon(
     ptrdiff_t *info
 );
 
+/* Source: stplqt.f */
+#define stplqt FORTRAN_WRAPPER(stplqt)
+extern void stplqt(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *l,
+    const ptrdiff_t *mb,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    float  *t,
+    const ptrdiff_t *ldt,
+    float  *work,
+    ptrdiff_t *info
+);
+
+/* Source: stplqt2.f */
+#define stplqt2 FORTRAN_WRAPPER(stplqt2)
+extern void stplqt2(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *l,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    float  *t,
+    const ptrdiff_t *ldt,
+    ptrdiff_t *info
+);
+
+/* Source: stpmlqt.f */
+#define stpmlqt FORTRAN_WRAPPER(stpmlqt)
+extern void stpmlqt(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const ptrdiff_t *l,
+    const ptrdiff_t *mb,
+    const float  *v,
+    const ptrdiff_t *ldv,
+    const float  *t,
+    const ptrdiff_t *ldt,
+    float  *a,
+    const ptrdiff_t *lda,
+    float  *b,
+    const ptrdiff_t *ldb,
+    float  *work,
+    ptrdiff_t *info
+);
+
 /* Source: stpmqrt.f */
 #define stpmqrt FORTRAN_WRAPPER(stpmqrt)
 extern void stpmqrt(
@@ -19857,13 +23013,13 @@ extern void stpqrt(
     const ptrdiff_t *n,
     const ptrdiff_t *l,
     const ptrdiff_t *nb,
-    const float  *a,
+    float  *a,
     const ptrdiff_t *lda,
-    const float  *b,
+    float  *b,
     const ptrdiff_t *ldb,
-    const float  *t,
+    float  *t,
     const ptrdiff_t *ldt,
-    const float  *work,
+    float  *work,
     ptrdiff_t *info
 );
 
@@ -20002,6 +23158,26 @@ extern void strevc(
     const ptrdiff_t *mm,
     ptrdiff_t *m,
     float  *work,
+    ptrdiff_t *info
+);
+
+/* Source: strevc3.f */
+#define strevc3 FORTRAN_WRAPPER(strevc3)
+extern void strevc3(
+    char   *side,
+    char   *howmny,
+    ptrdiff_t *select,
+    ptrdiff_t *n,
+    float  *t,
+    ptrdiff_t *ldt,
+    float  *vl,
+    ptrdiff_t *ldvl,
+    float  *vr,
+    ptrdiff_t *ldvr,
+    ptrdiff_t *mm,
+    ptrdiff_t *m,
+    float  *work,
+    ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -20162,17 +23338,6 @@ extern void strttp(
     const float  *a,
     const ptrdiff_t *lda,
     float  *ap,
-    ptrdiff_t *info
-);
-
-/* Source: stzrqf.f */
-#define stzrqf FORTRAN_WRAPPER(stzrqf)
-extern void stzrqf(
-    const ptrdiff_t *m,
-    const ptrdiff_t *n,
-    float  *a,
-    const ptrdiff_t *lda,
-    float  *tau,
     ptrdiff_t *info
 );
 
@@ -20675,50 +23840,6 @@ extern void zgeevx(
     ptrdiff_t *info
 );
 
-/* Source: zgegs.f */
-#define zgegs FORTRAN_WRAPPER(zgegs)
-extern void zgegs(
-    const char   *jobvsl,
-    const char   *jobvsr,
-    const ptrdiff_t *n,
-    double *a,
-    const ptrdiff_t *lda,
-    double *b,
-    const ptrdiff_t *ldb,
-    double *alpha,
-    double *beta,
-    double *vsl,
-    const ptrdiff_t *ldvsl,
-    double *vsr,
-    const ptrdiff_t *ldvsr,
-    double *work,
-    const ptrdiff_t *lwork,
-    double *rwork,
-    ptrdiff_t *info
-);
-
-/* Source: zgegv.f */
-#define zgegv FORTRAN_WRAPPER(zgegv)
-extern void zgegv(
-    const char   *jobvl,
-    const char   *jobvr,
-    const ptrdiff_t *n,
-    double *a,
-    const ptrdiff_t *lda,
-    double *b,
-    const ptrdiff_t *ldb,
-    double *alpha,
-    double *beta,
-    double *vl,
-    const ptrdiff_t *ldvl,
-    double *vr,
-    const ptrdiff_t *ldvr,
-    double *work,
-    const ptrdiff_t *lwork,
-    double *rwork,
-    ptrdiff_t *info
-);
-
 /* Source: zgehd2.f */
 #define zgehd2 FORTRAN_WRAPPER(zgehd2)
 extern void zgehd2(
@@ -20746,6 +23867,46 @@ extern void zgehrd(
     ptrdiff_t *info
 );
 
+/* Source: zgejsv.f */
+#define zgejsv FORTRAN_WRAPPER(zgejsv)
+extern void zgejsv(
+    const char   *joba,
+    const char   *jobu,
+    const char   *jobv,
+    const char   *jobr,
+    const char   *jobt,
+    const char   *jobp,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    double *sva,
+    double *u,
+    const ptrdiff_t *ldu,
+    double *v,
+    const ptrdiff_t *ldv,
+    double *cwork,
+    const ptrdiff_t *lwork,
+    double *rwork,
+    const ptrdiff_t *lrwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *info
+);
+
+/* Source: zgelq.f */
+#define zgelq FORTRAN_WRAPPER(zgelq)
+extern void zgelq(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    double *t,
+    const ptrdiff_t *tsize,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: zgelq2.f */
 #define zgelq2 FORTRAN_WRAPPER(zgelq2)
 extern void zgelq2(
@@ -20768,6 +23929,32 @@ extern void zgelqf(
     double *tau,
     double *work,
     const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: zgelqt.f */
+#define zgelqt FORTRAN_WRAPPER(zgelqt)
+extern void zgelqt(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *mb,
+    double *a,
+    const ptrdiff_t *lda,
+    double *t,
+    const ptrdiff_t *ldt,
+    double *work,
+    ptrdiff_t *info
+);
+
+/* Source: zgelqt3.f */
+#define zgelqt3 FORTRAN_WRAPPER(zgelqt3)
+extern void zgelqt3(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    double *t,
+    const ptrdiff_t *ldt,
     ptrdiff_t *info
 );
 
@@ -20826,24 +24013,6 @@ extern void zgelss(
     ptrdiff_t *info
 );
 
-/* Source: zgelsx.f */
-#define zgelsx FORTRAN_WRAPPER(zgelsx)
-extern void zgelsx(
-    const ptrdiff_t *m,
-    const ptrdiff_t *n,
-    const ptrdiff_t *nrhs,
-    double *a,
-    const ptrdiff_t *lda,
-    double *b,
-    const ptrdiff_t *ldb,
-    ptrdiff_t *jpvt,
-    const double *rcond,
-    ptrdiff_t *rank,
-    double *work,
-    double *rwork,
-    ptrdiff_t *info
-);
-
 /* Source: zgelsy.f */
 #define zgelsy FORTRAN_WRAPPER(zgelsy)
 extern void zgelsy(
@@ -20860,6 +24029,63 @@ extern void zgelsy(
     double *work,
     const ptrdiff_t *lwork,
     double *rwork,
+    ptrdiff_t *info
+);
+
+/* Source: zgemlq.f */
+#define zgemlq FORTRAN_WRAPPER(zgemlq)
+extern void zgemlq(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const double *a,
+    const ptrdiff_t *lda,
+    const double *t,
+    const ptrdiff_t *tsize,
+    double *c,
+    const ptrdiff_t *ldc,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: zgemlqt.f */
+#define zgemlqt FORTRAN_WRAPPER(zgemlqt)
+extern void zgemlqt(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const ptrdiff_t *mb,
+    const double *v,
+    const ptrdiff_t *ldv,
+    const double *t,
+    const ptrdiff_t *ldt,
+    double *c,
+    const ptrdiff_t *ldc,
+    double *work,
+    ptrdiff_t *info
+);
+
+/* Source: zgemqr.f */
+#define zgemqr FORTRAN_WRAPPER(zgemqr)
+extern void zgemqr(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const double *a,
+    const ptrdiff_t *lda,
+    const double *t,
+    const ptrdiff_t *tsize,
+    double *c,
+    const ptrdiff_t *ldc,
+    double *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -20933,6 +24159,20 @@ extern void zgeqpf(
     double *tau,
     double *work,
     double *rwork,
+    ptrdiff_t *info
+);
+
+/* Source: zgeqr.f */
+#define zgeqr FORTRAN_WRAPPER(zgeqr)
+extern void zgeqr(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    double *t,
+    const ptrdiff_t *tsize,
+    double *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -21136,6 +24376,54 @@ extern void zgesvd(
     ptrdiff_t *info
 );
 
+/* Source: zgesvdx.f */
+#define zgesvdx FORTRAN_WRAPPER(zgesvdx)
+extern void zgesvdx(
+    const char   *jobu,
+    const char   *jobvt,
+    const char   *range,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    const double *vl,
+    const double *vu,
+    const ptrdiff_t *il,
+    const ptrdiff_t *iu,
+    ptrdiff_t *ns,
+    double *s,
+    double *u,
+    const ptrdiff_t *ldu,
+    double *vt,
+    const ptrdiff_t *ldvt,
+    double *work,
+    const ptrdiff_t *lwork,
+    double *rwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *info
+);
+
+/* Source: zgesvj.f */
+#define zgesvj FORTRAN_WRAPPER(zgesvj)
+extern void zgesvj(
+    const char   *joba,
+    const char   *jobu,
+    const char   *jobv,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    double *sva,
+    const ptrdiff_t *mv,
+    double *v,
+    const ptrdiff_t *ldv,
+    double *cwork,
+    const ptrdiff_t *lwork,
+    double *rwork,
+    const ptrdiff_t *lrwork,
+    ptrdiff_t *info
+);
+
 /* Source: zgesvx.f */
 #define zgesvx FORTRAN_WRAPPER(zgesvx)
 extern void zgesvx(
@@ -21196,6 +24484,17 @@ extern void zgetrf(
     ptrdiff_t *info
 );
 
+/* Source: zgetrf2.f */
+#define zgetrf2 FORTRAN_WRAPPER(zgetrf2)
+extern void zgetrf2(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    ptrdiff_t *info
+);
+
 /* Source: zgetri.f */
 #define zgetri FORTRAN_WRAPPER(zgetri)
 extern void zgetri(
@@ -21219,6 +24518,22 @@ extern void zgetrs(
     const ptrdiff_t *ipiv,
     double *b,
     const ptrdiff_t *ldb,
+    ptrdiff_t *info
+);
+
+/* Source: zgetsls.f */
+#define zgetsls FORTRAN_WRAPPER(zgetsls)
+extern void zgetsls(
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *nrhs,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    double *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -21258,6 +24573,32 @@ extern void zggbal(
 /* Source: zgges.f */
 #define zgges FORTRAN_WRAPPER(zgges)
 extern void zgges(
+    const char   *jobvsl,
+    const char   *jobvsr,
+    const char   *sort,
+    ptrdiff_t (*selctg)(),
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    ptrdiff_t *sdim,
+    double *alpha,
+    double *beta,
+    double *vsl,
+    const ptrdiff_t *ldvsl,
+    double *vsr,
+    const ptrdiff_t *ldvsr,
+    double *work,
+    const ptrdiff_t *lwork,
+    double *rwork,
+    ptrdiff_t *bwork,
+    ptrdiff_t *info
+);
+
+/* Source: zgges3.f */
+#define zgges3 FORTRAN_WRAPPER(zgges3)
+extern void zgges3(
     const char   *jobvsl,
     const char   *jobvsr,
     const char   *sort,
@@ -21334,6 +24675,28 @@ extern void zggev(
     ptrdiff_t *info
 );
 
+/* Source: zggev3.f */
+#define zggev3 FORTRAN_WRAPPER(zggev3)
+extern void zggev3(
+    const char   *jobvl,
+    const char   *jobvr,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    double *alpha,
+    double *beta,
+    double *vl,
+    const ptrdiff_t *ldvl,
+    double *vr,
+    const ptrdiff_t *ldvr,
+    double *work,
+    const ptrdiff_t *lwork,
+    double *rwork,
+    ptrdiff_t *info
+);
+
 /* Source: zggevx.f */
 #define zggevx FORTRAN_WRAPPER(zggevx)
 extern void zggevx(
@@ -21381,6 +24744,27 @@ extern void zggglm(
     double *d,
     double *x,
     double *y,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: zgghd3.f */
+#define zgghd3 FORTRAN_WRAPPER(zgghd3)
+extern void zgghd3(
+    const char   *compq,
+    const char   *compz,
+    const ptrdiff_t *n,
+    const ptrdiff_t *ilo,
+    const ptrdiff_t *ihi,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    double *q,
+    const ptrdiff_t *ldq,
+    double *z,
+    const ptrdiff_t *ldz,
     double *work,
     const ptrdiff_t *lwork,
     ptrdiff_t *info
@@ -21457,9 +24841,9 @@ extern void zggrqf(
     ptrdiff_t *info
 );
 
-/* Source: zggsvd.f */
-#define zggsvd FORTRAN_WRAPPER(zggsvd)
-extern void zggsvd(
+/* Source: zggsvd3.f */
+#define zggsvd3 FORTRAN_WRAPPER(zggsvd3)
+extern void zggsvd3(
     const char   *jobu,
     const char   *jobv,
     const char   *jobq,
@@ -21481,14 +24865,15 @@ extern void zggsvd(
     double *q,
     const ptrdiff_t *ldq,
     double *work,
+    const ptrdiff_t *lwork,
     double *rwork,
     ptrdiff_t *iwork,
     ptrdiff_t *info
 );
 
-/* Source: zggsvp.f */
-#define zggsvp FORTRAN_WRAPPER(zggsvp)
-extern void zggsvp(
+/* Source: zggsvp3.f */
+#define zggsvp3 FORTRAN_WRAPPER(zggsvp3)
+extern void zggsvp3(
     const char   *jobu,
     const char   *jobv,
     const char   *jobq,
@@ -21513,6 +24898,52 @@ extern void zggsvp(
     double *rwork,
     double *tau,
     double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: zgsvj0.f */
+#define zgsvj0 FORTRAN_WRAPPER(zgsvj0)
+extern void zgsvj0(
+    const char   *jobv,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    double *d,
+    double *sva,
+    const ptrdiff_t *mv,
+    double *v,
+    const ptrdiff_t *ldv,
+    const double *eps,
+    const double *sfmin,
+    const double *tol,
+    const ptrdiff_t *nsweep,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: zgsvj1.f */
+#define zgsvj1 FORTRAN_WRAPPER(zgsvj1)
+extern void zgsvj1(
+    const char   *jobv,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *n1,
+    double *a,
+    const ptrdiff_t *lda,
+    double *d,
+    double *sva,
+    const ptrdiff_t *mv,
+    double *v,
+    const ptrdiff_t *ldv,
+    const double *eps,
+    const double *sfmin,
+    const double *tol,
+    const ptrdiff_t *nsweep,
+    double *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -21640,6 +25071,26 @@ extern void zgtts2(
     const ptrdiff_t *ldb
 );
 
+/* Source: zhb2st_kernels.f */
+#define zhb2st_kernels FORTRAN_WRAPPER(zhb2st_kernels)
+extern void zhb2st_kernels(
+    char   *uplo,
+    ptrdiff_t *wantz,
+    ptrdiff_t *ttype,
+    ptrdiff_t *st,
+    ptrdiff_t *ed,
+    ptrdiff_t *sweep,
+    ptrdiff_t *n,
+    ptrdiff_t *nb,
+    ptrdiff_t *ib,
+    double *a,
+    ptrdiff_t *lda,
+    double *v,
+    double *tau,
+    ptrdiff_t *ldvt,
+    double *work
+);
+
 /* Source: zhbev.f */
 #define zhbev FORTRAN_WRAPPER(zhbev)
 extern void zhbev(
@@ -21653,6 +25104,24 @@ extern void zhbev(
     double *z,
     const ptrdiff_t *ldz,
     double *work,
+    double *rwork,
+    ptrdiff_t *info
+);
+
+/* Source: zhbev_2stage.f */
+#define zhbev_2stage FORTRAN_WRAPPER(zhbev_2stage)
+extern void zhbev_2stage(
+    char   *jobz,
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *kd,
+    double *ab,
+    ptrdiff_t *ldab,
+    double *w,
+    double *z,
+    ptrdiff_t *ldz,
+    double *work,
+    ptrdiff_t *lwork,
     double *rwork,
     ptrdiff_t *info
 );
@@ -21678,6 +25147,27 @@ extern void zhbevd(
     ptrdiff_t *info
 );
 
+/* Source: zhbevd_2stage.f */
+#define zhbevd_2stage FORTRAN_WRAPPER(zhbevd_2stage)
+extern void zhbevd_2stage(
+    char   *jobz,
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *kd,
+    double *ab,
+    ptrdiff_t *ldab,
+    double *w,
+    double *z,
+    ptrdiff_t *ldz,
+    double *work,
+    ptrdiff_t *lwork,
+    double *rwork,
+    ptrdiff_t *lrwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *liwork,
+    ptrdiff_t *info
+);
+
 /* Source: zhbevx.f */
 #define zhbevx FORTRAN_WRAPPER(zhbevx)
 extern void zhbevx(
@@ -21700,6 +25190,35 @@ extern void zhbevx(
     double *z,
     const ptrdiff_t *ldz,
     double *work,
+    double *rwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *ifail,
+    ptrdiff_t *info
+);
+
+/* Source: zhbevx_2stage.f */
+#define zhbevx_2stage FORTRAN_WRAPPER(zhbevx_2stage)
+extern void zhbevx_2stage(
+    char   *jobz,
+    char   *range,
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *kd,
+    double *ab,
+    ptrdiff_t *ldab,
+    double *q,
+    ptrdiff_t *ldq,
+    double *vl,
+    double *vu,
+    ptrdiff_t *il,
+    ptrdiff_t *iu,
+    double *abstol,
+    ptrdiff_t *m,
+    double *w,
+    double *z,
+    ptrdiff_t *ldz,
+    double *work,
+    ptrdiff_t *lwork,
     double *rwork,
     ptrdiff_t *iwork,
     ptrdiff_t *ifail,
@@ -21831,6 +25350,21 @@ extern void zhecon(
     ptrdiff_t *info
 );
 
+/* Source: zhecon_3.f */
+#define zhecon_3 FORTRAN_WRAPPER(zhecon_3)
+extern void zhecon_3(
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *anorm,
+    double *rcond,
+    double *work,
+    ptrdiff_t *info
+);
+
 /* Source: zhecon_rook.f */
 #define zhecon_rook FORTRAN_WRAPPER(zhecon_rook)
 extern void zhecon_rook(
@@ -21874,6 +25408,21 @@ extern void zheev(
     ptrdiff_t *info
 );
 
+/* Source: zheev_2stage.f */
+#define zheev_2stage FORTRAN_WRAPPER(zheev_2stage)
+extern void zheev_2stage(
+    char   *jobz,
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *w,
+    double *work,
+    ptrdiff_t *lwork,
+    double *rwork,
+    ptrdiff_t *info
+);
+
 /* Source: zheevd.f */
 #define zheevd FORTRAN_WRAPPER(zheevd)
 extern void zheevd(
@@ -21889,6 +25438,24 @@ extern void zheevd(
     const ptrdiff_t *lrwork,
     ptrdiff_t *iwork,
     const ptrdiff_t *liwork,
+    ptrdiff_t *info
+);
+
+/* Source: zheevd_2stage.f */
+#define zheevd_2stage FORTRAN_WRAPPER(zheevd_2stage)
+extern void zheevd_2stage(
+    char   *jobz,
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *w,
+    double *work,
+    ptrdiff_t *lwork,
+    double *rwork,
+    ptrdiff_t *lrwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *liwork,
     ptrdiff_t *info
 );
 
@@ -21920,6 +25487,34 @@ extern void zheevr(
     ptrdiff_t *info
 );
 
+/* Source: zheevr_2stage.f */
+#define zheevr_2stage FORTRAN_WRAPPER(zheevr_2stage)
+extern void zheevr_2stage(
+    char   *jobz,
+    char   *range,
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *vl,
+    double *vu,
+    ptrdiff_t *il,
+    ptrdiff_t *iu,
+    double *abstol,
+    ptrdiff_t *m,
+    double *w,
+    double *z,
+    ptrdiff_t *ldz,
+    ptrdiff_t *isuppz,
+    double *work,
+    ptrdiff_t *lwork,
+    double *rwork,
+    ptrdiff_t *lrwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *liwork,
+    ptrdiff_t *info
+);
+
 /* Source: zheevx.f */
 #define zheevx FORTRAN_WRAPPER(zheevx)
 extern void zheevx(
@@ -21940,6 +25535,32 @@ extern void zheevx(
     const ptrdiff_t *ldz,
     double *work,
     const ptrdiff_t *lwork,
+    double *rwork,
+    ptrdiff_t *iwork,
+    ptrdiff_t *ifail,
+    ptrdiff_t *info
+);
+
+/* Source: zheevx_2stage.f */
+#define zheevx_2stage FORTRAN_WRAPPER(zheevx_2stage)
+extern void zheevx_2stage(
+    char   *jobz,
+    char   *range,
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *vl,
+    double *vu,
+    ptrdiff_t *il,
+    ptrdiff_t *iu,
+    double *abstol,
+    ptrdiff_t *m,
+    double *w,
+    double *z,
+    ptrdiff_t *ldz,
+    double *work,
+    ptrdiff_t *lwork,
     double *rwork,
     ptrdiff_t *iwork,
     ptrdiff_t *ifail,
@@ -21986,6 +25607,24 @@ extern void zhegv(
     double *w,
     double *work,
     const ptrdiff_t *lwork,
+    double *rwork,
+    ptrdiff_t *info
+);
+
+/* Source: zhegv_2stage.f */
+#define zhegv_2stage FORTRAN_WRAPPER(zhegv_2stage)
+extern void zhegv_2stage(
+    ptrdiff_t *itype,
+    char   *jobz,
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *b,
+    ptrdiff_t *ldb,
+    double *w,
+    double *work,
+    ptrdiff_t *lwork,
     double *rwork,
     ptrdiff_t *info
 );
@@ -22078,6 +25717,39 @@ extern void zhesv(
     ptrdiff_t *info
 );
 
+/* Source: zhesv_aa.f */
+#define zhesv_aa FORTRAN_WRAPPER(zhesv_aa)
+extern void zhesv_aa(
+    const char   *uplo,
+    const ptrdiff_t *n,
+    const ptrdiff_t *nrhs,
+    double *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    double *b,
+    const ptrdiff_t *ldb,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: zhesv_rk.f */
+#define zhesv_rk FORTRAN_WRAPPER(zhesv_rk)
+extern void zhesv_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nrhs,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *b,
+    ptrdiff_t *ldb,
+    double *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: zhesv_rook.f */
 #define zhesv_rook FORTRAN_WRAPPER(zhesv_rook)
 extern void zhesv_rook(
@@ -22154,6 +25826,18 @@ extern void zhetf2(
     ptrdiff_t *info
 );
 
+/* Source: zhetf2_rk.f */
+#define zhetf2_rk FORTRAN_WRAPPER(zhetf2_rk)
+extern void zhetf2_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    ptrdiff_t *info
+);
+
 /* Source: zhetf2_rook.f */
 #define zhetf2_rook FORTRAN_WRAPPER(zhetf2_rook)
 extern void zhetf2_rook(
@@ -22180,6 +25864,59 @@ extern void zhetrd(
     ptrdiff_t *info
 );
 
+/* Source: zhetrd_2stage.f */
+#define zhetrd_2stage FORTRAN_WRAPPER(zhetrd_2stage)
+extern void zhetrd_2stage(
+    char   *vect,
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *d,
+    double *e,
+    double *tau,
+    double *hous2,
+    ptrdiff_t *lhous2,
+    double *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: zhetrd_hb2st.f */
+#define zhetrd_hb2st FORTRAN_WRAPPER(zhetrd_hb2st)
+extern void zhetrd_hb2st(
+    char   *stage1,
+    char   *vect,
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *kd,
+    double *ab,
+    ptrdiff_t *ldab,
+    double *d,
+    double *e,
+    double *hous,
+    ptrdiff_t *lhous,
+    double *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: zhetrd_he2hb.f */
+#define zhetrd_he2hb FORTRAN_WRAPPER(zhetrd_he2hb)
+extern void zhetrd_he2hb(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *kd,
+    double *a,
+    ptrdiff_t *lda,
+    double *ab,
+    ptrdiff_t *ldab,
+    double *tau,
+    double *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: zhetrf.f */
 #define zhetrf FORTRAN_WRAPPER(zhetrf)
 extern void zhetrf(
@@ -22190,6 +25927,33 @@ extern void zhetrf(
     ptrdiff_t *ipiv,
     double *work,
     const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: zhetrf_aa.f */
+#define zhetrf_aa FORTRAN_WRAPPER(zhetrf_aa)
+extern void zhetrf_aa(
+    const char   *uplo,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: zhetrf_rk.f */
+#define zhetrf_rk FORTRAN_WRAPPER(zhetrf_rk)
+extern void zhetrf_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *work,
+    ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -22244,6 +26008,34 @@ extern void zhetri2x(
     ptrdiff_t *info
 );
 
+/* Source: zhetri_3.f */
+#define zhetri_3 FORTRAN_WRAPPER(zhetri_3)
+extern void zhetri_3(
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: zhetri_3x.f */
+#define zhetri_3x FORTRAN_WRAPPER(zhetri_3x)
+extern void zhetri_3x(
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *work,
+    ptrdiff_t *nb,
+    ptrdiff_t *info
+);
+
 /* Source: zhetri_rook.f */
 #define zhetri_rook FORTRAN_WRAPPER(zhetri_rook)
 extern void zhetri_rook(
@@ -22282,6 +26074,37 @@ extern void zhetrs2(
     double *b,
     const ptrdiff_t *ldb,
     double *work,
+    ptrdiff_t *info
+);
+
+/* Source: zhetrs_3.f */
+#define zhetrs_3 FORTRAN_WRAPPER(zhetrs_3)
+extern void zhetrs_3(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nrhs,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *b,
+    ptrdiff_t *ldb,
+    ptrdiff_t *info
+);
+
+/* Source: zhetrs_aa.f */
+#define zhetrs_aa FORTRAN_WRAPPER(zhetrs_aa)
+extern void zhetrs_aa(
+    const char   *uplo,
+    const ptrdiff_t *n,
+    const ptrdiff_t *nrhs,
+    const double *a,
+    const ptrdiff_t *lda,
+    const ptrdiff_t *ipiv,
+    double *b,
+    const ptrdiff_t *ldb,
+    const double *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -22708,7 +26531,7 @@ extern void zlacrm(
     const ptrdiff_t *lda,
     const double *b,
     const ptrdiff_t *ldb,
-    const double *c,
+    double *c,
     const ptrdiff_t *ldc,
     double *rwork
 );
@@ -22727,12 +26550,8 @@ extern void zlacrt(
 
 /* Source: zladiv.f */
 #define zladiv FORTRAN_WRAPPER(zladiv)
-#ifndef FORTRAN_COMPLEX_FUNCTIONS_RETURN_VOID
-extern doublecomplex zladiv(
-#else
 extern void zladiv(
     doublecomplex* retval,
-#endif 
     const double *x,
     const double *y
 );
@@ -22911,6 +26730,38 @@ extern void zlahef(
     ptrdiff_t *info
 );
 
+/* Source: zlahef_aa.f */
+#define zlahef_aa FORTRAN_WRAPPER(zlahef_aa)
+extern void zlahef_aa(
+    const char   *uplo,
+    const ptrdiff_t *j1_,
+    const ptrdiff_t *m,
+    const ptrdiff_t *nb,
+    double *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    double *h,
+    const ptrdiff_t *ldh,
+    double *work,
+    ptrdiff_t *info
+);
+
+/* Source: zlahef_rk.f */
+#define zlahef_rk FORTRAN_WRAPPER(zlahef_rk)
+extern void zlahef_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nb,
+    ptrdiff_t *kb,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *w,
+    ptrdiff_t *ldw,
+    ptrdiff_t *info
+);
+
 /* Source: zlahef_rook.f */
 #define zlahef_rook FORTRAN_WRAPPER(zlahef_rook)
 extern void zlahef_rook(
@@ -22947,21 +26798,6 @@ extern void zlahqr(
 /* Source: zlahr2.f */
 #define zlahr2 FORTRAN_WRAPPER(zlahr2)
 extern void zlahr2(
-    const ptrdiff_t *n,
-    const ptrdiff_t *k,
-    const ptrdiff_t *nb,
-    double *a,
-    const ptrdiff_t *lda,
-    double *tau,
-    double *t,
-    const ptrdiff_t *ldt,
-    double *y,
-    const ptrdiff_t *ldy
-);
-
-/* Source: zlahrd.f */
-#define zlahrd FORTRAN_WRAPPER(zlahrd)
-extern void zlahrd(
     const ptrdiff_t *n,
     const ptrdiff_t *k,
     const ptrdiff_t *nb,
@@ -23064,6 +26900,48 @@ extern void zlalsd(
     double *work,
     double *rwork,
     ptrdiff_t *iwork,
+    ptrdiff_t *info
+);
+
+/* Source: zlamswlq.f */
+#define zlamswlq FORTRAN_WRAPPER(zlamswlq)
+extern void zlamswlq(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const ptrdiff_t *mb,
+    const ptrdiff_t *nb,
+    double *a,
+    const ptrdiff_t *lda,
+    const double *t,
+    const ptrdiff_t *ldt,
+    double *c,
+    const ptrdiff_t *ldc,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: zlamtsqr.f */
+#define zlamtsqr FORTRAN_WRAPPER(zlamtsqr)
+extern void zlamtsqr(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const ptrdiff_t *mb,
+    const ptrdiff_t *nb,
+    double *a,
+    const ptrdiff_t *lda,
+    const double *t,
+    const ptrdiff_t *ldt,
+    double *c,
+    const ptrdiff_t *ldc,
+    double *work,
+    const ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -23598,7 +27476,7 @@ extern void zlarcm(
     const ptrdiff_t *lda,
     const double *b,
     const ptrdiff_t *ldb,
-    const double *c,
+    double *c,
     const ptrdiff_t *ldc,
     double *rwork
 );
@@ -23664,7 +27542,7 @@ extern void zlarft(
     const char   *storev,
     const ptrdiff_t *n,
     const ptrdiff_t *k,
-    double *v,
+    const double *v,
     const ptrdiff_t *ldv,
     const double *tau,
     double *t,
@@ -23681,6 +27559,19 @@ extern void zlarfx(
     const double *tau,
     double *c,
     const ptrdiff_t *ldc,
+    double *work
+);
+
+/* Source: zlarfy.f */
+#define zlarfy FORTRAN_WRAPPER(zlarfy)
+extern void zlarfy(
+    char   *uplo,
+    ptrdiff_t *n,
+    double *v,
+    ptrdiff_t *incv,
+    double *tau,
+    double *c,
+    ptrdiff_t *ldc,
     double *work
 );
 
@@ -23859,6 +27750,22 @@ extern void zlassq(
     double *sumsq
 );
 
+/* Source: zlaswlq.f */
+#define zlaswlq FORTRAN_WRAPPER(zlaswlq)
+extern void zlaswlq(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *mb,
+    const ptrdiff_t *nb,
+    double *a,
+    const ptrdiff_t *lda,
+    double *t,
+    const ptrdiff_t *ldt,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: zlaswp.f */
 #define zlaswp FORTRAN_WRAPPER(zlaswp)
 extern void zlaswp(
@@ -23883,6 +27790,38 @@ extern void zlasyf(
     ptrdiff_t *ipiv,
     double *w,
     const ptrdiff_t *ldw,
+    ptrdiff_t *info
+);
+
+/* Source: zlasyf_aa.f */
+#define zlasyf_aa FORTRAN_WRAPPER(zlasyf_aa)
+extern void zlasyf_aa(
+    char   *uplo,
+    ptrdiff_t *j1_,
+    ptrdiff_t *m,
+    ptrdiff_t *nb,
+    double *a,
+    ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    double *h,
+    ptrdiff_t *ldh,
+    double *work,
+    ptrdiff_t *info
+);
+
+/* Source: zlasyf_rk.f */
+#define zlasyf_rk FORTRAN_WRAPPER(zlasyf_rk)
+extern void zlasyf_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nb,
+    ptrdiff_t *kb,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *w,
+    ptrdiff_t *ldw,
     ptrdiff_t *info
 );
 
@@ -24001,19 +27940,20 @@ extern void zlatrz(
     double *work
 );
 
-/* Source: zlatzm.f */
-#define zlatzm FORTRAN_WRAPPER(zlatzm)
-extern void zlatzm(
-    const char   *side,
+/* Source: zlatsqr.f */
+#define zlatsqr FORTRAN_WRAPPER(zlatsqr)
+extern void zlatsqr(
     const ptrdiff_t *m,
     const ptrdiff_t *n,
-    const double *v,
-    const ptrdiff_t *incv,
-    const double *tau,
-    double *c1,
-    double *c2,
-    const ptrdiff_t *ldc,
-    double *work
+    const ptrdiff_t *mb,
+    const ptrdiff_t *nb,
+    double *a,
+    const ptrdiff_t *lda,
+    double *t,
+    const ptrdiff_t *ldt,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
 );
 
 /* Source: zlauu2.f */
@@ -24317,6 +28257,16 @@ extern void zpotf2(
 /* Source: zpotrf.f */
 #define zpotrf FORTRAN_WRAPPER(zpotrf)
 extern void zpotrf(
+    const char   *uplo,
+    const ptrdiff_t *n,
+    double *a,
+    const ptrdiff_t *lda,
+    ptrdiff_t *info
+);
+
+/* Source: zpotrf2.f */
+#define zpotrf2 FORTRAN_WRAPPER(zpotrf2)
+extern void zpotrf2(
     const char   *uplo,
     const ptrdiff_t *n,
     double *a,
@@ -24851,6 +28801,21 @@ extern void zsycon(
     ptrdiff_t *info
 );
 
+/* Source: zsycon_3.f */
+#define zsycon_3 FORTRAN_WRAPPER(zsycon_3)
+extern void zsycon_3(
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *anorm,
+    double *rcond,
+    double *work,
+    ptrdiff_t *info
+);
+
 /* Source: zsycon_rook.f */
 #define zsycon_rook FORTRAN_WRAPPER(zsycon_rook)
 extern void zsycon_rook(
@@ -24874,7 +28839,33 @@ extern void zsyconv(
     double *a,
     const ptrdiff_t *lda,
     const ptrdiff_t *ipiv,
-    double *work,
+    double *e,
+    ptrdiff_t *info
+);
+
+/* Source: zsyconvf.f */
+#define zsyconvf FORTRAN_WRAPPER(zsyconvf)
+extern void zsyconvf(
+    char   *uplo,
+    char   *way,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    ptrdiff_t *info
+);
+
+/* Source: zsyconvf_rook.f */
+#define zsyconvf_rook FORTRAN_WRAPPER(zsyconvf_rook)
+extern void zsyconvf_rook(
+    char   *uplo,
+    char   *way,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
     ptrdiff_t *info
 );
 
@@ -24957,6 +28948,39 @@ extern void zsysv(
     ptrdiff_t *info
 );
 
+/* Source: zsysv_aa.f */
+#define zsysv_aa FORTRAN_WRAPPER(zsysv_aa)
+extern void zsysv_aa(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nrhs,
+    double *a,
+    ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    double *b,
+    ptrdiff_t *ldb,
+    double *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: zsysv_rk.f */
+#define zsysv_rk FORTRAN_WRAPPER(zsysv_rk)
+extern void zsysv_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nrhs,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *b,
+    ptrdiff_t *ldb,
+    double *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
 /* Source: zsysv_rook.f */
 #define zsysv_rook FORTRAN_WRAPPER(zsysv_rook)
 extern void zsysv_rook(
@@ -25020,6 +29044,18 @@ extern void zsytf2(
     ptrdiff_t *info
 );
 
+/* Source: zsytf2_rk.f */
+#define zsytf2_rk FORTRAN_WRAPPER(zsytf2_rk)
+extern void zsytf2_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    ptrdiff_t *info
+);
+
 /* Source: zsytf2_rook.f */
 #define zsytf2_rook FORTRAN_WRAPPER(zsytf2_rook)
 extern void zsytf2_rook(
@@ -25041,6 +29077,33 @@ extern void zsytrf(
     ptrdiff_t *ipiv,
     double *work,
     const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: zsytrf_aa.f */
+#define zsytrf_aa FORTRAN_WRAPPER(zsytrf_aa)
+extern void zsytrf_aa(
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    double *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: zsytrf_rk.f */
+#define zsytrf_rk FORTRAN_WRAPPER(zsytrf_rk)
+extern void zsytrf_rk(
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *work,
+    ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -25095,6 +29158,34 @@ extern void zsytri2x(
     ptrdiff_t *info
 );
 
+/* Source: zsytri_3.f */
+#define zsytri_3 FORTRAN_WRAPPER(zsytri_3)
+extern void zsytri_3(
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *work,
+    ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: zsytri_3x.f */
+#define zsytri_3x FORTRAN_WRAPPER(zsytri_3x)
+extern void zsytri_3x(
+    char   *uplo,
+    ptrdiff_t *n,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *work,
+    ptrdiff_t *nb,
+    ptrdiff_t *info
+);
+
 /* Source: zsytri_rook.f */
 #define zsytri_rook FORTRAN_WRAPPER(zsytri_rook)
 extern void zsytri_rook(
@@ -25133,6 +29224,37 @@ extern void zsytrs2(
     double *b,
     const ptrdiff_t *ldb,
     double *work,
+    ptrdiff_t *info
+);
+
+/* Source: zsytrs_3.f */
+#define zsytrs_3 FORTRAN_WRAPPER(zsytrs_3)
+extern void zsytrs_3(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nrhs,
+    double *a,
+    ptrdiff_t *lda,
+    double *e,
+    ptrdiff_t *ipiv,
+    double *b,
+    ptrdiff_t *ldb,
+    ptrdiff_t *info
+);
+
+/* Source: zsytrs_aa.f */
+#define zsytrs_aa FORTRAN_WRAPPER(zsytrs_aa)
+extern void zsytrs_aa(
+    char   *uplo,
+    ptrdiff_t *n,
+    ptrdiff_t *nrhs,
+    double *a,
+    ptrdiff_t *lda,
+    ptrdiff_t *ipiv,
+    double *b,
+    ptrdiff_t *ldb,
+    double *work,
+    ptrdiff_t *lwork,
     ptrdiff_t *info
 );
 
@@ -25463,6 +29585,60 @@ extern void ztpcon(
     ptrdiff_t *info
 );
 
+/* Source: ztplqt.f */
+#define ztplqt FORTRAN_WRAPPER(ztplqt)
+extern void ztplqt(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *l,
+    const ptrdiff_t *mb,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    double *t,
+    const ptrdiff_t *ldt,
+    double *work,
+    ptrdiff_t *info
+);
+
+/* Source: ztplqt2.f */
+#define ztplqt2 FORTRAN_WRAPPER(ztplqt2)
+extern void ztplqt2(
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *l,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    double *t,
+    const ptrdiff_t *ldt,
+    ptrdiff_t *info
+);
+
+/* Source: ztpmlqt.f */
+#define ztpmlqt FORTRAN_WRAPPER(ztpmlqt)
+extern void ztpmlqt(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *k,
+    const ptrdiff_t *l,
+    const ptrdiff_t *mb,
+    const double *v,
+    const ptrdiff_t *ldv,
+    const double *t,
+    const ptrdiff_t *ldt,
+    double *a,
+    const ptrdiff_t *lda,
+    double *b,
+    const ptrdiff_t *ldb,
+    double *work,
+    ptrdiff_t *info
+);
+
 /* Source: ztpmqrt.f */
 #define ztpmqrt FORTRAN_WRAPPER(ztpmqrt)
 extern void ztpmqrt(
@@ -25492,13 +29668,13 @@ extern void ztpqrt(
     const ptrdiff_t *n,
     const ptrdiff_t *l,
     const ptrdiff_t *nb,
-    const double *a,
+    double *a,
     const ptrdiff_t *lda,
-    const double *b,
+    double *b,
     const ptrdiff_t *ldb,
-    const double *t,
+    double *t,
     const ptrdiff_t *ldt,
-    const double *work,
+    double *work,
     ptrdiff_t *info
 );
 
@@ -25638,6 +29814,28 @@ extern void ztrevc(
     ptrdiff_t *m,
     double *work,
     double *rwork,
+    ptrdiff_t *info
+);
+
+/* Source: ztrevc3.f */
+#define ztrevc3 FORTRAN_WRAPPER(ztrevc3)
+extern void ztrevc3(
+    char   *side,
+    char   *howmny,
+    ptrdiff_t *select,
+    ptrdiff_t *n,
+    double *t,
+    ptrdiff_t *ldt,
+    double *vl,
+    ptrdiff_t *ldvl,
+    double *vr,
+    ptrdiff_t *ldvr,
+    ptrdiff_t *mm,
+    ptrdiff_t *m,
+    double *work,
+    ptrdiff_t *lwork,
+    double *rwork,
+    ptrdiff_t *lrwork,
     ptrdiff_t *info
 );
 
@@ -25794,17 +29992,6 @@ extern void ztrttp(
     const double *a,
     const ptrdiff_t *lda,
     double *ap,
-    ptrdiff_t *info
-);
-
-/* Source: ztzrqf.f */
-#define ztzrqf FORTRAN_WRAPPER(ztzrqf)
-extern void ztzrqf(
-    const ptrdiff_t *m,
-    const ptrdiff_t *n,
-    double *a,
-    const ptrdiff_t *lda,
-    double *tau,
     ptrdiff_t *info
 );
 
@@ -26177,6 +30364,24 @@ extern void zungtr(
     double *a,
     const ptrdiff_t *lda,
     const double *tau,
+    double *work,
+    const ptrdiff_t *lwork,
+    ptrdiff_t *info
+);
+
+/* Source: zunm22.f */
+#define zunm22 FORTRAN_WRAPPER(zunm22)
+extern void zunm22(
+    const char   *side,
+    const char   *trans,
+    const ptrdiff_t *m,
+    const ptrdiff_t *n,
+    const ptrdiff_t *n1,
+    const ptrdiff_t *n2,
+    const double *q,
+    const ptrdiff_t *ldq,
+    double *c,
+    const ptrdiff_t *ldc,
     double *work,
     const ptrdiff_t *lwork,
     ptrdiff_t *info

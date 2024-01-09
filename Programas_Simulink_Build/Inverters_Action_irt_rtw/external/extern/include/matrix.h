@@ -1,14 +1,13 @@
 /*
-* PUBLISHed header for the libmx library.
-*
-* Copyright 1984-2016 The MathWorks, Inc.
-* All Rights Reserved.
-*/
-
-/*
- * NOTE: The contents of this header are ultimately PUBLISHED in
- * extern/include/matrix.h.
+ * External header for the libmx library.
+ *
+ * Copyright 1984-2018 The MathWorks, Inc.
+ * All Rights Reserved.
  */
+
+#ifdef MDA_ARRAY_HPP_
+#error Using MATLAB Data API with C Matrix API is not supported.
+#endif
 
 #if defined(_MSC_VER)
 #pragma once
@@ -17,64 +16,143 @@
 #pragma once
 #endif
 
-#ifndef MATRIX_DEVELOPER_API_HPP
 #ifndef matrix_h
 #define matrix_h
+
 #include <stdlib.h>
 #include <stddef.h>
 #include "tmwtypes.h"
 
-/* we can't see these definitions, which are stored in package.h, so we
-   duplicate them here. */
-#ifdef _MSC_VER
-#define MATRIX_DLL_EXPORT_SYM __declspec(dllexport)
-#define MATRIX_DLL_IMPORT_SYM __declspec(dllimport)
-#elif __GNUC__ >= 4
-#define MATRIX_DLL_EXPORT_SYM __attribute__((visibility("default")))
-#define MATRIX_DLL_IMPORT_SYM __attribute__((visibility("default")))
-#else
-#define MATRIX_DLL_EXPORT_SYM
-#define MATRIX_DLL_IMPORT_SYM
-#endif
-
-/**
- * Define symbol access for symbols exported from the libmwmatrix dll.
- */
-#if defined(BUILDING_PUBLISHED_API_CPP)
-#define LIBMMWMATRIX_PUBLISHED_API MATRIX_DLL_EXPORT_SYM
-#else
-#if defined(export_matrix_h)
-/* we are a C file coming through /src/include/matrix.h */
-#define LIBMMWMATRIX_PUBLISHED_API MATRIX_DLL_IMPORT_SYM
-#else
-/* We are a C mex file coming through /extern/include/matrix.h
- * LIBMMWMATRIX_PUBLISHED_API is empty to match definitions in mex.h.
- */
-#ifdef LIBMMWMATRIX_PUBLISHED_API
-#undef LIBMMWMATRIX_PUBLISHED_API
-#endif
-#define LIBMMWMATRIX_PUBLISHED_API
-#endif /* export_matrix_h */
-#endif /* BUILDING_PUBLISHED_API_CPP */
-
 #ifdef __cplusplus
-#define LIBMMWMATRIX_PUBLISHED_API_EXTERN_C extern "C" LIBMMWMATRIX_PUBLISHED_API
+#define LIBMMWMATRIX_PUBLISHED_API_EXTERN_C extern "C"
 #else
-#define LIBMMWMATRIX_PUBLISHED_API_EXTERN_C extern LIBMMWMATRIX_PUBLISHED_API
+#define LIBMMWMATRIX_PUBLISHED_API_EXTERN_C extern
 #endif
 
-/* Copyright 2008-2010 The MathWorks, Inc. */
 
-/*
- * NOTE: The contents of this header are ultimately PUBLISHED in
- * extern/include/matrix.h.
- */
 
-#ifndef MATHWORKS_MATRIX_DETAIL_PUBLISHED_FWD_DECLS_HPP
-#define MATHWORKS_MATRIX_DETAIL_PUBLISHED_FWD_DECLS_HPP
+#define MW_FIRST_API_VERSION 700
+#define R2017b 700
+#define R2018a 800
+#define R2018b 800
+#define R2019a 800
+#define R2019b 800
+#define R201aa 800
+#define R201ab 800
+#define R201ba 800
+#define R201bb 800
+#define R201ca 800
+#define R201cb 800
+#define R201da 800
+#define R201db 800
+#define R201ea 800
+#define R201eb 800
+#define R201fa 800
+#define R201fb 800
+#define R2020a 800
+#define R2020b 800
+#define R2021a 800
+#define R2021b 800
+#define MW_LATEST_API_VERSION 800
 
-#include <stddef.h>
-#include <tmwtypes.h>
+
+#define MW_REL2VER(A) A 
+
+#if defined(MX_COMPAT_32) || defined(MEX_DOUBLE_HANDLE)
+
+#if defined(MATLAB_MEXCMD_RELEASE) || defined(MATLAB_MEXSRC_RELEASE)
+
+/* Errors! Legacy knobs cannot be used with release-based hard knobs */
+
+#if defined(MX_COMPAT_32) && defined(MATLAB_MEXCMD_RELEASE)
+#error "MEX command option -R20XXx is incompatible with MX_COMPAT_32"
+#endif
+
+#if defined(MEX_DOUBLE_HANDLE) && defined(MATLAB_MEXCMD_RELEASE)
+#error "MEX command option -R20XXx is incompatible with MEX_DOUBLE_HANDLE"
+#endif
+
+#if defined(MX_COMPAT_32) && defined(MATLAB_MEXSRC_RELEASE)
+#error "Source code macro MATLAB_MEXSRC_RELEASE is incompatible with MX_COMPAT_32"
+#endif
+
+#if defined(MEX_DOUBLE_HANDLE) && defined(MATLAB_MEXSRC_RELEASE)
+#error "Source code macro MATLAB_MEXSRC_RELEASE is incompatible with MEX_DOUBLE_HANDLE"
+#endif
+
+#else
+
+/* Legacy knobs are defined  */
+
+#define MATLAB_TARGET_API_VERSION MW_FIRST_API_VERSION
+
+#endif
+
+#else /* defined(MX_COMPAT_32) || defined(MEX_DOUBLE_HANDLE) */
+
+/* No Legacy knobs. Check release-based tag */
+
+#if defined(MATLAB_MEXCMD_RELEASE)
+#define MW_MEXCMD_VERSION MW_REL2VER(MATLAB_MEXCMD_RELEASE)
+#if MW_MEXCMD_VERSION < MW_FIRST_API_VERSION
+#error invalid MATLAB_MEXCMD_RELEASE definition
+#endif
+#endif
+
+#if defined(MATLAB_MEXSRC_RELEASE)
+#define MW_MEXSRC_VERSION MW_REL2VER(MATLAB_MEXSRC_RELEASE)
+#if MW_MEXSRC_VERSION < MW_FIRST_API_VERSION
+#error invalid MATLAB_MEXSRC_RELEASE definition
+#endif
+#endif
+      
+#if defined(MATLAB_DEFAULT_RELEASE)
+#define MW_DEFAULT_VERSION MW_REL2VER(MATLAB_DEFAULT_RELEASE)
+#if MW_DEFAULT_VERSION < MW_FIRST_API_VERSION
+#error invalid MATLAB_DEFAULT_RELEASE definition
+#endif
+#endif
+
+#if defined(MATLAB_MEXCMD_RELEASE) && defined(MATLAB_MEXSRC_RELEASE)
+#if MW_MEXCMD_VERSION != MW_MEXSRC_VERSION
+#error "MEX command option -R20XXx is incompatible with MATLAB_MEXSRC_RELEASE"
+#endif
+#endif
+
+#if defined(MATLAB_MEXCMD_RELEASE) || defined(MATLAB_MEXSRC_RELEASE)
+
+/* Check whether MEXCMD and MEXSRC release tags are compatible */
+
+#if defined(MATLAB_MEXCMD_RELEASE)
+#define MATLAB_TARGET_API_VERSION MW_MEXCMD_VERSION
+#else
+#define MATLAB_TARGET_API_VERSION MW_MEXSRC_VERSION
+#endif
+
+#else /* defined(MATLAB_MEXCMD_RELEASE) || defined(MATLAB_MEXSRC_RELEASE) */
+
+#if defined(MATLAB_DEFAULT_RELEASE)
+#define MATLAB_TARGET_API_VERSION MW_DEFAULT_VERSION
+#else
+
+/* None of the input macros are defined. Use LATEST */
+#define MATLAB_TARGET_API_VERSION MW_LATEST_API_VERSION
+
+#endif /* defined(MATLAB_DEFAULT_RELEASE) */
+
+#endif /* defined(MATLAB_MEXCMD_RELEASE) || defined(MATLAB_MEXSRC_RELEASE) */
+
+#endif /* defined(MX_COMPAT_32) || defined(MEX_DOUBLE_HANDLE) */
+
+#if defined(TARGET_API_VERSION)
+#if MATLAB_TARGET_API_VERSION != TARGET_API_VERSION
+#error MATLAB_TARGET_API_VERSION != TARGET_API_VERSION
+#endif
+#else
+#define TARGET_API_VERSION MATLAB_TARGET_API_VERSION
+#endif
+
+
 
 /**
  * Forward declaration for mxArray
@@ -82,7 +160,7 @@
 typedef struct mxArray_tag mxArray;
 
 /**
- * Types representing MEX-file entry points
+ * MEX-file entry point type
  */
 typedef void (*mxFunctionPtr)(int nlhs, mxArray *plhs[], int nrhs, mxArray *prhs[]);
 
@@ -97,12 +175,12 @@ typedef void (*mxFunctionPtr)(int nlhs, mxArray *plhs[], int nrhs, mxArray *prhs
 typedef bool mxLogical;
 
 /**
- * Typedef required for Unicode support in MATLAB
+ * Required for Unicode support in MATLAB
  */
 typedef CHAR16_T mxChar;
 
 /**
- * Enumeration corresponding to all the valid mxArray types.
+ * mxArray classes.
  */
 typedef enum {
     mxUNKNOWN_CLASS = 0,
@@ -123,14 +201,12 @@ typedef enum {
     mxUINT64_CLASS,
     mxFUNCTION_CLASS,
     mxOPAQUE_CLASS,
-    mxOBJECT_CLASS, /* keep the last real item in the list */
+    mxOBJECT_CLASS,
 #if defined(_LP64) || defined(_WIN64)
-    mxINDEX_CLASS = mxUINT64_CLASS,
+    mxINDEX_CLASS = mxUINT64_CLASS
 #else
-    mxINDEX_CLASS = mxUINT32_CLASS,
+    mxINDEX_CLASS = mxUINT32_CLASS
 #endif
-    /* TEMPORARY AND NASTY HACK UNTIL mxSPARSE_CLASS IS COMPLETELY ELIMINATED */
-    mxSPARSE_CLASS = mxVOID_CLASS /* OBSOLETE! DO NOT USE */
 } mxClassID;
 
 /**
@@ -152,171 +228,287 @@ typedef uint32_T mxUint32;
 typedef int64_T mxInt64;
 typedef uint64_T mxUint64;
 
-#endif /* MATHWORKS_MATRIX_DETAIL_PUBLISHED_FWD_DECLS_HPP */
-/* On linux function symbol names are chosen at link time. Thus on linux
- * we need to strip _730 from function declarations. On windows and mac
- * we chose proper function name at compilation time.
+#if TARGET_API_VERSION >= 800
+/*
+ * MATRIX numeric complex data types
+ */
+typedef struct { mxDouble real, imag; } mxComplexDouble;
+typedef struct { mxSingle real, imag; } mxComplexSingle;
+typedef struct { mxInt8 real, imag; } mxComplexInt8;
+typedef struct { mxUint8 real, imag; } mxComplexUint8;
+typedef struct { mxInt16 real, imag; } mxComplexInt16;
+typedef struct { mxUint16 real, imag; } mxComplexUint16;
+typedef struct { mxInt32 real, imag; } mxComplexInt32;
+typedef struct { mxUint32 real, imag; } mxComplexUint32;
+typedef struct { mxInt64 real, imag; } mxComplexInt64;
+typedef struct { mxUint64 real, imag; } mxComplexUint64;
+
+#endif /* TARGET_API_VERSION >= 800 */
+
+#if defined(TARGET_API_VERSION)
+#if !(TARGET_API_VERSION == 700 || TARGET_API_VERSION == 800)
+#error invalid TARGET_VERSION_API definition
+#elif defined(MEX_DOUBLE_HANDLE) && TARGET_API_VERSION != 700
+#error It is illegal to use MEX_DOUBLE_HANDLE with linear versioning
+#elif defined(MX_COMPAT_32) && TARGET_API_VERSION != 700
+#error It is illegal to use MX_COMPAT_32 with linear versioning
+#endif
+#endif
+
+
+#if !defined(TARGET_API_VERSION) || TARGET_API_VERSION == 700
+
+/*
+ * PUBLISHED APIs with changes in MATLAB 7.3
  */
 
-#if !defined(MX_COMPAT_32) && !defined(BUILDING_PUBLISHED_API_CPP) && defined(__linux__)
+#if !defined(MX_COMPAT_32)
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#define mxSetProperty mxSetProperty_730
+#define mxGetProperty mxGetProperty_730
+#define mxSetField mxSetField_730
+#define mxSetFieldByNumber mxSetFieldByNumber_730
+#define mxGetFieldByNumber mxGetFieldByNumber_730
+#define mxGetField mxGetField_730
+#define mxCreateStructMatrix mxCreateStructMatrix_730
+#define mxCreateCellMatrix mxCreateCellMatrix_730
+#define mxCreateCharMatrixFromStrings mxCreateCharMatrixFromStrings_730
+#define mxGetString mxGetString_730
+#define mxGetNumberOfDimensions mxGetNumberOfDimensions_730
+#define mxGetDimensions mxGetDimensions_730
+#define mxSetDimensions mxSetDimensions_730
+#define mxSetIr mxSetIr_730
+#define mxGetIr mxGetIr_730
+#define mxSetJc mxSetJc_730
+#define mxGetJc mxGetJc_730
+#define mxCreateStructArray mxCreateStructArray_730
+#define mxCreateCharArray mxCreateCharArray_730
+#define mxCreateNumericArray mxCreateNumericArray_730
+#define mxCreateCellArray mxCreateCellArray_730
+#define mxCreateLogicalArray mxCreateLogicalArray_730
+#define mxGetCell mxGetCell_730
+#define mxSetCell mxSetCell_730
+#define mxSetNzmax mxSetNzmax_730
+#define mxSetN mxSetN_730
+#define mxSetM mxSetM_730
+#define mxGetNzmax mxGetNzmax_730
+#define mxCreateDoubleMatrix mxCreateDoubleMatrix_730
+#define mxCreateNumericMatrix mxCreateNumericMatrix_730
+#define mxCreateLogicalMatrix mxCreateLogicalMatrix_730
+#define mxCreateSparse mxCreateSparse_730
+#define mxCreateSparseLogicalMatrix mxCreateSparseLogicalMatrix_730
+#define mxGetNChars mxGetNChars_730
+#define mxCreateStringFromNChars mxCreateStringFromNChars_730
+#define mxCalcSingleSubscript mxCalcSingleSubscript_730
+#define mxGetDimensions_fcn mxGetDimensions_730
 
-#ifndef mxSetProperty_730
-#define mxSetProperty_730 mxSetProperty
-#endif
+#else /* MX_COMPAT_32 */
 
-#ifndef mxGetProperty_730
-#define mxGetProperty_730 mxGetProperty
-#endif
+/*
+ * 32-bit compatibility APIs
+ */
 
-#ifndef mxSetField_730
-#define mxSetField_730 mxSetField
-#endif
+#define mxGetNumberOfDimensions mxGetNumberOfDimensions_700
+#define mxGetDimensions mxGetDimensions_700
+#define mxGetDimensions_fcn mxGetDimensions_700
+#define mxGetIr mxGetIr_700
+#define mxGetJc mxGetJc_700
+#define mxGetCell mxGetCell_700
+#define mxGetNzmax mxGetNzmax_700
+#define mxSetNzmax mxSetNzmax_700
+#define mxGetFieldByNumber mxGetFieldByNumber_700
+#define mxSetProperty mxSetProperty_700
+#define mxGetProperty mxGetProperty_700
+#define mxSetField mxSetField_700
+#define mxSetFieldByNumber mxSetFieldByNumber_700
+#define mxGetField mxGetField_700
+#define mxCreateStructMatrix mxCreateStructMatrix_700
+#define mxCreateCellMatrix mxCreateCellMatrix_700
+#define mxCreateCharMatrixFromStrings mxCreateCharMatrixFromStrings_700
+#define mxGetString mxGetString_700
+#define mxSetDimensions mxSetDimensions_700
+#define mxSetIr mxSetIr_700
+#define mxSetJc mxSetJc_700
+#define mxCreateStructArray mxCreateStructArray_700
+#define mxCreateCharArray mxCreateCharArray_700
+#define mxCreateNumericArray mxCreateNumericArray_700
+#define mxCreateCellArray mxCreateCellArray_700
+#define mxCreateLogicalArray mxCreateLogicalArray_700
+#define mxSetCell mxSetCell_700
+#define mxSetN mxSetN_700
+#define mxSetM mxSetM_700
+#define mxCreateDoubleMatrix mxCreateDoubleMatrix_700
+#define mxCreateNumericMatrix mxCreateNumericMatrix_700
+#define mxCreateLogicalMatrix mxCreateLogicalMatrix_700
+#define mxCreateSparse mxCreateSparse_700
+#define mxCreateSparseLogicalMatrix mxCreateSparseLogicalMatrix_700
+#define mxGetNChars mxGetNChars_700
+#define mxCreateStringFromNChars mxCreateStringFromNChars_700
+#define mxCalcSingleSubscript mxCalcSingleSubscript_700
 
-#ifndef mxSetFieldByNumber_730
-#define mxSetFieldByNumber_730 mxSetFieldByNumber
-#endif
+#endif /* #ifdef MX_COMPAT_32 */
 
-#ifndef mxGetFieldByNumber_730
-#define mxGetFieldByNumber_730 mxGetFieldByNumber
-#endif
 
-#ifndef mxGetField_730
-#define mxGetField_730 mxGetField
-#endif
+#elif TARGET_API_VERSION == 800
 
-#ifndef mxCreateStructMatrix_730
-#define mxCreateStructMatrix_730 mxCreateStructMatrix
-#endif
+#define mxMalloc mxMalloc_800
+#define mxCalloc mxCalloc_800
+#define mxRealloc mxRealloc_800
+#define mxGetM mxGetM_800
+#define mxGetN mxGetN_800
+#define mxGetNumberOfElements mxGetNumberOfElements_800
+#define mxFree mxFree_800
+#define mxGetEps mxGetEps_800
+#define mxGetInf mxGetInf_800
+#define mxGetFieldNameByNumber mxGetFieldNameByNumber_800
+#define mxGetClassID mxGetClassID_800
+#define mxIsNumeric mxIsNumeric_800
+#define mxIsCell mxIsCell_800
+#define mxIsLogical mxIsLogical_800
+#define mxIsChar mxIsChar_800
+#define mxIsStruct mxIsStruct_800
+#define mxIsSparse mxIsSparse_800
+#define mxIsDouble mxIsDouble_800
+#define mxIsSingle mxIsSingle_800
+#define mxIsInt8 mxIsInt8_800
+#define mxIsUint8 mxIsUint8_800
+#define mxIsInt16 mxIsInt16_800
+#define mxIsUint16 mxIsUint16_800
+#define mxIsInt32 mxIsInt32_800
+#define mxIsUint32 mxIsUint32_800
+#define mxIsInt64 mxIsInt64_800
+#define mxIsUint64 mxIsUint64_800
+#define mxIsFromGlobalWS mxIsFromGlobalWS_800
+#define mxIsEmpty mxIsEmpty_800
+#define mxGetFieldNumber mxGetFieldNumber_800
+#define mxGetNumberOfFields mxGetNumberOfFields_800
+#define mxGetClassName mxGetClassName_800
+#define mxIsClass mxIsClass_800
+#define mxDestroyArray mxDestroyArray_800
+#define mxCreateDoubleScalar mxCreateDoubleScalar_800
+#define mxCreateString mxCreateString_800
+#define mxAddField mxAddField_800
+#define mxRemoveField mxRemoveField_800
+#define mxGetNaN mxGetNaN_800
+#define mxIsFinite mxIsFinite_800
+#define mxIsInf mxIsInf_800
+#define mxIsNaN mxIsNaN_800
+#define mxIsScalar mxIsScalar_800
+#define mxIsOpaque mxIsOpaque_800
+#define mxIsFunctionHandle mxIsFunctionHandle_800
+#define mxIsObject mxIsObject_800
+#define mxGetChars mxGetChars_800
+#define mxGetUserBits mxGetUserBits_800
+#define mxSetUserBits mxSetUserBits_800
+#define mxSetFromGlobalWS mxSetFromGlobalWS_800
+#define mxCreateUninitNumericMatrix mxCreateUninitNumericMatrix_800
+#define mxCreateUninitNumericArray mxCreateUninitNumericArray_800
+#define mxGetLogicals mxGetLogicals_800
+#define mxCreateLogicalScalar mxCreateLogicalScalar_800
+#define mxIsLogicalScalar mxIsLogicalScalar_800
+#define mxIsLogicalScalarTrue mxIsLogicalScalarTrue_800
+#define mxArrayToString mxArrayToString_800
+#define mxArrayToUTF8String mxArrayToUTF8String_800
+#define mxSetClassName mxSetClassName_800
+#define mxGetNumberOfDimensions mxGetNumberOfDimensions_800
+#define mxGetDimensions mxGetDimensions_800
+#define mxGetIr mxGetIr_800
+#define mxGetJc mxGetJc_800
+#define mxGetNzmax mxGetNzmax_800
+#define mxGetFieldByNumber mxGetFieldByNumber_800
+#define mxGetCell mxGetCell_800
+#define mxSetIr mxSetIr_800
+#define mxSetJc mxSetJc_800
+#define mxCalcSingleSubscript mxCalcSingleSubscript_800
+#define mxSetCell mxSetCell_800
+#define mxSetFieldByNumber mxSetFieldByNumber_800
+#define mxGetField mxGetField_800
+#define mxSetField mxSetField_800
+#define mxGetProperty mxGetProperty_800
+#define mxSetProperty mxSetProperty_800
+#define mxCreateNumericMatrix mxCreateNumericMatrix_800
+#define mxCreateNumericArray mxCreateNumericArray_800
+#define mxCreateCharArray mxCreateCharArray_800
+#define mxCreateDoubleMatrix mxCreateDoubleMatrix_800
+#define mxCreateSparse mxCreateSparse_800
+#define mxGetString mxGetString_800
+#define mxCreateCharMatrixFromStrings mxCreateCharMatrixFromStrings_800
+#define mxCreateCellMatrix mxCreateCellMatrix_800
+#define mxCreateCellArray mxCreateCellArray_800
+#define mxCreateStructMatrix mxCreateStructMatrix_800
+#define mxCreateStructArray mxCreateStructArray_800
+#define mxCreateLogicalArray mxCreateLogicalArray_800
+#define mxCreateLogicalMatrix mxCreateLogicalMatrix_800
+#define mxCreateSparseLogicalMatrix mxCreateSparseLogicalMatrix_800
+#define mxCreateStringFromNChars mxCreateStringFromNChars_800
+#define mxGetNChars mxGetNChars_800
+#define mxSetM mxSetM_800
+#define mxSetN mxSetN_800
+#define mxSetDimensions mxSetDimensions_800
+#define mxSetNzmax mxSetNzmax_800
+#define mxGetData mxGetData_800
+#define mxSetData mxSetData_800
+#define mxIsComplex mxIsComplex_800
+#define mxGetScalar mxGetScalar_800
+#define mxGetPr mxGetPr_800
+#define mxSetPr mxSetPr_800
+#define mxGetElementSize mxGetElementSize_800
+#define mxDuplicateArray mxDuplicateArray_800
+#define mxGetDoubles mxGetDoubles_800
+#define mxSetDoubles mxSetDoubles_800
+#define mxGetComplexDoubles mxGetComplexDoubles_800
+#define mxSetComplexDoubles mxSetComplexDoubles_800
+#define mxGetSingles mxGetSingles_800
+#define mxSetSingles mxSetSingles_800
+#define mxGetComplexSingles mxGetComplexSingles_800
+#define mxSetComplexSingles mxSetComplexSingles_800
+#define mxGetInt8s mxGetInt8s_800
+#define mxSetInt8s mxSetInt8s_800
+#define mxGetComplexInt8s mxGetComplexInt8s_800
+#define mxSetComplexInt8s mxSetComplexInt8s_800
+#define mxGetUint8s mxGetUint8s_800
+#define mxSetUint8s mxSetUint8s_800
+#define mxGetComplexUint8s mxGetComplexUint8s_800
+#define mxSetComplexUint8s mxSetComplexUint8s_800
+#define mxGetInt16s mxGetInt16s_800
+#define mxSetInt16s mxSetInt16s_800
+#define mxGetComplexInt16s mxGetComplexInt16s_800
+#define mxSetComplexInt16s mxSetComplexInt16s_800
+#define mxGetUint16s mxGetUint16s_800
+#define mxSetUint16s mxSetUint16s_800
+#define mxGetComplexUint16s mxGetComplexUint16s_800
+#define mxSetComplexUint16s mxSetComplexUint16s_800
+#define mxGetInt32s mxGetInt32s_800
+#define mxSetInt32s mxSetInt32s_800
+#define mxGetComplexInt32s mxGetComplexInt32s_800
+#define mxSetComplexInt32s mxSetComplexInt32s_800
+#define mxGetUint32s mxGetUint32s_800
+#define mxSetUint32s mxSetUint32s_800
+#define mxGetComplexUint32s mxGetComplexUint32s_800
+#define mxSetComplexUint32s mxSetComplexUint32s_800
+#define mxGetInt64s mxGetInt64s_800
+#define mxSetInt64s mxSetInt64s_800
+#define mxGetComplexInt64s mxGetComplexInt64s_800
+#define mxSetComplexInt64s mxSetComplexInt64s_800
+#define mxGetUint64s mxGetUint64s_800
+#define mxSetUint64s mxSetUint64s_800
+#define mxGetComplexUint64s mxGetComplexUint64s_800
+#define mxSetComplexUint64s mxSetComplexUint64s_800
+#define mxMakeArrayReal mxMakeArrayReal_800
+#define mxMakeArrayComplex mxMakeArrayComplex_800
+#define mxGetPi mxGetPiIsDeprecated
+#define mxGetImagData mxGetImagDataIsDeprecated
+#define mxSetImagData mxSetImagDataIsDeprecated
+#define mxSetPi mxSetPiIsDeprecated
+#define mxCreateSharedDataCopy mxCreateSharedDataCopyIsDeprecated
+#define mxCreateUninitDoubleMatrix mxCreateUninitDoubleMatrixIsDeprecated
+#define mxFastZeros mxFastZerosIsDeprecated
+#define mxUnreference mxUnreferenceIsDeprecated
+#define mxUnshareArray mxUnshareArrayIsDeprecated
+#define mxGetPropertyShared mxGetPropertySharedIsDeprecated
+#define mxSetPropertyShared mxSetPropertySharedIsDeprecated
 
-#ifndef mxCreateCellMatrix_730
-#define mxCreateCellMatrix_730 mxCreateCellMatrix
-#endif
-
-#ifndef mxCreateCharMatrixFromStrings_730
-#define mxCreateCharMatrixFromStrings_730 mxCreateCharMatrixFromStrings
-#endif
-
-#ifndef mxGetString_730
-#define mxGetString_730 mxGetString
-#endif
-
-#ifndef mxGetNumberOfDimensions_730
-#define mxGetNumberOfDimensions_730 mxGetNumberOfDimensions
-#endif
-
-#ifndef mxGetDimensions_730
-#define mxGetDimensions_730 mxGetDimensions
-#endif
-
-#ifndef mxSetDimensions_730
-#define mxSetDimensions_730 mxSetDimensions
-#endif
-
-#ifndef mxSetIr_730
-#define mxSetIr_730 mxSetIr
-#endif
-
-#ifndef mxGetIr_730
-#define mxGetIr_730 mxGetIr
-#endif
-
-#ifndef mxSetJc_730
-#define mxSetJc_730 mxSetJc
-#endif
-
-#ifndef mxGetJc_730
-#define mxGetJc_730 mxGetJc
-#endif
-
-#ifndef mxCreateStructArray_730
-#define mxCreateStructArray_730 mxCreateStructArray
-#endif
-
-#ifndef mxCreateCharArray_730
-#define mxCreateCharArray_730 mxCreateCharArray
-#endif
-
-#ifndef mxCreateNumericArray_730
-#define mxCreateNumericArray_730 mxCreateNumericArray
-#endif
-
-#ifndef mxCreateCellArray_730
-#define mxCreateCellArray_730 mxCreateCellArray
-#endif
-
-#ifndef mxCreateLogicalArray_730
-#define mxCreateLogicalArray_730 mxCreateLogicalArray
-#endif
-
-#ifndef mxGetCell_730
-#define mxGetCell_730 mxGetCell
-#endif
-
-#ifndef mxSetCell_730
-#define mxSetCell_730 mxSetCell
-#endif
-
-#ifndef mxSetNzmax_730
-#define mxSetNzmax_730 mxSetNzmax
-#endif
-
-#ifndef mxSetN_730
-#define mxSetN_730 mxSetN
-#endif
-
-#ifndef mxSetM_730
-#define mxSetM_730 mxSetM
-#endif
-
-#ifndef mxGetNzmax_730
-#define mxGetNzmax_730 mxGetNzmax
-#endif
-
-#ifndef mxCreateDoubleMatrix_730
-#define mxCreateDoubleMatrix_730 mxCreateDoubleMatrix
-#endif
-
-#ifndef mxCreateNumericMatrix_730
-#define mxCreateNumericMatrix_730 mxCreateNumericMatrix
-#endif
-
-#ifndef mxCreateLogicalMatrix_730
-#define mxCreateLogicalMatrix_730 mxCreateLogicalMatrix
-#endif
-
-#ifndef mxCreateSparse_730
-#define mxCreateSparse_730 mxCreateSparse
-#endif
-
-#ifndef mxCreateSparseLogicalMatrix_730
-#define mxCreateSparseLogicalMatrix_730 mxCreateSparseLogicalMatrix
-#endif
-
-#ifndef mxGetNChars_730
-#define mxGetNChars_730 mxGetNChars
-#endif
-
-#ifndef mxCreateStringFromNChars_730
-#define mxCreateStringFromNChars_730 mxCreateStringFromNChars
-#endif
-
-#ifndef mxCalcSingleSubscript_730
-#define mxCalcSingleSubscript_730 mxCalcSingleSubscript
-#endif
-
-#ifndef mxGetDimensions_fcn_730
-#define mxGetDimensions_fcn_730 mxGetDimensions
-#endif
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif /* !defined(MX_COMPAT_32) && !defined(BUILDING_PUBLISHED_API_CPP) && defined(__linux__) */
+#endif /* TARGET_API_VERSION */
 
 /*
  * allocate memory, notifying registered listener
@@ -344,14 +536,13 @@ LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void *mxRealloc(void *ptr, size_t size);
 /*
  * Get number of dimensions in array
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C size_t mxGetNumberOfDimensions_730(const mxArray *pa);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C int mxGetNumberOfDimensions_700(const mxArray *pa);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mwSize mxGetNumberOfDimensions(const mxArray *pa);
 
 /*
  * Get pointer to dimension array
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C const size_t *mxGetDimensions_730(const mxArray *pa);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C const int *mxGetDimensions_700(const mxArray *pa);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C const mwSize *mxGetDimensions(const mxArray *pa);
+
 /*
  * Get row dimension
  */
@@ -360,49 +551,43 @@ LIBMMWMATRIX_PUBLISHED_API_EXTERN_C size_t mxGetM(const mxArray *pa);
 /*
  * Get row data pointer for sparse numeric array
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C size_t *mxGetIr_730(const mxArray *pa);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C int *mxGetIr_700(const mxArray *pa);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mwIndex *mxGetIr(const mxArray *pa);
 
 /*
  * Get column data pointer for sparse numeric array
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C size_t *mxGetJc_730(const mxArray *pa);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C int *mxGetJc_700(const mxArray *pa);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mwIndex *mxGetJc(const mxArray *pa);
 
 /*
  * Get maximum nonzero elements for sparse numeric array
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C size_t mxGetNzmax_730(const mxArray *pa);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C int mxGetNzmax_700(const mxArray *pa);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mwSize mxGetNzmax(const mxArray *pa);
 
 /*
  * Set maximum nonzero elements for numeric array
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetNzmax_730(mxArray *pa, size_t nzmax);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetNzmax_700(mxArray *pa, int nzmax);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetNzmax(mxArray *pa, mwSize nzmax);
 
 /*
  * Return pointer to the nth field name
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C const char *mxGetFieldNameByNumber(const mxArray *pa, int n);
 
+
 /*
  * Return a pointer to the contents of the named field for
  * the ith element (zero based).
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *
-mxGetFieldByNumber_730(const mxArray *pa, size_t i, int fieldnum);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *
-mxGetFieldByNumber_700(const mxArray *pa, int i, int fieldnum);
+mxGetFieldByNumber(const mxArray *pa, mwIndex i, int fieldnum);
 
 /*
  * Get a pointer to the specified cell element.
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxGetCell_730(const mxArray *pa, size_t i);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxGetCell_700(const mxArray *pa, int i);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxGetCell(const mxArray *pa, mwIndex i);
 
 /*
- * Return the class (catergory) of data that the array holds.
+ * Return the class (category) of data that the array holds.
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxClassID mxGetClassID(const mxArray *pa);
 
@@ -467,7 +652,7 @@ LIBMMWMATRIX_PUBLISHED_API_EXTERN_C bool mxIsFunctionHandle(const mxArray *pa);
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C bool mxIsObject(const mxArray *pa /* pointer to array */
                                                     );
-
+#if !defined(TARGET_API_VERSION) || (TARGET_API_VERSION == 700)
 /*
  * Get imaginary data pointer for numeric array
  */
@@ -481,6 +666,7 @@ LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void
 mxSetImagData(mxArray *pa,  /* pointer to array */
               void *newdata /* imaginary data array pointer */
               );
+#endif
 
 /*
  * Determine whether the given array contains complex data.
@@ -555,23 +741,11 @@ LIBMMWMATRIX_PUBLISHED_API_EXTERN_C bool mxIsUint64(const mxArray *pa);
 /*
  * Get number of elements in array
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C size_t
-    mxGetNumberOfElements(const mxArray *pa /* pointer to array */
-                          );
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C size_t mxGetNumberOfElements(
+    const mxArray *pa /* pointer to array */
+    );
 
-/*
- * Get real data pointer for numeric array
- */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C double *mxGetPr(const mxArray *pa /* pointer to array */
-                                                    );
-
-/*
- * Set real data pointer for numeric array
- */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetPr(mxArray *pa, /* pointer to array */
-                                                 double *pr   /* real data array pointer */
-                                                 );
-
+#if !defined(TARGET_API_VERSION) || (TARGET_API_VERSION == 700)
 /*
  * Get imaginary data pointer for numeric array
  */
@@ -584,6 +758,7 @@ LIBMMWMATRIX_PUBLISHED_API_EXTERN_C double *mxGetPi(const mxArray *pa /* pointer
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetPi(mxArray *pa, /* pointer to array */
                                                  double *pi   /* imaginary data array pointer */
                                                  );
+#endif
 
 /*
  * Get string array data
@@ -592,16 +767,16 @@ LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxChar *mxGetChars(const mxArray *pa /* poin
                                                        );
 
 /*
- * Get 8 bits of user data stored in the mxArray header.  NOTE: This state
- * of these bits are not guaranteed to be preserved after API function
+ * Get 8 bits of user data stored in the mxArray header.  NOTE: The state
+ * of these bits is not guaranteed to be preserved after API function
  * calls.
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C int mxGetUserBits(const mxArray *pa /* pointer to array */
                                                       );
 
 /*
- * Set 8 bits of user data stored in the mxArray header. NOTE: This state
- * of these bits are not guaranteed to be preserved after API function
+ * Set 8 bits of user data stored in the mxArray header. NOTE: The state
+ * of these bits is not guaranteed to be preserved after API function
  * calls.
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetUserBits(mxArray *pa, /* pointer to array */
@@ -633,8 +808,7 @@ LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetFromGlobalWS(mxArray *pa, bool glo
 /*
  * Set row dimension
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetM_730(mxArray *pa, size_t m);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetM_700(mxArray *pa, int m);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetM(mxArray *pa, mwSize m);
 
 /*
  * Get column dimension
@@ -652,30 +826,26 @@ LIBMMWMATRIX_PUBLISHED_API_EXTERN_C bool mxIsEmpty(const mxArray *pa /* pointer 
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C int mxGetFieldNumber(const mxArray *pa, const char *name);
 
 /*
- * Set row data pointer for numeric array
+ * Set row data pointer for sparse numeric array
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetIr_730(mxArray *pa, size_t *newir);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetIr_700(mxArray *pa, int *newir);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetIr(mxArray *pa, mwIndex *newir);
 
 /*
- * Set column data pointer for numeric array
+ * Set column data pointer for sparse numeric array
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetJc_730(mxArray *pa, size_t *newjc);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetJc_700(mxArray *pa, int *newjc);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetJc(mxArray *pa, mwIndex *newjc);
 
-/*
- * Get array data element size
- */
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C double *mxGetPr(const mxArray *pa);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetPr(mxArray *pa, double *newdata);
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C size_t mxGetElementSize(const mxArray *pa);
 
 /*
  * Return the offset (in number of elements) from the beginning of
  * the array to a given subscript.
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C size_t
-    mxCalcSingleSubscript_730(const mxArray *pa, size_t nsubs, const size_t *subs);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C int
-mxCalcSingleSubscript_700(const mxArray *pa, int nsubs, const int *subs);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mwIndex mxCalcSingleSubscript(const mxArray *pa,
+                                                                     mwSize nsubs,
+                                                                     const mwIndex *subs);
 
 /*
  * Get number of structure fields in array
@@ -687,16 +857,13 @@ LIBMMWMATRIX_PUBLISHED_API_EXTERN_C int mxGetNumberOfFields(const mxArray *pa /*
 /*
  * Set an element in a cell array to the specified value.
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetCell_730(mxArray *pa, size_t i, mxArray *value);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetCell_700(mxArray *pa, int i, mxArray *value);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetCell(mxArray *pa, mwIndex i, mxArray *value);
 
 /*
  * Set pa[i][fieldnum] = value
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void
-mxSetFieldByNumber_730(mxArray *pa, size_t i, int fieldnum, mxArray *value);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void
-mxSetFieldByNumber_700(mxArray *pa, int i, int fieldnum, mxArray *value);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void 
+mxSetFieldByNumber(mxArray *pa, mwIndex i, int fieldnum, mxArray *value);
 
 /*
  * Return a pointer to the contents of the named field for the ith
@@ -704,30 +871,24 @@ mxSetFieldByNumber_700(mxArray *pa, int i, int fieldnum, mxArray *value);
  * field itself is NULL
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *
-mxGetField_730(const mxArray *pa, size_t i, const char *fieldname);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *
-mxGetField_700(const mxArray *pa, int i, const char *fieldname);
+mxGetField(const mxArray *pa, mwIndex i, const char *fieldname);
 
 /*
  * Sets the contents of the named field for the ith element (zero based).
  * The input 'value' is stored in the input array 'pa' - no copy is made.
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void
-mxSetField_730(mxArray *pa, size_t i, const char *fieldname, mxArray *value);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void
-mxSetField_700(mxArray *pa, int i, const char *fieldname, mxArray *value);
+mxSetField(mxArray *pa, mwIndex i, const char *fieldname, mxArray *value);
 
 /*
  * mxGetProperty returns the value of a property for a given object and index.
  * The property must be public.
  *
- * If the given property name doesn't exist, isn't public, or the object isn't
+ * If the given property name doesn't exist, or isn't public, or the object isn't
  * the right type, then mxGetProperty returns NULL.
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *
-mxGetProperty_730(const mxArray *pa, const size_t i, const char *propname);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *
-mxGetProperty_700(const mxArray *pa, const int i, const char *propname);
+mxGetProperty(const mxArray *pa, const mwIndex i, const char *propname);
 
 /*
  * mxSetProperty sets the value of a property for a given object and index.
@@ -735,9 +896,7 @@ mxGetProperty_700(const mxArray *pa, const int i, const char *propname);
  *
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void
-mxSetProperty_730(mxArray *pa, size_t i, const char *propname, const mxArray *value);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void
-mxSetProperty_700(mxArray *pa, int i, const char *propname, const mxArray *value);
+mxSetProperty(mxArray *pa, mwIndex i, const char *propname, const mxArray *value);
 
 /*
  * Return the name of an array's class.
@@ -754,9 +913,7 @@ LIBMMWMATRIX_PUBLISHED_API_EXTERN_C bool mxIsClass(const mxArray *pa, const char
  * In standalone mode, out-of-memory will mean a NULL pointer is returned.
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *
-mxCreateNumericMatrix_730(size_t m, size_t n, mxClassID classid, mxComplexity flag);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *
-mxCreateNumericMatrix_700(int m, int n, mxClassID classid, mxComplexity flag);
+mxCreateNumericMatrix(mwSize m, mwSize n, mxClassID classid, mxComplexity flag);
 
 /*
  * Create an uninitialized numeric matrix.
@@ -775,17 +932,14 @@ mxCreateUninitNumericArray(size_t ndim, size_t *dims, mxClassID classid, mxCompl
 /*
  * Set column dimension
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetN_730(mxArray *pa, size_t n);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetN_700(mxArray *pa, int n);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetN(mxArray *pa, mwSize n);
 
 /*
  * Set dimension array and number of dimensions.  Returns 0 on success and 1
  * if there was not enough memory available to reallocate the dimensions array.
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C int
-mxSetDimensions_730(mxArray *pa, const size_t *pdims, size_t ndims);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C int
-mxSetDimensions_700(mxArray *pa, const int *pdims, int ndims);
+mxSetDimensions(mxArray *pa, const mwSize *pdims, mwSize ndims);
 
 /*
  * mxArray destructor
@@ -795,29 +949,24 @@ LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxDestroyArray(mxArray *pa);
 /*
  * Create a numeric array and initialize all its data elements to 0.
  *
- * Similar to mxCreateNumericMatrix, in a standalone application,
+ * As with mxCreateNumericMatrix, in a standalone application,
  * out-of-memory will mean a NULL pointer is returned.
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *
-mxCreateNumericArray_730(size_t ndim, const size_t *dims, mxClassID classid, mxComplexity flag);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *
-mxCreateNumericArray_700(int ndim, const int *dims, mxClassID classid, mxComplexity flag);
+mxCreateNumericArray(mwSize ndim, const mwSize *dims, mxClassID classid, mxComplexity flag);
 
 /*
  * Create an N-Dimensional array to hold string data;
  * initialize all elements to 0.
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateCharArray_730(size_t ndim, const size_t *dims);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateCharArray_700(int ndim, const int *dims);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateCharArray(mwSize ndim, const mwSize *dims);
 
 /*
  * Create a two-dimensional array to hold double-precision
  * floating-point data; initialize each data element to 0.
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *
-mxCreateDoubleMatrix_730(size_t m, size_t n, mxComplexity flag);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *
-mxCreateDoubleMatrix_700(int m, int n, mxComplexity flag);
+mxCreateDoubleMatrix(mwSize m, mwSize n, mxComplexity flag);
 
 /*
  * Get a properly typed pointer to the elements of a logical array.
@@ -827,16 +976,13 @@ LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxLogical *mxGetLogicals(const mxArray *pa);
 /*
  * Create a logical array and initialize its data elements to false.
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateLogicalArray_730(size_t ndim,
-                                                                      const size_t *dims);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateLogicalArray_700(int ndim, const int *dims);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateLogicalArray(mwSize ndim, const mwSize *dims);
 
 /*
  * Create a two-dimensional array to hold logical data and
- * initializes each data element to false.
+ * initialize each data element to false.
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateLogicalMatrix_730(size_t m, size_t n);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateLogicalMatrix_700(int m, int n);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateLogicalMatrix(mwSize m, mwSize n);
 
 /*
  * Create a logical scalar mxArray having the specified value.
@@ -878,17 +1024,13 @@ LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateDoubleScalar(double value);
  * but unspecified, number of nonzero rows.
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *
-mxCreateSparse_730(size_t m, size_t n, size_t nzmax, mxComplexity flag);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *
-mxCreateSparse_700(int m, int n, int nzmax, mxComplexity flag);
+mxCreateSparse(mwSize m, mwSize n, mwSize nzmax, mxComplexity flag);
 
 /*
  * Create a 2-D sparse logical array
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *
-mxCreateSparseLogicalMatrix_730(size_t m, size_t n, size_t nzmax);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *
-mxCreateSparseLogicalMatrix_700(int m, int n, int nzmax);
+mxCreateSparseLogicalMatrix(mwSize m, mwSize n, mwSize nzmax);
 
 /*
  * Copies characters from a MATLAB array to a char array
@@ -896,8 +1038,7 @@ mxCreateSparseLogicalMatrix_700(int m, int n, int nzmax);
  * nChars is the number of bytes in the output buffer
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void
-mxGetNChars_730(const mxArray *pa, char *buf, size_t nChars);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxGetNChars_700(const mxArray *pa, char *buf, int nChars);
+mxGetNChars(const mxArray *pa, char *buf, mwSize nChars);
 
 /*
  * Converts a string array to a C-style string. The C-style string is in the
@@ -908,8 +1049,7 @@ LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxGetNChars_700(const mxArray *pa, char
  * points.
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C int
-mxGetString_730(const mxArray *pa, char *buf, size_t buflen);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C int mxGetString_700(const mxArray *pa, char *buf, int buflen);
+mxGetString(const mxArray *pa, char *buf, mwSize buflen);
 
 /*
  * Create a NULL terminated C string from an mxArray of type mxCHAR_CLASS
@@ -924,63 +1064,52 @@ LIBMMWMATRIX_PUBLISHED_API_EXTERN_C char *mxArrayToString(const mxArray *pa);
  * string must be freed with mxFree. Returns NULL on out of memory or
  * non-character arrays.
  */
-
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C char *mxArrayToUTF8String(mxArray const *pa);
 
 /**
- * Create a 1-by-n string array initialized to str. The supplied string is
- * presumed to be in the local codepage encoding. The character data format
- * in the mxArray will be UTF-16.
+ * Create a character vector initialized from the first n bytes in str. The
+ * supplied string is presumed to be in the local codepage encoding. The
+ * character data format in the mxArray will be UTF-16.
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateStringFromNChars_730(const char *str,
-                                                                          size_t n);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateStringFromNChars_700(const char *str, int n);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateStringFromNChars(const char *str, mwSize n);
 
 /*
- * Create a 1-by-n string array initialized to null terminated string
- * where n is the length of the string.
+ * Create a character vector initialized from null-terminated string str. The
+ * supplied string can use either UTF-8 encoding or the local codepage encoding.
+ * The character data format in the mxArray will be UTF-16.
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateString(const char *str);
 
 /*
  * Create a string array initialized to the strings in str.
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateCharMatrixFromStrings_730(size_t m,
-                                                                               const char **str);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateCharMatrixFromStrings_700(int m,
-                                                                               const char **str);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateCharMatrixFromStrings(mwSize m, const char **str);
 
 /*
  * Create a 2-Dimensional cell array, with each cell initialized
  * to NULL.
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateCellMatrix_730(size_t m, size_t n);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateCellMatrix_700(int m, int n);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateCellMatrix(mwSize m, mwSize n);
 
 /*
  * Create an N-Dimensional cell array, with each cell initialized
  * to NULL.
  */
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateCellArray_730(size_t ndim, const size_t *dims);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateCellArray_700(int ndim, const int *dims);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateCellArray(mwSize ndim, const mwSize *dims);
 
 /*
  * Create a 2-Dimensional structure array having the specified fields;
  * initialize all values to NULL.
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *
-mxCreateStructMatrix_730(size_t m, size_t n, int nfields, const char **fieldnames);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *
-mxCreateStructMatrix_700(int m, int n, int nfields, const char **fieldnames);
+mxCreateStructMatrix(mwSize m, mwSize n, int nfields, const char **fieldnames);
 
 /*
  * Create an N-Dimensional structure array having the specified fields;
  * initialize all values to NULL.
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *
-mxCreateStructArray_730(size_t ndim, const size_t *dims, int nfields, const char **fieldnames);
-LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *
-mxCreateStructArray_700(int ndim, const int *dims, int nfields, const char **fieldnames);
+mxCreateStructArray(mwSize ndim, const mwSize *dims, int nfields, const char **fieldnames);
 
 /*
  * Make a deep copy of an array, return a pointer to the copy.
@@ -1032,355 +1161,52 @@ LIBMMWMATRIX_PUBLISHED_API_EXTERN_C bool mxIsFinite(double x /* value to test */
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C bool mxIsInf(double x /* value to test */
                                                  );
-
 /*
  * test for NaN in a machine-independent manner
  */
 LIBMMWMATRIX_PUBLISHED_API_EXTERN_C bool mxIsNaN(double x /* value to test */
                                                  );
+#if !defined(TARGET_API_VERSION) || (TARGET_API_VERSION == 700)
+/*
+ * Undocumented.  Removed in later APIs.
+ */
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateSharedDataCopy(const mxArray *pa);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxCreateUninitDoubleMatrix(int cmplx_flag, size_t m, size_t n);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxFastZeros(int cmplx_flag, int m, int n);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxUnreference(mxArray *pa);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C int mxUnshareArray(mxArray *pa, int level);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mxArray *mxGetPropertyShared(const mxArray *pa, size_t i, const char *propname);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C void mxSetPropertyShared(mxArray *pa, size_t i, const char *propname, const mxArray *value);
+#endif
 
-#if !defined(BUILDING_PUBLISHED_API_CPP) && !defined(BUILDING_LIBMX)
+
+#if TARGET_API_VERSION >= 800
 
 /*
- * PUBLISHED APIs with changes in MATLAB 7.3
+ * Typed data access for numeric arrays
  */
+#define MX_DECLARE_DATA_ACCESSORS(Name)                                                              \
+    LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mx##Name *mxGet##Name##s(mxArray const *);                   \
+    LIBMMWMATRIX_PUBLISHED_API_EXTERN_C int mxSet##Name##s(mxArray *, mx##Name *);                   \
+    LIBMMWMATRIX_PUBLISHED_API_EXTERN_C mx##Complex##Name *mxGet##Complex##Name##s(mxArray const *); \
+    LIBMMWMATRIX_PUBLISHED_API_EXTERN_C int mxSet##Complex##Name##s(mxArray *, mx##Complex##Name *)
+
+MX_DECLARE_DATA_ACCESSORS(Double); /* mxDoubles*, mxComplexDoubles* in mx[SG]etDoubles, mx[SG]etComplexDoubles */
+MX_DECLARE_DATA_ACCESSORS(Single); /* mxSingles*, mxComplexSingles* in mx[SG]etSingles, mx[SG]etComplexSingles */
+MX_DECLARE_DATA_ACCESSORS(Int8);   /* mxInt8s*,   mxComplexInt8s*   in mx[SG]etInt8s,   mx[SG]etComplexInt8s   */
+MX_DECLARE_DATA_ACCESSORS(Uint8);  /* mxUint8s*,  mxComplexUint8s*  in mx[SG]etUint8s,  mx[SG]etComplexUint8s  */
+MX_DECLARE_DATA_ACCESSORS(Int16);  /* mxInt16s*,  mxComplexInt16s*  in mx[SG]etInt16s,  mx[SG]etComplexInt16s  */
+MX_DECLARE_DATA_ACCESSORS(Uint16); /* mxUint16s*, mxComplexUint16s* in mx[SG]etUint16s, mx[SG]etComplexUint16s */
+MX_DECLARE_DATA_ACCESSORS(Int32);  /* mxInt32s*,  mxComplexInt32s*  in mx[SG]etInt32s,  mx[SG]etComplexInt32s  */
+MX_DECLARE_DATA_ACCESSORS(Uint32); /* mxUint32s*, mxComplexUint32s* in mx[SG]etUint32s, mx[SG]etComplexUint32s */
+MX_DECLARE_DATA_ACCESSORS(Int64);  /* mxInt64s*,  mxComplexInt64s*  in mx[SG]etInt64s,  mx[SG]etComplexInt64s  */
+MX_DECLARE_DATA_ACCESSORS(Uint64); /* mxUint64s*, mxComplexUint64s* in mx[SG]etUint64s, mx[SG]etComplexUint64s */
+
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C int mxMakeArrayReal(mxArray *);
+LIBMMWMATRIX_PUBLISHED_API_EXTERN_C int mxMakeArrayComplex(mxArray *);
+
+#endif /* TARGET_API_VERSION >= 800 */
 
-#if !defined(MX_COMPAT_32) && !defined(__linux__)
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-#ifndef mxSetProperty
-#define mxSetProperty mxSetProperty_730
-#endif
-
-#ifndef mxGetProperty
-#define mxGetProperty mxGetProperty_730
-#endif
-
-#ifndef mxSetField
-#define mxSetField mxSetField_730
-#endif
-
-#ifndef mxSetFieldByNumber
-#define mxSetFieldByNumber mxSetFieldByNumber_730
-#endif
-
-#ifndef mxGetFieldByNumber
-#define mxGetFieldByNumber mxGetFieldByNumber_730
-#endif
-
-#ifndef mxGetField
-#define mxGetField mxGetField_730
-#endif
-
-#ifndef mxCreateStructMatrix
-#define mxCreateStructMatrix mxCreateStructMatrix_730
-#endif
-
-#ifndef mxCreateCellMatrix
-#define mxCreateCellMatrix mxCreateCellMatrix_730
-#endif
-
-#ifndef mxCreateCharMatrixFromStrings
-#define mxCreateCharMatrixFromStrings mxCreateCharMatrixFromStrings_730
-#endif
-
-#ifndef mxGetString
-#define mxGetString mxGetString_730
-#endif
-
-#ifndef mxGetNumberOfDimensions
-#define mxGetNumberOfDimensions mxGetNumberOfDimensions_730
-#endif
-
-#ifndef mxGetDimensions
-#define mxGetDimensions mxGetDimensions_730
-#endif
-
-#ifndef mxSetDimensions
-#define mxSetDimensions mxSetDimensions_730
-#endif
-
-#ifndef mxSetIr
-#define mxSetIr mxSetIr_730
-#endif
-
-#ifndef mxGetIr
-#define mxGetIr mxGetIr_730
-#endif
-
-#ifndef mxSetJc
-#define mxSetJc mxSetJc_730
-#endif
-
-#ifndef mxGetJc
-#define mxGetJc mxGetJc_730
-#endif
-
-#ifndef mxCreateStructArray
-#define mxCreateStructArray mxCreateStructArray_730
-#endif
-
-#ifndef mxCreateCharArray
-#define mxCreateCharArray mxCreateCharArray_730
-#endif
-
-#ifndef mxCreateNumericArray
-#define mxCreateNumericArray mxCreateNumericArray_730
-#endif
-
-#ifndef mxCreateCellArray
-#define mxCreateCellArray mxCreateCellArray_730
-#endif
-
-#ifndef mxCreateLogicalArray
-#define mxCreateLogicalArray mxCreateLogicalArray_730
-#endif
-
-#ifndef mxGetCell
-#define mxGetCell mxGetCell_730
-#endif
-
-#ifndef mxSetCell
-#define mxSetCell mxSetCell_730
-#endif
-
-#ifndef mxSetNzmax
-#define mxSetNzmax mxSetNzmax_730
-#endif
-
-#ifndef mxSetN
-#define mxSetN mxSetN_730
-#endif
-
-#ifndef mxSetM
-#define mxSetM mxSetM_730
-#endif
-
-#ifndef mxGetNzmax
-#define mxGetNzmax mxGetNzmax_730
-#endif
-
-#ifndef mxCreateDoubleMatrix
-#define mxCreateDoubleMatrix mxCreateDoubleMatrix_730
-#endif
-
-#ifndef mxCreateNumericMatrix
-#define mxCreateNumericMatrix mxCreateNumericMatrix_730
-#endif
-
-#ifndef mxCreateLogicalMatrix
-#define mxCreateLogicalMatrix mxCreateLogicalMatrix_730
-#endif
-
-#ifndef mxCreateSparse
-#define mxCreateSparse mxCreateSparse_730
-#endif
-
-#ifndef mxCreateSparseLogicalMatrix
-#define mxCreateSparseLogicalMatrix mxCreateSparseLogicalMatrix_730
-#endif
-
-#ifndef mxGetNChars
-#define mxGetNChars mxGetNChars_730
-#endif
-
-#ifndef mxCreateStringFromNChars
-#define mxCreateStringFromNChars mxCreateStringFromNChars_730
-#endif
-
-#ifndef mxCalcSingleSubscript
-#define mxCalcSingleSubscript mxCalcSingleSubscript_730
-#endif
-
-#ifndef mxGetDimensions_fcn
-#define mxGetDimensions_fcn mxGetDimensions_730
-#endif
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif /* !MX_COMPAT_32 */
-
-#ifdef MX_COMPAT_32
-
-/*
- * 32-bit compatibility APIs
- */
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-#ifndef mxGetNumberOfDimensions
-#define mxGetNumberOfDimensions mxGetNumberOfDimensions_700
-#endif
-
-#ifndef mxGetDimensions
-#define mxGetDimensions mxGetDimensions_700
-#endif
-
-#ifndef mxGetDimensions_fcn
-#define mxGetDimensions_fcn mxGetDimensions_700
-#endif
-
-#ifndef mxGetIr
-#define mxGetIr mxGetIr_700
-#endif
-
-#ifndef mxGetJc
-#define mxGetJc mxGetJc_700
-#endif
-
-#ifndef mxGetCell
-#define mxGetCell mxGetCell_700
-#endif
-
-#ifndef mxGetNzmax
-#define mxGetNzmax mxGetNzmax_700
-#endif
-
-#ifndef mxSetNzmax
-#define mxSetNzmax mxSetNzmax_700
-#endif
-
-#ifndef mxGetFieldByNumber
-#define mxGetFieldByNumber mxGetFieldByNumber_700
-#endif
-
-#ifndef mxSetProperty
-#define mxSetProperty mxSetProperty_700
-#endif
-
-#ifndef mxGetProperty
-#define mxGetProperty mxGetProperty_700
-#endif
-
-#ifndef mxSetField
-#define mxSetField mxSetField_700
-#endif
-
-#ifndef mxSetFieldByNumber
-#define mxSetFieldByNumber mxSetFieldByNumber_700
-#endif
-
-#ifndef mxGetField
-#define mxGetField mxGetField_700
-#endif
-
-#ifndef mxCreateStructMatrix
-#define mxCreateStructMatrix mxCreateStructMatrix_700
-#endif
-
-#ifndef mxCreateCellMatrix
-#define mxCreateCellMatrix mxCreateCellMatrix_700
-#endif
-
-#ifndef mxCreateCharMatrixFromStrings
-#define mxCreateCharMatrixFromStrings mxCreateCharMatrixFromStrings_700
-#endif
-
-#ifndef mxGetString
-#define mxGetString mxGetString_700
-#endif
-
-#ifndef mxSetDimensions
-#define mxSetDimensions mxSetDimensions_700
-#endif
-
-#ifndef mxSetIr
-#define mxSetIr mxSetIr_700
-#endif
-
-#ifndef mxSetJc
-#define mxSetJc mxSetJc_700
-#endif
-
-#ifndef mxCreateStructArray
-#define mxCreateStructArray mxCreateStructArray_700
-#endif
-
-#ifndef mxCreateCharArray
-#define mxCreateCharArray mxCreateCharArray_700
-#endif
-
-#ifndef mxCreateNumericArray
-#define mxCreateNumericArray mxCreateNumericArray_700
-#endif
-
-#ifndef mxCreateCellArray
-#define mxCreateCellArray mxCreateCellArray_700
-#endif
-
-#ifndef mxCreateLogicalArray
-#define mxCreateLogicalArray mxCreateLogicalArray_700
-#endif
-
-#ifndef mxSetCell
-#define mxSetCell mxSetCell_700
-#endif
-
-#ifndef mxSetN
-#define mxSetN mxSetN_700
-#endif
-
-#ifndef mxSetM
-#define mxSetM mxSetM_700
-#endif
-
-#ifndef mxCreateDoubleMatrix
-#define mxCreateDoubleMatrix mxCreateDoubleMatrix_700
-#endif
-
-#ifndef mxCreateNumericMatrix
-#define mxCreateNumericMatrix mxCreateNumericMatrix_700
-#endif
-
-#ifndef mxCreateLogicalMatrix
-#define mxCreateLogicalMatrix mxCreateLogicalMatrix_700
-#endif
-
-#ifndef mxCreateSparse
-#define mxCreateSparse mxCreateSparse_700
-#endif
-
-#ifndef mxCreateSparseLogicalMatrix
-#define mxCreateSparseLogicalMatrix mxCreateSparseLogicalMatrix_700
-#endif
-
-#ifndef mxGetNChars
-#define mxGetNChars mxGetNChars_700
-#endif
-
-#ifndef mxCreateStringFromNChars
-#define mxCreateStringFromNChars mxCreateStringFromNChars_700
-#endif
-
-#ifndef mxCalcSingleSubscript
-#define mxCalcSingleSubscript mxCalcSingleSubscript_700
-#endif
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif /* #ifdef MX_COMPAT_32 */
-#endif /* !defined(BUILDING_LIBMX) && !defined(BUILDING_PUBLISHED_API_CPP) */
-/*
- * Inform Watcom compilers that scalar double return values
- * will be in the FPU register.
- */
-#ifdef __WATCOMC__
-#pragma aux mxGetEps value[8087];
-#pragma aux mxGetInf value[8087];
-#pragma aux mxGetNaN value[8087];
-#endif
-
-#ifndef mxassert_h
-#define mxassert_h
 /*
 mxAssert(int expression, char *error_message)
 ---------------------------------------------
@@ -1426,38 +1252,50 @@ mexPrintAssertion(const char *test, const char *fname, int linenum, const char *
 #define mxAssertS(test, message) assert(test)
 #endif
 
-#endif /* mxassert_h */
-
-#endif /* matrix_h */
-#endif /* MATRIX_DEVELOPER_API_HPP */
-#ifndef __MX_API_VER_HPP__
-#define __MX_API_VER_HPP__
-
 /* Current MATRIX published API version */
-#define MX_CURRENT_API_VER 0x07300000
+#define MX_CURRENT_API_VER 0x08000000
 
 /* Backward compatible current MATRIX published API version */
 #define MX_API_VER MX_CURRENT_API_VER
 
 /* Backward compatible MATRIX published API versions */
 #define MX_LAST_32BIT_VER 0x07000000
+#define MX_LAST_SEPARATE_COMPLEX_VER 0x07300000
 
-/* Compile-time MATRIX published API version */
-#ifdef MX_COMPAT_32 /* compatArrayDims */
+/* Required MEX-file MATRIX published API version */
+#if TARGET_API_VERSION == 700
+#if defined(MX_COMPAT_32)
 #define MX_TARGET_API_VER MX_LAST_32BIT_VER
+#else
+#define MX_TARGET_API_VER MX_LAST_SEPARATE_COMPLEX_VER
+#endif
 #else
 #define MX_TARGET_API_VER MX_CURRENT_API_VER
 #endif
 
 /*
- * The following macro enables conditional compilation based on the
- * target published API. The macro can be used in a single source file
+ * The following macros enable conditional compilation based on the
+ * target published API. The macros can be used in a single source file
  * that is intended to be built against multiple matrix API versions.
  *
  * MX_HAS_64BIT_ARRAY_DIMS evaluates to a non-zero value if array
  * dimensions are 64 bits wide.
  *
+ * MX_HAS_INTERLEAVED_COMPLEX evaluates to a non-zero value if complex
+ * array data is interleaved.
+ *
  */
 #define MX_HAS_64BIT_ARRAY_DIMS MX_TARGET_API_VER > MX_LAST_32BIT_VER
+#define MX_HAS_INTERLEAVED_COMPLEX MX_TARGET_API_VER > MX_LAST_SEPARATE_COMPLEX_VER
 
-#endif /* __MX_API_VER_HPP__ */
+/*
+ * Inform Watcom compilers that scalar double return values
+ * will be in the FPU register.
+ */
+#ifdef __WATCOMC__
+#pragma aux mxGetEps value[8087];
+#pragma aux mxGetInf value[8087];
+#pragma aux mxGetNaN value[8087];
+#endif
+
+#endif /* matrix_h */

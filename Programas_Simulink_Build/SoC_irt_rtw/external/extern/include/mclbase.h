@@ -80,6 +80,11 @@ LIBMWMCLBASE_API_EXTERN_C int mclFreeStackTrace(char*** stack, int nStackDepth);
 /* C-compatible definition of MVM ID type. */
 typedef long MVMID_t;
 
+#define mclMATLABEx 1
+#define mclUserEx 2
+#define mclCOMEx 3
+
+LIBMWMCLBASE_API_EXTERN_C int mclGetLastExceptionType();
 
 LIBMWMCLBASE_API_EXTERN_C void mclAcquireMutex(void);
 
@@ -155,24 +160,6 @@ LIBMWMCLBASE_API_EXTERN_C mxArray* mclMxSerialize(mxArray * pa);
 
 LIBMWMCLBASE_API_EXTERN_C mxArray* mclMxDeserialize(const void* ps, size_t len);
 
-LIBMWMCLBASE_API_EXTERN_C int mclMxEnterNewArrayListContext(void);
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-    typedef void (*mclMxArrayApplyFcn)(mxArray *);
-#ifdef __cplusplus
-}
-#endif
-
-
-LIBMWMCLBASE_API_EXTERN_C void mclMxApplyToAllArraysOnArrayList(mclMxArrayApplyFcn pfcn);
-
-
-LIBMWMCLBASE_API_EXTERN_C void mclMxExitArrayListContext(int prev_context_offset, mxArray **foldList, int listLength, bool bIgnored);
-
-
-LIBMWMCLBASE_API_EXTERN_C void mclMakeMxArrayLocalScope(mxArray *p);
 
 LIBMWMCLBASE_API_EXTERN_C void mclSetInterleavedCompatibility(bool bInterleavedCompatibility);
 
@@ -189,5 +176,11 @@ typedef int (*mclMainFcnType)(int, const char **);
 LIBMWMCLBASE_API_EXTERN_C int mclRunMain(mclMainFcnType run_main,
                                          int argc,
                                          const char **argv);
+
+LIBMWMCLBASE_API_EXTERN_C void mclCFRunLoopRun();
+
+LIBMWMCLBASE_API_EXTERN_C void mclCFRunLoopStop();
+
+LIBMWMCLBASE_API_EXTERN_C bool mclIsCFRunLoopReady();
 
 #endif /* mclbase_h */

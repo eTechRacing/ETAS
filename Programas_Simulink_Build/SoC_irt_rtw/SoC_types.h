@@ -7,9 +7,9 @@
  *
  * Code generation for model "SoC".
  *
- * Model version              : 1.7
- * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Sat Jun 10 12:55:15 2023
+ * Model version              : 10.0
+ * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
+ * C source code generated on : Fri Nov 17 17:15:27 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -20,12 +20,8 @@
 
 #ifndef RTW_HEADER_SoC_types_h_
 #define RTW_HEADER_SoC_types_h_
-#include "rtwtypes.h"
-#include "multiword_types.h"
-#include "zero_crossing_types.h"
 
-/* Parameters (auto storage) */
-typedef struct P_SoC_T_ P_SoC_T;
+/* Model Code Variants */
 
 /* Forward declaration for rtModel */
 typedef struct tag_RTM_SoC_T RT_MODEL_SoC_T;

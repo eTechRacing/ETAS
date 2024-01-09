@@ -7,9 +7,9 @@
  *
  * Code generation for model "Torque_Control".
  *
- * Model version              : 1.182
- * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Sat Jun 10 14:35:54 2023
+ * Model version              : 10.2
+ * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
+ * C source code generated on : Tue Nov 21 18:27:38 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -20,27 +20,8 @@
 
 #ifndef RTW_HEADER_Torque_Control_types_h_
 #define RTW_HEADER_Torque_Control_types_h_
-#include "rtwtypes.h"
-#include "multiword_types.h"
-#include "zero_crossing_types.h"
 
-/* Parameters for system: '<S17>/LimitReached' */
-typedef struct P_LimitReached_Torque_Control_T_ P_LimitReached_Torque_Control_T;
-
-/* Parameters for system: '<S42>/Imp' */
-typedef struct P_Imp_Torque_Control_T_ P_Imp_Torque_Control_T;
-
-/* Parameters for system: '<S43>/If Action Subsystem2' */
-typedef struct P_IfActionSubsystem2_Torque_C_T_ P_IfActionSubsystem2_Torque_C_T;
-
-/* Parameters for system: '<S110>/Braking with Regenerative' */
-typedef struct P_BrakingwithRegenerative_Tor_T_ P_BrakingwithRegenerative_Tor_T;
-
-/* Parameters for system: '<S111>/Mech_Braking' */
-typedef struct P_Mech_Braking_Torque_Control_T_ P_Mech_Braking_Torque_Control_T;
-
-/* Parameters (auto storage) */
-typedef struct P_Torque_Control_T_ P_Torque_Control_T;
+/* Model Code Variants */
 
 /* Forward declaration for rtModel */
 typedef struct tag_RTM_Torque_Control_T RT_MODEL_Torque_Control_T;

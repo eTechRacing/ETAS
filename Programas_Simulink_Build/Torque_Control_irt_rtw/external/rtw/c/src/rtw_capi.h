@@ -40,8 +40,12 @@ typedef enum {
   rtwCAPI_VECTOR,
   rtwCAPI_MATRIX_ROW_MAJOR,
   rtwCAPI_MATRIX_COL_MAJOR,
-  rtwCAPI_MATRIX_COL_MAJOR_ND
+  rtwCAPI_MATRIX_COL_MAJOR_ND,
+  rtwCAPI_MATRIX_ROW_MAJOR_ND
 } rtwCAPI_Orientation;
+
+/* function pointers for matfile logging */
+typedef void(*RTWLoggingFcnPtr)(void*, const void*);
 
 /* Signals Structure */
 /* Fields of this structure can be used to monitor block output signals*/
@@ -157,6 +161,7 @@ typedef struct rtwCAPI_DataTypeMap_tag {
   uint8_T       slDataId;    /* enumerated data type from simstruc_types.h   */
   unsigned int  isComplex:1; /* is the data type complex (1=Complex, 0=Real) */
   unsigned int  isPointer:1; /* is data accessed Via Pointer (1=yes, 0= no)  */
+  uint8_T       enumStorageType; /* storage type for enum data types         */    
 } rtwCAPI_DataTypeMap;
 
 /* Notes on rtwCAPI_DataTypeMap:
@@ -208,6 +213,8 @@ typedef struct rtwCAPI_DataTypeMap_tag {
 #define rtwCAPI_GetDataTypeSize(dTypeMap, i)        ((dTypeMap)[(i)].dataSize)
 #define rtwCAPI_GetDataIsComplex(dTypeMap, i)       ((dTypeMap)[(i)].isComplex)
 #define rtwCAPI_GetDataIsPointer(dTypeMap, i)       ((dTypeMap)[(i)].isPointer)
+#define rtwCAPI_GetDataIsEnum(dTypeMap, i)          ((dTypeMap)[(i)].slDataId == SS_ENUM_TYPE)
+#define rtwCAPI_GetDataEnumStorageType(dTypeMap, i) ((dTypeMap)[(i)].enumStorageType)
 
 /* Macros for determining whether signals/states support MAT-File logging */
 #define rtwCAPI_CanLogSignalToMATFile(dTypeMap, bio, i) \

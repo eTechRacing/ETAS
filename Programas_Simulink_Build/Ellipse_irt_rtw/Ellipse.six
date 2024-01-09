@@ -2,51 +2,50 @@
 <!DOCTYPE module [
     <!ENTITY szlig "&#223;">
     <!ENTITY copy "&#169;">
-    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/common/baseTypes-mlsl.six'>
+    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/baseTypes-mlsl.six'>
     ]>
-<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/common/showSCOOP-IX.xsl"?>
+<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/showSCOOP-IX.xsl"?>
 <!--
 <h1>SCOOP-IX</h1>
 <p>
     <strong>Copyright &copy; 2014 ETAS GmbH</strong>, Borsigstra&szlig;e 14, D-70469 Stuttgart. <em>All rights reserved.</em>
 </p>
 -->
-<module xmlns="http://www.etas.com/scoop-ix/1.4" xmlns:ix="http://www.etas.com/scoop-ix/1.4" xmlns:mlsl="http://www.etas.com/scoop-ix/1.4/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.4
-        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
-	<directoryLocations scheme="MATLAB 9.3">
-		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO4.7\MATLAB\"/>
+<module xmlns="http://www.etas.com/scoop-ix/1.5" xmlns:ix="http://www.etas.com/scoop-ix/1.5" xmlns:mlsl="http://www.etas.com/scoop-ix/1.5/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.5
+        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
+	<directoryLocations scheme="MATLAB 9.12">
+		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\"/>
 		<directory identifier="toolDir" path=".\"/>
-		<directory identifier="modelDir" path="C:\Users\dwegg\Desktop\ETAS-main\ETAS\Programas_Simulink\"/>
-		<directory identifier="codeDir" path="c:\users\dwegg\desktop\etas-main\etas\programas_simulink_build\ellipse_irt_rtw\"/>
+		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink\"/>
+		<directory identifier="codeDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\Ellipse_irt_rtw\"/>
 	</directoryLocations>
 	<moduleInfo identifier="Ellipse">
 		<name>Ellipse</name>
-		<modelLink href="mlsl://&quot;{{modelDir}}Ellipse.slx&quot;"/>
-		<version major="1" minor="13"/>
+		<modelLink href="mlsl:///&quot;{{modelDir}}Ellipse.slx&quot;"/>
+		<version major="10" minor="2"/>
 		<dateTime kind="created" year="2022" month="8" day="20" hour="10" minute="22" second="41"/>
-		<dateTime kind="lastModified" year="2023" month="6" day="10" hour="10" minute="43" second="25"/>
+		<dateTime kind="lastModified" year="2023" month="11" day="21" hour="19" minute="0" second="46"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
 			<application domain="softwareDevelopment" addressesAvailable="false" nestedDataStructuresAvailable="true"/>
 		</suitability>
-		<user lastName="dwegg" role="modifier"/>
+		<user lastName="joser" role="modifier"/>
 		<creators>
 			<user lastName="Eric" role="creator"/>
 			<tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
-				<version major="9" minor="3" year="2017" month="7" day="24" info="R2017b"/>
+				<version major="9" minor="12" year="2021" month="11" day="13" info="R2022a"/>
 			</tool>
 			<tool kind="modeler" vendor="The Mathworks, Inc." name="Simulink">
-				<version major="9" minor="0" year="2017" month="7" day="24" info="R2017b"/>
+				<version major="10" minor="5" year="2021" month="11" day="13" info="R2022a"/>
 			</tool>
 			<tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
-				<version major="9" minor="0" year="2017" month="7" day="24" info="R2017b"/>
 			</tool>
 			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
-				<version major="8" minor="13" year="2017" month="7" day="24" info="R2017b"/>
+				<version major="9" minor="7" year="2021" month="11" day="13" info="R2022a"/>
 				<mode name="target" value="INTECRIO Real-Time Target"/>
 				<configuration>
-					<option identifier="InlineParameters">2</option>
+					<option identifier="InlineParameters">1</option>
 					<option identifier="InlineInvariantSignals">0</option>
 					<option identifier="Solver">FixedStepDiscrete</option>
 					<option identifier="SolverType">FixedStep</option>
@@ -55,10 +54,9 @@
 				</configuration>
 			</tool>
 			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="MATLAB Coder">
-				<version major="3" minor="4" year="2017" month="7" day="24" info="R2017b"/>
+				<version major="5" minor="4" year="2021" month="11" day="13" info="R2022a"/>
 			</tool>
 			<tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
-				<version major="4" minor="7" year="2018" month="1" day="1"/>
 				<configuration>
 					<option identifier="SCOOPIXFileName"><![CDATA[Ellipse.six]]></option>
 					<option identifier="ExternalMode">0</option>
@@ -71,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2023" month="6" day="10" hour="10" minute="43" second="30"/>
+		<dateTime kind="created" year="2023" month="11" day="21" hour="19" minute="0" second="57"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -127,7 +125,6 @@
 					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\src\]]></option>
 					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\libsrc\]]></option>
 					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\_sharedutils\]]></option>
-					<!-- S-Function specific includes directories -->
 				</configuration>
 			</tool>
 		</target>
@@ -149,8 +146,10 @@
 		<file name="rtwSharedLib.lib" kind="symbolicLibrary"/>
 		<!-- Additional files -->
 	</fileContainer>
+	<fileContainer constitution="referencedModels">
+	</fileContainer>
 	<interface>
-		<modelLinkBase href="mlsl://{{modelDir}}Ellipse.slx?"/>
+		<modelLinkBase href="mlsl:///{{modelDir}}Ellipse.slx?"/>
 		<pathBase path="{{codeDir}}"/>
 		<fileOrigin name="Ellipse.c"/>
 		<fileOrigin name="rt_nonfinite.c"/>
@@ -163,34 +162,34 @@
 		<definitions>
 			<structDef name="ExtU_Ellipse_T_tag">
 				<fileOrigin name="Ellipse.h"/>
-				<structMember identifier="ROLL">
+				<structMember identifier="el_ROLL">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/ROLL</documentation>
+						<documentation>&lt;Root&gt;/el_ROLL</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="PITCH">
+				<structMember identifier="el_PITCH">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/PITCH</documentation>
+						<documentation>&lt;Root&gt;/el_PITCH</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="YAW">
+				<structMember identifier="el_YAW">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/YAW</documentation>
+						<documentation>&lt;Root&gt;/el_YAW</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="LATITUDE_EKF">
+				<structMember identifier="el_LATITUDE_EKF">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/LATITUDE_EKF</documentation>
+						<documentation>&lt;Root&gt;/el_LATITUDE_EKF</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="LONGITUDE_EKF">
+				<structMember identifier="el_LONGITUDE_EKF">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/LONGITUDE_EKF</documentation>
+						<documentation>&lt;Root&gt;/el_LONGITUDE_EKF</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="el_Vel_X">
@@ -211,100 +210,82 @@
 						<documentation>&lt;Root&gt;/el_Vel_Z</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="ACCEL_X_IMU">
+				<structMember identifier="el_ACCEL_X">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/ACCEL_X_IMU</documentation>
+						<documentation>&lt;Root&gt;/el_ACCEL_X</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="ACCEL_Y_IMU">
+				<structMember identifier="el_ACCEL_Y">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/ACCEL_Y_IMU</documentation>
+						<documentation>&lt;Root&gt;/el_ACCEL_Y</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="ACCEL_Z_IMU">
+				<structMember identifier="el_ACCEL_Z">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/ACCEL_Z_IMU</documentation>
+						<documentation>&lt;Root&gt;/el_ACCEL_Z</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="GYRO_X">
+				<structMember identifier="el_GYRO_X">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/GYRO_X</documentation>
+						<documentation>&lt;Root&gt;/el_GYRO_X</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="GYRO_Y">
+				<structMember identifier="el_GYRO_Y">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/GYRO_Y</documentation>
+						<documentation>&lt;Root&gt;/el_GYRO_Y</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="GYRO_Z">
+				<structMember identifier="el_GYRO_Z">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/GYRO_Z</documentation>
+						<documentation>&lt;Root&gt;/el_GYRO_Z</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="ACCEL_X_MAG">
+				<structMember identifier="el_AngleTrack">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/ACCEL_X_MAG</documentation>
+						<documentation>&lt;Root&gt;/el_AngleTrack</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="ACCEL_Y_MAG">
+				<structMember identifier="el_SlipAngle">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/ACCEL_Y_MAG</documentation>
+						<documentation>&lt;Root&gt;/el_SlipAngle</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="ACCEL_Z_MAG">
+				<structMember identifier="el_CurvatureRadius">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/ACCEL_Z_MAG</documentation>
+						<documentation>&lt;Root&gt;/el_CurvatureRadius</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="ANGLE_TRACK">
+				<structMember identifier="el_AUTO_STATUS">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/ANGLE_TRACK</documentation>
+						<documentation>&lt;Root&gt;/el_AUTO_STATUS</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="ANGLE_SLIP">
+				<structMember identifier="Ellipse_Alive">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/ANGLE_SLIP</documentation>
+						<documentation>&lt;Root&gt;/Ellipse_Alive</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="CURVATURE_RADIUS">
+				<structMember identifier="el_GENERAL">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/CURVATURE_RADIUS</documentation>
+						<documentation>&lt;Root&gt;/el_GENERAL</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="AUTO_STATUS">
+				<structMember identifier="el_CLOCK">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/AUTO_STATUS</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="TIME_STAMP">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/TIME_STAMP</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="GENERAL">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/GENERAL</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="CLOCK">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/CLOCK</documentation>
+						<documentation>&lt;Root&gt;/el_CLOCK</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -398,24 +379,6 @@
 						<documentation>&lt;Root&gt;/Gyro_Z_Tx</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Accel_X_Mag_Tx">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Accel_X_Mag_Tx</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Accel_Y_Mag_Tx">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Accel_Y_Mag_Tx</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Accel_Z_Mag_Tx">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Accel_Z_Mag_Tx</documentation>
-					</annotation>
-				</structMember>
 				<structMember identifier="TrackAngle">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
@@ -440,10 +403,10 @@
 						<documentation>&lt;Root&gt;/Status_Auto</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Time">
+				<structMember identifier="el_Timer">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/Time</documentation>
+						<documentation>&lt;Root&gt;/el_Timer</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="General_Tx">
@@ -493,19 +456,19 @@
 		<!-- Global IRT DWork port signals following -->
 		<!-- rtU input ports following -->
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.ROLL">
+			<dataCInterface identifier="Ellipse_U.el_ROLL">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="ROLL"/>
+					<memberRef identifier="el_ROLL"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.ROLL">
-				<name>ROLL</name>
-				<modelLink href="Ellipse/ROLL"/>
+			<modelOrigin identifier="Ellipse.el_ROLL">
+				<name>el_ROLL</name>
+				<modelLink href="Ellipse/el_ROLL"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="ROLL" kind="mlsl:block" type="Inport"/>
+					<pathNode name="el_ROLL" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -524,19 +487,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.PITCH">
+			<dataCInterface identifier="Ellipse_U.el_PITCH">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="PITCH"/>
+					<memberRef identifier="el_PITCH"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.PITCH">
-				<name>PITCH</name>
-				<modelLink href="Ellipse/PITCH"/>
+			<modelOrigin identifier="Ellipse.el_PITCH">
+				<name>el_PITCH</name>
+				<modelLink href="Ellipse/el_PITCH"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="PITCH" kind="mlsl:block" type="Inport"/>
+					<pathNode name="el_PITCH" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -555,19 +518,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.YAW">
+			<dataCInterface identifier="Ellipse_U.el_YAW">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="YAW"/>
+					<memberRef identifier="el_YAW"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.YAW">
-				<name>YAW</name>
-				<modelLink href="Ellipse/YAW"/>
+			<modelOrigin identifier="Ellipse.el_YAW">
+				<name>el_YAW</name>
+				<modelLink href="Ellipse/el_YAW"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="YAW" kind="mlsl:block" type="Inport"/>
+					<pathNode name="el_YAW" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -586,19 +549,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.LATITUDE_EKF">
+			<dataCInterface identifier="Ellipse_U.el_LATITUDE_EKF">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="LATITUDE_EKF"/>
+					<memberRef identifier="el_LATITUDE_EKF"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.LATITUDE_EKF">
-				<name>LATITUDE_EKF</name>
-				<modelLink href="Ellipse/LATITUDE_EKF"/>
+			<modelOrigin identifier="Ellipse.el_LATITUDE_EKF">
+				<name>el_LATITUDE_EKF</name>
+				<modelLink href="Ellipse/el_LATITUDE_EKF"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="LATITUDE_EKF" kind="mlsl:block" type="Inport"/>
+					<pathNode name="el_LATITUDE_EKF" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -617,19 +580,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.LONGITUDE_EKF">
+			<dataCInterface identifier="Ellipse_U.el_LONGITUDE_EKF">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="LONGITUDE_EKF"/>
+					<memberRef identifier="el_LONGITUDE_EKF"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.LONGITUDE_EKF">
-				<name>LONGITUDE_EKF</name>
-				<modelLink href="Ellipse/LONGITUDE_EKF"/>
+			<modelOrigin identifier="Ellipse.el_LONGITUDE_EKF">
+				<name>el_LONGITUDE_EKF</name>
+				<modelLink href="Ellipse/el_LONGITUDE_EKF"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="LONGITUDE_EKF" kind="mlsl:block" type="Inport"/>
+					<pathNode name="el_LONGITUDE_EKF" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -741,19 +704,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.ACCEL_X_IMU">
+			<dataCInterface identifier="Ellipse_U.el_ACCEL_X">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="ACCEL_X_IMU"/>
+					<memberRef identifier="el_ACCEL_X"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.ACCEL_X_IMU">
-				<name>ACCEL_X_IMU</name>
-				<modelLink href="Ellipse/ACCEL_X_IMU"/>
+			<modelOrigin identifier="Ellipse.el_ACCEL_X">
+				<name>el_ACCEL_X</name>
+				<modelLink href="Ellipse/el_ACCEL_X"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="ACCEL_X_IMU" kind="mlsl:block" type="Inport"/>
+					<pathNode name="el_ACCEL_X" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -772,19 +735,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.ACCEL_Y_IMU">
+			<dataCInterface identifier="Ellipse_U.el_ACCEL_Y">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="ACCEL_Y_IMU"/>
+					<memberRef identifier="el_ACCEL_Y"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.ACCEL_Y_IMU">
-				<name>ACCEL_Y_IMU</name>
-				<modelLink href="Ellipse/ACCEL_Y_IMU"/>
+			<modelOrigin identifier="Ellipse.el_ACCEL_Y">
+				<name>el_ACCEL_Y</name>
+				<modelLink href="Ellipse/el_ACCEL_Y"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="ACCEL_Y_IMU" kind="mlsl:block" type="Inport"/>
+					<pathNode name="el_ACCEL_Y" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -803,19 +766,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.ACCEL_Z_IMU">
+			<dataCInterface identifier="Ellipse_U.el_ACCEL_Z">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="ACCEL_Z_IMU"/>
+					<memberRef identifier="el_ACCEL_Z"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.ACCEL_Z_IMU">
-				<name>ACCEL_Z_IMU</name>
-				<modelLink href="Ellipse/ACCEL_Z_IMU"/>
+			<modelOrigin identifier="Ellipse.el_ACCEL_Z">
+				<name>el_ACCEL_Z</name>
+				<modelLink href="Ellipse/el_ACCEL_Z"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="ACCEL_Z_IMU" kind="mlsl:block" type="Inport"/>
+					<pathNode name="el_ACCEL_Z" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -834,19 +797,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.GYRO_X">
+			<dataCInterface identifier="Ellipse_U.el_GYRO_X">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="GYRO_X"/>
+					<memberRef identifier="el_GYRO_X"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.GYRO_X">
-				<name>GYRO_X</name>
-				<modelLink href="Ellipse/GYRO_X"/>
+			<modelOrigin identifier="Ellipse.el_GYRO_X">
+				<name>el_GYRO_X</name>
+				<modelLink href="Ellipse/el_GYRO_X"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="GYRO_X" kind="mlsl:block" type="Inport"/>
+					<pathNode name="el_GYRO_X" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -865,19 +828,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.GYRO_Y">
+			<dataCInterface identifier="Ellipse_U.el_GYRO_Y">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="GYRO_Y"/>
+					<memberRef identifier="el_GYRO_Y"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.GYRO_Y">
-				<name>GYRO_Y</name>
-				<modelLink href="Ellipse/GYRO_Y"/>
+			<modelOrigin identifier="Ellipse.el_GYRO_Y">
+				<name>el_GYRO_Y</name>
+				<modelLink href="Ellipse/el_GYRO_Y"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="GYRO_Y" kind="mlsl:block" type="Inport"/>
+					<pathNode name="el_GYRO_Y" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -896,19 +859,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.GYRO_Z">
+			<dataCInterface identifier="Ellipse_U.el_GYRO_Z">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="GYRO_Z"/>
+					<memberRef identifier="el_GYRO_Z"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.GYRO_Z">
-				<name>GYRO_Z</name>
-				<modelLink href="Ellipse/GYRO_Z"/>
+			<modelOrigin identifier="Ellipse.el_GYRO_Z">
+				<name>el_GYRO_Z</name>
+				<modelLink href="Ellipse/el_GYRO_Z"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="GYRO_Z" kind="mlsl:block" type="Inport"/>
+					<pathNode name="el_GYRO_Z" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -927,19 +890,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.ACCEL_X_MAG">
+			<dataCInterface identifier="Ellipse_U.el_AngleTrack">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="ACCEL_X_MAG"/>
+					<memberRef identifier="el_AngleTrack"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.ACCEL_X_MAG">
-				<name>ACCEL_X_MAG</name>
-				<modelLink href="Ellipse/ACCEL_X_MAG"/>
+			<modelOrigin identifier="Ellipse.el_AngleTrack">
+				<name>el_AngleTrack</name>
+				<modelLink href="Ellipse/el_AngleTrack"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="ACCEL_X_MAG" kind="mlsl:block" type="Inport"/>
+					<pathNode name="el_AngleTrack" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -958,19 +921,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.ACCEL_Y_MAG">
+			<dataCInterface identifier="Ellipse_U.el_SlipAngle">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="ACCEL_Y_MAG"/>
+					<memberRef identifier="el_SlipAngle"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.ACCEL_Y_MAG">
-				<name>ACCEL_Y_MAG</name>
-				<modelLink href="Ellipse/ACCEL_Y_MAG"/>
+			<modelOrigin identifier="Ellipse.el_SlipAngle">
+				<name>el_SlipAngle</name>
+				<modelLink href="Ellipse/el_SlipAngle"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="ACCEL_Y_MAG" kind="mlsl:block" type="Inport"/>
+					<pathNode name="el_SlipAngle" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -989,19 +952,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.ACCEL_Z_MAG">
+			<dataCInterface identifier="Ellipse_U.el_CurvatureRadius">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="ACCEL_Z_MAG"/>
+					<memberRef identifier="el_CurvatureRadius"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.ACCEL_Z_MAG">
-				<name>ACCEL_Z_MAG</name>
-				<modelLink href="Ellipse/ACCEL_Z_MAG"/>
+			<modelOrigin identifier="Ellipse.el_CurvatureRadius">
+				<name>el_CurvatureRadius</name>
+				<modelLink href="Ellipse/el_CurvatureRadius"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="ACCEL_Z_MAG" kind="mlsl:block" type="Inport"/>
+					<pathNode name="el_CurvatureRadius" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -1020,19 +983,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.ANGLE_TRACK">
+			<dataCInterface identifier="Ellipse_U.el_AUTO_STATUS">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="ANGLE_TRACK"/>
+					<memberRef identifier="el_AUTO_STATUS"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.ANGLE_TRACK">
-				<name>ANGLE_TRACK</name>
-				<modelLink href="Ellipse/ANGLE_TRACK"/>
+			<modelOrigin identifier="Ellipse.el_AUTO_STATUS">
+				<name>el_AUTO_STATUS</name>
+				<modelLink href="Ellipse/el_AUTO_STATUS"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="ANGLE_TRACK" kind="mlsl:block" type="Inport"/>
+					<pathNode name="el_AUTO_STATUS" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -1051,19 +1014,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.ANGLE_SLIP">
+			<dataCInterface identifier="Ellipse_U.Ellipse_Alive">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="ANGLE_SLIP"/>
+					<memberRef identifier="Ellipse_Alive"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.ANGLE_SLIP">
-				<name>ANGLE_SLIP</name>
-				<modelLink href="Ellipse/ANGLE_SLIP"/>
+			<modelOrigin identifier="Ellipse.Ellipse_Alive">
+				<name>Ellipse_Alive</name>
+				<modelLink href="Ellipse/Ellipse_Alive"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="ANGLE_SLIP" kind="mlsl:block" type="Inport"/>
+					<pathNode name="Ellipse_Alive" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -1082,19 +1045,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.CURVATURE_RADIUS">
+			<dataCInterface identifier="Ellipse_U.el_GENERAL">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="CURVATURE_RADIUS"/>
+					<memberRef identifier="el_GENERAL"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.CURVATURE_RADIUS">
-				<name>CURVATURE_RADIUS</name>
-				<modelLink href="Ellipse/CURVATURE_RADIUS"/>
+			<modelOrigin identifier="Ellipse.el_GENERAL">
+				<name>el_GENERAL</name>
+				<modelLink href="Ellipse/el_GENERAL"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="CURVATURE_RADIUS" kind="mlsl:block" type="Inport"/>
+					<pathNode name="el_GENERAL" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -1113,112 +1076,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.AUTO_STATUS">
+			<dataCInterface identifier="Ellipse_U.el_CLOCK">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="AUTO_STATUS"/>
+					<memberRef identifier="el_CLOCK"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.AUTO_STATUS">
-				<name>AUTO_STATUS</name>
-				<modelLink href="Ellipse/AUTO_STATUS"/>
+			<modelOrigin identifier="Ellipse.el_CLOCK">
+				<name>el_CLOCK</name>
+				<modelLink href="Ellipse/el_CLOCK"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="AUTO_STATUS" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Ellipse_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.TIME_STAMP">
-				<definitionLocation>
-					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="TIME_STAMP"/>
-				</definitionLocation>
-				<fileOrigin name="Ellipse.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Ellipse.TIME_STAMP">
-				<name>TIME_STAMP</name>
-				<modelLink href="Ellipse/TIME_STAMP"/>
-				<modelLocation>
-					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="TIME_STAMP" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Ellipse_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.GENERAL">
-				<definitionLocation>
-					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="GENERAL"/>
-				</definitionLocation>
-				<fileOrigin name="Ellipse.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Ellipse.GENERAL">
-				<name>GENERAL</name>
-				<modelLink href="Ellipse/GENERAL"/>
-				<modelLocation>
-					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="GENERAL" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Ellipse_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.CLOCK">
-				<definitionLocation>
-					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="CLOCK"/>
-				</definitionLocation>
-				<fileOrigin name="Ellipse.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Ellipse.CLOCK">
-				<name>CLOCK</name>
-				<modelLink href="Ellipse/CLOCK"/>
-				<modelLocation>
-					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="CLOCK" kind="mlsl:block" type="Inport"/>
+					<pathNode name="el_CLOCK" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -1672,99 +1542,6 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_Y.Accel_X_Mag_Tx">
-				<definitionLocation>
-					<baseRef identifier="Ellipse_Y"/>
-					<memberRef identifier="Accel_X_Mag_Tx"/>
-				</definitionLocation>
-				<fileOrigin name="Ellipse.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Ellipse.Accel_X_Mag_Tx">
-				<name>Accel_X_Mag_Tx</name>
-				<modelLink href="Ellipse/Accel_X_Mag_Tx"/>
-				<modelLocation>
-					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="Accel_X_Mag_Tx" kind="mlsl:block" type="Outport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection out="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Ellipse_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_Y.Accel_Y_Mag_Tx">
-				<definitionLocation>
-					<baseRef identifier="Ellipse_Y"/>
-					<memberRef identifier="Accel_Y_Mag_Tx"/>
-				</definitionLocation>
-				<fileOrigin name="Ellipse.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Ellipse.Accel_Y_Mag_Tx">
-				<name>Accel_Y_Mag_Tx</name>
-				<modelLink href="Ellipse/Accel_Y_Mag_Tx"/>
-				<modelLocation>
-					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="Accel_Y_Mag_Tx" kind="mlsl:block" type="Outport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection out="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Ellipse_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_Y.Accel_Z_Mag_Tx">
-				<definitionLocation>
-					<baseRef identifier="Ellipse_Y"/>
-					<memberRef identifier="Accel_Z_Mag_Tx"/>
-				</definitionLocation>
-				<fileOrigin name="Ellipse.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Ellipse.Accel_Z_Mag_Tx">
-				<name>Accel_Z_Mag_Tx</name>
-				<modelLink href="Ellipse/Accel_Z_Mag_Tx"/>
-				<modelLocation>
-					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="Accel_Z_Mag_Tx" kind="mlsl:block" type="Outport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection out="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Ellipse_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
 			<dataCInterface identifier="Ellipse_Y.TrackAngle">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_Y"/>
@@ -1889,19 +1666,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_Y.Time">
+			<dataCInterface identifier="Ellipse_Y.el_Timer">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_Y"/>
-					<memberRef identifier="Time"/>
+					<memberRef identifier="el_Timer"/>
 				</definitionLocation>
 				<fileOrigin name="Ellipse.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Ellipse.Time">
-				<name>Time</name>
-				<modelLink href="Ellipse/Time"/>
+			<modelOrigin identifier="Ellipse.el_Timer">
+				<name>el_Timer</name>
+				<modelLink href="Ellipse/el_Timer"/>
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="Time" kind="mlsl:block" type="Outport"/>
+					<pathNode name="el_Timer" kind="mlsl:block" type="Outport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection out="true"/>
@@ -2032,30 +1809,27 @@
 				<modelKind kind="process"/>
 				<runTimeInfo>
 					<messageAccess>
-						<message identifier="Ellipse_U.ROLL" send="false"></message>
-						<message identifier="Ellipse_U.PITCH" send="false"></message>
-						<message identifier="Ellipse_U.YAW" send="false"></message>
-						<message identifier="Ellipse_U.LATITUDE_EKF" send="false"></message>
-						<message identifier="Ellipse_U.LONGITUDE_EKF" send="false"></message>
+						<message identifier="Ellipse_U.el_ROLL" send="false"></message>
+						<message identifier="Ellipse_U.el_PITCH" send="false"></message>
+						<message identifier="Ellipse_U.el_YAW" send="false"></message>
+						<message identifier="Ellipse_U.el_LATITUDE_EKF" send="false"></message>
+						<message identifier="Ellipse_U.el_LONGITUDE_EKF" send="false"></message>
 						<message identifier="Ellipse_U.el_Vel_X" send="false"></message>
 						<message identifier="Ellipse_U.el_Vel_Y" send="false"></message>
 						<message identifier="Ellipse_U.el_Vel_Z" send="false"></message>
-						<message identifier="Ellipse_U.ACCEL_X_IMU" send="false"></message>
-						<message identifier="Ellipse_U.ACCEL_Y_IMU" send="false"></message>
-						<message identifier="Ellipse_U.ACCEL_Z_IMU" send="false"></message>
-						<message identifier="Ellipse_U.GYRO_X" send="false"></message>
-						<message identifier="Ellipse_U.GYRO_Y" send="false"></message>
-						<message identifier="Ellipse_U.GYRO_Z" send="false"></message>
-						<message identifier="Ellipse_U.ACCEL_X_MAG" send="false"></message>
-						<message identifier="Ellipse_U.ACCEL_Y_MAG" send="false"></message>
-						<message identifier="Ellipse_U.ACCEL_Z_MAG" send="false"></message>
-						<message identifier="Ellipse_U.ANGLE_TRACK" send="false"></message>
-						<message identifier="Ellipse_U.ANGLE_SLIP" send="false"></message>
-						<message identifier="Ellipse_U.CURVATURE_RADIUS" send="false"></message>
-						<message identifier="Ellipse_U.AUTO_STATUS" send="false"></message>
-						<message identifier="Ellipse_U.TIME_STAMP" send="false"></message>
-						<message identifier="Ellipse_U.GENERAL" send="false"></message>
-						<message identifier="Ellipse_U.CLOCK" send="false"></message>
+						<message identifier="Ellipse_U.el_ACCEL_X" send="false"></message>
+						<message identifier="Ellipse_U.el_ACCEL_Y" send="false"></message>
+						<message identifier="Ellipse_U.el_ACCEL_Z" send="false"></message>
+						<message identifier="Ellipse_U.el_GYRO_X" send="false"></message>
+						<message identifier="Ellipse_U.el_GYRO_Y" send="false"></message>
+						<message identifier="Ellipse_U.el_GYRO_Z" send="false"></message>
+						<message identifier="Ellipse_U.el_AngleTrack" send="false"></message>
+						<message identifier="Ellipse_U.el_SlipAngle" send="false"></message>
+						<message identifier="Ellipse_U.el_CurvatureRadius" send="false"></message>
+						<message identifier="Ellipse_U.el_AUTO_STATUS" send="false"></message>
+						<message identifier="Ellipse_U.Ellipse_Alive" send="false"></message>
+						<message identifier="Ellipse_U.el_GENERAL" send="false"></message>
+						<message identifier="Ellipse_U.el_CLOCK" send="false"></message>
 						<message identifier="Ellipse_Y.Roll_Tx" send="true"></message>
 						<message identifier="Ellipse_Y.Pitch_Tx" send="true"></message>
 						<message identifier="Ellipse_Y.Yaw_Tx" send="true"></message>
@@ -2070,14 +1844,11 @@
 						<message identifier="Ellipse_Y.Gyro_X_Tx" send="true"></message>
 						<message identifier="Ellipse_Y.Gyro_Y_Tx" send="true"></message>
 						<message identifier="Ellipse_Y.Gyro_Z_Tx" send="true"></message>
-						<message identifier="Ellipse_Y.Accel_X_Mag_Tx" send="true"></message>
-						<message identifier="Ellipse_Y.Accel_Y_Mag_Tx" send="true"></message>
-						<message identifier="Ellipse_Y.Accel_Z_Mag_Tx" send="true"></message>
 						<message identifier="Ellipse_Y.TrackAngle" send="true"></message>
 						<message identifier="Ellipse_Y.SlipAngle" send="true"></message>
 						<message identifier="Ellipse_Y.CurvRadius" send="true"></message>
 						<message identifier="Ellipse_Y.Status_Auto" send="true"></message>
-						<message identifier="Ellipse_Y.Time" send="true"></message>
+						<message identifier="Ellipse_Y.el_Timer" send="true"></message>
 						<message identifier="Ellipse_Y.General_Tx" send="true"></message>
 						<message identifier="Ellipse_Y.Clock_Tx" send="true"></message>
 					</messageAccess>

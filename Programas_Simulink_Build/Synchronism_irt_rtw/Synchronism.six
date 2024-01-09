@@ -2,51 +2,50 @@
 <!DOCTYPE module [
     <!ENTITY szlig "&#223;">
     <!ENTITY copy "&#169;">
-    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/common/baseTypes-mlsl.six'>
+    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/baseTypes-mlsl.six'>
     ]>
-<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/common/showSCOOP-IX.xsl"?>
+<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/showSCOOP-IX.xsl"?>
 <!--
 <h1>SCOOP-IX</h1>
 <p>
     <strong>Copyright &copy; 2014 ETAS GmbH</strong>, Borsigstra&szlig;e 14, D-70469 Stuttgart. <em>All rights reserved.</em>
 </p>
 -->
-<module xmlns="http://www.etas.com/scoop-ix/1.4" xmlns:ix="http://www.etas.com/scoop-ix/1.4" xmlns:mlsl="http://www.etas.com/scoop-ix/1.4/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.4
-        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
-	<directoryLocations scheme="MATLAB 9.3">
-		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO4.7\MATLAB\"/>
+<module xmlns="http://www.etas.com/scoop-ix/1.5" xmlns:ix="http://www.etas.com/scoop-ix/1.5" xmlns:mlsl="http://www.etas.com/scoop-ix/1.5/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.5
+        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
+	<directoryLocations scheme="MATLAB 9.12">
+		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\"/>
 		<directory identifier="toolDir" path=".\"/>
-		<directory identifier="modelDir" path="C:\Users\dwegg\Desktop\ETAS-main\ETAS\Programas_Simulink\"/>
-		<directory identifier="codeDir" path="c:\users\dwegg\desktop\etas-main\etas\programas_simulink_build\synchronism_irt_rtw\"/>
+		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink\"/>
+		<directory identifier="codeDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\Synchronism_irt_rtw\"/>
 	</directoryLocations>
 	<moduleInfo identifier="Synchronism">
 		<name>Synchronism</name>
-		<modelLink href="mlsl://&quot;{{modelDir}}Synchronism.slx&quot;"/>
-		<version major="1" minor="4"/>
+		<modelLink href="mlsl:///&quot;{{modelDir}}Synchronism.slx&quot;"/>
+		<version major="10" minor="0"/>
 		<dateTime kind="created" year="2021" month="2" day="17" hour="14" minute="58" second="42"/>
-		<dateTime kind="lastModified" year="2021" month="2" day="23" hour="9" minute="37" second="56"/>
+		<dateTime kind="lastModified" year="2023" month="11" day="17" hour="17" minute="10" second="39"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
 			<application domain="softwareDevelopment" addressesAvailable="false" nestedDataStructuresAvailable="true"/>
 		</suitability>
-		<user lastName="cspt" role="modifier"/>
+		<user lastName="joser" role="modifier"/>
 		<creators>
 			<user lastName="cspt" role="creator"/>
 			<tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
-				<version major="9" minor="3" year="2017" month="7" day="24" info="R2017b"/>
+				<version major="9" minor="12" year="2021" month="11" day="13" info="R2022a"/>
 			</tool>
 			<tool kind="modeler" vendor="The Mathworks, Inc." name="Simulink">
-				<version major="9" minor="0" year="2017" month="7" day="24" info="R2017b"/>
+				<version major="10" minor="5" year="2021" month="11" day="13" info="R2022a"/>
 			</tool>
 			<tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
-				<version major="9" minor="0" year="2017" month="7" day="24" info="R2017b"/>
 			</tool>
 			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
-				<version major="8" minor="13" year="2017" month="7" day="24" info="R2017b"/>
+				<version major="9" minor="7" year="2021" month="11" day="13" info="R2022a"/>
 				<mode name="target" value="INTECRIO Real-Time Target"/>
 				<configuration>
-					<option identifier="InlineParameters">2</option>
+					<option identifier="InlineParameters">1</option>
 					<option identifier="InlineInvariantSignals">0</option>
 					<option identifier="Solver">FixedStepDiscrete</option>
 					<option identifier="SolverType">FixedStep</option>
@@ -55,10 +54,9 @@
 				</configuration>
 			</tool>
 			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="MATLAB Coder">
-				<version major="3" minor="4" year="2017" month="7" day="24" info="R2017b"/>
+				<version major="5" minor="4" year="2021" month="11" day="13" info="R2022a"/>
 			</tool>
 			<tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
-				<version major="4" minor="7" year="2018" month="1" day="1"/>
 				<configuration>
 					<option identifier="SCOOPIXFileName"><![CDATA[Synchronism.six]]></option>
 					<option identifier="ExternalMode">0</option>
@@ -71,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2023" month="3" day="29" hour="13" minute="0" second="31"/>
+		<dateTime kind="created" year="2023" month="11" day="17" hour="17" minute="15" second="54"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -127,7 +125,6 @@
 					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\src\]]></option>
 					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\libsrc\]]></option>
 					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\_sharedutils\]]></option>
-					<!-- S-Function specific includes directories -->
 				</configuration>
 			</tool>
 		</target>
@@ -141,7 +138,6 @@
 		<file name="Synchronism.c" kind="body"/>
 		<file name="Synchronism_private.h" kind="header"/>
 		<file name="rtmodel.h" kind="header"/>
-		<file name="Synchronism_data.c" kind="body"/>
 		<file name="Synchronism_main.c" kind="body"/>
 		<!-- Additionally registered model specific source files -->
 		<file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body"/>
@@ -150,11 +146,12 @@
 		<file name="rtwSharedLib.lib" kind="symbolicLibrary"/>
 		<!-- Additional files -->
 	</fileContainer>
+	<fileContainer constitution="referencedModels">
+	</fileContainer>
 	<interface>
-		<modelLinkBase href="mlsl://{{modelDir}}Synchronism.slx?"/>
+		<modelLinkBase href="mlsl:///{{modelDir}}Synchronism.slx?"/>
 		<pathBase path="{{codeDir}}"/>
 		<fileOrigin name="Synchronism.c"/>
-		<fileOrigin name="Synchronism_data.c"/>
 		<fileOrigin name="rt_nonfinite.c"/>
 		<fileOrigin name="Synchronism_main.c"/>
 		<headerFile name="Synchronism.h"/>
@@ -163,44 +160,6 @@
 		<!-- "import" MATLAB/Simulink base type and complex struct definitions via external entity -->
 		&baseTypes-mlsl;
 		<definitions>
-			<structDef name="_P_Synchronism_T">
-				<fileOrigin name="Synchronism.h"/>
-				<structMember identifier="Constant_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 1 -- Referenced by: '&lt;S4&gt;/Constant'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Constant1_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 200 -- Referenced by: '&lt;Root&gt;/Constant1'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Constant_Value_e">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 1 -- Referenced by: '&lt;S1&gt;/Constant'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="DataStoreMemory_InitialValue">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;S1&gt;/Data Store Memory'
-  </documentation>
-					</annotation>
-				</structMember>
-			</structDef>
-			<typeDef name="P_Synchronism_T">
-				<struct/><typeRef name="_P_Synchronism_T"/>
-				<fileOrigin name="Synchronism_types.h"/>
-				<annotation>
-					<documentation>Parameters (auto storage)</documentation>
-				</annotation>
-			</typeDef>
 			<structDef name="ExtY_Synchronism_T_tag">
 				<fileOrigin name="Synchronism.h"/>
 				<structMember identifier="Sync_CAN1">
@@ -233,13 +192,6 @@
 				<struct/><typeRef name="_DW_Synchronism_T"/>
 				<fileOrigin name="Synchronism.h"/>
 			</typeDef>
-			<baseDef identifier="Synchronism_P">
-				<type><typeRef name="P_Synchronism_T"/></type>
-				<fileOrigin name="Synchronism_data.c"/>
-				<annotation>
-					<documentation>The rtP data structure for parameters.</documentation>
-				</annotation>
-			</baseDef>
 			<baseDef identifier="Synchronism_Y">
 				<type><typeRef name="ExtY_Synchronism_T"/></type>
 				<fileOrigin name="Synchronism.c"/>
@@ -265,142 +217,6 @@
 			</conversion>
 		</definitions>
 		<!-- rtP parameters following -->
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Synchronism_P.Constant_Value">
-				<definitionLocation>
-					<baseRef identifier="Synchronism_P"/>
-					<memberRef identifier="Constant_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Synchronism_data.c"/>
-				<initValue value="1.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Synchronism.Counter.Reset_counter.Constant.Constant_Value">
-				<name>Constant_Value</name>
-				<modelLink href="Synchronism/Counter/Reset_counter/Constant"/>
-				<modelLocation>
-					<pathNode name="Synchronism" kind="mlsl:model"/>
-					<pathNode name="Counter" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Reset_counter" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Constant" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Synchronism_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Synchronism_P.Constant1_Value">
-				<definitionLocation>
-					<baseRef identifier="Synchronism_P"/>
-					<memberRef identifier="Constant1_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Synchronism_data.c"/>
-				<initValue value="200.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Synchronism.Constant1.Constant1_Value">
-				<name>Constant1_Value</name>
-				<modelLink href="Synchronism/Constant1"/>
-				<modelLocation>
-					<pathNode name="Synchronism" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Constant1" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Synchronism_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Synchronism_P.Constant_Value_e">
-				<definitionLocation>
-					<baseRef identifier="Synchronism_P"/>
-					<memberRef identifier="Constant_Value_e"/>
-				</definitionLocation>
-				<fileOrigin name="Synchronism_data.c"/>
-				<initValue value="1.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Synchronism.Counter.Constant.Constant_Value_e">
-				<name>Constant_Value_e</name>
-				<modelLink href="Synchronism/Counter/Constant"/>
-				<modelLocation>
-					<pathNode name="Synchronism" kind="mlsl:model"/>
-					<pathNode name="Counter" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Constant" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Synchronism_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Synchronism_P.DataStoreMemory_InitialValue">
-				<definitionLocation>
-					<baseRef identifier="Synchronism_P"/>
-					<memberRef identifier="DataStoreMemory_InitialValue"/>
-				</definitionLocation>
-				<fileOrigin name="Synchronism_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Synchronism.Opaque.DataStoreMemory_InitialValue">
-				<name>DataStoreMemory_InitialValue</name>
-				<modelLink href="Synchronism/Opaque"/>
-				<modelLocation>
-					<pathNode name="Synchronism" kind="mlsl:model"/>
-					<pathNode name="Counter" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Data Store Memory" kind="mlsl:block"/>
-					<pathNode name="InitialValue" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Synchronism_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
 		<!-- Constant parameters following -->
 		<!-- Exported global parameters following -->
 		<!-- Imported extern parameters following -->

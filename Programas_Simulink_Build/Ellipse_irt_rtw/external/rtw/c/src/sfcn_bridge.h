@@ -1,5 +1,5 @@
 /*
- * Copyright 1994-2017 The MathWorks, Inc.
+ * Copyright 1994-2021 The MathWorks, Inc.
  *
  * File: sfcn_bridge.h     
  *
@@ -225,11 +225,6 @@ typedef struct {
 #define ssGetSolverZcThreshold(S) \
    rtsiGetSolverZcThreshold(*(_RTSS(S)->siPtr))
 
-#undef ssGetSolverZeroCrossAlgorithm
-#define ssGetSolverZeroCrossAlgorithm(S) \
-   rtsiGetSolverZeroCrossAlgorithm(*(_RTSS(S)->siPtr))
-
-
 #undef ssGetSolverMaxConsecutiveZCs
 #define ssGetSolverMaxConsecutiveZCs(S) \
    rtsiGetSolverMaxConsecutiveZCs(*(_RTSS(S)->siPtr))
@@ -240,7 +235,11 @@ typedef struct {
 
 #undef ssGetSolverNumberNewtonIterations
 #define ssGetSolverNumberNewtonIterations(S) \
-   rtsiGetSolverNumberNewtonIterations(*(_RTSS(S)->siPtr))
+    rtsiGetSolverNumberNewtonIterations(*(_RTSS(S)->siPtr))
+
+#undef ssIsModeUpdateTimeStep
+#define ssIsModeUpdateTimeStep(S)              \
+    rtsiIsModeUpdateTimeStep(*(_RTSS(S)->siPtr))
 
 #undef ssGetSimTimeStep
 #define ssGetSimTimeStep(S) \
@@ -287,6 +286,19 @@ typedef struct {
 
 #endif 
 
+#undef ssIsSampleHitInTask
+#undef ssIsSpecialSampleHit
+
+#if SS_MULTITASKING
+#define ssIsSampleHitInTask(S, my_sti, tid) \
+    (ssGetPerTaskSampleHitsPtr(             \
+        S))[ssGetSampleTimeTaskID(S, my_sti) + ((tid) * (ssGetNumRootSampleTimes(S)))]
+#define ssIsSpecialSampleHit(S, my_sti, promoted_sti, tid) \
+    (ssIsMajorTimeStep(S) && ssIsSampleHitInTask(S, my_sti, ssGetSampleTimeTaskID(S, promoted_sti)))
+#else
+#define ssIsSpecialSampleHit(S, my_sti, promoted_sti, tid) ssIsSampleHit(S, my_sti, tid)
+#endif
+
 #undef  ssIsFirstInitCond
 #define ssIsFirstInitCond(S) (ssGetT(S)==ssGetTStart(S))
 
@@ -299,3 +311,6 @@ typedef struct {
 #endif /* __SFCN_BRIDGE_H__ */
 
 /* [EOF] sfcn_bridge.h */
+
+
+

@@ -1,4 +1,4 @@
-/* Copyright 1990-2017 The MathWorks, Inc. */
+/* Copyright 1990-2021 The MathWorks, Inc. */
 
 /*
  *
@@ -13,23 +13,23 @@
 #define __SIMSTRUC_TYPES_H__
 
 /** From R2017a onwards, by default, MEX-files build
-  * using the 64-bit matrix API.
-  * If you do not explicitly specify the -compatibleArrayDims flag with to build
-  * using the 32-bit matrix API, or the -largeArrayDims flag to build
-  * using 64-bit matrix API via the MEX command, then
-  * override the default behavior by defining MX_COMPAT_32
-  * explicitly. This applies only for code that 
-  * include simstruc.h
-  *
-  */
-#if defined(MATLAB_MEX_FILE) 
-    #if !defined(MX_COMPAT_32) && !defined(MX_COMPAT_64) && defined(USE_MEX_CMD) 
-        #if defined(tmwtypes_h)
-            forceCompilationError tmwtypesbeforesimstrucdetected;
-        #else
-            #define MX_COMPAT_32
-        #endif
-    #endif
+ * using the 64-bit matrix API.
+ * If you do not explicitly specify the -compatibleArrayDims flag with to build
+ * using the 32-bit matrix API, or the -largeArrayDims flag to build
+ * using 64-bit matrix API via the MEX command, then
+ * override the default behavior by defining MX_COMPAT_32
+ * explicitly. This applies only for code that
+ * include simstruc.h
+ *
+ */
+#if defined(MATLAB_MEX_FILE)
+#if !defined(MX_COMPAT_32) && !defined(MX_COMPAT_64) && defined(USE_MEX_CMD)
+#if defined(tmwtypes_h)
+forceCompilationError tmwtypesbeforesimstrucdetected;
+#else
+#define MX_COMPAT_32
+#endif
+#endif
 #include "tmwtypes.h"
 #else
 #include "rtwtypes.h"
@@ -37,12 +37,13 @@
 
 #include "sl_types_def.h"
 
+
 /* Additional types required for Simulink External Mode */
 #ifndef fcn_call_T
-# define fcn_call_T real_T
+#define fcn_call_T real_T
 #endif
 #ifndef action_T
-# define action_T real_T
+#define action_T real_T
 #endif
 
 
@@ -52,29 +53,27 @@
  *   accessed by the function body.
  */
 #ifndef UNUSED_PARAMETER
-# if defined(__LCC__)
-#   define UNUSED_PARAMETER(x)  /* do nothing */
-# else
+#if defined(__LCC__)
+#define UNUSED_PARAMETER(x) /* do nothing */
+#else
 /*
  * This is the semi-ANSI standard way of indicating that a
  * unused function parameter is required.
  */
-#   define UNUSED_PARAMETER(x) (void) (x)
-# endif
+#define UNUSED_PARAMETER(x) (void)(x)
+#endif
 #endif
 
-#define UNUSED_ARG(arg)  UNUSED_PARAMETER(arg)
+#define UNUSED_ARG(arg) UNUSED_PARAMETER(arg)
 
-typedef enum
-{
-    SS_SIMMODE_NORMAL,            /* Running a "normal" Simulink simulation     */
-    SS_SIMMODE_SIZES_CALL_ONLY,   /* Block edit eval to obtain number of ports  */
-    SS_SIMMODE_RTWGEN,            /* Generating code                            */
-    SS_SIMMODE_EXTERNAL          /* External mode simulation                   */
+typedef enum {
+    SS_SIMMODE_NORMAL,          /* Running a "normal" Simulink simulation     */
+    SS_SIMMODE_SIZES_CALL_ONLY, /* Block edit eval to obtain number of ports  */
+    SS_SIMMODE_RTWGEN,          /* Generating code                            */
+    SS_SIMMODE_EXTERNAL         /* External mode simulation                   */
 } SS_SimMode;
 
-typedef enum
-{
+typedef enum {
     SS_SIMTYPE_UNKNOWN = -1,
     SS_SIMTYPE_SIM,
     SS_SIMTYPE_MODEL_API,
@@ -84,29 +83,29 @@ typedef enum
 } SS_SimType;
 
 /* Must be used when SS_SimMode is SS_SIMMODE_RTWGEN */
-typedef enum
-{
+typedef enum {
     SS_RTWGEN_UNKNOWN,
-    SS_RTWGEN_RTW_CODE,           /* Code generation for RTW */
-    SS_RTWGEN_ACCELERATOR,         /* Code generation for accelerator */
+    SS_RTWGEN_RTW_CODE,                  /* Code generation for RTW */
+    SS_RTWGEN_ACCELERATOR,               /* Code generation for accelerator */
     SS_RTWGEN_MODELREFERENCE_SIM_TARGET, /*Code Generation for Model Reference Sim Target*/
-    SS_RTWGEN_MODELREFERENCE_RTW_TARGET /*Code Generation for Model Reference RTW Target*/
+    SS_RTWGEN_MODELREFERENCE_RTW_TARGET  /*Code Generation for Model Reference RTW Target*/
 } RTWGenMode;
 
 /*=====================================*
  * Simulation Status                   *
  *=====================================*/
 
-typedef enum
-{
+typedef enum {
     SIMSTATUS_STOPPED,
     SIMSTATUS_UPDATING,
     SIMSTATUS_INITIALIZING,
+    SIMSTATUS_RESTARTING,
     SIMSTATUS_RUNNING,
     SIMSTATUS_PAUSED_IN_DEBUGGER,
     SIMSTATUS_PAUSED,
     SIMSTATUS_TERMINATING,
     SIMSTATUS_COMPILED,
+
 
     /* Must be last */
     SIMSTATUS_EXTERNAL
@@ -123,62 +122,54 @@ typedef enum
  */
 typedef struct _rtTimingBridge_tag rtTimingBridge;
 
-struct _rtTimingBridge_tag
-{
+struct _rtTimingBridge_tag {
 
-    uint32_T     nTasks;
+    uint32_T nTasks;
 
-    uint32_T**   clockTick;
-    uint32_T**   clockTickH;
+    uint32_T** clockTick;
+    uint32_T** clockTickH;
 
-    uint32_T*    taskCounter;
+    uint32_T* taskCounter;
 
-    real_T**     taskTime;
+    real_T** taskTime;
 
-    boolean_T**  rateTransition;
+    boolean_T** rateTransition;
 
-    boolean_T    *firstInitCond;
+    boolean_T* firstInitCond;
 };
 
-typedef struct _rtVDRMdlRefTiming_tag rtVDRMdlRefTiming;
+typedef struct _rtCtrlRateMdlRefTiming_tag rtCtrlRateMdlRefTiming;
 
-struct _rtVDRMdlRefTiming_tag
-{
+struct _rtCtrlRateMdlRefTiming_tag {
 
-    uint32_T firstVDRTID;
-    uint32_T* numTicksToNextHitForVDR;
-
+    uint32_T firstCtrlRateTID;
+    uint32_T* numTicksToNextHitForCtrlRate;
 };
 
 #endif /* MODEL_REFERENCE_TYPES */
+
 
 #ifndef ZERO_CROSSING_TYPES_H
 #define ZERO_CROSSING_TYPES_H
 
 /* Trigger directions: falling, either, and rising */
-typedef enum
-{
+typedef enum {
     FALLING_ZERO_CROSSING = -1,
-    ANY_ZERO_CROSSING     = 0,
-    RISING_ZERO_CROSSING  = 1
+    ANY_ZERO_CROSSING = 0,
+    RISING_ZERO_CROSSING = 1
 } ZCDirection;
 
 /* Previous state of a trigger signal */
-typedef uint8_T  ZCSigState;
+typedef uint8_T ZCSigState;
 
 /* Initial value of a trigger zero crossing signal */
-#define    UNINITIALIZED_ZCSIG     0x03U
-#define    NEG_ZCSIG               0x02U
-#define    POS_ZCSIG               0x01U
-#define    ZERO_ZCSIG              0x00U
+#define UNINITIALIZED_ZCSIG 0x03U
+#define NEG_ZCSIG 0x02U
+#define POS_ZCSIG 0x01U
+#define ZERO_ZCSIG 0x00U
 
 /* Current state of a trigger signal */
-typedef enum
-{
-    FALLING_ZCEVENT = -1,
-    NO_ZCEVENT      = 0,
-    RISING_ZCEVENT  = 1
-} ZCEventType;
+typedef enum { FALLING_ZCEVENT = -1, NO_ZCEVENT = 0, RISING_ZCEVENT = 1 } ZCEventType;
 
 #endif /* ZERO_CROSSING_TYPES_H */
 
@@ -186,21 +177,25 @@ typedef enum
 #ifndef ZERO_CROSSING_EVENT_TYPES
 #define ZERO_CROSSING_EVENT_TYPES
 
-#define ZC_EVENT_NUL  0x00
-#define ZC_EVENT_N2P  0x01
-#define ZC_EVENT_N2Z  0x02
-#define ZC_EVENT_Z2P  0x04
-#define ZC_EVENT_P2N  0x08
-#define ZC_EVENT_P2Z  0x10
-#define ZC_EVENT_Z2N  0x20
-#define ZC_EVENT_ALL_UP  (ZC_EVENT_N2P | ZC_EVENT_N2Z | ZC_EVENT_Z2P )
-#define ZC_EVENT_ALL_DN  (ZC_EVENT_P2N | ZC_EVENT_P2Z | ZC_EVENT_Z2N )
-#define ZC_EVENT_ALL     (ZC_EVENT_ALL_UP | ZC_EVENT_ALL_DN )
+#define ZC_EVENT_NUL 0x00
+#define ZC_EVENT_N2P 0x01
+#define ZC_EVENT_N2Z 0x02
+#define ZC_EVENT_Z2P 0x04
+#define ZC_EVENT_P2N 0x08
+#define ZC_EVENT_P2Z 0x10
+#define ZC_EVENT_Z2N 0x20
+#define ZC_EVENT_ALL_UP (ZC_EVENT_N2P | ZC_EVENT_N2Z | ZC_EVENT_Z2P)
+#define ZC_EVENT_ALL_DN (ZC_EVENT_P2N | ZC_EVENT_P2Z | ZC_EVENT_Z2N)
+#define ZC_EVENT_ALL (ZC_EVENT_ALL_UP | ZC_EVENT_ALL_DN)
 
 #endif /* ZERO_CROSSING_EVENT_TYPES */
 
 #define SS_START_MTH_PORT_ACCESS_UNSET 2
+#ifdef IS_SIM_TARGET
+#include "rtw_matlogging_simtarget.h"
+#else
 #include "rtw_matlogging.h"
+#endif
 #include "rtw_extmode.h"
 #include "rtw_continuous.h"
 #include "rtw_solver.h"
@@ -211,15 +206,28 @@ typedef int_T CSignal_T;
 /* DimsInfo_T structure is for S-functions */
 #ifndef _DIMSINFO_T
 #define _DIMSINFO_T
-struct DimsInfo_tag
-{
-    int                        width;        /* number of elements    */
-    int                        numDims;      /* number of dimensions  */
-    int                        *dims;        /* dimensions            */
-    struct DimsInfo_tag        *nextSigDims; /* for composite signals */
+
+struct DimsInfo_tag {
+    int width;                        /* number of elements    */
+    int numDims;                      /* number of dimensions  */
+    int* dims;                        /* dimensions            */
+    struct DimsInfo_tag* nextSigDims; /* for composite signals */
 };
 
+/* SLSize version of DimsInfo_tag struct */
+struct DimsInfo_tag_SLSize {
+    int width;                               /* number of elements    */
+    int numDims;                             /* number of dimensions  */
+    int* dims;                               /* dimensions            */
+    struct DimsInfo_tag_SLSize* nextSigDims; /* for composite signals */
+};
+
+#if defined(SL_INTERNAL) || defined(SFCN64)
+typedef struct DimsInfo_tag_SLSize DimsInfo_T;
+#else
 typedef struct DimsInfo_tag DimsInfo_T;
+#endif
+
 
 typedef int_T ssFcnCallErr_T;
 
@@ -241,20 +249,18 @@ typedef int_T ssFcnCallErr_T;
  *    the specified name with type DimsInfo_T. The variable is initialized
  *    to DYNAMIC_DIMENSION.
  */
-#define DECL_AND_INIT_DIMSINFO(variableName)    \
-    DimsInfo_T variableName = {-1,-1,NULL,NULL}
+#define DECL_AND_INIT_DIMSINFO(variableName) DimsInfo_T variableName = {-1, -1, NULL, NULL}
 #endif /* _DIMSINFO_T */
 
 
 /*
  * Enumeration of work vector used as flag values.
  */
-typedef enum
-{
-    SS_DWORK_USED_AS_DWORK  = 0,  /* default */
-    SS_DWORK_USED_AS_DSTATE,      /* will be logged, loaded, etc */
-    SS_DWORK_USED_AS_SCRATCH,     /* will be reused */
-    SS_DWORK_USED_AS_MODE         /* replace mode with dwork */
+typedef enum {
+    SS_DWORK_USED_AS_DWORK = 0, /* default */
+    SS_DWORK_USED_AS_DSTATE,    /* will be logged, loaded, etc */
+    SS_DWORK_USED_AS_SCRATCH,   /* will be reused */
+    SS_DWORK_USED_AS_MODE       /* replace mode with dwork */
 } ssDWorkUsageType;
 
 #define SS_NUM_DWORK_USAGE_TYPES 3
@@ -262,13 +268,12 @@ typedef enum
 /*
  * DWork structure for S-Functions, one for each dwork.
  */
-struct _ssDWorkRecord
-{
-    int_T            width;
-    DTypeId          dataTypeId;
-    CSignal_T        complexSignal;
-    void             *array;
-    const char_T     *name;
+struct _ssDWorkRecord {
+    int_T width;
+    DTypeId dataTypeId;
+    CSignal_T complexSignal;
+    void* array;
+    const char_T* name;
     ssDWorkUsageType usedAs;
 };
 
@@ -281,17 +286,16 @@ struct _ssDWorkRecord
  * Lightweight structure for holding a real, sparse matrix
  * as used by the analytical Jacobian methods.
  */
-typedef struct SparseHeader_Tag
-{
-    int_T   mRows;                  /* number of rows   */
-    int_T   nCols;                  /* number of cols   */
-    int_T   nzMax;                  /* size of *pr, *ir */
-    int_T   *Ir;                    /* row indices      */
-    int_T   *Jc;                    /* column offsets   */
+typedef struct SparseHeader_Tag {
+    int_T mRows; /* number of rows   */
+    int_T nCols; /* number of cols   */
+    int_T nzMax; /* size of *pr, *ir */
+    int_T* Ir;   /* row indices      */
+    int_T* Jc;   /* column offsets   */
 #ifndef NO_FLOATS
-    real_T  *Pr;                    /* nonzero entries  */
+    real_T* Pr; /* nonzero entries  */
 #else
-    void    *Pr;
+    void* Pr;
 #endif
 } SparseHeader;
 
@@ -303,19 +307,19 @@ typedef struct SparseHeader_Tag
  * Let MT be synonym for MULTITASKING (to shorten command line for DOS)
  */
 #if defined(MT)
-# if MT == 0
-#   undef MT
-# else
-#   define MULTITASKING 1
-# endif
+#if MT == 0
+#undef MT
+#else
+#define MULTITASKING 1
+#endif
 #endif
 
 #if defined(MULTITASKING) && MULTITASKING == 0
-# undef MULTITASKING
+#undef MULTITASKING
 #endif
 
 #if defined(MULTITASKING) && !defined(TID01EQ)
-# define TID01EQ 0
+#define TID01EQ 0
 #endif
 
 /*
@@ -324,20 +328,18 @@ typedef struct SparseHeader_Tag
  * with equal rates).
  */
 #if defined(NUMST) && defined(MULTITASKING)
-# if NUMST == 1 || (NUMST == 2 && TID01EQ == 1)
-#  undef MULTITASKING
-# endif
+#if NUMST == 1 || (NUMST == 2 && TID01EQ == 1)
+#undef MULTITASKING
+#endif
 #endif
 
-typedef enum
-{
+typedef enum {
     SS_UNKNOWN_INTERPOLATION = -1,
     SS_ZOH_INTERPOLATION = 1,
     SS_LINEAR_INTERPOLATION = 2
 } SSLoggerInterpMethod;
 
-typedef enum
-{
+typedef enum {
     SS_MODEL_DATA_LOGS = 1,
     SS_DATASET_FORMAT = 2,
     SS_LOG_FORMAT_MIXED = 3,
@@ -353,22 +355,23 @@ typedef enum
 #ifndef SIMULINK_FUNCTION_TYPES
 #define SIMULINK_FUNCTION_TYPES
 typedef struct _ssFcnCallExecArgInfo_tag {
-    void       *dataPtr;
-    int_T       dataSize;
+    void* dataPtr;
+    int_T dataSize;
+    void* reserved;
 } _ssFcnCallExecArgInfo;
 
 typedef struct _ssFcnCallExecData_tag {
-    const char *fcnName;
-    void *reserved;
+    const char* fcnName;
+    void* reserved;
 } _ssFcnCallExecData;
 
 typedef struct _ssFcnCallExecArgs_tag {
-    int_T                  numInArgs;
-    int_T                  numOutArgs;
-    _ssFcnCallExecArgInfo  *inArgs;
-    _ssFcnCallExecArgInfo  *outArgs;
-    _ssFcnCallExecData     *execData;
-    void                   *reserved;
+    int_T numInArgs;
+    int_T numOutArgs;
+    _ssFcnCallExecArgInfo* inArgs;
+    _ssFcnCallExecArgInfo* outArgs;
+    _ssFcnCallExecData* execData;
+    void* reserved;
 } _ssFcnCallExecArgs;
 
 typedef _ssFcnCallExecArgs ssFcnCallExecArgs;

@@ -1,5 +1,44 @@
+/* Published header for libmat, the mat library.
+   Copyright 1984-2018 The MathWorks, Inc.
+   This file containes types, macros, and declarations necessary to
+   interface MEX files with the current version of MATLAB.
+   
+   See the release notes for information on supporting earlier versions. */
+
+#ifndef mat_h
+#define mat_h
+
+#include "matrix.h"
+
+#if defined(TARGET_API_VERSION)
+#if !(TARGET_API_VERSION == 700 || TARGET_API_VERSION == 800)
+#error invalid TARGET_VERSION_API definition
+#elif defined(MEX_DOUBLE_HANDLE) && TARGET_API_VERSION != 700
+#error It is illegal to use MEX_DOUBLE_HANDLE with linear versioning
+#elif defined(MX_COMPAT_32) && TARGET_API_VERSION != 700
+#error It is illegal to use MX_COMPAT_32 with linear versioning
+#endif
+#endif
+
+
+#if TARGET_API_VERSION == 800
+
+#define matOpen matOpen_800
+#define matClose matClose_800
+#define matGetFp matGetFp_800
+#define matPutVariable matPutVariable_800
+#define matPutVariableAsGlobal matPutVariableAsGlobal_800
+#define matGetVariable matGetVariable_800
+#define matGetNextVariable matGetNextVariable_800
+#define matGetNextVariableInfo matGetNextVariableInfo_800
+#define matGetVariableInfo matGetVariableInfo_800
+#define matDeleteVariable matDeleteVariable_800
+#define matGetDir matGetDir_800
+#define matGetErrno matGetErrno_800
+
+#endif /* TARGET_API_VERSION */
 /*
- * Copyright 1984-2014 The MathWorks, Inc.
+ * Copyright 1984-2018 The MathWorks, Inc.
  * All Rights Reserved.
  */
 
@@ -8,6 +47,10 @@
 #endif
 #if defined(__GNUC__) && (__GNUC__ > 3 || (__GNUC__ == 3 && __GNUC_MINOR__ > 3))
 # pragma once
+#endif
+
+#ifdef mat_core_api_h
+#error the published and developer mat APIs cannot be combined
 #endif
 
 #ifndef mat_published_c_api_h
@@ -68,6 +111,11 @@ EXTERN_C LIBMAT_API MATFile* matOpen(const char *filename, const char * mode);
  * Return zero for success, EOF on error.
  */
 EXTERN_C LIBMAT_API matError matClose(MATFile *pMF);
+
+/*
+ * Return zero if MATFile is successfully openedno error, nonzero value otherwise.
+ */
+EXTERN_C LIBMAT_API matError matGetErrno(MATFile *pMF);
 
 
 /*
@@ -183,3 +231,5 @@ EXTERN_C LIBMAT_API matError matDeleteVariable(MATFile *pMF, const char *name);
 EXTERN_C LIBMAT_API char ** matGetDir(MATFile * pMF, int *num);
 
 #endif /* mat_published_c_api_h */
+
+#endif /* mat_h */

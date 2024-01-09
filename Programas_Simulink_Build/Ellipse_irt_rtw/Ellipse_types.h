@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ellipse".
  *
- * Model version              : 1.13
- * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Sat Jun 10 10:43:30 2023
+ * Model version              : 10.2
+ * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
+ * C source code generated on : Tue Nov 21 19:00:57 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -20,6 +20,8 @@
 
 #ifndef RTW_HEADER_Ellipse_types_h_
 #define RTW_HEADER_Ellipse_types_h_
+
+/* Model Code Variants */
 
 /* Forward declaration for rtModel */
 typedef struct tag_RTM_Ellipse_T RT_MODEL_Ellipse_T;

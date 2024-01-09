@@ -7,9 +7,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 1.57
- * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Wed Mar 29 12:56:28 2023
+ * Model version              : 10.3
+ * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
+ * C source code generated on : Tue Nov 21 18:26:05 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -21,12 +21,13 @@
 #ifndef RTW_HEADER_Car_State_private_h_
 #define RTW_HEADER_Car_State_private_h_
 #include "rtwtypes.h"
+#include "builtin_typeid_types.h"
 #include "multiword_types.h"
 #include "zero_crossing_types.h"
 #include "Car_State.h"
 
-extern void Car_State_TRUE(real_T *rty_u, P_TRUE_Car_State_T *localP);
-extern void Car_State_FALSE(real_T *rty_u, P_FALSE_Car_State_T *localP);
-extern void Car_State_Failure(real_T *rty_u, P_Failure_Car_State_T *localP);
+extern void Car_State_TRUE(real_T *rty_u);
+extern void Car_State_FALSE(real_T *rty_u);
+extern void Car_State_Failure(real_T *rty_u);
 
 #endif                                 /* RTW_HEADER_Car_State_private_h_ */

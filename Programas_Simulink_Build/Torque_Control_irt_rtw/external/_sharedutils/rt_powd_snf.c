@@ -1,5 +1,5 @@
 /*
- * C:\Users\dwegg\Desktop\ETAS-main\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\rt_powd_snf.c
+ * rt_powd_snf.c
  *
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
@@ -7,27 +7,27 @@
  *
  * Code generation for model "Inverters_Data".
  *
- * Model version              : 1.51
- * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Wed Mar 29 12:58:24 2023
+ * Model version              : 10.0
+ * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
+ * C source code generated on : Fri Nov 17 17:14:23 2023
  * Created for block: Inverters_Data
  */
 
 #include "rtwtypes.h"
-#include "rtGetNaN.h"
-#include "rt_nonfinite.h"
-#include "rtGetInf.h"
-#include <math.h>
 #include "rt_powd_snf.h"
+#include "rt_nonfinite.h"
+#include <math.h>
+#include "rtGetNaN.h"
+#include "rtGetInf.h"
 
 real_T rt_powd_snf(real_T u0, real_T u1)
 {
   real_T y;
-  real_T tmp;
-  real_T tmp_0;
   if (rtIsNaN(u0) || rtIsNaN(u1)) {
     y = (rtNaN);
   } else {
+    real_T tmp;
+    real_T tmp_0;
     tmp = fabs(u0);
     tmp_0 = fabs(u1);
     if (rtIsInf(u1)) {

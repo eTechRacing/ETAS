@@ -1,5 +1,5 @@
 /*
- * Copyright 1984-2012 The MathWorks, Inc.
+ * Copyright 1984-2021 The MathWorks, Inc.
  * All Rights Reserved.
  */
 
@@ -17,6 +17,8 @@
 
 #ifndef refblas_h
 #define refblas_h
+
+#include <stddef.h>
 
 #if defined(_WIN32) || defined(__hpux)
 #define FORTRAN_WRAPPER(x) x
@@ -58,12 +60,8 @@ extern void ccopy(
 
 /* Source: cdotc.f */
 #define cdotc FORTRAN_WRAPPER(cdotc)
-#ifndef FORTRAN_COMPLEX_FUNCTIONS_RETURN_VOID
-extern complex cdotc(
-#else
 extern void cdotc(
     complex* retval,
-#endif 
     const ptrdiff_t *n,
     const float  *cx,
     const ptrdiff_t *incx,
@@ -73,12 +71,8 @@ extern void cdotc(
 
 /* Source: cdotu.f */
 #define cdotu FORTRAN_WRAPPER(cdotu)
-#ifndef FORTRAN_COMPLEX_FUNCTIONS_RETURN_VOID
-extern complex cdotu(
-#else
 extern void cdotu(
     complex* retval,
-#endif 
     const ptrdiff_t *n,
     const float  *cx,
     const ptrdiff_t *incx,
@@ -1019,11 +1013,7 @@ extern ptrdiff_t lsame(
 
 /* Source: sasum.f */
 #define sasum FORTRAN_WRAPPER(sasum)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double sasum(
-#else
 extern float sasum(
-#endif 
     const ptrdiff_t *n,
     const float  *sx,
     const ptrdiff_t *incx
@@ -1042,11 +1032,7 @@ extern void saxpy(
 
 /* Source: scasum.f */
 #define scasum FORTRAN_WRAPPER(scasum)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double scasum(
-#else
 extern float scasum(
-#endif 
     const ptrdiff_t *n,
     const float  *cx,
     const ptrdiff_t *incx
@@ -1054,11 +1040,7 @@ extern float scasum(
 
 /* Source: scnrm2.f */
 #define scnrm2 FORTRAN_WRAPPER(scnrm2)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double scnrm2(
-#else
 extern float scnrm2(
-#endif 
     const ptrdiff_t *n,
     const float  *x,
     const ptrdiff_t *incx
@@ -1076,11 +1058,7 @@ extern void scopy(
 
 /* Source: sdot.f */
 #define sdot FORTRAN_WRAPPER(sdot)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double sdot(
-#else
 extern float sdot(
-#endif 
     const ptrdiff_t *n,
     const float  *sx,
     const ptrdiff_t *incx,
@@ -1090,11 +1068,7 @@ extern float sdot(
 
 /* Source: sdsdot.f */
 #define sdsdot FORTRAN_WRAPPER(sdsdot)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double sdsdot(
-#else
 extern float sdsdot(
-#endif 
     const ptrdiff_t *n,
     const float  *sb,
     const float  *sx,
@@ -1171,11 +1145,7 @@ extern void sger(
 
 /* Source: snrm2.f */
 #define snrm2 FORTRAN_WRAPPER(snrm2)
-#ifdef FORTRAN_FLOAT_FUNCTIONS_RETURN_DOUBLE
-extern double snrm2(
-#else
 extern float snrm2(
-#endif 
     const ptrdiff_t *n,
     const float  *x,
     const ptrdiff_t *incx
@@ -1500,6 +1470,15 @@ extern void strsv(
 #define xerbla FORTRAN_WRAPPER(xerbla)
 extern void xerbla(
     const char   *srname,
+    const ptrdiff_t *info,
+    const ptrdiff_t srname_len
+);
+
+/* Source: xerbla_array.f */
+#define xerbla_array FORTRAN_WRAPPER(xerbla_array)
+extern void xerbla_array(
+    const char   *srname_array,
+    const ptrdiff_t *srname_len,
     const ptrdiff_t *info
 );
 
@@ -1526,12 +1505,8 @@ extern void zcopy(
 
 /* Source: zdotc.f */
 #define zdotc FORTRAN_WRAPPER(zdotc)
-#ifndef FORTRAN_COMPLEX_FUNCTIONS_RETURN_VOID
-extern doublecomplex zdotc(
-#else
 extern void zdotc(
     doublecomplex* retval,
-#endif 
     const ptrdiff_t *n,
     const double *zx,
     const ptrdiff_t *incx,
@@ -1541,12 +1516,8 @@ extern void zdotc(
 
 /* Source: zdotu.f */
 #define zdotu FORTRAN_WRAPPER(zdotu)
-#ifndef FORTRAN_COMPLEX_FUNCTIONS_RETURN_VOID
-extern doublecomplex zdotu(
-#else
 extern void zdotu(
     doublecomplex* retval,
-#endif 
     const ptrdiff_t *n,
     const double *zx,
     const ptrdiff_t *incx,

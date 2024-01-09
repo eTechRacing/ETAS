@@ -2,51 +2,50 @@
 <!DOCTYPE module [
     <!ENTITY szlig "&#223;">
     <!ENTITY copy "&#169;">
-    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/common/baseTypes-mlsl.six'>
+    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/baseTypes-mlsl.six'>
     ]>
-<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/common/showSCOOP-IX.xsl"?>
+<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/showSCOOP-IX.xsl"?>
 <!--
 <h1>SCOOP-IX</h1>
 <p>
     <strong>Copyright &copy; 2014 ETAS GmbH</strong>, Borsigstra&szlig;e 14, D-70469 Stuttgart. <em>All rights reserved.</em>
 </p>
 -->
-<module xmlns="http://www.etas.com/scoop-ix/1.4" xmlns:ix="http://www.etas.com/scoop-ix/1.4" xmlns:mlsl="http://www.etas.com/scoop-ix/1.4/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.4
-        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO4.7\SCOOP-IX\1.2/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
-	<directoryLocations scheme="MATLAB 9.3">
-		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO4.7\MATLAB\"/>
+<module xmlns="http://www.etas.com/scoop-ix/1.5" xmlns:ix="http://www.etas.com/scoop-ix/1.5" xmlns:mlsl="http://www.etas.com/scoop-ix/1.5/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.5
+        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
+	<directoryLocations scheme="MATLAB 9.12">
+		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\"/>
 		<directory identifier="toolDir" path=".\"/>
-		<directory identifier="modelDir" path="C:\Users\dwegg\Desktop\ETAS-main\ETAS\Programas_Simulink\"/>
-		<directory identifier="codeDir" path="c:\users\dwegg\desktop\etas-main\etas\programas_simulink_build\racing_mode_irt_rtw\"/>
+		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink\"/>
+		<directory identifier="codeDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\Racing_Mode_irt_rtw\"/>
 	</directoryLocations>
 	<moduleInfo identifier="Racing_Mode">
 		<name>Racing_Mode</name>
-		<modelLink href="mlsl://&quot;{{modelDir}}Racing_Mode.slx&quot;"/>
-		<version major="1" minor="14"/>
+		<modelLink href="mlsl:///&quot;{{modelDir}}Racing_Mode.slx&quot;"/>
+		<version major="10" minor="0"/>
 		<dateTime kind="created" year="2021" month="3" day="1" hour="15" minute="0" second="15"/>
-		<dateTime kind="lastModified" year="2023" month="3" day="10" hour="12" minute="47" second="59"/>
+		<dateTime kind="lastModified" year="2023" month="11" day="17" hour="17" minute="8" second="35"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
 			<application domain="softwareDevelopment" addressesAvailable="false" nestedDataStructuresAvailable="true"/>
 		</suitability>
-		<user lastName="joanv" role="modifier"/>
+		<user lastName="joser" role="modifier"/>
 		<creators>
 			<user lastName="cspt" role="creator"/>
 			<tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
-				<version major="9" minor="3" year="2017" month="7" day="24" info="R2017b"/>
+				<version major="9" minor="12" year="2021" month="11" day="13" info="R2022a"/>
 			</tool>
 			<tool kind="modeler" vendor="The Mathworks, Inc." name="Simulink">
-				<version major="9" minor="0" year="2017" month="7" day="24" info="R2017b"/>
+				<version major="10" minor="5" year="2021" month="11" day="13" info="R2022a"/>
 			</tool>
 			<tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
-				<version major="9" minor="0" year="2017" month="7" day="24" info="R2017b"/>
 			</tool>
 			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
-				<version major="8" minor="13" year="2017" month="7" day="24" info="R2017b"/>
+				<version major="9" minor="7" year="2021" month="11" day="13" info="R2022a"/>
 				<mode name="target" value="INTECRIO Real-Time Target"/>
 				<configuration>
-					<option identifier="InlineParameters">2</option>
+					<option identifier="InlineParameters">1</option>
 					<option identifier="InlineInvariantSignals">0</option>
 					<option identifier="Solver">FixedStepDiscrete</option>
 					<option identifier="SolverType">FixedStep</option>
@@ -55,10 +54,9 @@
 				</configuration>
 			</tool>
 			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="MATLAB Coder">
-				<version major="3" minor="4" year="2017" month="7" day="24" info="R2017b"/>
+				<version major="5" minor="4" year="2021" month="11" day="13" info="R2022a"/>
 			</tool>
 			<tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
-				<version major="4" minor="7" year="2018" month="1" day="1"/>
 				<configuration>
 					<option identifier="SCOOPIXFileName"><![CDATA[Racing_Mode.six]]></option>
 					<option identifier="ExternalMode">0</option>
@@ -71,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2023" month="3" day="29" hour="13" minute="0" second="7"/>
+		<dateTime kind="created" year="2023" month="11" day="17" hour="17" minute="14" second="43"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -127,7 +125,6 @@
 					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\src\]]></option>
 					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\libsrc\]]></option>
 					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\_sharedutils\]]></option>
-					<!-- S-Function specific includes directories -->
 				</configuration>
 			</tool>
 		</target>
@@ -141,7 +138,6 @@
 		<file name="Racing_Mode.c" kind="body"/>
 		<file name="Racing_Mode_private.h" kind="header"/>
 		<file name="rtmodel.h" kind="header"/>
-		<file name="Racing_Mode_data.c" kind="body"/>
 		<file name="Racing_Mode_main.c" kind="body"/>
 		<!-- Additionally registered model specific source files -->
 		<file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body"/>
@@ -150,12 +146,13 @@
 		<file name="rtwSharedLib.lib" kind="symbolicLibrary"/>
 		<!-- Additional files -->
 	</fileContainer>
+	<fileContainer constitution="referencedModels">
+	</fileContainer>
 	<interface>
-		<modelLinkBase href="mlsl://{{modelDir}}Racing_Mode.slx?"/>
+		<modelLinkBase href="mlsl:///{{modelDir}}Racing_Mode.slx?"/>
 		<pathBase path="{{codeDir}}"/>
 		<fileOrigin name="rt_nonfinite.c"/>
 		<fileOrigin name="Racing_Mode.c"/>
-		<fileOrigin name="Racing_Mode_data.c"/>
 		<fileOrigin name="Racing_Mode_main.c"/>
 		<headerFile name="Racing_Mode.h"/>
 		<headerFile name="Racing_Mode_private.h"/>
@@ -163,379 +160,6 @@
 		<!-- "import" MATLAB/Simulink base type and complex struct definitions via external entity -->
 		&baseTypes-mlsl;
 		<definitions>
-			<structDef name="_P_WorkshopTest01_Racing_Mode_T">
-				<fileOrigin name="Racing_Mode.h"/>
-				<structMember identifier="Apps_Sat_Dwn_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0.2 -- Referenced by: '&lt;S7&gt;/Apps_Sat_Dwn'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Apps_Sat_Up_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0.8 -- Referenced by: '&lt;S7&gt;/Apps_Sat_Up'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="CKF_Initial_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0.9 -- Referenced by: '&lt;S7&gt;/CKF_Initial'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Cte_CKF_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0.98 -- Referenced by: '&lt;S7&gt;/Cte_CKF'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Cte_SKF_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0.98 -- Referenced by: '&lt;S7&gt;/Cte_SKF'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="K_Reduction_P_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0.5 -- Referenced by: '&lt;S7&gt;/K_Reduction_P'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="K_Reduction_Temperature_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0.6 -- Referenced by: '&lt;S7&gt;/K_Reduction_Temperature'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Max_Regenerative_Torque_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 10 -- Referenced by: '&lt;S7&gt;/Max_Regenerative_Torque'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="SKF_Initial_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0.9 -- Referenced by: '&lt;S7&gt;/SKF_Initial'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Power_Limit_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 1 -- Referenced by: '&lt;S7&gt;/Power_Limit'
-  </documentation>
-					</annotation>
-				</structMember>
-			</structDef>
-			<typeDef name="P_WorkshopTest01_Racing_Mode_T">
-				<struct/><typeRef name="_P_WorkshopTest01_Racing_Mode_T"/>
-				<fileOrigin name="Racing_Mode_types.h"/>
-				<annotation>
-					<documentation>Type of parameters data structure for system '&lt;Root&gt;/Workshop Test (01)'.</documentation>
-				</annotation>
-			</typeDef>
-			<structDef name="_P_SKF_Initial_Racing_Mode_T">
-				<fileOrigin name="Racing_Mode.h"/>
-				<structMember identifier="Out1_Y0">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Computed Parameter: Out1_Y0 -- Referenced by: '&lt;S17&gt;/Out1'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Gain_Gain">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 1/1000 -- Referenced by: '&lt;S17&gt;/Gain'
-  </documentation>
-					</annotation>
-				</structMember>
-			</structDef>
-			<typeDef name="P_SKF_Initial_Racing_Mode_T">
-				<struct/><typeRef name="_P_SKF_Initial_Racing_Mode_T"/>
-				<fileOrigin name="Racing_Mode_types.h"/>
-				<annotation>
-					<documentation>Type of parameters data structure for system '&lt;S2&gt;/SKF_Initial'.</documentation>
-				</annotation>
-			</typeDef>
-			<structDef name="_P_Max_Regenerative_Torque_Rac_T">
-				<fileOrigin name="Racing_Mode.h"/>
-				<structMember identifier="Out1_Y0">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Computed Parameter: Out1_Y0 -- Referenced by: '&lt;S15&gt;/Out1'
-  </documentation>
-					</annotation>
-				</structMember>
-			</structDef>
-			<typeDef name="P_Max_Regenerative_Torque_Rac_T">
-				<struct/><typeRef name="_P_Max_Regenerative_Torque_Rac_T"/>
-				<fileOrigin name="Racing_Mode_types.h"/>
-				<annotation>
-					<documentation>Type of parameters data structure for system '&lt;S2&gt;/Max_Regenerative_Torque'.</documentation>
-				</annotation>
-			</typeDef>
-			<structDef name="_P_Racing_Mode_T">
-				<fileOrigin name="Racing_Mode.h"/>
-				<structMember identifier="CompareToConstant_const">
-					<type><typeRef name="uint8_T"/></type>
-					<annotation>
-						<documentation>Mask Parameter: CompareToConstant_const -- Referenced by: '&lt;S1&gt;/Constant'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="CEE_SKF_Initial_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;S6&gt;/CEE_SKF_Initial'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="CEE_CKF_Initial_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;S6&gt;/CEE_CKF_Initial'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="CEE_Cte_SKF_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;S6&gt;/CEE_Cte_SKF'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="CEE_Cte_CKF_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;S6&gt;/CEE_Cte_CKF'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="CEE_Apps_Sat_Dwn_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;S6&gt;/CEE_Apps_Sat_Dwn'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="CEE_Apps_Sat_Up_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;S6&gt;/CEE_Apps_Sat_Up'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="CEE_Max_Regenerative_Torque_Val">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;S6&gt;/CEE_Max_Regenerative_Torque'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="CEE_Power_Limit_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;S6&gt;/CEE_Power_Limit'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="CEE_K_Reduction_P_Value">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;S6&gt;/CEE_K_Reduction_P'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="CEE_K_Reduction_Temperature_Val">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;S6&gt;/CEE_K_Reduction_Temperature'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Merge_InitialOutput">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Computed Parameter: Merge_InitialOutput -- Referenced by: '&lt;Root&gt;/Merge'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="SKF_InitialSaturation_UpperSat">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0.9 -- Referenced by: '&lt;Root&gt;/SKF_Initial Saturation'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="SKF_InitialSaturation_LowerSat">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;Root&gt;/SKF_Initial Saturation'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="CKF_InitialSaturation_UpperSat">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0.9 -- Referenced by: '&lt;Root&gt;/CKF_Initial Saturation'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="CKF_InitialSaturation_LowerSat">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;Root&gt;/CKF_Initial Saturation'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Cte_SKFSaturation_UpperSat">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 1 -- Referenced by: '&lt;Root&gt;/Cte_SKF Saturation'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Cte_SKFSaturation_LowerSat">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;Root&gt;/Cte_SKF Saturation'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Cte_CKFSaturation_UpperSat">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 1 -- Referenced by: '&lt;Root&gt;/Cte_CKF Saturation'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Cte_CKFSaturation_LowerSat">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;Root&gt;/Cte_CKF Saturation'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Apps_Sat_DwnSaturation_UpperSat">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0.5 -- Referenced by: '&lt;Root&gt;/Apps_Sat_Dwn Saturation'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Apps_Sat_DwnSaturation_LowerSat">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;Root&gt;/Apps_Sat_Dwn Saturation'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Apps_Sat_UpSaturation_UpperSat">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 1 -- Referenced by: '&lt;Root&gt;/Apps_Sat_Up Saturation'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Apps_Sat_UpSaturation_LowerSat">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;Root&gt;/Apps_Sat_Up Saturation'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Max_Regenerative_TorqueSaturati">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 10 -- Referenced by: '&lt;Root&gt;/Max_Regenerative_Torque Saturation'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Max_Regenerative_TorqueSatura_o">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;Root&gt;/Max_Regenerative_Torque Saturation'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Power_LimitSaturation_UpperSat">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 77 -- Referenced by: '&lt;Root&gt;/Power_Limit Saturation'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Power_LimitSaturation_LowerSat">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;Root&gt;/Power_Limit Saturation'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="K_Reduction_PSaturation_UpperSa">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 1 -- Referenced by: '&lt;Root&gt;/K_Reduction_P Saturation'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="K_Reduction_PSaturation_LowerSa">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;Root&gt;/K_Reduction_P Saturation'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="K_Reduction_TemperatureSaturati">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 1 -- Referenced by: '&lt;Root&gt;/K_Reduction_Temperature Saturation'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="K_Reduction_TemperatureSatura_m">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>Expression: 0 -- Referenced by: '&lt;Root&gt;/K_Reduction_Temperature Saturation'
-  </documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Max_Regenerative_Torque">
-					<type><typeRef name="P_Max_Regenerative_Torque_Rac_T"/></type>
-					<annotation>
-						<documentation>&lt;S2&gt;/Max_Regenerative_Torque</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="SKF_Initial">
-					<type><typeRef name="P_SKF_Initial_Racing_Mode_T"/></type>
-					<annotation>
-						<documentation>&lt;S2&gt;/SKF_Initial</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="WorkshopTest01">
-					<type><typeRef name="P_WorkshopTest01_Racing_Mode_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Workshop Test (01)</documentation>
-					</annotation>
-				</structMember>
-			</structDef>
-			<typeDef name="P_Racing_Mode_T">
-				<struct/><typeRef name="_P_Racing_Mode_T"/>
-				<fileOrigin name="Racing_Mode_types.h"/>
-				<annotation>
-					<documentation>Parameters (auto storage)</documentation>
-				</annotation>
-			</typeDef>
 			<structDef name="_B_SKF_Initial_Racing_Mode_T">
 				<fileOrigin name="Racing_Mode.h"/>
 				<structMember identifier="Gain">
@@ -550,6 +174,22 @@
 				<fileOrigin name="Racing_Mode.h"/>
 				<annotation>
 					<documentation>Type of block signal data structure for system '&lt;S2&gt;/SKF_Initial'.</documentation>
+				</annotation>
+			</typeDef>
+			<structDef name="_B_Apps_Sat_Dwn_Racing_Mode_T">
+				<fileOrigin name="Racing_Mode.h"/>
+				<structMember identifier="Gain">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="B_Apps_Sat_Dwn_Racing_Mode_T">
+				<struct/><typeRef name="_B_Apps_Sat_Dwn_Racing_Mode_T"/>
+				<fileOrigin name="Racing_Mode.h"/>
+				<annotation>
+					<documentation>Type of block signal data structure for system '&lt;S2&gt;/Apps_Sat_Dwn'.</documentation>
 				</annotation>
 			</typeDef>
 			<structDef name="_B_Max_Regenerative_Torque_Rac_T">
@@ -576,61 +216,61 @@
 						<documentation>&lt;Root&gt;/Opaque</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="K_Reduction_Temperature">
-					<type><typeRef name="B_SKF_Initial_Racing_Mode_T"/></type>
+				<structMember identifier="K_Reduction_Temperature_h">
+					<type><typeRef name="B_Apps_Sat_Dwn_Racing_Mode_T"/></type>
 					<annotation>
 						<documentation>&lt;S2&gt;/K_Reduction_Temperature</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="K_Reduction_P">
-					<type><typeRef name="B_SKF_Initial_Racing_Mode_T"/></type>
+				<structMember identifier="K_Reduction_P_g">
+					<type><typeRef name="B_Apps_Sat_Dwn_Racing_Mode_T"/></type>
 					<annotation>
 						<documentation>&lt;S2&gt;/K_Reduction_P</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Power_Limit">
+				<structMember identifier="Power_Limit_g">
 					<type><typeRef name="B_Max_Regenerative_Torque_Rac_T"/></type>
 					<annotation>
 						<documentation>&lt;S2&gt;/Power_Limit</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Max_Regenerative_Torque">
+				<structMember identifier="Max_Regenerative_Torque_e">
 					<type><typeRef name="B_Max_Regenerative_Torque_Rac_T"/></type>
 					<annotation>
 						<documentation>&lt;S2&gt;/Max_Regenerative_Torque</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Apps_Sat_Up">
-					<type><typeRef name="B_SKF_Initial_Racing_Mode_T"/></type>
+				<structMember identifier="Apps_Sat_Up_p">
+					<type><typeRef name="B_Apps_Sat_Dwn_Racing_Mode_T"/></type>
 					<annotation>
 						<documentation>&lt;S2&gt;/Apps_Sat_Up</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Apps_Sat_Dwn">
-					<type><typeRef name="B_SKF_Initial_Racing_Mode_T"/></type>
+				<structMember identifier="Apps_Sat_Dwn_k">
+					<type><typeRef name="B_Apps_Sat_Dwn_Racing_Mode_T"/></type>
 					<annotation>
 						<documentation>&lt;S2&gt;/Apps_Sat_Dwn</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Cte_CKF">
+				<structMember identifier="Cte_CKF_o">
 					<type><typeRef name="B_SKF_Initial_Racing_Mode_T"/></type>
 					<annotation>
 						<documentation>&lt;S2&gt;/Cte_CKF</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Cte_SKF">
+				<structMember identifier="Cte_SKF_d">
 					<type><typeRef name="B_SKF_Initial_Racing_Mode_T"/></type>
 					<annotation>
 						<documentation>&lt;S2&gt;/Cte_SKF</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="CKF_Initial">
+				<structMember identifier="CKF_Initial_p">
 					<type><typeRef name="B_SKF_Initial_Racing_Mode_T"/></type>
 					<annotation>
 						<documentation>&lt;S2&gt;/CKF_Initial</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="SKF_Initial">
+				<structMember identifier="SKF_Initial_g">
 					<type><typeRef name="B_SKF_Initial_Racing_Mode_T"/></type>
 					<annotation>
 						<documentation>&lt;S2&gt;/SKF_Initial</documentation>
@@ -742,13 +382,6 @@
 				<struct/><typeRef name="ExtY_Racing_Mode_T_tag"/>
 				<fileOrigin name="Racing_Mode.h"/>
 			</typeDef>
-			<baseDef identifier="Racing_Mode_P">
-				<type><typeRef name="P_Racing_Mode_T"/></type>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<annotation>
-					<documentation>The rtP data structure for parameters.</documentation>
-				</annotation>
-			</baseDef>
 			<baseDef identifier="Racing_Mode_B">
 				<type><typeRef name="B_Racing_Mode_T"/></type>
 				<fileOrigin name="Racing_Mode.c"/>
@@ -770,7 +403,7 @@
 					<documentation>The rtY data structure for external outputs.</documentation>
 				</annotation>
 			</baseDef>
-			<conversion name="Racing_Mode_CM_uint8">
+			<conversion name="Racing_Mode_CM_double">
 				<rationalFunction>
 					<numerator bx="1.0"/>
 					<denominator f="1.0"/>
@@ -779,7 +412,7 @@
 					<documentation>Q = V</documentation>
 				</annotation>
 			</conversion>
-			<conversion name="Racing_Mode_CM_double">
+			<conversion name="Racing_Mode_CM_uint8">
 				<rationalFunction>
 					<numerator bx="1.0"/>
 					<denominator f="1.0"/>
@@ -799,1541 +432,6 @@
 			</conversion>
 		</definitions>
 		<!-- rtP parameters following -->
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.CompareToConstant_const">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="CompareToConstant_const"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="1.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Compare_nTo_Constant.Constant.CompareToConstant_const">
-				<name>CompareToConstant_const</name>
-				<modelLink href="Racing_Mode/Compare\nTo Constant/Constant"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model"/>
-					<pathNode name="Compare To Constant" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Constant" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="discrete" signedness="unsigned">
-					<valueRange min="0.0" max="255.0"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_uint8"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.CEE_SKF_Initial_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="CEE_SKF_Initial_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Tuning.CEE_SKF_Initial.CEE_SKF_Initial_Value">
-				<name>CEE_SKF_Initial_Value</name>
-				<modelLink href="Racing_Mode/Tuning/CEE_SKF_Initial"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model"/>
-					<pathNode name="Tuning" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="CEE_SKF_Initial" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.CEE_CKF_Initial_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="CEE_CKF_Initial_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Tuning.CEE_CKF_Initial.CEE_CKF_Initial_Value">
-				<name>CEE_CKF_Initial_Value</name>
-				<modelLink href="Racing_Mode/Tuning/CEE_CKF_Initial"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model"/>
-					<pathNode name="Tuning" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="CEE_CKF_Initial" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.CEE_Cte_SKF_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="CEE_Cte_SKF_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Tuning.CEE_Cte_SKF.CEE_Cte_SKF_Value">
-				<name>CEE_Cte_SKF_Value</name>
-				<modelLink href="Racing_Mode/Tuning/CEE_Cte_SKF"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model"/>
-					<pathNode name="Tuning" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="CEE_Cte_SKF" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.CEE_Cte_CKF_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="CEE_Cte_CKF_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Tuning.CEE_Cte_CKF.CEE_Cte_CKF_Value">
-				<name>CEE_Cte_CKF_Value</name>
-				<modelLink href="Racing_Mode/Tuning/CEE_Cte_CKF"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model"/>
-					<pathNode name="Tuning" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="CEE_Cte_CKF" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.CEE_Apps_Sat_Dwn_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="CEE_Apps_Sat_Dwn_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Tuning.CEE_Apps_Sat_Dwn.CEE_Apps_Sat_Dwn_Value">
-				<name>CEE_Apps_Sat_Dwn_Value</name>
-				<modelLink href="Racing_Mode/Tuning/CEE_Apps_Sat_Dwn"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model"/>
-					<pathNode name="Tuning" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="CEE_Apps_Sat_Dwn" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.CEE_Apps_Sat_Up_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="CEE_Apps_Sat_Up_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Tuning.CEE_Apps_Sat_Up.CEE_Apps_Sat_Up_Value">
-				<name>CEE_Apps_Sat_Up_Value</name>
-				<modelLink href="Racing_Mode/Tuning/CEE_Apps_Sat_Up"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model"/>
-					<pathNode name="Tuning" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="CEE_Apps_Sat_Up" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.CEE_Max_Regenerative_Torque_Val">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="CEE_Max_Regenerative_Torque_Val"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Tuning.CEE_Max_Regenerative_Torque.CEE_Max_Regenerative_Torque_Val">
-				<name>CEE_Max_Regenerative_Torque_Val</name>
-				<modelLink href="Racing_Mode/Tuning/CEE_Max_Regenerative_Torque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model"/>
-					<pathNode name="Tuning" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="CEE_Max_Regenerative_Torque" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.CEE_Power_Limit_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="CEE_Power_Limit_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Tuning.CEE_Power_Limit.CEE_Power_Limit_Value">
-				<name>CEE_Power_Limit_Value</name>
-				<modelLink href="Racing_Mode/Tuning/CEE_Power_Limit"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model"/>
-					<pathNode name="Tuning" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="CEE_Power_Limit" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.CEE_K_Reduction_P_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="CEE_K_Reduction_P_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Tuning.CEE_K_Reduction_P.CEE_K_Reduction_P_Value">
-				<name>CEE_K_Reduction_P_Value</name>
-				<modelLink href="Racing_Mode/Tuning/CEE_K_Reduction_P"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model"/>
-					<pathNode name="Tuning" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="CEE_K_Reduction_P" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.CEE_K_Reduction_Temperature_Val">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="CEE_K_Reduction_Temperature_Val"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Tuning.CEE_K_Reduction_Temperature.CEE_K_Reduction_Temperature_Val">
-				<name>CEE_K_Reduction_Temperature_Val</name>
-				<modelLink href="Racing_Mode/Tuning/CEE_K_Reduction_Temperature"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model"/>
-					<pathNode name="Tuning" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="CEE_K_Reduction_Temperature" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Merge_InitialOutput">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Merge_InitialOutput"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.Merge_InitialOutput">
-				<name>Merge_InitialOutput</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Merge" kind="mlsl:block"/>
-					<pathNode name="InitialOutput" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.SKF_InitialSaturation_UpperSat">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="SKF_InitialSaturation_UpperSat"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.9"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.SKF_InitialSaturation_UpperSat">
-				<name>SKF_InitialSaturation_UpperSat</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="SKF_Initial Saturation" kind="mlsl:block"/>
-					<pathNode name="UpperLimit" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.SKF_InitialSaturation_LowerSat">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="SKF_InitialSaturation_LowerSat"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.SKF_InitialSaturation_LowerSat">
-				<name>SKF_InitialSaturation_LowerSat</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="SKF_Initial Saturation" kind="mlsl:block"/>
-					<pathNode name="LowerLimit" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.CKF_InitialSaturation_UpperSat">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="CKF_InitialSaturation_UpperSat"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.9"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.CKF_InitialSaturation_UpperSat">
-				<name>CKF_InitialSaturation_UpperSat</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="CKF_Initial Saturation" kind="mlsl:block"/>
-					<pathNode name="UpperLimit" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.CKF_InitialSaturation_LowerSat">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="CKF_InitialSaturation_LowerSat"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.CKF_InitialSaturation_LowerSat">
-				<name>CKF_InitialSaturation_LowerSat</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="CKF_Initial Saturation" kind="mlsl:block"/>
-					<pathNode name="LowerLimit" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Cte_SKFSaturation_UpperSat">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Cte_SKFSaturation_UpperSat"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="1.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.Cte_SKFSaturation_UpperSat">
-				<name>Cte_SKFSaturation_UpperSat</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Cte_SKF Saturation" kind="mlsl:block"/>
-					<pathNode name="UpperLimit" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Cte_SKFSaturation_LowerSat">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Cte_SKFSaturation_LowerSat"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.Cte_SKFSaturation_LowerSat">
-				<name>Cte_SKFSaturation_LowerSat</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Cte_SKF Saturation" kind="mlsl:block"/>
-					<pathNode name="LowerLimit" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Cte_CKFSaturation_UpperSat">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Cte_CKFSaturation_UpperSat"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="1.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.Cte_CKFSaturation_UpperSat">
-				<name>Cte_CKFSaturation_UpperSat</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Cte_CKF Saturation" kind="mlsl:block"/>
-					<pathNode name="UpperLimit" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Cte_CKFSaturation_LowerSat">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Cte_CKFSaturation_LowerSat"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.Cte_CKFSaturation_LowerSat">
-				<name>Cte_CKFSaturation_LowerSat</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Cte_CKF Saturation" kind="mlsl:block"/>
-					<pathNode name="LowerLimit" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Apps_Sat_DwnSaturation_UpperSat">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Apps_Sat_DwnSaturation_UpperSat"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.5"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.Apps_Sat_DwnSaturation_UpperSat">
-				<name>Apps_Sat_DwnSaturation_UpperSat</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Apps_Sat_Dwn Saturation" kind="mlsl:block"/>
-					<pathNode name="UpperLimit" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Apps_Sat_DwnSaturation_LowerSat">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Apps_Sat_DwnSaturation_LowerSat"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.Apps_Sat_DwnSaturation_LowerSat">
-				<name>Apps_Sat_DwnSaturation_LowerSat</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Apps_Sat_Dwn Saturation" kind="mlsl:block"/>
-					<pathNode name="LowerLimit" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Apps_Sat_UpSaturation_UpperSat">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Apps_Sat_UpSaturation_UpperSat"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="1.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.Apps_Sat_UpSaturation_UpperSat">
-				<name>Apps_Sat_UpSaturation_UpperSat</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Apps_Sat_Up Saturation" kind="mlsl:block"/>
-					<pathNode name="UpperLimit" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Apps_Sat_UpSaturation_LowerSat">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Apps_Sat_UpSaturation_LowerSat"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.Apps_Sat_UpSaturation_LowerSat">
-				<name>Apps_Sat_UpSaturation_LowerSat</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Apps_Sat_Up Saturation" kind="mlsl:block"/>
-					<pathNode name="LowerLimit" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Max_Regenerative_TorqueSaturati">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Max_Regenerative_TorqueSaturati"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="10.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.Max_Regenerative_TorqueSaturati">
-				<name>Max_Regenerative_TorqueSaturati</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Max_Regenerative_Torque Saturation" kind="mlsl:block"/>
-					<pathNode name="UpperLimit" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Max_Regenerative_TorqueSatura_o">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Max_Regenerative_TorqueSatura_o"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.Max_Regenerative_TorqueSatura_o">
-				<name>Max_Regenerative_TorqueSatura_o</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Max_Regenerative_Torque Saturation" kind="mlsl:block"/>
-					<pathNode name="LowerLimit" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Power_LimitSaturation_UpperSat">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Power_LimitSaturation_UpperSat"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="77.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.Power_LimitSaturation_UpperSat">
-				<name>Power_LimitSaturation_UpperSat</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Power_Limit Saturation" kind="mlsl:block"/>
-					<pathNode name="UpperLimit" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Power_LimitSaturation_LowerSat">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Power_LimitSaturation_LowerSat"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.Power_LimitSaturation_LowerSat">
-				<name>Power_LimitSaturation_LowerSat</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Power_Limit Saturation" kind="mlsl:block"/>
-					<pathNode name="LowerLimit" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.K_Reduction_PSaturation_UpperSa">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="K_Reduction_PSaturation_UpperSa"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="1.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.K_Reduction_PSaturation_UpperSa">
-				<name>K_Reduction_PSaturation_UpperSa</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="K_Reduction_P Saturation" kind="mlsl:block"/>
-					<pathNode name="UpperLimit" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.K_Reduction_PSaturation_LowerSa">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="K_Reduction_PSaturation_LowerSa"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.K_Reduction_PSaturation_LowerSa">
-				<name>K_Reduction_PSaturation_LowerSa</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="K_Reduction_P Saturation" kind="mlsl:block"/>
-					<pathNode name="LowerLimit" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.K_Reduction_TemperatureSaturati">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="K_Reduction_TemperatureSaturati"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="1.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.K_Reduction_TemperatureSaturati">
-				<name>K_Reduction_TemperatureSaturati</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="K_Reduction_Temperature Saturation" kind="mlsl:block"/>
-					<pathNode name="UpperLimit" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.K_Reduction_TemperatureSatura_m">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="K_Reduction_TemperatureSatura_m"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Opaque.K_Reduction_TemperatureSatura_m">
-				<name>K_Reduction_TemperatureSatura_m</name>
-				<modelLink href="Racing_Mode/Opaque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="K_Reduction_Temperature Saturation" kind="mlsl:block"/>
-					<pathNode name="LowerLimit" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Endurance5Driver22.Apps_Sat_Dwn_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Endurance5Driver22"/>
-					<memberRef identifier="Apps_Sat_Dwn_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Workshop_Test__01_.Apps_Sat_Dwn.Apps_Sat_Dwn_Value">
-				<name>Apps_Sat_Dwn_Value</name>
-				<modelLink href="Racing_Mode/Workshop Test (01)/Apps_Sat_Dwn"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Driver 2 Modes (22,32,42,52)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Endurance (5). Driver 2 (2)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Apps_Sat_Dwn" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Endurance5Driver22.Apps_Sat_Up_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Endurance5Driver22"/>
-					<memberRef identifier="Apps_Sat_Up_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="1.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Workshop_Test__01_.Apps_Sat_Up.Apps_Sat_Up_Value">
-				<name>Apps_Sat_Up_Value</name>
-				<modelLink href="Racing_Mode/Workshop Test (01)/Apps_Sat_Up"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Driver 2 Modes (22,32,42,52)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Endurance (5). Driver 2 (2)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Apps_Sat_Up" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Endurance5Driver22.CKF_Initial_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Endurance5Driver22"/>
-					<memberRef identifier="CKF_Initial_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.4"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Workshop_Test__01_.CKF_Initial.CKF_Initial_Value">
-				<name>CKF_Initial_Value</name>
-				<modelLink href="Racing_Mode/Workshop Test (01)/CKF_Initial"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Driver 2 Modes (22,32,42,52)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Endurance (5). Driver 2 (2)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="CKF_Initial" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Endurance5Driver22.Cte_CKF_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Endurance5Driver22"/>
-					<memberRef identifier="Cte_CKF_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.98"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Workshop_Test__01_.Cte_CKF.Cte_CKF_Value">
-				<name>Cte_CKF_Value</name>
-				<modelLink href="Racing_Mode/Workshop Test (01)/Cte_CKF"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Driver 2 Modes (22,32,42,52)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Endurance (5). Driver 2 (2)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Cte_CKF" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Endurance5Driver22.Cte_SKF_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Endurance5Driver22"/>
-					<memberRef identifier="Cte_SKF_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.98"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Workshop_Test__01_.Cte_SKF.Cte_SKF_Value">
-				<name>Cte_SKF_Value</name>
-				<modelLink href="Racing_Mode/Workshop Test (01)/Cte_SKF"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Driver 2 Modes (22,32,42,52)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Endurance (5). Driver 2 (2)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Cte_SKF" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Endurance5Driver22.K_Reduction_P_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Endurance5Driver22"/>
-					<memberRef identifier="K_Reduction_P_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.2"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Workshop_Test__01_.K_Reduction_P.K_Reduction_P_Value">
-				<name>K_Reduction_P_Value</name>
-				<modelLink href="Racing_Mode/Workshop Test (01)/K_Reduction_P"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Driver 2 Modes (22,32,42,52)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Endurance (5). Driver 2 (2)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="K_Reduction_P" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Endurance5Driver22.K_Reduction_Temperature_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Endurance5Driver22"/>
-					<memberRef identifier="K_Reduction_Temperature_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.6"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Workshop_Test__01_.K_Reduction_Temperature.K_Reduction_Temperature_Value">
-				<name>K_Reduction_Temperature_Value</name>
-				<modelLink href="Racing_Mode/Workshop Test (01)/K_Reduction_Temperature"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Driver 2 Modes (22,32,42,52)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Endurance (5). Driver 2 (2)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="K_Reduction_Temperature" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Endurance5Driver22.Max_Regenerative_Torque_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Endurance5Driver22"/>
-					<memberRef identifier="Max_Regenerative_Torque_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="1000.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Workshop_Test__01_.Max_Regenerative_Torque.Max_Regenerative_Torque_Value">
-				<name>Max_Regenerative_Torque_Value</name>
-				<modelLink href="Racing_Mode/Workshop Test (01)/Max_Regenerative_Torque"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Driver 2 Modes (22,32,42,52)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Endurance (5). Driver 2 (2)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Max_Regenerative_Torque" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Endurance5Driver22.SKF_Initial_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Endurance5Driver22"/>
-					<memberRef identifier="SKF_Initial_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.5"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Workshop_Test__01_.SKF_Initial.SKF_Initial_Value">
-				<name>SKF_Initial_Value</name>
-				<modelLink href="Racing_Mode/Workshop Test (01)/SKF_Initial"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Driver 2 Modes (22,32,42,52)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Endurance (5). Driver 2 (2)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="SKF_Initial" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.Endurance5Driver22.Power_Limit_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="Endurance5Driver22"/>
-					<memberRef identifier="Power_Limit_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="80.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Workshop_Test__01_.Power_Limit.Power_Limit_Value">
-				<name>Power_Limit_Value</name>
-				<modelLink href="Racing_Mode/Workshop Test (01)/Power_Limit"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Driver 2 Modes (22,32,42,52)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Endurance (5). Driver 2 (2)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Power_Limit" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.AutoX4Driver22.Apps_Sat_Dwn_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="AutoX4Driver22"/>
-					<memberRef identifier="Apps_Sat_Dwn_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Workshop_Test__01_.Apps_Sat_Dwn.Apps_Sat_Dwn_Value">
-				<name>Apps_Sat_Dwn_Value</name>
-				<modelLink href="Racing_Mode/Workshop Test (01)/Apps_Sat_Dwn"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Driver 2 Modes (22,32,42,52)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="AutoX (4). Driver 2 (2)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Apps_Sat_Dwn" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.AutoX4Driver22.Apps_Sat_Up_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="AutoX4Driver22"/>
-					<memberRef identifier="Apps_Sat_Up_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="1.0"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Workshop_Test__01_.Apps_Sat_Up.Apps_Sat_Up_Value">
-				<name>Apps_Sat_Up_Value</name>
-				<modelLink href="Racing_Mode/Workshop Test (01)/Apps_Sat_Up"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Driver 2 Modes (22,32,42,52)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="AutoX (4). Driver 2 (2)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Apps_Sat_Up" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_P.AutoX4Driver22.CKF_Initial_Value">
-				<definitionLocation>
-					<baseRef identifier="Racing_Mode_P"/>
-					<memberRef identifier="AutoX4Driver22"/>
-					<memberRef identifier="CKF_Initial_Value"/>
-				</definitionLocation>
-				<fileOrigin name="Racing_Mode_data.c"/>
-				<initValue value="0.4"/>
-			</dataCInterface>
-			<modelOrigin identifier="Racing_Mode.Workshop_Test__01_.CKF_Initial.CKF_Initial_Value">
-				<name>CKF_Initial_Value</name>
-				<modelLink href="Racing_Mode/Workshop Test (01)/CKF_Initial"/>
-				<modelLocation>
-					<pathNode name="Racing_Mode" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Driver 2 Modes (22,32,42,52)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="AutoX (4). Driver 2 (2)" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="CKF_Initial" kind="mlsl:block"/>
-					<pathNode name="Value" kind="mlsl:parameter"/>
-				</modelLocation>
-				<modelKind kind="parameter" visibility="private"/>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Racing_Mode_CM_double"/>
-			</implementation>
-			<usage calibration="true">
-				<address kind="pseudo">
-					<BLOB kind="DP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
 		<!-- Constant parameters following -->
 		<!-- Exported global parameters following -->
 		<!-- Imported extern parameters following -->
@@ -2372,10 +470,10 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_B.K_Reduction_Temperature.Gain">
+			<dataCInterface identifier="Racing_Mode_B.K_Reduction_Temperature_h.Gain">
 				<definitionLocation>
 					<baseRef identifier="Racing_Mode_B"/>
-					<memberRef identifier="K_Reduction_Temperature"/>
+					<memberRef identifier="K_Reduction_Temperature_h"/>
 					<memberRef identifier="Gain"/>
 				</definitionLocation>
 				<fileOrigin name="Racing_Mode.c"/>
@@ -2408,10 +506,10 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_B.K_Reduction_P.Gain">
+			<dataCInterface identifier="Racing_Mode_B.K_Reduction_P_g.Gain">
 				<definitionLocation>
 					<baseRef identifier="Racing_Mode_B"/>
-					<memberRef identifier="K_Reduction_P"/>
+					<memberRef identifier="K_Reduction_P_g"/>
 					<memberRef identifier="Gain"/>
 				</definitionLocation>
 				<fileOrigin name="Racing_Mode.c"/>
@@ -2444,10 +542,10 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_B.Power_Limit.In1">
+			<dataCInterface identifier="Racing_Mode_B.Power_Limit_g.In1">
 				<definitionLocation>
 					<baseRef identifier="Racing_Mode_B"/>
-					<memberRef identifier="Power_Limit"/>
+					<memberRef identifier="Power_Limit_g"/>
 					<memberRef identifier="In1"/>
 				</definitionLocation>
 				<fileOrigin name="Racing_Mode.c"/>
@@ -2480,10 +578,10 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_B.Max_Regenerative_Torque.In1">
+			<dataCInterface identifier="Racing_Mode_B.Max_Regenerative_Torque_e.In1">
 				<definitionLocation>
 					<baseRef identifier="Racing_Mode_B"/>
-					<memberRef identifier="Max_Regenerative_Torque"/>
+					<memberRef identifier="Max_Regenerative_Torque_e"/>
 					<memberRef identifier="In1"/>
 				</definitionLocation>
 				<fileOrigin name="Racing_Mode.c"/>
@@ -2516,10 +614,10 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_B.Apps_Sat_Up.Gain">
+			<dataCInterface identifier="Racing_Mode_B.Apps_Sat_Up_p.Gain">
 				<definitionLocation>
 					<baseRef identifier="Racing_Mode_B"/>
-					<memberRef identifier="Apps_Sat_Up"/>
+					<memberRef identifier="Apps_Sat_Up_p"/>
 					<memberRef identifier="Gain"/>
 				</definitionLocation>
 				<fileOrigin name="Racing_Mode.c"/>
@@ -2552,10 +650,10 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_B.Apps_Sat_Dwn.Gain">
+			<dataCInterface identifier="Racing_Mode_B.Apps_Sat_Dwn_k.Gain">
 				<definitionLocation>
 					<baseRef identifier="Racing_Mode_B"/>
-					<memberRef identifier="Apps_Sat_Dwn"/>
+					<memberRef identifier="Apps_Sat_Dwn_k"/>
 					<memberRef identifier="Gain"/>
 				</definitionLocation>
 				<fileOrigin name="Racing_Mode.c"/>
@@ -2588,10 +686,10 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_B.Cte_CKF.Gain">
+			<dataCInterface identifier="Racing_Mode_B.Cte_CKF_o.Gain">
 				<definitionLocation>
 					<baseRef identifier="Racing_Mode_B"/>
-					<memberRef identifier="Cte_CKF"/>
+					<memberRef identifier="Cte_CKF_o"/>
 					<memberRef identifier="Gain"/>
 				</definitionLocation>
 				<fileOrigin name="Racing_Mode.c"/>
@@ -2624,10 +722,10 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_B.Cte_SKF.Gain">
+			<dataCInterface identifier="Racing_Mode_B.Cte_SKF_d.Gain">
 				<definitionLocation>
 					<baseRef identifier="Racing_Mode_B"/>
-					<memberRef identifier="Cte_SKF"/>
+					<memberRef identifier="Cte_SKF_d"/>
 					<memberRef identifier="Gain"/>
 				</definitionLocation>
 				<fileOrigin name="Racing_Mode.c"/>
@@ -2660,10 +758,10 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_B.CKF_Initial.Gain">
+			<dataCInterface identifier="Racing_Mode_B.CKF_Initial_p.Gain">
 				<definitionLocation>
 					<baseRef identifier="Racing_Mode_B"/>
-					<memberRef identifier="CKF_Initial"/>
+					<memberRef identifier="CKF_Initial_p"/>
 					<memberRef identifier="Gain"/>
 				</definitionLocation>
 				<fileOrigin name="Racing_Mode.c"/>
@@ -2696,10 +794,10 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Racing_Mode_B.SKF_Initial.Gain">
+			<dataCInterface identifier="Racing_Mode_B.SKF_Initial_g.Gain">
 				<definitionLocation>
 					<baseRef identifier="Racing_Mode_B"/>
-					<memberRef identifier="SKF_Initial"/>
+					<memberRef identifier="SKF_Initial_g"/>
 					<memberRef identifier="Gain"/>
 				</definitionLocation>
 				<fileOrigin name="Racing_Mode.c"/>

@@ -1,7 +1,7 @@
 #ifndef SLEXEC_PARALLEL_H
 #define SLEXEC_PARALLEL_H
 
-/* Copyright 2008-2015 The MathWorks, Inc. */
+/* Copyright 2008-2020 The MathWorks, Inc. */
 
 /**
  * @file slexec_parallel.h
@@ -15,7 +15,7 @@
 
 #include "tmwtypes.h"
 
-#ifdef BUILDING_SLEXEC_PARALLEL
+#ifdef BUILDING_LIBMWSLEXEC_PARALLEL
   /* being included from inside slexec_parallel module */
   #include "package.h"
   #define SLEXEC_PARALLEL_PUBLISHED_C extern "C" DLL_EXPORT_SYM
@@ -43,6 +43,7 @@ typedef struct ParallelExecutionOptions_tag {
     int numberOfThreads;
     int numberOfStepsToAnalyze;
     boolean_T enableTiming;
+    boolean_T dumpProfilingInfo;
     const char* timingOutputFilename;
     const char* nodeExecutionModesFilename;
 } ParallelExecutionOptions;
@@ -56,7 +57,8 @@ SLEXEC_PARALLEL_PUBLISHED_C void analyze_parallel_execution(void);
 SLEXEC_PARALLEL_PUBLISHED_C void parallel_for(
     int loopSize, 
     ParallelForTaskFunction taskFunction, 
-    int nodeIndex);
+    int execMode,
+    const char_T* taskFuncName);
 
 #endif
 

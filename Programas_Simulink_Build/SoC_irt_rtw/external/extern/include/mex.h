@@ -1,7 +1,42 @@
-/* Copyright 1999-2016 The MathWorks, Inc. */
+/* Published header for libmex, the mex library.
+   Copyright 1984-2018 The MathWorks, Inc.
+   This file containes types, macros, and declarations necessary to
+   interface mex files with the current version of MATLAB.
+   
+   See the release notes for information on supporting earlier versions. */
 
-#ifndef mex_typedefs_h
-#define mex_typedefs_h
+#if defined(_MSC_VER)
+# pragma once
+#endif
+#if defined(__GNUC__) && (__GNUC__ > 3 || (__GNUC__ == 3 && __GNUC_MINOR__ > 3))
+# pragma once
+#endif
+
+#ifndef mex_h
+#define mex_h
+
+#ifdef __cplusplus
+# define LIBMWMEX_API_EXTERN_C extern "C"
+#else
+# define LIBMWMEX_API_EXTERN_C extern
+#endif
+
+#ifdef _MSC_VER
+# define MWMEX_EXPORT_SYM __declspec(dllexport)
+#elif __GNUC__ >= 4
+# define MWMEX_EXPORT_SYM __attribute__ ((visibility("default")))
+#else
+# define MWMEX_EXPORT_SYM
+#endif
+
+#ifdef MW_NEEDS_VERSION_H
+# define MEXFUNCTION_LINKAGE LIBMWMEX_API_EXTERN_C MWMEX_EXPORT_SYM
+#else
+# define MEXFUNCTION_LINKAGE LIBMWMEX_API_EXTERN_C
+#endif
+
+#include <stdio.h>
+
 
 typedef struct impl_info_tag *MEX_impl_info;
 
@@ -55,7 +90,19 @@ typedef const char *(*fn_simple_function_to_string)(mxFunctionPtr f);
 typedef mexLocalFunctionTable (*fn_mex_get_local_function_table)(void);
 typedef mexLocalFunctionTable (*fn_mex_set_local_function_table)(mexLocalFunctionTable);
 
+
+#if defined(TARGET_API_VERSION)
+#if !(TARGET_API_VERSION == 700 || TARGET_API_VERSION == 800)
+#error invalid TARGET_VERSION_API definition
+#elif defined(MEX_DOUBLE_HANDLE) && TARGET_API_VERSION != 700
+#error It is illegal to use MEX_DOUBLE_HANDLE with linear versioning
+#elif defined(MX_COMPAT_32) && TARGET_API_VERSION != 700
+#error It is illegal to use MX_COMPAT_32 with linear versioning
 #endif
+#endif
+
+
+#if !defined(TARGET_API_VERSION) || TARGET_API_VERSION == 700
 #ifndef MEX_DOUBLE_HANDLE
 #define mexCallMATLAB mexCallMATLABWithObject
 #define mexCallMATLABWithTrap mexCallMATLABWithTrapWithObject
@@ -64,85 +111,39 @@ typedef mexLocalFunctionTable (*fn_mex_set_local_function_table)(mexLocalFunctio
 NULL;do{mexGetIsDeprecated x;}while(0)
 #define mexSet(a,b,c) \
 0;do{mexSetIsDeprecated x;}while(0)
-#endif
-/**
-* PUBLISHed header for libmex, the mex library.
-*
-* Copyright 1984-2016 The MathWorks, Inc.
-* All Rights Reserved.
-*/
-
-#if defined(_MSC_VER)
-# pragma once
-#endif
-#if defined(__GNUC__) && (__GNUC__ > 3 || (__GNUC__ == 3 && __GNUC_MINOR__ > 3))
-# pragma once
-#endif
-
-#ifndef mex_h
-#define mex_h
-#endif
+#endif /* MEX_DOUBLE_HANDLE */
+#define mexSetTrapFlag(a) \
+0;do{mexSetTrapFlagIsDeprecated x;}while(0)
 
 
-#ifndef __MEX_PUBLISHED_API_HPP__
-#define __MEX_PUBLISHED_API_HPP__
+#elif TARGET_API_VERSION == 800
 
+#define mexCallMATLAB mexCallMATLAB_800
+#define mexCallMATLABWithTrap mexCallMATLABWithTrap_800
+#define mexEvalString mexEvalString_800
+#define mexEvalStringWithTrap mexEvalStringWithTrap_800
+#define mexGet mexGetIsDeprecated
+#define mexSet mexSetIsDeprecated
+#define mexGetVariable mexGetVariable_800
+#define mexGetVariablePtr mexGetVariablePtr_800
+#define mexPutVariable mexPutVariable_800
+#define mexPrintf mexPrintf_800
+#define mexSetTrapFlag mexSetTrapFlagIsDeprecated
+#define mexErrMsgIdAndTxt mexErrMsgIdAndTxt_800
+#define mexWarnMsgIdAndTxt mexWarnMsgIdAndTxt_800
+#define mexErrMsgTxt mexErrMsgTxt_800
+#define mexWarnMsgTxt mexWarnMsgTxt_800
+#define mexIsLocked mexIsLocked_800
+#define mexLock mexLock_800
+#define mexUnlock mexUnlock_800
+#define mexMakeArrayPersistent mexMakeArrayPersistent_800
+#define mexMakeMemoryPersistent mexMakeMemoryPersistent_800
+#define mexPrintAssertion mexPrintAssertion_800
+#define mexIsGlobal mexIsGlobal_800
+#define mexFunctionName mexFunctionName_800
+#define mexAtExit mexAtExit_800
 
-#ifndef EXTERN_C
-#  ifdef __cplusplus
-#    define EXTERN_C extern "C"
-#  else
-#    define EXTERN_C extern
-#  endif
-#endif
-
-#if defined(BUILDING_LIBMEX)
-#  include "mex/mex_typedefs.hpp"
-#  include "mex/libmwmex_util.hpp"
-#else
-#  ifndef LIBMWMEX_API
-#      define LIBMWMEX_API
-#  endif
-
-#  ifndef LIBMWMEX_API_EXTERN_C
-#     define LIBMWMEX_API_EXTERN_C EXTERN_C LIBMWMEX_API
-#  endif
-#endif
-
-
-#ifdef DLL_EXPORT_SYM
-# define MEXFUNCTION_LINKAGE EXTERN_C DLL_EXPORT_SYM
-#else
-# ifdef MW_NEEDS_VERSION_H
-#  include "version.h"
-#  define MEXFUNCTION_LINKAGE EXTERN_C DLL_EXPORT_SYM
-# else
-#  define MEXFUNCTION_LINKAGE EXTERN_C
-# endif
-#endif
-
-MEXFUNCTION_LINKAGE
-/*
- * mexFunction is the user-defined C routine that is called upon invocation
- * of a MEX-function.
- */
-void mexFunction(
-    int           nlhs,           /* number of expected outputs */
-    mxArray       *plhs[],        /* array of pointers to output arguments */
-    int           nrhs,           /* number of inputs */
-    const mxArray *prhs[]         /* array of pointers to input arguments */
-    );
-
-/*
- * This header file "mex.h" declares all the types, macros and
- * functions necessary to interface mex files with the current
- * version of MATLAB.  See the release notes for information on
- * supporting syntax from earlier versions.
- */
-#include "matrix.h"
-
-#include <stdio.h>
-
+#endif /* TARGET_API_VERSION */
 /*
  * Issue error message and return to MATLAB prompt
  */
@@ -240,14 +241,6 @@ LIBMWMEX_API_EXTERN_C mxArray	*mexCallMATLABWithTrap(
 
 
 /*
- * set or clear mexCallMATLAB trap flag (if set then an error in
- * mexCallMATLAB is caught and mexCallMATLAB will return a status value,
- * if not set an error will cause control to revert to MATLAB)
- */
-LIBMWMEX_API_EXTERN_C void mexSetTrapFlag(int flag);
-
-
-/*
  * Print an assertion-style error message and return control to the
  * MATLAB command line.
  */
@@ -341,8 +334,6 @@ LIBMWMEX_API_EXTERN_C mxArray* mexEvalStringWithTrap(
  * Register Mex-file's At-Exit function (accessed via MEX callback)
  */
 LIBMWMEX_API_EXTERN_C int mexAtExit(mex_exit_fn exit_fcn);
-
-#endif /* mex_h */
 #ifdef MEX_DOUBLE_HANDLE
 
 /* API interface which mimics the "get" function */
@@ -355,3 +346,18 @@ LIBMWMEX_API_EXTERN_C const mxArray *mexGet(double handle, const char *property)
 LIBMWMEX_API_EXTERN_C int mexSet(double handle, const char *property, mxArray *value);
 
 #endif
+
+
+MEXFUNCTION_LINKAGE
+/*
+ * mexFunction is the user-defined C routine that is called upon invocation
+ * of a MEX-function.
+ */
+void mexFunction(
+    int           nlhs,           /* number of expected outputs */
+    mxArray       *plhs[],        /* array of pointers to output arguments */
+    int           nrhs,           /* number of inputs */
+    const mxArray *prhs[]         /* array of pointers to input arguments */
+    );
+
+#endif /* mex_h */

@@ -7,9 +7,9 @@
  *
  * Code generation for model "SoC".
  *
- * Model version              : 1.7
- * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Sat Jun 10 12:55:15 2023
+ * Model version              : 10.0
+ * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
+ * C source code generated on : Fri Nov 17 17:15:27 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -19,26 +19,29 @@
  */
 
 #include "SoC.h"
+#include "rtwtypes.h"
 #include "SoC_private.h"
+#include <string.h>
 #include "look1_binlxpw.h"
+#include "rt_nonfinite.h"
 
-/* Block signals (auto storage) */
+/* Block signals (default storage) */
 B_SoC_T SoC_B;
 
 /* Continuous states */
 X_SoC_T SoC_X;
 
-/* Block states (auto storage) */
+/* Block states (default storage) */
 DW_SoC_T SoC_DW;
 
-/* External inputs (root inport signals with auto storage) */
+/* External inputs (root inport signals with default storage) */
 ExtU_SoC_T SoC_U;
 
-/* External outputs (root outports fed by signals with auto storage) */
+/* External outputs (root outports fed by signals with default storage) */
 ExtY_SoC_T SoC_Y;
 
 /* Real-time model */
-RT_MODEL_SoC_T SoC_M_;
+static RT_MODEL_SoC_T SoC_M_;
 RT_MODEL_SoC_T *const SoC_M = &SoC_M_;
 
 /*
@@ -125,9 +128,9 @@ static void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si )
 /* Model output function */
 void SoC_output(void)
 {
-  int8_T rtAction;
   real_T rtb_Merge;
   real_T rtb_Saturation1;
+  int8_T rtAction;
   if (rtmIsMajorTimeStep(SoC_M)) {
     /* set solver stop time */
     if (!(SoC_M->Timing.clockTick0+1)) {
@@ -148,8 +151,9 @@ void SoC_output(void)
   /* If: '<S1>/If' incorporates:
    *  Inport: '<Root>/Car_State'
    */
-  if (rtmIsMajorTimeStep(SoC_M)) {
-    rtAction = (int8_T)!((SoC_U.Car_State >= 12.0) && (SoC_U.Car_State <= 18.0));
+  if (rtsiIsModeUpdateTimeStep(&SoC_M->solverInfo)) {
+    rtAction = (int8_T)((!(SoC_U.Car_State >= 12.0)) || (!(SoC_U.Car_State <=
+      18.0)));
     SoC_DW.If_ActiveSubsystem = rtAction;
   } else {
     rtAction = SoC_DW.If_ActiveSubsystem;
@@ -161,10 +165,10 @@ void SoC_output(void)
      *  ActionPort: '<S4>/Action Port'
      */
     if (rtmIsMajorTimeStep(SoC_M)) {
-      /* SignalConversion: '<S4>/OutportBufferForOut1' incorporates:
+      /* SignalConversion generated from: '<S4>/Out1' incorporates:
        *  Constant: '<S4>/Constant'
        */
-      rtb_Merge = SoC_P.Constant_Value;
+      rtb_Merge = 1.0;
     }
 
     /* End of Outputs for SubSystem: '<S1>/Latches OCV SoC' */
@@ -175,10 +179,10 @@ void SoC_output(void)
      *  ActionPort: '<S5>/Action Port'
      */
     if (rtmIsMajorTimeStep(SoC_M)) {
-      /* SignalConversion: '<S5>/OutportBufferForOut0' incorporates:
+      /* SignalConversion generated from: '<S5>/Out0' incorporates:
        *  Constant: '<S5>/Constant'
        */
-      rtb_Merge = SoC_P.Constant_Value_j;
+      rtb_Merge = 0.0;
     }
 
     /* End of Outputs for SubSystem: '<S1>/Measures OCV SoC' */
@@ -194,14 +198,16 @@ void SoC_output(void)
     SoC_B.Memory = SoC_DW.Memory_PreviousInput;
   }
 
-  /* Switch: '<S3>/Switch' incorporates:
-   *  Inport: '<Root>/Lowest_CellVoltage'
-   *  Lookup_n-D: '<S3>/OCV to SoC'
-   */
+  /* Switch: '<S3>/Switch' */
   if (SoC_B.NOT) {
+    /* Switch: '<S3>/Switch' incorporates:
+     *  Inport: '<Root>/Lowest_CellVoltage'
+     *  Lookup_n-D: '<S3>/OCV to SoC'
+     */
     SoC_B.Switch = look1_binlxpw(SoC_U.Lowest_CellVoltage,
-      SoC_P.OCVtoSoC_bp01Data_n, SoC_P.OCVtoSoC_tableData_k, 25U);
+      rtCP_OCVtoSoC_bp01Data_n, rtCP_OCVtoSoC_tableData_k, 25U);
   } else {
+    /* Switch: '<S3>/Switch' */
     SoC_B.Switch = SoC_B.Memory;
   }
 
@@ -211,15 +217,13 @@ void SoC_output(void)
    *  Gain: '<S3>/Gain'
    *  Integrator: '<S3>/Integrator'
    */
-  rtb_Saturation1 = SoC_B.Switch - SoC_P.Gain_Gain * SoC_X.Integrator_CSTATE;
+  rtb_Saturation1 = SoC_B.Switch - 288.0 * SoC_X.Integrator_CSTATE;
 
   /* Saturate: '<S3>/Saturation1' */
-  if (rtb_Saturation1 > SoC_P.Saturation1_UpperSat) {
-    rtb_Saturation1 = SoC_P.Saturation1_UpperSat;
-  } else {
-    if (rtb_Saturation1 < SoC_P.Saturation1_LowerSat) {
-      rtb_Saturation1 = SoC_P.Saturation1_LowerSat;
-    }
+  if (rtb_Saturation1 > 100.0) {
+    rtb_Saturation1 = 100.0;
+  } else if (rtb_Saturation1 < 0.0) {
+    rtb_Saturation1 = 0.0;
   }
 
   /* End of Saturate: '<S3>/Saturation1' */
@@ -231,14 +235,16 @@ void SoC_output(void)
     SoC_B.Memory_p = SoC_DW.Memory_PreviousInput_p;
   }
 
-  /* Switch: '<S2>/Switch' incorporates:
-   *  Inport: '<Root>/Highest_CellVoltage'
-   *  Lookup_n-D: '<S2>/OCV to SoC'
-   */
+  /* Switch: '<S2>/Switch' */
   if (SoC_B.NOT_p) {
+    /* Switch: '<S2>/Switch' incorporates:
+     *  Inport: '<Root>/Highest_CellVoltage'
+     *  Lookup_n-D: '<S2>/OCV to SoC'
+     */
     SoC_B.Switch_d = look1_binlxpw(SoC_U.Highest_CellVoltage,
-      SoC_P.OCVtoSoC_bp01Data, SoC_P.OCVtoSoC_tableData, 25U);
+      rtCP_OCVtoSoC_bp01Data, rtCP_OCVtoSoC_tableData, 25U);
   } else {
+    /* Switch: '<S2>/Switch' */
     SoC_B.Switch_d = SoC_B.Memory_p;
   }
 
@@ -248,15 +254,13 @@ void SoC_output(void)
    *  Gain: '<S2>/Gain'
    *  Integrator: '<S2>/Integrator'
    */
-  rtb_Merge = SoC_B.Switch_d - SoC_P.Gain_Gain_e * SoC_X.Integrator_CSTATE_b;
+  rtb_Merge = SoC_B.Switch_d - 288.0 * SoC_X.Integrator_CSTATE_b;
 
   /* Saturate: '<S2>/Saturation1' */
-  if (rtb_Merge > SoC_P.Saturation1_UpperSat_m) {
-    rtb_Merge = SoC_P.Saturation1_UpperSat_m;
-  } else {
-    if (rtb_Merge < SoC_P.Saturation1_LowerSat_e) {
-      rtb_Merge = SoC_P.Saturation1_LowerSat_e;
-    }
+  if (rtb_Merge > 100.0) {
+    rtb_Merge = 100.0;
+  } else if (rtb_Merge < 0.0) {
+    rtb_Merge = 0.0;
   }
 
   /* End of Saturate: '<S2>/Saturation1' */
@@ -265,7 +269,7 @@ void SoC_output(void)
    *  Gain: '<Root>/Gain1'
    *  Sum: '<Root>/Add'
    */
-  SoC_Y.SoC_Avg = (rtb_Saturation1 + rtb_Merge) * SoC_P.Gain1_Gain;
+  SoC_Y.SoC_Avg = (rtb_Saturation1 + rtb_Merge) * 0.5;
 
   /* Outport: '<Root>/SoC_Low' */
   SoC_Y.SoC_Low = rtb_Saturation1;
@@ -347,16 +351,16 @@ void SoC_initialize(void)
   SoC_DW.If_ActiveSubsystem = -1;
 
   /* InitializeConditions for Memory: '<S3>/Memory' */
-  SoC_DW.Memory_PreviousInput = SoC_P.Memory_InitialCondition;
+  SoC_DW.Memory_PreviousInput = 0.0;
 
   /* InitializeConditions for Integrator: '<S3>/Integrator' */
-  SoC_X.Integrator_CSTATE = SoC_P.Integrator_IC;
+  SoC_X.Integrator_CSTATE = 0.0;
 
   /* InitializeConditions for Memory: '<S2>/Memory' */
-  SoC_DW.Memory_PreviousInput_p = SoC_P.Memory_InitialCondition_o;
+  SoC_DW.Memory_PreviousInput_p = 0.0;
 
   /* InitializeConditions for Integrator: '<S2>/Integrator' */
-  SoC_X.Integrator_CSTATE_b = SoC_P.Integrator_IC_d;
+  SoC_X.Integrator_CSTATE_b = 0.0;
 }
 
 /* Model terminate function */
@@ -463,6 +467,7 @@ RT_MODEL_SoC_T *SoC(void)
   SoC_M->intgData.f[2] = SoC_M->odeF[2];
   SoC_M->contStates = ((real_T *) &SoC_X);
   rtsiSetSolverData(&SoC_M->solverInfo, (void *)&SoC_M->intgData);
+  rtsiSetIsMinorTimeStepWithModeChange(&SoC_M->solverInfo, false);
   rtsiSetSolverName(&SoC_M->solverInfo,"ode3");
 
   /* Initialize timing info */
@@ -470,6 +475,9 @@ RT_MODEL_SoC_T *SoC(void)
     int_T *mdlTsMap = SoC_M->Timing.sampleTimeTaskIDArray;
     mdlTsMap[0] = 0;
     mdlTsMap[1] = 1;
+
+    /* polyspace +2 MISRA2012:D4.1 [Justified:Low] "SoC_M points to
+       static memory which is guaranteed to be non-NULL" */
     SoC_M->Timing.sampleTimeTaskIDPtr = (&mdlTsMap[0]);
     SoC_M->Timing.sampleTimes = (&SoC_M->Timing.sampleTimesArray[0]);
     SoC_M->Timing.offsetTimes = (&SoC_M->Timing.offsetTimesArray[0]);
@@ -495,6 +503,30 @@ RT_MODEL_SoC_T *SoC(void)
   rtmSetTFinal(SoC_M, 14000.0);
   SoC_M->Timing.stepSize0 = 280.0;
   SoC_M->Timing.stepSize1 = 280.0;
+
+  /* Setup for data logging */
+  {
+    static RTWLogInfo rt_DataLoggingInfo;
+    rt_DataLoggingInfo.loggingInterval = (NULL);
+    SoC_M->rtwLogInfo = &rt_DataLoggingInfo;
+  }
+
+  /* Setup for data logging */
+  {
+    rtliSetLogXSignalInfo(SoC_M->rtwLogInfo, (NULL));
+    rtliSetLogXSignalPtrs(SoC_M->rtwLogInfo, (NULL));
+    rtliSetLogT(SoC_M->rtwLogInfo, "tout");
+    rtliSetLogX(SoC_M->rtwLogInfo, "");
+    rtliSetLogXFinal(SoC_M->rtwLogInfo, "");
+    rtliSetLogVarNameModifier(SoC_M->rtwLogInfo, "rt_");
+    rtliSetLogFormat(SoC_M->rtwLogInfo, 4);
+    rtliSetLogMaxRows(SoC_M->rtwLogInfo, 0);
+    rtliSetLogDecimation(SoC_M->rtwLogInfo, 1);
+    rtliSetLogY(SoC_M->rtwLogInfo, "");
+    rtliSetLogYSignalInfo(SoC_M->rtwLogInfo, (NULL));
+    rtliSetLogYSignalPtrs(SoC_M->rtwLogInfo, (NULL));
+  }
+
   SoC_M->solverInfoPtr = (&SoC_M->solverInfo);
   SoC_M->Timing.stepSize = (280.0);
   rtsiSetFixedStepSize(&SoC_M->solverInfo, 280.0);
@@ -504,9 +536,6 @@ RT_MODEL_SoC_T *SoC(void)
   SoC_M->blockIO = ((void *) &SoC_B);
   (void) memset(((void *) &SoC_B), 0,
                 sizeof(B_SoC_T));
-
-  /* parameters */
-  SoC_M->defaultParam = ((real_T *)&SoC_P);
 
   /* states (continuous) */
   {
@@ -523,23 +552,22 @@ RT_MODEL_SoC_T *SoC(void)
 
   /* external inputs */
   SoC_M->inputs = (((void*)&SoC_U));
-  (void)memset((void *)&SoC_U, 0, sizeof(ExtU_SoC_T));
+  (void)memset(&SoC_U, 0, sizeof(ExtU_SoC_T));
 
   /* external outputs */
   SoC_M->outputs = (&SoC_Y);
-  (void) memset((void *)&SoC_Y, 0,
-                sizeof(ExtY_SoC_T));
+  (void)memset(&SoC_Y, 0, sizeof(ExtY_SoC_T));
 
   /* Initialize Sizes */
   SoC_M->Sizes.numContStates = (2);    /* Number of continuous states */
-  SoC_M->Sizes.numPeriodicContStates = (0);/* Number of periodic continuous states */
+  SoC_M->Sizes.numPeriodicContStates = (0);
+                                      /* Number of periodic continuous states */
   SoC_M->Sizes.numY = (3);             /* Number of model outputs */
   SoC_M->Sizes.numU = (4);             /* Number of model inputs */
   SoC_M->Sizes.sysDirFeedThru = (1);   /* The model is direct feedthrough */
   SoC_M->Sizes.numSampTimes = (2);     /* Number of sample times */
   SoC_M->Sizes.numBlocks = (31);       /* Number of blocks */
   SoC_M->Sizes.numBlockIO = (6);       /* Number of block outputs */
-  SoC_M->Sizes.numBlockPrms = (117);   /* Sum of parameter "widths" */
   return SoC_M;
 }
 

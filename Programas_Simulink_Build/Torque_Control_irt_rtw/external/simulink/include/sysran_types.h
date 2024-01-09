@@ -1,4 +1,4 @@
-/* Copyright 2004-2016 The MathWorks, Inc. */
+/* Copyright 2004-2021 The MathWorks, Inc. */
 
 /*
  * File: sysran_types.h
@@ -6,7 +6,7 @@
  * Abstract:
  *   This files defines the enum and the macros to do with the system ran
  *   breadcrumbs
- * 
+ *
  *   This file is used both by Simulink and some of the generated code
  */
 
@@ -25,13 +25,13 @@ typedef enum {
 /* This is the data type of the dwork entry for the system ran breadcrumb */
 typedef int8_T sysRanDType;
 
-/* 
+/*
  * System ran breadcrumb macros
  *
  * Clearing macro.  2 callers
  *    i) top of the sim-loop
  *   ii) top of each Outputs function for External mode
- *  
+ *
  *
  * Here is the basic idea:
  *   If a system is DISABLED, it stays DISABLED.
@@ -46,35 +46,35 @@ typedef int8_T sysRanDType;
  * ONE_SHOT           -> DISABLE (by definition)
  *
  * Note: These macros are called both by Simulink and the generated code
- */ 
+ */
 
 /* sr stands for SystemRan, BC stands for BreadCrumb */
-#define srClearBC(state)                                                   \
-{                                                                          \
-    SubSystemRanBCTransition prevState = (SubSystemRanBCTransition) state; \
-    SubSystemRanBCTransition newState  = SUBSYS_RAN_BC_DISABLE;            \
-                                                                           \
-    switch(prevState) {                                                    \
-      case SUBSYS_RAN_BC_DISABLE:                                          \
-        newState = SUBSYS_RAN_BC_DISABLE;                                  \
-        break;                                                             \
-      case SUBSYS_RAN_BC_ENABLE:                                           \
-        newState = SUBSYS_RAN_BC_ENABLE_TO_DISABLE;                        \
-        break;                                                             \
-      case SUBSYS_RAN_BC_DISABLE_TO_ENABLE:                                \
-        newState = SUBSYS_RAN_BC_ENABLE_TO_DISABLE;                        \
-        break;                                                             \
-      case SUBSYS_RAN_BC_ENABLE_TO_DISABLE:                                \
-        newState = SUBSYS_RAN_BC_DISABLE;                                  \
-        break;                                                             \
-      case SUBSYS_RAN_BC_ONE_SHOT:                                         \
-        newState = SUBSYS_RAN_BC_DISABLE;                                  \
-        break;                                                             \
-    }                                                                      \
-    state = newState;                                                      \
-}
+#define srClearBC(state)                                                      \
+    {                                                                         \
+        SubSystemRanBCTransition prevState = (SubSystemRanBCTransition)state; \
+        SubSystemRanBCTransition newState = SUBSYS_RAN_BC_DISABLE;            \
+                                                                              \
+        switch (prevState) {                                                  \
+        case SUBSYS_RAN_BC_DISABLE:                                           \
+            newState = SUBSYS_RAN_BC_DISABLE;                                 \
+            break;                                                            \
+        case SUBSYS_RAN_BC_ENABLE:                                            \
+            newState = SUBSYS_RAN_BC_ENABLE_TO_DISABLE;                       \
+            break;                                                            \
+        case SUBSYS_RAN_BC_DISABLE_TO_ENABLE:                                 \
+            newState = SUBSYS_RAN_BC_ENABLE_TO_DISABLE;                       \
+            break;                                                            \
+        case SUBSYS_RAN_BC_ENABLE_TO_DISABLE:                                 \
+            newState = SUBSYS_RAN_BC_DISABLE;                                 \
+            break;                                                            \
+        case SUBSYS_RAN_BC_ONE_SHOT:                                          \
+            newState = SUBSYS_RAN_BC_DISABLE;                                 \
+            break;                                                            \
+        }                                                                     \
+        state = newState;                                                     \
+    }
 
-/* 
+/*
  * Update macro
  *
  * Called by the OutputFcn of all conditionally exec'd subsystems
@@ -86,25 +86,25 @@ typedef int8_T sysRanDType;
  *
  */
 /* sr stands for SystemRan, BC stands for BreadCrumb */
-#define srUpdateBC(state)                                                  \
-{                                                                          \
-    SubSystemRanBCTransition prevState = (SubSystemRanBCTransition) state; \
-    SubSystemRanBCTransition newState  = prevState;                        \
-                                                                           \
-    switch(prevState) {                                                    \
-      case SUBSYS_RAN_BC_DISABLE:                                          \
-        newState = SUBSYS_RAN_BC_DISABLE_TO_ENABLE;                        \
-        break;                                                             \
-      case SUBSYS_RAN_BC_ENABLE_TO_DISABLE:                                \
-        newState = SUBSYS_RAN_BC_ENABLE;                                   \
-        break;                                                             \
-      case SUBSYS_RAN_BC_ENABLE:                                           \
-      case SUBSYS_RAN_BC_DISABLE_TO_ENABLE:                                \
-      case SUBSYS_RAN_BC_ONE_SHOT:                                         \
-        break;                                                             \
-    }                                                                      \
-    state = newState;                                                      \
-}
+#define srUpdateBC(state)                                                     \
+    {                                                                         \
+        SubSystemRanBCTransition prevState = (SubSystemRanBCTransition)state; \
+        SubSystemRanBCTransition newState = prevState;                        \
+                                                                              \
+        switch (prevState) {                                                  \
+        case SUBSYS_RAN_BC_DISABLE:                                           \
+            newState = SUBSYS_RAN_BC_DISABLE_TO_ENABLE;                       \
+            break;                                                            \
+        case SUBSYS_RAN_BC_ENABLE_TO_DISABLE:                                 \
+            newState = SUBSYS_RAN_BC_ENABLE;                                  \
+            break;                                                            \
+        case SUBSYS_RAN_BC_ENABLE:                                            \
+        case SUBSYS_RAN_BC_DISABLE_TO_ENABLE:                                 \
+        case SUBSYS_RAN_BC_ONE_SHOT:                                          \
+            break;                                                            \
+        }                                                                     \
+        state = newState;                                                     \
+    }
 
 #endif /* SIMSTRUCT_SYSRAN_TYPES_H */
 

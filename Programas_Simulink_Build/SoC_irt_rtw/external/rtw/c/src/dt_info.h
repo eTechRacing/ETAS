@@ -23,6 +23,14 @@ typedef struct DataTypeTransitionTable_tag {
   DataTypeTransition *transitions;       /* base address of transition table*/
 } DataTypeTransitionTable;
 
+typedef struct DataTypeInfo_T
+{
+    const char* name;
+    int_T dataTypeId;
+    uint_T size;
+} DataTypeInfo;
+
+
 /*
  * The model's data type transition info structure is attached
  * to the SimStruct:
@@ -68,6 +76,7 @@ typedef struct DataTypeTransInfo_tag {
   DataTypeTransitionTable *XdTransTable;    /* discrete states */
   DataTypeTransitionTable *UTransTable;     /* model inputs */
   DataTypeTransitionTable *YTransTable;     /* model outputs */
+  DataTypeInfo *dataTypeInfoTable;
 } DataTypeTransInfo;
 
 #define dtGetNumDataTypes(dtInfo)   ((uint_T)((dtInfo)->numDataTypes))

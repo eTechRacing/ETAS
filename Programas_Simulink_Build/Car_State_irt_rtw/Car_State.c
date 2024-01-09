@@ -7,9 +7,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 1.57
- * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Wed Mar 29 12:56:28 2023
+ * Model version              : 10.3
+ * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
+ * C source code generated on : Tue Nov 21 18:26:05 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -19,7 +19,10 @@
  */
 
 #include "Car_State.h"
+#include "rtwtypes.h"
 #include "Car_State_private.h"
+#include <string.h>
+#include "rt_nonfinite.h"
 
 /* Named constants for Chart: '<Root>/Car State Manager' */
 #define Car_State_IN_EnableInverters   ((uint8_T)1U)
@@ -33,20 +36,20 @@
 #define Car_State_IN_Standby           ((uint8_T)8U)
 #define Car_State_IN_TSActive          ((uint8_T)4U)
 
-/* Block signals (auto storage) */
+/* Block signals (default storage) */
 B_Car_State_T Car_State_B;
 
-/* Block states (auto storage) */
+/* Block states (default storage) */
 DW_Car_State_T Car_State_DW;
 
-/* External inputs (root inport signals with auto storage) */
+/* External inputs (root inport signals with default storage) */
 ExtU_Car_State_T Car_State_U;
 
-/* External outputs (root outports fed by signals with auto storage) */
+/* External outputs (root outports fed by signals with default storage) */
 ExtY_Car_State_T Car_State_Y;
 
 /* Real-time model */
-RT_MODEL_Car_State_T Car_State_M_;
+static RT_MODEL_Car_State_T Car_State_M_;
 RT_MODEL_Car_State_T *const Car_State_M = &Car_State_M_;
 
 /*
@@ -54,15 +57,14 @@ RT_MODEL_Car_State_T *const Car_State_M = &Car_State_M_;
  *    '<S1>/TRUE'
  *    '<S2>/TRUE'
  *    '<S3>/TRUE'
- *    '<S10>/TRUE'
- *    '<S11>/OK'
+ *    '<S9>/TRUE'
  */
-void Car_State_TRUE(real_T *rty_u, P_TRUE_Car_State_T *localP)
+void Car_State_TRUE(real_T *rty_u)
 {
-  /* SignalConversion: '<S13>/OutportBufferFor1' incorporates:
-   *  Constant: '<S13>/Constant'
+  /* SignalConversion generated from: '<S11>/1' incorporates:
+   *  Constant: '<S11>/Constant'
    */
-  *rty_u = localP->Constant_Value;
+  *rty_u = 1.0;
 }
 
 /*
@@ -71,58 +73,54 @@ void Car_State_TRUE(real_T *rty_u, P_TRUE_Car_State_T *localP)
  *    '<S2>/FALSE'
  *    '<S3>/FALSE'
  *    '<S4>/Obrir AIRs'
- *    '<S10>/FALSE'
- *    '<S11>/ERROR'
+ *    '<S9>/FALSE'
  */
-void Car_State_FALSE(real_T *rty_u, P_FALSE_Car_State_T *localP)
+void Car_State_FALSE(real_T *rty_u)
 {
-  /* SignalConversion: '<S12>/OutportBufferFor0' incorporates:
-   *  Constant: '<S12>/Constant'
+  /* SignalConversion generated from: '<S10>/0' incorporates:
+   *  Constant: '<S10>/Constant'
    */
-  *rty_u = localP->Constant_Value;
+  *rty_u = 0.0;
 }
 
 /*
  * Output and update for action system:
  *    '<S7>/Failure'
- *    '<S26>/Latched Error'
+ *    '<S24>/Latched Error'
  */
-void Car_State_Failure(real_T *rty_u, P_Failure_Car_State_T *localP)
+void Car_State_Failure(real_T *rty_u)
 {
-  /* SignalConversion: '<S25>/OutportBufferFor1 ' incorporates:
-   *  Constant: '<S25>/Constant'
+  /* SignalConversion generated from: '<S23>/1 ' incorporates:
+   *  Constant: '<S23>/Constant'
    */
-  *rty_u = localP->Constant_Value;
+  *rty_u = 1.0;
 }
 
 /* Model output function */
 static void Car_State_output(void)
 {
   real_T rtb_Merge;
-  real_T rtb_Merge_p;
-  real_T rtb_Merge_a;
-  boolean_T rtb_LogicalOperator1;
-  real_T rtb_Merge_b;
-  int32_T rtb_CarState;
-  int32_T rtb_InvertersAction;
   real_T rtb_Merge_c;
-  boolean_T guard1 = false;
+  real_T rtb_Merge_p;
+  real_T rtb_Saturation;
+  int32_T rtb_CarState;
+  boolean_T rtb_LogicalOperator1;
 
   /* If: '<S2>/If' incorporates:
    *  Inport: '<Root>/AIRs_State'
    */
   if (Car_State_U.AIRs_State == 3.0) {
     /* Outputs for IfAction SubSystem: '<S2>/TRUE' incorporates:
-     *  ActionPort: '<S15>/Action Port'
+     *  ActionPort: '<S13>/Action Port'
      */
-    Car_State_TRUE(&rtb_Merge, &Car_State_P.TRUE);
+    Car_State_TRUE(&rtb_Merge);
 
     /* End of Outputs for SubSystem: '<S2>/TRUE' */
   } else {
     /* Outputs for IfAction SubSystem: '<S2>/FALSE' incorporates:
-     *  ActionPort: '<S14>/Action Port'
+     *  ActionPort: '<S12>/Action Port'
      */
-    Car_State_FALSE(&rtb_Merge, &Car_State_P.FALSE);
+    Car_State_FALSE(&rtb_Merge);
 
     /* End of Outputs for SubSystem: '<S2>/FALSE' */
   }
@@ -131,41 +129,39 @@ static void Car_State_output(void)
 
   /* If: '<S7>/If' incorporates:
    *  DataStoreRead: '<S7>/Data Store Read'
-   *  If: '<S26>/If'
+   *  If: '<S24>/If'
    *  Inport: '<Root>/InvertersMinDCBus'
    */
   if ((Car_State_U.InvertersMinDCBus < 60.0) && (rtb_Merge == 1.0)) {
     /* Outputs for IfAction SubSystem: '<S7>/Failure' incorporates:
-     *  ActionPort: '<S25>/Action Port'
+     *  ActionPort: '<S23>/Action Port'
      */
-    Car_State_Failure(&rtb_Merge_p, &Car_State_P.Failure);
+    Car_State_Failure(&rtb_Merge_p);
 
     /* End of Outputs for SubSystem: '<S7>/Failure' */
-  } else {
+
     /* Outputs for IfAction SubSystem: '<S7>/OK or latch' incorporates:
+     *  ActionPort: '<S24>/Action Port'
+     */
+  } else if (Car_State_DW.A > 0.0) {
+    /* Outputs for IfAction SubSystem: '<S24>/Latched Error' incorporates:
+     *  ActionPort: '<S25>/Action Port'
+     */
+    /* If: '<S24>/If' */
+    Car_State_Failure(&rtb_Merge_p);
+
+    /* End of Outputs for SubSystem: '<S24>/Latched Error' */
+  } else {
+    /* Outputs for IfAction SubSystem: '<S24>/OK' incorporates:
      *  ActionPort: '<S26>/Action Port'
      */
-    if (Car_State_DW.A > 0.0) {
-      /* Outputs for IfAction SubSystem: '<S26>/Latched Error' incorporates:
-       *  ActionPort: '<S27>/Action Port'
-       */
+    /* If: '<S24>/If' incorporates:
+     *  Constant: '<S26>/Constant'
+     *  SignalConversion generated from: '<S26>/0 '
+     */
+    rtb_Merge_p = 0.0;
 
-      /* If: '<S26>/If' */
-      Car_State_Failure(&rtb_Merge_p, &Car_State_P.LatchedError);
-
-      /* End of Outputs for SubSystem: '<S26>/Latched Error' */
-    } else {
-      /* Outputs for IfAction SubSystem: '<S26>/OK' incorporates:
-       *  ActionPort: '<S28>/Action Port'
-       */
-      /* If: '<S26>/If' incorporates:
-       *  Constant: '<S28>/Constant'
-       *  SignalConversion: '<S28>/OutportBufferFor0 '
-       */
-      rtb_Merge_p = Car_State_P.Constant_Value_f;
-
-      /* End of Outputs for SubSystem: '<S26>/OK' */
-    }
+    /* End of Outputs for SubSystem: '<S24>/OK' */
 
     /* End of Outputs for SubSystem: '<S7>/OK or latch' */
   }
@@ -175,124 +171,84 @@ static void Car_State_output(void)
   /* DataStoreWrite: '<S7>/Data Store Write' */
   Car_State_DW.A = rtb_Merge_p;
 
-  /* If: '<S11>/If' incorporates:
-   *  Inport: '<Root>/Shutdown_BMS'
-   *  Inport: '<Root>/Shutdown_BOTS'
-   *  Inport: '<Root>/Shutdown_BSPD'
-   *  Inport: '<Root>/Shutdown_HVBOX'
-   *  Inport: '<Root>/Shutdown_HVD'
-   *  Inport: '<Root>/Shutdown_Inertia'
-   *  Inport: '<Root>/Shutdown_InverterLIntck'
-   *  Inport: '<Root>/Shutdown_InverterRIntck'
-   *  Inport: '<Root>/Shutdown_PackageIntck'
-   *  Inport: '<Root>/Shutdown_SetaCockpit'
-   *  Inport: '<Root>/Shutdown_SetaLeft'
-   *  Inport: '<Root>/Shutdown_SetaRight'
-   *  Inport: '<Root>/Shutdown_TSMPIntck'
-   *  Inport: '<Root>/Shutdown_TSMS'
-   *  Sum: '<S11>/Sum'
-   */
-  if (((((((((((((Car_State_U.Shutdown_BMS + Car_State_U.Shutdown_BOTS) +
-                 Car_State_U.Shutdown_BSPD) + Car_State_U.Shutdown_HVBOX) +
-               Car_State_U.Shutdown_HVD) + Car_State_U.Shutdown_Inertia) +
-             Car_State_U.Shutdown_InverterLIntck) +
-            Car_State_U.Shutdown_InverterRIntck) +
-           Car_State_U.Shutdown_PackageIntck) + Car_State_U.Shutdown_SetaCockpit)
-         + Car_State_U.Shutdown_SetaLeft) + Car_State_U.Shutdown_SetaRight) +
-       Car_State_U.Shutdown_TSMPIntck) + Car_State_U.Shutdown_TSMS > 0.0) {
-    /* Outputs for IfAction SubSystem: '<S11>/ERROR' incorporates:
-     *  ActionPort: '<S31>/Action Port'
-     */
-    Car_State_FALSE(&rtb_Merge_a, &Car_State_P.ERROR);
-
-    /* End of Outputs for SubSystem: '<S11>/ERROR' */
-  } else {
-    /* Outputs for IfAction SubSystem: '<S11>/OK' incorporates:
-     *  ActionPort: '<S32>/Action Port'
-     */
-    Car_State_TRUE(&rtb_Merge_a, &Car_State_P.OK);
-
-    /* End of Outputs for SubSystem: '<S11>/OK' */
-  }
-
-  /* End of If: '<S11>/If' */
-
   /* Logic: '<S6>/Logical Operator1' incorporates:
+   *  Constant: '<S19>/Constant'
+   *  Constant: '<S20>/Constant'
    *  Constant: '<S21>/Constant'
-   *  Constant: '<S22>/Constant'
-   *  Constant: '<S23>/Constant'
    *  Inport: '<Root>/Accumulator_Voltage'
    *  Inport: '<Root>/Critical_CAN_Disconnection'
    *  Inport: '<Root>/PrechargeRequest'
+   *  Inport: '<Root>/Shutdown_PackageIntck'
+   *  Logic: '<S6>/NOT'
+   *  RelationalOperator: '<S19>/Compare'
+   *  RelationalOperator: '<S20>/Compare'
    *  RelationalOperator: '<S21>/Compare'
-   *  RelationalOperator: '<S22>/Compare'
-   *  RelationalOperator: '<S23>/Compare'
    */
-  rtb_LogicalOperator1 = ((rtb_Merge_a != 0.0) &&
-    (Car_State_U.Accumulator_Voltage > Car_State_P.CompareToConstant_const) &&
-    (Car_State_U.DashPrechargeRequest == Car_State_P.Constant_Value_kb) &&
-    (Car_State_U.Critical_CAN_Disconnection == Car_State_P.Constant_Value_fl));
+  rtb_LogicalOperator1 = ((!Car_State_U.Shutdown_PackageIntck) &&
+    (Car_State_U.Accumulator_Voltage > 420.0) &&
+    (Car_State_U.DashPrechargeRequest == 0.0) &&
+    (Car_State_U.Critical_CAN_Disconnection == 0.0));
 
   /* If: '<S3>/If' incorporates:
    *  Inport: '<Root>/AIRs_State'
    */
   if (Car_State_U.AIRs_State == 6.0) {
     /* Outputs for IfAction SubSystem: '<S3>/TRUE' incorporates:
-     *  ActionPort: '<S17>/Action Port'
+     *  ActionPort: '<S15>/Action Port'
      */
-    Car_State_TRUE(&rtb_Merge_b, &Car_State_P.TRUE_p);
+    Car_State_TRUE(&rtb_Saturation);
 
     /* End of Outputs for SubSystem: '<S3>/TRUE' */
   } else {
     /* Outputs for IfAction SubSystem: '<S3>/FALSE' incorporates:
-     *  ActionPort: '<S16>/Action Port'
+     *  ActionPort: '<S14>/Action Port'
      */
-    Car_State_FALSE(&rtb_Merge_b, &Car_State_P.FALSE_n);
+    Car_State_FALSE(&rtb_Saturation);
 
     /* End of Outputs for SubSystem: '<S3>/FALSE' */
   }
 
   /* End of If: '<S3>/If' */
 
-  /* If: '<S10>/If' incorporates:
-   *  Gain: '<S10>/Gain'
+  /* If: '<S9>/If' incorporates:
+   *  Gain: '<S9>/Gain'
    *  Inport: '<Root>/Accumulator_Voltage'
    *  Inport: '<Root>/InvertersMinDCBus'
    */
-  if ((rtb_Merge_b == 1.0) && (Car_State_U.InvertersMinDCBus >
-       Car_State_P.Gain_Gain * Car_State_U.Accumulator_Voltage)) {
-    /* Outputs for IfAction SubSystem: '<S10>/TRUE' incorporates:
-     *  ActionPort: '<S30>/Action Port'
+  if ((rtb_Saturation == 1.0) && (Car_State_U.InvertersMinDCBus > 0.9 *
+       Car_State_U.Accumulator_Voltage)) {
+    /* Outputs for IfAction SubSystem: '<S9>/TRUE' incorporates:
+     *  ActionPort: '<S28>/Action Port'
      */
-    Car_State_TRUE(&rtb_Merge_b, &Car_State_P.TRUE_f);
+    Car_State_TRUE(&rtb_Saturation);
 
-    /* End of Outputs for SubSystem: '<S10>/TRUE' */
+    /* End of Outputs for SubSystem: '<S9>/TRUE' */
   } else {
-    /* Outputs for IfAction SubSystem: '<S10>/FALSE' incorporates:
-     *  ActionPort: '<S29>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S9>/FALSE' incorporates:
+     *  ActionPort: '<S27>/Action Port'
      */
-    Car_State_FALSE(&rtb_Merge_b, &Car_State_P.FALSE_m);
+    Car_State_FALSE(&rtb_Saturation);
 
-    /* End of Outputs for SubSystem: '<S10>/FALSE' */
+    /* End of Outputs for SubSystem: '<S9>/FALSE' */
   }
 
-  /* End of If: '<S10>/If' */
+  /* End of If: '<S9>/If' */
 
   /* If: '<S1>/If' incorporates:
    *  Inport: '<Root>/AIRs_State'
    */
   if (Car_State_U.AIRs_State == 0.0) {
     /* Outputs for IfAction SubSystem: '<S1>/TRUE' incorporates:
-     *  ActionPort: '<S13>/Action Port'
+     *  ActionPort: '<S11>/Action Port'
      */
-    Car_State_TRUE(&rtb_Merge_c, &Car_State_P.TRUE_i);
+    Car_State_TRUE(&rtb_Merge_c);
 
     /* End of Outputs for SubSystem: '<S1>/TRUE' */
   } else {
     /* Outputs for IfAction SubSystem: '<S1>/FALSE' incorporates:
-     *  ActionPort: '<S12>/Action Port'
+     *  ActionPort: '<S10>/Action Port'
      */
-    Car_State_FALSE(&rtb_Merge_c, &Car_State_P.FALSE_h);
+    Car_State_FALSE(&rtb_Merge_c);
 
     /* End of Outputs for SubSystem: '<S1>/FALSE' */
   }
@@ -320,8 +276,11 @@ static void Car_State_output(void)
 
     /* Outport: '<Root>/TorqueEnable' */
     Car_State_Y.TorqueEnable = 0.0;
-    rtb_InvertersAction = 20;
+
+    /* Outport: '<Root>/InvertersAction' */
+    Car_State_Y.InvertersAction = 20.0;
   } else {
+    boolean_T guard1;
     guard1 = false;
     switch (Car_State_DW.is_c1_Car_State) {
      case Car_State_IN_EnableInverters:
@@ -329,44 +288,47 @@ static void Car_State_output(void)
 
       /* Outport: '<Root>/TorqueEnable' */
       Car_State_Y.TorqueEnable = 0.0;
-      rtb_InvertersAction = 21;
+
+      /* Outport: '<Root>/InvertersAction' */
+      Car_State_Y.InvertersAction = 21.0;
       if (Car_State_DW.temporalCounter_i1 >= 80U) {
         Car_State_DW.is_c1_Car_State = Car_State_IN_RTD;
         rtb_CarState = 15;
 
         /* Outport: '<Root>/TorqueEnable' */
         Car_State_Y.TorqueEnable = 1.0;
-        rtb_InvertersAction = 30;
-      } else {
-        if (!rtb_LogicalOperator1) {
-          Car_State_DW.is_c1_Car_State = Car_State_IN_OpenAirs;
-          Car_State_DW.temporalCounter_i1 = 0U;
-          rtb_CarState = 21;
-          rtb_InvertersAction = 20;
-        }
+
+        /* Outport: '<Root>/InvertersAction' */
+        Car_State_Y.InvertersAction = 30.0;
+      } else if (!rtb_LogicalOperator1) {
+        Car_State_DW.is_c1_Car_State = Car_State_IN_OpenAirs;
+        Car_State_DW.temporalCounter_i1 = 0U;
+        rtb_CarState = 21;
+
+        /* Outport: '<Root>/InvertersAction' */
+        Car_State_Y.InvertersAction = 20.0;
       }
       break;
 
      case Car_State_IN_Locked:
-      rtb_CarState = 18;
+      rtb_CarState = 13;
 
       /* Outport: '<Root>/TorqueEnable' */
       Car_State_Y.TorqueEnable = 0.0;
-      rtb_InvertersAction = 20;
-      if (Car_State_U.Lock == 0.0) {
+
+      /* Outport: '<Root>/InvertersAction' */
+      Car_State_Y.InvertersAction = 20.0;
+      if (((Car_State_U.EnableDrive == 1.0) & (Car_State_U.Lock == 0.0)) != 0) {
         Car_State_DW.is_c1_Car_State = Car_State_IN_EnableInverters;
         Car_State_DW.temporalCounter_i1 = 0U;
         rtb_CarState = 14;
 
-        /* Outport: '<Root>/TorqueEnable' */
-        Car_State_Y.TorqueEnable = 0.0;
-        rtb_InvertersAction = 21;
-      } else {
-        if (!rtb_LogicalOperator1) {
-          Car_State_DW.is_c1_Car_State = Car_State_IN_OpenAirs;
-          Car_State_DW.temporalCounter_i1 = 0U;
-          rtb_CarState = 21;
-        }
+        /* Outport: '<Root>/InvertersAction' */
+        Car_State_Y.InvertersAction = 21.0;
+      } else if (!rtb_LogicalOperator1) {
+        Car_State_DW.is_c1_Car_State = Car_State_IN_OpenAirs;
+        Car_State_DW.temporalCounter_i1 = 0U;
+        rtb_CarState = 21;
       }
       break;
 
@@ -375,21 +337,16 @@ static void Car_State_output(void)
 
       /* Outport: '<Root>/TorqueEnable' */
       Car_State_Y.TorqueEnable = 1.0;
-      rtb_InvertersAction = 30;
-      if (Car_State_U.Lock == 1.0) {
-        Car_State_DW.is_c1_Car_State = Car_State_IN_Locked;
-        rtb_CarState = 18;
 
-        /* Outport: '<Root>/TorqueEnable' */
-        Car_State_Y.TorqueEnable = 0.0;
-        rtb_InvertersAction = 20;
-      } else {
-        if (!rtb_LogicalOperator1) {
-          Car_State_DW.is_c1_Car_State = Car_State_IN_OpenAirs;
-          Car_State_DW.temporalCounter_i1 = 0U;
-          rtb_CarState = 21;
-          rtb_InvertersAction = 20;
-        }
+      /* Outport: '<Root>/InvertersAction' */
+      Car_State_Y.InvertersAction = 30.0;
+      if (!rtb_LogicalOperator1) {
+        Car_State_DW.is_c1_Car_State = Car_State_IN_OpenAirs;
+        Car_State_DW.temporalCounter_i1 = 0U;
+        rtb_CarState = 21;
+
+        /* Outport: '<Root>/InvertersAction' */
+        Car_State_Y.InvertersAction = 20.0;
       }
       break;
 
@@ -398,21 +355,23 @@ static void Car_State_output(void)
 
       /* Outport: '<Root>/TorqueEnable' */
       Car_State_Y.TorqueEnable = 0.0;
-      rtb_InvertersAction = 20;
+
+      /* Outport: '<Root>/InvertersAction' */
+      Car_State_Y.InvertersAction = 20.0;
       if (Car_State_U.EnableDrive == 1.0) {
         Car_State_DW.is_c1_Car_State = Car_State_IN_EnableInverters;
         Car_State_DW.temporalCounter_i1 = 0U;
         rtb_CarState = 14;
 
-        /* Outport: '<Root>/TorqueEnable' */
-        Car_State_Y.TorqueEnable = 0.0;
-        rtb_InvertersAction = 21;
-      } else {
-        if (!rtb_LogicalOperator1) {
-          Car_State_DW.is_c1_Car_State = Car_State_IN_OpenAirs;
-          Car_State_DW.temporalCounter_i1 = 0U;
-          rtb_CarState = 21;
-        }
+        /* Outport: '<Root>/InvertersAction' */
+        Car_State_Y.InvertersAction = 21.0;
+      } else if (!rtb_LogicalOperator1) {
+        Car_State_DW.is_c1_Car_State = Car_State_IN_OpenAirs;
+        Car_State_DW.temporalCounter_i1 = 0U;
+        rtb_CarState = 21;
+      } else if (Car_State_U.Lock == 1.0) {
+        Car_State_DW.is_c1_Car_State = Car_State_IN_Locked;
+        rtb_CarState = 13;
       }
       break;
 
@@ -421,7 +380,9 @@ static void Car_State_output(void)
 
       /* Outport: '<Root>/TorqueEnable' */
       Car_State_Y.TorqueEnable = 0.0;
-      rtb_InvertersAction = 20;
+
+      /* Outport: '<Root>/InvertersAction' */
+      Car_State_Y.InvertersAction = 20.0;
       if (Car_State_DW.temporalCounter_i1 >= 80U) {
         /* Outport: '<Root>/errors' */
         Car_State_Y.errors = 9.0;
@@ -430,13 +391,8 @@ static void Car_State_output(void)
                  != 0) {
         Car_State_DW.is_c1_Car_State = Car_State_IN_TSActive;
         rtb_CarState = 12;
-
-        /* Outport: '<Root>/TorqueEnable' */
-        Car_State_Y.TorqueEnable = 0.0;
-      } else {
-        if (!rtb_LogicalOperator1) {
-          guard1 = true;
-        }
+      } else if (!rtb_LogicalOperator1) {
+        guard1 = true;
       }
       break;
 
@@ -445,23 +401,20 @@ static void Car_State_output(void)
 
       /* Outport: '<Root>/TorqueEnable' */
       Car_State_Y.TorqueEnable = 0.0;
-      rtb_InvertersAction = 20;
-      if (((rtb_Merge_b == 1.0) & (Car_State_DW.temporalCounter_i1 >= 100U)) !=
-          0) {
+
+      /* Outport: '<Root>/InvertersAction' */
+      Car_State_Y.InvertersAction = 20.0;
+      if (((rtb_Saturation == 1.0) & (Car_State_DW.temporalCounter_i1 >= 100U))
+          != 0) {
         Car_State_DW.is_c1_Car_State = Car_State_IN_PrechargeDONE;
         Car_State_DW.temporalCounter_i1 = 0U;
         rtb_CarState = 9;
-
-        /* Outport: '<Root>/TorqueEnable' */
-        Car_State_Y.TorqueEnable = 0.0;
-      } else {
-        if (Car_State_DW.temporalCounter_i1 >= 400U) {
-          /* Outport: '<Root>/errors' */
-          Car_State_Y.errors = 6.0;
-          Car_State_DW.is_c1_Car_State = Car_State_IN_OpenAirs;
-          Car_State_DW.temporalCounter_i1 = 0U;
-          rtb_CarState = 21;
-        }
+      } else if (Car_State_DW.temporalCounter_i1 >= 400U) {
+        /* Outport: '<Root>/errors' */
+        Car_State_Y.errors = 6.0;
+        Car_State_DW.is_c1_Car_State = Car_State_IN_OpenAirs;
+        Car_State_DW.temporalCounter_i1 = 0U;
+        rtb_CarState = 21;
       }
       break;
 
@@ -470,15 +423,16 @@ static void Car_State_output(void)
 
       /* Outport: '<Root>/TorqueEnable' */
       Car_State_Y.TorqueEnable = 0.0;
-      rtb_InvertersAction = 20;
+
+      /* Outport: '<Root>/InvertersAction' */
+      Car_State_Y.InvertersAction = 20.0;
       if (((Car_State_DW.temporalCounter_i1 >= 40U) & rtb_LogicalOperator1) != 0)
       {
         Car_State_DW.is_c1_Car_State = Car_State_IN_Standby;
         rtb_CarState = 3;
 
-        /* Outport: '<Root>/TorqueEnable' */
-        Car_State_Y.TorqueEnable = 0.0;
-        rtb_InvertersAction = 11;
+        /* Outport: '<Root>/InvertersAction' */
+        Car_State_Y.InvertersAction = 11.0;
       }
       break;
 
@@ -487,32 +441,33 @@ static void Car_State_output(void)
 
       /* Outport: '<Root>/TorqueEnable' */
       Car_State_Y.TorqueEnable = 0.0;
-      rtb_InvertersAction = 11;
+
+      /* Outport: '<Root>/InvertersAction' */
+      Car_State_Y.InvertersAction = 11.0;
       if (((Car_State_U.DashPrechargeRequest == 1.0) &
            (Car_State_U.InvertersSubscribed == 1.0)) != 0) {
         Car_State_DW.is_c1_Car_State = Car_State_IN_PrechargeINIT;
         Car_State_DW.temporalCounter_i1 = 0U;
         rtb_CarState = 6;
 
-        /* Outport: '<Root>/TorqueEnable' */
-        Car_State_Y.TorqueEnable = 0.0;
-        rtb_InvertersAction = 20;
-      } else {
-        if (!rtb_LogicalOperator1) {
-          Car_State_DW.is_c1_Car_State = Car_State_IN_Init;
-          Car_State_DW.temporalCounter_i1 = 0U;
-          rtb_CarState = 0;
+        /* Outport: '<Root>/InvertersAction' */
+        Car_State_Y.InvertersAction = 20.0;
+      } else if (!rtb_LogicalOperator1) {
+        Car_State_DW.is_c1_Car_State = Car_State_IN_Init;
+        Car_State_DW.temporalCounter_i1 = 0U;
+        rtb_CarState = 0;
 
-          /* Outport: '<Root>/TorqueEnable' */
-          Car_State_Y.TorqueEnable = 0.0;
-          rtb_InvertersAction = 20;
-        }
+        /* Outport: '<Root>/InvertersAction' */
+        Car_State_Y.InvertersAction = 20.0;
       }
       break;
 
      default:
+      /* case IN_OpenAirs: */
       rtb_CarState = 21;
-      rtb_InvertersAction = 20;
+
+      /* Outport: '<Root>/InvertersAction' */
+      Car_State_Y.InvertersAction = 20.0;
       if (((rtb_Merge_c == 1.0) & (Car_State_DW.temporalCounter_i1 >= 40U)) != 0)
       {
         Car_State_DW.is_c1_Car_State = Car_State_IN_Init;
@@ -538,36 +493,38 @@ static void Car_State_output(void)
   Car_State_Y.Car_State_f = rtb_CarState;
 
   /* SwitchCase: '<S4>/Switch Case' */
-  switch ((int32_T)fmod(rtb_CarState, 4.294967296E+9)) {
+  switch (rtb_CarState) {
    case 6:
     /* Outputs for IfAction SubSystem: '<S4>/Precharge' incorporates:
-     *  ActionPort: '<S19>/Action Port'
+     *  ActionPort: '<S17>/Action Port'
      */
-    /* SignalConversion: '<S19>/OutportBufferFor6' incorporates:
-     *  Constant: '<S19>/Constant'
+    /* Merge: '<S4>/Merge' incorporates:
+     *  Constant: '<S17>/Constant'
+     *  SignalConversion generated from: '<S17>/6'
      */
-    Car_State_B.Merge = Car_State_P.Constant_Value;
+    Car_State_B.Merge = 6.0;
 
     /* End of Outputs for SubSystem: '<S4>/Precharge' */
     break;
 
    case 9:
     /* Outputs for IfAction SubSystem: '<S4>/Tancar Airs' incorporates:
-     *  ActionPort: '<S20>/Action Port'
+     *  ActionPort: '<S18>/Action Port'
      */
-    /* SignalConversion: '<S20>/OutportBufferFor3' incorporates:
-     *  Constant: '<S20>/Constant'
+    /* Merge: '<S4>/Merge' incorporates:
+     *  Constant: '<S18>/Constant'
+     *  SignalConversion generated from: '<S18>/3'
      */
-    Car_State_B.Merge = Car_State_P.Constant_Value_k;
+    Car_State_B.Merge = 3.0;
 
     /* End of Outputs for SubSystem: '<S4>/Tancar Airs' */
     break;
 
    case 21:
     /* Outputs for IfAction SubSystem: '<S4>/Obrir AIRs' incorporates:
-     *  ActionPort: '<S18>/Action Port'
+     *  ActionPort: '<S16>/Action Port'
      */
-    Car_State_FALSE(&Car_State_B.Merge, &Car_State_P.ObrirAIRs);
+    Car_State_FALSE(&Car_State_B.Merge);
 
     /* End of Outputs for SubSystem: '<S4>/Obrir AIRs' */
     break;
@@ -578,27 +535,26 @@ static void Car_State_output(void)
   /* Outport: '<Root>/AIRs_Request' */
   Car_State_Y.AIRs_Request = Car_State_B.Merge;
 
-  /* Saturate: '<S9>/Saturation' incorporates:
+  /* Saturate: '<S8>/Saturation' incorporates:
    *  Inport: '<Root>/Accumulator_Voltage'
    */
-  if (Car_State_U.Accumulator_Voltage > Car_State_P.Saturation_UpperSat) {
-    rtb_Merge = Car_State_P.Saturation_UpperSat;
-  } else if (Car_State_U.Accumulator_Voltage < Car_State_P.Saturation_LowerSat)
-  {
-    rtb_Merge = Car_State_P.Saturation_LowerSat;
+  if (Car_State_U.Accumulator_Voltage > 600.0) {
+    rtb_Merge = 600.0;
+  } else if (Car_State_U.Accumulator_Voltage < 400.0) {
+    rtb_Merge = 400.0;
   } else {
     rtb_Merge = Car_State_U.Accumulator_Voltage;
   }
 
-  /* End of Saturate: '<S9>/Saturation' */
+  /* End of Saturate: '<S8>/Saturation' */
 
   /* Outport: '<Root>/Precharge_Percentage' incorporates:
-   *  Gain: '<S9>/If DC BUS not bits'
+   *  Gain: '<S8>/If DC BUS not bits'
    *  Inport: '<Root>/InvertersMinDCBus'
-   *  Product: '<S9>/Divide'
+   *  Product: '<S8>/Divide'
    */
-  Car_State_Y.Precharge_Percentage = Car_State_U.InvertersMinDCBus /
-    (Car_State_P.IfDCBUSnotbits_Gain * rtb_Merge);
+  Car_State_Y.Precharge_Percentage = Car_State_U.InvertersMinDCBus / (0.01 *
+    rtb_Merge);
 
   /* Outport: '<Root>/Precharge_Voltage' incorporates:
    *  Inport: '<Root>/InvertersMinDCBus'
@@ -608,17 +564,11 @@ static void Car_State_output(void)
   /* Outport: '<Root>/CurrentPathDisconnectionFlag' */
   Car_State_Y.CurrentPathDisconnectionFlag = rtb_Merge_p;
 
-  /* Outport: '<Root>/InvertersAction' */
-  Car_State_Y.InvertersAction = rtb_InvertersAction;
-
   /* Outport: '<Root>/Car_OK' */
   Car_State_Y.Car_OK = rtb_LogicalOperator1;
 
   /* Outport: '<Root>/PrechargeAssert' */
-  Car_State_Y.PrechargeAssert = rtb_Merge_b;
-
-  /* Outport: '<Root>/ShutdownClosed' */
-  Car_State_Y.ShutdownClosed = rtb_Merge_a;
+  Car_State_Y.PrechargeAssert = rtb_Saturation;
 }
 
 /* Model update function */
@@ -646,7 +596,7 @@ static void Car_State_update(void)
 static void Car_State_initialize(void)
 {
   /* Start for DataStoreMemory: '<S7>/Data Store Memory' */
-  Car_State_DW.A = Car_State_P.DataStoreMemory_InitialValue;
+  Car_State_DW.A = 0.0;
 
   /* SystemInitialize for Chart: '<Root>/Car State Manager' */
   Car_State_DW.temporalCounter_i1 = 0U;
@@ -664,7 +614,7 @@ static void Car_State_initialize(void)
   Car_State_Y.errors = 0.0;
 
   /* SystemInitialize for Merge: '<S4>/Merge' */
-  Car_State_B.Merge = Car_State_P.Merge_InitialOutput;
+  Car_State_B.Merge = 0.0;
 }
 
 /* Model terminate function */
@@ -726,6 +676,9 @@ RT_MODEL_Car_State_T *Car_State(void)
   {
     int_T *mdlTsMap = Car_State_M->Timing.sampleTimeTaskIDArray;
     mdlTsMap[0] = 0;
+
+    /* polyspace +2 MISRA2012:D4.1 [Justified:Low] "Car_State_M points to
+       static memory which is guaranteed to be non-NULL" */
     Car_State_M->Timing.sampleTimeTaskIDPtr = (&mdlTsMap[0]);
     Car_State_M->Timing.sampleTimes = (&Car_State_M->Timing.sampleTimesArray[0]);
     Car_State_M->Timing.offsetTimes = (&Car_State_M->Timing.offsetTimesArray[0]);
@@ -747,6 +700,30 @@ RT_MODEL_Car_State_T *Car_State(void)
 
   rtmSetTFinal(Car_State_M, 10.0);
   Car_State_M->Timing.stepSize0 = 0.025;
+
+  /* Setup for data logging */
+  {
+    static RTWLogInfo rt_DataLoggingInfo;
+    rt_DataLoggingInfo.loggingInterval = (NULL);
+    Car_State_M->rtwLogInfo = &rt_DataLoggingInfo;
+  }
+
+  /* Setup for data logging */
+  {
+    rtliSetLogXSignalInfo(Car_State_M->rtwLogInfo, (NULL));
+    rtliSetLogXSignalPtrs(Car_State_M->rtwLogInfo, (NULL));
+    rtliSetLogT(Car_State_M->rtwLogInfo, "tout");
+    rtliSetLogX(Car_State_M->rtwLogInfo, "");
+    rtliSetLogXFinal(Car_State_M->rtwLogInfo, "");
+    rtliSetLogVarNameModifier(Car_State_M->rtwLogInfo, "rt_");
+    rtliSetLogFormat(Car_State_M->rtwLogInfo, 4);
+    rtliSetLogMaxRows(Car_State_M->rtwLogInfo, 0);
+    rtliSetLogDecimation(Car_State_M->rtwLogInfo, 1);
+    rtliSetLogY(Car_State_M->rtwLogInfo, "");
+    rtliSetLogYSignalInfo(Car_State_M->rtwLogInfo, (NULL));
+    rtliSetLogYSignalPtrs(Car_State_M->rtwLogInfo, (NULL));
+  }
+
   Car_State_M->solverInfoPtr = (&Car_State_M->solverInfo);
   Car_State_M->Timing.stepSize = (0.025);
   rtsiSetFixedStepSize(&Car_State_M->solverInfo, 0.025);
@@ -757,9 +734,6 @@ RT_MODEL_Car_State_T *Car_State(void)
   (void) memset(((void *) &Car_State_B), 0,
                 sizeof(B_Car_State_T));
 
-  /* parameters */
-  Car_State_M->defaultParam = ((real_T *)&Car_State_P);
-
   /* states (dwork) */
   Car_State_M->dwork = ((void *) &Car_State_DW);
   (void) memset((void *)&Car_State_DW, 0,
@@ -767,22 +741,20 @@ RT_MODEL_Car_State_T *Car_State(void)
 
   /* external inputs */
   Car_State_M->inputs = (((void*)&Car_State_U));
-  (void)memset((void *)&Car_State_U, 0, sizeof(ExtU_Car_State_T));
+  (void)memset(&Car_State_U, 0, sizeof(ExtU_Car_State_T));
 
   /* external outputs */
   Car_State_M->outputs = (&Car_State_Y);
-  (void) memset((void *)&Car_State_Y, 0,
-                sizeof(ExtY_Car_State_T));
+  (void)memset(&Car_State_Y, 0, sizeof(ExtY_Car_State_T));
 
   /* Initialize Sizes */
   Car_State_M->Sizes.numContStates = (0);/* Number of continuous states */
-  Car_State_M->Sizes.numY = (11);      /* Number of model outputs */
-  Car_State_M->Sizes.numU = (29);      /* Number of model inputs */
+  Car_State_M->Sizes.numY = (10);      /* Number of model outputs */
+  Car_State_M->Sizes.numU = (9);       /* Number of model inputs */
   Car_State_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Car_State_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  Car_State_M->Sizes.numBlocks = (73); /* Number of blocks */
+  Car_State_M->Sizes.numBlocks = (68); /* Number of blocks */
   Car_State_M->Sizes.numBlockIO = (3); /* Number of block outputs */
-  Car_State_M->Sizes.numBlockPrms = (25);/* Sum of parameter "widths" */
   return Car_State_M;
 }
 

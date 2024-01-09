@@ -7,9 +7,9 @@
  *
  * Code generation for model "Synchronism".
  *
- * Model version              : 1.4
- * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Wed Mar 29 13:00:31 2023
+ * Model version              : 10.0
+ * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
+ * C source code generated on : Fri Nov 17 17:15:54 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -19,16 +19,18 @@
  */
 
 #include "Synchronism.h"
-#include "Synchronism_private.h"
+#include "rtwtypes.h"
+#include <string.h>
+#include "rt_nonfinite.h"
 
-/* Block states (auto storage) */
+/* Block states (default storage) */
 DW_Synchronism_T Synchronism_DW;
 
-/* External outputs (root outports fed by signals with auto storage) */
+/* External outputs (root outports fed by signals with default storage) */
 ExtY_Synchronism_T Synchronism_Y;
 
 /* Real-time model */
-RT_MODEL_Synchronism_T Synchronism_M_;
+static RT_MODEL_Synchronism_T Synchronism_M_;
 RT_MODEL_Synchronism_T *const Synchronism_M = &Synchronism_M_;
 
 /* Model output function */
@@ -40,19 +42,22 @@ static void Synchronism_output(void)
    *  Constant: '<S1>/Constant'
    *  DataStoreRead: '<S1>/Data Store Read'
    */
-  rtb_Add = Synchronism_DW.counter + Synchronism_P.Constant_Value_e;
+  rtb_Add = Synchronism_DW.counter + 1.0;
 
   /* If: '<S1>/If' incorporates:
    *  Constant: '<Root>/Constant1'
+   *  Constant: '<S1>/Constant'
+   *  DataStoreRead: '<S1>/Data Store Read'
+   *  Sum: '<S1>/Add'
    */
-  if (Synchronism_P.Constant1_Value < rtb_Add) {
+  if (Synchronism_DW.counter + 1.0 > 200.0) {
     /* Outputs for IfAction SubSystem: '<S1>/Reset_counter' incorporates:
      *  ActionPort: '<S4>/Action Port'
      */
-    /* SignalConversion: '<S4>/OutportBufferFor1' incorporates:
+    /* SignalConversion generated from: '<S4>/1' incorporates:
      *  Constant: '<S4>/Constant'
      */
-    rtb_Add = Synchronism_P.Constant_Value;
+    rtb_Add = 1.0;
 
     /* End of Outputs for SubSystem: '<S1>/Reset_counter' */
   }
@@ -94,7 +99,7 @@ static void Synchronism_update(void)
 static void Synchronism_initialize(void)
 {
   /* Start for DataStoreMemory: '<S1>/Data Store Memory' */
-  Synchronism_DW.counter = Synchronism_P.DataStoreMemory_InitialValue;
+  Synchronism_DW.counter = 0.0;
 }
 
 /* Model terminate function */
@@ -156,6 +161,9 @@ RT_MODEL_Synchronism_T *Synchronism(void)
   {
     int_T *mdlTsMap = Synchronism_M->Timing.sampleTimeTaskIDArray;
     mdlTsMap[0] = 0;
+
+    /* polyspace +2 MISRA2012:D4.1 [Justified:Low] "Synchronism_M points to
+       static memory which is guaranteed to be non-NULL" */
     Synchronism_M->Timing.sampleTimeTaskIDPtr = (&mdlTsMap[0]);
     Synchronism_M->Timing.sampleTimes = (&Synchronism_M->
       Timing.sampleTimesArray[0]);
@@ -179,13 +187,34 @@ RT_MODEL_Synchronism_T *Synchronism(void)
 
   rtmSetTFinal(Synchronism_M, 10.0);
   Synchronism_M->Timing.stepSize0 = 0.2;
+
+  /* Setup for data logging */
+  {
+    static RTWLogInfo rt_DataLoggingInfo;
+    rt_DataLoggingInfo.loggingInterval = (NULL);
+    Synchronism_M->rtwLogInfo = &rt_DataLoggingInfo;
+  }
+
+  /* Setup for data logging */
+  {
+    rtliSetLogXSignalInfo(Synchronism_M->rtwLogInfo, (NULL));
+    rtliSetLogXSignalPtrs(Synchronism_M->rtwLogInfo, (NULL));
+    rtliSetLogT(Synchronism_M->rtwLogInfo, "tout");
+    rtliSetLogX(Synchronism_M->rtwLogInfo, "");
+    rtliSetLogXFinal(Synchronism_M->rtwLogInfo, "");
+    rtliSetLogVarNameModifier(Synchronism_M->rtwLogInfo, "rt_");
+    rtliSetLogFormat(Synchronism_M->rtwLogInfo, 4);
+    rtliSetLogMaxRows(Synchronism_M->rtwLogInfo, 0);
+    rtliSetLogDecimation(Synchronism_M->rtwLogInfo, 1);
+    rtliSetLogY(Synchronism_M->rtwLogInfo, "");
+    rtliSetLogYSignalInfo(Synchronism_M->rtwLogInfo, (NULL));
+    rtliSetLogYSignalPtrs(Synchronism_M->rtwLogInfo, (NULL));
+  }
+
   Synchronism_M->solverInfoPtr = (&Synchronism_M->solverInfo);
   Synchronism_M->Timing.stepSize = (0.2);
   rtsiSetFixedStepSize(&Synchronism_M->solverInfo, 0.2);
   rtsiSetSolverMode(&Synchronism_M->solverInfo, SOLVER_MODE_SINGLETASKING);
-
-  /* parameters */
-  Synchronism_M->defaultParam = ((real_T *)&Synchronism_P);
 
   /* states (dwork) */
   Synchronism_M->dwork = ((void *) &Synchronism_DW);
@@ -194,8 +223,7 @@ RT_MODEL_Synchronism_T *Synchronism(void)
 
   /* external outputs */
   Synchronism_M->outputs = (&Synchronism_Y);
-  (void) memset((void *)&Synchronism_Y, 0,
-                sizeof(ExtY_Synchronism_T));
+  (void)memset(&Synchronism_Y, 0, sizeof(ExtY_Synchronism_T));
 
   /* Initialize Sizes */
   Synchronism_M->Sizes.numContStates = (0);/* Number of continuous states */
@@ -205,7 +233,6 @@ RT_MODEL_Synchronism_T *Synchronism(void)
   Synchronism_M->Sizes.numSampTimes = (1);/* Number of sample times */
   Synchronism_M->Sizes.numBlocks = (15);/* Number of blocks */
   Synchronism_M->Sizes.numBlockIO = (0);/* Number of block outputs */
-  Synchronism_M->Sizes.numBlockPrms = (4);/* Sum of parameter "widths" */
   return Synchronism_M;
 }
 

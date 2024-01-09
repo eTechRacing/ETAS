@@ -7,9 +7,9 @@
  *
  * Code generation for model "Inverters_Action".
  *
- * Model version              : 1.7
- * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Wed Mar 29 12:57:49 2023
+ * Model version              : 10.0
+ * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
+ * C source code generated on : Fri Nov 17 17:13:48 2023
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -19,22 +19,26 @@
  */
 
 #include "Inverters_Action.h"
+#include "rtwtypes.h"
 #include "Inverters_Action_private.h"
+#include <math.h>
+#include "rt_nonfinite.h"
+#include <string.h>
 
-/* Block signals (auto storage) */
+/* Block signals (default storage) */
 B_Inverters_Action_T Inverters_Action_B;
 
-/* Block states (auto storage) */
+/* Block states (default storage) */
 DW_Inverters_Action_T Inverters_Action_DW;
 
-/* External inputs (root inport signals with auto storage) */
+/* External inputs (root inport signals with default storage) */
 ExtU_Inverters_Action_T Inverters_Action_U;
 
-/* External outputs (root outports fed by signals with auto storage) */
+/* External outputs (root outports fed by signals with default storage) */
 ExtY_Inverters_Action_T Inverters_Action_Y;
 
 /* Real-time model */
-RT_MODEL_Inverters_Action_T Inverters_Action_M_;
+static RT_MODEL_Inverters_Action_T Inverters_Action_M_;
 RT_MODEL_Inverters_Action_T *const Inverters_Action_M = &Inverters_Action_M_;
 
 /*
@@ -43,8 +47,7 @@ RT_MODEL_Inverters_Action_T *const Inverters_Action_M = &Inverters_Action_M_;
  *    '<S33>/Register Enumerator '
  */
 void Inverters_Ac_RegisterEnumerator(uint8_T *rty_Register, boolean_T
-  *rty_MuxEnable1, boolean_T *rty_u00, P_RegisterEnumerator_Inverter_T *localP,
-  real_T *rtd_EnumerationCounter)
+  *rty_MuxEnable1, boolean_T *rty_u00, real_T *rtd_EnumerationCounter)
 {
   real_T rtb_Counter;
 
@@ -55,7 +58,7 @@ void Inverters_Ac_RegisterEnumerator(uint8_T *rty_Register, boolean_T
    *  Constant: '<S16>/Constant'
    *  Sum: '<S16>/Add'
    */
-  *rtd_EnumerationCounter += localP->Constant_Value;
+  (*rtd_EnumerationCounter)++;
 
   /* SwitchCase: '<S16>/Switch Case' */
   rtb_Counter = trunc(rtb_Counter);
@@ -71,10 +74,10 @@ void Inverters_Ac_RegisterEnumerator(uint8_T *rty_Register, boolean_T
     /* Outputs for IfAction SubSystem: '<S16>/I actual' incorporates:
      *  ActionPort: '<S20>/Action Port'
      */
-    /* SignalConversion: '<S20>/OutportBufferForI actual Register Address' incorporates:
+    /* SignalConversion generated from: '<S20>/I actual Register Address' incorporates:
      *  Constant: '<S20>/0x20'
      */
-    *rty_Register = localP->ux20_Value;
+    *rty_Register = 32U;
 
     /* End of Outputs for SubSystem: '<S16>/I actual' */
     break;
@@ -83,10 +86,10 @@ void Inverters_Ac_RegisterEnumerator(uint8_T *rty_Register, boolean_T
     /* Outputs for IfAction SubSystem: '<S16>/I cmd' incorporates:
      *  ActionPort: '<S21>/Action Port'
      */
-    /* SignalConversion: '<S21>/OutportBufferForI cmd Register Address' incorporates:
+    /* SignalConversion generated from: '<S21>/I cmd Register Address' incorporates:
      *  Constant: '<S21>/0x26'
      */
-    *rty_Register = localP->ux26_Value;
+    *rty_Register = 38U;
 
     /* End of Outputs for SubSystem: '<S16>/I cmd' */
     break;
@@ -95,10 +98,10 @@ void Inverters_Ac_RegisterEnumerator(uint8_T *rty_Register, boolean_T
     /* Outputs for IfAction SubSystem: '<S16>/Iq actual' incorporates:
      *  ActionPort: '<S22>/Action Port'
      */
-    /* SignalConversion: '<S22>/OutportBufferForIq actual Register Address' incorporates:
+    /* SignalConversion generated from: '<S22>/Iq actual Register Address' incorporates:
      *  Constant: '<S22>/0x27'
      */
-    *rty_Register = localP->ux27_Value;
+    *rty_Register = 39U;
 
     /* End of Outputs for SubSystem: '<S16>/Iq actual' */
     break;
@@ -107,10 +110,10 @@ void Inverters_Ac_RegisterEnumerator(uint8_T *rty_Register, boolean_T
     /* Outputs for IfAction SubSystem: '<S16>/N actual' incorporates:
      *  ActionPort: '<S23>/Action Port'
      */
-    /* SignalConversion: '<S23>/OutportBufferForN actual Register Address' incorporates:
+    /* SignalConversion generated from: '<S23>/N actual Register Address' incorporates:
      *  Constant: '<S23>/0x30'
      */
-    *rty_Register = localP->ux30_Value;
+    *rty_Register = 48U;
 
     /* End of Outputs for SubSystem: '<S16>/N actual' */
     break;
@@ -119,10 +122,10 @@ void Inverters_Ac_RegisterEnumerator(uint8_T *rty_Register, boolean_T
     /* Outputs for IfAction SubSystem: '<S16>/T-motor' incorporates:
      *  ActionPort: '<S26>/Action Port'
      */
-    /* SignalConversion: '<S26>/OutportBufferForT-motor Register Address' incorporates:
+    /* SignalConversion generated from: '<S26>/T-motor Register Address' incorporates:
      *  Constant: '<S26>/0x49'
      */
-    *rty_Register = localP->ux49_Value;
+    *rty_Register = 73U;
 
     /* End of Outputs for SubSystem: '<S16>/T-motor' */
     break;
@@ -131,10 +134,10 @@ void Inverters_Ac_RegisterEnumerator(uint8_T *rty_Register, boolean_T
     /* Outputs for IfAction SubSystem: '<S16>/T-igbt' incorporates:
      *  ActionPort: '<S25>/Action Port'
      */
-    /* SignalConversion: '<S25>/OutportBufferForT-igbt Register Address' incorporates:
+    /* SignalConversion generated from: '<S25>/T-igbt Register Address' incorporates:
      *  Constant: '<S25>/0x4A'
      */
-    *rty_Register = localP->ux4A_Value;
+    *rty_Register = 74U;
 
     /* End of Outputs for SubSystem: '<S16>/T-igbt' */
     break;
@@ -143,10 +146,10 @@ void Inverters_Ac_RegisterEnumerator(uint8_T *rty_Register, boolean_T
     /* Outputs for IfAction SubSystem: '<S16>/(in) Run (Frg)' incorporates:
      *  ActionPort: '<S19>/Action Port'
      */
-    /* SignalConversion: '<S19>/OutportBufferFor(in) Run (Frg) Register Address' incorporates:
+    /* SignalConversion generated from: '<S19>/(in) Run (Frg) Register Address' incorporates:
      *  Constant: '<S19>/0xE8'
      */
-    *rty_Register = localP->uxE8_Value;
+    *rty_Register = 232U;
 
     /* End of Outputs for SubSystem: '<S16>/(in) Run (Frg)' */
     break;
@@ -155,10 +158,10 @@ void Inverters_Ac_RegisterEnumerator(uint8_T *rty_Register, boolean_T
     /* Outputs for IfAction SubSystem: '<S16>/Vdc-Bus' incorporates:
      *  ActionPort: '<S27>/Action Port'
      */
-    /* SignalConversion: '<S27>/OutportBufferForVdc-Bus Register Address' incorporates:
+    /* SignalConversion generated from: '<S27>/Vdc-Bus Register Address' incorporates:
      *  Constant: '<S27>/0xEB'
      */
-    *rty_Register = localP->uxEB_Value;
+    *rty_Register = 235U;
 
     /* End of Outputs for SubSystem: '<S16>/Vdc-Bus' */
     break;
@@ -167,10 +170,10 @@ void Inverters_Ac_RegisterEnumerator(uint8_T *rty_Register, boolean_T
     /* Outputs for IfAction SubSystem: '<S16>/Register to Read' incorporates:
      *  ActionPort: '<S24>/Action Port'
      */
-    /* SignalConversion: '<S24>/OutportBufferFor[Param] Register Address' incorporates:
+    /* SignalConversion generated from: '<S24>/[Param] Register Address' incorporates:
      *  Constant: '<S24>/ Register adress'
      */
-    *rty_Register = localP->Registeradress_Value;
+    *rty_Register = 0U;
 
     /* End of Outputs for SubSystem: '<S16>/Register to Read' */
     break;
@@ -178,15 +181,15 @@ void Inverters_Ac_RegisterEnumerator(uint8_T *rty_Register, boolean_T
 
   /* End of SwitchCase: '<S16>/Switch Case' */
 
-  /* SignalConversion: '<S16>/OutportBufferForMuxEnable:1' incorporates:
+  /* SignalConversion generated from: '<S16>/MuxEnable:1' incorporates:
    *  Constant: '<S16>/Constant1'
    */
-  *rty_MuxEnable1 = localP->Constant1_Value;
+  *rty_MuxEnable1 = true;
 
-  /* SignalConversion: '<S16>/OutportBufferFor100' incorporates:
+  /* SignalConversion generated from: '<S16>/100' incorporates:
    *  Constant: '<S16>/Constant2'
    */
-  *rty_u00 = localP->Constant2_Value;
+  *rty_u00 = true;
 }
 
 /*
@@ -195,40 +198,20 @@ void Inverters_Ac_RegisterEnumerator(uint8_T *rty_Register, boolean_T
  *    '<S33>/EnumerationDone'
  */
 void Inverters_Actio_EnumerationDone(boolean_T rtu_SubscribedIn, uint8_T
-  *rty_DummyRegister, boolean_T *rty_MuxEnable0, boolean_T *rty_SubscribedOut,
-  P_EnumerationDone_Inverters_A_T *localP)
+  *rty_DummyRegister, boolean_T *rty_MuxEnable0, boolean_T *rty_SubscribedOut)
 {
-  /* SignalConversion: '<S15>/OutportBufferForDummyRegister' incorporates:
+  /* SignalConversion generated from: '<S15>/DummyRegister' incorporates:
    *  Constant: '<S15>/Constant'
    */
-  *rty_DummyRegister = localP->Constant_Value;
+  *rty_DummyRegister = 0U;
 
-  /* SignalConversion: '<S15>/OutportBufferForMuxEnable: 0' incorporates:
+  /* SignalConversion generated from: '<S15>/MuxEnable: 0' incorporates:
    *  Constant: '<S15>/Constant1'
    */
-  *rty_MuxEnable0 = localP->Constant1_Value;
+  *rty_MuxEnable0 = false;
 
-  /* Inport: '<S15>/Subscribed In' */
+  /* SignalConversion generated from: '<S15>/Subscribed In' */
   *rty_SubscribedOut = rtu_SubscribedIn;
-}
-
-/*
- * Output and update for action system:
- *    '<S8>/Unsubscribe'
- *    '<S33>/Unsubscribe'
- */
-void Inverters_Action_Unsubscribe(uint8_T *rty_uXFFStopTransmission, boolean_T
-  *rty_u, P_Unsubscribe_Inverters_Actio_T *localP)
-{
-  /* SignalConversion: '<S18>/OutportBufferFor0XFF Stop Transmission' incorporates:
-   *  Constant: '<S18>/0XFF'
-   */
-  *rty_uXFFStopTransmission = localP->uXFF_Value;
-
-  /* SignalConversion: '<S18>/OutportBufferFor0' incorporates:
-   *  Constant: '<S18>/ '
-   */
-  *rty_u = localP->_Value;
 }
 
 /*
@@ -237,13 +220,12 @@ void Inverters_Action_Unsubscribe(uint8_T *rty_uXFFStopTransmission, boolean_T
  *    '<S2>/DisableDrive//EnableDrive'
  */
 void Inverte_DisableDriveEnableDrive(real_T rtu_action, uint8_T *rty_RegID,
-  uint8_T *rty_b7tob0, uint8_T *rty_b15tob8, boolean_T *rty_MuxEnable,
-  P_DisableDriveEnableDrive_Inv_T *localP)
+  uint8_T *rty_b7tob0, uint8_T *rty_b15tob8, boolean_T *rty_MuxEnable)
 {
-  /* SignalConversion: '<S4>/OutportBufferForRegID' incorporates:
+  /* SignalConversion generated from: '<S4>/RegID' incorporates:
    *  Constant: '<S4>/0x51'
    */
-  *rty_RegID = localP->ux51_Value;
+  *rty_RegID = 81U;
 
   /* If: '<S4>/If' incorporates:
    *  Constant: '<S11>/Constant'
@@ -252,32 +234,32 @@ void Inverte_DisableDriveEnableDrive(real_T rtu_action, uint8_T *rty_RegID,
     /* Outputs for IfAction SubSystem: '<S4>/Enable' incorporates:
      *  ActionPort: '<S11>/Action Port'
      */
-    *rty_b7tob0 = localP->Constant_Value;
+    *rty_b7tob0 = 0U;
 
     /* End of Outputs for SubSystem: '<S4>/Enable' */
   } else {
     /* Outputs for IfAction SubSystem: '<S4>/If Action Subsystem1' incorporates:
      *  ActionPort: '<S12>/Action Port'
      */
-    /* SignalConversion: '<S12>/OutportBufferForOut1' incorporates:
+    /* SignalConversion generated from: '<S12>/Out1' incorporates:
      *  Constant: '<S12>/Constant'
      */
-    *rty_b7tob0 = localP->Constant_Value_g;
+    *rty_b7tob0 = 4U;
 
     /* End of Outputs for SubSystem: '<S4>/If Action Subsystem1' */
   }
 
   /* End of If: '<S4>/If' */
 
-  /* SignalConversion: '<S4>/OutportBufferForb15 to b8' incorporates:
+  /* SignalConversion generated from: '<S4>/b15 to b8' incorporates:
    *  Constant: '<S4>/Constant'
    */
-  *rty_b15tob8 = localP->Constant_Value_k;
+  *rty_b15tob8 = 0U;
 
-  /* SignalConversion: '<S4>/OutportBufferForMuxEnable' incorporates:
+  /* SignalConversion generated from: '<S4>/MuxEnable' incorporates:
    *  Constant: '<S4>/void1'
    */
-  *rty_MuxEnable = localP->void1_Value;
+  *rty_MuxEnable = true;
 }
 
 /*
@@ -286,23 +268,19 @@ void Inverte_DisableDriveEnableDrive(real_T rtu_action, uint8_T *rty_RegID,
  *    '<S2>/Torque Command'
  */
 void Inverters_Action_TorqueCommand(real_T rtu_IqCurrent, uint8_T *rty_RegID,
-  uint8_T *rty_b7tob0, uint8_T *rty_b15tob8, boolean_T *rty_MuxEnable,
-  P_TorqueCommand_Inverters_Act_T *localP)
+  uint8_T *rty_b7tob0, uint8_T *rty_b15tob8, boolean_T *rty_MuxEnable, const
+  ConstB_TorqueCommand_Inverter_T *localC)
 {
-  uint16_T rtb_BitwiseOperator1;
   real_T tmp;
+  uint16_T rtb_BitwiseOperator1;
 
-  /* SignalConversion: '<S6>/OutportBufferForRegID' incorporates:
+  /* SignalConversion generated from: '<S6>/RegID' incorporates:
    *  Constant: '<S6>/0x90'
    */
-  *rty_RegID = localP->ux90_Value;
+  *rty_RegID = 144U;
 
-  /* Product: '<S6>/Product' incorporates:
-   *  Constant: '<S6>/Bits_Max'
-   *  Constant: '<S6>/IMAX'
-   *  Product: '<S6>/Divide'
-   */
-  tmp = floor(localP->Bits_Max_Value / localP->IMAX_Value * rtu_IqCurrent);
+  /* Product: '<S6>/Product' */
+  tmp = floor(localC->Divide * rtu_IqCurrent);
   if (rtIsNaN(tmp) || rtIsInf(tmp)) {
     tmp = 0.0;
   } else {
@@ -317,19 +295,18 @@ void Inverters_Action_TorqueCommand(real_T rtu_IqCurrent, uint8_T *rty_RegID,
   /* DataTypeConversion: '<S13>/Data Type Conversion' incorporates:
    *  S-Function (sfix_bitop): '<S13>/Bitwise Operator'
    */
-  *rty_b7tob0 = (uint8_T)(rtb_BitwiseOperator1 & localP->BitwiseOperator_BitMask);
+  *rty_b7tob0 = (uint8_T)(rtb_BitwiseOperator1 & 255);
 
   /* DataTypeConversion: '<S13>/Data Type Conversion1' incorporates:
    *  ArithShift: '<S13>/Shift Arithmetic'
    *  S-Function (sfix_bitop): '<S13>/Bitwise Operator1'
    */
-  *rty_b15tob8 = (uint8_T)((int32_T)((uint32_T)rtb_BitwiseOperator1 >> 8) &
-    localP->BitwiseOperator1_BitMask);
+  *rty_b15tob8 = (uint8_T)((uint32_T)rtb_BitwiseOperator1 >> 8);
 
-  /* SignalConversion: '<S6>/OutportBufferForMuxEnable' incorporates:
+  /* SignalConversion generated from: '<S6>/MuxEnable' incorporates:
    *  Constant: '<S6>/Always Enabled if action is torquecommand'
    */
-  *rty_MuxEnable = localP->AlwaysEnabledifactionistorqueco;
+  *rty_MuxEnable = true;
 }
 
 /*
@@ -338,28 +315,27 @@ void Inverters_Action_TorqueCommand(real_T rtu_IqCurrent, uint8_T *rty_RegID,
  *    '<S2>/Action not Defined'
  */
 void Inverters_Acti_ActionnotDefined(uint8_T *rty_RegID, uint8_T *rty_b7tob0,
-  uint8_T *rty_b15tob8, boolean_T *rty_MuxDisable,
-  P_ActionnotDefined_Inverters__T *localP)
+  uint8_T *rty_b15tob8, boolean_T *rty_MuxDisable)
 {
-  /* SignalConversion: '<S3>/OutportBufferForRegID' incorporates:
+  /* SignalConversion generated from: '<S3>/RegID' incorporates:
    *  Constant: '<S3>/0 1'
    */
-  *rty_RegID = localP->u1_Value;
+  *rty_RegID = 0U;
 
-  /* SignalConversion: '<S3>/OutportBufferForb7 to b0' incorporates:
+  /* SignalConversion generated from: '<S3>/b7 to b0' incorporates:
    *  Constant: '<S3>/0 2'
    */
-  *rty_b7tob0 = localP->u2_Value;
+  *rty_b7tob0 = 0U;
 
-  /* SignalConversion: '<S3>/OutportBufferForb15 to b8' incorporates:
+  /* SignalConversion generated from: '<S3>/b15 to b8' incorporates:
    *  Constant: '<S3>/0 3'
    */
-  *rty_b15tob8 = localP->u3_Value;
+  *rty_b15tob8 = 0U;
 
-  /* SignalConversion: '<S3>/OutportBufferForMuxDisable' incorporates:
+  /* SignalConversion generated from: '<S3>/MuxDisable' incorporates:
    *  Constant: '<S3>/0 '
    */
-  *rty_MuxDisable = localP->u_Value;
+  *rty_MuxDisable = false;
 }
 
 /*
@@ -371,13 +347,13 @@ void Inverters_Action_bypass(uint8_T rtu_InRegID, uint8_T rtu_Inb7tob0, uint8_T
   rtu_Inb15tob8, uint8_T *rty_OutRegID, uint8_T *rty_Outb7tob0, uint8_T
   *rty_Outb15tob8)
 {
-  /* Inport: '<S9>/In RegID' */
+  /* SignalConversion generated from: '<S9>/In RegID' */
   *rty_OutRegID = rtu_InRegID;
 
-  /* Inport: '<S9>/In b7 to b0' */
+  /* SignalConversion generated from: '<S9>/In b7 to b0' */
   *rty_Outb7tob0 = rtu_Inb7tob0;
 
-  /* Inport: '<S9>/In b15 to b8' */
+  /* SignalConversion generated from: '<S9>/In b15 to b8' */
   *rty_Outb15tob8 = rtu_Inb15tob8;
 }
 
@@ -387,46 +363,18 @@ void Inverters_Action_bypass(uint8_T rtu_InRegID, uint8_T rtu_Inb7tob0, uint8_T
  *    '<S2>/Torque Command 0'
  */
 void Inverters_Action_TorqueCommand0(uint8_T *rty_RegID, uint8_T *rty_b7tob0,
-  uint8_T *rty_b15tob8, P_TorqueCommand0_Inverters_Ac_T *localP)
+  uint8_T *rty_b15tob8, const ConstB_TorqueCommand0_Inverte_T *localC)
 {
-  uint16_T rtb_BitwiseOperator1;
-  real_T tmp;
-
-  /* SignalConversion: '<S7>/OutportBufferForRegID' incorporates:
+  /* SignalConversion generated from: '<S7>/RegID' incorporates:
    *  Constant: '<S7>/0x90'
    */
-  *rty_RegID = localP->ux90_Value;
+  *rty_RegID = 144U;
 
-  /* Product: '<S7>/Product' incorporates:
-   *  Constant: '<S7>/Bits_Max'
-   *  Constant: '<S7>/Constant'
-   *  Constant: '<S7>/IMAX'
-   *  Product: '<S7>/Divide'
-   */
-  tmp = floor(localP->Bits_Max_Value / localP->IMAX_Value *
-              localP->Constant_Value);
-  if (rtIsNaN(tmp) || rtIsInf(tmp)) {
-    tmp = 0.0;
-  } else {
-    tmp = fmod(tmp, 65536.0);
-  }
+  /* DataTypeConversion: '<S14>/Data Type Conversion' */
+  *rty_b7tob0 = (uint8_T)localC->b7tob0;
 
-  rtb_BitwiseOperator1 = (uint16_T)(tmp < 0.0 ? (int32_T)(uint16_T)-(int16_T)
-    (uint16_T)-tmp : (int32_T)(uint16_T)tmp);
-
-  /* End of Product: '<S7>/Product' */
-
-  /* DataTypeConversion: '<S14>/Data Type Conversion' incorporates:
-   *  S-Function (sfix_bitop): '<S14>/Bitwise Operator'
-   */
-  *rty_b7tob0 = (uint8_T)(rtb_BitwiseOperator1 & localP->BitwiseOperator_BitMask);
-
-  /* DataTypeConversion: '<S14>/Data Type Conversion1' incorporates:
-   *  ArithShift: '<S14>/Shift Arithmetic'
-   *  S-Function (sfix_bitop): '<S14>/Bitwise Operator1'
-   */
-  *rty_b15tob8 = (uint8_T)((int32_T)((uint32_T)rtb_BitwiseOperator1 >> 8) &
-    localP->BitwiseOperator1_BitMask);
+  /* DataTypeConversion: '<S14>/Data Type Conversion1' */
+  *rty_b15tob8 = (uint8_T)localC->BitwiseOperator1;
 }
 
 /*
@@ -434,26 +382,27 @@ void Inverters_Action_TorqueCommand0(uint8_T *rty_RegID, uint8_T *rty_b7tob0,
  *    '<S1>/Reset Enumeration'
  *    '<S2>/Reset Enumeration'
  */
-void Inverters_Acti_ResetEnumeration(P_ResetEnumeration_Inverters__T *localP,
-  real_T *rtd_EnumerationCounter)
+void Inverters_Acti_ResetEnumeration(real_T *rtd_EnumerationCounter)
 {
   /* DataStoreWrite: '<S5>/Parameter Counter Write' incorporates:
    *  Constant: '<S5>/Constant1'
    */
-  *rtd_EnumerationCounter = localP->Constant1_Value;
+  *rtd_EnumerationCounter = 0.0;
 }
 
 /* Model output function */
 static void Inverters_Action_output(void)
 {
-  boolean_T rtb_MergeMuxEnable;
-  uint8_T rtb_Merge4;
-  uint8_T rtb_Merge5;
-  uint8_T rtb_Merge3;
-  uint8_T rtb_Merge;
-  uint8_T rtb_Merge1;
   real_T tmp;
   real_T tmp_0;
+  uint8_T rtb_Merge;
+  uint8_T rtb_Merge1;
+  uint8_T rtb_Merge3;
+  uint8_T rtb_Merge4;
+  uint8_T rtb_Merge5;
+  boolean_T rtb_MergeMuxEnable;
+  boolean_T tmp_1;
+  boolean_T tmp_2;
 
   /* Outputs for IfAction SubSystem: '<S1>/Unsubscribe//Subscribe' incorporates:
    *  ActionPort: '<S8>/Action Port'
@@ -461,13 +410,15 @@ static void Inverters_Action_output(void)
   /* Outputs for IfAction SubSystem: '<S2>/Unsubscribe//Subscribe' incorporates:
    *  ActionPort: '<S33>/Action Port'
    */
-  /* SwitchCase: '<S1>/Action Selector' incorporates:
+  /* SwitchCase: '<S8>/Unsubscribe//Subscribe' incorporates:
    *  Inport: '<Root>/InvertersAction'
+   *  SwitchCase: '<S1>/Action Selector'
    *  SwitchCase: '<S2>/Action Selector'
    *  SwitchCase: '<S33>/Unsubscribe//Subscribe'
-   *  SwitchCase: '<S8>/Unsubscribe//Subscribe'
    */
   tmp_0 = trunc(Inverters_Action_U.InvertersAction);
+  tmp_1 = rtIsNaN(tmp_0);
+  tmp_2 = rtIsInf(tmp_0);
 
   /* End of Outputs for SubSystem: '<S2>/Unsubscribe//Subscribe' */
   /* End of Outputs for SubSystem: '<S1>/Unsubscribe//Subscribe' */
@@ -476,7 +427,7 @@ static void Inverters_Action_output(void)
    *  Inport: '<Root>/InvertersAction'
    *  Inport: '<Root>/current_L'
    */
-  if (rtIsNaN(tmp_0) || rtIsInf(tmp_0)) {
+  if (tmp_1 || tmp_2) {
     tmp = 0.0;
   } else {
     tmp = fmod(tmp_0, 4.294967296E+9);
@@ -489,7 +440,7 @@ static void Inverters_Action_output(void)
      *  ActionPort: '<S33>/Action Port'
      */
     /* SwitchCase: '<S33>/Unsubscribe//Subscribe' */
-    if (rtIsNaN(tmp_0) || rtIsInf(tmp_0)) {
+    if (tmp_1 || tmp_2) {
       tmp = 0.0;
     } else {
       tmp = fmod(tmp_0, 4.294967296E+9);
@@ -500,8 +451,17 @@ static void Inverters_Action_output(void)
       /* Outputs for IfAction SubSystem: '<S33>/Unsubscribe' incorporates:
        *  ActionPort: '<S43>/Action Port'
        */
-      Inverters_Action_Unsubscribe(&Inverters_Action_B.Merge2,
-        &Inverters_Action_B.subscribed, &Inverters_Action_P.Unsubscribe_a);
+      /* Merge: '<S2>/Merge2' incorporates:
+       *  Constant: '<S43>/0XFF'
+       *  SignalConversion generated from: '<S43>/0XFF Stop Transmission'
+       */
+      Inverters_Action_B.Merge2 = MAX_uint8_T;
+
+      /* Merge: '<S33>/subscribed?' incorporates:
+       *  Constant: '<S43>/ '
+       *  SignalConversion generated from: '<S43>/0'
+       */
+      Inverters_Action_B.subscribed = true;
 
       /* End of Outputs for SubSystem: '<S33>/Unsubscribe' */
       break;
@@ -510,15 +470,17 @@ static void Inverters_Action_output(void)
       /* Outputs for IfAction SubSystem: '<S33>/Subscribe' incorporates:
        *  ActionPort: '<S42>/Action Port'
        */
-      /* SignalConversion: '<S42>/OutportBufferFor15ms' incorporates:
+      /* Merge: '<S2>/Merge2' incorporates:
        *  Constant: '<S42>/Time Interval'
+       *  SignalConversion generated from: '<S42>/15ms'
        */
-      Inverters_Action_B.Merge2 = Inverters_Action_P.TimeInterval_Value_d;
+      Inverters_Action_B.Merge2 = 25U;
 
-      /* SignalConversion: '<S42>/OutportBufferFor1' incorporates:
+      /* Merge: '<S33>/subscribed?' incorporates:
        *  Constant: '<S42>/ 1'
+       *  SignalConversion generated from: '<S42>/1'
        */
-      Inverters_Action_B.subscribed = Inverters_Action_P.u_Value;
+      Inverters_Action_B.subscribed = true;
 
       /* End of Outputs for SubSystem: '<S33>/Subscribe' */
       break;
@@ -532,8 +494,7 @@ static void Inverters_Action_output(void)
        *  ActionPort: '<S41>/Action Port'
        */
       Inverters_Ac_RegisterEnumerator(&rtb_Merge1, &rtb_MergeMuxEnable,
-        &Inverters_Action_B.Merge, &Inverters_Action_P.RegisterEnumerator_n,
-        &Inverters_Action_DW.EnumerationCounter_m);
+        &Inverters_Action_B.Merge, &Inverters_Action_DW.EnumerationCounter_m);
 
       /* End of Outputs for SubSystem: '<S33>/Register Enumerator ' */
     } else {
@@ -541,18 +502,17 @@ static void Inverters_Action_output(void)
        *  ActionPort: '<S40>/Action Port'
        */
       Inverters_Actio_EnumerationDone(Inverters_Action_B.subscribed, &rtb_Merge1,
-        &rtb_MergeMuxEnable, &Inverters_Action_B.Merge,
-        &Inverters_Action_P.EnumerationDone_f);
+        &rtb_MergeMuxEnable, &Inverters_Action_B.Merge);
 
       /* End of Outputs for SubSystem: '<S33>/EnumerationDone' */
     }
 
     /* End of If: '<S33>/If' */
 
-    /* SignalConversion: '<S33>/OutportBufferForRegID' incorporates:
+    /* SignalConversion generated from: '<S33>/RegID' incorporates:
      *  Constant: '<S33>/Constant'
      */
-    rtb_Merge = Inverters_Action_P.Constant_Value_m;
+    rtb_Merge = 61U;
 
     /* End of Outputs for SubSystem: '<S2>/Unsubscribe//Subscribe' */
     break;
@@ -563,8 +523,7 @@ static void Inverters_Action_output(void)
      *  ActionPort: '<S29>/Action Port'
      */
     Inverte_DisableDriveEnableDrive(Inverters_Action_U.InvertersAction,
-      &rtb_Merge, &rtb_Merge1, &Inverters_Action_B.Merge2, &rtb_MergeMuxEnable,
-      &Inverters_Action_P.DisableDriveEnableDrive);
+      &rtb_Merge, &rtb_Merge1, &Inverters_Action_B.Merge2, &rtb_MergeMuxEnable);
 
     /* End of Outputs for SubSystem: '<S2>/DisableDrive//EnableDrive' */
     break;
@@ -575,7 +534,7 @@ static void Inverters_Action_output(void)
      */
     Inverters_Action_TorqueCommand(Inverters_Action_U.current_L, &rtb_Merge,
       &rtb_Merge1, &Inverters_Action_B.Merge2, &rtb_MergeMuxEnable,
-      &Inverters_Action_P.TorqueCommand);
+      &Inverters_Action_ConstB.TorqueCommand_m);
 
     /* End of Outputs for SubSystem: '<S2>/Torque Command' */
     break;
@@ -585,8 +544,7 @@ static void Inverters_Action_output(void)
      *  ActionPort: '<S28>/Action Port'
      */
     Inverters_Acti_ActionnotDefined(&rtb_Merge, &rtb_Merge1,
-      &Inverters_Action_B.Merge2, &rtb_MergeMuxEnable,
-      &Inverters_Action_P.ActionnotDefined);
+      &Inverters_Action_B.Merge2, &rtb_MergeMuxEnable);
 
     /* End of Outputs for SubSystem: '<S2>/Action not Defined' */
     break;
@@ -606,7 +564,7 @@ static void Inverters_Action_output(void)
      *  ActionPort: '<S32>/Action Port'
      */
     Inverters_Action_TorqueCommand0(&rtb_Merge4, &rtb_Merge3, &rtb_Merge5,
-      &Inverters_Action_P.TorqueCommand0);
+      &Inverters_Action_ConstB.TorqueCommand0_g);
 
     /* End of Outputs for SubSystem: '<S2>/Torque Command 0' */
   }
@@ -626,7 +584,7 @@ static void Inverters_Action_output(void)
    *  Inport: '<Root>/InvertersAction'
    *  Inport: '<Root>/current_R'
    */
-  if (rtIsNaN(tmp_0) || rtIsInf(tmp_0)) {
+  if (tmp_1 || tmp_2) {
     tmp = 0.0;
   } else {
     tmp = fmod(tmp_0, 4.294967296E+9);
@@ -639,7 +597,7 @@ static void Inverters_Action_output(void)
      *  ActionPort: '<S8>/Action Port'
      */
     /* SwitchCase: '<S8>/Unsubscribe//Subscribe' */
-    if (rtIsNaN(tmp_0) || rtIsInf(tmp_0)) {
+    if (tmp_1 || tmp_2) {
       tmp_0 = 0.0;
     } else {
       tmp_0 = fmod(tmp_0, 4.294967296E+9);
@@ -651,8 +609,17 @@ static void Inverters_Action_output(void)
       /* Outputs for IfAction SubSystem: '<S8>/Unsubscribe' incorporates:
        *  ActionPort: '<S18>/Action Port'
        */
-      Inverters_Action_Unsubscribe(&Inverters_Action_B.Merge2_p,
-        &Inverters_Action_B.subscribed_b, &Inverters_Action_P.Unsubscribe);
+      /* Merge: '<S1>/Merge2' incorporates:
+       *  Constant: '<S18>/0XFF'
+       *  SignalConversion generated from: '<S18>/0XFF Stop Transmission'
+       */
+      Inverters_Action_B.Merge2_p = MAX_uint8_T;
+
+      /* Merge: '<S8>/subscribed?' incorporates:
+       *  Constant: '<S18>/ '
+       *  SignalConversion generated from: '<S18>/0'
+       */
+      Inverters_Action_B.subscribed_b = false;
 
       /* End of Outputs for SubSystem: '<S8>/Unsubscribe' */
       break;
@@ -661,15 +628,17 @@ static void Inverters_Action_output(void)
       /* Outputs for IfAction SubSystem: '<S8>/Subscribe' incorporates:
        *  ActionPort: '<S17>/Action Port'
        */
-      /* SignalConversion: '<S17>/OutportBufferFor15ms' incorporates:
+      /* Merge: '<S1>/Merge2' incorporates:
        *  Constant: '<S17>/Time Interval'
+       *  SignalConversion generated from: '<S17>/15ms'
        */
-      Inverters_Action_B.Merge2_p = Inverters_Action_P.TimeInterval_Value;
+      Inverters_Action_B.Merge2_p = 25U;
 
-      /* SignalConversion: '<S17>/OutportBufferFor1' incorporates:
+      /* Merge: '<S8>/subscribed?' incorporates:
        *  Constant: '<S17>/ '
+       *  SignalConversion generated from: '<S17>/1'
        */
-      Inverters_Action_B.subscribed_b = Inverters_Action_P._Value;
+      Inverters_Action_B.subscribed_b = true;
 
       /* End of Outputs for SubSystem: '<S8>/Subscribe' */
       break;
@@ -683,8 +652,7 @@ static void Inverters_Action_output(void)
        *  ActionPort: '<S16>/Action Port'
        */
       Inverters_Ac_RegisterEnumerator(&rtb_Merge1, &rtb_MergeMuxEnable,
-        &Inverters_Action_B.Merge, &Inverters_Action_P.RegisterEnumerator,
-        &Inverters_Action_DW.EnumerationCounter);
+        &Inverters_Action_B.Merge, &Inverters_Action_DW.EnumerationCounter);
 
       /* End of Outputs for SubSystem: '<S8>/Register Enumerator ' */
     } else {
@@ -692,18 +660,17 @@ static void Inverters_Action_output(void)
        *  ActionPort: '<S15>/Action Port'
        */
       Inverters_Actio_EnumerationDone(Inverters_Action_B.subscribed_b,
-        &rtb_Merge1, &rtb_MergeMuxEnable, &Inverters_Action_B.Merge,
-        &Inverters_Action_P.EnumerationDone);
+        &rtb_Merge1, &rtb_MergeMuxEnable, &Inverters_Action_B.Merge);
 
       /* End of Outputs for SubSystem: '<S8>/EnumerationDone' */
     }
 
     /* End of If: '<S8>/If' */
 
-    /* SignalConversion: '<S8>/OutportBufferForRegID' incorporates:
+    /* SignalConversion generated from: '<S8>/RegID' incorporates:
      *  Constant: '<S8>/Constant'
      */
-    rtb_Merge = Inverters_Action_P.Constant_Value;
+    rtb_Merge = 61U;
 
     /* End of Outputs for SubSystem: '<S1>/Unsubscribe//Subscribe' */
     break;
@@ -714,8 +681,7 @@ static void Inverters_Action_output(void)
      *  ActionPort: '<S4>/Action Port'
      */
     Inverte_DisableDriveEnableDrive(Inverters_Action_U.InvertersAction,
-      &rtb_Merge, &rtb_Merge1, &Inverters_Action_B.Merge2_p, &rtb_MergeMuxEnable,
-      &Inverters_Action_P.DisableDriveEnableDrive_p);
+      &rtb_Merge, &rtb_Merge1, &Inverters_Action_B.Merge2_p, &rtb_MergeMuxEnable);
 
     /* End of Outputs for SubSystem: '<S1>/DisableDrive//EnableDrive' */
     break;
@@ -726,7 +692,7 @@ static void Inverters_Action_output(void)
      */
     Inverters_Action_TorqueCommand(Inverters_Action_U.current_R, &rtb_Merge,
       &rtb_Merge1, &Inverters_Action_B.Merge2_p, &rtb_MergeMuxEnable,
-      &Inverters_Action_P.TorqueCommand_k);
+      &Inverters_Action_ConstB.TorqueCommand);
 
     /* End of Outputs for SubSystem: '<S1>/Torque Command' */
     break;
@@ -736,8 +702,7 @@ static void Inverters_Action_output(void)
      *  ActionPort: '<S3>/Action Port'
      */
     Inverters_Acti_ActionnotDefined(&rtb_Merge, &rtb_Merge1,
-      &Inverters_Action_B.Merge2_p, &rtb_MergeMuxEnable,
-      &Inverters_Action_P.ActionnotDefined_g);
+      &Inverters_Action_B.Merge2_p, &rtb_MergeMuxEnable);
 
     /* End of Outputs for SubSystem: '<S1>/Action not Defined' */
     break;
@@ -757,7 +722,7 @@ static void Inverters_Action_output(void)
      *  ActionPort: '<S7>/Action Port'
      */
     Inverters_Action_TorqueCommand0(&rtb_Merge3, &rtb_Merge4, &rtb_Merge5,
-      &Inverters_Action_P.TorqueCommand0_a);
+      &Inverters_Action_ConstB.TorqueCommand0);
 
     /* End of Outputs for SubSystem: '<S1>/Torque Command 0' */
   }
@@ -784,8 +749,7 @@ static void Inverters_Action_output(void)
     /* Outputs for IfAction SubSystem: '<S1>/Reset Enumeration' incorporates:
      *  ActionPort: '<S5>/Action Port'
      */
-    Inverters_Acti_ResetEnumeration(&Inverters_Action_P.ResetEnumeration,
-      &Inverters_Action_DW.EnumerationCounter);
+    Inverters_Acti_ResetEnumeration(&Inverters_Action_DW.EnumerationCounter);
 
     /* End of Outputs for SubSystem: '<S1>/Reset Enumeration' */
   }
@@ -801,8 +765,7 @@ static void Inverters_Action_output(void)
     /* Outputs for IfAction SubSystem: '<S2>/Reset Enumeration' incorporates:
      *  ActionPort: '<S30>/Action Port'
      */
-    Inverters_Acti_ResetEnumeration(&Inverters_Action_P.ResetEnumeration_p,
-      &Inverters_Action_DW.EnumerationCounter_m);
+    Inverters_Acti_ResetEnumeration(&Inverters_Action_DW.EnumerationCounter_m);
 
     /* End of Outputs for SubSystem: '<S2>/Reset Enumeration' */
   }
@@ -846,42 +809,37 @@ static void Inverters_Action_update(void)
 static void Inverters_Action_initialize(void)
 {
   /* Start for DataStoreMemory: '<S1>/Data Store Memory1' */
-  Inverters_Action_DW.LastAction =
-    Inverters_Action_P.DataStoreMemory1_InitialValue;
-
-  /* Start for DataStoreMemory: '<S1>/Data Store Memory2' */
-  Inverters_Action_DW.EnumerationCounter =
-    Inverters_Action_P.DataStoreMemory2_InitialValue;
+  Inverters_Action_DW.LastAction = 0.0;
 
   /* Start for DataStoreMemory: '<S2>/Data Store Memory1' */
-  Inverters_Action_DW.LastAction_k =
-    Inverters_Action_P.DataStoreMemory1_InitialValue_m;
+  Inverters_Action_DW.LastAction_k = 0.0;
+
+  /* Start for DataStoreMemory: '<S1>/Data Store Memory2' */
+  Inverters_Action_DW.EnumerationCounter = 0.0;
 
   /* Start for DataStoreMemory: '<S2>/Data Store Memory2' */
-  Inverters_Action_DW.EnumerationCounter_m =
-    Inverters_Action_P.DataStoreMemory2_InitialValue_c;
+  Inverters_Action_DW.EnumerationCounter_m = 0.0;
 
   /* InitializeConditions for Delay: '<S10>/Delay' */
-  Inverters_Action_DW.Delay_DSTATE = Inverters_Action_P.Delay_InitialCondition;
+  Inverters_Action_DW.Delay_DSTATE = 0.0;
 
   /* InitializeConditions for Delay: '<S35>/Delay' */
-  Inverters_Action_DW.Delay_DSTATE_h =
-    Inverters_Action_P.Delay_InitialCondition_o;
+  Inverters_Action_DW.Delay_DSTATE_h = 0.0;
 
   /* SystemInitialize for IfAction SubSystem: '<S2>/Unsubscribe//Subscribe' */
   /* SystemInitialize for Merge: '<S33>/subscribed?' */
-  Inverters_Action_B.subscribed = Inverters_Action_P.subscribed_InitialOutput_k;
+  Inverters_Action_B.subscribed = false;
 
   /* End of SystemInitialize for SubSystem: '<S2>/Unsubscribe//Subscribe' */
 
   /* SystemInitialize for IfAction SubSystem: '<S1>/Unsubscribe//Subscribe' */
   /* SystemInitialize for Merge: '<S8>/subscribed?' */
-  Inverters_Action_B.subscribed_b = Inverters_Action_P.subscribed_InitialOutput;
+  Inverters_Action_B.subscribed_b = false;
 
   /* End of SystemInitialize for SubSystem: '<S1>/Unsubscribe//Subscribe' */
 
   /* SystemInitialize for Merge: '<Root>/Merge' */
-  Inverters_Action_B.Merge = Inverters_Action_P.Merge_InitialOutput;
+  Inverters_Action_B.Merge = false;
 }
 
 /* Model terminate function */
@@ -943,6 +901,9 @@ RT_MODEL_Inverters_Action_T *Inverters_Action(void)
   {
     int_T *mdlTsMap = Inverters_Action_M->Timing.sampleTimeTaskIDArray;
     mdlTsMap[0] = 0;
+
+    /* polyspace +2 MISRA2012:D4.1 [Justified:Low] "Inverters_Action_M points to
+       static memory which is guaranteed to be non-NULL" */
     Inverters_Action_M->Timing.sampleTimeTaskIDPtr = (&mdlTsMap[0]);
     Inverters_Action_M->Timing.sampleTimes =
       (&Inverters_Action_M->Timing.sampleTimesArray[0]);
@@ -966,6 +927,30 @@ RT_MODEL_Inverters_Action_T *Inverters_Action(void)
 
   rtmSetTFinal(Inverters_Action_M, 10.0);
   Inverters_Action_M->Timing.stepSize0 = 0.2;
+
+  /* Setup for data logging */
+  {
+    static RTWLogInfo rt_DataLoggingInfo;
+    rt_DataLoggingInfo.loggingInterval = (NULL);
+    Inverters_Action_M->rtwLogInfo = &rt_DataLoggingInfo;
+  }
+
+  /* Setup for data logging */
+  {
+    rtliSetLogXSignalInfo(Inverters_Action_M->rtwLogInfo, (NULL));
+    rtliSetLogXSignalPtrs(Inverters_Action_M->rtwLogInfo, (NULL));
+    rtliSetLogT(Inverters_Action_M->rtwLogInfo, "tout");
+    rtliSetLogX(Inverters_Action_M->rtwLogInfo, "");
+    rtliSetLogXFinal(Inverters_Action_M->rtwLogInfo, "");
+    rtliSetLogVarNameModifier(Inverters_Action_M->rtwLogInfo, "rt_");
+    rtliSetLogFormat(Inverters_Action_M->rtwLogInfo, 4);
+    rtliSetLogMaxRows(Inverters_Action_M->rtwLogInfo, 0);
+    rtliSetLogDecimation(Inverters_Action_M->rtwLogInfo, 1);
+    rtliSetLogY(Inverters_Action_M->rtwLogInfo, "");
+    rtliSetLogYSignalInfo(Inverters_Action_M->rtwLogInfo, (NULL));
+    rtliSetLogYSignalPtrs(Inverters_Action_M->rtwLogInfo, (NULL));
+  }
+
   Inverters_Action_M->solverInfoPtr = (&Inverters_Action_M->solverInfo);
   Inverters_Action_M->Timing.stepSize = (0.2);
   rtsiSetFixedStepSize(&Inverters_Action_M->solverInfo, 0.2);
@@ -976,9 +961,6 @@ RT_MODEL_Inverters_Action_T *Inverters_Action(void)
   (void) memset(((void *) &Inverters_Action_B), 0,
                 sizeof(B_Inverters_Action_T));
 
-  /* parameters */
-  Inverters_Action_M->defaultParam = ((real_T *)&Inverters_Action_P);
-
   /* states (dwork) */
   Inverters_Action_M->dwork = ((void *) &Inverters_Action_DW);
   (void) memset((void *)&Inverters_Action_DW, 0,
@@ -986,12 +968,11 @@ RT_MODEL_Inverters_Action_T *Inverters_Action(void)
 
   /* external inputs */
   Inverters_Action_M->inputs = (((void*)&Inverters_Action_U));
-  (void)memset((void *)&Inverters_Action_U, 0, sizeof(ExtU_Inverters_Action_T));
+  (void)memset(&Inverters_Action_U, 0, sizeof(ExtU_Inverters_Action_T));
 
   /* external outputs */
   Inverters_Action_M->outputs = (&Inverters_Action_Y);
-  (void) memset((void *)&Inverters_Action_Y, 0,
-                sizeof(ExtY_Inverters_Action_T));
+  (void)memset(&Inverters_Action_Y, 0, sizeof(ExtY_Inverters_Action_T));
 
   /* Initialize Sizes */
   Inverters_Action_M->Sizes.numContStates = (0);/* Number of continuous states */
@@ -999,9 +980,8 @@ RT_MODEL_Inverters_Action_T *Inverters_Action(void)
   Inverters_Action_M->Sizes.numU = (3);/* Number of model inputs */
   Inverters_Action_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Inverters_Action_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  Inverters_Action_M->Sizes.numBlocks = (181);/* Number of blocks */
+  Inverters_Action_M->Sizes.numBlocks = (185);/* Number of blocks */
   Inverters_Action_M->Sizes.numBlockIO = (5);/* Number of block outputs */
-  Inverters_Action_M->Sizes.numBlockPrms = (93);/* Sum of parameter "widths" */
   return Inverters_Action_M;
 }
 

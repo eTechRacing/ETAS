@@ -11,7 +11,7 @@
 
 
 /*
- * Copyright 1994-2015 The MathWorks, Inc.
+ * Copyright 1994-2020 The MathWorks, Inc.
  */
 
 /*==========*
@@ -126,6 +126,10 @@ extern real_T rtNaN;
 
 /* NOTE: mxGetPr() of an empty matrix does NOT return NULL */
 #define mxGetPr(pa) \
+        ( &((pa)[2]) )
+
+/* NOTE: mxGetDoubles() of an empty matrix does NOT return NULL */
+#define mxGetDoubles(pa) \
         ( &((pa)[2]) )
 
 #define mxGetScalar(pa) \
@@ -330,7 +334,7 @@ mxArray *rt_mxCreateNumericArray(int_T ndims, const mwSize *dims,
                                         mxClassID classid, mxComplexity flag)
 {
     if (ndims == 2 && classid==mxDOUBLE_CLASS) {
-        return(rt_mxCreateDoubleMatrix(dims[0], dims[1], flag));
+        return(rt_mxCreateDoubleMatrix((int)(dims[0]), (int)(dims[1]), flag));
     } else {
         return(NULL);
     }

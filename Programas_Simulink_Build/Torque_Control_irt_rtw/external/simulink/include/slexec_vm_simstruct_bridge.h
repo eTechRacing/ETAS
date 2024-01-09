@@ -8,7 +8,7 @@
  * 
  */
 
-/* Copyright 2015-2017 The MathWorks, Inc. */
+/* Copyright 2015-2020 The MathWorks, Inc. */
 
 #include "tmwtypes.h"
 
@@ -39,10 +39,16 @@ SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_slmrAccelRunBlockSystemReset(
     void* S, int_T sysIdx, int_T blkIdx);
 SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssCallAccelModelBlockFcnCallInput(
     void* S, int_T sysIdx, int_T blkIdx, int_T portIdx, int_T tid, int_T blkFcn);
-SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssCallAccelCopyCacheForIIS(
+SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssCallAccelCopyCacheForIISBasedOnDescSysList(
+    void* S, int_T sysIdx, int_T fromCache);
+SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssCallAccelCopyCacheForIISBasedOnCGSysList(
     void* S, int_T sysIdx, int_T fromCache);
 SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssCallAccelSetDims(
     void* S, int_T sysIdx, int_T blkIdx, int_T outIdx, int_T ruleIdx);
+
+SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssSetReinitializeEventBeingProcessed(void* S,
+                                                                          char_T* reinitId);
+
 SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssSetChecksumVal(
     void *S, int_T sysIdx, int_T blkIdx);
 SLEXEC_SIMBRIDGE_PUBLISHED_C void vm__ssGetBlockPath(
@@ -58,6 +64,10 @@ SLEXEC_SIMBRIDGE_PUBLISHED_C void* vm_ssGetUByIndex(void* S, int_T index);
 SLEXEC_SIMBRIDGE_PUBLISHED_C void* vm_ssGetX(void* S);
 SLEXEC_SIMBRIDGE_PUBLISHED_C void* vm_ssGetdX(void* S);
 SLEXEC_SIMBRIDGE_PUBLISHED_C void* vm_ssGetAbsTolVector(void* S);
+
+SLEXEC_SIMBRIDGE_PUBLISHED_C void* vm_ssGetJacobianPerturbationBoundsMinVec(void* S);
+SLEXEC_SIMBRIDGE_PUBLISHED_C void* vm_ssGetJacobianPerturbationBoundsMaxVec(void* S);
+
 SLEXEC_SIMBRIDGE_PUBLISHED_C void* vm_ssGetY(void* S);
 SLEXEC_SIMBRIDGE_PUBLISHED_C void* vm_ssGetYByIndex(void* S, int_T index);
 
@@ -83,6 +93,7 @@ SLEXEC_SIMBRIDGE_PUBLISHED_C double* vm_ssGetSolverZcSignalVector(void* S);
 SLEXEC_SIMBRIDGE_PUBLISHED_C uint8_T* vm_ssGetPrevZCSigState(void* S);
 
 SLEXEC_SIMBRIDGE_PUBLISHED_C int_T vm_ssIsMajorTimeStep(void* S);
+SLEXEC_SIMBRIDGE_PUBLISHED_C bool vm_ssIsModeUpdateTimeStep(void* S);
 
 SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssSetStopRequested(void* S, int_T val);
 
@@ -100,6 +111,7 @@ SLEXEC_SIMBRIDGE_PUBLISHED_C double vm_ssGetTimeOfLastOutput(void* S);
 
 SLEXEC_SIMBRIDGE_PUBLISHED_C double vm__ssGetVarNextHitTime(void* S,
                                                             int_T varId);
+SLEXEC_SIMBRIDGE_PUBLISHED_C double vm_ssGetTimeOfNextVarHit(void* S, int_T sti);
 SLEXEC_SIMBRIDGE_PUBLISHED_C void vm__ssSetVarNextHitTime(void* S, int_T varId,
                                                           double tNextMin);
 SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssSetTimeOfNextVarHit(void* S, int_T sti,
@@ -119,6 +131,8 @@ SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssSetErrorStatus(void* S,
 SLEXEC_SIMBRIDGE_PUBLISHED_C void vm__ssSet_slErrMsg(void* S, void* diag);
 SLEXEC_SIMBRIDGE_PUBLISHED_C void vm__ssReportDiagnosticAsWarning(void* S,
                                                                   void* diag);
+SLEXEC_SIMBRIDGE_PUBLISHED_C void vm__ssReportDiagnosticAsInfo(void* S,
+                                                               void* diag);
 
 SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssSetContTimeOutputInconsistentWithStateAtMajorStep(void* S);
 SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssSetBlockStateForSolverChangedAtMajorStep(void* S);
@@ -156,12 +170,20 @@ SLEXEC_SIMBRIDGE_PUBLISHED_C void vm__ssSignDataValue(void* S, void* data,
 SLEXEC_SIMBRIDGE_PUBLISHED_C uint8_T vm_ssIsSolverComputingJacobian(void* S);
 SLEXEC_SIMBRIDGE_PUBLISHED_C uint8_T vm_ssIsSolverRequestingReset(void* S);
 SLEXEC_SIMBRIDGE_PUBLISHED_C uint8_T vm_ssIsSolverCheckingCIC(void* S);
+SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssRaiseEvent(void* S, uint_T runtimeEventIndex);
 
 SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssDummy();
 
 SLEXEC_SIMBRIDGE_PUBLISHED_C uint8_T vm_ssGetEvaluatingF0ForJacobian(void* S);
 
-SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssSetNumTicksToNextHitForVariableDiscrete(void* S,
+SLEXEC_SIMBRIDGE_PUBLISHED_C bool vm_ssGetIsZCEvaluationForRefine(void* S);
+
+SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssSetNumTicksToNextHitForControllableSampleTime(void* S,
                                                                                int_T stIdx,
                                                                                double numTicks);
+
+SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssSetDenormalBehavior(int_T flag);
+
+SLEXEC_SIMBRIDGE_PUBLISHED_C bool vm_ssGetGlobalInitialStatesAvailable(void* S);
+
 #endif
