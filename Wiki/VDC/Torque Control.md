@@ -182,7 +182,7 @@ Output:
 
 ![[Media/Pasted image 20240109224100.png]]
 
-Block responsible to deactivate the output of something fails.
+Block responsible to deactivate the output of the torque if something fails in safety block.
 
 Output:
 
