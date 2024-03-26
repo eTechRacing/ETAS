@@ -1,929 +1,875 @@
-<?xml version="1.0"  encoding="iso-8859-1"?>
+<?xml version="1.0"?>
 <!DOCTYPE module [
     <!ENTITY szlig "&#223;">
     <!ENTITY copy "&#169;">
-    <!ENTITY baseTypes-mlsl SYSTEM 'file:///C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\blocks\..\..\..\SCOOP-IX\1.5/common/baseTypes-mlsl.six'>
+    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/baseTypes-mlsl.six'>
     ]>
-<?xml-stylesheet type="text/xsl" href="file:///C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\blocks\..\..\..\SCOOP-IX\1.5/common/showSCOOP-IX.xsl"?>
+<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/showSCOOP-IX.xsl"?>
 <!--
 <h1>SCOOP-IX</h1>
 <p>
     <strong>Copyright &copy; 2014 ETAS GmbH</strong>, Borsigstra&szlig;e 14, D-70469 Stuttgart. <em>All rights reserved.</em>
 </p>
 -->
-<module
-    xmlns="http://www.etas.com/scoop-ix/1.5"
-    xmlns:ix="http://www.etas.com/scoop-ix/1.5"
-    xmlns:mlsl="http://www.etas.com/scoop-ix/1.5/modelDomain/matlab-simulink"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.etas.com/scoop-ix/1.5
-        'file:///C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\blocks\..\..\..\SCOOP-IX\1.5/schemas/scoop-ix-domain-mlsl.xsd'"
-    xmlns:html="http://www.w3.org/1999/xhtml"
-    >
-
-    <directoryLocations scheme="MATLAB 9.12">
-        <directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\blocks\..\\" />
-        <directory identifier="toolDir" path=".\" />
-        <directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink\" />
-        <directory identifier="codeDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\SoC_irt_rtw\" />
-    </directoryLocations>
-
-    <moduleInfo identifier="SoC">
-        <name>SoC</name>
-        <modelLink href="mlsl:///&quot;{{modelDir}}SoC.slx&quot;" />
-        <version major="10" minor="0" />
-        <dateTime kind="created" year="2022" month="10" day="8" hour="20" minute="38" second="24" />
-        <dateTime kind="lastModified" year="2023" month="11" day="17" hour="17" minute="10" second="7" />
-        <completion degree="full" />
-        <suitability>
-            <application domain="rapidPrototyping" addressesAvailable="true"
-                nestedDataStructuresAvailable="true" />
-            <application domain="softwareDevelopment" addressesAvailable="false"
-                nestedDataStructuresAvailable="true" />
-        </suitability>
-        <user lastName="joser" role="modifier" />
-        <creators>
-            <user lastName="dwegg" role="creator" />
-            <tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
-                <version major="9" minor="12" year="2021" month="11" day="13" info="R2022a" />
-            </tool>
-            <tool kind="modeler" vendor="The Mathworks, Inc." name="Simulink">
-                <version major="10" minor="5" year="2021" month="11" day="13" info="R2022a" />
-            </tool>
-            <tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
-            </tool>
-            <tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
-                <version major="9" minor="7" year="2021" month="11" day="13" info="R2022a" />
-                <mode name="target" value="INTECRIO Real-Time Target" />
-                <configuration>
-                    <option identifier="InlineParameters">1</option>
-                    <option identifier="InlineInvariantSignals">0</option>
-                    <option identifier="Solver">ode3</option>
-                    <option identifier="SolverType">FixedStep</option>
-                    <option identifier="FixedStepOpts.FixedStep">280.0</option>
-                    <option identifier="FixedStepOpts.SolverMode">SingleTasking</option>
-                </configuration>
-            </tool>
-            <tool kind="codeGenerator" vendor="The Mathworks, Inc." name="MATLAB Coder">
-                <version major="5" minor="4" year="2021" month="11" day="13" info="R2022a" />
-            </tool>
-            <tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
-                <configuration>
-                    <option identifier="SCOOPIXFileName"><![CDATA[SoC.six]]></option>
-                    <option identifier="ExternalMode">0</option>
-                    <option identifier="IgnoreCustomStorageClasses">1</option>
-                    <option identifier="StopSimuAfterAssert">1</option>
-                    <option identifier="GenerateOnlySelectedSignalsToASAP2">0</option>
-                </configuration>
-            </tool>
-        </creators>
-    </moduleInfo>
-
-    <codeInfo>
-        <constitution mode="sourceCode" />
-        <dateTime kind="created" year="2024" month="3" day="26" hour="15" minute="30" second="3" />
-        <target>
-            <board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target" />
-            <tool kind="compiler" vendor="GNU Project" 
-                  family="GNU Compiler Collection" name="GNU C Compiler">
-                <configuration>
-                    <optionKind name="macroDefine" prefix="-D" />
-                    <optionKind name="includeDirectory" prefix="-I" />
-                    <!-- RTW specific defines -->
-                    <option kind="macroDefine" name="USE_RTMODEL" />
-                    <option kind="macroDefine" name="MODEL">SoC</option>
-                    <option kind="macroDefine" name="RT" />
-                    <option kind="macroDefine" name="NUMST">2</option>
-                    <option kind="macroDefine" name="TID01EQ">1</option>
-                    <option kind="macroDefine" name="NCSTATES">2</option>
-                    <option kind="macroDefine" name="MT">0</option>
-                    <option kind="macroDefine" name="HAVESTDIO" />
-                    <option kind="macroDefine" name="MdlStart">MdlStart_SoC</option>
-                    <option kind="macroDefine" name="MdlOutputs">MdlOutputs_SoC</option>
-                    <option kind="macroDefine" name="MdlUpdate">MdlUpdate_SoC</option>
-                    <option kind="macroDefine" name="MdlTerminate">MdlTerminate_SoC</option>
-                    <option kind="macroDefine" name="MdlInitializeSizes">MdlInitializeSizes_SoC</option>
-                    <option kind="macroDefine" name="MdlInitializeSampleTimes">MdlInitializeSampleTimes_SoC</option>
-                    <option kind="macroDefine" name="MdlInitialize">MdlInitialize_SoC</option>
-                    <option kind="macroDefine" name="MdlEnable">MdlEnable_SoC</option>
-                    <option kind="macroDefine" name="MdlDerivatives">MdlDerivatives_SoC</option>
-                    <option kind="macroDefine" name="MdlProjection">MdlProjection_SoC</option>
-                    <option kind="macroDefine" name="rt_ODECreateIntegrationData">rt_ODECreateIntegrationData_SoC</option>
-                    <option kind="macroDefine" name="rt_ODEUpdateContinuousStates">rt_ODEUpdateContinuousStates_SoC</option>
-                    <option kind="macroDefine" name="rt_ODEDestroyIntegrationData">rt_ODEDestroyIntegrationData_SoC</option>
-                    <option kind="macroDefine" name="rt_ODECacheDataIntoSolverInfo">rt_ODECacheDataIntoSolverInfo_SoC</option>
-                    <option kind="macroDefine" name="rt_ODERetrieveDataFromSolverInfo">rt_ODERetrieveDataFromSolverInfo_SoC</option>
-                    <option kind="macroDefine" name="rt_ODECreateSolverInfo">rt_ODECreateSolverInfo_SoC</option>
-                    <option kind="macroDefine" name="rt_SimInitTimingEngine">rt_SimInitTimingEngine_SoC</option>
-                    <option kind="macroDefine" name="rt_SimGetNextSampleHit">rt_SimGetNextSampleHit_SoC</option>
-                    <option kind="macroDefine" name="rt_SimUpdateDiscreteTaskSampleHits">rt_SimUpdateDiscreteTaskSampleHits_SoC</option>
-                    <option kind="macroDefine" name="rt_SimUpdateDiscreteEvents">rt_SimUpdateDiscreteEvents_SoC</option>
-                    <option kind="macroDefine" name="rt_SimUpdateDiscreteTaskTime">rt_SimUpdateDiscreteTaskTime_SoC</option>
-                    <option kind="macroDefine" name="rt_CallSys">rt_CallSys_SoC</option>
-                    <option kind="macroDefine" name="rt_EnableSys">rt_EnableSys_SoC</option>
-                    <option kind="macroDefine" name="rt_DisableSys">rt_DisableSys_SoC</option>
-                    <option kind="macroDefine" name="rt_SimDestroyTimingEngine">rt_SimDestroyTimingEngine_SoC</option>
-                    <option kind="macroDefine" name="rt_InitTimingEngine">rt_InitTimingEngine_SoC</option>
-                    <option kind="macroDefine" name="rt_DestroyTimingEngine">rt_DestroyTimingEngine_SoC</option>
-                    <option kind="macroDefine" name="rt_UpdateDiscreteTaskSampleHits">rt_UpdateDiscreteTaskSampleHits_SoC</option>
-                    <option kind="macroDefine" name="rt_GetNextSampleHit">rt_GetNextSampleHit_SoC</option>
-                    <option kind="macroDefine" name="rt_UpdateDiscreteEvents">rt_UpdateDiscreteEvents_SoC</option>
-                    <option kind="macroDefine" name="rt_UpdateDiscreteTaskTime">rt_UpdateDiscreteTaskTime_SoC</option>
-                    <!-- RTW specific include directories -->
-                    <option kind="includeDirectory"><![CDATA[{{codeDir}}]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{integratorDir}}c\src\]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{integratorDir}}c\lib\]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{codeDir}}external\simulink\include\]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{codeDir}}external\extern\include\]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\src\]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\libsrc\]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{codeDir}}external\_sharedutils\]]></option>
-                </configuration>
-            </tool>
-        </target>
-    </codeInfo>
-
-    <!-- Model specific files -->
-    <fileContainer constitution="sourceCode">
-        <pathBase path="{{codeDir}}" />
-        <!-- Model specific source files -->
-        <file name="SoC_types.h" kind="header" />
-        <file name="SoC.h" kind="header" />
-        <!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\look1_binlxpw.c -->
-        <!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\look1_binlxpw.h -->
-        <file name="SoC.c" kind="body" />
-        <file name="SoC_private.h" kind="header" />
-        <file name="rtmodel.h" kind="header" />
-            <file name="SoC_main.c" kind="body" />
-        <!-- Additionally registered model specific source files -->
-        <file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body" />
-        <!-- Continuous state solver specific files -->
-        <file name="ode3.c" path="{{integratorDir}}c\src\" kind="body" />
-        <file name="odesup.h" path="{{integratorDir}}c\src\" kind="header" />
-        <!-- Target specific libraries -->
-        <file name="rtwStaticLib.lib" kind="symbolicLibrary" />
-        <file name="rtwSharedLib.lib" kind="symbolicLibrary" />
-        <!-- Additional files -->
-    </fileContainer>
-    <fileContainer constitution="referencedModels">
-    </fileContainer>
-
-    <interface>
-        <modelLinkBase href="mlsl:///{{modelDir}}SoC.slx?" />
-        <pathBase path="{{codeDir}}" />
-        <fileOrigin name="SoC.c" />
-        <fileOrigin name="rt_nonfinite.c" />
-        <fileOrigin name="SoC_main.c" />
-        <headerFile name="SoC.h" />
-        <headerFile name="SoC_private.h" />
-        <usage layoutFamily="mlsl:standardLayout" />
-
-        <!-- "import" MATLAB/Simulink base type and complex struct definitions via external entity -->
-        &baseTypes-mlsl;
-        <definitions>
-            <structDef name="_B_SoC_T">
-                <fileOrigin name="SoC.h" />
-                <structMember identifier="Memory">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Opaque</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Switch">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Opaque</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Memory_p">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Opaque</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Switch_d">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Opaque</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="NOT">
-                    <type><typeRef name="boolean_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Opaque</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="NOT_p">
-                    <type><typeRef name="boolean_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Opaque</documentation>
-                    </annotation>
-                </structMember>
-            </structDef>
-            <typeDef name="B_SoC_T">
-                <struct /><typeRef name="_B_SoC_T" />
-                <fileOrigin name="SoC.h" />
-                <annotation>
-                    <documentation>Block signals (auto storage)</documentation>
-                </annotation>
-            </typeDef>
-            <structDef name="ExtU_SoC_T_tag">
-                <fileOrigin name="SoC.h" />
-                <structMember identifier="Lowest_CellVoltage">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Lowest_CellVoltage</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Highest_CellVoltage">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Highest_CellVoltage</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Accumulator_Current">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Accumulator_Current</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Car_State">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Car_State</documentation>
-                    </annotation>
-                </structMember>
-            </structDef>
-            <typeDef name="ExtU_SoC_T">
-                <struct /><typeRef name="ExtU_SoC_T_tag" />
-                <fileOrigin name="SoC.h" />
-            </typeDef>
-            <structDef name="ExtY_SoC_T_tag">
-                <fileOrigin name="SoC.h" />
-                <structMember identifier="SoC_Avg">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/SoC_Avg</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="SoC_Low">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/SoC_Low</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="SoC_High">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/SoC_High</documentation>
-                    </annotation>
-                </structMember>
-            </structDef>
-            <typeDef name="ExtY_SoC_T">
-                <struct /><typeRef name="ExtY_SoC_T_tag" />
-                <fileOrigin name="SoC.h" />
-            </typeDef>
-            <structDef name="_DW_SoC_T">
-                <fileOrigin name="SoC.h" />
-                <structMember identifier="Memory_PreviousInput">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>State information for &apos;PreviousInput&apos;.</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Memory_PreviousInput_p">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>State information for &apos;PreviousInput&apos;.</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="If_ActiveSubsystem">
-                    <type><typeRef name="int8_T" /></type>
-                    <annotation>
-                        <documentation>State information for &apos;ActiveSubsystem&apos;.</documentation>
-                    </annotation>
-                </structMember>
-            </structDef>
-            <typeDef name="DW_SoC_T">
-                <struct /><typeRef name="_DW_SoC_T" />
-                <fileOrigin name="SoC.h" />
-            </typeDef>
-
-            <baseDef identifier="SoC_B">
-                <type><typeRef name="B_SoC_T" /></type>
-                <fileOrigin name="SoC.c" />
-                <annotation>
-                    <documentation>The rtB data structure for signals.</documentation>
-                </annotation>
-            </baseDef>
-            <baseDef identifier="SoC_U">
-                <type><typeRef name="ExtU_SoC_T" /></type>
-                <fileOrigin name="SoC.c" />
-                <annotation>
-                    <documentation>The rtU data structure for external inputs.</documentation>
-                </annotation>
-            </baseDef>
-            <baseDef identifier="SoC_Y">
-                <type><typeRef name="ExtY_SoC_T" /></type>
-                <fileOrigin name="SoC.c" />
-                <annotation>
-                    <documentation>The rtY data structure for external outputs.</documentation>
-                </annotation>
-            </baseDef>
-            <baseDef identifier="SoC_DW">
-                <type><typeRef name="DW_SoC_T" /></type>
-                <fileOrigin name="SoC.c" />
-                <annotation>
-                    <documentation>The dWork data structure for model state.</documentation>
-                </annotation>
-            </baseDef>
-
-
-
-            <conversion name="SoC_CM_double">
-                <rationalFunction>
-                    <numerator bx="1.0" />
-                    <denominator f="1.0" />
-                </rationalFunction>
-                <annotation>
-                    <documentation>Q = V</documentation>
-                </annotation>
-            </conversion>
-            <conversion name="SoC_CM_boolean">
-                <rationalFunction>
-                    <numerator bx="1.0" />
-                    <denominator f="1.0" />
-                </rationalFunction>
-                <annotation>
-                    <documentation>Q = V</documentation>
-                </annotation>
-            </conversion>
-        </definitions>
-
-        <!-- rtP parameters following -->
-        <!-- Constant parameters following -->
-        <!-- Exported global parameters following -->
-        <!-- Imported extern parameters following -->
-        <!-- Global BlockIO (rtB) signals following -->
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="SoC_B.Memory">
-                <definitionLocation>
-                    <baseRef identifier="SoC_B" />
-                        <memberRef identifier="Memory" />
-                </definitionLocation>
-                <fileOrigin name="SoC.c" />
-            </dataCInterface>
-            <modelOrigin identifier="SoC.Opaque.Memory">
-                <name>Memory</name>
-                <modelLink href="SoC/Opaque" />
-                <modelLocation>
-                    <pathNode name="SoC" kind="mlsl:model" />
-                    <pathNode name="SoC_Lowest" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="Memory" kind="mlsl:block" />
-                    <pathNode name="Memory" kind="mlsl:signal" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="private">
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-                <annotation>
-                </annotation>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="SoC_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="SoC_B.Switch">
-                <definitionLocation>
-                    <baseRef identifier="SoC_B" />
-                        <memberRef identifier="Switch" />
-                </definitionLocation>
-                <fileOrigin name="SoC.c" />
-            </dataCInterface>
-            <modelOrigin identifier="SoC.Opaque.Switch">
-                <name>Switch</name>
-                <modelLink href="SoC/Opaque" />
-                <modelLocation>
-                    <pathNode name="SoC" kind="mlsl:model" />
-                    <pathNode name="SoC_Lowest" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="Switch" kind="mlsl:block" />
-                    <pathNode name="Switch" kind="mlsl:signal" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="private">
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-                <annotation>
-                </annotation>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="SoC_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="SoC_B.Memory_p">
-                <definitionLocation>
-                    <baseRef identifier="SoC_B" />
-                        <memberRef identifier="Memory_p" />
-                </definitionLocation>
-                <fileOrigin name="SoC.c" />
-            </dataCInterface>
-            <modelOrigin identifier="SoC.Opaque.Memory_p">
-                <name>Memory_p</name>
-                <modelLink href="SoC/Opaque" />
-                <modelLocation>
-                    <pathNode name="SoC" kind="mlsl:model" />
-                    <pathNode name="SoC_Highest" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="Memory" kind="mlsl:block" />
-                    <pathNode name="Memory_p" kind="mlsl:signal" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="private">
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-                <annotation>
-                </annotation>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="SoC_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="SoC_B.Switch_d">
-                <definitionLocation>
-                    <baseRef identifier="SoC_B" />
-                        <memberRef identifier="Switch_d" />
-                </definitionLocation>
-                <fileOrigin name="SoC.c" />
-            </dataCInterface>
-            <modelOrigin identifier="SoC.Opaque.Switch_d">
-                <name>Switch_d</name>
-                <modelLink href="SoC/Opaque" />
-                <modelLocation>
-                    <pathNode name="SoC" kind="mlsl:model" />
-                    <pathNode name="SoC_Highest" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="Switch" kind="mlsl:block" />
-                    <pathNode name="Switch_d" kind="mlsl:signal" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="private">
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-                <annotation>
-                </annotation>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="SoC_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="SoC_B.NOT">
-                <definitionLocation>
-                    <baseRef identifier="SoC_B" />
-                        <memberRef identifier="NOT" />
-                </definitionLocation>
-                <fileOrigin name="SoC.c" />
-            </dataCInterface>
-            <modelOrigin identifier="SoC.Opaque.NOT">
-                <name>NOT</name>
-                <modelLink href="SoC/Opaque" />
-                <modelLocation>
-                    <pathNode name="SoC" kind="mlsl:model" />
-                    <pathNode name="SoC_Lowest" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="NOT" kind="mlsl:block" />
-                    <pathNode name="NOT" kind="mlsl:signal" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="private">
-                </modelKind>
-                <modelType type="Boolean">
-                    <valueRange min="0.0" max="1.0" />
-                </modelType>
-                <annotation>
-                </annotation>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="SoC_CM_boolean" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="SoC_B.NOT_p">
-                <definitionLocation>
-                    <baseRef identifier="SoC_B" />
-                        <memberRef identifier="NOT_p" />
-                </definitionLocation>
-                <fileOrigin name="SoC.c" />
-            </dataCInterface>
-            <modelOrigin identifier="SoC.Opaque.NOT_p">
-                <name>NOT_p</name>
-                <modelLink href="SoC/Opaque" />
-                <modelLocation>
-                    <pathNode name="SoC" kind="mlsl:model" />
-                    <pathNode name="SoC_Highest" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="NOT" kind="mlsl:block" />
-                    <pathNode name="NOT_p" kind="mlsl:signal" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="private">
-                </modelKind>
-                <modelType type="Boolean">
-                    <valueRange min="0.0" max="1.0" />
-                </modelType>
-                <annotation>
-                </annotation>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="SoC_CM_boolean" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-        <!-- Global constant BlockIO (rtC) signals following -->
-        <!-- Exported global and imported extern signals following -->
-        <!-- Global IRT DWork port signals following -->
-
-
-
-
-
-
-
-
-        <!-- rtU input ports following -->
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="SoC_U.Lowest_CellVoltage">
-                <definitionLocation>
-                    <baseRef identifier="SoC_U" />
-                        <memberRef identifier="Lowest_CellVoltage" />
-                </definitionLocation>
-                <fileOrigin name="SoC.c" />
-            </dataCInterface>
-            <modelOrigin identifier="SoC.Lowest_CellVoltage">
-                <name>Lowest_CellVoltage</name>
-                <modelLink href="SoC/Lowest_CellVoltage" />
-                <modelLocation>
-                    <pathNode name="SoC" kind="mlsl:model" />
-                    <pathNode name="Lowest_CellVoltage" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="SoC_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="SoC_U.Highest_CellVoltage">
-                <definitionLocation>
-                    <baseRef identifier="SoC_U" />
-                        <memberRef identifier="Highest_CellVoltage" />
-                </definitionLocation>
-                <fileOrigin name="SoC.c" />
-            </dataCInterface>
-            <modelOrigin identifier="SoC.Highest_CellVoltage">
-                <name>Highest_CellVoltage</name>
-                <modelLink href="SoC/Highest_CellVoltage" />
-                <modelLocation>
-                    <pathNode name="SoC" kind="mlsl:model" />
-                    <pathNode name="Highest_CellVoltage" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="SoC_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="SoC_U.Accumulator_Current">
-                <definitionLocation>
-                    <baseRef identifier="SoC_U" />
-                        <memberRef identifier="Accumulator_Current" />
-                </definitionLocation>
-                <fileOrigin name="SoC.c" />
-            </dataCInterface>
-            <modelOrigin identifier="SoC.Accumulator_Current">
-                <name>Accumulator_Current</name>
-                <modelLink href="SoC/Accumulator_Current" />
-                <modelLocation>
-                    <pathNode name="SoC" kind="mlsl:model" />
-                    <pathNode name="Accumulator_Current" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="SoC_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="SoC_U.Car_State">
-                <definitionLocation>
-                    <baseRef identifier="SoC_U" />
-                        <memberRef identifier="Car_State" />
-                </definitionLocation>
-                <fileOrigin name="SoC.c" />
-            </dataCInterface>
-            <modelOrigin identifier="SoC.Car_State">
-                <name>Car_State</name>
-                <modelLink href="SoC/Car_State" />
-                <modelLocation>
-                    <pathNode name="SoC" kind="mlsl:model" />
-                    <pathNode name="Car_State" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="SoC_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <!-- rtY output ports following -->
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="SoC_Y.SoC_Avg">
-                <definitionLocation>
-                    <baseRef identifier="SoC_Y" />
-                        <memberRef identifier="SoC_Avg" />
-                </definitionLocation>
-                <fileOrigin name="SoC.c" />
-            </dataCInterface>
-            <modelOrigin identifier="SoC.SoC_Avg">
-                <name>SoC_Avg</name>
-                <modelLink href="SoC/SoC_Avg" />
-                <modelLocation>
-                    <pathNode name="SoC" kind="mlsl:model" />
-                    <pathNode name="SoC_Avg" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="SoC_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="SoC_Y.SoC_Low">
-                <definitionLocation>
-                    <baseRef identifier="SoC_Y" />
-                        <memberRef identifier="SoC_Low" />
-                </definitionLocation>
-                <fileOrigin name="SoC.c" />
-            </dataCInterface>
-            <modelOrigin identifier="SoC.SoC_Low">
-                <name>SoC_Low</name>
-                <modelLink href="SoC/SoC_Low" />
-                <modelLocation>
-                    <pathNode name="SoC" kind="mlsl:model" />
-                    <pathNode name="SoC_Low" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="SoC_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="SoC_Y.SoC_High">
-                <definitionLocation>
-                    <baseRef identifier="SoC_Y" />
-                        <memberRef identifier="SoC_High" />
-                </definitionLocation>
-                <fileOrigin name="SoC.c" />
-            </dataCInterface>
-            <modelOrigin identifier="SoC.SoC_High">
-                <name>SoC_High</name>
-                <modelLink href="SoC/SoC_High" />
-                <modelLocation>
-                    <pathNode name="SoC" kind="mlsl:model" />
-                    <pathNode name="SoC_High" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="SoC_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-
-    
-                
-                
-                
-                
-                
-
-        <functionElement interfaceKind="export">
-            <functionCInterface identifier="irt_Start_SoC">
-                <signature>
-                    <return>
-                        <type><void /></type>
-                    </return>
-                    <void />
-                </signature>
-                <fileOrigin name="SoC_main.c" />
-            </functionCInterface>
-            <modelOrigin identifier="irt_Start_SoC">
-                <name>irt_Start_SoC</name>
-                <modelLocation>
-                    <pathNode name="SoC" kind="mlsl:model" />
-                    <pathNode name="irt_Start_SoC" kind="mlsl:process" type="initialization" />
-                </modelLocation>
-                <modelKind kind="process" />
-                <runTimeInfo>
-                    <constraint>
-                        <execution trigger="initialization" />
-                    </constraint>
-                </runTimeInfo>
-                <annotation>
-                    <documentation>
+<module xmlns="http://www.etas.com/scoop-ix/1.5" xmlns:ix="http://www.etas.com/scoop-ix/1.5" xmlns:mlsl="http://www.etas.com/scoop-ix/1.5/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.5
+        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
+	<directoryLocations scheme="MATLAB 9.12">
+		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\"/>
+		<directory identifier="toolDir" path=".\"/>
+		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink\"/>
+		<directory identifier="codeDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\SoC_irt_rtw\"/>
+	</directoryLocations>
+	<moduleInfo identifier="SoC">
+		<name>SoC</name>
+		<modelLink href="mlsl:///&quot;{{modelDir}}SoC.slx&quot;"/>
+		<version major="10" minor="0"/>
+		<dateTime kind="created" year="2022" month="10" day="8" hour="20" minute="38" second="24"/>
+		<dateTime kind="lastModified" year="2023" month="11" day="17" hour="17" minute="10" second="7"/>
+		<completion degree="full"/>
+		<suitability>
+			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
+			<application domain="softwareDevelopment" addressesAvailable="false" nestedDataStructuresAvailable="true"/>
+		</suitability>
+		<user lastName="joser" role="modifier"/>
+		<creators>
+			<user lastName="dwegg" role="creator"/>
+			<tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
+				<version major="9" minor="12" year="2021" month="11" day="13" info="R2022a"/>
+			</tool>
+			<tool kind="modeler" vendor="The Mathworks, Inc." name="Simulink">
+				<version major="10" minor="5" year="2021" month="11" day="13" info="R2022a"/>
+			</tool>
+			<tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
+			</tool>
+			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
+				<version major="9" minor="7" year="2021" month="11" day="13" info="R2022a"/>
+				<mode name="target" value="INTECRIO Real-Time Target"/>
+				<configuration>
+					<option identifier="InlineParameters">1</option>
+					<option identifier="InlineInvariantSignals">0</option>
+					<option identifier="Solver">ode3</option>
+					<option identifier="SolverType">FixedStep</option>
+					<option identifier="FixedStepOpts.FixedStep">280.0</option>
+					<option identifier="FixedStepOpts.SolverMode">SingleTasking</option>
+				</configuration>
+			</tool>
+			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="MATLAB Coder">
+				<version major="5" minor="4" year="2021" month="11" day="13" info="R2022a"/>
+			</tool>
+			<tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
+				<configuration>
+					<option identifier="SCOOPIXFileName"><![CDATA[SoC.six]]></option>
+					<option identifier="ExternalMode">0</option>
+					<option identifier="IgnoreCustomStorageClasses">1</option>
+					<option identifier="StopSimuAfterAssert">1</option>
+					<option identifier="GenerateOnlySelectedSignalsToASAP2">0</option>
+				</configuration>
+			</tool>
+		</creators>
+	</moduleInfo>
+	<codeInfo>
+		<constitution mode="sourceCode"/>
+		<dateTime kind="created" year="2024" month="3" day="26" hour="15" minute="30" second="3"/>
+		<target>
+			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
+			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
+				<configuration>
+					<optionKind name="macroDefine" prefix="-D"/>
+					<optionKind name="includeDirectory" prefix="-I"/>
+					<!-- RTW specific defines -->
+					<option kind="macroDefine" name="USE_RTMODEL"/>
+					<option kind="macroDefine" name="MODEL">SoC</option>
+					<option kind="macroDefine" name="RT"/>
+					<option kind="macroDefine" name="NUMST">2</option>
+					<option kind="macroDefine" name="TID01EQ">1</option>
+					<option kind="macroDefine" name="NCSTATES">2</option>
+					<option kind="macroDefine" name="MT">0</option>
+					<option kind="macroDefine" name="HAVESTDIO"/>
+					<option kind="macroDefine" name="MdlStart">MdlStart_SoC</option>
+					<option kind="macroDefine" name="MdlOutputs">MdlOutputs_SoC</option>
+					<option kind="macroDefine" name="MdlUpdate">MdlUpdate_SoC</option>
+					<option kind="macroDefine" name="MdlTerminate">MdlTerminate_SoC</option>
+					<option kind="macroDefine" name="MdlInitializeSizes">MdlInitializeSizes_SoC</option>
+					<option kind="macroDefine" name="MdlInitializeSampleTimes">MdlInitializeSampleTimes_SoC</option>
+					<option kind="macroDefine" name="MdlInitialize">MdlInitialize_SoC</option>
+					<option kind="macroDefine" name="MdlEnable">MdlEnable_SoC</option>
+					<option kind="macroDefine" name="MdlDerivatives">MdlDerivatives_SoC</option>
+					<option kind="macroDefine" name="MdlProjection">MdlProjection_SoC</option>
+					<option kind="macroDefine" name="rt_ODECreateIntegrationData">rt_ODECreateIntegrationData_SoC</option>
+					<option kind="macroDefine" name="rt_ODEUpdateContinuousStates">rt_ODEUpdateContinuousStates_SoC</option>
+					<option kind="macroDefine" name="rt_ODEDestroyIntegrationData">rt_ODEDestroyIntegrationData_SoC</option>
+					<option kind="macroDefine" name="rt_ODECacheDataIntoSolverInfo">rt_ODECacheDataIntoSolverInfo_SoC</option>
+					<option kind="macroDefine" name="rt_ODERetrieveDataFromSolverInfo">rt_ODERetrieveDataFromSolverInfo_SoC</option>
+					<option kind="macroDefine" name="rt_ODECreateSolverInfo">rt_ODECreateSolverInfo_SoC</option>
+					<option kind="macroDefine" name="rt_SimInitTimingEngine">rt_SimInitTimingEngine_SoC</option>
+					<option kind="macroDefine" name="rt_SimGetNextSampleHit">rt_SimGetNextSampleHit_SoC</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteTaskSampleHits">rt_SimUpdateDiscreteTaskSampleHits_SoC</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteEvents">rt_SimUpdateDiscreteEvents_SoC</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteTaskTime">rt_SimUpdateDiscreteTaskTime_SoC</option>
+					<option kind="macroDefine" name="rt_CallSys">rt_CallSys_SoC</option>
+					<option kind="macroDefine" name="rt_EnableSys">rt_EnableSys_SoC</option>
+					<option kind="macroDefine" name="rt_DisableSys">rt_DisableSys_SoC</option>
+					<option kind="macroDefine" name="rt_SimDestroyTimingEngine">rt_SimDestroyTimingEngine_SoC</option>
+					<option kind="macroDefine" name="rt_InitTimingEngine">rt_InitTimingEngine_SoC</option>
+					<option kind="macroDefine" name="rt_DestroyTimingEngine">rt_DestroyTimingEngine_SoC</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteTaskSampleHits">rt_UpdateDiscreteTaskSampleHits_SoC</option>
+					<option kind="macroDefine" name="rt_GetNextSampleHit">rt_GetNextSampleHit_SoC</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteEvents">rt_UpdateDiscreteEvents_SoC</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteTaskTime">rt_UpdateDiscreteTaskTime_SoC</option>
+					<!-- RTW specific include directories -->
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}]]></option>
+					<option kind="includeDirectory"><![CDATA[{{integratorDir}}c\src\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{integratorDir}}c\lib\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\simulink\include\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\extern\include\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\src\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\libsrc\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\_sharedutils\]]></option>
+				</configuration>
+			</tool>
+		</target>
+	</codeInfo>
+	<!-- Model specific files -->
+	<fileContainer constitution="sourceCode">
+		<pathBase path="{{codeDir}}"/>
+		<!-- Model specific source files -->
+		<file name="SoC_types.h" kind="header"/>
+		<file name="SoC.h" kind="header"/>
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\look1_binlxpw.c -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\slprj\irt\_sharedutils\look1_binlxpw.h -->
+		<file name="SoC.c" kind="body"/>
+		<file name="SoC_private.h" kind="header"/>
+		<file name="rtmodel.h" kind="header"/>
+		<file name="SoC_main.c" kind="body"/>
+		<!-- Additionally registered model specific source files -->
+		<file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body"/>
+		<!-- Continuous state solver specific files -->
+		<file name="ode3.c" path="{{integratorDir}}c\src\" kind="body"/>
+		<file name="odesup.h" path="{{integratorDir}}c\src\" kind="header"/>
+		<!-- Target specific libraries -->
+		<file name="rtwStaticLib.lib" kind="symbolicLibrary"/>
+		<file name="rtwSharedLib.lib" kind="symbolicLibrary"/>
+		<!-- Additional files -->
+	</fileContainer>
+	<fileContainer constitution="referencedModels">
+	</fileContainer>
+	<interface>
+		<modelLinkBase href="mlsl:///{{modelDir}}SoC.slx?"/>
+		<pathBase path="{{codeDir}}"/>
+		<fileOrigin name="SoC.c"/>
+		<fileOrigin name="rt_nonfinite.c"/>
+		<fileOrigin name="SoC_main.c"/>
+		<headerFile name="SoC.h"/>
+		<headerFile name="SoC_private.h"/>
+		<usage layoutFamily="mlsl:standardLayout"/>
+		<!-- "import" MATLAB/Simulink base type and complex struct definitions via external entity -->
+		&baseTypes-mlsl;
+		<definitions>
+			<structDef name="_B_SoC_T">
+				<fileOrigin name="SoC.h"/>
+				<structMember identifier="Memory">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Switch">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Memory_p">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Switch_d">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="NOT">
+					<type><typeRef name="boolean_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="NOT_p">
+					<type><typeRef name="boolean_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="B_SoC_T">
+				<struct/><typeRef name="_B_SoC_T"/>
+				<fileOrigin name="SoC.h"/>
+				<annotation>
+					<documentation>Block signals (auto storage)</documentation>
+				</annotation>
+			</typeDef>
+			<structDef name="ExtU_SoC_T_tag">
+				<fileOrigin name="SoC.h"/>
+				<structMember identifier="Lowest_CellVoltage">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Lowest_CellVoltage</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Highest_CellVoltage">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Highest_CellVoltage</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Accumulator_Current">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Accumulator_Current</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Car_State">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Car_State</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ExtU_SoC_T">
+				<struct/><typeRef name="ExtU_SoC_T_tag"/>
+				<fileOrigin name="SoC.h"/>
+			</typeDef>
+			<structDef name="ExtY_SoC_T_tag">
+				<fileOrigin name="SoC.h"/>
+				<structMember identifier="SoC_Avg">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/SoC_Avg</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="SoC_Low">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/SoC_Low</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="SoC_High">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/SoC_High</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ExtY_SoC_T">
+				<struct/><typeRef name="ExtY_SoC_T_tag"/>
+				<fileOrigin name="SoC.h"/>
+			</typeDef>
+			<structDef name="_DW_SoC_T">
+				<fileOrigin name="SoC.h"/>
+				<structMember identifier="Memory_PreviousInput">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'PreviousInput'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Memory_PreviousInput_p">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'PreviousInput'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="If_ActiveSubsystem">
+					<type><typeRef name="int8_T"/></type>
+					<annotation>
+						<documentation>State information for 'ActiveSubsystem'.</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="DW_SoC_T">
+				<struct/><typeRef name="_DW_SoC_T"/>
+				<fileOrigin name="SoC.h"/>
+			</typeDef>
+			<baseDef identifier="SoC_B">
+				<type><typeRef name="B_SoC_T"/></type>
+				<fileOrigin name="SoC.c"/>
+				<annotation>
+					<documentation>The rtB data structure for signals.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="SoC_U">
+				<type><typeRef name="ExtU_SoC_T"/></type>
+				<fileOrigin name="SoC.c"/>
+				<annotation>
+					<documentation>The rtU data structure for external inputs.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="SoC_Y">
+				<type><typeRef name="ExtY_SoC_T"/></type>
+				<fileOrigin name="SoC.c"/>
+				<annotation>
+					<documentation>The rtY data structure for external outputs.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="SoC_DW">
+				<type><typeRef name="DW_SoC_T"/></type>
+				<fileOrigin name="SoC.c"/>
+				<annotation>
+					<documentation>The dWork data structure for model state.</documentation>
+				</annotation>
+			</baseDef>
+			<conversion name="SoC_CM_double">
+				<rationalFunction>
+					<numerator bx="1.0"/>
+					<denominator f="1.0"/>
+				</rationalFunction>
+				<annotation>
+					<documentation>Q = V</documentation>
+				</annotation>
+			</conversion>
+			<conversion name="SoC_CM_boolean">
+				<rationalFunction>
+					<numerator bx="1.0"/>
+					<denominator f="1.0"/>
+				</rationalFunction>
+				<annotation>
+					<documentation>Q = V</documentation>
+				</annotation>
+			</conversion>
+		</definitions>
+		<!-- rtP parameters following -->
+		<!-- Constant parameters following -->
+		<!-- Exported global parameters following -->
+		<!-- Imported extern parameters following -->
+		<!-- Global BlockIO (rtB) signals following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_B.Memory">
+				<definitionLocation>
+					<baseRef identifier="SoC_B"/>
+					<memberRef identifier="Memory"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.Opaque.Memory">
+				<name>Memory</name>
+				<modelLink href="SoC/Opaque"/>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model"/>
+					<pathNode name="SoC_Lowest" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Memory" kind="mlsl:block"/>
+					<pathNode name="Memory" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_B.Switch">
+				<definitionLocation>
+					<baseRef identifier="SoC_B"/>
+					<memberRef identifier="Switch"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.Opaque.Switch">
+				<name>Switch</name>
+				<modelLink href="SoC/Opaque"/>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model"/>
+					<pathNode name="SoC_Lowest" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Switch" kind="mlsl:block"/>
+					<pathNode name="Switch" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_B.Memory_p">
+				<definitionLocation>
+					<baseRef identifier="SoC_B"/>
+					<memberRef identifier="Memory_p"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.Opaque.Memory_p">
+				<name>Memory_p</name>
+				<modelLink href="SoC/Opaque"/>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model"/>
+					<pathNode name="SoC_Highest" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Memory" kind="mlsl:block"/>
+					<pathNode name="Memory_p" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_B.Switch_d">
+				<definitionLocation>
+					<baseRef identifier="SoC_B"/>
+					<memberRef identifier="Switch_d"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.Opaque.Switch_d">
+				<name>Switch_d</name>
+				<modelLink href="SoC/Opaque"/>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model"/>
+					<pathNode name="SoC_Highest" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Switch" kind="mlsl:block"/>
+					<pathNode name="Switch_d" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_B.NOT">
+				<definitionLocation>
+					<baseRef identifier="SoC_B"/>
+					<memberRef identifier="NOT"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.Opaque.NOT">
+				<name>NOT</name>
+				<modelLink href="SoC/Opaque"/>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model"/>
+					<pathNode name="SoC_Lowest" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="NOT" kind="mlsl:block"/>
+					<pathNode name="NOT" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="Boolean">
+					<valueRange min="0.0" max="1.0"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_boolean"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_B.NOT_p">
+				<definitionLocation>
+					<baseRef identifier="SoC_B"/>
+					<memberRef identifier="NOT_p"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.Opaque.NOT_p">
+				<name>NOT_p</name>
+				<modelLink href="SoC/Opaque"/>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model"/>
+					<pathNode name="SoC_Highest" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="NOT" kind="mlsl:block"/>
+					<pathNode name="NOT_p" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="Boolean">
+					<valueRange min="0.0" max="1.0"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_boolean"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- Global constant BlockIO (rtC) signals following -->
+		<!-- Exported global and imported extern signals following -->
+		<!-- Global IRT DWork port signals following -->
+		<!-- rtU input ports following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_U.Lowest_CellVoltage">
+				<definitionLocation>
+					<baseRef identifier="SoC_U"/>
+					<memberRef identifier="Lowest_CellVoltage"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.Lowest_CellVoltage">
+				<name>Lowest_CellVoltage</name>
+				<modelLink href="SoC/Lowest_CellVoltage"/>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model"/>
+					<pathNode name="Lowest_CellVoltage" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_U.Highest_CellVoltage">
+				<definitionLocation>
+					<baseRef identifier="SoC_U"/>
+					<memberRef identifier="Highest_CellVoltage"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.Highest_CellVoltage">
+				<name>Highest_CellVoltage</name>
+				<modelLink href="SoC/Highest_CellVoltage"/>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model"/>
+					<pathNode name="Highest_CellVoltage" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_U.Accumulator_Current">
+				<definitionLocation>
+					<baseRef identifier="SoC_U"/>
+					<memberRef identifier="Accumulator_Current"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.Accumulator_Current">
+				<name>Accumulator_Current</name>
+				<modelLink href="SoC/Accumulator_Current"/>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model"/>
+					<pathNode name="Accumulator_Current" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_U.Car_State">
+				<definitionLocation>
+					<baseRef identifier="SoC_U"/>
+					<memberRef identifier="Car_State"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.Car_State">
+				<name>Car_State</name>
+				<modelLink href="SoC/Car_State"/>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model"/>
+					<pathNode name="Car_State" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- rtY output ports following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_Y.SoC_Avg">
+				<definitionLocation>
+					<baseRef identifier="SoC_Y"/>
+					<memberRef identifier="SoC_Avg"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.SoC_Avg">
+				<name>SoC_Avg</name>
+				<modelLink href="SoC/SoC_Avg"/>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model"/>
+					<pathNode name="SoC_Avg" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_Y.SoC_Low">
+				<definitionLocation>
+					<baseRef identifier="SoC_Y"/>
+					<memberRef identifier="SoC_Low"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.SoC_Low">
+				<name>SoC_Low</name>
+				<modelLink href="SoC/SoC_Low"/>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model"/>
+					<pathNode name="SoC_Low" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_Y.SoC_High">
+				<definitionLocation>
+					<baseRef identifier="SoC_Y"/>
+					<memberRef identifier="SoC_High"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.SoC_High">
+				<name>SoC_High</name>
+				<modelLink href="SoC/SoC_High"/>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model"/>
+					<pathNode name="SoC_High" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_Start_SoC">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="SoC_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_Start_SoC">
+				<name>irt_Start_SoC</name>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model"/>
+					<pathNode name="irt_Start_SoC" kind="mlsl:process" type="initialization"/>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<constraint>
+						<execution trigger="initialization"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
                         This is the initialization process of the Real-Time Target code.
                     </documentation>
-                </annotation>
-            </modelOrigin>
-        </functionElement>
-
-        <functionElement interfaceKind="export">
-            <functionCInterface identifier="irt_OneStep_SoC">
-                <signature>
-                    <return>
-                        <type><void /></type>
-                    </return>
-                    <void />
-                </signature>
-                <fileOrigin name="SoC_main.c" />
-            </functionCInterface>
-            <modelOrigin identifier="irt_OneStep_SoC">
-                <name>irt_OneStep_SoC</name>
-                <modelLocation>
-                    <pathNode name="SoC" kind="mlsl:model" />
-                    <pathNode name="irt_OneStep_SoC" kind="mlsl:process" type="execution">
-                        <pathParameter name="mlsl:baseSampleRate" value="280.0" />
-                        <pathParameter name="mlsl:sampleRates" value="280.0" />
-                    </pathNode>
-                </modelLocation>
-                <modelKind kind="process" />
-                <runTimeInfo>
-                    <messageAccess>
-                    <message identifier="SoC_U.Lowest_CellVoltage" send="false"></message>
-                    <message identifier="SoC_U.Highest_CellVoltage" send="false"></message>
-                    <message identifier="SoC_U.Accumulator_Current" send="false"></message>
-                    <message identifier="SoC_U.Car_State" send="false"></message>
-                    <message identifier="SoC_Y.SoC_Avg" send="true"></message>
-                    <message identifier="SoC_Y.SoC_Low" send="true"></message>
-                    <message identifier="SoC_Y.SoC_High" send="true"></message>
-                    </messageAccess>
-                    <constraint>
-                        <period value="280.0" />
-                        <offset value="0.0" />
-                        <execution trigger="timer" priority="normal" />
-                    </constraint>
-                </runTimeInfo>
-                <annotation>
-                    <documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_OneStep_SoC">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="SoC_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_OneStep_SoC">
+				<name>irt_OneStep_SoC</name>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model"/>
+					<pathNode name="irt_OneStep_SoC" kind="mlsl:process" type="execution">
+						<pathParameter name="mlsl:baseSampleRate" value="280.0"/>
+						<pathParameter name="mlsl:sampleRates" value="280.0"/>
+					</pathNode>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<messageAccess>
+						<message identifier="SoC_U.Lowest_CellVoltage" send="false"></message>
+						<message identifier="SoC_U.Highest_CellVoltage" send="false"></message>
+						<message identifier="SoC_U.Accumulator_Current" send="false"></message>
+						<message identifier="SoC_U.Car_State" send="false"></message>
+						<message identifier="SoC_Y.SoC_Avg" send="true"></message>
+						<message identifier="SoC_Y.SoC_Low" send="true"></message>
+						<message identifier="SoC_Y.SoC_High" send="true"></message>
+					</messageAccess>
+					<constraint>
+						<period value="280.0"/>
+						<offset value="0.0"/>
+						<execution trigger="timer" priority="normal"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
                         This is the execution process of the Real-Time Target code.
                     </documentation>
-                </annotation>
-            </modelOrigin>
-        </functionElement>
-
-
-
-        <functionElement interfaceKind="export">
-            <functionCInterface identifier="irt_Terminate_SoC">
-                <signature>
-                    <return>
-                        <type><void /></type>
-                    </return>
-                    <void />
-                </signature>
-                <fileOrigin name="SoC_main.c" />
-            </functionCInterface>
-            <modelOrigin identifier="irt_Terminate_SoC">
-                <name>irt_Terminate_SoC</name>
-                <modelLocation>
-                    <pathNode name="SoC" kind="mlsl:model" />
-                    <pathNode name="irt_Terminate_SoC" kind="mlsl:process" type="termination" />
-                </modelLocation>
-                <modelKind kind="process" />
-                <runTimeInfo>
-                    <constraint>
-                        <execution trigger="termination" />
-                    </constraint>
-                </runTimeInfo>
-                <annotation>
-                    <documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_Terminate_SoC">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="SoC_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_Terminate_SoC">
+				<name>irt_Terminate_SoC</name>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model"/>
+					<pathNode name="irt_Terminate_SoC" kind="mlsl:process" type="termination"/>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<constraint>
+						<execution trigger="termination"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
                         This is the termination process of the INTECRIO Real-Time Target code.
                     </documentation>
-                </annotation>
-            </modelOrigin>
-        </functionElement>
-
-
-
-
-    </interface>
-
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+	</interface>
 </module>
-

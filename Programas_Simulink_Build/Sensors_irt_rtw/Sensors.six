@@ -1,1444 +1,1388 @@
-<?xml version="1.0"  encoding="iso-8859-1"?>
+<?xml version="1.0"?>
 <!DOCTYPE module [
     <!ENTITY szlig "&#223;">
     <!ENTITY copy "&#169;">
-    <!ENTITY baseTypes-mlsl SYSTEM 'file:///C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\blocks\..\..\..\SCOOP-IX\1.5/common/baseTypes-mlsl.six'>
+    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/baseTypes-mlsl.six'>
     ]>
-<?xml-stylesheet type="text/xsl" href="file:///C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\blocks\..\..\..\SCOOP-IX\1.5/common/showSCOOP-IX.xsl"?>
+<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/showSCOOP-IX.xsl"?>
 <!--
 <h1>SCOOP-IX</h1>
 <p>
     <strong>Copyright &copy; 2014 ETAS GmbH</strong>, Borsigstra&szlig;e 14, D-70469 Stuttgart. <em>All rights reserved.</em>
 </p>
 -->
-<module
-    xmlns="http://www.etas.com/scoop-ix/1.5"
-    xmlns:ix="http://www.etas.com/scoop-ix/1.5"
-    xmlns:mlsl="http://www.etas.com/scoop-ix/1.5/modelDomain/matlab-simulink"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.etas.com/scoop-ix/1.5
-        'file:///C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\blocks\..\..\..\SCOOP-IX\1.5/schemas/scoop-ix-domain-mlsl.xsd'"
-    xmlns:html="http://www.w3.org/1999/xhtml"
-    >
-
-    <directoryLocations scheme="MATLAB 9.12">
-        <directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\blocks\..\\" />
-        <directory identifier="toolDir" path=".\" />
-        <directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink\" />
-        <directory identifier="codeDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\Sensors_irt_rtw\" />
-    </directoryLocations>
-
-    <moduleInfo identifier="Sensors">
-        <name>Sensors</name>
-        <modelLink href="mlsl:///&quot;{{modelDir}}Sensors.slx&quot;" />
-        <version major="10" minor="0" />
-        <dateTime kind="created" year="2021" month="2" day="17" hour="15" minute="47" second="20" />
-        <dateTime kind="lastModified" year="2023" month="11" day="17" hour="17" minute="9" second="26" />
-        <completion degree="full" />
-        <suitability>
-            <application domain="rapidPrototyping" addressesAvailable="true"
-                nestedDataStructuresAvailable="true" />
-            <application domain="softwareDevelopment" addressesAvailable="false"
-                nestedDataStructuresAvailable="true" />
-        </suitability>
-        <user lastName="joser" role="modifier" />
-        <creators>
-            <user lastName="cspt" role="creator" />
-            <tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
-                <version major="9" minor="12" year="2021" month="11" day="13" info="R2022a" />
-            </tool>
-            <tool kind="modeler" vendor="The Mathworks, Inc." name="Simulink">
-                <version major="10" minor="5" year="2021" month="11" day="13" info="R2022a" />
-            </tool>
-            <tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
-            </tool>
-            <tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
-                <version major="9" minor="7" year="2021" month="11" day="13" info="R2022a" />
-                <mode name="target" value="INTECRIO Real-Time Target" />
-                <configuration>
-                    <option identifier="InlineParameters">1</option>
-                    <option identifier="InlineInvariantSignals">0</option>
-                    <option identifier="Solver">FixedStepDiscrete</option>
-                    <option identifier="SolverType">FixedStep</option>
-                    <option identifier="FixedStepOpts.FixedStep">0.2</option>
-                    <option identifier="FixedStepOpts.SolverMode">SingleTasking</option>
-                </configuration>
-            </tool>
-            <tool kind="codeGenerator" vendor="The Mathworks, Inc." name="MATLAB Coder">
-                <version major="5" minor="4" year="2021" month="11" day="13" info="R2022a" />
-            </tool>
-            <tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
-                <configuration>
-                    <option identifier="SCOOPIXFileName"><![CDATA[Sensors.six]]></option>
-                    <option identifier="ExternalMode">0</option>
-                    <option identifier="IgnoreCustomStorageClasses">1</option>
-                    <option identifier="StopSimuAfterAssert">1</option>
-                    <option identifier="GenerateOnlySelectedSignalsToASAP2">0</option>
-                </configuration>
-            </tool>
-        </creators>
-    </moduleInfo>
-
-    <codeInfo>
-        <constitution mode="sourceCode" />
-        <dateTime kind="created" year="2024" month="3" day="26" hour="15" minute="29" second="30" />
-        <target>
-            <board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target" />
-            <tool kind="compiler" vendor="GNU Project" 
-                  family="GNU Compiler Collection" name="GNU C Compiler">
-                <configuration>
-                    <optionKind name="macroDefine" prefix="-D" />
-                    <optionKind name="includeDirectory" prefix="-I" />
-                    <!-- RTW specific defines -->
-                    <option kind="macroDefine" name="USE_RTMODEL" />
-                    <option kind="macroDefine" name="MODEL">Sensors</option>
-                    <option kind="macroDefine" name="RT" />
-                    <option kind="macroDefine" name="NUMST">1</option>
-                    <option kind="macroDefine" name="TID01EQ">0</option>
-                    <option kind="macroDefine" name="NCSTATES">0</option>
-                    <option kind="macroDefine" name="MT">0</option>
-                    <option kind="macroDefine" name="HAVESTDIO" />
-                    <option kind="macroDefine" name="MdlStart">MdlStart_Sensors</option>
-                    <option kind="macroDefine" name="MdlOutputs">MdlOutputs_Sensors</option>
-                    <option kind="macroDefine" name="MdlUpdate">MdlUpdate_Sensors</option>
-                    <option kind="macroDefine" name="MdlTerminate">MdlTerminate_Sensors</option>
-                    <option kind="macroDefine" name="MdlInitializeSizes">MdlInitializeSizes_Sensors</option>
-                    <option kind="macroDefine" name="MdlInitializeSampleTimes">MdlInitializeSampleTimes_Sensors</option>
-                    <option kind="macroDefine" name="MdlInitialize">MdlInitialize_Sensors</option>
-                    <option kind="macroDefine" name="MdlEnable">MdlEnable_Sensors</option>
-                    <option kind="macroDefine" name="MdlDerivatives">MdlDerivatives_Sensors</option>
-                    <option kind="macroDefine" name="MdlProjection">MdlProjection_Sensors</option>
-                    <option kind="macroDefine" name="rt_ODECreateIntegrationData">rt_ODECreateIntegrationData_Sensors</option>
-                    <option kind="macroDefine" name="rt_ODEUpdateContinuousStates">rt_ODEUpdateContinuousStates_Sensors</option>
-                    <option kind="macroDefine" name="rt_ODEDestroyIntegrationData">rt_ODEDestroyIntegrationData_Sensors</option>
-                    <option kind="macroDefine" name="rt_ODECacheDataIntoSolverInfo">rt_ODECacheDataIntoSolverInfo_Sensors</option>
-                    <option kind="macroDefine" name="rt_ODERetrieveDataFromSolverInfo">rt_ODERetrieveDataFromSolverInfo_Sensors</option>
-                    <option kind="macroDefine" name="rt_ODECreateSolverInfo">rt_ODECreateSolverInfo_Sensors</option>
-                    <option kind="macroDefine" name="rt_SimInitTimingEngine">rt_SimInitTimingEngine_Sensors</option>
-                    <option kind="macroDefine" name="rt_SimGetNextSampleHit">rt_SimGetNextSampleHit_Sensors</option>
-                    <option kind="macroDefine" name="rt_SimUpdateDiscreteTaskSampleHits">rt_SimUpdateDiscreteTaskSampleHits_Sensors</option>
-                    <option kind="macroDefine" name="rt_SimUpdateDiscreteEvents">rt_SimUpdateDiscreteEvents_Sensors</option>
-                    <option kind="macroDefine" name="rt_SimUpdateDiscreteTaskTime">rt_SimUpdateDiscreteTaskTime_Sensors</option>
-                    <option kind="macroDefine" name="rt_CallSys">rt_CallSys_Sensors</option>
-                    <option kind="macroDefine" name="rt_EnableSys">rt_EnableSys_Sensors</option>
-                    <option kind="macroDefine" name="rt_DisableSys">rt_DisableSys_Sensors</option>
-                    <option kind="macroDefine" name="rt_SimDestroyTimingEngine">rt_SimDestroyTimingEngine_Sensors</option>
-                    <option kind="macroDefine" name="rt_InitTimingEngine">rt_InitTimingEngine_Sensors</option>
-                    <option kind="macroDefine" name="rt_DestroyTimingEngine">rt_DestroyTimingEngine_Sensors</option>
-                    <option kind="macroDefine" name="rt_UpdateDiscreteTaskSampleHits">rt_UpdateDiscreteTaskSampleHits_Sensors</option>
-                    <option kind="macroDefine" name="rt_GetNextSampleHit">rt_GetNextSampleHit_Sensors</option>
-                    <option kind="macroDefine" name="rt_UpdateDiscreteEvents">rt_UpdateDiscreteEvents_Sensors</option>
-                    <option kind="macroDefine" name="rt_UpdateDiscreteTaskTime">rt_UpdateDiscreteTaskTime_Sensors</option>
-                    <!-- RTW specific include directories -->
-                    <option kind="includeDirectory"><![CDATA[{{codeDir}}]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{integratorDir}}c\src\]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{integratorDir}}c\lib\]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{codeDir}}external\simulink\include\]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{codeDir}}external\extern\include\]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\src\]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\libsrc\]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{codeDir}}external\_sharedutils\]]></option>
-                </configuration>
-            </tool>
-        </target>
-    </codeInfo>
-
-    <!-- Model specific files -->
-    <fileContainer constitution="sourceCode">
-        <pathBase path="{{codeDir}}" />
-        <!-- Model specific source files -->
-        <file name="Sensors_types.h" kind="header" />
-        <file name="Sensors.h" kind="header" />
-        <file name="Sensors.c" kind="body" />
-        <file name="Sensors_private.h" kind="header" />
-        <file name="rtmodel.h" kind="header" />
-        <file name="Sensors_data.c" kind="body" />
-            <file name="Sensors_main.c" kind="body" />
-        <!-- Additionally registered model specific source files -->
-        <file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body" />
-        <!-- Target specific libraries -->
-        <file name="rtwStaticLib.lib" kind="symbolicLibrary" />
-        <file name="rtwSharedLib.lib" kind="symbolicLibrary" />
-        <!-- Additional files -->
-    </fileContainer>
-    <fileContainer constitution="referencedModels">
-    </fileContainer>
-
-    <interface>
-        <modelLinkBase href="mlsl:///{{modelDir}}Sensors.slx?" />
-        <pathBase path="{{codeDir}}" />
-        <fileOrigin name="Sensors.c" />
-        <fileOrigin name="Sensors_data.c" />
-        <fileOrigin name="rt_nonfinite.c" />
-        <fileOrigin name="Sensors_main.c" />
-        <headerFile name="Sensors.h" />
-        <headerFile name="Sensors_private.h" />
-        <usage layoutFamily="mlsl:standardLayout" />
-
-        <!-- "import" MATLAB/Simulink base type and complex struct definitions via external entity -->
-        &baseTypes-mlsl;
-        <definitions>
-            <structDef name="_ConstB_Sensors_T">
-                <fileOrigin name="Sensors.h" />
-                <structMember identifier="Sum1">
-                    <type><const /><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Opaque</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Sum1_p">
-                    <type><const /><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Opaque</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Sum1_f">
-                    <type><const /><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Opaque</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Subtract">
-                    <type><const /><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Opaque</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Subtract_k">
-                    <type><const /><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Opaque</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Subtract_e">
-                    <type><const /><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Opaque</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Subtract_ev">
-                    <type><const /><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Opaque</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Subtract_p">
-                    <type><const /><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Opaque</documentation>
-                    </annotation>
-                </structMember>
-            </structDef>
-            <typeDef name="ConstB_Sensors_T">
-                <struct /><typeRef name="_ConstB_Sensors_T" />
-                <fileOrigin name="Sensors.h" />
-                <annotation>
-                    <documentation>Invariant block signals (auto storage)</documentation>
-                </annotation>
-            </typeDef>
-            <structDef name="ExtU_Sensors_T_tag">
-                <fileOrigin name="Sensors.h" />
-                <structMember identifier="APPS1_Bits">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/APPS1_Bits</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="APPS2_Bits">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/APPS2_Bits</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="BrakeSensor_Bits">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/BrakeSensor_Bits</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Susp_F_L_Bits">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Susp_F_L_Bits</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Susp_F_R_Bits">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Susp_F_R_Bits</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Susp_R_L_Bits">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Susp_R_L_Bits</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Susp_R_R_Bits">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Susp_R_R_Bits</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="SteeringSensor_Bits">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/SteeringSensor_Bits</documentation>
-                    </annotation>
-                </structMember>
-            </structDef>
-            <typeDef name="ExtU_Sensors_T">
-                <struct /><typeRef name="ExtU_Sensors_T_tag" />
-                <fileOrigin name="Sensors.h" />
-            </typeDef>
-            <structDef name="ExtY_Sensors_T_tag">
-                <fileOrigin name="Sensors.h" />
-                <structMember identifier="BrakeLight_Control">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/BrakeLight_Control</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="APPS1_Value">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/APPS1_Value</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="APPS2_Value">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/APPS2_Value</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="BrakeSensor_Value">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/BrakeSensor_Value</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="SUSP_F_L">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/SUSP_F_L</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="SUSP_F_R">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/SUSP_F_R</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="SUSP_R_L">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/SUSP_R_L</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="SUSP_R_R">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/SUSP_R_R</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="SteeringSensor_Value">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/SteeringSensor_Value</documentation>
-                    </annotation>
-                </structMember>
-            </structDef>
-            <typeDef name="ExtY_Sensors_T">
-                <struct /><typeRef name="ExtY_Sensors_T_tag" />
-                <fileOrigin name="Sensors.h" />
-            </typeDef>
-            <structDef name="_DW_Sensors_T">
-                <fileOrigin name="Sensors.h" />
-                <structMember identifier="Previous_IN">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>State information for &apos;dsmMem&apos;.</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Previous_OUT">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>State information for &apos;dsmMem&apos;.</documentation>
-                    </annotation>
-                </structMember>
-            </structDef>
-            <typeDef name="DW_Sensors_T">
-                <struct /><typeRef name="_DW_Sensors_T" />
-                <fileOrigin name="Sensors.h" />
-            </typeDef>
-
-            <baseDef identifier="Sensors_ConstB">
-                <type><typeRef name="ConstB_Sensors_T" /></type>
-                <fileOrigin name="Sensors_data.c" />
-                <annotation>
-                    <documentation>The rtC data structure for constant (invariant) signals.</documentation>
-                </annotation>
-            </baseDef>
-            <baseDef identifier="Sensors_U">
-                <type><typeRef name="ExtU_Sensors_T" /></type>
-                <fileOrigin name="Sensors.c" />
-                <annotation>
-                    <documentation>The rtU data structure for external inputs.</documentation>
-                </annotation>
-            </baseDef>
-            <baseDef identifier="Sensors_Y">
-                <type><typeRef name="ExtY_Sensors_T" /></type>
-                <fileOrigin name="Sensors.c" />
-                <annotation>
-                    <documentation>The rtY data structure for external outputs.</documentation>
-                </annotation>
-            </baseDef>
-            <baseDef identifier="Sensors_DW">
-                <type><typeRef name="DW_Sensors_T" /></type>
-                <fileOrigin name="Sensors.c" />
-                <annotation>
-                    <documentation>The dWork data structure for model state.</documentation>
-                </annotation>
-            </baseDef>
-
-
-
-            <conversion name="Sensors_CM_double">
-                <rationalFunction>
-                    <numerator bx="1.0" />
-                    <denominator f="1.0" />
-                </rationalFunction>
-                <annotation>
-                    <documentation>Q = V</documentation>
-                </annotation>
-            </conversion>
-        </definitions>
-
-        <!-- rtP parameters following -->
-        <!-- Constant parameters following -->
-        <!-- Exported global parameters following -->
-        <!-- Imported extern parameters following -->
-        <!-- Global BlockIO (rtB) signals following -->
-        <!-- Global constant BlockIO (rtC) signals following -->
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_ConstB.Sum1">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_ConstB" />
-                        <memberRef identifier="Sum1" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.Opaque.Sum1">
-                <name>Sum1</name>
-                <modelLink href="Sensors/Opaque" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="BRS Data Conv" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="Sum1" kind="mlsl:block" />
-                    <pathNode name="Sum1" kind="mlsl:signal" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="private">
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-                <annotation>
-                </annotation>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_ConstB.Sum1_p">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_ConstB" />
-                        <memberRef identifier="Sum1_p" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.Opaque.Sum1_p">
-                <name>Sum1_p</name>
-                <modelLink href="Sensors/Opaque" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="APPS1 Data Conv" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="Sum1" kind="mlsl:block" />
-                    <pathNode name="Sum1_p" kind="mlsl:signal" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="private">
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-                <annotation>
-                </annotation>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_ConstB.Sum1_f">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_ConstB" />
-                        <memberRef identifier="Sum1_f" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.Opaque.Sum1_f">
-                <name>Sum1_f</name>
-                <modelLink href="Sensors/Opaque" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="APPS2 Data Conv" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="Sum1" kind="mlsl:block" />
-                    <pathNode name="Sum1_f" kind="mlsl:signal" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="private">
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-                <annotation>
-                </annotation>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_ConstB.Subtract">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_ConstB" />
-                        <memberRef identifier="Subtract" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.Opaque.Subtract">
-                <name>Subtract</name>
-                <modelLink href="Sensors/Opaque" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="Suspension_FL Data Conv" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="Subtract" kind="mlsl:block" />
-                    <pathNode name="Subtract" kind="mlsl:signal" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="private">
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-                <annotation>
-                </annotation>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_ConstB.Subtract_k">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_ConstB" />
-                        <memberRef identifier="Subtract_k" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.Opaque.Subtract_k">
-                <name>Subtract_k</name>
-                <modelLink href="Sensors/Opaque" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="Suspension_FR Data Conv" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="Subtract" kind="mlsl:block" />
-                    <pathNode name="Subtract_k" kind="mlsl:signal" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="private">
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-                <annotation>
-                </annotation>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_ConstB.Subtract_e">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_ConstB" />
-                        <memberRef identifier="Subtract_e" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.Opaque.Subtract_e">
-                <name>Subtract_e</name>
-                <modelLink href="Sensors/Opaque" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="Suspension_RL Data Conv" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="Subtract" kind="mlsl:block" />
-                    <pathNode name="Subtract_e" kind="mlsl:signal" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="private">
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-                <annotation>
-                </annotation>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_ConstB.Subtract_ev">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_ConstB" />
-                        <memberRef identifier="Subtract_ev" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.Opaque.Subtract_ev">
-                <name>Subtract_ev</name>
-                <modelLink href="Sensors/Opaque" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="Suspension_RR Data_Conv" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="Subtract" kind="mlsl:block" />
-                    <pathNode name="Subtract_ev" kind="mlsl:signal" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="private">
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-                <annotation>
-                </annotation>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_ConstB.Subtract_p">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_ConstB" />
-                        <memberRef identifier="Subtract_p" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.Opaque.Subtract_p">
-                <name>Subtract_p</name>
-                <modelLink href="Sensors/Opaque" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="Steering Data Conv" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="Low Pass" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="Subtract" kind="mlsl:block" />
-                    <pathNode name="Subtract_p" kind="mlsl:signal" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="private">
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-                <annotation>
-                </annotation>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-        <!-- Exported global and imported extern signals following -->
-        <!-- Global IRT DWork port signals following -->
-
-
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_DW.Previous_IN">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_DW" />
-                        <memberRef identifier="Previous_IN" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.Opaque.Previous_IN">
-                <name>Previous_IN</name>
-                <modelLink href="Sensors/Opaque" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="Steering Data Conv" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="Low Pass" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="Data Store Memory" kind="mlsl:block" />
-                    <pathNode name="Previous_IN" kind="mlsl:signal" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="private">
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-                <annotation>
-                </annotation>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-
-
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_DW.Previous_OUT">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_DW" />
-                        <memberRef identifier="Previous_OUT" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.Opaque.Previous_OUT">
-                <name>Previous_OUT</name>
-                <modelLink href="Sensors/Opaque" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="Steering Data Conv" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="Low Pass" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="Data Store Memory1" kind="mlsl:block" />
-                    <pathNode name="Previous_OUT" kind="mlsl:signal" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="private">
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-                <annotation>
-                </annotation>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-
-
-        <!-- rtU input ports following -->
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_U.APPS1_Bits">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_U" />
-                        <memberRef identifier="APPS1_Bits" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.APPS1_Bits">
-                <name>APPS1_Bits</name>
-                <modelLink href="Sensors/APPS1_Bits" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="APPS1_Bits" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_U.APPS2_Bits">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_U" />
-                        <memberRef identifier="APPS2_Bits" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.APPS2_Bits">
-                <name>APPS2_Bits</name>
-                <modelLink href="Sensors/APPS2_Bits" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="APPS2_Bits" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_U.BrakeSensor_Bits">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_U" />
-                        <memberRef identifier="BrakeSensor_Bits" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.BrakeSensor_Bits">
-                <name>BrakeSensor_Bits</name>
-                <modelLink href="Sensors/BrakeSensor_Bits" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="BrakeSensor_Bits" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_U.Susp_F_L_Bits">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_U" />
-                        <memberRef identifier="Susp_F_L_Bits" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.Susp_F_L_Bits">
-                <name>Susp_F_L_Bits</name>
-                <modelLink href="Sensors/Susp_F_L_Bits" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="Susp_F_L_Bits" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_U.Susp_F_R_Bits">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_U" />
-                        <memberRef identifier="Susp_F_R_Bits" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.Susp_F_R_Bits">
-                <name>Susp_F_R_Bits</name>
-                <modelLink href="Sensors/Susp_F_R_Bits" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="Susp_F_R_Bits" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_U.Susp_R_L_Bits">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_U" />
-                        <memberRef identifier="Susp_R_L_Bits" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.Susp_R_L_Bits">
-                <name>Susp_R_L_Bits</name>
-                <modelLink href="Sensors/Susp_R_L_Bits" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="Susp_R_L_Bits" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_U.Susp_R_R_Bits">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_U" />
-                        <memberRef identifier="Susp_R_R_Bits" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.Susp_R_R_Bits">
-                <name>Susp_R_R_Bits</name>
-                <modelLink href="Sensors/Susp_R_R_Bits" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="Susp_R_R_Bits" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_U.SteeringSensor_Bits">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_U" />
-                        <memberRef identifier="SteeringSensor_Bits" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.SteeringSensor_Bits">
-                <name>SteeringSensor_Bits</name>
-                <modelLink href="Sensors/SteeringSensor_Bits" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="SteeringSensor_Bits" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <!-- rtY output ports following -->
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_Y.BrakeLight_Control">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_Y" />
-                        <memberRef identifier="BrakeLight_Control" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.BrakeLight_Control">
-                <name>BrakeLight_Control</name>
-                <modelLink href="Sensors/BrakeLight_Control" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="BrakeLight_Control" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_Y.APPS1_Value">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_Y" />
-                        <memberRef identifier="APPS1_Value" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.APPS1_Value">
-                <name>APPS1_Value</name>
-                <modelLink href="Sensors/APPS1_Value" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="APPS1_Value" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_Y.APPS2_Value">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_Y" />
-                        <memberRef identifier="APPS2_Value" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.APPS2_Value">
-                <name>APPS2_Value</name>
-                <modelLink href="Sensors/APPS2_Value" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="APPS2_Value" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_Y.BrakeSensor_Value">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_Y" />
-                        <memberRef identifier="BrakeSensor_Value" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.BrakeSensor_Value">
-                <name>BrakeSensor_Value</name>
-                <modelLink href="Sensors/BrakeSensor_Value" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="BrakeSensor_Value" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_Y.SUSP_F_L">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_Y" />
-                        <memberRef identifier="SUSP_F_L" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.SUSP_F_L">
-                <name>SUSP_F_L</name>
-                <modelLink href="Sensors/SUSP_F_L" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="SUSP_F_L" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_Y.SUSP_F_R">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_Y" />
-                        <memberRef identifier="SUSP_F_R" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.SUSP_F_R">
-                <name>SUSP_F_R</name>
-                <modelLink href="Sensors/SUSP_F_R" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="SUSP_F_R" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_Y.SUSP_R_L">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_Y" />
-                        <memberRef identifier="SUSP_R_L" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.SUSP_R_L">
-                <name>SUSP_R_L</name>
-                <modelLink href="Sensors/SUSP_R_L" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="SUSP_R_L" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_Y.SUSP_R_R">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_Y" />
-                        <memberRef identifier="SUSP_R_R" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.SUSP_R_R">
-                <name>SUSP_R_R</name>
-                <modelLink href="Sensors/SUSP_R_R" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="SUSP_R_R" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Sensors_Y.SteeringSensor_Value">
-                <definitionLocation>
-                    <baseRef identifier="Sensors_Y" />
-                        <memberRef identifier="SteeringSensor_Value" />
-                </definitionLocation>
-                <fileOrigin name="Sensors.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Sensors.SteeringSensor_Value">
-                <name>SteeringSensor_Value</name>
-                <modelLink href="Sensors/SteeringSensor_Value" />
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="SteeringSensor_Value" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Sensors_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-
-    
-                
-                
-                
-                
-                
-
-        <functionElement interfaceKind="export">
-            <functionCInterface identifier="irt_Start_Sensors">
-                <signature>
-                    <return>
-                        <type><void /></type>
-                    </return>
-                    <void />
-                </signature>
-                <fileOrigin name="Sensors_main.c" />
-            </functionCInterface>
-            <modelOrigin identifier="irt_Start_Sensors">
-                <name>irt_Start_Sensors</name>
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="irt_Start_Sensors" kind="mlsl:process" type="initialization" />
-                </modelLocation>
-                <modelKind kind="process" />
-                <runTimeInfo>
-                    <constraint>
-                        <execution trigger="initialization" />
-                    </constraint>
-                </runTimeInfo>
-                <annotation>
-                    <documentation>
+<module xmlns="http://www.etas.com/scoop-ix/1.5" xmlns:ix="http://www.etas.com/scoop-ix/1.5" xmlns:mlsl="http://www.etas.com/scoop-ix/1.5/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.5
+        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
+	<directoryLocations scheme="MATLAB 9.12">
+		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\"/>
+		<directory identifier="toolDir" path=".\"/>
+		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink\"/>
+		<directory identifier="codeDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_Simulink_Build\Sensors_irt_rtw\"/>
+	</directoryLocations>
+	<moduleInfo identifier="Sensors">
+		<name>Sensors</name>
+		<modelLink href="mlsl:///&quot;{{modelDir}}Sensors.slx&quot;"/>
+		<version major="10" minor="0"/>
+		<dateTime kind="created" year="2021" month="2" day="17" hour="15" minute="47" second="20"/>
+		<dateTime kind="lastModified" year="2023" month="11" day="17" hour="17" minute="9" second="26"/>
+		<completion degree="full"/>
+		<suitability>
+			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
+			<application domain="softwareDevelopment" addressesAvailable="false" nestedDataStructuresAvailable="true"/>
+		</suitability>
+		<user lastName="joser" role="modifier"/>
+		<creators>
+			<user lastName="cspt" role="creator"/>
+			<tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
+				<version major="9" minor="12" year="2021" month="11" day="13" info="R2022a"/>
+			</tool>
+			<tool kind="modeler" vendor="The Mathworks, Inc." name="Simulink">
+				<version major="10" minor="5" year="2021" month="11" day="13" info="R2022a"/>
+			</tool>
+			<tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
+			</tool>
+			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
+				<version major="9" minor="7" year="2021" month="11" day="13" info="R2022a"/>
+				<mode name="target" value="INTECRIO Real-Time Target"/>
+				<configuration>
+					<option identifier="InlineParameters">1</option>
+					<option identifier="InlineInvariantSignals">0</option>
+					<option identifier="Solver">FixedStepDiscrete</option>
+					<option identifier="SolverType">FixedStep</option>
+					<option identifier="FixedStepOpts.FixedStep">0.2</option>
+					<option identifier="FixedStepOpts.SolverMode">SingleTasking</option>
+				</configuration>
+			</tool>
+			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="MATLAB Coder">
+				<version major="5" minor="4" year="2021" month="11" day="13" info="R2022a"/>
+			</tool>
+			<tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
+				<configuration>
+					<option identifier="SCOOPIXFileName"><![CDATA[Sensors.six]]></option>
+					<option identifier="ExternalMode">0</option>
+					<option identifier="IgnoreCustomStorageClasses">1</option>
+					<option identifier="StopSimuAfterAssert">1</option>
+					<option identifier="GenerateOnlySelectedSignalsToASAP2">0</option>
+				</configuration>
+			</tool>
+		</creators>
+	</moduleInfo>
+	<codeInfo>
+		<constitution mode="sourceCode"/>
+		<dateTime kind="created" year="2024" month="3" day="26" hour="15" minute="29" second="30"/>
+		<target>
+			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
+			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
+				<configuration>
+					<optionKind name="macroDefine" prefix="-D"/>
+					<optionKind name="includeDirectory" prefix="-I"/>
+					<!-- RTW specific defines -->
+					<option kind="macroDefine" name="USE_RTMODEL"/>
+					<option kind="macroDefine" name="MODEL">Sensors</option>
+					<option kind="macroDefine" name="RT"/>
+					<option kind="macroDefine" name="NUMST">1</option>
+					<option kind="macroDefine" name="TID01EQ">0</option>
+					<option kind="macroDefine" name="NCSTATES">0</option>
+					<option kind="macroDefine" name="MT">0</option>
+					<option kind="macroDefine" name="HAVESTDIO"/>
+					<option kind="macroDefine" name="MdlStart">MdlStart_Sensors</option>
+					<option kind="macroDefine" name="MdlOutputs">MdlOutputs_Sensors</option>
+					<option kind="macroDefine" name="MdlUpdate">MdlUpdate_Sensors</option>
+					<option kind="macroDefine" name="MdlTerminate">MdlTerminate_Sensors</option>
+					<option kind="macroDefine" name="MdlInitializeSizes">MdlInitializeSizes_Sensors</option>
+					<option kind="macroDefine" name="MdlInitializeSampleTimes">MdlInitializeSampleTimes_Sensors</option>
+					<option kind="macroDefine" name="MdlInitialize">MdlInitialize_Sensors</option>
+					<option kind="macroDefine" name="MdlEnable">MdlEnable_Sensors</option>
+					<option kind="macroDefine" name="MdlDerivatives">MdlDerivatives_Sensors</option>
+					<option kind="macroDefine" name="MdlProjection">MdlProjection_Sensors</option>
+					<option kind="macroDefine" name="rt_ODECreateIntegrationData">rt_ODECreateIntegrationData_Sensors</option>
+					<option kind="macroDefine" name="rt_ODEUpdateContinuousStates">rt_ODEUpdateContinuousStates_Sensors</option>
+					<option kind="macroDefine" name="rt_ODEDestroyIntegrationData">rt_ODEDestroyIntegrationData_Sensors</option>
+					<option kind="macroDefine" name="rt_ODECacheDataIntoSolverInfo">rt_ODECacheDataIntoSolverInfo_Sensors</option>
+					<option kind="macroDefine" name="rt_ODERetrieveDataFromSolverInfo">rt_ODERetrieveDataFromSolverInfo_Sensors</option>
+					<option kind="macroDefine" name="rt_ODECreateSolverInfo">rt_ODECreateSolverInfo_Sensors</option>
+					<option kind="macroDefine" name="rt_SimInitTimingEngine">rt_SimInitTimingEngine_Sensors</option>
+					<option kind="macroDefine" name="rt_SimGetNextSampleHit">rt_SimGetNextSampleHit_Sensors</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteTaskSampleHits">rt_SimUpdateDiscreteTaskSampleHits_Sensors</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteEvents">rt_SimUpdateDiscreteEvents_Sensors</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteTaskTime">rt_SimUpdateDiscreteTaskTime_Sensors</option>
+					<option kind="macroDefine" name="rt_CallSys">rt_CallSys_Sensors</option>
+					<option kind="macroDefine" name="rt_EnableSys">rt_EnableSys_Sensors</option>
+					<option kind="macroDefine" name="rt_DisableSys">rt_DisableSys_Sensors</option>
+					<option kind="macroDefine" name="rt_SimDestroyTimingEngine">rt_SimDestroyTimingEngine_Sensors</option>
+					<option kind="macroDefine" name="rt_InitTimingEngine">rt_InitTimingEngine_Sensors</option>
+					<option kind="macroDefine" name="rt_DestroyTimingEngine">rt_DestroyTimingEngine_Sensors</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteTaskSampleHits">rt_UpdateDiscreteTaskSampleHits_Sensors</option>
+					<option kind="macroDefine" name="rt_GetNextSampleHit">rt_GetNextSampleHit_Sensors</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteEvents">rt_UpdateDiscreteEvents_Sensors</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteTaskTime">rt_UpdateDiscreteTaskTime_Sensors</option>
+					<!-- RTW specific include directories -->
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}]]></option>
+					<option kind="includeDirectory"><![CDATA[{{integratorDir}}c\src\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{integratorDir}}c\lib\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\simulink\include\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\extern\include\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\src\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\libsrc\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\_sharedutils\]]></option>
+				</configuration>
+			</tool>
+		</target>
+	</codeInfo>
+	<!-- Model specific files -->
+	<fileContainer constitution="sourceCode">
+		<pathBase path="{{codeDir}}"/>
+		<!-- Model specific source files -->
+		<file name="Sensors_types.h" kind="header"/>
+		<file name="Sensors.h" kind="header"/>
+		<file name="Sensors.c" kind="body"/>
+		<file name="Sensors_private.h" kind="header"/>
+		<file name="rtmodel.h" kind="header"/>
+		<file name="Sensors_data.c" kind="body"/>
+		<file name="Sensors_main.c" kind="body"/>
+		<!-- Additionally registered model specific source files -->
+		<file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body"/>
+		<!-- Target specific libraries -->
+		<file name="rtwStaticLib.lib" kind="symbolicLibrary"/>
+		<file name="rtwSharedLib.lib" kind="symbolicLibrary"/>
+		<!-- Additional files -->
+	</fileContainer>
+	<fileContainer constitution="referencedModels">
+	</fileContainer>
+	<interface>
+		<modelLinkBase href="mlsl:///{{modelDir}}Sensors.slx?"/>
+		<pathBase path="{{codeDir}}"/>
+		<fileOrigin name="Sensors.c"/>
+		<fileOrigin name="Sensors_data.c"/>
+		<fileOrigin name="rt_nonfinite.c"/>
+		<fileOrigin name="Sensors_main.c"/>
+		<headerFile name="Sensors.h"/>
+		<headerFile name="Sensors_private.h"/>
+		<usage layoutFamily="mlsl:standardLayout"/>
+		<!-- "import" MATLAB/Simulink base type and complex struct definitions via external entity -->
+		&baseTypes-mlsl;
+		<definitions>
+			<structDef name="_ConstB_Sensors_T">
+				<fileOrigin name="Sensors.h"/>
+				<structMember identifier="Sum1">
+					<type><const/><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Sum1_p">
+					<type><const/><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Sum1_f">
+					<type><const/><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Subtract">
+					<type><const/><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Subtract_k">
+					<type><const/><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Subtract_e">
+					<type><const/><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Subtract_ev">
+					<type><const/><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Subtract_p">
+					<type><const/><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ConstB_Sensors_T">
+				<struct/><typeRef name="_ConstB_Sensors_T"/>
+				<fileOrigin name="Sensors.h"/>
+				<annotation>
+					<documentation>Invariant block signals (auto storage)</documentation>
+				</annotation>
+			</typeDef>
+			<structDef name="ExtU_Sensors_T_tag">
+				<fileOrigin name="Sensors.h"/>
+				<structMember identifier="APPS1_Bits">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/APPS1_Bits</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="APPS2_Bits">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/APPS2_Bits</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="BrakeSensor_Bits">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/BrakeSensor_Bits</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Susp_F_L_Bits">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Susp_F_L_Bits</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Susp_F_R_Bits">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Susp_F_R_Bits</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Susp_R_L_Bits">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Susp_R_L_Bits</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Susp_R_R_Bits">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Susp_R_R_Bits</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="SteeringSensor_Bits">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/SteeringSensor_Bits</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ExtU_Sensors_T">
+				<struct/><typeRef name="ExtU_Sensors_T_tag"/>
+				<fileOrigin name="Sensors.h"/>
+			</typeDef>
+			<structDef name="ExtY_Sensors_T_tag">
+				<fileOrigin name="Sensors.h"/>
+				<structMember identifier="BrakeLight_Control">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/BrakeLight_Control</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="APPS1_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/APPS1_Value</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="APPS2_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/APPS2_Value</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="BrakeSensor_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/BrakeSensor_Value</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="SUSP_F_L">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/SUSP_F_L</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="SUSP_F_R">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/SUSP_F_R</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="SUSP_R_L">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/SUSP_R_L</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="SUSP_R_R">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/SUSP_R_R</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="SteeringSensor_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/SteeringSensor_Value</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ExtY_Sensors_T">
+				<struct/><typeRef name="ExtY_Sensors_T_tag"/>
+				<fileOrigin name="Sensors.h"/>
+			</typeDef>
+			<structDef name="_DW_Sensors_T">
+				<fileOrigin name="Sensors.h"/>
+				<structMember identifier="Previous_IN">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'dsmMem'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Previous_OUT">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'dsmMem'.</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="DW_Sensors_T">
+				<struct/><typeRef name="_DW_Sensors_T"/>
+				<fileOrigin name="Sensors.h"/>
+			</typeDef>
+			<baseDef identifier="Sensors_ConstB">
+				<type><typeRef name="ConstB_Sensors_T"/></type>
+				<fileOrigin name="Sensors_data.c"/>
+				<annotation>
+					<documentation>The rtC data structure for constant (invariant) signals.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="Sensors_U">
+				<type><typeRef name="ExtU_Sensors_T"/></type>
+				<fileOrigin name="Sensors.c"/>
+				<annotation>
+					<documentation>The rtU data structure for external inputs.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="Sensors_Y">
+				<type><typeRef name="ExtY_Sensors_T"/></type>
+				<fileOrigin name="Sensors.c"/>
+				<annotation>
+					<documentation>The rtY data structure for external outputs.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="Sensors_DW">
+				<type><typeRef name="DW_Sensors_T"/></type>
+				<fileOrigin name="Sensors.c"/>
+				<annotation>
+					<documentation>The dWork data structure for model state.</documentation>
+				</annotation>
+			</baseDef>
+			<conversion name="Sensors_CM_double">
+				<rationalFunction>
+					<numerator bx="1.0"/>
+					<denominator f="1.0"/>
+				</rationalFunction>
+				<annotation>
+					<documentation>Q = V</documentation>
+				</annotation>
+			</conversion>
+		</definitions>
+		<!-- rtP parameters following -->
+		<!-- Constant parameters following -->
+		<!-- Exported global parameters following -->
+		<!-- Imported extern parameters following -->
+		<!-- Global BlockIO (rtB) signals following -->
+		<!-- Global constant BlockIO (rtC) signals following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_ConstB.Sum1">
+				<definitionLocation>
+					<baseRef identifier="Sensors_ConstB"/>
+					<memberRef identifier="Sum1"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Opaque.Sum1">
+				<name>Sum1</name>
+				<modelLink href="Sensors/Opaque"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="BRS Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Sum1" kind="mlsl:block"/>
+					<pathNode name="Sum1" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_ConstB.Sum1_p">
+				<definitionLocation>
+					<baseRef identifier="Sensors_ConstB"/>
+					<memberRef identifier="Sum1_p"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Opaque.Sum1_p">
+				<name>Sum1_p</name>
+				<modelLink href="Sensors/Opaque"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="APPS1 Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Sum1" kind="mlsl:block"/>
+					<pathNode name="Sum1_p" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_ConstB.Sum1_f">
+				<definitionLocation>
+					<baseRef identifier="Sensors_ConstB"/>
+					<memberRef identifier="Sum1_f"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Opaque.Sum1_f">
+				<name>Sum1_f</name>
+				<modelLink href="Sensors/Opaque"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="APPS2 Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Sum1" kind="mlsl:block"/>
+					<pathNode name="Sum1_f" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_ConstB.Subtract">
+				<definitionLocation>
+					<baseRef identifier="Sensors_ConstB"/>
+					<memberRef identifier="Subtract"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Opaque.Subtract">
+				<name>Subtract</name>
+				<modelLink href="Sensors/Opaque"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="Suspension_FL Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Subtract" kind="mlsl:block"/>
+					<pathNode name="Subtract" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_ConstB.Subtract_k">
+				<definitionLocation>
+					<baseRef identifier="Sensors_ConstB"/>
+					<memberRef identifier="Subtract_k"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Opaque.Subtract_k">
+				<name>Subtract_k</name>
+				<modelLink href="Sensors/Opaque"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="Suspension_FR Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Subtract" kind="mlsl:block"/>
+					<pathNode name="Subtract_k" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_ConstB.Subtract_e">
+				<definitionLocation>
+					<baseRef identifier="Sensors_ConstB"/>
+					<memberRef identifier="Subtract_e"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Opaque.Subtract_e">
+				<name>Subtract_e</name>
+				<modelLink href="Sensors/Opaque"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="Suspension_RL Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Subtract" kind="mlsl:block"/>
+					<pathNode name="Subtract_e" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_ConstB.Subtract_ev">
+				<definitionLocation>
+					<baseRef identifier="Sensors_ConstB"/>
+					<memberRef identifier="Subtract_ev"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Opaque.Subtract_ev">
+				<name>Subtract_ev</name>
+				<modelLink href="Sensors/Opaque"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="Suspension_RR Data_Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Subtract" kind="mlsl:block"/>
+					<pathNode name="Subtract_ev" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_ConstB.Subtract_p">
+				<definitionLocation>
+					<baseRef identifier="Sensors_ConstB"/>
+					<memberRef identifier="Subtract_p"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Opaque.Subtract_p">
+				<name>Subtract_p</name>
+				<modelLink href="Sensors/Opaque"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="Steering Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Low Pass" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Subtract" kind="mlsl:block"/>
+					<pathNode name="Subtract_p" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- Exported global and imported extern signals following -->
+		<!-- Global IRT DWork port signals following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_DW.Previous_IN">
+				<definitionLocation>
+					<baseRef identifier="Sensors_DW"/>
+					<memberRef identifier="Previous_IN"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Opaque.Previous_IN">
+				<name>Previous_IN</name>
+				<modelLink href="Sensors/Opaque"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="Steering Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Low Pass" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Data Store Memory" kind="mlsl:block"/>
+					<pathNode name="Previous_IN" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_DW.Previous_OUT">
+				<definitionLocation>
+					<baseRef identifier="Sensors_DW"/>
+					<memberRef identifier="Previous_OUT"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Opaque.Previous_OUT">
+				<name>Previous_OUT</name>
+				<modelLink href="Sensors/Opaque"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="Steering Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Low Pass" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Data Store Memory1" kind="mlsl:block"/>
+					<pathNode name="Previous_OUT" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- rtU input ports following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_U.APPS1_Bits">
+				<definitionLocation>
+					<baseRef identifier="Sensors_U"/>
+					<memberRef identifier="APPS1_Bits"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.APPS1_Bits">
+				<name>APPS1_Bits</name>
+				<modelLink href="Sensors/APPS1_Bits"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="APPS1_Bits" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_U.APPS2_Bits">
+				<definitionLocation>
+					<baseRef identifier="Sensors_U"/>
+					<memberRef identifier="APPS2_Bits"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.APPS2_Bits">
+				<name>APPS2_Bits</name>
+				<modelLink href="Sensors/APPS2_Bits"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="APPS2_Bits" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_U.BrakeSensor_Bits">
+				<definitionLocation>
+					<baseRef identifier="Sensors_U"/>
+					<memberRef identifier="BrakeSensor_Bits"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.BrakeSensor_Bits">
+				<name>BrakeSensor_Bits</name>
+				<modelLink href="Sensors/BrakeSensor_Bits"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="BrakeSensor_Bits" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_U.Susp_F_L_Bits">
+				<definitionLocation>
+					<baseRef identifier="Sensors_U"/>
+					<memberRef identifier="Susp_F_L_Bits"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Susp_F_L_Bits">
+				<name>Susp_F_L_Bits</name>
+				<modelLink href="Sensors/Susp_F_L_Bits"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="Susp_F_L_Bits" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_U.Susp_F_R_Bits">
+				<definitionLocation>
+					<baseRef identifier="Sensors_U"/>
+					<memberRef identifier="Susp_F_R_Bits"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Susp_F_R_Bits">
+				<name>Susp_F_R_Bits</name>
+				<modelLink href="Sensors/Susp_F_R_Bits"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="Susp_F_R_Bits" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_U.Susp_R_L_Bits">
+				<definitionLocation>
+					<baseRef identifier="Sensors_U"/>
+					<memberRef identifier="Susp_R_L_Bits"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Susp_R_L_Bits">
+				<name>Susp_R_L_Bits</name>
+				<modelLink href="Sensors/Susp_R_L_Bits"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="Susp_R_L_Bits" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_U.Susp_R_R_Bits">
+				<definitionLocation>
+					<baseRef identifier="Sensors_U"/>
+					<memberRef identifier="Susp_R_R_Bits"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Susp_R_R_Bits">
+				<name>Susp_R_R_Bits</name>
+				<modelLink href="Sensors/Susp_R_R_Bits"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="Susp_R_R_Bits" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_U.SteeringSensor_Bits">
+				<definitionLocation>
+					<baseRef identifier="Sensors_U"/>
+					<memberRef identifier="SteeringSensor_Bits"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.SteeringSensor_Bits">
+				<name>SteeringSensor_Bits</name>
+				<modelLink href="Sensors/SteeringSensor_Bits"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="SteeringSensor_Bits" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- rtY output ports following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_Y.BrakeLight_Control">
+				<definitionLocation>
+					<baseRef identifier="Sensors_Y"/>
+					<memberRef identifier="BrakeLight_Control"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.BrakeLight_Control">
+				<name>BrakeLight_Control</name>
+				<modelLink href="Sensors/BrakeLight_Control"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="BrakeLight_Control" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_Y.APPS1_Value">
+				<definitionLocation>
+					<baseRef identifier="Sensors_Y"/>
+					<memberRef identifier="APPS1_Value"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.APPS1_Value">
+				<name>APPS1_Value</name>
+				<modelLink href="Sensors/APPS1_Value"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="APPS1_Value" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_Y.APPS2_Value">
+				<definitionLocation>
+					<baseRef identifier="Sensors_Y"/>
+					<memberRef identifier="APPS2_Value"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.APPS2_Value">
+				<name>APPS2_Value</name>
+				<modelLink href="Sensors/APPS2_Value"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="APPS2_Value" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_Y.BrakeSensor_Value">
+				<definitionLocation>
+					<baseRef identifier="Sensors_Y"/>
+					<memberRef identifier="BrakeSensor_Value"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.BrakeSensor_Value">
+				<name>BrakeSensor_Value</name>
+				<modelLink href="Sensors/BrakeSensor_Value"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="BrakeSensor_Value" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_Y.SUSP_F_L">
+				<definitionLocation>
+					<baseRef identifier="Sensors_Y"/>
+					<memberRef identifier="SUSP_F_L"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.SUSP_F_L">
+				<name>SUSP_F_L</name>
+				<modelLink href="Sensors/SUSP_F_L"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="SUSP_F_L" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_Y.SUSP_F_R">
+				<definitionLocation>
+					<baseRef identifier="Sensors_Y"/>
+					<memberRef identifier="SUSP_F_R"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.SUSP_F_R">
+				<name>SUSP_F_R</name>
+				<modelLink href="Sensors/SUSP_F_R"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="SUSP_F_R" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_Y.SUSP_R_L">
+				<definitionLocation>
+					<baseRef identifier="Sensors_Y"/>
+					<memberRef identifier="SUSP_R_L"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.SUSP_R_L">
+				<name>SUSP_R_L</name>
+				<modelLink href="Sensors/SUSP_R_L"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="SUSP_R_L" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_Y.SUSP_R_R">
+				<definitionLocation>
+					<baseRef identifier="Sensors_Y"/>
+					<memberRef identifier="SUSP_R_R"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.SUSP_R_R">
+				<name>SUSP_R_R</name>
+				<modelLink href="Sensors/SUSP_R_R"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="SUSP_R_R" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_Y.SteeringSensor_Value">
+				<definitionLocation>
+					<baseRef identifier="Sensors_Y"/>
+					<memberRef identifier="SteeringSensor_Value"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.SteeringSensor_Value">
+				<name>SteeringSensor_Value</name>
+				<modelLink href="Sensors/SteeringSensor_Value"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="SteeringSensor_Value" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_Start_Sensors">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Sensors_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_Start_Sensors">
+				<name>irt_Start_Sensors</name>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="irt_Start_Sensors" kind="mlsl:process" type="initialization"/>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<constraint>
+						<execution trigger="initialization"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
                         This is the initialization process of the Real-Time Target code.
                     </documentation>
-                </annotation>
-            </modelOrigin>
-        </functionElement>
-
-        <functionElement interfaceKind="export">
-            <functionCInterface identifier="irt_OneStep_Sensors">
-                <signature>
-                    <return>
-                        <type><void /></type>
-                    </return>
-                    <void />
-                </signature>
-                <fileOrigin name="Sensors_main.c" />
-            </functionCInterface>
-            <modelOrigin identifier="irt_OneStep_Sensors">
-                <name>irt_OneStep_Sensors</name>
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="irt_OneStep_Sensors" kind="mlsl:process" type="execution">
-                        <pathParameter name="mlsl:baseSampleRate" value="0.2" />
-                        <pathParameter name="mlsl:sampleRates" value="0.2" />
-                    </pathNode>
-                </modelLocation>
-                <modelKind kind="process" />
-                <runTimeInfo>
-                    <messageAccess>
-                    <message identifier="Sensors_U.APPS1_Bits" send="false"></message>
-                    <message identifier="Sensors_U.APPS2_Bits" send="false"></message>
-                    <message identifier="Sensors_U.BrakeSensor_Bits" send="false"></message>
-                    <message identifier="Sensors_U.Susp_F_L_Bits" send="false"></message>
-                    <message identifier="Sensors_U.Susp_F_R_Bits" send="false"></message>
-                    <message identifier="Sensors_U.Susp_R_L_Bits" send="false"></message>
-                    <message identifier="Sensors_U.Susp_R_R_Bits" send="false"></message>
-                    <message identifier="Sensors_U.SteeringSensor_Bits" send="false"></message>
-                    <message identifier="Sensors_Y.BrakeLight_Control" send="true"></message>
-                    <message identifier="Sensors_Y.APPS1_Value" send="true"></message>
-                    <message identifier="Sensors_Y.APPS2_Value" send="true"></message>
-                    <message identifier="Sensors_Y.BrakeSensor_Value" send="true"></message>
-                    <message identifier="Sensors_Y.SUSP_F_L" send="true"></message>
-                    <message identifier="Sensors_Y.SUSP_F_R" send="true"></message>
-                    <message identifier="Sensors_Y.SUSP_R_L" send="true"></message>
-                    <message identifier="Sensors_Y.SUSP_R_R" send="true"></message>
-                    <message identifier="Sensors_Y.SteeringSensor_Value" send="true"></message>
-                    </messageAccess>
-                    <constraint>
-                        <period value="0.2" />
-                        <offset value="0.0" />
-                        <execution trigger="timer" priority="normal" />
-                    </constraint>
-                </runTimeInfo>
-                <annotation>
-                    <documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_OneStep_Sensors">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Sensors_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_OneStep_Sensors">
+				<name>irt_OneStep_Sensors</name>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="irt_OneStep_Sensors" kind="mlsl:process" type="execution">
+						<pathParameter name="mlsl:baseSampleRate" value="0.2"/>
+						<pathParameter name="mlsl:sampleRates" value="0.2"/>
+					</pathNode>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<messageAccess>
+						<message identifier="Sensors_U.APPS1_Bits" send="false"></message>
+						<message identifier="Sensors_U.APPS2_Bits" send="false"></message>
+						<message identifier="Sensors_U.BrakeSensor_Bits" send="false"></message>
+						<message identifier="Sensors_U.Susp_F_L_Bits" send="false"></message>
+						<message identifier="Sensors_U.Susp_F_R_Bits" send="false"></message>
+						<message identifier="Sensors_U.Susp_R_L_Bits" send="false"></message>
+						<message identifier="Sensors_U.Susp_R_R_Bits" send="false"></message>
+						<message identifier="Sensors_U.SteeringSensor_Bits" send="false"></message>
+						<message identifier="Sensors_Y.BrakeLight_Control" send="true"></message>
+						<message identifier="Sensors_Y.APPS1_Value" send="true"></message>
+						<message identifier="Sensors_Y.APPS2_Value" send="true"></message>
+						<message identifier="Sensors_Y.BrakeSensor_Value" send="true"></message>
+						<message identifier="Sensors_Y.SUSP_F_L" send="true"></message>
+						<message identifier="Sensors_Y.SUSP_F_R" send="true"></message>
+						<message identifier="Sensors_Y.SUSP_R_L" send="true"></message>
+						<message identifier="Sensors_Y.SUSP_R_R" send="true"></message>
+						<message identifier="Sensors_Y.SteeringSensor_Value" send="true"></message>
+					</messageAccess>
+					<constraint>
+						<period value="0.2"/>
+						<offset value="0.0"/>
+						<execution trigger="timer" priority="normal"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
                         This is the execution process of the Real-Time Target code.
                     </documentation>
-                </annotation>
-            </modelOrigin>
-        </functionElement>
-
-
-
-        <functionElement interfaceKind="export">
-            <functionCInterface identifier="irt_Terminate_Sensors">
-                <signature>
-                    <return>
-                        <type><void /></type>
-                    </return>
-                    <void />
-                </signature>
-                <fileOrigin name="Sensors_main.c" />
-            </functionCInterface>
-            <modelOrigin identifier="irt_Terminate_Sensors">
-                <name>irt_Terminate_Sensors</name>
-                <modelLocation>
-                    <pathNode name="Sensors" kind="mlsl:model" />
-                    <pathNode name="irt_Terminate_Sensors" kind="mlsl:process" type="termination" />
-                </modelLocation>
-                <modelKind kind="process" />
-                <runTimeInfo>
-                    <constraint>
-                        <execution trigger="termination" />
-                    </constraint>
-                </runTimeInfo>
-                <annotation>
-                    <documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_Terminate_Sensors">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Sensors_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_Terminate_Sensors">
+				<name>irt_Terminate_Sensors</name>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="irt_Terminate_Sensors" kind="mlsl:process" type="termination"/>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<constraint>
+						<execution trigger="termination"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
                         This is the termination process of the INTECRIO Real-Time Target code.
                     </documentation>
-                </annotation>
-            </modelOrigin>
-        </functionElement>
-
-
-
-
-    </interface>
-
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+	</interface>
 </module>
-
