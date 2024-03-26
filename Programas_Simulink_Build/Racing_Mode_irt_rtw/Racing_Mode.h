@@ -12,9 +12,9 @@
  *
  * Code generation for model "Racing_Mode".
  *
- * Model version              : 10.0
+ * Model version              : 10.1
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Nov 17 17:14:43 2023
+ * C source code generated on : Tue Mar 26 15:29:08 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -895,7 +895,7 @@ typedef struct {
   real_T VDC_Cte_CKF;                  /* '<Root>/VDC_Cte_CKF' */
   real_T VDC_Apps_Sat_Down;            /* '<Root>/VDC_Apps_Sat_Down' */
   real_T VDC_Apps_Sat_Up;              /* '<Root>/VDC_Apps_Sat_Up' */
-  real_T VDC_Max_Regenerative_Torque; /* '<Root>/VDC_Max_Regenerative_Torque' */
+  real_T VDC_Max_Regen_Motor_Tq;       /* '<Root>/VDC_Max_Regen_Motor_Tq' */
   real_T VDC_Power_Limit;              /* '<Root>/VDC_Power_Limit' */
   real_T VDC_K_Reduction_P;            /* '<Root>/VDC_K_Reduction_P' */
   real_T VDC_K_Reduction_Temperature; /* '<Root>/VDC_K_Reduction_Temperature' */

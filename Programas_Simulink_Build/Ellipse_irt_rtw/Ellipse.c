@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ellipse".
  *
- * Model version              : 10.2
+ * Model version              : 10.3
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Tue Nov 21 19:00:57 2023
+ * C source code generated on : Tue Mar 26 15:26:15 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -35,21 +35,6 @@ RT_MODEL_Ellipse_T *const Ellipse_M = &Ellipse_M_;
 /* Model output function */
 static void Ellipse_output(void)
 {
-  /* Outport: '<Root>/Roll_Tx' incorporates:
-   *  Inport: '<Root>/el_ROLL'
-   */
-  Ellipse_Y.Roll_Tx = Ellipse_U.el_ROLL;
-
-  /* Outport: '<Root>/Pitch_Tx' incorporates:
-   *  Inport: '<Root>/el_PITCH'
-   */
-  Ellipse_Y.Pitch_Tx = Ellipse_U.el_PITCH;
-
-  /* Outport: '<Root>/Yaw_Tx' incorporates:
-   *  Inport: '<Root>/el_YAW'
-   */
-  Ellipse_Y.Yaw_Tx = Ellipse_U.el_YAW;
-
   /* Outport: '<Root>/Lat_EKF' incorporates:
    *  Inport: '<Root>/el_LATITUDE_EKF'
    */
@@ -59,51 +44,6 @@ static void Ellipse_output(void)
    *  Inport: '<Root>/el_LONGITUDE_EKF'
    */
   Ellipse_Y.Long_EKF = Ellipse_U.el_LONGITUDE_EKF;
-
-  /* Outport: '<Root>/Vel_X' incorporates:
-   *  Inport: '<Root>/el_Vel_X'
-   */
-  Ellipse_Y.Vel_X = Ellipse_U.el_Vel_X;
-
-  /* Outport: '<Root>/Vel_Y' incorporates:
-   *  Inport: '<Root>/el_Vel_Y'
-   */
-  Ellipse_Y.Vel_Y = Ellipse_U.el_Vel_Y;
-
-  /* Outport: '<Root>/Vel_Z' incorporates:
-   *  Inport: '<Root>/el_Vel_Z'
-   */
-  Ellipse_Y.Vel_Z = Ellipse_U.el_Vel_Z;
-
-  /* Outport: '<Root>/Accel_X_IMU_Tx' incorporates:
-   *  Inport: '<Root>/el_ACCEL_X'
-   */
-  Ellipse_Y.Accel_X_IMU_Tx = Ellipse_U.el_ACCEL_X;
-
-  /* Outport: '<Root>/Accel_Y_IMU_Tx' incorporates:
-   *  Inport: '<Root>/el_ACCEL_Y'
-   */
-  Ellipse_Y.Accel_Y_IMU_Tx = Ellipse_U.el_ACCEL_Y;
-
-  /* Outport: '<Root>/Accel_Z_IMU_Tx' incorporates:
-   *  Inport: '<Root>/el_ACCEL_Z'
-   */
-  Ellipse_Y.Accel_Z_IMU_Tx = Ellipse_U.el_ACCEL_Z;
-
-  /* Outport: '<Root>/Gyro_X_Tx' incorporates:
-   *  Inport: '<Root>/el_GYRO_X'
-   */
-  Ellipse_Y.Gyro_X_Tx = Ellipse_U.el_GYRO_X;
-
-  /* Outport: '<Root>/Gyro_Y_Tx' incorporates:
-   *  Inport: '<Root>/el_GYRO_Y'
-   */
-  Ellipse_Y.Gyro_Y_Tx = Ellipse_U.el_GYRO_Y;
-
-  /* Outport: '<Root>/Gyro_Z_Tx' incorporates:
-   *  Inport: '<Root>/el_GYRO_Z'
-   */
-  Ellipse_Y.Gyro_Z_Tx = Ellipse_U.el_GYRO_Z;
 
   /* Outport: '<Root>/TrackAngle' incorporates:
    *  Inport: '<Root>/el_AngleTrack'
@@ -124,11 +64,6 @@ static void Ellipse_output(void)
    *  Inport: '<Root>/el_AUTO_STATUS'
    */
   Ellipse_Y.Status_Auto = Ellipse_U.el_AUTO_STATUS;
-
-  /* Outport: '<Root>/el_Timer' incorporates:
-   *  Inport: '<Root>/Ellipse_Alive'
-   */
-  Ellipse_Y.el_Timer = Ellipse_U.Ellipse_Alive;
 
   /* Outport: '<Root>/General_Tx' incorporates:
    *  Inport: '<Root>/el_GENERAL'
@@ -289,11 +224,11 @@ RT_MODEL_Ellipse_T *Ellipse(void)
 
   /* Initialize Sizes */
   Ellipse_M->Sizes.numContStates = (0);/* Number of continuous states */
-  Ellipse_M->Sizes.numY = (21);        /* Number of model outputs */
-  Ellipse_M->Sizes.numU = (21);        /* Number of model inputs */
+  Ellipse_M->Sizes.numY = (8);         /* Number of model outputs */
+  Ellipse_M->Sizes.numU = (8);         /* Number of model inputs */
   Ellipse_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Ellipse_M->Sizes.numSampTimes = (1); /* Number of sample times */
-  Ellipse_M->Sizes.numBlocks = (21);   /* Number of blocks */
+  Ellipse_M->Sizes.numBlocks = (8);    /* Number of blocks */
   return Ellipse_M;
 }
 

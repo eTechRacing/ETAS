@@ -12,9 +12,9 @@
  *
  * Code generation for model "Ellipse".
  *
- * Model version              : 10.2
+ * Model version              : 10.3
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Tue Nov 21 19:00:57 2023
+ * C source code generated on : Tue Mar 26 15:26:15 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -852,50 +852,24 @@
 
 /* External inputs (root inport signals with default storage) */
 typedef struct {
-  real_T el_ROLL;                      /* '<Root>/el_ROLL' */
-  real_T el_PITCH;                     /* '<Root>/el_PITCH' */
-  real_T el_YAW;                       /* '<Root>/el_YAW' */
   real_T el_LATITUDE_EKF;              /* '<Root>/el_LATITUDE_EKF' */
   real_T el_LONGITUDE_EKF;             /* '<Root>/el_LONGITUDE_EKF' */
-  real_T el_Vel_X;                     /* '<Root>/el_Vel_X' */
-  real_T el_Vel_Y;                     /* '<Root>/el_Vel_Y' */
-  real_T el_Vel_Z;                     /* '<Root>/el_Vel_Z' */
-  real_T el_ACCEL_X;                   /* '<Root>/el_ACCEL_X' */
-  real_T el_ACCEL_Y;                   /* '<Root>/el_ACCEL_Y' */
-  real_T el_ACCEL_Z;                   /* '<Root>/el_ACCEL_Z' */
-  real_T el_GYRO_X;                    /* '<Root>/el_GYRO_X' */
-  real_T el_GYRO_Y;                    /* '<Root>/el_GYRO_Y' */
-  real_T el_GYRO_Z;                    /* '<Root>/el_GYRO_Z' */
   real_T el_AngleTrack;                /* '<Root>/el_AngleTrack' */
   real_T el_SlipAngle;                 /* '<Root>/el_SlipAngle' */
   real_T el_CurvatureRadius;           /* '<Root>/el_CurvatureRadius' */
   real_T el_AUTO_STATUS;               /* '<Root>/el_AUTO_STATUS' */
-  real_T Ellipse_Alive;                /* '<Root>/Ellipse_Alive' */
   real_T el_GENERAL;                   /* '<Root>/el_GENERAL' */
   real_T el_CLOCK;                     /* '<Root>/el_CLOCK' */
 } ExtU_Ellipse_T;
 
 /* External outputs (root outports fed by signals with default storage) */
 typedef struct {
-  real_T Roll_Tx;                      /* '<Root>/Roll_Tx' */
-  real_T Pitch_Tx;                     /* '<Root>/Pitch_Tx' */
-  real_T Yaw_Tx;                       /* '<Root>/Yaw_Tx' */
   real_T Lat_EKF;                      /* '<Root>/Lat_EKF' */
   real_T Long_EKF;                     /* '<Root>/Long_EKF' */
-  real_T Vel_X;                        /* '<Root>/Vel_X' */
-  real_T Vel_Y;                        /* '<Root>/Vel_Y' */
-  real_T Vel_Z;                        /* '<Root>/Vel_Z' */
-  real_T Accel_X_IMU_Tx;               /* '<Root>/Accel_X_IMU_Tx' */
-  real_T Accel_Y_IMU_Tx;               /* '<Root>/Accel_Y_IMU_Tx' */
-  real_T Accel_Z_IMU_Tx;               /* '<Root>/Accel_Z_IMU_Tx' */
-  real_T Gyro_X_Tx;                    /* '<Root>/Gyro_X_Tx' */
-  real_T Gyro_Y_Tx;                    /* '<Root>/Gyro_Y_Tx' */
-  real_T Gyro_Z_Tx;                    /* '<Root>/Gyro_Z_Tx' */
   real_T TrackAngle;                   /* '<Root>/TrackAngle' */
   real_T SlipAngle;                    /* '<Root>/SlipAngle' */
   real_T CurvRadius;                   /* '<Root>/CurvRadius' */
   real_T Status_Auto;                  /* '<Root>/Status_Auto' */
-  real_T el_Timer;                     /* '<Root>/el_Timer' */
   real_T General_Tx;                   /* '<Root>/General_Tx' */
   real_T Clock_Tx;                     /* '<Root>/Clock_Tx' */
 } ExtY_Ellipse_T;

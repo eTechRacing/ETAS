@@ -44,7 +44,7 @@ BUILD_SUCCESS = successful
 
 # make matlab happy
 MODEL                = rtwshared
-MODULES              = rtGetInf.c rtGetNaN.c rt_nonfinite.c rt_powd_snf.c const_params.c look1_binlxpw.c mldivide_8ZFDevWm.c polyfit_qSahpz3o.c qrpf_X6HM2OpU.c qrpf_tu7wheJf.c rt_hypotd_snf.c xnrm2_5D3RImKI.c xnrm2_5V7JofQH.c
+MODULES              = rtGetInf.c rtGetNaN.c rt_nonfinite.c const_params.c look1_binlxpw.c mldivide_8ZFDevWm.c polyfit_qSahpz3o.c qrpf_X6HM2OpU.c qrpf_tu7wheJf.c rt_hypotd_snf.c xnrm2_5D3RImKI.c xnrm2_5V7JofQH.c
 MAKEFILE             = 
 MATLAB_ROOT          = C:\Program Files\MATLAB\R2022a
 MATLAB_BIN           = C:\Program Files\MATLAB\R2022a\bin

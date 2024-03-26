@@ -53,7 +53,7 @@ S_FUNCTIONS_LIB      = C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Programas_
 SOLVER               = 
 NUMST                = 2
 TID01EQ              = 1
-NCSTATES             = 1
+NCSTATES             = 0
 BUILDARGS            =  MAT_FILE=1 IRTWaitForStartMsg=0 COMBINE_OUTPUT_UPDATE_FCNS=0 INCLUDE_MDL_TERMINATE_FCN=1 MULTI_INSTANCE_CODE=0 MODELREF_TARGET_TYPE=NONE RELATIVE_PATH_TO_ANCHOR=.. OPTS="-DTID01EQ=1"
 MULTITASKING         = 0
 EXT_MODE             = 0

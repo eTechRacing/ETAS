@@ -12,9 +12,9 @@
  *
  * Code generation for model "Torque_Control".
  *
- * Model version              : 10.2
+ * Model version              : 10.24
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Tue Nov 21 18:27:38 2023
+ * C source code generated on : Tue Mar 26 15:45:11 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -37,8 +37,8 @@
 #include "rtGetInf.h"
 #include "rt_nonfinite.h"
 #include "rtGetNaN.h"
-#include <string.h>
 #include "rt_defines.h"
+#include <string.h>
 #include <stddef.h>
 #include "zero_crossing_types.h"
 
@@ -172,11 +172,11 @@
 #endif
 
 #ifndef rtmGetIntgData
-#define rtmGetIntgData(rtm)            ((rtm)->intgData)
+#define rtmGetIntgData(rtm)            ()
 #endif
 
 #ifndef rtmSetIntgData
-#define rtmSetIntgData(rtm, val)       ((rtm)->intgData = (val))
+#define rtmSetIntgData(rtm, val)       ()
 #endif
 
 #ifndef rtmGetMdlRefGlobalRuntimeEventIndices
@@ -340,19 +340,19 @@
 #endif
 
 #ifndef rtmGetOdeF
-#define rtmGetOdeF(rtm)                ((rtm)->odeF)
+#define rtmGetOdeF(rtm)                ()
 #endif
 
 #ifndef rtmSetOdeF
-#define rtmSetOdeF(rtm, val)           ((rtm)->odeF = (val))
+#define rtmSetOdeF(rtm, val)           ()
 #endif
 
 #ifndef rtmGetOdeY
-#define rtmGetOdeY(rtm)                ((rtm)->odeY)
+#define rtmGetOdeY(rtm)                ()
 #endif
 
 #ifndef rtmSetOdeY
-#define rtmSetOdeY(rtm, val)           ((rtm)->odeY = (val))
+#define rtmSetOdeY(rtm, val)           ()
 #endif
 
 #ifndef rtmGetOffsetTimeArray
@@ -860,307 +860,226 @@
 /* Definition for use in the target main file */
 #define Torque_Control_rtModel         RT_MODEL_Torque_Control_T
 
-/* Block signals for system '<S127>/MATLAB Function' */
+/* Block signals for system '<S101>/Accelerator behaviour ' */
 typedef struct {
-  real_T RegTq_RR;                     /* '<S127>/MATLAB Function' */
-  real_T RegTq_RL;                     /* '<S127>/MATLAB Function' */
-} B_MATLABFunction_Torque_Contr_T;
-
-/* Block signals for system '<S115>/Braking with Regenerative' */
-typedef struct {
-  B_MATLABFunction_Torque_Contr_T sf_MATLABFunction;/* '<S127>/MATLAB Function' */
-} B_BrakingwithRegenerative_Tor_T;
-
-/* Block signals for system '<S116>/Accelerator behaviour ' */
-typedef struct {
-  real_T throttle;                     /* '<S116>/Accelerator behaviour ' */
+  real_T throttle;                     /* '<S101>/Accelerator behaviour ' */
 } B_Acceleratorbehaviour_Torque_T;
 
-/* Block signals for system '<S83>/MATLAB Function1' */
+/* Block signals for system '<S70>/MATLAB Function1' */
 typedef struct {
-  real_T value;                        /* '<S83>/MATLAB Function1' */
+  real_T value;                        /* '<S70>/MATLAB Function1' */
 } B_MATLABFunction1_Torque_Cont_T;
 
-/* Block signals for system '<S123>/MATLAB Function' */
+/* Block signals for system '<S108>/MATLAB Function' */
 typedef struct {
-  real_T RPM;                          /* '<S123>/MATLAB Function' */
-} B_MATLABFunction_Torque_Con_d_T;
+  real_T w;                            /* '<S108>/MATLAB Function' */
+} B_MATLABFunction_Torque_Contr_T;
 
-/* Block signals for system '<S166>/MATLAB Function' */
+/* Block signals for system '<S151>/MATLAB Function' */
 typedef struct {
-  real_T SKF_act0;                     /* '<S166>/MATLAB Function' */
-} B_MATLABFunction_Torque_Con_i_T;
+  real_T SKF_act0;                     /* '<S151>/MATLAB Function' */
+} B_MATLABFunction_Torque_Con_f_T;
 
-/* Block signals for system '<S163>/MATLAB Function' */
+/* Block signals for system '<S148>/MATLAB Function' */
 typedef struct {
-  real_T CKF_act1;                     /* '<S163>/MATLAB Function' */
-} B_MATLABFunction_Torque_Con_k_T;
-
-/* Block signals for system '<S162>/MATLAB Function1' */
-typedef struct {
-  real_T CKF_act0;                     /* '<S162>/MATLAB Function1' */
-} B_MATLABFunction1_Torque_Co_m_T;
-
-/* Block signals for system '<S120>/MATLAB Function' */
-typedef struct {
-  real_T value;                        /* '<S120>/MATLAB Function' */
+  real_T CKF_act1;                     /* '<S148>/MATLAB Function' */
 } B_MATLABFunction_Torque_Con_h_T;
 
-/* Block signals for system '<S125>/MATLAB Function1' */
+/* Block signals for system '<S147>/MATLAB Function1' */
 typedef struct {
-  real_T value;                        /* '<S125>/MATLAB Function1' */
-} B_MATLABFunction1_Torque_Co_d_T;
+  real_T CKF_act0;                     /* '<S147>/MATLAB Function1' */
+} B_MATLABFunction1_Torque_Co_o_T;
+
+/* Block signals for system '<S105>/MATLAB Function' */
+typedef struct {
+  real_T value;                        /* '<S105>/MATLAB Function' */
+} B_MATLABFunction_Torque_Con_j_T;
+
+/* Block signals for system '<S110>/MATLAB Function1' */
+typedef struct {
+  real_T value;                        /* '<S110>/MATLAB Function1' */
+} B_MATLABFunction1_Torque_Co_n_T;
 
 /* Block signals (default storage) */
 typedef struct {
   real_T kamm_data[544];
-  real_T Abs2;                         /* '<Root>/Abs2' */
+  real_T Abs3;                         /* '<Root>/Abs3' */
   real_T Gain1;                        /* '<Root>/Gain1' */
   real_T Gain;                         /* '<Root>/Gain' */
-  real_T Probe[2];                     /* '<S223>/Probe' */
-  real_T Add2;                         /* '<S218>/Add2' */
-  real_T Integrator;                   /* '<S228>/Integrator' */
-  real_T Probe_d[2];                   /* '<S231>/Probe' */
-  real_T Add2_c;                       /* '<S219>/Add2' */
-  real_T Integrator_k;                 /* '<S236>/Integrator' */
-  real_T Probe_j[2];                   /* '<S239>/Probe' */
-  real_T Add2_e;                       /* '<S220>/Add2' */
-  real_T Integrator_a;                 /* '<S244>/Integrator' */
-  real_T Min;                          /* '<S214>/Min' */
   real_T Merge3;                       /* '<Root>/Merge3' */
   real_T Merge;                        /* '<Root>/Merge' */
-  real_T Abs;                          /* '<S12>/Abs' */
-  real_T AvoidDividebyZero;            /* '<S223>/Avoid Divide by Zero' */
-  real_T uT;                           /* '<S221>/1//T' */
-  real_T AvoidDividebyZero_l;          /* '<S231>/Avoid Divide by Zero' */
-  real_T uT_i;                         /* '<S229>/1//T' */
-  real_T AvoidDividebyZero_f;          /* '<S239>/Avoid Divide by Zero' */
-  real_T uT_p;                         /* '<S237>/1//T' */
-  real_T Merge_b;                      /* '<S71>/Merge' */
-  real_T Merge1;                       /* '<S71>/Merge1' */
-  real_T Merge2;                       /* '<S71>/Merge2' */
-  real_T Merge3_b;                     /* '<S71>/Merge3' */
-  real_T Merge1_a;                     /* '<S70>/Merge1' */
-  real_T Merge_l;                      /* '<S72>/Merge' */
-  real_T Gain_n;                       /* '<S72>/Gain' */
-  real_T MergeTq_RL;                   /* '<S72>/Merge Tq_RL' */
-  real_T MergeTq_RR;                   /* '<S72>/Merge Tq_RR' */
-  real_T Merge2_l;                     /* '<S72>/Merge2' */
-  real_T Merge3_c;                     /* '<S72>/Merge3' */
-  real_T Saturation;                   /* '<S93>/Saturation' */
-  real_T Switch;                       /* '<S93>/Switch' */
-  real_T SignalGenerator;              /* '<S93>/Signal Generator' */
-  real_T SineWave;                     /* '<S93>/Sine Wave' */
-  real_T Merge_d;                      /* '<S87>/Merge' */
-  real_T Merge1_p;                     /* '<S87>/Merge1' */
-  real_T Merge_k;                      /* '<S104>/Merge' */
-  real_T Saturation_c;                 /* '<S104>/Saturation' */
-  real_T Switch1;                      /* '<S108>/Switch1' */
-  real_T Merge_kj;                     /* '<S106>/Merge' */
-  real_T Saturation_k;                 /* '<S106>/Saturation' */
-  real_T Merge_g;                      /* '<S206>/Merge' */
-  real_T Merge_li;                     /* '<S175>/Merge' */
-  real_T Merge1_l;                     /* '<S175>/Merge1' */
-  real_T Merge2_o;                     /* '<S182>/Merge2' */
-  real_T Saturation_j;                 /* '<S123>/Saturation' */
-  real_T Switch_p;                     /* '<S123>/Switch' */
-  real_T Merge2_lx;                    /* '<S83>/Merge2' */
-  real_T Divide;                       /* '<S171>/Divide' */
-  real_T Merge3_e;                     /* '<S83>/Merge3' */
-  real_T Divide_i;                     /* '<S170>/Divide' */
-  real_T Merge_kt;                     /* '<S116>/Merge' */
-  real_T Merge1_b;                     /* '<S116>/Merge1' */
-  real_T Merge_m;                      /* '<S83>/Merge' */
-  real_T Merge1_n;                     /* '<S83>/Merge1' */
-  real_T Merge4;                       /* '<S83>/Merge4' */
-  real_T Merge5;                       /* '<S83>/Merge5' */
-  real_T Merge6;                       /* '<S83>/Merge6' */
-  real_T Merge7;                       /* '<S83>/Merge7' */
-  real_T OutportBufferForFlags_num5[4];/* '<S83>/Flags' */
-  real_T Sum3;                         /* '<S119>/Sum3' */
-  real_T Divide_a;                     /* '<S150>/Divide' */
-  real_T Gain1_c;                      /* '<S147>/Gain1' */
-  real_T Gain4;                        /* '<S147>/Gain4' */
-  real_T Gain3;                        /* '<S147>/Gain3' */
-  real_T Gain2;                        /* '<S147>/Gain2' */
-  real_T Gain_p;                       /* '<S147>/Gain' */
-  real_T radius;                       /* '<S147>/Bicycle Model' */
-  real_T yf;                           /* '<S147>/Bicycle Model' */
-  real_T yr;                           /* '<S147>/Bicycle Model' */
-  real_T Merge_c;                      /* '<S159>/Merge' */
-  real_T Saturation_i;                 /* '<S159>/Saturation' */
-  real_T Merge_i;                      /* '<S161>/Merge' */
-  real_T Saturation_f;                 /* '<S161>/Saturation' */
-  real_T Throttle;                     /* '<S136>/Throttle' */
-  real_T Merge2_j;                     /* '<S126>/Merge2' */
-  real_T OutportBufferForFlag_Power;   /* '<S126>/Constant' */
-  real_T Braking; /* '<Root>/SoP selection and sum of max WHEEL Tq available' */
-  real_T Probe_a[2];                   /* '<S33>/Probe' */
-  real_T Probe_o[2];                   /* '<S41>/Probe' */
-  real_T Probe_n[2];                   /* '<S49>/Probe' */
-  real_T uT_l;                         /* '<S31>/1//T' */
-  real_T uT_io;                        /* '<S39>/1//T' */
-  real_T uT_m;                         /* '<S47>/1//T' */
-  real_T Merge1_pg;                    /* '<S15>/Merge1' */
+  real_T Merge_m;                      /* '<S10>/Merge' */
+  real_T Merge1;                       /* '<S10>/Merge1' */
+  real_T Merge2;                       /* '<S10>/Merge2' */
+  real_T Merge3_o;                     /* '<S10>/Merge3' */
+  real_T Merge1_a;                     /* '<S8>/Merge1' */
+  real_T Merge_a;                      /* '<S11>/Merge' */
+  real_T MergeTq_RL;                   /* '<S11>/Merge Tq_RL' */
+  real_T MergeTq_RR;                   /* '<S11>/Merge Tq_RR' */
+  real_T Merge2_b;                     /* '<S11>/Merge2' */
+  real_T Merge3_i;                     /* '<S11>/Merge3' */
+  real_T wrads;                        /* '<S79>/Max' */
+  real_T Saturation;                   /* '<S79>/Saturation' */
+  real_T Switch;                       /* '<S79>/Switch' */
+  real_T Merge_j;                      /* '<S89>/Merge' */
+  real_T Saturation_n;                 /* '<S89>/Saturation' */
+  real_T Switch1;                      /* '<S93>/Switch1' */
+  real_T Merge_d;                      /* '<S91>/Merge' */
+  real_T Saturation_j;                 /* '<S91>/Saturation' */
+  real_T Merge_n;                      /* '<S191>/Merge' */
+  real_T Merge_ag;                     /* '<S160>/Merge' */
+  real_T Merge1_c;                     /* '<S160>/Merge1' */
+  real_T Merge2_d;                     /* '<S167>/Merge2' */
+  real_T Saturation_p;                 /* '<S108>/Saturation' */
+  real_T Switch_m;                     /* '<S108>/Switch' */
+  real_T Merge2_i;                     /* '<S70>/Merge2' */
+  real_T Divide;                       /* '<S156>/Divide' */
+  real_T Merge3_d;                     /* '<S70>/Merge3' */
+  real_T Divide_g;                     /* '<S155>/Divide' */
+  real_T Merge_dw;                     /* '<S101>/Merge' */
+  real_T Merge1_j;                     /* '<S101>/Merge1' */
+  real_T Merge_l;                      /* '<S70>/Merge' */
+  real_T Merge1_e;                     /* '<S70>/Merge1' */
+  real_T Merge4;                       /* '<S70>/Merge4' */
+  real_T Merge5;                       /* '<S70>/Merge5' */
+  real_T Merge6;                       /* '<S70>/Merge6' */
+  real_T Merge7;                       /* '<S70>/Merge7' */
+  real_T OutportBufferForFlags_num5[4];/* '<S70>/Flags' */
+  real_T Sum3;                         /* '<S104>/Sum3' */
+  real_T Divide_f;                     /* '<S135>/Divide' */
+  real_T Gain1_h;                      /* '<S132>/Gain1' */
+  real_T Gain4;                        /* '<S132>/Gain4' */
+  real_T Gain3;                        /* '<S132>/Gain3' */
+  real_T Gain2;                        /* '<S132>/Gain2' */
+  real_T Gain_a;                       /* '<S132>/Gain' */
+  real_T radius;                       /* '<S132>/Bicycle Model' */
+  real_T yf;                           /* '<S132>/Bicycle Model' */
+  real_T yr;                           /* '<S132>/Bicycle Model' */
+  real_T Merge_az;                     /* '<S144>/Merge' */
+  real_T Saturation_h;                 /* '<S144>/Saturation' */
+  real_T Merge_agp;                    /* '<S146>/Merge' */
+  real_T Saturation_hh;                /* '<S146>/Saturation' */
+  real_T Throttle;                     /* '<S121>/Throttle' */
+  real_T Merge2_m;                     /* '<S111>/Merge2' */
+  real_T OutportBufferForFlag_Power;   /* '<S111>/Constant' */
+  real_T Probe[2];                     /* '<S31>/Probe' */
+  real_T Probe_o[2];                   /* '<S39>/Probe' */
+  real_T Probe_n[2];                   /* '<S47>/Probe' */
+  real_T uT;                           /* '<S29>/1//T' */
+  real_T uT_i;                         /* '<S37>/1//T' */
+  real_T uT_m;                         /* '<S45>/1//T' */
+  real_T Braking;                      /* '<Root>/BrakePedal_Pressed' */
+  real_T Merge_jz;                     /* '<S56>/Merge' */
   real_T Merge1_a0;                    /* '<Root>/Merge1' */
   real_T Merge2_e;                     /* '<Root>/Merge2' */
-  boolean_T Merge_j;                   /* '<S56>/Merge' */
-  boolean_T LogicalOperator;           /* '<S10>/Logical Operator' */
-  boolean_T Compare;                   /* '<S226>/Compare' */
-  boolean_T Compare_c;                 /* '<S234>/Compare' */
-  boolean_T Compare_i;                 /* '<S242>/Compare' */
-  boolean_T Compare_b;                 /* '<S36>/Compare' */
-  boolean_T Compare_n;                 /* '<S44>/Compare' */
-  boolean_T Compare_e;                 /* '<S52>/Compare' */
-  boolean_T Compare_f;                 /* '<S25>/Compare' */
-  boolean_T Compare_d;                 /* '<S26>/Compare' */
-  boolean_T Compare_g;                 /* '<S27>/Compare' */
-  B_Acceleratorbehaviour_Torque_T sf_Acceleratorbehaviour_o;/* '<S85>/Accelerator behaviour ' */
-  B_MATLABFunction1_Torque_Co_m_T sf_MATLABFunction_k2;/* '<S107>/MATLAB Function' */
-  B_MATLABFunction_Torque_Con_i_T sf_MATLABFunction_fq;/* '<S111>/MATLAB Function' */
-  B_MATLABFunction_Torque_Con_d_T sf_MATLABFunction_ab;/* '<S93>/MATLAB Function' */
-  B_Acceleratorbehaviour_Torque_T sf_Acceleratorbehaviour_br;/* '<S82>/Accelerator behaviour' */
-  B_MATLABFunction_Torque_Contr_T sf_MATLABFunction1_h;/* '<S99>/MATLAB Function1' */
-  B_MATLABFunction1_Torque_Co_m_T sf_MATLABFunction_a;/* '<S207>/MATLAB Function' */
-  B_MATLABFunction_Torque_Con_k_T sf_MATLABFunction_i;/* '<S208>/MATLAB Function' */
-  B_MATLABFunction_Torque_Con_d_T sf_MATLABFunction_fa;/* '<S180>/MATLAB Function' */
-  B_MATLABFunction_Torque_Con_h_T sf_MATLABFunction2_b;/* '<S178>/MATLAB Function2' */
-  B_MATLABFunction_Torque_Con_h_T sf_MATLABFunction1_f;/* '<S178>/MATLAB Function1' */
-  B_MATLABFunction_Torque_Con_h_T sf_MATLABFunction2_m;/* '<S176>/MATLAB Function2' */
-  B_MATLABFunction_Torque_Con_h_T sf_MATLABFunction1_gm;/* '<S176>/MATLAB Function1' */
-  B_Acceleratorbehaviour_Torque_T sf_Acceleratorbehaviour_b;/* '<S191>/Accelerator behaviour ' */
-  B_BrakingwithRegenerative_Tor_T BrakingwithRegenerative_b;/* '<S174>/Braking with Regenerative' */
-  B_MATLABFunction1_Torque_Co_d_T sf_MATLABFunction2_k;/* '<S125>/MATLAB Function2' */
-  B_MATLABFunction1_Torque_Co_d_T sf_MATLABFunction1_m;/* '<S125>/MATLAB Function1' */
-  B_MATLABFunction_Torque_Con_h_T sf_MATLABFunction2_e;/* '<S119>/MATLAB Function2' */
-  B_MATLABFunction_Torque_Con_h_T sf_MATLABFunction1_mk;/* '<S119>/MATLAB Function1' */
-  B_MATLABFunction_Torque_Con_h_T sf_MATLABFunction1_g;/* '<S120>/MATLAB Function1' */
-  B_MATLABFunction_Torque_Con_h_T sf_MATLABFunction_d;/* '<S120>/MATLAB Function' */
-  B_MATLABFunction1_Torque_Co_m_T sf_MATLABFunction1_b;/* '<S162>/MATLAB Function1' */
-  B_MATLABFunction_Torque_Con_k_T sf_MATLABFunction_mt;/* '<S163>/MATLAB Function' */
-  B_MATLABFunction_Torque_Con_i_T sf_MATLABFunction_ed;/* '<S166>/MATLAB Function' */
-  B_MATLABFunction_Torque_Con_d_T sf_MATLABFunction_n;/* '<S123>/MATLAB Function' */
-  B_MATLABFunction1_Torque_Cont_T sf_MATLABFunction2;/* '<S83>/MATLAB Function2' */
-  B_MATLABFunction1_Torque_Cont_T sf_MATLABFunction1_n;/* '<S83>/MATLAB Function1' */
-  B_Acceleratorbehaviour_Torque_T sf_Acceleratorbehaviour;/* '<S116>/Accelerator behaviour ' */
-  B_BrakingwithRegenerative_Tor_T BrakingwithRegenerative;/* '<S115>/Braking with Regenerative' */
+  boolean_T LogicalOperator1;          /* '<S9>/Logical Operator1' */
+  boolean_T Compare;                   /* '<S34>/Compare' */
+  boolean_T Compare_n;                 /* '<S42>/Compare' */
+  boolean_T Compare_e;                 /* '<S50>/Compare' */
+  boolean_T Compare_f;                 /* '<S23>/Compare' */
+  boolean_T Compare_d;                 /* '<S24>/Compare' */
+  boolean_T Compare_g;                 /* '<S25>/Compare' */
+  B_MATLABFunction1_Torque_Co_o_T sf_MATLABFunction_m0;/* '<S92>/MATLAB Function' */
+  B_MATLABFunction_Torque_Con_f_T sf_MATLABFunction_i;/* '<S96>/MATLAB Function' */
+  B_MATLABFunction1_Torque_Co_o_T sf_MATLABFunction_gw;/* '<S192>/MATLAB Function' */
+  B_MATLABFunction_Torque_Con_h_T sf_MATLABFunction_o;/* '<S193>/MATLAB Function' */
+  B_MATLABFunction_Torque_Contr_T sf_MATLABFunction_hu;/* '<S165>/MATLAB Function' */
+  B_MATLABFunction_Torque_Con_j_T sf_MATLABFunction2_a;/* '<S163>/MATLAB Function2' */
+  B_MATLABFunction_Torque_Con_j_T sf_MATLABFunction1_a;/* '<S163>/MATLAB Function1' */
+  B_MATLABFunction_Torque_Con_j_T sf_MATLABFunction2_o;/* '<S161>/MATLAB Function2' */
+  B_MATLABFunction_Torque_Con_j_T sf_MATLABFunction1_g;/* '<S161>/MATLAB Function1' */
+  B_Acceleratorbehaviour_Torque_T sf_Acceleratorbehaviour_i;/* '<S176>/Accelerator behaviour ' */
+  B_MATLABFunction1_Torque_Co_n_T sf_MATLABFunction2_m;/* '<S110>/MATLAB Function2' */
+  B_MATLABFunction1_Torque_Co_n_T sf_MATLABFunction1_p;/* '<S110>/MATLAB Function1' */
+  B_MATLABFunction_Torque_Con_j_T sf_MATLABFunction2_mv;/* '<S104>/MATLAB Function2' */
+  B_MATLABFunction_Torque_Con_j_T sf_MATLABFunction1_c;/* '<S104>/MATLAB Function1' */
+  B_MATLABFunction_Torque_Con_j_T sf_MATLABFunction1_d;/* '<S105>/MATLAB Function1' */
+  B_MATLABFunction_Torque_Con_j_T sf_MATLABFunction_f;/* '<S105>/MATLAB Function' */
+  B_MATLABFunction1_Torque_Co_o_T sf_MATLABFunction1_n;/* '<S147>/MATLAB Function1' */
+  B_MATLABFunction_Torque_Con_h_T sf_MATLABFunction_l;/* '<S148>/MATLAB Function' */
+  B_MATLABFunction_Torque_Con_f_T sf_MATLABFunction_hg;/* '<S151>/MATLAB Function' */
+  B_MATLABFunction_Torque_Contr_T sf_MATLABFunction_h;/* '<S108>/MATLAB Function' */
+  B_MATLABFunction1_Torque_Cont_T sf_MATLABFunction2;/* '<S70>/MATLAB Function2' */
+  B_MATLABFunction1_Torque_Cont_T sf_MATLABFunction1;/* '<S70>/MATLAB Function1' */
+  B_Acceleratorbehaviour_Torque_T sf_Acceleratorbehaviour;/* '<S101>/Accelerator behaviour ' */
 } B_Torque_Control_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  real_T Integrator_DSTATE;            /* '<S228>/Integrator' */
-  real_T Integrator_DSTATE_p;          /* '<S236>/Integrator' */
-  real_T Integrator_DSTATE_n;          /* '<S244>/Integrator' */
-  real_T Integrator_DSTATE_k;          /* '<S38>/Integrator' */
-  real_T Integrator_DSTATE_b;          /* '<S46>/Integrator' */
-  real_T Integrator_DSTATE_j;          /* '<S54>/Integrator' */
-  real_T TimeStampA;                   /* '<S93>/Derivative' */
-  real_T LastUAtTimeA;                 /* '<S93>/Derivative' */
-  real_T TimeStampB;                   /* '<S93>/Derivative' */
-  real_T LastUAtTimeB;                 /* '<S93>/Derivative' */
-  real_T A;                            /* '<S93>/Data Store Memory' */
-  real_T B;                            /* '<S93>/Data Store Memory1' */
-  real_T TimeStampA_b;                 /* '<S180>/Derivative' */
-  real_T LastUAtTimeA_e;               /* '<S180>/Derivative' */
-  real_T TimeStampB_e;                 /* '<S180>/Derivative' */
-  real_T LastUAtTimeB_o;               /* '<S180>/Derivative' */
-  real_T B_k;                          /* '<S180>/Data Store Memory1' */
-  real_T TimeStampA_g;                 /* '<S123>/Derivative' */
-  real_T LastUAtTimeA_c;               /* '<S123>/Derivative' */
-  real_T TimeStampB_c;                 /* '<S123>/Derivative' */
-  real_T LastUAtTimeB_f;               /* '<S123>/Derivative' */
-  real_T A_b;                          /* '<S123>/Data Store Memory' */
-  real_T B_i;                          /* '<S123>/Data Store Memory1' */
-  real_T A_i;                          /* '<S15>/Data Store Memory10' */
+  real_T Integrator_DSTATE;            /* '<S36>/Integrator' */
+  real_T Integrator_DSTATE_b;          /* '<S44>/Integrator' */
+  real_T Integrator_DSTATE_j;          /* '<S52>/Integrator' */
+  real_T ERROR_Counter;                /* '<S56>/Data Store Memory1' */
+  real_T TimeStampA;                   /* '<S79>/Derivative' */
+  real_T LastUAtTimeA;                 /* '<S79>/Derivative' */
+  real_T TimeStampB;                   /* '<S79>/Derivative' */
+  real_T LastUAtTimeB;                 /* '<S79>/Derivative' */
+  real_T A;                            /* '<S79>/Data Store Memory' */
+  real_T B;                            /* '<S79>/Data Store Memory1' */
+  real_T TimeStampA_p;                 /* '<S165>/Derivative' */
+  real_T LastUAtTimeA_o;               /* '<S165>/Derivative' */
+  real_T TimeStampB_n;                 /* '<S165>/Derivative' */
+  real_T LastUAtTimeB_m;               /* '<S165>/Derivative' */
+  real_T B_c;                          /* '<S165>/Data Store Memory1' */
+  real_T TimeStampA_d;                 /* '<S108>/Derivative' */
+  real_T LastUAtTimeA_n;               /* '<S108>/Derivative' */
+  real_T TimeStampB_c;                 /* '<S108>/Derivative' */
+  real_T LastUAtTimeB_b;               /* '<S108>/Derivative' */
+  real_T A_k;                          /* '<S108>/Data Store Memory' */
+  real_T B_p;                          /* '<S108>/Data Store Memory1' */
+  real_T A_i;                          /* '<S12>/Data Store Memory10' */
   int8_T If_ActiveSubsystem;           /* '<S56>/If' */
-  int8_T If_ActiveSubsystem_k;         /* '<S12>/If' */
-  int8_T Integrator_PrevResetState;    /* '<S228>/Integrator' */
-  int8_T Integrator_PrevResetState_h;  /* '<S236>/Integrator' */
-  int8_T Integrator_PrevResetState_c;  /* '<S244>/Integrator' */
+  int8_T If1_ActiveSubsystem;          /* '<S56>/If1' */
+  int8_T If2_ActiveSubsystem;          /* '<Root>/If2' */
   int8_T If_ActiveSubsystem_e;         /* '<Root>/If' */
-  int8_T If1_ActiveSubsystem;          /* '<Root>/If1' */
-  int8_T If_ActiveSubsystem_ed;        /* '<S73>/If' */
-  int8_T If_ActiveSubsystem_a;         /* '<S71>/If' */
-  int8_T If_ActiveSubsystem_o;         /* '<S70>/If' */
-  int8_T If_ActiveSubsystem_j;         /* '<S72>/If' */
-  int8_T FAILUREMODE_ActiveSubsystem;  /* '<S72>/FAILURE MODE' */
-  int8_T SKForCKF_ActiveSubsystem;     /* '<S103>/SKF or CKF' */
-  int8_T If1_ActiveSubsystem_c;        /* '<S82>/If1' */
-  int8_T If_ActiveSubsystem_d;         /* '<S82>/If' */
-  int8_T BrakingConditions_ActiveSubsyst;/* '<S87>/Braking Conditions' */
-  int8_T If1_ActiveSubsystem_ca;       /* '<S104>/If1' */
-  int8_T If_ActiveSubsystem_jm;        /* '<S106>/If' */
-  int8_T If1_ActiveSubsystem_a;        /* '<S206>/If1' */
-  int8_T BrakingConditions_ActiveSubsy_c;/* '<S175>/Braking Conditions' */
-  int8_T If_ActiveSubsystem_h;         /* '<S174>/If' */
-  int8_T If1_ActiveSubsystem_b;        /* '<S182>/If1' */
-  int8_T SKForCKF_ActiveSubsystem_o;   /* '<S158>/SKF or CKF' */
+  int8_T If1_ActiveSubsystem_a;        /* '<Root>/If1' */
+  int8_T If_ActiveSubsystem_m;         /* '<S10>/If' */
+  int8_T If_ActiveSubsystem_o;         /* '<S8>/If' */
+  int8_T FAILUREMODE_ActiveSubsystem;  /* '<S11>/FAILURE MODE' */
+  int8_T SKForCKF_ActiveSubsystem;     /* '<S88>/SKF or CKF' */
+  int8_T If1_ActiveSubsystem_g;        /* '<S69>/If1' */
+  int8_T If_ActiveSubsystem_b;         /* '<S69>/If' */
+  int8_T BrakingConditions_ActiveSubsyst;/* '<S73>/Braking Conditions' */
+  int8_T If1_ActiveSubsystem_o;        /* '<S89>/If1' */
+  int8_T If_ActiveSubsystem_p;         /* '<S91>/If' */
+  int8_T If1_ActiveSubsystem_p;        /* '<S191>/If1' */
+  int8_T BrakingConditions_ActiveSubsy_f;/* '<S160>/Braking Conditions' */
+  int8_T If_ActiveSubsystem_l;         /* '<S159>/If' */
+  int8_T If1_ActiveSubsystem_oe;       /* '<S167>/If1' */
+  int8_T SKForCKF_ActiveSubsystem_e;   /* '<S143>/SKF or CKF' */
   int8_T Steer_angisinSteer_SatrangeLong;
-  /* '<S83>/Steer_ang is in Steer_Sat range ---> Long Steer_ang is not in Steer_Sat range -> Lat ' */
-  int8_T BrakingConditions_ActiveSubsy_b;/* '<S116>/Braking Conditions' */
-  int8_T If_ActiveSubsystem_aq;        /* '<S115>/If' */
-  int8_T If1_ActiveSubsystem_o;        /* '<S159>/If1' */
-  int8_T If_ActiveSubsystem_ha;        /* '<S161>/If' */
-  int8_T If1_ActiveSubsystem_bn;       /* '<S126>/If1' */
-  int8_T Integrator_PrevResetState_b;  /* '<S38>/Integrator' */
-  int8_T Integrator_PrevResetState_f;  /* '<S46>/Integrator' */
-  int8_T Integrator_PrevResetState_j;  /* '<S54>/Integrator' */
-  int8_T If_ActiveSubsystem_kl;        /* '<S15>/If' */
-  int8_T If_ActiveSubsystem_c;         /* '<S17>/If' */
-  uint8_T Integrator_IC_LOADING;       /* '<S228>/Integrator' */
-  uint8_T Integrator_IC_LOADING_m;     /* '<S236>/Integrator' */
-  uint8_T Integrator_IC_LOADING_b;     /* '<S244>/Integrator' */
-  uint8_T Integrator_IC_LOADING_g;     /* '<S38>/Integrator' */
-  uint8_T Integrator_IC_LOADING_k;     /* '<S46>/Integrator' */
-  uint8_T Integrator_IC_LOADING_e;     /* '<S54>/Integrator' */
+  /* '<S70>/Steer_ang is in Steer_Sat range ---> Long Steer_ang is not in Steer_Sat range -> Lat ' */
+  int8_T BrakingConditions_ActiveSubs_f3;/* '<S101>/Braking Conditions' */
+  int8_T If_ActiveSubsystem_c;         /* '<S100>/If' */
+  int8_T If1_ActiveSubsystem_pl;       /* '<S144>/If1' */
+  int8_T If_ActiveSubsystem_h;         /* '<S146>/If' */
+  int8_T If1_ActiveSubsystem_e;        /* '<S111>/If1' */
+  int8_T Integrator_PrevResetState;    /* '<S36>/Integrator' */
+  int8_T Integrator_PrevResetState_f;  /* '<S44>/Integrator' */
+  int8_T Integrator_PrevResetState_j;  /* '<S52>/Integrator' */
+  uint8_T Integrator_IC_LOADING;       /* '<S36>/Integrator' */
+  uint8_T Integrator_IC_LOADING_k;     /* '<S44>/Integrator' */
+  uint8_T Integrator_IC_LOADING_e;     /* '<S52>/Integrator' */
 } DW_Torque_Control_T;
-
-/* Continuous states (default storage) */
-typedef struct {
-  real_T Integrator_CSTATE;            /* '<S119>/Integrator' */
-} X_Torque_Control_T;
-
-/* State derivatives (default storage) */
-typedef struct {
-  real_T Integrator_CSTATE;            /* '<S119>/Integrator' */
-} XDot_Torque_Control_T;
-
-/* State disabled  */
-typedef struct {
-  boolean_T Integrator_CSTATE;         /* '<S119>/Integrator' */
-} XDis_Torque_Control_T;
 
 /* Invariant block signals (default storage) */
 typedef struct {
-  const real_T RT_L;                   /* '<S81>/RT_L' */
-  const real_T RT_R;                   /* '<S81>/RT_R' */
-  const real_T Product;                /* '<S177>/Product' */
-  const real_T DiametertoRadius;       /* '<S177>/Diameter to Radius' */
-  const real_T inchtom;                /* '<S177>/inch to m' */
-  const real_T udifference;            /* '<S177>/3% difference' */
-  const real_T approx2095;             /* '<S182>/Gain' */
-  const real_T TowheelTqdynamic;       /* '<S182>/To wheel Tq (dynamic)' */
-  const real_T TowheelTqstatic;        /* '<S182>/To wheel Tq (static)' */
-  const real_T DiametertoRadius_j;     /* '<S118>/Diameter to Radius' */
-  const real_T inchtom1;               /* '<S118>/inch to m1' */
-  const real_T udifference1;           /* '<S118>/3% difference1' */
-  const real_T Divide1;                /* '<S149>/Divide1' */
-  const real_T u602pi;                 /* '<S147>/360//(2*pi)' */
-  const real_T u602pi_e;               /* '<S147>/360//(2pi)' */
-  const real_T approx2095_h;           /* '<S126>/Gain' */
-  const real_T Constant;               /* '<S126>/Constant' */
+  const real_T Product;                /* '<S162>/Product' */
+  const real_T DiametertoRadius;       /* '<S162>/Diameter to Radius' */
+  const real_T inchtom;                /* '<S162>/inch to m' */
+  const real_T udifference;            /* '<S162>/3% difference' */
+  const real_T approx2095;             /* '<S167>/Gain' */
+  const real_T TowheelTqdynamic;       /* '<S167>/To wheel Tq (dynamic)' */
+  const real_T TowheelTqstatic;        /* '<S167>/To wheel Tq (static)' */
+  const real_T DiametertoRadius_j;     /* '<S103>/Diameter to Radius' */
+  const real_T inchtom1;               /* '<S103>/inch to m1' */
+  const real_T udifference1;           /* '<S103>/3% difference1' */
+  const real_T Divide1;                /* '<S134>/Divide1' */
+  const real_T u602pi;                 /* '<S132>/360//(2*pi)' */
+  const real_T u602pi_d;               /* '<S132>/360//(2pi)' */
+  const real_T approx2095_g;           /* '<S111>/Gain' */
+  const real_T Constant;               /* '<S111>/Constant' */
 } ConstB_Torque_Control_T;
-
-#ifndef ODE3_INTG
-#define ODE3_INTG
-
-/* ODE3 Integration Data */
-typedef struct {
-  real_T *y;                           /* output */
-  real_T *f[3];                        /* derivatives */
-} ODE3_IntgData;
-
-#endif
 
 /* External inputs (root inport signals with default storage) */
 typedef struct {
@@ -1170,7 +1089,7 @@ typedef struct {
   real_T VDC_Cte_CKF;                  /* '<Root>/VDC_Cte_CKF' */
   real_T VDC_Apps_Sat_Down;            /* '<Root>/VDC_Apps_Sat_Down' */
   real_T VDC_Apps_Sat_Up;              /* '<Root>/VDC_Apps_Sat_Up' */
-  real_T VDC_Max_Regenerative_Torque; /* '<Root>/VDC_Max_Regenerative_Torque' */
+  real_T VDC_Max_Regen_Motor_Tq;       /* '<Root>/VDC_Max_Regen_Motor_Tq' */
   real_T VDC_Power_Limit;              /* '<Root>/VDC_Power_Limit' */
   real_T VDC_K_Reduction_P;            /* '<Root>/VDC_K_Reduction_P' */
   real_T VDC_K_Reduction_Temperature; /* '<Root>/VDC_K_Reduction_Temperature' */
@@ -1179,12 +1098,6 @@ typedef struct {
   real_T TV_Mode;                      /* '<Root>/TV_Mode' */
   real_T Highest_CellTemp;             /* '<Root>/Highest_CellTemp' */
   boolean_T CriticalDisconnection;     /* '<Root>/CriticalDisconnection' */
-  real_T ACCEL_R_X_SI;                 /* '<Root>/ACCEL_R_X_SI' */
-  real_T ACCEL_R_Y_SI;                 /* '<Root>/ACCEL_R_Y_SI' */
-  real_T ACCEL_R_Z_SI;                 /* '<Root>/ACCEL_R_Z_SI' */
-  real_T ACCEL_F_X_SI;                 /* '<Root>/ACCEL_F_X_SI' */
-  real_T ACCEL_F_Y_SI;                 /* '<Root>/ACCEL_F_Y_SI' */
-  real_T ACCEL_F_Z_SI;                 /* '<Root>/ACCEL_F_Z_SI' */
   real_T Accumulator_Voltage;          /* '<Root>/Accumulator_Voltage' */
   real_T Accumulator_Current;          /* '<Root>/Accumulator_Current' */
   real_T APPS2_Value;                  /* '<Root>/APPS2_Value' */
@@ -1194,17 +1107,28 @@ typedef struct {
   real_T Susp_F_R;                     /* '<Root>/Susp_F_R' */
   real_T Susp_R_L;                     /* '<Root>/Susp_R_L' */
   real_T Susp_R_R;                     /* '<Root>/Susp_R_R' */
-  real_T Vel_RL_kmh;                   /* '<Root>/Vel_RL_kmh' */
-  real_T Vel_RR_kmh;                   /* '<Root>/Vel_RR_kmh' */
-  real_T RL_rads;                      /* '<Root>/RL_rads' */
-  real_T RR_rads;                      /* '<Root>/RR_rads' */
+  real_T RL_Vel_ms_Wheel;              /* '<Root>/RL_Vel_ms_Wheel' */
+  real_T RR_Vel_ms_Wheel;              /* '<Root>/RR_Vel_ms_Wheel' */
+  real_T RR_rads_Motor;                /* '<Root>/RR_rads_Motor' */
+  real_T RL_rads_Motor;                /* '<Root>/RL_rads_Motor' */
   real_T Temp_Motors;                  /* '<Root>/Temp_Motors' */
   real_T Temp_IGBT;                    /* '<Root>/Temp_IGBT' */
-  real_T Gyro_F_Z_Deg;                 /* '<Root>/Gyro_F_Z_Deg' */
   real_T Car_State;                    /* '<Root>/Car_State' */
   real_T SoC_Low;                      /* '<Root>/SoC_Low' */
   real_T SoC_High;                     /* '<Root>/SoC_High' */
   real_T SteeringSensor_Value;         /* '<Root>/SteeringSensor_Value' */
+  real_T el_ACCEL_X;                   /* '<Root>/el_ACCEL_X' */
+  real_T el_ACCEL_Y;                   /* '<Root>/el_ACCEL_Y' */
+  real_T el_ACCEL_Z;                   /* '<Root>/el_ACCEL_Z' */
+  real_T el_Vel_X;                     /* '<Root>/el_Vel_X' */
+  real_T el_Vel_Y;                     /* '<Root>/el_Vel_Y' */
+  real_T el_Vel_Z;                     /* '<Root>/el_Vel_Z' */
+  real_T el_YAW;                       /* '<Root>/el_YAW' */
+  real_T el_PITCH;                     /* '<Root>/el_PITCH' */
+  real_T el_ROLL;                      /* '<Root>/el_ROLL' */
+  real_T el_GYRO_X;                    /* '<Root>/el_GYRO_X' */
+  real_T el_GYRO_Y;                    /* '<Root>/el_GYRO_Y' */
+  real_T el_GYRO_Z;                    /* '<Root>/el_GYRO_Z' */
   boolean_T Shutdown_PackageIntck;     /* '<Root>/Shutdown_PackageIntck' */
 } ExtU_Torque_Control_T;
 
@@ -1222,7 +1146,7 @@ typedef struct {
   real_T Handling;                     /* '<Root>/Handling' */
   real_T SKF_actual;                   /* '<Root>/SKF_actual' */
   real_T CKF_actual;                   /* '<Root>/CKF_actual' */
-  boolean_T APPS_Implausibility;       /* '<Root>/APPS_Implausibility' */
+  real_T APPS_Implausibility;          /* '<Root>/APPS_Implausibility' */
   real_T TV_Flag_WheelSpinRR;          /* '<Root>/TV_Flag_WheelSpinRR' */
   real_T TV_Flag_WheelSpinRL;          /* '<Root>/TV_Flag_WheelSpinRL' */
   real_T TV_Flag_Power;                /* '<Root>/TV_Flag_Power' */
@@ -1231,14 +1155,14 @@ typedef struct {
   real_T PowerLimitReached;            /* '<Root>/PowerLimitReached' */
   real_T PowerMean500ms;               /* '<Root>/PowerMean500ms' */
   boolean_T Torque_OK;                 /* '<Root>/Torque_OK' */
-  real_T Regenerative_Enable;          /* '<Root>/Regenerative_Enable' */
   real_T MeasVDCTorque_L;              /* '<Root>/Meas VDC Torque_L' */
   real_T MeasVDCTorque_R;              /* '<Root>/Meas VDC Torque_R' */
   real_T Torque_L;                     /* '<Root>/Torque_L' */
   real_T Torque_R;                     /* '<Root>/Torque_R' */
   real_T current_L;                    /* '<Root>/current_L' */
   real_T current_R;                    /* '<Root>/current_R' */
-  real_T TV_Flag_Temperature;          /* '<Root>/TV_Flag_Temperature' */
+  boolean_T TV_Flag_Temperature;       /* '<Root>/TV_Flag_Temperature' */
+  real_T Regenerative_Enable;          /* '<Root>/Regenerative_Enable' */
 } ExtY_Torque_Control_T;
 
 /* Backward compatible GRT Identifiers */
@@ -1246,12 +1170,6 @@ typedef struct {
 #define BlockIO                        B_Torque_Control_T
 #define rtU                            Torque_Control_U
 #define ExternalInputs                 ExtU_Torque_Control_T
-#define rtX                            Torque_Control_X
-#define ContinuousStates               X_Torque_Control_T
-#define rtXdot                         Torque_Control_XDot
-#define StateDerivatives               XDot_Torque_Control_T
-#define tXdis                          Torque_Control_XDis
-#define StateDisabled                  XDis_Torque_Control_T
 #define rtY                            Torque_Control_Y
 #define ExternalOutputs                ExtY_Torque_Control_T
 #define rtDWork                        Torque_Control_DW
@@ -1286,9 +1204,6 @@ struct tag_RTM_Torque_Control_T {
   boolean_T zCCacheNeedsReset;
   boolean_T derivCacheNeedsReset;
   boolean_T CTOutputIncnstWithState;
-  real_T odeY[1];
-  real_T odeF[3][1];
-  ODE3_IntgData intgData;
   void *dwork;
 
   /*
@@ -1366,9 +1281,6 @@ struct tag_RTM_Torque_Control_T {
 /* Block signals (default storage) */
 extern B_Torque_Control_T Torque_Control_B;
 
-/* Continuous states (default storage) */
-extern X_Torque_Control_T Torque_Control_X;
-
 /* Block states (default storage) */
 extern DW_Torque_Control_T Torque_Control_DW;
 
@@ -1378,12 +1290,6 @@ extern ExtU_Torque_Control_T Torque_Control_U;
 /* External outputs (root outports fed by signals with default storage) */
 extern ExtY_Torque_Control_T Torque_Control_Y;
 extern ConstB_Torque_Control_T Torque_Control_ConstB;/* constant block i/o */
-
-/* Model entry point functions */
-extern void Torque_Control_initialize(void);
-extern void Torque_Control_output(void);
-extern void Torque_Control_update(void);
-extern void Torque_Control_terminate(void);
 
 /*====================*
  * External functions *
@@ -1416,248 +1322,199 @@ extern RT_MODEL_Torque_Control_T *const Torque_Control_M;
  *
  * '<Root>' : 'Torque_Control'
  * '<S1>'   : 'Torque_Control/Accumulator Power'
- * '<S2>'   : 'Torque_Control/Calculate Current Conversion'
- * '<S3>'   : 'Torque_Control/Controls Temperature by limiting Torque'
+ * '<S2>'   : 'Torque_Control/BrakePedal_Pressed'
+ * '<S3>'   : 'Torque_Control/Calculate Current Conversion'
  * '<S4>'   : 'Torque_Control/Current 0'
- * '<S5>'   : 'Torque_Control/Flag_Temp merged'
- * '<S6>'   : 'Torque_Control/If Action Subsystem'
- * '<S7>'   : 'Torque_Control/MATLAB Function'
- * '<S8>'   : 'Torque_Control/MATLAB Function1'
- * '<S9>'   : 'Torque_Control/Power limitation'
- * '<S10>'  : 'Torque_Control/SAFETY BLOCK'
- * '<S11>'  : 'Torque_Control/SoP selection and sum of max WHEEL Tq available'
- * '<S12>'  : 'Torque_Control/VDC'
- * '<S13>'  : 'Torque_Control/W to kW'
- * '<S14>'  : 'Torque_Control/power_limitation'
- * '<S15>'  : 'Torque_Control/Accumulator Power/PowerLimitDetection'
- * '<S16>'  : 'Torque_Control/Accumulator Power/PowerLimitDetection/LimitReached'
- * '<S17>'  : 'Torque_Control/Accumulator Power/PowerLimitDetection/OK_OrLatch'
- * '<S18>'  : 'Torque_Control/Accumulator Power/PowerLimitDetection/OK_OrLatch/Latched Error'
- * '<S19>'  : 'Torque_Control/Accumulator Power/PowerLimitDetection/OK_OrLatch/OK'
- * '<S20>'  : 'Torque_Control/Calculate Current Conversion/KT_L_TORKY'
- * '<S21>'  : 'Torque_Control/Calculate Current Conversion/KT_R_EMY'
- * '<S22>'  : 'Torque_Control/Controls Temperature by limiting Torque/SoC_SoP'
- * '<S23>'  : 'Torque_Control/Controls Temperature by limiting Torque/Tq_limitation because of Temp'
- * '<S24>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP'
- * '<S25>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/Flag_Accu'
- * '<S26>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/Flag_Inv'
- * '<S27>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/Flag_Mot'
- * '<S28>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Accu'
- * '<S29>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Inverters'
- * '<S30>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Motors'
- * '<S31>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1'
- * '<S32>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Accu/Temp higher than 50'
- * '<S33>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1/Enable//disable time constant'
- * '<S34>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1/Initialization'
- * '<S35>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1/Integrator (Discrete or Continuous)'
- * '<S36>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1/Enable//disable time constant/Compare To Zero'
- * '<S37>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1/Initialization/Init_u'
- * '<S38>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1/Integrator (Discrete or Continuous)/Discrete'
- * '<S39>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)'
- * '<S40>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Inverters/Temp higher than 50'
- * '<S41>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)/Enable//disable time constant'
- * '<S42>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)/Initialization'
- * '<S43>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)/Integrator (Discrete or Continuous)'
- * '<S44>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)/Enable//disable time constant/Compare To Zero'
- * '<S45>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)/Initialization/Init_u'
- * '<S46>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)/Integrator (Discrete or Continuous)/Discrete'
- * '<S47>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)'
- * '<S48>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Motors/Temp higher than 110'
- * '<S49>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)/Enable//disable time constant'
- * '<S50>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)/Initialization'
- * '<S51>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)/Integrator (Discrete or Continuous)'
- * '<S52>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)/Enable//disable time constant/Compare To Zero'
- * '<S53>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)/Initialization/Init_u'
- * '<S54>'  : 'Torque_Control/Controls Temperature by limiting Torque/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)/Integrator (Discrete or Continuous)/Discrete'
- * '<S55>'  : 'Torque_Control/Power limitation/MATLAB Function'
+ * '<S5>'   : 'Torque_Control/If Action Subsystem'
+ * '<S6>'   : 'Torque_Control/Power Limitation Temperature'
+ * '<S7>'   : 'Torque_Control/Power Limitation Torque'
+ * '<S8>'   : 'Torque_Control/Regeneration_Enable'
+ * '<S9>'   : 'Torque_Control/SAFETY BLOCK'
+ * '<S10>'  : 'Torque_Control/TEST_MODE_IN'
+ * '<S11>'  : 'Torque_Control/Vehicle Dynamics Control Modes'
+ * '<S12>'  : 'Torque_Control/Accumulator Power/PowerLimitDetection'
+ * '<S13>'  : 'Torque_Control/Accumulator Power/W to kW'
+ * '<S14>'  : 'Torque_Control/Accumulator Power/PowerLimitDetection/LimitReached'
+ * '<S15>'  : 'Torque_Control/Accumulator Power/PowerLimitDetection/OK_OrLatch'
+ * '<S16>'  : 'Torque_Control/Accumulator Power/PowerLimitDetection/OK_OrLatch/Latched Error'
+ * '<S17>'  : 'Torque_Control/Accumulator Power/PowerLimitDetection/OK_OrLatch/OK'
+ * '<S18>'  : 'Torque_Control/Calculate Current Conversion/KT_L_TORKY'
+ * '<S19>'  : 'Torque_Control/Calculate Current Conversion/KT_R_EMY'
+ * '<S20>'  : 'Torque_Control/Power Limitation Temperature/SoC_SoP'
+ * '<S21>'  : 'Torque_Control/Power Limitation Temperature/Torque Limitation Temperature Controller'
+ * '<S22>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP'
+ * '<S23>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/Flag_Accu'
+ * '<S24>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/Flag_Inv'
+ * '<S25>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/Flag_Mot'
+ * '<S26>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Accu'
+ * '<S27>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Inverters'
+ * '<S28>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Motors'
+ * '<S29>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1'
+ * '<S30>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Accu/Temp higher than 50'
+ * '<S31>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1/Enable//disable time constant'
+ * '<S32>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1/Initialization'
+ * '<S33>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1/Integrator (Discrete or Continuous)'
+ * '<S34>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1/Enable//disable time constant/Compare To Zero'
+ * '<S35>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1/Initialization/Init_u'
+ * '<S36>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1/Integrator (Discrete or Continuous)/Discrete'
+ * '<S37>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)'
+ * '<S38>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Inverters/Temp higher than 50'
+ * '<S39>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)/Enable//disable time constant'
+ * '<S40>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)/Initialization'
+ * '<S41>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)/Integrator (Discrete or Continuous)'
+ * '<S42>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)/Enable//disable time constant/Compare To Zero'
+ * '<S43>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)/Initialization/Init_u'
+ * '<S44>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)/Integrator (Discrete or Continuous)/Discrete'
+ * '<S45>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)'
+ * '<S46>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Motors/Temp higher than 110'
+ * '<S47>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)/Enable//disable time constant'
+ * '<S48>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)/Initialization'
+ * '<S49>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)/Integrator (Discrete or Continuous)'
+ * '<S50>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)/Enable//disable time constant/Compare To Zero'
+ * '<S51>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)/Initialization/Init_u'
+ * '<S52>'  : 'Torque_Control/Power Limitation Temperature/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)/Integrator (Discrete or Continuous)/Discrete'
+ * '<S53>'  : 'Torque_Control/Power Limitation Torque/MATLAB Function'
+ * '<S54>'  : 'Torque_Control/Regeneration_Enable/Enabled '
+ * '<S55>'  : 'Torque_Control/Regeneration_Enable/NotEnabled'
  * '<S56>'  : 'Torque_Control/SAFETY BLOCK/APPS_IMPLAUSIBILITY'
  * '<S57>'  : 'Torque_Control/SAFETY BLOCK/Compare To Constant'
- * '<S58>'  : 'Torque_Control/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Imp'
- * '<S59>'  : 'Torque_Control/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Not Imp'
- * '<S60>'  : 'Torque_Control/VDC/DocBlock'
- * '<S61>'  : 'Torque_Control/VDC/DocBlock1'
- * '<S62>'  : 'Torque_Control/VDC/DocBlock10'
- * '<S63>'  : 'Torque_Control/VDC/DocBlock2'
- * '<S64>'  : 'Torque_Control/VDC/DocBlock3'
- * '<S65>'  : 'Torque_Control/VDC/DocBlock4'
- * '<S66>'  : 'Torque_Control/VDC/DocBlock5'
- * '<S67>'  : 'Torque_Control/VDC/DocBlock6'
- * '<S68>'  : 'Torque_Control/VDC/DocBlock8'
- * '<S69>'  : 'Torque_Control/VDC/DocBlock9'
- * '<S70>'  : 'Torque_Control/VDC/Regeneration_Enable'
- * '<S71>'  : 'Torque_Control/VDC/TEST_MODE_IN'
- * '<S72>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes'
- * '<S73>'  : 'Torque_Control/VDC/WORKSHOP_MODE_RESTRICTIONS'
- * '<S74>'  : 'Torque_Control/VDC/Regeneration_Enable/Enabled '
- * '<S75>'  : 'Torque_Control/VDC/Regeneration_Enable/NotEnabled'
- * '<S76>'  : 'Torque_Control/VDC/TEST_MODE_IN/BYPASS'
- * '<S77>'  : 'Torque_Control/VDC/TEST_MODE_IN/TEST_CONSTANTS'
- * '<S78>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Automatic Failure Mode'
- * '<S79>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/If Action Subsystem'
- * '<S80>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Manual Failure Mode Selection'
- * '<S81>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Rigid Axle'
- * '<S82>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC'
- * '<S83>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete'
- * '<S84>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal'
- * '<S85>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Rigid Axle/Accelerating'
- * '<S86>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Rigid Axle/Accelerating/Accelerator behaviour '
- * '<S87>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Accelerating, Braking or Regen Braking'
- * '<S88>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Accelerating, Inertia or Braking without Regen'
- * '<S89>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Accelerator behaviour'
- * '<S90>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Lateral Dynamics'
- * '<S91>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Longitudinal Dynamics'
- * '<S92>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/MATLAB Function1'
- * '<S93>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF'
- * '<S94>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Regenerating'
- * '<S95>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Steering TV 2017 (without TC)'
- * '<S96>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Accelerating, Braking or Regen Braking/Accelerating'
- * '<S97>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Accelerating, Braking or Regen Braking/Inertia Braking'
- * '<S98>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Accelerating, Braking or Regen Braking/Mech_Braking'
- * '<S99>'  : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Accelerating, Braking or Regen Braking/Regenerative+Mech Braking'
- * '<S100>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Accelerating, Braking or Regen Braking/Regenerative+Mech Braking/MATLAB Function'
- * '<S101>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Accelerating, Braking or Regen Braking/Regenerative+Mech Braking/MATLAB Function1'
- * '<S102>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/MATLAB Function'
- * '<S103>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  '
- * '<S104>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /CKF'
- * '<S105>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /MATLAB Function1'
- * '<S106>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /SKF'
- * '<S107>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /CKF/No spin'
- * '<S108>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /CKF/Spin '
- * '<S109>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /CKF/No spin/MATLAB Function'
- * '<S110>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /CKF/Spin /MATLAB Function'
- * '<S111>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /SKF/No spin'
- * '<S112>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /SKF/Spin'
- * '<S113>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /SKF/No spin/MATLAB Function'
- * '<S114>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /SKF/Spin/MATLAB Function'
- * '<S115>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq'
- * '<S116>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Driver // CarBehaviours'
- * '<S117>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Flags'
- * '<S118>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/In_Numbers'
- * '<S119>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics'
- * '<S120>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Longitudinal Dynamics'
- * '<S121>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/MATLAB Function1'
- * '<S122>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/MATLAB Function2'
- * '<S123>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF'
- * '<S124>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Sensor_DATA'
- * '<S125>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Wheel_to_motor'
- * '<S126>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq/Acelerating and braking without Regenerative'
- * '<S127>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq/Braking with Regenerative'
- * '<S128>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq/Acelerating and braking without Regenerative/If Action 1'
- * '<S129>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq/Acelerating and braking without Regenerative/If Action 2'
- * '<S130>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq/Acelerating and braking without Regenerative/MATLAB Function'
- * '<S131>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq/Acelerating and braking without Regenerative/Momentum Z scaled'
- * '<S132>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq/Acelerating and braking without Regenerative/minimum value'
- * '<S133>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq/Acelerating and braking without Regenerative/minimum value1'
- * '<S134>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq/Acelerating and braking without Regenerative/Momentum Z scaled/MATLAB Function'
- * '<S135>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq/Braking with Regenerative/MATLAB Function'
- * '<S136>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Driver // CarBehaviours/Accelerating'
- * '<S137>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Driver // CarBehaviours/Accelerator behaviour '
- * '<S138>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Driver // CarBehaviours/Inertia Braking'
- * '<S139>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Driver // CarBehaviours/Mech_Braking'
- * '<S140>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Driver // CarBehaviours/Regenerative+Mech Braking'
- * '<S141>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Driver // CarBehaviours/Regenerative+Mech Braking/MATLAB Function'
- * '<S142>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics/Force Difference with  Max. Tire Forces'
- * '<S143>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics/Kamm_Circle'
- * '<S144>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics/MATLAB Function1'
- * '<S145>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics/MATLAB Function2'
- * '<S146>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics/Tire Longitudinal  Force Difference'
- * '<S147>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics/Yaw_Rate_Reference'
- * '<S148>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics/Kamm_Circle/Kamm_Circle LatD'
- * '<S149>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics/Tire Longitudinal  Force Difference/ Momentum_Z to Longitudinal Force Difference'
- * '<S150>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics/Tire Longitudinal  Force Difference/Momentum respect to Z-axis to correct the error'
- * '<S151>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics/Yaw_Rate_Reference/Bicycle Model'
- * '<S152>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Longitudinal Dynamics/Kamm_Circle'
- * '<S153>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Longitudinal Dynamics/MATLAB Function'
- * '<S154>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Longitudinal Dynamics/MATLAB Function1'
- * '<S155>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Longitudinal Dynamics/minimum value'
- * '<S156>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Longitudinal Dynamics/Kamm_Circle/Kamm_Circle LatD'
- * '<S157>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/MATLAB Function'
- * '<S158>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  '
- * '<S159>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /CKF'
- * '<S160>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /MATLAB Function1'
- * '<S161>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /SKF'
- * '<S162>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /CKF/No spin'
- * '<S163>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /CKF/Spin '
- * '<S164>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /CKF/No spin/MATLAB Function1'
- * '<S165>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /CKF/Spin /MATLAB Function'
- * '<S166>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /SKF/No spin'
- * '<S167>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /SKF/Spin'
- * '<S168>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /SKF/No spin/MATLAB Function'
- * '<S169>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /SKF/Spin/MATLAB Function'
- * '<S170>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Wheel_to_motor/Fx_to_engineTqRL'
- * '<S171>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Wheel_to_motor/Fx_to_engineTqRR'
- * '<S172>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Wheel_to_motor/MATLAB Function1'
- * '<S173>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC Complete/Wheel_to_motor/MATLAB Function2'
- * '<S174>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Constraints'
- * '<S175>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Driver // CarBehaviours'
- * '<S176>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Force to Tq'
- * '<S177>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/In_Numbers'
- * '<S178>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Kamm Circle Lateral'
- * '<S179>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Lateral Dynamics'
- * '<S180>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Optimization SKF & CKF'
- * '<S181>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Sensor_DATA'
- * '<S182>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Constraints/Acelerating and braking without Regenerative'
- * '<S183>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Constraints/Braking with Regenerative'
- * '<S184>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Constraints/Acelerating and braking without Regenerative/If Action 1'
- * '<S185>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Constraints/Acelerating and braking without Regenerative/If Action 2'
- * '<S186>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Constraints/Acelerating and braking without Regenerative/Momentum Z scaled'
- * '<S187>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Constraints/Acelerating and braking without Regenerative/minimum value'
- * '<S188>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Constraints/Acelerating and braking without Regenerative/minimum value1'
- * '<S189>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Constraints/Acelerating and braking without Regenerative/Momentum Z scaled/MATLAB Function'
- * '<S190>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Constraints/Braking with Regenerative/MATLAB Function'
- * '<S191>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Driver // CarBehaviours/Accelerating'
- * '<S192>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Driver // CarBehaviours/Inertia Braking'
- * '<S193>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Driver // CarBehaviours/Mech_Braking'
- * '<S194>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Driver // CarBehaviours/Regenerative+Mech Braking'
- * '<S195>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Driver // CarBehaviours/Accelerating/Accelerator behaviour '
- * '<S196>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Driver // CarBehaviours/Regenerative+Mech Braking/MATLAB Function'
- * '<S197>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Force to Tq/Fx_to_wheelTqRL'
- * '<S198>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Force to Tq/Fx_to_wheelTqRR'
- * '<S199>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Force to Tq/MATLAB Function1'
- * '<S200>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Force to Tq/MATLAB Function2'
- * '<S201>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Kamm Circle Lateral/Kamm_Circle LatD'
- * '<S202>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Kamm Circle Lateral/MATLAB Function1'
- * '<S203>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Kamm Circle Lateral/MATLAB Function2'
- * '<S204>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Optimization SKF & CKF/MATLAB Function'
- * '<S205>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Optimization SKF & CKF/Subsystem  '
- * '<S206>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Optimization SKF & CKF/Subsystem  /CKF'
- * '<S207>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Optimization SKF & CKF/Subsystem  /CKF/No spin'
- * '<S208>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Optimization SKF & CKF/Subsystem  /CKF/Spin '
- * '<S209>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Optimization SKF & CKF/Subsystem  /CKF/No spin/MATLAB Function'
- * '<S210>' : 'Torque_Control/VDC/Vehicle Dynamics Control Modes/VDC without Longitudinal/Optimization SKF & CKF/Subsystem  /CKF/Spin /MATLAB Function'
- * '<S211>' : 'Torque_Control/VDC/WORKSHOP_MODE_RESTRICTIONS/BYPASS'
- * '<S212>' : 'Torque_Control/VDC/WORKSHOP_MODE_RESTRICTIONS/Torque_Reduction '
- * '<S213>' : 'Torque_Control/power_limitation/SoC_SoP'
- * '<S214>' : 'Torque_Control/power_limitation/temperature_SoP'
- * '<S215>' : 'Torque_Control/power_limitation/temperature_SoP/Flag_Accu'
- * '<S216>' : 'Torque_Control/power_limitation/temperature_SoP/Flag_Inv'
- * '<S217>' : 'Torque_Control/power_limitation/temperature_SoP/Flag_Mot'
- * '<S218>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Accu'
- * '<S219>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Inverters'
- * '<S220>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Motors'
- * '<S221>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1'
- * '<S222>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Accu/Temp higher than 50'
- * '<S223>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1/Enable//disable time constant'
- * '<S224>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1/Initialization'
- * '<S225>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1/Integrator (Discrete or Continuous)'
- * '<S226>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1/Enable//disable time constant/Compare To Zero'
- * '<S227>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1/Initialization/Init_u'
- * '<S228>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Accu/Low-Pass Filter (Discrete or Continuous)1/Integrator (Discrete or Continuous)/Discrete'
- * '<S229>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)'
- * '<S230>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Inverters/Temp higher than 50'
- * '<S231>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)/Enable//disable time constant'
- * '<S232>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)/Initialization'
- * '<S233>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)/Integrator (Discrete or Continuous)'
- * '<S234>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)/Enable//disable time constant/Compare To Zero'
- * '<S235>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)/Initialization/Init_u'
- * '<S236>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Inverters/Low-Pass Filter (Discrete or Continuous)/Integrator (Discrete or Continuous)/Discrete'
- * '<S237>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)'
- * '<S238>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Motors/Temp higher than 110'
- * '<S239>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)/Enable//disable time constant'
- * '<S240>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)/Initialization'
- * '<S241>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)/Integrator (Discrete or Continuous)'
- * '<S242>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)/Enable//disable time constant/Compare To Zero'
- * '<S243>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)/Initialization/Init_u'
- * '<S244>' : 'Torque_Control/power_limitation/temperature_SoP/temperature_rise_limitator_Motors/Low-Pass Filter (Discrete or Continuous)/Integrator (Discrete or Continuous)/Discrete'
+ * '<S58>'  : 'Torque_Control/SAFETY BLOCK/DocBlock'
+ * '<S59>'  : 'Torque_Control/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Imp'
+ * '<S60>'  : 'Torque_Control/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Not Imp'
+ * '<S61>'  : 'Torque_Control/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Signal_Failure'
+ * '<S62>'  : 'Torque_Control/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Signal_OK'
+ * '<S63>'  : 'Torque_Control/TEST_MODE_IN/BYPASS'
+ * '<S64>'  : 'Torque_Control/TEST_MODE_IN/TEST_CONSTANTS'
+ * '<S65>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Automatic Failure Mode'
+ * '<S66>'  : 'Torque_Control/Vehicle Dynamics Control Modes/DocBlock'
+ * '<S67>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Manual Failure Mode Selection'
+ * '<S68>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Rigid Axle'
+ * '<S69>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC'
+ * '<S70>'  : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete'
+ * '<S71>'  : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal'
+ * '<S72>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Rigid Axle/Rigid Axle without TC '
+ * '<S73>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Accelerating, Braking or Regen Braking'
+ * '<S74>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Accelerating, Inertia or Braking without Regen'
+ * '<S75>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Accelerator behaviour'
+ * '<S76>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Lateral Dynamics'
+ * '<S77>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Longitudinal Dynamics'
+ * '<S78>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/MATLAB Function1'
+ * '<S79>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF'
+ * '<S80>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Regenerating'
+ * '<S81>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Steering TV 2017 (without TC)'
+ * '<S82>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Accelerating, Braking or Regen Braking/Accelerating'
+ * '<S83>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Accelerating, Braking or Regen Braking/Inertia Braking'
+ * '<S84>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Accelerating, Braking or Regen Braking/Mech_Braking'
+ * '<S85>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Accelerating, Braking or Regen Braking/Regenerative+Mech Braking'
+ * '<S86>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Accelerating, Braking or Regen Braking/Regenerative+Mech Braking/MATLAB Function'
+ * '<S87>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Accelerating, Braking or Regen Braking/Regenerative+Mech Braking/MATLAB Function1'
+ * '<S88>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  '
+ * '<S89>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /CKF'
+ * '<S90>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /MATLAB Function1'
+ * '<S91>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /SKF'
+ * '<S92>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /CKF/No spin'
+ * '<S93>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /CKF/Spin '
+ * '<S94>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /CKF/No spin/MATLAB Function'
+ * '<S95>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /CKF/Spin /MATLAB Function'
+ * '<S96>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /SKF/No spin'
+ * '<S97>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /SKF/Spin'
+ * '<S98>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /SKF/No spin/MATLAB Function'
+ * '<S99>'  : 'Torque_Control/Vehicle Dynamics Control Modes/Steering TV with TC/Optimization SKF & CKF/Subsystem  /SKF/Spin/MATLAB Function'
+ * '<S100>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq'
+ * '<S101>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Driver // CarBehaviours'
+ * '<S102>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Flags'
+ * '<S103>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/In_Numbers'
+ * '<S104>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics'
+ * '<S105>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Longitudinal Dynamics'
+ * '<S106>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/MATLAB Function1'
+ * '<S107>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/MATLAB Function2'
+ * '<S108>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF'
+ * '<S109>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Sensor_DATA'
+ * '<S110>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Wheel_to_motor'
+ * '<S111>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq/Acelerating and braking without Regenerative'
+ * '<S112>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq/Braking with Regenerative'
+ * '<S113>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq/Acelerating and braking without Regenerative/If Action 1'
+ * '<S114>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq/Acelerating and braking without Regenerative/If Action 2'
+ * '<S115>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq/Acelerating and braking without Regenerative/MATLAB Function'
+ * '<S116>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq/Acelerating and braking without Regenerative/Momentum Z scaled'
+ * '<S117>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq/Acelerating and braking without Regenerative/minimum value'
+ * '<S118>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq/Acelerating and braking without Regenerative/minimum value1'
+ * '<S119>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq/Acelerating and braking without Regenerative/Momentum Z scaled/MATLAB Function'
+ * '<S120>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Constraints and motor to wheel Tq/Braking with Regenerative/MATLAB Function'
+ * '<S121>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Driver // CarBehaviours/Accelerating'
+ * '<S122>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Driver // CarBehaviours/Accelerator behaviour '
+ * '<S123>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Driver // CarBehaviours/Inertia Braking'
+ * '<S124>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Driver // CarBehaviours/Mech_Braking'
+ * '<S125>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Driver // CarBehaviours/Regenerative+Mech Braking'
+ * '<S126>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Driver // CarBehaviours/Regenerative+Mech Braking/MATLAB Function'
+ * '<S127>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics/Force Difference with  Max. Tire Forces'
+ * '<S128>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics/Kamm_Circle'
+ * '<S129>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics/MATLAB Function1'
+ * '<S130>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics/MATLAB Function2'
+ * '<S131>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics/Tire Longitudinal  Force Difference'
+ * '<S132>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics/Yaw_Rate_Reference'
+ * '<S133>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics/Kamm_Circle/Kamm_Circle LatD'
+ * '<S134>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics/Tire Longitudinal  Force Difference/ Momentum_Z to Longitudinal Force Difference'
+ * '<S135>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics/Tire Longitudinal  Force Difference/Momentum respect to Z-axis to correct the error'
+ * '<S136>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Lateral Dynamics/Yaw_Rate_Reference/Bicycle Model'
+ * '<S137>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Longitudinal Dynamics/Kamm_Circle'
+ * '<S138>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Longitudinal Dynamics/MATLAB Function'
+ * '<S139>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Longitudinal Dynamics/MATLAB Function1'
+ * '<S140>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Longitudinal Dynamics/minimum value'
+ * '<S141>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Longitudinal Dynamics/Kamm_Circle/Kamm_Circle LatD'
+ * '<S142>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/MATLAB Function'
+ * '<S143>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  '
+ * '<S144>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /CKF'
+ * '<S145>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /MATLAB Function1'
+ * '<S146>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /SKF'
+ * '<S147>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /CKF/No spin'
+ * '<S148>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /CKF/Spin '
+ * '<S149>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /CKF/No spin/MATLAB Function1'
+ * '<S150>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /CKF/Spin /MATLAB Function'
+ * '<S151>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /SKF/No spin'
+ * '<S152>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /SKF/Spin'
+ * '<S153>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /SKF/No spin/MATLAB Function'
+ * '<S154>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Optimization SKF & CKF/Subsystem  /SKF/Spin/MATLAB Function'
+ * '<S155>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Wheel_to_motor/Fx_to_engineTqRL'
+ * '<S156>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Wheel_to_motor/Fx_to_engineTqRR'
+ * '<S157>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Wheel_to_motor/MATLAB Function1'
+ * '<S158>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC Complete/Wheel_to_motor/MATLAB Function2'
+ * '<S159>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Constraints'
+ * '<S160>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Driver // CarBehaviours'
+ * '<S161>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Force to Tq'
+ * '<S162>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/In_Numbers'
+ * '<S163>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Kamm Circle Lateral'
+ * '<S164>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Lateral Dynamics'
+ * '<S165>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Optimization SKF & CKF'
+ * '<S166>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Sensor_DATA'
+ * '<S167>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Constraints/Acelerating and braking without Regenerative'
+ * '<S168>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Constraints/Braking with Regenerative'
+ * '<S169>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Constraints/Acelerating and braking without Regenerative/If Action 1'
+ * '<S170>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Constraints/Acelerating and braking without Regenerative/If Action 2'
+ * '<S171>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Constraints/Acelerating and braking without Regenerative/Momentum Z scaled'
+ * '<S172>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Constraints/Acelerating and braking without Regenerative/minimum value'
+ * '<S173>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Constraints/Acelerating and braking without Regenerative/minimum value1'
+ * '<S174>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Constraints/Acelerating and braking without Regenerative/Momentum Z scaled/MATLAB Function'
+ * '<S175>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Constraints/Braking with Regenerative/MATLAB Function'
+ * '<S176>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Driver // CarBehaviours/Accelerating'
+ * '<S177>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Driver // CarBehaviours/Inertia Braking'
+ * '<S178>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Driver // CarBehaviours/Mech_Braking'
+ * '<S179>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Driver // CarBehaviours/Regenerative+Mech Braking'
+ * '<S180>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Driver // CarBehaviours/Accelerating/Accelerator behaviour '
+ * '<S181>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Driver // CarBehaviours/Regenerative+Mech Braking/MATLAB Function'
+ * '<S182>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Force to Tq/Fx_to_wheelTqRL'
+ * '<S183>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Force to Tq/Fx_to_wheelTqRR'
+ * '<S184>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Force to Tq/MATLAB Function1'
+ * '<S185>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Force to Tq/MATLAB Function2'
+ * '<S186>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Kamm Circle Lateral/Kamm_Circle LatD'
+ * '<S187>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Kamm Circle Lateral/MATLAB Function1'
+ * '<S188>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Kamm Circle Lateral/MATLAB Function2'
+ * '<S189>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Optimization SKF & CKF/MATLAB Function'
+ * '<S190>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Optimization SKF & CKF/Subsystem  '
+ * '<S191>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Optimization SKF & CKF/Subsystem  /CKF'
+ * '<S192>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Optimization SKF & CKF/Subsystem  /CKF/No spin'
+ * '<S193>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Optimization SKF & CKF/Subsystem  /CKF/Spin '
+ * '<S194>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Optimization SKF & CKF/Subsystem  /CKF/No spin/MATLAB Function'
+ * '<S195>' : 'Torque_Control/Vehicle Dynamics Control Modes/VDC without Longitudinal/Optimization SKF & CKF/Subsystem  /CKF/Spin /MATLAB Function'
  */
 #endif                                 /* RTW_HEADER_Torque_Control_h_ */

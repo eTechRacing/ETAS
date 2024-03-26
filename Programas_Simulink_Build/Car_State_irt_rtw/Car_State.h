@@ -12,9 +12,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 10.3
+ * Model version              : 10.13
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Tue Nov 21 18:26:05 2023
+ * C source code generated on : Tue Mar 26 15:23:09 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -866,14 +866,14 @@ typedef struct {
 /* External inputs (root inport signals with default storage) */
 typedef struct {
   real_T AIRs_State;                   /* '<Root>/AIRs_State' */
-  real_T Accumulator_Voltage;          /* '<Root>/Accumulator_Voltage' */
-  real_T DashPrechargeRequest;         /* '<Root>/PrechargeRequest' */
-  real_T EnableDrive;                  /* '<Root>/EnableDrive_Order' */
-  real_T Lock;                         /* '<Root>/Torque_LockON' */
+  real_T PrechargeRequest;             /* '<Root>/PrechargeRequest' */
+  real_T EnableDrive_Order;            /* '<Root>/EnableDrive_Order' */
+  real_T Torque_LockON;                /* '<Root>/Torque_LockON' */
   real_T Critical_CAN_Disconnection;   /* '<Root>/Critical_CAN_Disconnection' */
   real_T InvertersSubscribed;          /* '<Root>/InvertersSubscribed' */
-  real_T InvertersMinDCBus;            /* '<Root>/InvertersMinDCBus' */
   boolean_T Shutdown_PackageIntck;     /* '<Root>/Shutdown_PackageIntck' */
+  real_T Accumulator_Voltage;          /* '<Root>/Accumulator_Voltage' */
+  real_T InvertersMinDCBus;            /* '<Root>/InvertersMinDCBus' */
 } ExtU_Car_State_T;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -882,13 +882,13 @@ typedef struct {
   real_T TorqueEnable;                 /* '<Root>/TorqueEnable' */
   real_T AIRs_Request;                 /* '<Root>/AIRs_Request' */
   real_T errors;                       /* '<Root>/errors' */
-  real_T Precharge_Percentage;         /* '<Root>/Precharge_Percentage' */
-  real_T Precharge_Voltage;            /* '<Root>/Precharge_Voltage' */
   real_T CurrentPathDisconnectionFlag;
                                      /* '<Root>/CurrentPathDisconnectionFlag' */
   real_T InvertersAction;              /* '<Root>/InvertersAction' */
   boolean_T Car_OK;                    /* '<Root>/Car_OK' */
   real_T PrechargeAssert;              /* '<Root>/PrechargeAssert' */
+  real_T Precharge_Percentage;         /* '<Root>/Precharge_Percentage' */
+  real_T Precharge_Voltage;            /* '<Root>/Precharge_Voltage' */
 } ExtY_Car_State_T;
 
 /* Backward compatible GRT Identifiers */
@@ -1041,8 +1041,8 @@ extern RT_MODEL_Car_State_T *const Car_State_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'Car_State'
- * '<S1>'   : 'Car_State/AIRSOpened'
- * '<S2>'   : 'Car_State/AIRS_Closed'
+ * '<S1>'   : 'Car_State/AIRS_Closed'
+ * '<S2>'   : 'Car_State/AIRS_Opened'
  * '<S3>'   : 'Car_State/AIRS_Precharge'
  * '<S4>'   : 'Car_State/AIRS_Request'
  * '<S5>'   : 'Car_State/Car State Manager'
@@ -1050,10 +1050,10 @@ extern RT_MODEL_Car_State_T *const Car_State_M;
  * '<S7>'   : 'Car_State/CurrentPathDisconnection Detection'
  * '<S8>'   : 'Car_State/Precharge Info'
  * '<S9>'   : 'Car_State/PrechargeAssert Conditions'
- * '<S10>'  : 'Car_State/AIRSOpened/FALSE'
- * '<S11>'  : 'Car_State/AIRSOpened/TRUE'
- * '<S12>'  : 'Car_State/AIRS_Closed/FALSE'
- * '<S13>'  : 'Car_State/AIRS_Closed/TRUE'
+ * '<S10>'  : 'Car_State/AIRS_Closed/FALSE'
+ * '<S11>'  : 'Car_State/AIRS_Closed/TRUE'
+ * '<S12>'  : 'Car_State/AIRS_Opened/FALSE'
+ * '<S13>'  : 'Car_State/AIRS_Opened/TRUE'
  * '<S14>'  : 'Car_State/AIRS_Precharge/FALSE'
  * '<S15>'  : 'Car_State/AIRS_Precharge/TRUE'
  * '<S16>'  : 'Car_State/AIRS_Request/Obrir AIRs'

@@ -7,9 +7,9 @@
  *
  * Code generation for model "Torque_Control".
  *
- * Model version              : 10.1
+ * Model version              : 10.23
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Nov 17 17:17:31 2023
+ * C source code generated on : Tue Mar 26 15:41:33 2024
  * Created for block: Torque_Control
  */
 
@@ -17,7 +17,7 @@
 #include "polyfit_qSahpz3o.h"
 #include "qrpf_X6HM2OpU.h"
 
-/* Function for MATLAB Function: '<S152>/Kamm_Circle LatD' */
+/* Function for MATLAB Function: '<S137>/Kamm_Circle LatD' */
 void polyfit_qSahpz3o(const real_T x[2], const real_T y[2], real_T p[2])
 {
   real_T V[4];

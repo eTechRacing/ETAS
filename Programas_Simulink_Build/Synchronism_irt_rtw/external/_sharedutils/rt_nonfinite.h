@@ -7,9 +7,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 10.1
+ * Model version              : 10.13
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Nov 17 17:12:23 2023
+ * C source code generated on : Tue Mar 26 15:23:09 2024
  */
 
 #ifndef RTW_HEADER_rt_nonfinite_h_

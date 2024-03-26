@@ -7,9 +7,9 @@
  *
  * Code generation for model "Racing_Mode".
  *
- * Model version              : 10.0
+ * Model version              : 10.1
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Nov 17 17:14:43 2023
+ * C source code generated on : Tue Mar 26 15:29:08 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -675,14 +675,14 @@ static void Racing_Mode_output(void)
 
   /* Saturate: '<Root>/Max_Regenerative_Torque Saturation' */
   if (Racing_Mode_B.Merge[6] > 10.0) {
-    /* Outport: '<Root>/VDC_Max_Regenerative_Torque' */
-    Racing_Mode_Y.VDC_Max_Regenerative_Torque = 10.0;
+    /* Outport: '<Root>/VDC_Max_Regen_Motor_Tq' */
+    Racing_Mode_Y.VDC_Max_Regen_Motor_Tq = 10.0;
   } else if (Racing_Mode_B.Merge[6] < 0.0) {
-    /* Outport: '<Root>/VDC_Max_Regenerative_Torque' */
-    Racing_Mode_Y.VDC_Max_Regenerative_Torque = 0.0;
+    /* Outport: '<Root>/VDC_Max_Regen_Motor_Tq' */
+    Racing_Mode_Y.VDC_Max_Regen_Motor_Tq = 0.0;
   } else {
-    /* Outport: '<Root>/VDC_Max_Regenerative_Torque' */
-    Racing_Mode_Y.VDC_Max_Regenerative_Torque = Racing_Mode_B.Merge[6];
+    /* Outport: '<Root>/VDC_Max_Regen_Motor_Tq' */
+    Racing_Mode_Y.VDC_Max_Regen_Motor_Tq = Racing_Mode_B.Merge[6];
   }
 
   /* End of Saturate: '<Root>/Max_Regenerative_Torque Saturation' */

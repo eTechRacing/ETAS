@@ -7,9 +7,9 @@
  *
  * Code generation for model "Torque_Control".
  *
- * Model version              : 10.1
+ * Model version              : 10.23
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Nov 17 17:17:31 2023
+ * C source code generated on : Tue Mar 26 15:41:33 2024
  * Created for block: Torque_Control
  */
 
@@ -19,7 +19,7 @@
 #include "qrpf_tu7wheJf.h"
 #include <math.h>
 
-/* Function for MATLAB Function: '<S152>/Kamm_Circle LatD' */
+/* Function for MATLAB Function: '<S137>/Kamm_Circle LatD' */
 void mldivide_8ZFDevWm(const real_T A[12], const real_T B[4], real_T Y[3])
 {
   real_T b_A[12];

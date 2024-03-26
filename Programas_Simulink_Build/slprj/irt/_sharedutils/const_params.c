@@ -7,9 +7,9 @@
  *
  * Code generation for model "Torque_Control".
  *
- * Model version              : 10.1
+ * Model version              : 10.24
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Nov 17 17:17:31 2023
+ * C source code generated on : Tue Mar 26 15:45:11 2024
  */
 #include "rtwtypes.h"
 

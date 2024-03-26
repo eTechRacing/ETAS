@@ -9,7 +9,7 @@
  *
  * Model version              : 10.0
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Nov 17 17:15:27 2023
+ * C source code generated on : Tue Mar 26 15:30:03 2024
  * Created for block: SoC
  */
 
