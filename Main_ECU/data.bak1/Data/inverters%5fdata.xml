@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE YBOModule SYSTEM ".\dtd\ybomodule.dtd" [ <?RequiredDTDVersion "4.7.1"?>
+
+<!NOTATION _OSrvLink SYSTEM "_OSrvLink" >
+<!ENTITY _6890 SYSTEM "OSrv://ObjectHandle#6890" NDATA _OIDLink >
+<!ENTITY _825 SYSTEM "OSrv://ObjectHandle#825" NDATA _OIDLink >
+<!ENTITY _814 SYSTEM "OSrv://ObjectHandle#814" NDATA _OIDLink >
+<!ENTITY _808 SYSTEM "OSrv://ObjectHandle#808" NDATA _OIDLink >
+<!ENTITY _756 SYSTEM "OSrv://ObjectHandle#756" NDATA _OIDLink >
+<!ENTITY _788 SYSTEM "OSrv://ObjectHandle#788" NDATA _OIDLink >
+<!ENTITY _776 SYSTEM "OSrv://ObjectHandle#776" NDATA _OIDLink >
+<!ENTITY _4866 SYSTEM "OSrv://ObjectHandle#4866" NDATA _OIDLink >
+<!ENTITY _733 SYSTEM "OSrv://ObjectHandle#733" NDATA _OIDLink >
+<!ENTITY _841 SYSTEM "OSrv://ObjectHandle#841" NDATA _OIDLink >
+<!ENTITY _759 SYSTEM "OSrv://ObjectHandle#759" NDATA _OIDLink >
+<!ENTITY _837 SYSTEM "OSrv://ObjectHandle#837" NDATA _OIDLink >
+<!ENTITY _743 SYSTEM "OSrv://ObjectHandle#743" NDATA _OIDLink >
+<!ENTITY _739 SYSTEM "OSrv://ObjectHandle#739" NDATA _OIDLink >
+<!ENTITY _792 SYSTEM "OSrv://ObjectHandle#792" NDATA _OIDLink >
+<!ENTITY _705 SYSTEM "OSrv://ObjectHandle#705" NDATA _OIDLink >
+<!ENTITY _707 SYSTEM "OSrv://ObjectHandle#707" NDATA _OIDLink >
+<!ENTITY _894 SYSTEM "OSrv://ObjectHandle#894" NDATA _OIDLink >
+<!ENTITY _4827 SYSTEM "OSrv://ObjectHandle#4827" NDATA _OIDLink >
+<!ENTITY _892 SYSTEM "OSrv://ObjectHandle#892" NDATA _OIDLink >
+<!ENTITY _4820 SYSTEM "OSrv://ObjectHandle#4820" NDATA _OIDLink >
+<!ENTITY _988 SYSTEM "OSrv://ObjectHandle#988" NDATA _OIDLink >
+<!ENTITY _899 SYSTEM "OSrv://ObjectHandle#899" NDATA _OIDLink >
+<!ENTITY _1002 SYSTEM "OSrv://ObjectHandle#1002" NDATA _OIDLink >
+<!ENTITY _895 SYSTEM "OSrv://ObjectHandle#895" NDATA _OIDLink >
+<!ENTITY _1016 SYSTEM "OSrv://ObjectHandle#1016" NDATA _OIDLink >
+<!ENTITY _712 SYSTEM "OSrv://ObjectHandle#712" NDATA _OIDLink >
+<!ENTITY _981 SYSTEM "OSrv://ObjectHandle#981" NDATA _OIDLink >
+<!ENTITY _1023 SYSTEM "OSrv://ObjectHandle#1023" NDATA _OIDLink >
+<!ENTITY _952 SYSTEM "OSrv://ObjectHandle#952" NDATA _OIDLink >
+<!ENTITY _914 SYSTEM "OSrv://ObjectHandle#914" NDATA _OIDLink >
+<!ENTITY _727 SYSTEM "OSrv://ObjectHandle#727" NDATA _OIDLink >
+<!ENTITY _909 SYSTEM "OSrv://ObjectHandle#909" NDATA _OIDLink >
+<!ENTITY _716 SYSTEM "OSrv://ObjectHandle#716" NDATA _OIDLink >
+<!ENTITY _940 SYSTEM "OSrv://ObjectHandle#940" NDATA _OIDLink >
+<!ENTITY _1051 SYSTEM "OSrv://ObjectHandle#1051" NDATA _OIDLink >
+<!ENTITY _4813 SYSTEM "OSrv://ObjectHandle#4813" NDATA _OIDLink >
+<!ENTITY _932 SYSTEM "OSrv://ObjectHandle#932" NDATA _OIDLink >
+<!ENTITY _963 SYSTEM "OSrv://ObjectHandle#963" NDATA _OIDLink >
+<!ENTITY _970 SYSTEM "OSrv://ObjectHandle#970" NDATA _OIDLink >
+<!ENTITY _936 SYSTEM "OSrv://ObjectHandle#936" NDATA _OIDLink >
+<!ENTITY _4967 SYSTEM "OSrv://ObjectHandle#4967" NDATA _OIDLink >
+<!ENTITY _974 SYSTEM "OSrv://ObjectHandle#974" NDATA _OIDLink >
+<!ENTITY _896 SYSTEM "OSrv://ObjectHandle#896" NDATA _OIDLink >
+<!ENTITY _995 SYSTEM "OSrv://ObjectHandle#995" NDATA _OIDLink >
+<!ENTITY _897 SYSTEM "OSrv://ObjectHandle#897" NDATA _OIDLink >
+<!ENTITY _1009 SYSTEM "OSrv://ObjectHandle#1009" NDATA _OIDLink >
+<!ENTITY _6084 SYSTEM "OSrv://ObjectHandle#6084" NDATA _OIDLink >
+<!ENTITY _6085 SYSTEM "OSrv://ObjectHandle#6085" NDATA _OIDLink >
+<!ENTITY _6086 SYSTEM "OSrv://ObjectHandle#6086" NDATA _OIDLink >
+<!ENTITY _6087 SYSTEM "OSrv://ObjectHandle#6087" NDATA _OIDLink >
+<!ENTITY _6088 SYSTEM "OSrv://ObjectHandle#6088" NDATA _OIDLink >
+<!ENTITY _6089 SYSTEM "OSrv://ObjectHandle#6089" NDATA _OIDLink >
+<!ENTITY _6090 SYSTEM "OSrv://ObjectHandle#6090" NDATA _OIDLink >
+<!ENTITY _6091 SYSTEM "OSrv://ObjectHandle#6091" NDATA _OIDLink >
+<!ENTITY _6092 SYSTEM "OSrv://ObjectHandle#6092" NDATA _OIDLink >
+<!ENTITY _6093 SYSTEM "OSrv://ObjectHandle#6093" NDATA _OIDLink >
+<!ENTITY _6094 SYSTEM "OSrv://ObjectHandle#6094" NDATA _OIDLink >
+<!ENTITY _6095 SYSTEM "OSrv://ObjectHandle#6095" NDATA _OIDLink >
+<!ENTITY _6096 SYSTEM "OSrv://ObjectHandle#6096" NDATA _OIDLink >
+<!ENTITY _6097 SYSTEM "OSrv://ObjectHandle#6097" NDATA _OIDLink >
+<!ENTITY _6098 SYSTEM "OSrv://ObjectHandle#6098" NDATA _OIDLink >
+<!ENTITY _6099 SYSTEM "OSrv://ObjectHandle#6099" NDATA _OIDLink >
+<!ENTITY _6100 SYSTEM "OSrv://ObjectHandle#6100" NDATA _OIDLink >
+<!ENTITY _6101 SYSTEM "OSrv://ObjectHandle#6101" NDATA _OIDLink >
+<!ENTITY _6102 SYSTEM "OSrv://ObjectHandle#6102" NDATA _OIDLink >
+<!ENTITY _6103 SYSTEM "OSrv://ObjectHandle#6103" NDATA _OIDLink >
+<!ENTITY _6104 SYSTEM "OSrv://ObjectHandle#6104" NDATA _OIDLink >
+<!ENTITY _6105 SYSTEM "OSrv://ObjectHandle#6105" NDATA _OIDLink >
+<!ENTITY _6106 SYSTEM "OSrv://ObjectHandle#6106" NDATA _OIDLink >
+<!ENTITY _6107 SYSTEM "OSrv://ObjectHandle#6107" NDATA _OIDLink >
+<!ENTITY _6108 SYSTEM "OSrv://ObjectHandle#6108" NDATA _OIDLink >
+<!ENTITY _6109 SYSTEM "OSrv://ObjectHandle#6109" NDATA _OIDLink >
+<!ENTITY _6110 SYSTEM "OSrv://ObjectHandle#6110" NDATA _OIDLink >
+<!ENTITY _6111 SYSTEM "OSrv://ObjectHandle#6111" NDATA _OIDLink >
+<!ENTITY _6112 SYSTEM "OSrv://ObjectHandle#6112" NDATA _OIDLink >
+<!ENTITY _6113 SYSTEM "OSrv://ObjectHandle#6113" NDATA _OIDLink >
+<!ENTITY _6114 SYSTEM "OSrv://ObjectHandle#6114" NDATA _OIDLink >
+<!ENTITY _6115 SYSTEM "OSrv://ObjectHandle#6115" NDATA _OIDLink >
+<!ENTITY _6116 SYSTEM "OSrv://ObjectHandle#6116" NDATA _OIDLink >
+<!ENTITY _6117 SYSTEM "OSrv://ObjectHandle#6117" NDATA _OIDLink >
+<!ENTITY _6118 SYSTEM "OSrv://ObjectHandle#6118" NDATA _OIDLink >
+<!ENTITY _6119 SYSTEM "OSrv://ObjectHandle#6119" NDATA _OIDLink >
+<!ENTITY _6120 SYSTEM "OSrv://ObjectHandle#6120" NDATA _OIDLink >
+<!ENTITY _6121 SYSTEM "OSrv://ObjectHandle#6121" NDATA _OIDLink >
+<!ENTITY _6122 SYSTEM "OSrv://ObjectHandle#6122" NDATA _OIDLink >
+<!ENTITY _6123 SYSTEM "OSrv://ObjectHandle#6123" NDATA _OIDLink >
+]><YBOModule
+	Name="Inverters_5FData"
+	ScoopIXSource="c:\users\joser\onedrive\documentos\github\etas\programas_simulink_build\inverters_data_irt_rtw\inverters_data.six"
+	FileDateTime="133559395214597696"
+	ModelingTool="MATLAB"
+	Kind="SOFTWARE"
+	VisibleName="Inverters_Data"><_System><_AdminInfo/><_LinkTarget><_LinkTarget
+	Name="SoftwareSystem"
+	Index="6890"
+	Type="YBOSoftwareSystem"><_LinkTarget
+	Name="Connection51"
+	Index="825"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection53"
+	Index="814"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection55"
+	Index="808"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection43"
+	Index="756"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection59"
+	Index="788"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection61"
+	Index="776"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection63"
+	Index="4866"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection45"
+	Index="733"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection47"
+	Index="841"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection65"
+	Index="759"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection49"
+	Index="837"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection67"
+	Index="743"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection44"
+	Index="739"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection57"
+	Index="792"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection16"
+	Index="705"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection17"
+	Index="707"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection35"
+	Index="894"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection83"
+	Index="4827"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection34"
+	Index="892"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection85"
+	Index="4820"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection71"
+	Index="988"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection30"
+	Index="899"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection75"
+	Index="1002"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection31"
+	Index="895"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection79"
+	Index="1016"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection12"
+	Index="712"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection70"
+	Index="981"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection81"
+	Index="1023"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection50"
+	Index="952"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection62"
+	Index="914"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection46"
+	Index="727"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection58"
+	Index="909"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection48"
+	Index="716"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection60"
+	Index="940"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection89"
+	Index="1051"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection87"
+	Index="4813"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection54"
+	Index="932"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection66"
+	Index="963"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection64"
+	Index="970"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection52"
+	Index="936"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection56"
+	Index="4967"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection68"
+	Index="974"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection33"
+	Index="896"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection73"
+	Index="995"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection32"
+	Index="897"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection77"
+	Index="1009"
+	Type="YBOConnection"/></_LinkTarget><_LinkTarget
+	Name="Inverters_Data"
+	Index="6084"
+	Type="YBOModule"><_LinkTarget
+	Name="Inverters_Data_U.Inv_L_RegID_M48_Inv_L_Speed"
+	Index="6085"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_U.Inv_L_RegID_M73_Inv_L_TempMotor"
+	Index="6086"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT"
+	Index="6087"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_U.Inv_L_RegID_M235_Inv_L_DCBus"
+	Index="6088"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_U.Inv_R_RegID_M32_Inv_R_Iactual"
+	Index="6089"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_U.Inv_R_RegID_M38_Inv_R_Icommand"
+	Index="6090"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_U.Inv_R_RegID_M39_Inv_R_Iq"
+	Index="6091"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_U.Inv_L_RegID_M32_Inv_L_Iactual"
+	Index="6092"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_U.Inv_L_RegID_M38_Inv_L_Icommand"
+	Index="6093"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_U.Inv_R_RegID_M48_Inv_R_Speed"
+	Index="6094"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_U.Inv_L_RegID_M39_Inv_L_Iq"
+	Index="6095"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor"
+	Index="6096"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT"
+	Index="6097"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_U.Inv_R_RegID_M235_Inv_R_DCBus"
+	Index="6098"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_U.Torque_R"
+	Index="6099"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_U.Torque_L"
+	Index="6100"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.Temp_IGBT"
+	Index="6101"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.Temp_Motors"
+	Index="6102"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.Mech_Power"
+	Index="6103"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.RL_Vel_ms_Wheel"
+	Index="6104"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.RR_Vel_ms_Wheel"
+	Index="6105"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.InvertersMinDCBus"
+	Index="6106"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.Speed"
+	Index="6107"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.Inv_L_Iq"
+	Index="6108"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.Inv_R_Iq"
+	Index="6109"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.Inv_L_Iactual"
+	Index="6110"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.Inv_R_Iactual"
+	Index="6111"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.Inv_L_Icommand"
+	Index="6112"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.Inv_R_Icommand"
+	Index="6113"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.Wheel_RR_Speed"
+	Index="6114"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.Wheel_RL_Speed"
+	Index="6115"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.Inv_L_TempMotor"
+	Index="6116"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.Inv_R_TempMotor"
+	Index="6117"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.Inv_R_TempIGBT"
+	Index="6118"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.Inv_L_TempIGBT"
+	Index="6119"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.Inv_L_VdcBus"
+	Index="6120"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.Inv_R_VdcBus"
+	Index="6121"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.RL_rads_Motor"
+	Index="6122"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.RR_rads_Motor"
+	Index="6123"
+	Type="YBOSWPort"/></_LinkTarget></_LinkTarget></_System><YBOModule.Ports><YBOPortList><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FU_5C.Inv_5FL_5FRegID_5FM48_5FInv_5FL_5FSpeed"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_L_RegID_M48_Inv_L_Speed"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_825"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FU_5C.Inv_5FL_5FRegID_5FM73_5FInv_5FL_5FTempMotor"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_L_RegID_M73_Inv_L_TempMotor"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_814"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FU_5C.Inv_5FL_5FRegID_5FM74_5FInv_5FL_5FTempIGBT"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_L_RegID_M74_Inv_L_TempIGBT"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_808"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FU_5C.Inv_5FL_5FRegID_5FM235_5FInv_5FL_5FDCBus"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_L_RegID_M235_Inv_L_DCBus"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_756"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FU_5C.Inv_5FR_5FRegID_5FM32_5FInv_5FR_5FIactual"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_R_RegID_M32_Inv_R_Iactual"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_788"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FU_5C.Inv_5FR_5FRegID_5FM38_5FInv_5FR_5FIcommand"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_R_RegID_M38_Inv_R_Icommand"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_776"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FU_5C.Inv_5FR_5FRegID_5FM39_5FInv_5FR_5FIq"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_R_RegID_M39_Inv_R_Iq"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_4866"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FU_5C.Inv_5FL_5FRegID_5FM32_5FInv_5FL_5FIactual"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_L_RegID_M32_Inv_L_Iactual"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_733"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FU_5C.Inv_5FL_5FRegID_5FM38_5FInv_5FL_5FIcommand"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_L_RegID_M38_Inv_L_Icommand"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_841"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FU_5C.Inv_5FR_5FRegID_5FM48_5FInv_5FR_5FSpeed"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_R_RegID_M48_Inv_R_Speed"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_759"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FU_5C.Inv_5FL_5FRegID_5FM39_5FInv_5FL_5FIq"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_L_RegID_M39_Inv_L_Iq"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_837"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FU_5C.Inv_5FR_5FRegID_5FM73_5FInv_5FR_5FTempMotor"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_R_RegID_M73_Inv_R_TempMotor"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_743"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FU_5C.Inv_5FR_5FRegID_5FM74_5FInv_5FR_5FTempIGBT"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_R_RegID_M74_Inv_R_TempIGBT"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_739"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FU_5C.Inv_5FR_5FRegID_5FM235_5FInv_5FR_5FDCBus"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_R_RegID_M235_Inv_R_DCBus"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_792"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FU_5C.Torque_5FR"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Torque_R"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_705"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FU_5C.Torque_5FL"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Torque_L"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_707"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.Temp_5FIGBT"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Temp_IGBT"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_894"/><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_4827"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.Temp_5FMotors"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Temp_Motors"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_892"/><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_4820"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.Mech_5FPower"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Mech_Power"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_988"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.RL_5FVel_5Fms_5FWheel"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="RL_Vel_ms_Wheel"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_899"/><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_1002"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.RR_5FVel_5Fms_5FWheel"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="RR_Vel_ms_Wheel"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_895"/><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_1016"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.InvertersMinDCBus"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="InvertersMinDCBus"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_712"/><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_981"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.Speed"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Speed"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_1023"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.Inv_5FL_5FIq"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_L_Iq"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_952"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.Inv_5FR_5FIq"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_R_Iq"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_914"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.Inv_5FL_5FIactual"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_L_Iactual"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_727"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.Inv_5FR_5FIactual"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_R_Iactual"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_909"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.Inv_5FL_5FIcommand"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_L_Icommand"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_716"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.Inv_5FR_5FIcommand"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_R_Icommand"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_940"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.Wheel_5FRR_5FSpeed"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Wheel_RR_Speed"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_1051"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.Wheel_5FRL_5FSpeed"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Wheel_RL_Speed"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_4813"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.Inv_5FL_5FTempMotor"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_L_TempMotor"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_932"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.Inv_5FR_5FTempMotor"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_R_TempMotor"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_963"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.Inv_5FR_5FTempIGBT"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_R_TempIGBT"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_970"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.Inv_5FL_5FTempIGBT"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_L_TempIGBT"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_936"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.Inv_5FL_5FVdcBus"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_L_VdcBus"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_4967"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.Inv_5FR_5FVdcBus"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_R_VdcBus"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_974"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.RL_5Frads_5FMotor"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="RL_rads_Motor"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_896"/><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_995"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.RR_5Frads_5FMotor"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="RR_rads_Motor"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_897"/><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_1009"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort></YBOPortList></YBOModule.Ports><YBOModule.Processes><YBOProcessList><YBOProcess
+	Name="Inverters_5FData.irt_5FStart_5FInverters_5FData"
+	Kind="INITIALIZATION"
+	Priority="0.5"
+	VisibleName="irt_Start_Inverters_Data"><YBOProcess.Actions><YBOActionList><YBOAction
+	Name="Inverters_5FData.irt_5FStart_5FInverters_5FData.Action"
+	Kind="PROCESS"/></YBOActionList></YBOProcess.Actions><YBOProcess.CrossbarHooks><YBOCrossbarHookList><YBOCrossbarHook
+	Name="Inverters_5FData.irt_5FStart_5FInverters_5FData.irt_5FStart_5FInverters_5FData_5FSourceCopy"
+	Kind="SOURCE"
+	VisibleName="irt_Start_Inverters_Data_SourceCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="Inverters_5FData.irt_5FStart_5FInverters_5FData.irt_5FStart_5FInverters_5FData_5FSourceCopy.Action"
+	Hidden="TRUE"
+	Kind="SOURCE_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList/></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
+	Name="Inverters_5FData.irt_5FStart_5FInverters_5FData.irt_5FStart_5FInverters_5FData_5FSinkCopy"
+	Kind="SINK"
+	VisibleName="irt_Start_Inverters_Data_SinkCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="Inverters_5FData.irt_5FStart_5FInverters_5FData.irt_5FStart_5FInverters_5FData_5FSinkCopy.Action"
+	Hidden="TRUE"
+	Kind="SINK_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList/></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess><YBOProcess
+	Name="Inverters_5FData.irt_5FOneStep_5FInverters_5FData"
+	Kind="TIMER"
+	Period="0.2000000000000000111"
+	Priority="0.5"
+	VisibleName="irt_OneStep_Inverters_Data"><YBOProcess.Actions><YBOActionList><YBOAction
+	Name="Inverters_5FData.irt_5FOneStep_5FInverters_5FData.Action"
+	Kind="PROCESS"/></YBOActionList></YBOProcess.Actions><YBOProcess.CrossbarHooks><YBOCrossbarHookList><YBOCrossbarHook
+	Name="Inverters_5FData.irt_5FOneStep_5FInverters_5FData.irt_5FOneStep_5FInverters_5FData_5FSourceCopy"
+	Kind="SOURCE"
+	VisibleName="irt_OneStep_Inverters_Data_SourceCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="Inverters_5FData.irt_5FOneStep_5FInverters_5FData.irt_5FOneStep_5FInverters_5FData_5FSourceCopy.Action"
+	Hidden="TRUE"
+	Kind="SOURCE_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6085"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6086"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6087"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6088"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6089"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6090"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6091"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6092"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6093"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6094"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6095"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6096"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6097"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6098"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6099"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6100"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
+	Name="Inverters_5FData.irt_5FOneStep_5FInverters_5FData.irt_5FOneStep_5FInverters_5FData_5FSinkCopy"
+	Kind="SINK"
+	VisibleName="irt_OneStep_Inverters_Data_SinkCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="Inverters_5FData.irt_5FOneStep_5FInverters_5FData.irt_5FOneStep_5FInverters_5FData_5FSinkCopy.Action"
+	Hidden="TRUE"
+	Kind="SINK_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6101"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6102"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6103"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6104"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6105"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6106"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6107"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6108"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6109"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6110"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6111"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6112"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6113"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6114"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6115"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6116"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6117"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6118"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6119"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6120"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6121"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6122"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_6123"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess><YBOProcess
+	Name="Inverters_5FData.irt_5FTerminate_5FInverters_5FData"
+	Kind="TERMINATION"
+	Priority="0.5"
+	VisibleName="irt_Terminate_Inverters_Data"><YBOProcess.Actions><YBOActionList><YBOAction
+	Name="Inverters_5FData.irt_5FTerminate_5FInverters_5FData.Action"
+	Kind="PROCESS"/></YBOActionList></YBOProcess.Actions><YBOProcess.CrossbarHooks><YBOCrossbarHookList><YBOCrossbarHook
+	Name="Inverters_5FData.irt_5FTerminate_5FInverters_5FData.irt_5FTerminate_5FInverters_5FData_5FSourceCopy"
+	Kind="SOURCE"
+	VisibleName="irt_Terminate_Inverters_Data_SourceCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="Inverters_5FData.irt_5FTerminate_5FInverters_5FData.irt_5FTerminate_5FInverters_5FData_5FSourceCopy.Action"
+	Hidden="TRUE"
+	Kind="SOURCE_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList/></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
+	Name="Inverters_5FData.irt_5FTerminate_5FInverters_5FData.irt_5FTerminate_5FInverters_5FData_5FSinkCopy"
+	Kind="SINK"
+	VisibleName="irt_Terminate_Inverters_Data_SinkCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="Inverters_5FData.irt_5FTerminate_5FInverters_5FData.irt_5FTerminate_5FInverters_5FData_5FSinkCopy.Action"
+	Hidden="TRUE"
+	Kind="SINK_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList/></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess></YBOProcessList></YBOModule.Processes><YBOModule.ArXMLSources><YBOArXMLSourceList/></YBOModule.ArXMLSources><YBOModule.ArCSources><YBOArCSourceList/></YBOModule.ArCSources><YBOModule.ReferencedModules><YBOModuleRefList/></YBOModule.ReferencedModules></YBOModule>

@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\templates\XSLT\BuildLog.xsl"?>
+<build projectName="ETAS" applicationDir="C:\Program Files (x86)\ETAS\INTECRIO5.0" logDir="C:/Users/joser/OneDrive/Documentos/GitHub/ETAS/Main_ECU/Logs">
+	<target name="create.timestamp" timeMs="18">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:226: " name="tstamp" timeMs="18" />
+	</target>
+	<target name="init" timeMs="2">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:216: " name="log" timeMs="1" />
+		<message priority="info" text="Initializing build system..." />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:217: " name="log" timeMs="0" />
+		<message priority="info" text="Build timestamp is 03/28/2024 04:27:20." />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:218: " name="log" timeMs="0" />
+		<message priority="info" text="Multithreading enabled, using 4 concurrent threads." />
+	</target>
+	<target name="parseproperties.project" timeMs="14">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\parse_tasks.xml:27: " name="log" timeMs="0" />
+		<message priority="info" text="Parsing project configuration..." />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\parse_tasks.xml:29: " name="condition" timeMs="14" />
+	</target>
+	<target name="parseproperties.results" timeMs="2">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\parse_tasks.xml:49: " name="log" timeMs="0" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\parse_tasks.xml:50: " name="property" timeMs="0" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\parse_tasks.xml:52: " name="property" timeMs="0" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\parse_tasks.xml:53: " name="property" timeMs="0" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\parse_tasks.xml:54: " name="property" timeMs="0" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\parse_tasks.xml:55: " name="log" timeMs="0" />
+	</target>
+	<target name="workspacevalidate.project" timeMs="1">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\parse_tasks.xml:91: " name="condition" timeMs="1" />
+	</target>
+	<target name="workspacevalidate.result" timeMs="0" />
+	<target name="parse.all" timeMs="0" />
+	<target name="start" timeMs="44">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:237: " name="log" timeMs="0" />
+		<message priority="info" text="Starting build for project ETAS." />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:238: " name="log" timeMs="0" />
+		<message priority="info" text="Selected hardware target is ES910 (ETARGET)." />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:239: " name="log" timeMs="0" />
+		<message priority="info" text="Selected compiler target is powerpc-nto." />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:241: " name="log" timeMs="0" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:242: " name="copy" timeMs="42" />
+		<message priority="info" text="Copying 1 file to C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Logs" />
+	</target>
+	<target name="parseproperties.package" timeMs="0">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\parse_tasks.xml:40: " name="log" timeMs="0" />
+	</target>
+	<target name="initgenerate" timeMs="0">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\generation_tasks.xml:46: " name="log" timeMs="0" />
+		<message priority="info" text="Performing code generation..." />
+	</target>
+	<target name="pregenerate" timeMs="805">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\generation_tasks.xml:55: " name="call" timeMs="1" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\generation_tasks.xml:57: " name="call" timeMs="803">
+			<target name="generate.module.asam2mc" timeMs="802">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\Common\tasks.xml:130: " name="log" timeMs="2" />
+				<message priority="info" text="Calling ASAM-MCD 2MC generation for SW modules..." />
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\Common\tasks.xml:131: " name="tooltask" timeMs="800">
+					<message priority="info" text="Creating 1 file(s)..." tool="PI_BUILD_SYSTEM" />
+				</task>
+			</target>
+			<target name="pregenerate.target-class" timeMs="0">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\Common\tasks.xml:30: " name="log" timeMs="0" />
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\Common\tasks.xml:32: " name="call" timeMs="0" />
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\Common\tasks.xml:34: " name="call" timeMs="0" />
+			</target>
+		</task>
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\generation_tasks.xml:59: " name="call" timeMs="1">
+			<target name="pregenerate.target" timeMs="0">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:22: " name="log" timeMs="0" />
+			</target>
+		</task>
+	</target>
+	<target name="generate.package.Car_State0" timeMs="0" />
+	<target name="generate.package.Car_State1" timeMs="0" />
+	<target name="generate.package.Disconnections1" timeMs="0" />
+	<target name="generate.package.Disconnections0" timeMs="0" />
+	<target name="generate.package.Ellipse0" timeMs="1" />
+	<target name="generate.package.Ellipse1" timeMs="0" />
+	<target name="generate.package.Inverters_Action0" timeMs="0" />
+	<target name="generate.package.Inverters_Action1" timeMs="0" />
+	<target name="generate.package.Inverters_Data0" timeMs="0" />
+	<target name="generate.package.Inverters_Data1" timeMs="0" />
+	<target name="generate.package.Sensors0" timeMs="0" />
+	<target name="generate.package.Sensors1" timeMs="0" />
+	<target name="generate.package.SoC0" timeMs="0" />
+	<target name="generate.package.SoC1" timeMs="0" />
+	<target name="generate.package.Synchronism0" timeMs="0" />
+	<target name="generate.package.Synchronism1" timeMs="0" />
+	<target name="generate.package.racing_modes_R2022a0" timeMs="0" />
+	<target name="generate.package.racing_modes_R2022a1" timeMs="0" />
+	<target name="generate.package.vdc_r2022a0" timeMs="0" />
+	<target name="generate.package.vdc_r2022a1" timeMs="0" />
+	<target name="generate.package.matlabsharedR2022a" timeMs="0" />
+	<target name="generate.package.ETC" timeMs="0" />
+	<target name="generate.package.CBC" timeMs="0" />
+	<target name="generate.package.OSC" timeMs="11">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\tasks.xml:5: " name="call-tooltask-tool" timeMs="11" />
+		<task location="" name="sequential" timeMs="9" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\generation_tasks.xml:29: " name="tooltask" timeMs="9" />
+	</target>
+	<target name="generate.packages" timeMs="19">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\generation_tasks.xml:92: " name="foreachcall" timeMs="19" />
+	</target>
+	<target name="generate.project" timeMs="0" />
+	<target name="maingenerate" timeMs="2">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\generation_tasks.xml:68: " name="call" timeMs="1">
+			<target name="generate.target-class" timeMs="1">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\Common\tasks.xml:42: " name="log" timeMs="1" />
+			</target>
+		</task>
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\generation_tasks.xml:70: " name="call" timeMs="1">
+			<target name="generate.target" timeMs="0">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:30: " name="log" timeMs="0" />
+			</target>
+		</task>
+	</target>
+	<target name="postgenerate" timeMs="1">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\generation_tasks.xml:79: " name="call" timeMs="0" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\generation_tasks.xml:81: " name="call" timeMs="1">
+			<target name="postgenerate.target-class" timeMs="0">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\Common\tasks.xml:50: " name="log" timeMs="0" />
+			</target>
+		</task>
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\generation_tasks.xml:83: " name="call" timeMs="0">
+			<target name="postgenerate.target" timeMs="0">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:38: " name="log" timeMs="0" />
+			</target>
+		</task>
+	</target>
+	<target name="generate.all" timeMs="0">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\generation_tasks.xml:101: " name="log" timeMs="0" />
+		<message priority="info" text="(nothing to do)" />
+	</target>
+	<target name="initcompile" timeMs="0">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:81: " name="log" timeMs="0" />
+		<message priority="info" text="Performing compilation..." />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:82: " name="log" timeMs="0" />
+	</target>
+	<target name="precompile" timeMs="3">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:91: " name="call" timeMs="1" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:93: " name="call" timeMs="0">
+			<target name="precompile.target-class" timeMs="0">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\Common\tasks.xml:58: " name="log" timeMs="0" />
+			</target>
+		</task>
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:95: " name="call" timeMs="2">
+			<target name="precompile.target" timeMs="2">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:46: " name="log" timeMs="0" />
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:48: " name="condition" timeMs="0" />
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:52: " name="log" timeMs="1" />
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:53: " name="fail" timeMs="0" />
+			</target>
+		</task>
+	</target>
+	<target name="compile.package.Disconnections1" timeMs="186">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Disconnections1\tasks.xml:8: " name="call-tooltask-compiler" timeMs="186" />
+		<task location="" name="sequential" timeMs="186" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="186" />
+	</target>
+	<target name="compile.package.Car_State1" timeMs="189">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Car_State1\tasks.xml:8: " name="call-tooltask-compiler" timeMs="189" />
+		<task location="" name="sequential" timeMs="187" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="187" />
+	</target>
+	<target name="compile.package.Ellipse1" timeMs="101">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Ellipse1\tasks.xml:8: " name="call-tooltask-compiler" timeMs="101" />
+		<task location="" name="sequential" timeMs="101" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="101" />
+	</target>
+	<target name="compile.package.Car_State0" timeMs="511">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Car_State0\tasks.xml:8: " name="call-tooltask-compiler" timeMs="511" />
+		<task location="" name="sequential" timeMs="511" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="511">
+			<message priority="info" text="Creating 1 file(s)..." tool="PI_BUILD_SYSTEM" />
+		</task>
+	</target>
+	<target name="compile.package.Disconnections0" timeMs="533">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Disconnections0\tasks.xml:8: " name="call-tooltask-compiler" timeMs="533" />
+		<task location="" name="sequential" timeMs="533" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="533">
+			<message priority="info" text="Creating 1 file(s)..." tool="PI_BUILD_SYSTEM" />
+		</task>
+	</target>
+	<target name="compile.package.Ellipse0" timeMs="415">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Ellipse0\tasks.xml:8: " name="call-tooltask-compiler" timeMs="415" />
+		<task location="" name="sequential" timeMs="414" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="414">
+			<message priority="info" text="Creating 1 file(s)..." tool="PI_BUILD_SYSTEM" />
+		</task>
+	</target>
+	<target name="compile.package.Inverters_Action1" timeMs="113">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Inverters_Action1\tasks.xml:8: " name="call-tooltask-compiler" timeMs="113" />
+		<task location="" name="sequential" timeMs="113" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="112" />
+	</target>
+	<target name="compile.package.Inverters_Action0" timeMs="422">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Inverters_Action0\tasks.xml:8: " name="call-tooltask-compiler" timeMs="421" />
+		<task location="" name="sequential" timeMs="420" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="420">
+			<message priority="info" text="Creating 1 file(s)..." tool="PI_BUILD_SYSTEM" />
+		</task>
+	</target>
+	<target name="compile.package.Inverters_Data1" timeMs="110">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Inverters_Data1\tasks.xml:8: " name="call-tooltask-compiler" timeMs="110" />
+		<task location="" name="sequential" timeMs="110" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="110" />
+	</target>
+	<target name="compile.package.Sensors1" timeMs="120">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Sensors1\tasks.xml:8: " name="call-tooltask-compiler" timeMs="119" />
+		<task location="" name="sequential" timeMs="119" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="119" />
+	</target>
+	<target name="compile.package.SoC1" timeMs="103">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\SoC1\tasks.xml:8: " name="call-tooltask-compiler" timeMs="103" />
+		<task location="" name="sequential" timeMs="103" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="103" />
+	</target>
+	<target name="compile.package.Inverters_Data0" timeMs="496">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Inverters_Data0\tasks.xml:8: " name="call-tooltask-compiler" timeMs="495" />
+		<task location="" name="sequential" timeMs="495" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="495">
+			<message priority="info" text="Creating 1 file(s)..." tool="PI_BUILD_SYSTEM" />
+		</task>
+	</target>
+	<target name="compile.package.Sensors0" timeMs="471">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Sensors0\tasks.xml:8: " name="call-tooltask-compiler" timeMs="470" />
+		<task location="" name="sequential" timeMs="470" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="470">
+			<message priority="info" text="Creating 1 file(s)..." tool="PI_BUILD_SYSTEM" />
+		</task>
+	</target>
+	<target name="compile.package.Synchronism1" timeMs="90">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Synchronism1\tasks.xml:8: " name="call-tooltask-compiler" timeMs="90" />
+		<task location="" name="sequential" timeMs="90" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="90" />
+	</target>
+	<target name="compile.package.SoC0" timeMs="433">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\SoC0\tasks.xml:8: " name="call-tooltask-compiler" timeMs="433" />
+		<task location="" name="sequential" timeMs="433" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="432">
+			<message priority="info" text="Creating 1 file(s)..." tool="PI_BUILD_SYSTEM" />
+		</task>
+	</target>
+	<target name="compile.package.racing_modes_R2022a1" timeMs="100">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\racing_modes_R2022a1\tasks.xml:8: " name="call-tooltask-compiler" timeMs="100" />
+		<task location="" name="sequential" timeMs="100" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="99" />
+	</target>
+	<target name="compile.package.Synchronism0" timeMs="488">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Synchronism0\tasks.xml:8: " name="call-tooltask-compiler" timeMs="488" />
+		<task location="" name="sequential" timeMs="487" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="487">
+			<message priority="info" text="Creating 1 file(s)..." tool="PI_BUILD_SYSTEM" />
+		</task>
+	</target>
+	<target name="compile.package.matlabsharedR2022a" timeMs="89">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\matlabsharedR2022a\tasks.xml:8: " name="call-tooltask-compiler" timeMs="73" />
+		<task location="" name="sequential" timeMs="73" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="73" />
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\matlabsharedR2022a\tasks.xml:9: " name="call-tooltask-linker" timeMs="16" />
+		<task location="" name="sequential" timeMs="16" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:29: " name="tooltask" timeMs="16" />
+	</target>
+	<target name="compile.package.racing_modes_R2022a0" timeMs="478">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\racing_modes_R2022a0\tasks.xml:8: " name="call-tooltask-compiler" timeMs="478" />
+		<task location="" name="sequential" timeMs="478" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="478">
+			<message priority="info" text="Creating 1 file(s)..." tool="PI_BUILD_SYSTEM" />
+		</task>
+	</target>
+	<target name="compile.package.vdc_r2022a0" timeMs="493">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\vdc_r2022a0\tasks.xml:8: " name="call-tooltask-compiler" timeMs="493" />
+		<task location="" name="sequential" timeMs="493" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="493">
+			<message priority="info" text="Creating 1 file(s)..." tool="PI_BUILD_SYSTEM" />
+		</task>
+	</target>
+	<target name="compile.package.CBC" timeMs="71">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\CBC\tasks.xml:8: " name="call-tooltask-compiler" timeMs="71" />
+		<task location="" name="sequential" timeMs="71" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="71" />
+	</target>
+	<target name="compile.package.ETC" timeMs="154">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\ETC\tasks.xml:8: " name="call-tooltask-compiler" timeMs="154" />
+		<task location="" name="sequential" timeMs="153" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="153" />
+	</target>
+	<target name="compile.package.vdc_r2022a1" timeMs="557">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\vdc_r2022a1\tasks.xml:8: " name="call-tooltask-compiler" timeMs="557" />
+		<task location="" name="sequential" timeMs="556" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="556">
+			<message priority="info" text="Creating 2 file(s)..." tool="PI_BUILD_SYSTEM" />
+		</task>
+	</target>
+	<target name="compile.package.OSC" timeMs="894">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\tasks.xml:9: " name="call-tooltask-compiler" timeMs="866" />
+		<task location="" name="sequential" timeMs="865" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="865" />
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\tasks.xml:10: " name="call-tooltask-compiler" timeMs="28" />
+		<task location="" name="sequential" timeMs="28" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="28" />
+	</target>
+	<target name="compile.packages" timeMs="2417">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:128: " name="foreachcall" timeMs="2416" />
+	</target>
+	<target name="compile.project" timeMs="13">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\tasks.xml:8: " name="call-tooltask-compiler" timeMs="13" />
+		<task location="" name="sequential" timeMs="13" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:30: " name="tooltask" timeMs="13" />
+	</target>
+	<target name="maincompile" timeMs="78">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:104: " name="call" timeMs="0">
+			<target name="compile.target-class" timeMs="0">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\Common\tasks.xml:66: " name="log" timeMs="0" />
+			</target>
+		</task>
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:106: " name="call" timeMs="78">
+			<target name="compile.target" timeMs="78">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:61: " name="log" timeMs="0" />
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:62: " name="tooltask" timeMs="20" />
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:77: " name="tooltask" timeMs="56" />
+			</target>
+		</task>
+	</target>
+	<target name="postcompile" timeMs="15">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:115: " name="call" timeMs="1" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:117: " name="call" timeMs="13">
+			<target name="compile.user.sources" timeMs="13">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\Common\tasks.xml:239: " name="log" timeMs="0" />
+				<message priority="info" text="Compiling user specified source files ..." />
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\Common\tasks.xml:240: " name="tooltask" timeMs="13" />
+			</target>
+			<target name="postcompile.target-class" timeMs="0">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\Common\tasks.xml:74: " name="log" timeMs="0" />
+			</target>
+		</task>
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:119: " name="call" timeMs="1">
+			<target name="postcompile.target" timeMs="0">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:91: " name="log" timeMs="0" />
+			</target>
+		</task>
+	</target>
+	<target name="compile.all" timeMs="1">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:137: " name="log" timeMs="0" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\compilation_tasks.xml:139: " name="call" timeMs="1">
+			<target name="update.pid" timeMs="1">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:282: " name="log" timeMs="0" />
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:283: " name="property" timeMs="0" />
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:284: " name="property" timeMs="0" />
+			</target>
+		</task>
+	</target>
+	<target name="initlink" timeMs="0">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:61: " name="log" timeMs="0" />
+		<message priority="info" text="Performing linkage..." />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:62: " name="log" timeMs="0" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:63: " name="log" timeMs="0" />
+	</target>
+	<target name="prelink" timeMs="373">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:72: " name="call" timeMs="0" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:74: " name="call" timeMs="0">
+			<target name="prelink.target-class" timeMs="0">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\Common\tasks.xml:82: " name="log" timeMs="0" />
+			</target>
+		</task>
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:76: " name="call" timeMs="372">
+			<target name="prelink.target" timeMs="372">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:99: " name="log" timeMs="0" />
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:100: " name="call" timeMs="5">
+					<target name="generate.pid.target" timeMs="5">
+						<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:114: " name="echo" timeMs="5" />
+					</target>
+				</task>
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:102: " name="tooltask" timeMs="366">
+					<message priority="info" text="Creating 2 file(s)..." tool="PI_BUILD_SYSTEM" />
+				</task>
+			</target>
+		</task>
+	</target>
+	<target name="link.package.Car_State0" timeMs="0" />
+	<target name="link.package.Disconnections0" timeMs="0" />
+	<target name="link.package.Ellipse0" timeMs="0" />
+	<target name="link.package.Inverters_Action0" timeMs="0" />
+	<target name="link.package.Disconnections1" timeMs="9">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Disconnections1\tasks.xml:12: " name="call-tooltask-linker" timeMs="8" />
+		<task location="" name="sequential" timeMs="8" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:29: " name="tooltask" timeMs="8" />
+	</target>
+	<target name="link.package.Car_State1" timeMs="10">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Car_State1\tasks.xml:12: " name="call-tooltask-linker" timeMs="10" />
+		<task location="" name="sequential" timeMs="9" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:29: " name="tooltask" timeMs="8" />
+	</target>
+	<target name="link.package.Ellipse1" timeMs="9">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Ellipse1\tasks.xml:12: " name="call-tooltask-linker" timeMs="9" />
+		<task location="" name="sequential" timeMs="9" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:29: " name="tooltask" timeMs="9" />
+	</target>
+	<target name="link.package.Inverters_Data0" timeMs="0" />
+	<target name="link.package.Sensors0" timeMs="0" />
+	<target name="link.package.Inverters_Action1" timeMs="9">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Inverters_Action1\tasks.xml:12: " name="call-tooltask-linker" timeMs="9" />
+		<task location="" name="sequential" timeMs="9" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:29: " name="tooltask" timeMs="8" />
+	</target>
+	<target name="link.package.SoC0" timeMs="0" />
+	<target name="link.package.Synchronism0" timeMs="0" />
+	<target name="link.package.Sensors1" timeMs="10">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Sensors1\tasks.xml:12: " name="call-tooltask-linker" timeMs="10" />
+		<task location="" name="sequential" timeMs="10" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:29: " name="tooltask" timeMs="9" />
+	</target>
+	<target name="link.package.Inverters_Data1" timeMs="10">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Inverters_Data1\tasks.xml:12: " name="call-tooltask-linker" timeMs="10" />
+		<task location="" name="sequential" timeMs="10" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:29: " name="tooltask" timeMs="10" />
+	</target>
+	<target name="link.package.SoC1" timeMs="9">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\SoC1\tasks.xml:12: " name="call-tooltask-linker" timeMs="9" />
+		<task location="" name="sequential" timeMs="9" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:29: " name="tooltask" timeMs="9" />
+	</target>
+	<target name="link.package.racing_modes_R2022a0" timeMs="0" />
+	<target name="link.package.vdc_r2022a0" timeMs="0" />
+	<target name="link.package.Synchronism1" timeMs="9">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Synchronism1\tasks.xml:12: " name="call-tooltask-linker" timeMs="9" />
+		<task location="" name="sequential" timeMs="9" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:29: " name="tooltask" timeMs="9" />
+	</target>
+	<target name="link.package.matlabsharedR2022a" timeMs="0" />
+	<target name="link.package.ETC" timeMs="0" />
+	<target name="link.package.CBC" timeMs="0" />
+	<target name="link.package.racing_modes_R2022a1" timeMs="8">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\racing_modes_R2022a1\tasks.xml:12: " name="call-tooltask-linker" timeMs="8" />
+		<task location="" name="sequential" timeMs="8" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:29: " name="tooltask" timeMs="7" />
+	</target>
+	<target name="link.package.OSC" timeMs="22">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\tasks.xml:14: " name="call-tooltask-linker" timeMs="22" />
+		<task location="" name="sequential" timeMs="22" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:29: " name="tooltask" timeMs="22" />
+	</target>
+	<target name="link.package.vdc_r2022a1" timeMs="116">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\vdc_r2022a1\tasks.xml:12: " name="call-tooltask-linker" timeMs="116" />
+		<task location="" name="sequential" timeMs="115" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:29: " name="tooltask" timeMs="115">
+			<message priority="info" text="Creating 1 file(s)..." tool="PI_BUILD_SYSTEM" />
+		</task>
+	</target>
+	<target name="link.packages" timeMs="139">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:109: " name="foreachcall" timeMs="139" />
+	</target>
+	<target name="link.project" timeMs="565">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\tasks.xml:12: " name="call-tooltask-linker" timeMs="314" />
+		<task location="" name="sequential" timeMs="314" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:29: " name="tooltask" timeMs="314">
+			<message priority="info" text="Creating 1 file(s)..." tool="PI_BUILD_SYSTEM" />
+		</task>
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\tasks.xml:13: " name="call-tooltask-linker" timeMs="251" />
+		<task location="" name="sequential" timeMs="251" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:29: " name="tooltask" timeMs="251">
+			<message priority="info" text="Creating 1 file(s)..." tool="PI_BUILD_SYSTEM" />
+		</task>
+	</target>
+	<target name="mainlink" timeMs="1">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:85: " name="call" timeMs="0">
+			<target name="link.target-class" timeMs="0">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\Common\tasks.xml:90: " name="log" timeMs="0" />
+			</target>
+		</task>
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:87: " name="call" timeMs="0">
+			<target name="link.target" timeMs="0">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:124: " name="log" timeMs="0" />
+			</target>
+		</task>
+	</target>
+	<target name="postlink" timeMs="1">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:96: " name="call" timeMs="0" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:98: " name="call" timeMs="1">
+			<target name="postlink.target-class" timeMs="0">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\Common\tasks.xml:98: " name="log" timeMs="0" />
+			</target>
+		</task>
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:100: " name="call" timeMs="0">
+			<target name="postlink.target" timeMs="0">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:132: " name="log" timeMs="0" />
+			</target>
+		</task>
+	</target>
+	<target name="link.all" timeMs="1">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\linkage_tasks.xml:118: " name="log" timeMs="0" />
+	</target>
+	<target name="initfinalize" timeMs="1">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\postprocessing_tasks.xml:46: " name="log" timeMs="0" />
+		<message priority="info" text="Performing postprocessing..." />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\postprocessing_tasks.xml:48: " name="call" timeMs="1">
+			<target name="commit.pid" timeMs="1">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:293: " name="property" timeMs="0" />
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:294: " name="property" timeMs="0" />
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:295: " name="property" timeMs="0" />
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:296: " name="property" timeMs="0" />
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:297: " name="log" timeMs="0" />
+			</target>
+		</task>
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\postprocessing_tasks.xml:49: " name="call" timeMs="0" />
+	</target>
+	<target name="prefinalize" timeMs="222">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\postprocessing_tasks.xml:58: " name="call" timeMs="0" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\postprocessing_tasks.xml:60: " name="call" timeMs="221">
+			<target name="generate.hwc.asam2mc" timeMs="221">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\Common\tasks.xml:141: " name="log" timeMs="0" />
+				<message priority="info" text="Calling ASAM-MCD 2MC generation for HWC..." />
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\Common\tasks.xml:142: " name="tooltask" timeMs="220">
+					<message priority="info" text="Creating 1 file(s)..." tool="PI_BUILD_SYSTEM" />
+				</task>
+			</target>
+			<target name="prefinalize.target-class" timeMs="0">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\Common\tasks.xml:106: " name="log" timeMs="0" />
+			</target>
+		</task>
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\postprocessing_tasks.xml:62: " name="call" timeMs="1">
+			<target name="prefinalize.target" timeMs="0">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:140: " name="log" timeMs="0" />
+			</target>
+		</task>
+	</target>
+	<target name="postprocess.package.Car_State0" timeMs="0" />
+	<target name="postprocess.package.Disconnections0" timeMs="1" />
+	<target name="postprocess.package.Car_State1" timeMs="0" />
+	<target name="postprocess.package.Disconnections1" timeMs="0" />
+	<target name="postprocess.package.Ellipse0" timeMs="0" />
+	<target name="postprocess.package.Ellipse1" timeMs="0" />
+	<target name="postprocess.package.Inverters_Action0" timeMs="0" />
+	<target name="postprocess.package.Inverters_Action1" timeMs="0" />
+	<target name="postprocess.package.Inverters_Data0" timeMs="0" />
+	<target name="postprocess.package.Inverters_Data1" timeMs="0" />
+	<target name="postprocess.package.Sensors0" timeMs="0" />
+	<target name="postprocess.package.Sensors1" timeMs="0" />
+	<target name="postprocess.package.SoC0" timeMs="0" />
+	<target name="postprocess.package.SoC1" timeMs="0" />
+	<target name="postprocess.package.Synchronism0" timeMs="0" />
+	<target name="postprocess.package.Synchronism1" timeMs="0" />
+	<target name="postprocess.package.racing_modes_R2022a0" timeMs="0" />
+	<target name="postprocess.package.racing_modes_R2022a1" timeMs="0" />
+	<target name="postprocess.package.vdc_r2022a0" timeMs="0" />
+	<target name="postprocess.package.vdc_r2022a1" timeMs="0" />
+	<target name="postprocess.package.matlabsharedR2022a" timeMs="0" />
+	<target name="postprocess.package.ETC" timeMs="0" />
+	<target name="postprocess.package.OSC" timeMs="0" />
+	<target name="postprocess.package.CBC" timeMs="0" />
+	<target name="postprocess.packages" timeMs="7">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\postprocessing_tasks.xml:97: " name="foreachcall" timeMs="6" />
+	</target>
+	<target name="postprocess.project" timeMs="1454">
+		<task location="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\tasks.xml:17: " name="call-tooltask-tool" timeMs="1454" />
+		<task location="" name="sequential" timeMs="1454" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\generation_tasks.xml:29: " name="tooltask" timeMs="1454">
+			<message priority="info" text="Creating 1 file(s)..." tool="PI_BUILD_SYSTEM" />
+		</task>
+		<message id="0x20570x0000" priority="info" text="Merging to single ASAM MCD-2MC project succeeded." tool="PI_A2L_MERGER" />
+	</target>
+	<target name="mainfinalize" timeMs="0">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\postprocessing_tasks.xml:71: " name="call" timeMs="0">
+			<target name="finalize.target-class" timeMs="0">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\Common\tasks.xml:114: " name="log" timeMs="0" />
+			</target>
+		</task>
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\postprocessing_tasks.xml:73: " name="call" timeMs="0">
+			<target name="finalize.target" timeMs="0">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:148: " name="log" timeMs="0" />
+			</target>
+		</task>
+	</target>
+	<target name="postfinalize" timeMs="82">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\postprocessing_tasks.xml:82: " name="call" timeMs="0" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\postprocessing_tasks.xml:84: " name="call" timeMs="0">
+			<target name="postfinalize.target-class" timeMs="0">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\Common\tasks.xml:122: " name="log" timeMs="0" />
+			</target>
+		</task>
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\postprocessing_tasks.xml:86: " name="call" timeMs="80">
+			<target name="postfinalize.target" timeMs="80">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:156: " name="log" timeMs="0" />
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:158: " name="log" timeMs="0" />
+				<message priority="info" text="Creating S-Recordfile..." />
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:159: " name="call" timeMs="80">
+					<target name="patch.srecordfile" timeMs="79">
+						<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Target\ETARGET\ES910\tasks.xml:163: " name="tooltask" timeMs="79">
+							<message priority="info" text="Creating 1 file(s)..." tool="PI_BUILD_SYSTEM" />
+						</task>
+					</target>
+				</task>
+			</target>
+		</task>
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\postprocessing_tasks.xml:88: " name="call" timeMs="2">
+			<target name="writeproperties.results" timeMs="2">
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\parse_tasks.xml:64: " name="log" timeMs="0" />
+				<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\parse_tasks.xml:65: " name="echo" timeMs="1" />
+			</target>
+		</task>
+	</target>
+	<target name="postprocess.all" timeMs="2">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\postprocessing_tasks.xml:106: " name="log" timeMs="0" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\postprocessing_tasks.xml:112: " name="condition" timeMs="1" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\postprocessing_tasks.xml:119: " name="call" timeMs="0" />
+	</target>
+	<target name="finalize" timeMs="0">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:26: " name="log" timeMs="0" />
+	</target>
+	<target name="mainbuild" timeMs="0">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:194: " name="log" timeMs="0" />
+		<message priority="info" text="Build finished successfully." />
+	</target>
+	<target name="build" timeMs="6499">
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:174: " name="trycatch" timeMs="6499" />
+		<task location="C:\Program Files (x86)\ETAS\INTECRIO5.0\Build\Common\base_tasks.xml:176: " name="antcall" timeMs="6496" />
+	</target>
+	<build_result result="Build action succeeded" timeMs="7215" />
+</build>
