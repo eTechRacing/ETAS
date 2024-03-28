@@ -26,7 +26,7 @@ lambdaKyalpha=1;
 lambdaKygamma=1;
 PF=0.75; %Front pressure Bar
 PR=0.75; %Rrear pressure Bar
-gammaF0=-1.5; %Front Camber deg en negatiu
+gammaF0=-1; %Front Camber deg en negatiu
 gammaR0=-1; %Rear Camber deg en negatiu
 
 %Propietats del neumàtic
@@ -149,10 +149,10 @@ for i = 1:length(SI);
             
             %Camber variation
             rollangle(i,j)=Ay(i,j)*weight*g*H/(Kr+Kf);
-            gammaFL(i,j)=abs((gammaF0+0.55333*rollangle(i,j))*pi/180); %rollangle i camber en deg 
-            gammaFR(i,j)=abs((gammaF0-0.55333*rollangle(i,j))*pi/180); %rollangle i camber en deg 
-            gammaRL(i,j)=abs((gammaR0+0.55333*rollangle(i,j))*pi/180); %rollangle i camber en deg 
-            gammaRR(i,j)=abs((gammaR0-0.55333*rollangle(i,j))*pi/180); %rollangle i camber en deg 
+            gammaFL(i,j)=abs((gammaF0+0.36842*rollangle(i,j))*pi/180); %rollangle i camber en deg 
+            gammaFR(i,j)=abs((gammaF0-0.36842*rollangle(i,j))*pi/180); %rollangle i camber en deg 
+            gammaRL(i,j)=abs((gammaR0+0.36842*rollangle(i,j))*pi/180); %rollangle i camber en deg 
+            gammaRR(i,j)=abs((gammaR0-0.36842*rollangle(i,j))*pi/180); %rollangle i camber en deg 
             
             
             %Front Left wheel
