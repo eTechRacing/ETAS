@@ -8,7 +8,7 @@ a = 0.8; %Distance Front axis - COG
 b = l-a; %Distancia ruedas tras a cg
 Tf = 1.25; %Trackwidth front
 Tr = 1.15; %Trackwidth rear
-weight = 320 %Pes amb pilot
+weight = 320; %Pes amb pilot
 Zrf=0.0964; %Roll center front m
 Zrr=0.120; %Roll center rear m
 Kf= 352.41; %roll stiffnes front maxima ajustabilidad +150 de lo que de el muelle
@@ -26,8 +26,8 @@ lambdaKyalpha=1;
 lambdaKygamma=1;
 PF=0.75; %Front pressure Bar
 PR=0.75; %Rrear pressure Bar
-gammaF0=-1; %Front Camber deg en negatiu
-gammaR0=-1; %Rear Camber deg en negatiu
+gammaF0=-0.9; %Front Camber deg en negatiu
+gammaR0=-0.9; %Rear Camber deg en negatiu
 
 %Propietats del neumàtic
 PCY1 = 1.5000; %shape factor (Afilar cantonades i estirar i atxatar)
