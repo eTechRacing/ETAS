@@ -1,17 +1,17 @@
 clear all
 clc
 
-%Propietats del cotxe
 g=9.81; %m/s^2
+
 l = 1.53; %longitud cotxe
-a = 0.86; %anterior a = 0.78; Distancia ruedas del a cg 
+a = 0.86; %anterior car.a = 0.78; Distancia ruedas del a cg 
 b = l-a; %Distancia ruedas tras a cg
 Tf = 1.25; %Trackwidth front
 Tr = 1.15; %Trackwidth rear
 weight = 235+86; %Pes
 Zrf=0.05001; %Roll center front
 Zrr=0.08699; %Roll center rear
-H=0.229651; %altura entre CM i Rollaxis
+H=0.229651;
 Kf= 352.41; %roll stiffnes front maxima ajustabilidad +150 de lo que de el muelle
 Kr= 296.70; %roll stiffnes rear maxima ajustabilidad +250 de lo que de el muelle
 h= 0.3; 
@@ -59,14 +59,12 @@ PPY4 = -2;
 PPY5 = 0.0000;
 Fz0 = 1080;
 P0=0.97;
-
 %Turn slip
 z0=1;
 z1=1;
 z2=1;
 z3=1;
 z4=1;
-
 
 %Ecuacio MZ(SA) Regressio 
 a0m =       2.107;
@@ -91,12 +89,12 @@ MZ=@(SA)  a0m + a1m*cos(SA*wm) + b1m*sin(SA*wm) + a2m*cos(2*SA*wm) + b2m*sin(2*S
 V=50; %velocitat en X en km/h
 deltadg=-15:1:15; %Steering angles en graus
 SI=deltadg'.*pi/180; %Steering angle en rad
-Betadg=-6:1:6; %Slip angle graus
+Betadg=-6:1:6; %Slip angle en graus
 VS=Betadg'.*pi/180; %Slip angle rad
-sliplim=12*pi/180; %Limit slip angle
+sliplim=17*pi/180; %Limit slip angle
 
 
-%Izz=weight*(a^2+h^2); %Moment inercia
+%Izz=car.weight*(a^2+car.h^2); %Moment inercia
 df=2.3*((V/3.6)^2) %Down Force
 dfR=(df*copx)/l %dfR=df*copx/(1.53*2); Down Force front
 dfF=df-dfR %dfF=df*(1.53-copx)/(1.53*2); Down Force rear
