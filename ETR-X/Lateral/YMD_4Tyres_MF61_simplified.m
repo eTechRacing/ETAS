@@ -4,7 +4,7 @@ clc
 g=9.81; %m/s^2
 
 l = 1.53; %wheel base
-a = 0.8; %anterior car.a = 0.78; Distancia ruedas del a cg 
+a = 0.8; %Distance Front axis - COG 
 b = l-a; %Distancia ruedas tras a cg
 Tf = 1.25; %Trackwidth front
 Tr = 1.15; %Trackwidth rear
@@ -15,7 +15,7 @@ Kf= 352.41; %roll stiffnes front maxima ajustabilidad +150 de lo que de el muell
 Kr= 296.70; %roll stiffnes rear maxima ajustabilidad +250 de lo que de el muelle
 h= 0.28; %COG height m
 H=h-((Zrr-Zrf)*a/l) % vertical height: roll axis and COG. Obtained wit similar triangles rules m
-copx = 0.84; % center de pressure
+copx = 0.9; % center de pressure
 lambdaHy=1;
 lambdaVy=1;
 lambdauy=0.59; %scaling factor
@@ -86,7 +86,7 @@ MZ=@(SA)  a0m + a1m*cos(SA*wm) + b1m*sin(SA*wm) + a2m*cos(2*SA*wm) + b2m*sin(2*S
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Imputs
-V=50; %velocitat en X en km/h
+V=90; %velocitat en X en km/h
 deltadg=-15:1:15; %Steering angles en graus
 SI=deltadg'.*pi/180; %Steering angle en rad
 Betadg=-6:1:6; %Slip angle en graus
