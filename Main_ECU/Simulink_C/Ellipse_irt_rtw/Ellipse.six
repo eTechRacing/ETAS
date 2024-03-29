@@ -22,9 +22,9 @@
 	<moduleInfo identifier="Ellipse">
 		<name>Ellipse</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Ellipse.slx&quot;"/>
-		<version major="10" minor="3"/>
+		<version major="10" minor="1"/>
 		<dateTime kind="created" year="2022" month="8" day="20" hour="10" minute="22" second="41"/>
-		<dateTime kind="lastModified" year="2024" month="2" day="3" hour="0" minute="24" second="19"/>
+		<dateTime kind="lastModified" year="2024" month="3" day="29" hour="1" minute="0" second="57"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="3" day="28" hour="11" minute="15" second="9"/>
+		<dateTime kind="created" year="2024" month="3" day="29" hour="1" minute="1" second="7"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -180,12 +180,6 @@
 						<documentation>&lt;Root&gt;/el_AngleTrack</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="el_SlipAngle">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/el_SlipAngle</documentation>
-					</annotation>
-				</structMember>
 				<structMember identifier="el_CurvatureRadius">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
@@ -196,18 +190,6 @@
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/el_AUTO_STATUS</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="el_GENERAL">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/el_GENERAL</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="el_CLOCK">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/el_CLOCK</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -235,12 +217,6 @@
 						<documentation>&lt;Root&gt;/TrackAngle</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="SlipAngle">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/SlipAngle</documentation>
-					</annotation>
-				</structMember>
 				<structMember identifier="CurvRadius">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
@@ -251,18 +227,6 @@
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Status_Auto</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="General_Tx">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/General_Tx</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Clock_Tx">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Clock_Tx</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -393,37 +357,6 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.el_SlipAngle">
-				<definitionLocation>
-					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="el_SlipAngle"/>
-				</definitionLocation>
-				<fileOrigin name="Ellipse.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Ellipse.el_SlipAngle">
-				<name>el_SlipAngle</name>
-				<modelLink href="Ellipse/el_SlipAngle"/>
-				<modelLocation>
-					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="el_SlipAngle" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Ellipse_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
 			<dataCInterface identifier="Ellipse_U.el_CurvatureRadius">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_U"/>
@@ -468,68 +401,6 @@
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
 					<pathNode name="el_AUTO_STATUS" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Ellipse_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.el_GENERAL">
-				<definitionLocation>
-					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="el_GENERAL"/>
-				</definitionLocation>
-				<fileOrigin name="Ellipse.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Ellipse.el_GENERAL">
-				<name>el_GENERAL</name>
-				<modelLink href="Ellipse/el_GENERAL"/>
-				<modelLocation>
-					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="el_GENERAL" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Ellipse_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_U.el_CLOCK">
-				<definitionLocation>
-					<baseRef identifier="Ellipse_U"/>
-					<memberRef identifier="el_CLOCK"/>
-				</definitionLocation>
-				<fileOrigin name="Ellipse.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Ellipse.el_CLOCK">
-				<name>el_CLOCK</name>
-				<modelLink href="Ellipse/el_CLOCK"/>
-				<modelLocation>
-					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="el_CLOCK" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -642,37 +513,6 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_Y.SlipAngle">
-				<definitionLocation>
-					<baseRef identifier="Ellipse_Y"/>
-					<memberRef identifier="SlipAngle"/>
-				</definitionLocation>
-				<fileOrigin name="Ellipse.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Ellipse.SlipAngle">
-				<name>SlipAngle</name>
-				<modelLink href="Ellipse/SlipAngle"/>
-				<modelLocation>
-					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="SlipAngle" kind="mlsl:block" type="Outport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection out="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Ellipse_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
 			<dataCInterface identifier="Ellipse_Y.CurvRadius">
 				<definitionLocation>
 					<baseRef identifier="Ellipse_Y"/>
@@ -717,68 +557,6 @@
 				<modelLocation>
 					<pathNode name="Ellipse" kind="mlsl:model"/>
 					<pathNode name="Status_Auto" kind="mlsl:block" type="Outport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection out="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Ellipse_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_Y.General_Tx">
-				<definitionLocation>
-					<baseRef identifier="Ellipse_Y"/>
-					<memberRef identifier="General_Tx"/>
-				</definitionLocation>
-				<fileOrigin name="Ellipse.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Ellipse.General_Tx">
-				<name>General_Tx</name>
-				<modelLink href="Ellipse/General_Tx"/>
-				<modelLocation>
-					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="General_Tx" kind="mlsl:block" type="Outport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection out="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Ellipse_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Ellipse_Y.Clock_Tx">
-				<definitionLocation>
-					<baseRef identifier="Ellipse_Y"/>
-					<memberRef identifier="Clock_Tx"/>
-				</definitionLocation>
-				<fileOrigin name="Ellipse.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Ellipse.Clock_Tx">
-				<name>Clock_Tx</name>
-				<modelLink href="Ellipse/Clock_Tx"/>
-				<modelLocation>
-					<pathNode name="Ellipse" kind="mlsl:model"/>
-					<pathNode name="Clock_Tx" kind="mlsl:block" type="Outport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection out="true"/>
@@ -850,19 +628,13 @@
 						<message identifier="Ellipse_U.el_LATITUDE_EKF" send="false"></message>
 						<message identifier="Ellipse_U.el_LONGITUDE_EKF" send="false"></message>
 						<message identifier="Ellipse_U.el_AngleTrack" send="false"></message>
-						<message identifier="Ellipse_U.el_SlipAngle" send="false"></message>
 						<message identifier="Ellipse_U.el_CurvatureRadius" send="false"></message>
 						<message identifier="Ellipse_U.el_AUTO_STATUS" send="false"></message>
-						<message identifier="Ellipse_U.el_GENERAL" send="false"></message>
-						<message identifier="Ellipse_U.el_CLOCK" send="false"></message>
 						<message identifier="Ellipse_Y.Lat_EKF" send="true"></message>
 						<message identifier="Ellipse_Y.Long_EKF" send="true"></message>
 						<message identifier="Ellipse_Y.TrackAngle" send="true"></message>
-						<message identifier="Ellipse_Y.SlipAngle" send="true"></message>
 						<message identifier="Ellipse_Y.CurvRadius" send="true"></message>
 						<message identifier="Ellipse_Y.Status_Auto" send="true"></message>
-						<message identifier="Ellipse_Y.General_Tx" send="true"></message>
-						<message identifier="Ellipse_Y.Clock_Tx" send="true"></message>
 					</messageAccess>
 					<constraint>
 						<period value="0.2"/>

@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ellipse".
  *
- * Model version              : 10.3
+ * Model version              : 10.1
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Thu Mar 28 11:15:09 2024
+ * C source code generated on : Fri Mar 29 01:01:07 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -50,11 +50,6 @@ static void Ellipse_output(void)
    */
   Ellipse_Y.TrackAngle = Ellipse_U.el_AngleTrack;
 
-  /* Outport: '<Root>/SlipAngle' incorporates:
-   *  Inport: '<Root>/el_SlipAngle'
-   */
-  Ellipse_Y.SlipAngle = Ellipse_U.el_SlipAngle;
-
   /* Outport: '<Root>/CurvRadius' incorporates:
    *  Inport: '<Root>/el_CurvatureRadius'
    */
@@ -64,16 +59,6 @@ static void Ellipse_output(void)
    *  Inport: '<Root>/el_AUTO_STATUS'
    */
   Ellipse_Y.Status_Auto = Ellipse_U.el_AUTO_STATUS;
-
-  /* Outport: '<Root>/General_Tx' incorporates:
-   *  Inport: '<Root>/el_GENERAL'
-   */
-  Ellipse_Y.General_Tx = Ellipse_U.el_GENERAL;
-
-  /* Outport: '<Root>/Clock_Tx' incorporates:
-   *  Inport: '<Root>/el_CLOCK'
-   */
-  Ellipse_Y.Clock_Tx = Ellipse_U.el_CLOCK;
 }
 
 /* Model update function */
@@ -224,11 +209,11 @@ RT_MODEL_Ellipse_T *Ellipse(void)
 
   /* Initialize Sizes */
   Ellipse_M->Sizes.numContStates = (0);/* Number of continuous states */
-  Ellipse_M->Sizes.numY = (8);         /* Number of model outputs */
-  Ellipse_M->Sizes.numU = (8);         /* Number of model inputs */
+  Ellipse_M->Sizes.numY = (5);         /* Number of model outputs */
+  Ellipse_M->Sizes.numU = (5);         /* Number of model inputs */
   Ellipse_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Ellipse_M->Sizes.numSampTimes = (1); /* Number of sample times */
-  Ellipse_M->Sizes.numBlocks = (8);    /* Number of blocks */
+  Ellipse_M->Sizes.numBlocks = (5);    /* Number of blocks */
   return Ellipse_M;
 }
 

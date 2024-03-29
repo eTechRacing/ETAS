@@ -7,9 +7,9 @@
  *
  * Code generation for model "Inverters_Data".
  *
- * Model version              : 10.11
+ * Model version              : 10.13
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Thu Mar 28 14:56:23 2024
+ * C source code generated on : Fri Mar 29 01:02:41 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -38,8 +38,8 @@ RT_MODEL_Inverters_Data_T *const Inverters_Data_M = &Inverters_Data_M_;
 /* Model output function */
 static void Inverters_Data_output(void)
 {
-  real_T rtb_Divide;
-  real_T rtb_Divide_c;
+  real_T rtb_Abs;
+  real_T rtb_Abs1;
   real_T rtb_RPMtorads;
   real_T rtb_RPMtorads_n;
 
@@ -56,11 +56,11 @@ static void Inverters_Data_output(void)
    *  Product: '<S14>/Product4'
    *  Product: '<S14>/Product5'
    */
-  rtb_Divide_c = ((Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT *
-                   Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT * -6.6188E-6
-                   + rt_powd_snf(Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT,
-    3.0) * 9.69483E-11) + Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT *
-                  0.158535) + -1260.62;
+  rtb_Abs1 = ((Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT *
+               Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT * -6.6188E-6 +
+               rt_powd_snf(Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT, 3.0)
+               * 9.69483E-11) + Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT *
+              0.158535) + -1260.62;
 
   /* Sum: '<S15>/Add1' incorporates:
    *  Constant: '<S15>/A1'
@@ -86,13 +86,13 @@ static void Inverters_Data_output(void)
   /* Outport: '<Root>/Temp_IGBT' incorporates:
    *  MinMax: '<Root>/Max'
    */
-  Inverters_Data_Y.Temp_IGBT = fmax(rtb_Divide_c, rtb_RPMtorads_n);
+  Inverters_Data_Y.Temp_IGBT = fmax(rtb_Abs1, rtb_RPMtorads_n);
 
   /* Outport: '<Root>/Inv_R_TempIGBT' */
   Inverters_Data_Y.Inv_R_TempIGBT = rtb_RPMtorads_n;
 
   /* Outport: '<Root>/Inv_L_TempIGBT' */
-  Inverters_Data_Y.Inv_L_TempIGBT = rtb_Divide_c;
+  Inverters_Data_Y.Inv_L_TempIGBT = rtb_Abs1;
 
   /* Sum: '<S16>/Add1' incorporates:
    *  Constant: '<S16>/C1'
@@ -109,19 +109,19 @@ static void Inverters_Data_output(void)
    *  Inport: '<Root>/Inv_R_RegID_M73_Inv_R_TempMotor'
    *  Product: '<S17>/Product5'
    */
-  rtb_Divide_c = Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor * 0.03282 +
+  rtb_Abs1 = Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor * 0.03282 +
     -114.92892;
 
   /* Outport: '<Root>/Temp_Motors' incorporates:
    *  MinMax: '<Root>/Max1'
    */
-  Inverters_Data_Y.Temp_Motors = fmax(rtb_RPMtorads_n, rtb_Divide_c);
+  Inverters_Data_Y.Temp_Motors = fmax(rtb_RPMtorads_n, rtb_Abs1);
 
   /* Outport: '<Root>/Inv_L_TempMotor' */
   Inverters_Data_Y.Inv_L_TempMotor = rtb_RPMtorads_n;
 
   /* Outport: '<Root>/Inv_R_TempMotor' */
-  Inverters_Data_Y.Inv_R_TempMotor = rtb_Divide_c;
+  Inverters_Data_Y.Inv_R_TempMotor = rtb_Abs1;
 
   /* Gain: '<S12>/RPM to rad//s' incorporates:
    *  Inport: '<Root>/Inv_L_RegID_M48_Inv_L_Speed'
@@ -134,10 +134,10 @@ static void Inverters_Data_output(void)
    *  Constant: '<Root>/Wheel_Radius [m]'
    *  Product: '<S12>/Divide1'
    */
-  rtb_Divide_c = rtb_RPMtorads_n / 11.3257 * 0.2285;
+  rtb_Abs1 = rtb_RPMtorads_n / 11.3257 * 0.2285;
 
   /* Outport: '<Root>/RL_Vel_ms_Wheel' */
-  Inverters_Data_Y.RL_Vel_ms_Wheel = rtb_Divide_c;
+  Inverters_Data_Y.RL_Vel_ms_Wheel = rtb_Abs1;
 
   /* Gain: '<S11>/RPM to rad//s' incorporates:
    *  Inport: '<Root>/Inv_R_RegID_M48_Inv_R_Speed'
@@ -150,10 +150,10 @@ static void Inverters_Data_output(void)
    *  Constant: '<Root>/Wheel_Radius [m]'
    *  Product: '<S11>/Divide1'
    */
-  rtb_Divide = rtb_RPMtorads / 11.3257 * 0.2285;
+  rtb_Abs = rtb_RPMtorads / 11.3257 * 0.2285;
 
   /* Outport: '<Root>/RR_Vel_ms_Wheel' */
-  Inverters_Data_Y.RR_Vel_ms_Wheel = rtb_Divide;
+  Inverters_Data_Y.RR_Vel_ms_Wheel = rtb_Abs;
 
   /* Outport: '<Root>/Speed' incorporates:
    *  Abs: '<S1>/Abs'
@@ -163,14 +163,7 @@ static void Inverters_Data_output(void)
    *  Gain: '<S1>/Gain2'
    *  Sum: '<S1>/Sum'
    */
-  Inverters_Data_Y.Speed = (fabs(3.6 * rtb_Divide_c) + fabs(3.6 * rtb_Divide)) *
-    0.5;
-
-  /* Outport: '<Root>/Wheel_RR_Speed' */
-  Inverters_Data_Y.Wheel_RR_Speed = rtb_Divide;
-
-  /* Outport: '<Root>/Wheel_RL_Speed' */
-  Inverters_Data_Y.Wheel_RL_Speed = rtb_Divide_c;
+  Inverters_Data_Y.Speed = (fabs(3.6 * rtb_Abs1) + fabs(3.6 * rtb_Abs)) * 0.5;
 
   /* Outport: '<Root>/RL_rads_Motor' */
   Inverters_Data_Y.RL_rads_Motor = rtb_RPMtorads_n;
@@ -390,11 +383,11 @@ RT_MODEL_Inverters_Data_T *Inverters_Data(void)
 
   /* Initialize Sizes */
   Inverters_Data_M->Sizes.numContStates = (0);/* Number of continuous states */
-  Inverters_Data_M->Sizes.numY = (22); /* Number of model outputs */
+  Inverters_Data_M->Sizes.numY = (20); /* Number of model outputs */
   Inverters_Data_M->Sizes.numU = (14); /* Number of model inputs */
   Inverters_Data_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Inverters_Data_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  Inverters_Data_M->Sizes.numBlocks = (75);/* Number of blocks */
+  Inverters_Data_M->Sizes.numBlocks = (73);/* Number of blocks */
   Inverters_Data_M->Sizes.numBlockIO = (0);/* Number of block outputs */
   return Inverters_Data_M;
 }

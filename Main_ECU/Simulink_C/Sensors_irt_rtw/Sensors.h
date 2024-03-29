@@ -12,9 +12,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 10.2
+ * Model version              : 10.4
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Thu Mar 28 14:57:58 2024
+ * C source code generated on : Fri Mar 29 01:03:13 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -862,9 +862,9 @@ typedef struct {
   const real_T Sum1_p;                 /* '<S1>/Sum1' */
   const real_T Sum1_f;                 /* '<S2>/Sum1' */
   const real_T Subtract;               /* '<S6>/Subtract' */
-  const real_T Subtract_k;             /* '<S7>/Subtract' */
+  const real_T Subtract_a;             /* '<S7>/Subtract' */
   const real_T Subtract_e;             /* '<S8>/Subtract' */
-  const real_T Subtract_ev;            /* '<S9>/Subtract' */
+  const real_T Subtract_n;             /* '<S9>/Subtract' */
   const real_T Subtract_p;             /* '<S12>/Subtract' */
 } ConstB_Sensors_T;
 
@@ -872,7 +872,7 @@ typedef struct {
 typedef struct {
   real_T APPS1_Bits;                   /* '<Root>/APPS1_Bits' */
   real_T APPS2_Bits;                   /* '<Root>/APPS2_Bits' */
-  real_T BrakeSensor_Bits;             /* '<Root>/BrakeSensor_Bits' */
+  real_T BrakePedal_Bits;              /* '<Root>/BrakePedal_Bits' */
   real_T Susp_F_L_Bits;                /* '<Root>/Susp_F_L_Bits' */
   real_T Susp_F_R_Bits;                /* '<Root>/Susp_F_R_Bits' */
   real_T Susp_R_L_Bits;                /* '<Root>/Susp_R_L_Bits' */
@@ -885,7 +885,7 @@ typedef struct {
   real_T BrakeLight_Control;           /* '<Root>/BrakeLight_Control' */
   real_T APPS1_Value;                  /* '<Root>/APPS1_Value' */
   real_T APPS2_Value;                  /* '<Root>/APPS2_Value' */
-  real_T BrakeSensor_Value;            /* '<Root>/BrakeSensor_Value' */
+  real_T BrakePedal_Value;             /* '<Root>/BrakePedal_Value' */
   real_T SUSP_F_L;                     /* '<Root>/SUSP_F_L' */
   real_T SUSP_F_R;                     /* '<Root>/SUSP_F_R' */
   real_T SUSP_R_L;                     /* '<Root>/SUSP_R_L' */
@@ -1043,13 +1043,13 @@ extern RT_MODEL_Sensors_T *const Sensors_M;
  * '<Root>' : 'Sensors'
  * '<S1>'   : 'Sensors/APPS1 Data Conv'
  * '<S2>'   : 'Sensors/APPS2 Data Conv '
- * '<S3>'   : 'Sensors/BRS Data Conv'
+ * '<S3>'   : 'Sensors/Brake Pedal Data Conv'
  * '<S4>'   : 'Sensors/Brake_Light'
  * '<S5>'   : 'Sensors/Steering Data Conv'
  * '<S6>'   : 'Sensors/Suspension_FL Data Conv'
  * '<S7>'   : 'Sensors/Suspension_FR Data Conv'
  * '<S8>'   : 'Sensors/Suspension_RL Data Conv'
- * '<S9>'   : 'Sensors/Suspension_RR Data_Conv'
+ * '<S9>'   : 'Sensors/Suspension_RR Data Conv'
  * '<S10>'  : 'Sensors/Brake_Light/Brake_Light_OFF'
  * '<S11>'  : 'Sensors/Brake_Light/Brake_Light_ON'
  * '<S12>'  : 'Sensors/Steering Data Conv/Low Pass'

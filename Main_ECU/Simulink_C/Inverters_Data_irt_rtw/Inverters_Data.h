@@ -12,9 +12,9 @@
  *
  * Code generation for model "Inverters_Data".
  *
- * Model version              : 10.11
+ * Model version              : 10.13
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Thu Mar 28 14:56:23 2024
+ * C source code generated on : Fri Mar 29 01:02:41 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -892,8 +892,6 @@ typedef struct {
   real_T Inv_R_Iactual;                /* '<Root>/Inv_R_Iactual' */
   real_T Inv_L_Icommand;               /* '<Root>/Inv_L_Icommand' */
   real_T Inv_R_Icommand;               /* '<Root>/Inv_R_Icommand' */
-  real_T Wheel_RR_Speed;               /* '<Root>/Wheel_RR_Speed' */
-  real_T Wheel_RL_Speed;               /* '<Root>/Wheel_RL_Speed' */
   real_T Inv_L_TempMotor;              /* '<Root>/Inv_L_TempMotor' */
   real_T Inv_R_TempMotor;              /* '<Root>/Inv_R_TempMotor' */
   real_T Inv_R_TempIGBT;               /* '<Root>/Inv_R_TempIGBT' */

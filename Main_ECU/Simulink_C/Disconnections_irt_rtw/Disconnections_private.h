@@ -7,9 +7,9 @@
  *
  * Code generation for model "Disconnections".
  *
- * Model version              : 10.2
+ * Model version              : 10.4
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Thu Mar 28 11:14:50 2024
+ * C source code generated on : Fri Mar 29 00:59:06 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -28,10 +28,9 @@
 
 extern void Disconnections_Reset_counter(real_T *rty_Out1);
 extern void Disconnections_CAN_OK(real_T rtu_Alive_signal, real_T *rty_Out1,
-  real_T *rtd_Last_alive_a);
+  real_T *rtd_Last_alive_n);
 extern void Disconnections_Error_Counter(real_T *rty_Out1, const real_T
-  *rtd_Tot_Errors_k);
+  *rtd_Tot_Errors);
 extern void Disconnections_Signal_OK(real_T *rty_Out1);
-extern void Disconnections_Others(real_T rtu_In1, real_T *rty_others);
 
 #endif                                /* RTW_HEADER_Disconnections_private_h_ */

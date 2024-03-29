@@ -12,9 +12,9 @@
  *
  * Code generation for model "Ellipse".
  *
- * Model version              : 10.3
+ * Model version              : 10.1
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Thu Mar 28 11:15:09 2024
+ * C source code generated on : Fri Mar 29 01:01:07 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -855,11 +855,8 @@ typedef struct {
   real_T el_LATITUDE_EKF;              /* '<Root>/el_LATITUDE_EKF' */
   real_T el_LONGITUDE_EKF;             /* '<Root>/el_LONGITUDE_EKF' */
   real_T el_AngleTrack;                /* '<Root>/el_AngleTrack' */
-  real_T el_SlipAngle;                 /* '<Root>/el_SlipAngle' */
   real_T el_CurvatureRadius;           /* '<Root>/el_CurvatureRadius' */
   real_T el_AUTO_STATUS;               /* '<Root>/el_AUTO_STATUS' */
-  real_T el_GENERAL;                   /* '<Root>/el_GENERAL' */
-  real_T el_CLOCK;                     /* '<Root>/el_CLOCK' */
 } ExtU_Ellipse_T;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -867,11 +864,8 @@ typedef struct {
   real_T Lat_EKF;                      /* '<Root>/Lat_EKF' */
   real_T Long_EKF;                     /* '<Root>/Long_EKF' */
   real_T TrackAngle;                   /* '<Root>/TrackAngle' */
-  real_T SlipAngle;                    /* '<Root>/SlipAngle' */
   real_T CurvRadius;                   /* '<Root>/CurvRadius' */
   real_T Status_Auto;                  /* '<Root>/Status_Auto' */
-  real_T General_Tx;                   /* '<Root>/General_Tx' */
-  real_T Clock_Tx;                     /* '<Root>/Clock_Tx' */
 } ExtY_Ellipse_T;
 
 /* Backward compatible GRT Identifiers */

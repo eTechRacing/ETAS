@@ -7,9 +7,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 10.2
+ * Model version              : 10.4
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Thu Mar 28 14:57:58 2024
+ * C source code generated on : Fri Mar 29 01:03:13 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -42,9 +42,9 @@ static void Sensors_output(void)
   real_T rtb_Divide;
 
   /* Product: '<S3>/Divide' incorporates:
-   *  Inport: '<Root>/BrakeSensor_Bits'
+   *  Inport: '<Root>/BrakePedal_Bits'
    */
-  rtb_Divide = Sensors_U.BrakeSensor_Bits / Sensors_ConstB.Sum1;
+  rtb_Divide = Sensors_U.BrakePedal_Bits / Sensors_ConstB.Sum1;
 
   /* Outputs for Atomic SubSystem: '<Root>/Brake_Light' */
   /* If: '<S4>/If' incorporates:
@@ -55,8 +55,8 @@ static void Sensors_output(void)
 
   /* End of Outputs for SubSystem: '<Root>/Brake_Light' */
 
-  /* Outport: '<Root>/BrakeSensor_Value' */
-  Sensors_Y.BrakeSensor_Value = rtb_Divide;
+  /* Outport: '<Root>/BrakePedal_Value' */
+  Sensors_Y.BrakePedal_Value = rtb_Divide;
 
   /* Outport: '<Root>/APPS1_Value' incorporates:
    *  Inport: '<Root>/APPS1_Bits'
@@ -79,7 +79,7 @@ static void Sensors_output(void)
    *  Sum: '<S6>/Subtract1'
    */
   Sensors_Y.SUSP_F_L = (Sensors_U.Susp_F_L_Bits - 1.0) / Sensors_ConstB.Subtract
-    * 57.0 * 23.0;
+    * 57.0 * 30.0;
 
   /* Outport: '<Root>/SUSP_F_R' incorporates:
    *  Constant: '<Root>/Zero_Bits_Experimental'
@@ -90,7 +90,7 @@ static void Sensors_output(void)
    *  Sum: '<S7>/Subtract1'
    */
   Sensors_Y.SUSP_F_R = (Sensors_U.Susp_F_R_Bits - 1.0) /
-    Sensors_ConstB.Subtract_k * 57.0 * 23.0;
+    Sensors_ConstB.Subtract_a * 57.0 * 30.0;
 
   /* Outport: '<Root>/SUSP_R_L' incorporates:
    *  Constant: '<Root>/Zero_Bits_Experimental'
@@ -112,7 +112,7 @@ static void Sensors_output(void)
    *  Sum: '<S9>/Subtract1'
    */
   Sensors_Y.SUSP_R_R = (Sensors_U.Susp_R_R_Bits - 1.0) /
-    Sensors_ConstB.Subtract_ev * 57.0 * 30.0;
+    Sensors_ConstB.Subtract_n * 57.0 * 30.0;
 
   /* Outputs for Atomic SubSystem: '<S5>/Low Pass' */
   /* Sum: '<S12>/Subtract1' incorporates:

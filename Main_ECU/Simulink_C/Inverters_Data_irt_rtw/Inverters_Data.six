@@ -22,9 +22,9 @@
 	<moduleInfo identifier="Inverters_Data">
 		<name>Inverters_Data</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Inverters_Data.slx&quot;"/>
-		<version major="10" minor="11"/>
+		<version major="10" minor="13"/>
 		<dateTime kind="created" year="2021" month="2" day="22" hour="11" minute="1" second="38"/>
-		<dateTime kind="lastModified" year="2024" month="3" day="28" hour="14" minute="55" second="50"/>
+		<dateTime kind="lastModified" year="2024" month="3" day="29" hour="1" minute="2" second="30"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="3" day="28" hour="14" minute="56" second="23"/>
+		<dateTime kind="created" year="2024" month="3" day="29" hour="1" minute="2" second="41"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -323,18 +323,6 @@
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Inv_R_Icommand</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Wheel_RR_Speed">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Wheel_RR_Speed</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Wheel_RL_Speed">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Wheel_RL_Speed</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="Inv_L_TempMotor">
@@ -1231,68 +1219,6 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_Y.Wheel_RR_Speed">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_Y"/>
-					<memberRef identifier="Wheel_RR_Speed"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Wheel_RR_Speed">
-				<name>Wheel_RR_Speed</name>
-				<modelLink href="Inverters_Data/Wheel_RR_Speed"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Wheel_RR_Speed" kind="mlsl:block" type="Outport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection out="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_Y.Wheel_RL_Speed">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_Y"/>
-					<memberRef identifier="Wheel_RL_Speed"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Wheel_RL_Speed">
-				<name>Wheel_RL_Speed</name>
-				<modelLink href="Inverters_Data/Wheel_RL_Speed"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Wheel_RL_Speed" kind="mlsl:block" type="Outport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection out="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
 			<dataCInterface identifier="Inverters_Data_Y.Inv_L_TempMotor">
 				<definitionLocation>
 					<baseRef identifier="Inverters_Data_Y"/>
@@ -1617,8 +1543,6 @@
 						<message identifier="Inverters_Data_Y.Inv_R_Iactual" send="true"></message>
 						<message identifier="Inverters_Data_Y.Inv_L_Icommand" send="true"></message>
 						<message identifier="Inverters_Data_Y.Inv_R_Icommand" send="true"></message>
-						<message identifier="Inverters_Data_Y.Wheel_RR_Speed" send="true"></message>
-						<message identifier="Inverters_Data_Y.Wheel_RL_Speed" send="true"></message>
 						<message identifier="Inverters_Data_Y.Inv_L_TempMotor" send="true"></message>
 						<message identifier="Inverters_Data_Y.Inv_R_TempMotor" send="true"></message>
 						<message identifier="Inverters_Data_Y.Inv_R_TempIGBT" send="true"></message>
