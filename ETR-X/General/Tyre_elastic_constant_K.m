@@ -16,7 +16,7 @@ K10=((IA-2)/(0-2))*(579-522)+522
 K=((PSI-12)/(10-12))*(K10-K12)+K12
 
 %Spring rate in International System
-KIS=vpa(K*(0.45359237*9.81)*(0.245^-1))
+KIS=vpa(K*(0.45359237*9.81)*(0.0245^-1))
 
 % Calsplan data 
 data=xlsread("Spring Rate.xlsx");
