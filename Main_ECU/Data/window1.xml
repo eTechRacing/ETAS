@@ -10,12 +10,12 @@
 <!ENTITY _648 SYSTEM "OSrv://ObjectHandle#648" NDATA _OIDLink >
 <!ENTITY _649 SYSTEM "OSrv://ObjectHandle#649" NDATA _OIDLink >
 <!ENTITY _650 SYSTEM "OSrv://ObjectHandle#650" NDATA _OIDLink >
+<!ENTITY _5671 SYSTEM "OSrv://ObjectHandle#5671" NDATA _OIDLink >
 <!ENTITY _652 SYSTEM "OSrv://ObjectHandle#652" NDATA _OIDLink >
 <!ENTITY _653 SYSTEM "OSrv://ObjectHandle#653" NDATA _OIDLink >
 <!ENTITY _654 SYSTEM "OSrv://ObjectHandle#654" NDATA _OIDLink >
 <!ENTITY _655 SYSTEM "OSrv://ObjectHandle#655" NDATA _OIDLink >
 <!ENTITY _656 SYSTEM "OSrv://ObjectHandle#656" NDATA _OIDLink >
-<!ENTITY _5671 SYSTEM "OSrv://ObjectHandle#5671" NDATA _OIDLink >
 <!ENTITY _657 SYSTEM "OSrv://ObjectHandle#657" NDATA _OIDLink >
 <!ENTITY _658 SYSTEM "OSrv://ObjectHandle#658" NDATA _OIDLink >
 <!ENTITY _659 SYSTEM "OSrv://ObjectHandle#659" NDATA _OIDLink >
@@ -61,6 +61,9 @@
 	Name="Disconnections_U.APPS2_Bits"
 	Index="650"
 	Type="YBOSWPort"/><_LinkTarget
+	Name="Disconnections_U.BrakePedal_Bits"
+	Index="5671"
+	Type="YBOSWPort"/><_LinkTarget
 	Name="Disconnections_U.SteeringSensor_Bits"
 	Index="652"
 	Type="YBOSWPort"/><_LinkTarget
@@ -75,9 +78,6 @@
 	Type="YBOSWPort"/><_LinkTarget
 	Name="Disconnections_U.Susp_R_R_Bits"
 	Index="656"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="Disconnections_U.BrakePedal_Bits"
-	Index="5671"
 	Type="YBOSWPort"/><_LinkTarget
 	Name="Disconnections_Y.Critical_CAN_Disconnection"
 	Index="657"
@@ -236,7 +236,8 @@
 	X="33"
 	Y="17"/></GMBOConnectionPoint.Position></GMBOConnectionPoint></GMBOConnectionPointList></GMBOPortRef.ConnectionPoints></GMBOPortRef><GMBOPortRef
 	Name="Window1.Components.PortContainer.PortRef12"
-	Docking="LEFT"><GMBOPortRef.Position><GMBOPoint
+	Docking="LEFT"
+	Port.ofTypeYBOPort="_5671"><GMBOPortRef.Position><GMBOPoint
 	Y="383"/></GMBOPortRef.Position><GMBOPortRef.ConnectionPoints><GMBOConnectionPointList><GMBOConnectionPoint
 	Name="Window1.Components.PortContainer.PortRef12.ConnectionPoint"><GMBOConnectionPoint.Position><GMBOPoint
 	X="-10"
@@ -295,8 +296,7 @@
 	X="33"
 	Y="17"/></GMBOConnectionPoint.Position></GMBOConnectionPoint></GMBOConnectionPointList></GMBOPortRef.ConnectionPoints></GMBOPortRef><GMBOPortRef
 	Name="Window1.Components.PortContainer.PortRef30"
-	Docking="LEFT"
-	Port.ofTypeYBOPort="_5671"><GMBOPortRef.Position><GMBOPoint
+	Docking="LEFT"><GMBOPortRef.Position><GMBOPoint
 	Y="623"/></GMBOPortRef.Position><GMBOPortRef.ConnectionPoints><GMBOConnectionPointList><GMBOConnectionPoint
 	Name="Window1.Components.PortContainer.PortRef30.ConnectionPoint"><GMBOConnectionPoint.Position><GMBOPoint
 	X="-10"
