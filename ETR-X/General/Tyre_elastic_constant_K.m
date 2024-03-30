@@ -10,8 +10,11 @@ PC=data(:,2)*0.0689475729; % Pressure from Calsplan Excel bar
 IAC=data(:,3); % Inclination angle Excel deg
 W=data(:,4)*0.45359237*9.81; % Weight in Newtons
 
-%Per 12PSI
-K=((IA-2)/(0-2))*(635-578)+578
+%For 12PSI
+K12=((IA-2)/(0-2))*(635-578)+578
+
+%For 10PSI
+K10=((IA-2)/(0-2))*(579-522)+522
 
 %{
 for i=1:length(IAC) %Interpolació per inclination angle
