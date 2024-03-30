@@ -7,9 +7,9 @@
  *
  * Code generation for model "VDC".
  *
- * Model version              : 1.16
+ * Model version              : 1.0
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Sat Mar 30 15:21:13 2024
+ * C source code generated on : Sat Mar 30 17:29:17 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -322,29 +322,31 @@ static void VDC_output(void)
 
         /* Merge: '<Root>/Merge2' */
         VDC_B.Merge2 = rtb_Merge_j;
-        VDC_DW.correction_l = 0.0;
+        VDC_DW.correction_k = 0.0;
 
         /* Merge: '<Root>/Merge3' */
         VDC_B.Merge3 = false;
       } else {
         /* Merge: '<Root>/Merge3' */
         VDC_B.Merge3 = true;
-        if (VDC_DW.correction_l == 0.0) {
-          VDC_DW.correction_l = 1.0;
+        if (VDC_DW.correction_k == 0.0) {
+          VDC_DW.correction_k = 1.0;
 
           /* Merge: '<Root>/Merge1' */
-          VDC_B.Merge1 = d - 1.0;
+          VDC_B.Merge1 = d - 0.060606060606060608;
 
           /* Merge: '<Root>/Merge2' */
-          VDC_B.Merge2 = rtb_Merge_j - 1.0;
+          VDC_B.Merge2 = rtb_Merge_j - 0.060606060606060608;
         } else {
-          VDC_DW.correction_l++;
+          VDC_DW.correction_k++;
+          rtb_Product = VDC_DW.correction_k * VDC_DW.correction_k *
+            0.030303030303030304 + 0.030303030303030304 * VDC_DW.correction_k;
 
           /* Merge: '<Root>/Merge1' */
-          VDC_B.Merge1 = d - VDC_DW.correction_l;
+          VDC_B.Merge1 = d - rtb_Product;
 
           /* Merge: '<Root>/Merge2' */
-          VDC_B.Merge2 = rtb_Merge_j - VDC_DW.correction_l;
+          VDC_B.Merge2 = rtb_Merge_j - rtb_Product;
         }
       }
 
@@ -377,13 +379,15 @@ static void VDC_output(void)
           VDC_DW.correction = 1.0;
 
           /* Merge: '<Root>/Merge1' */
-          VDC_B.Merge1 = Throttle_Response - 1.0;
+          VDC_B.Merge1 = Throttle_Response - 0.060606060606060608;
 
           /* Merge: '<Root>/Merge2' */
-          VDC_B.Merge2 = Throttle_Response - 1.0;
+          VDC_B.Merge2 = Throttle_Response - 0.060606060606060608;
         } else {
           VDC_DW.correction++;
-          rtb_Product = Throttle_Response - VDC_DW.correction;
+          rtb_Product = Throttle_Response - (VDC_DW.correction *
+            VDC_DW.correction * 0.030303030303030304 + 0.030303030303030304 *
+            VDC_DW.correction);
 
           /* Merge: '<Root>/Merge1' */
           VDC_B.Merge1 = rtb_Product;
@@ -555,7 +559,7 @@ static void VDC_initialize(void)
 
   /* SystemInitialize for IfAction SubSystem: '<Root>/TC+TV' */
   /* SystemInitialize for MATLAB Function: '<S8>/Rigid Axle with TC 2024 ' */
-  VDC_DW.correction_l = 0.0;
+  VDC_DW.correction_k = 0.0;
 
   /* End of SystemInitialize for SubSystem: '<Root>/TC+TV' */
 

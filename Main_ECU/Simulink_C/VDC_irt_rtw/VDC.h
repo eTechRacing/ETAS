@@ -12,9 +12,9 @@
  *
  * Code generation for model "VDC".
  *
- * Model version              : 1.16
+ * Model version              : 1.0
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Sat Mar 30 15:21:13 2024
+ * C source code generated on : Sat Mar 30 17:29:17 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -861,7 +861,7 @@ typedef struct {
 typedef struct {
   real_T ERROR_Counter;                /* '<S20>/Data Store Memory1' */
   real_T correction;                   /* '<S6>/Rigid Axle with TC 2024 ' */
-  real_T correction_l;                 /* '<S8>/Rigid Axle with TC 2024 ' */
+  real_T correction_k;                 /* '<S8>/Rigid Axle with TC 2024 ' */
   real_T A;                            /* '<S12>/Data Store Memory10' */
 } DW_VDC_T;
 
