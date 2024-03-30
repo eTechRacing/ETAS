@@ -12,9 +12,9 @@
  *
  * Code generation for model "Disconnections".
  *
- * Model version              : 10.4
+ * Model version              : 10.5
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Mar 29 00:59:06 2024
+ * C source code generated on : Sat Mar 30 12:04:26 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -884,7 +884,7 @@ typedef struct {
   real_T Rear_Alive;                   /* '<Root>/Rear_Alive' */
   real_T APPS1_Bits;                   /* '<Root>/APPS1_Bits' */
   real_T APPS2_Bits;                   /* '<Root>/APPS2_Bits' */
-  real_T BrakeSensor_Bits;             /* '<Root>/BrakeSensor_Bits' */
+  real_T BrakePedal_Bits;              /* '<Root>/BrakePedal_Bits' */
   real_T SteeringSensor_Bits;          /* '<Root>/SteeringSensor_Bits' */
   real_T Susp_F_L_Bits;                /* '<Root>/Susp_F_L_Bits' */
   real_T Susp_F_R_Bits;                /* '<Root>/Susp_F_R_Bits' */

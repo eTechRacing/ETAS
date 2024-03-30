@@ -25,9 +25,9 @@ struct RTWTop_Sensors_Class
 {
     ASDObjectHeader objectHeader;
     scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Subtract_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Subtract_a_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Subtract_e_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Subtract_ev_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Subtract_k_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Subtract_n_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Subtract_p_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Sum1_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Sum1_f_Ptr;
@@ -36,7 +36,7 @@ struct RTWTop_Sensors_Class
     scalarWrapper_Obj *RTWWrapper_Sensors_DW_Previous_OUT_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_U_APPS1_Bits_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_U_APPS2_Bits_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Sensors_U_BrakeSensor_Bits_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Sensors_U_BrakePedal_Bits_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_U_SteeringSensor_Bits_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_U_Susp_F_L_Bits_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_U_Susp_F_R_Bits_Ptr;
@@ -45,7 +45,7 @@ struct RTWTop_Sensors_Class
     scalarWrapper_Obj *RTWWrapper_Sensors_Y_APPS1_Value_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_Y_APPS2_Value_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_Y_BrakeLight_Control_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Sensors_Y_BrakeSensor_Value_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Sensors_Y_BrakePedal_Value_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_Y_SUSP_F_L_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_Y_SUSP_F_R_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_Y_SUSP_R_L_Ptr;

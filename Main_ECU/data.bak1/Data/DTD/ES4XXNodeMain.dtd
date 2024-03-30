@@ -1,0 +1,129 @@
+<?DTDVersion "5.0.0.0"?>
+<?CompatibleDTDVersion "4.2.0"?>
+<?CompatibleDTDVersion "4.0.0"?>
+<?CompatibleDTDVersion "3.3.0"?>
+<?CompatibleDTDVersion "3.2.0"?>
+<?CompatibleDTDVersion "3.0"?>
+<?CompatibleDTDVersion "2.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!NOTATION ofTypeES4XXNodeMain SYSTEM "ES4XXNodeMain">
+<!NOTATION ofTypeES4XXNodeDevice SYSTEM "ES4XXNodeDevice">
+<!ENTITY % ES4XXFoundationNodeMainBase SYSTEM "ES4XXFoundationNodeMainBase.dtd">
+%ES4XXFoundationNodeMainBase;
+
+<?SuperClass ES4XXNodeMain->ES900Component ?>
+
+<?SuperClass ES4XXNodeMain->ES4XXFoundationNodeMainBase ?>
+<?SuperClass ES4XXNodeDevice->ES4XXFoundationNodeDeviceBase ?>
+
+<!-- node main -->
+
+<!ELEMENT ES4XXNodeMain (ES4XXNodeMain.Parameters, ES4XXNodeMain.L1Generation, ES4XXNodeMain.SubNodes, ES4XXNodeMain.VariableParameters, _System)>
+<!ATTLIST ES4XXNodeMain
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOBoard ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOCPUBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ES4XXNodeMain.Parameters (ES4XXNodeMainParameters)>
+<!ELEMENT ES4XXNodeMain.L1Generation (ES4XXNodeMainL1Generation)>
+<!ELEMENT ES4XXNodeMain.SubNodes (ES4XXNodeMainSubNodeList)>
+<!ELEMENT ES4XXNodeMain.VariableParameters (ES4XXVariableParameters)>
+
+<!ELEMENT ES4XXNodeMainL1Generation (ES4XXNodeMainL1Generation.NotRunning, ES4XXNodeMainL1Generation.Reconnect, ES4XXNodeMainL1Generation.WriteToStream)>
+<!ATTLIST ES4XXNodeMainL1Generation
+    L1TreeIndex CDATA "-1"
+
+    ConfigROID CDATA "-1"
+>
+
+<!ELEMENT ES4XXNodeMainL1Generation.NotRunning (ES4XXNodeMainL1GenerationNotRunning)>
+<!ELEMENT ES4XXNodeMainL1Generation.Reconnect (ES4XXNodeMainL1GenerationReconnect)>
+<!ELEMENT ES4XXNodeMainL1Generation.WriteToStream (ES4XXNodeMainL1GenerationWriteToStream)>
+
+<!ELEMENT ES4XXNodeMainParameters (ES4XXNodeMainParameters.Name, ES4XXNodeMainParameters.Enabled)>
+
+<!ELEMENT ES4XXNodeMainParameters.Name (ESParameterName)>
+<!ELEMENT ES4XXNodeMainParameters.Enabled (ESParameterBoolean)>
+
+
+<!ELEMENT ES4XXNodeMainSubNodeList (ES4XXNodeDevice)*>
+
+<!-- node device -->
+
+<!ELEMENT ES4XXNodeDevice (ES4XXNodeDevice.Parameters, ES4XXNodeDevice.L1Generation, ES4XXNodeDevice.SubNodes, ES4XXNodeDevice.VariableParameters)>
+<!ATTLIST ES4XXNodeDevice
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBODevice ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ES4XXNodeDevice.Parameters (ES4XXNodeDeviceParameters)>
+<!ELEMENT ES4XXNodeDevice.L1Generation (ES4XXNodeDeviceL1Generation)>
+<!ELEMENT ES4XXNodeDevice.SubNodes (ES4XXNodeDeviceSubNodeList)>
+<!ELEMENT ES4XXNodeDevice.VariableParameters (ES4XXVariableParameters)>
+
+<!ELEMENT ES4XXNodeDeviceParameters (ES4XXNodeDeviceParameters.Name,ES4XXNodeDeviceParameters.Enabled,ES4XXNodeDeviceParameters.ChainName,ES4XXNodeDeviceParameters.ConfigurationFile,ES4XXNodeDeviceParameters.ConfigurationFileVersion,ES4XXNodeDeviceParameters.GCFFileName,ES4XXNodeDeviceParameters.IPAddress,ES4XXNodeDeviceParameters.ShowStatusSignalForDevice, ES4XXNodeDeviceParameters.XCPVersion, ES4XXNodeDeviceParameters.UDPIPVersion, ES4XXNodeDeviceParameters.Port, ES4XXNodeDeviceParameters.EPKValue, ES4XXNodeDeviceParameters.EPKAddress, ES4XXNodeDeviceParameters.EPKValueLength, ES4XXNodeDeviceParameters.DAQ_MaxODTEntrySize, ES4XXNodeDeviceParameters.DAQ_MaxEntries,ES4XXNodeDeviceParameters.DAQ_MinEntries, ES4XXNodeDeviceParameters.STIM_MaxODTEntrySize, ES4XXNodeDeviceParameters.STIM_MaxEntries, ES4XXNodeDeviceParameters.STIM_MinEntries, ES4XXNodeDeviceParameters.TimestampSize, ES4XXNodeDeviceParameters.ISR, ES4XXNodeDeviceParameters.RapidPrototypingEnabled, ES4XXNodeDeviceParameters.Instance, ES4XXNodeDeviceParameters.IRQSource)>
+
+<!ELEMENT ES4XXNodeDeviceParameters.Name (ESParameterName)>
+<!ELEMENT ES4XXNodeDeviceParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES4XXNodeDeviceParameters.ChainName (ESParameterString)>
+<!ELEMENT ES4XXNodeDeviceParameters.ConfigurationFile (ESParameterString)>
+<!ELEMENT ES4XXNodeDeviceParameters.ConfigurationFileVersion (ESParameterUInt)>
+<!ELEMENT ES4XXNodeDeviceParameters.GCFFileName (ESParameterString)>
+<!ELEMENT ES4XXNodeDeviceParameters.IPAddress (ESParameterIPAddress)>
+<!ELEMENT ES4XXNodeDeviceParameters.ShowStatusSignalForDevice (ESParameterBoolean)>
+<!ELEMENT ES4XXNodeDeviceParameters.XCPVersion (ESParameterUInt)>
+<!ELEMENT ES4XXNodeDeviceParameters.UDPIPVersion (ESParameterUInt)>
+<!ELEMENT ES4XXNodeDeviceParameters.Port (ESParameterUInt)>
+<!ELEMENT ES4XXNodeDeviceParameters.EPKValue (ESParameterString)>
+<!ELEMENT ES4XXNodeDeviceParameters.EPKAddress (ESParameterUInt)>
+<!ELEMENT ES4XXNodeDeviceParameters.EPKValueLength (ESParameterUInt)>
+<!ELEMENT ES4XXNodeDeviceParameters.DAQ_MaxODTEntrySize (ESParameterUInt)>
+<!ELEMENT ES4XXNodeDeviceParameters.DAQ_MaxEntries (ESParameterUInt)>
+<!ELEMENT ES4XXNodeDeviceParameters.DAQ_MinEntries (ESParameterUInt)>
+<!ELEMENT ES4XXNodeDeviceParameters.STIM_MaxODTEntrySize (ESParameterUInt)>
+<!ELEMENT ES4XXNodeDeviceParameters.STIM_MaxEntries (ESParameterUInt)>
+<!ELEMENT ES4XXNodeDeviceParameters.STIM_MinEntries (ESParameterUInt)>
+<!ELEMENT ES4XXNodeDeviceParameters.TimestampSize (ESParameterEnum)>
+<!ATTLIST ES4XXNodeDeviceParameters.TimestampSize  
+    EnumText1      CDATA "NO_TIME_STAMP"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "SIZE_DWORD"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+<!ELEMENT ES4XXNodeDeviceParameters.ISR (ESParameterString)>
+<!ELEMENT ES4XXNodeDeviceParameters.RapidPrototypingEnabled (ESParameterBoolean)>
+<!ELEMENT ES4XXNodeDeviceParameters.Instance (ESParameterUInt)>
+<!ELEMENT ES4XXNodeDeviceParameters.IRQSource (ESParameterString)>
+
+
+<!ELEMENT ES4XXNodeDeviceL1Generation (ES4XXNodeDeviceL1Generation.UnionCase , ES4XXNodeDeviceL1Generation.Reconnect)>
+<!ATTLIST ES4XXNodeDeviceL1Generation
+    L1TreeIndex CDATA "-1"
+
+    APIROIDArray1 CDATA "-1"
+    APIROIDArray2 CDATA "-1"
+    APIROIDArray3 CDATA "-1"
+    APIROIDArray4 CDATA "-1"
+    APIROIDArray5 CDATA "-1"
+    APIROIDArray6 CDATA "-1"
+
+    IRQTriggeredSignalGroups CDATA "0"
+    L1SignalGroupCount CDATA "0"
+>
+<!ELEMENT ES4XXNodeDeviceL1Generation.UnionCase (ES4XXNodeDeviceL1GenerationUnionCase)>
+<!ELEMENT ES4XXNodeDeviceL1Generation.Reconnect (ES4XXNodeDeviceL1GenerationReconnect)>
+
+<!ELEMENT ES4XXNodeDeviceSubNodeList (ES4XXNodeSignalGroupSend | ES4XXNodeSignalGroupReceive | ES4XXNodeSignalGroupStatus)*>

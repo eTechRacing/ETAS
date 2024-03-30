@@ -59,6 +59,22 @@ ASAP2_VERSION
 
  
         /begin MEASUREMENT 
+            /* Name                */     Sensors_ConstB.Subtract_a 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Sensors_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Sensors.Suspension_FR_Data_Conv.Subtract.Subtract_a 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
             /* Name                */     Sensors_ConstB.Subtract_e 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
@@ -75,7 +91,7 @@ ASAP2_VERSION
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     Sensors_ConstB.Subtract_ev 
+            /* Name                */     Sensors_ConstB.Subtract_n 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     Sensors_CM_double 
@@ -84,23 +100,7 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Sensors.Suspension_RR_Data_Conv.Subtract.Subtract_ev 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     Sensors_ConstB.Subtract_k 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Sensors_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Sensors.Suspension_FR_Data_Conv.Subtract.Subtract_k 
+            DISPLAY_IDENTIFIER Sensors.Suspension_RR_Data_Conv.Subtract.Subtract_n 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -132,7 +132,7 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Sensors.BRS_Data_Conv.Sum1.Sum1 
+            DISPLAY_IDENTIFIER Sensors.Brake_Pedal_Data_Conv.Sum1.Sum1 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -235,7 +235,7 @@ ASAP2_VERSION
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     Sensors_U.BrakeSensor_Bits 
+            /* Name                */     Sensors_U.BrakePedal_Bits 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     Sensors_CM_double 
@@ -244,7 +244,7 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Sensors.BrakeSensor_Bits 
+            DISPLAY_IDENTIFIER Sensors.BrakePedal_Bits 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -379,7 +379,7 @@ ASAP2_VERSION
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     Sensors_Y.BrakeSensor_Value 
+            /* Name                */     Sensors_Y.BrakePedal_Value 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     Sensors_CM_double 
@@ -388,7 +388,7 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Sensors.BrakeSensor_Value 
+            DISPLAY_IDENTIFIER Sensors.BrakePedal_Value 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 

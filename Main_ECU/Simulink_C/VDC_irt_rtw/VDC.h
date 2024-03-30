@@ -12,9 +12,9 @@
  *
  * Code generation for model "VDC".
  *
- * Model version              : 1.6
+ * Model version              : 1.16
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Mar 29 01:04:32 2024
+ * C source code generated on : Sat Mar 30 15:21:13 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -881,7 +881,7 @@ typedef struct {
   real_T el_GYRO_Z;                    /* '<Root>/el_GYRO_Z' */
   real_T APPS2_Value;                  /* '<Root>/APPS2_Value' */
   real_T APPS1_Value;                  /* '<Root>/APPS1_Value' */
-  real_T BrakeSensor_Value;            /* '<Root>/BrakeSensor_Value' */
+  real_T BrakePedal_Value;             /* '<Root>/BrakePedal_Value' */
   real_T SteeringSensor_Value;         /* '<Root>/SteeringSensor_Value' */
   real_T RL_Vel_ms_Wheel;              /* '<Root>/RL_Vel_ms_Wheel' */
   real_T RR_Vel_ms_Wheel;              /* '<Root>/RR_Vel_ms_Wheel' */
@@ -896,7 +896,7 @@ typedef struct {
   real_T Susp_F_R;                     /* '<Root>/Susp_F_R' */
   real_T Susp_R_L;                     /* '<Root>/Susp_R_L' */
   real_T Susp_R_R;                     /* '<Root>/Susp_R_R' */
-  real_T VDC_Max_tire_slip;            /* '<Root>/VDC_Max_tire_slip' */
+  real_T VDC_Max_Tyre_Slip;            /* '<Root>/VDC_Max_Tyre_Slip' */
   boolean_T TorqueEnable;              /* '<Root>/TorqueEnable' */
   boolean_T CriticalDisconnection;     /* '<Root>/CriticalDisconnection' */
   real_T Car_State;                    /* '<Root>/Car_State' */

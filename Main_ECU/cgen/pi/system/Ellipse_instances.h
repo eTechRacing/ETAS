@@ -26,18 +26,12 @@ struct RTWTop_Ellipse_Class
     ASDObjectHeader objectHeader;
     scalarWrapper_Obj *RTWWrapper_Ellipse_U_el_AUTO_STATUS_Ptr;
     scalarWrapper_Obj *RTWWrapper_Ellipse_U_el_AngleTrack_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Ellipse_U_el_CLOCK_Ptr;
     scalarWrapper_Obj *RTWWrapper_Ellipse_U_el_CurvatureRadius_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Ellipse_U_el_GENERAL_Ptr;
     scalarWrapper_Obj *RTWWrapper_Ellipse_U_el_LATITUDE_EKF_Ptr;
     scalarWrapper_Obj *RTWWrapper_Ellipse_U_el_LONGITUDE_EKF_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Ellipse_U_el_SlipAngle_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Ellipse_Y_Clock_Tx_Ptr;
     scalarWrapper_Obj *RTWWrapper_Ellipse_Y_CurvRadius_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Ellipse_Y_General_Tx_Ptr;
     scalarWrapper_Obj *RTWWrapper_Ellipse_Y_Lat_EKF_Ptr;
     scalarWrapper_Obj *RTWWrapper_Ellipse_Y_Long_EKF_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Ellipse_Y_SlipAngle_Ptr;
     scalarWrapper_Obj *RTWWrapper_Ellipse_Y_Status_Auto_Ptr;
     scalarWrapper_Obj *RTWWrapper_Ellipse_Y_TrackAngle_Ptr;
 };

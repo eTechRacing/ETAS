@@ -7,9 +7,9 @@
  *
  * Code generation for model "VDC".
  *
- * Model version              : 1.6
+ * Model version              : 1.16
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Mar 29 01:04:32 2024
+ * C source code generated on : Sat Mar 30 15:21:13 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -312,11 +312,11 @@ static void VDC_output(void)
       /* End of MATLAB Function: '<S8>/MATLAB Function' */
 
       /* MATLAB Function: '<S8>/Rigid Axle with TC 2024 ' incorporates:
-       *  Inport: '<Root>/VDC_Max_tire_slip'
+       *  Inport: '<Root>/VDC_Max_Tyre_Slip'
        *  Inport: '<Root>/el_Vel_X'
        */
       if (fmax(rtb_Product / VDC_U.el_Vel_X, rtb_Merge1_e / VDC_U.el_Vel_X) <
-          VDC_U.VDC_Max_tire_slip) {
+          VDC_U.VDC_Max_Tyre_Slip) {
         /* Merge: '<Root>/Merge1' */
         VDC_B.Merge1 = d;
 
@@ -355,12 +355,12 @@ static void VDC_output(void)
        *  ActionPort: '<S6>/Action Port'
        */
       /* MATLAB Function: '<S6>/Rigid Axle with TC 2024 ' incorporates:
-       *  Inport: '<Root>/VDC_Max_tire_slip'
+       *  Inport: '<Root>/VDC_Max_Tyre_Slip'
        *  Inport: '<Root>/el_Vel_X'
        *  MinMax: '<S6>/Max'
        */
       if (fmax(rtb_Product, rtb_Merge1_e) / VDC_U.el_Vel_X <
-          VDC_U.VDC_Max_tire_slip) {
+          VDC_U.VDC_Max_Tyre_Slip) {
         /* Merge: '<Root>/Merge1' */
         VDC_B.Merge1 = Throttle_Response;
 
@@ -475,12 +475,12 @@ static void VDC_output(void)
   /* End of If: '<S11>/If' */
 
   /* Saturate: '<S11>/Saturation' */
-  if (rtb_Merge_j > 580.0) {
+  if (rtb_Merge_j > 27.0) {
     /* Outport: '<Root>/Torque_R_out' */
-    VDC_Y.Torque_R_out = 580.0;
-  } else if (rtb_Merge_j < -580.0) {
+    VDC_Y.Torque_R_out = 27.0;
+  } else if (rtb_Merge_j < -27.0) {
     /* Outport: '<Root>/Torque_R_out' */
-    VDC_Y.Torque_R_out = -580.0;
+    VDC_Y.Torque_R_out = -27.0;
   } else {
     /* Outport: '<Root>/Torque_R_out' */
     VDC_Y.Torque_R_out = rtb_Merge_j;
@@ -489,12 +489,12 @@ static void VDC_output(void)
   /* End of Saturate: '<S11>/Saturation' */
 
   /* Saturate: '<S11>/Saturation1' */
-  if (rtb_Product > 580.0) {
+  if (rtb_Product > 27.0) {
     /* Outport: '<Root>/Torque_L_out' */
-    VDC_Y.Torque_L_out = 580.0;
-  } else if (rtb_Product < -580.0) {
+    VDC_Y.Torque_L_out = 27.0;
+  } else if (rtb_Product < -27.0) {
     /* Outport: '<Root>/Torque_L_out' */
-    VDC_Y.Torque_L_out = -580.0;
+    VDC_Y.Torque_L_out = -27.0;
   } else {
     /* Outport: '<Root>/Torque_L_out' */
     VDC_Y.Torque_L_out = rtb_Product;

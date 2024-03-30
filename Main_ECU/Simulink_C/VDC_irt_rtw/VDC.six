@@ -22,9 +22,9 @@
 	<moduleInfo identifier="VDC">
 		<name>VDC</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}VDC.slx&quot;"/>
-		<version major="1" minor="6"/>
+		<version major="1" minor="16"/>
 		<dateTime kind="created" year="2024" month="3" day="15" hour="15" minute="34" second="18"/>
-		<dateTime kind="lastModified" year="2024" month="3" day="29" hour="0" minute="58" second="17"/>
+		<dateTime kind="lastModified" year="2024" month="3" day="30" hour="15" minute="20" second="47"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="3" day="29" hour="1" minute="4" second="32"/>
+		<dateTime kind="created" year="2024" month="3" day="30" hour="15" minute="21" second="13"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -274,10 +274,10 @@
 						<documentation>&lt;Root&gt;/APPS1_Value</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="BrakeSensor_Value">
+				<structMember identifier="BrakePedal_Value">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/BrakeSensor_Value</documentation>
+						<documentation>&lt;Root&gt;/BrakePedal_Value</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="SteeringSensor_Value">
@@ -364,10 +364,10 @@
 						<documentation>&lt;Root&gt;/Susp_R_R</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="VDC_Max_tire_slip">
+				<structMember identifier="VDC_Max_Tyre_Slip">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/VDC_Max_tire_slip</documentation>
+						<documentation>&lt;Root&gt;/VDC_Max_Tyre_Slip</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="TorqueEnable">
@@ -1157,19 +1157,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_U.BrakeSensor_Value">
+			<dataCInterface identifier="VDC_U.BrakePedal_Value">
 				<definitionLocation>
 					<baseRef identifier="VDC_U"/>
-					<memberRef identifier="BrakeSensor_Value"/>
+					<memberRef identifier="BrakePedal_Value"/>
 				</definitionLocation>
 				<fileOrigin name="VDC.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="VDC.BrakeSensor_Value">
-				<name>BrakeSensor_Value</name>
-				<modelLink href="VDC/BrakeSensor_Value"/>
+			<modelOrigin identifier="VDC.BrakePedal_Value">
+				<name>BrakePedal_Value</name>
+				<modelLink href="VDC/BrakePedal_Value"/>
 				<modelLocation>
 					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="BrakeSensor_Value" kind="mlsl:block" type="Inport"/>
+					<pathNode name="BrakePedal_Value" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -1622,19 +1622,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_U.VDC_Max_tire_slip">
+			<dataCInterface identifier="VDC_U.VDC_Max_Tyre_Slip">
 				<definitionLocation>
 					<baseRef identifier="VDC_U"/>
-					<memberRef identifier="VDC_Max_tire_slip"/>
+					<memberRef identifier="VDC_Max_Tyre_Slip"/>
 				</definitionLocation>
 				<fileOrigin name="VDC.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="VDC.VDC_Max_tire_slip">
-				<name>VDC_Max_tire_slip</name>
-				<modelLink href="VDC/VDC_Max_tire_slip"/>
+			<modelOrigin identifier="VDC.VDC_Max_Tyre_Slip">
+				<name>VDC_Max_Tyre_Slip</name>
+				<modelLink href="VDC/VDC_Max_Tyre_Slip"/>
 				<modelLocation>
 					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="VDC_Max_tire_slip" kind="mlsl:block" type="Inport"/>
+					<pathNode name="VDC_Max_Tyre_Slip" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -2152,7 +2152,7 @@
 						<message identifier="VDC_U.el_GYRO_Z" send="false"></message>
 						<message identifier="VDC_U.APPS2_Value" send="false"></message>
 						<message identifier="VDC_U.APPS1_Value" send="false"></message>
-						<message identifier="VDC_U.BrakeSensor_Value" send="false"></message>
+						<message identifier="VDC_U.BrakePedal_Value" send="false"></message>
 						<message identifier="VDC_U.SteeringSensor_Value" send="false"></message>
 						<message identifier="VDC_U.RL_Vel_ms_Wheel" send="false"></message>
 						<message identifier="VDC_U.RR_Vel_ms_Wheel" send="false"></message>
@@ -2167,7 +2167,7 @@
 						<message identifier="VDC_U.Susp_F_R" send="false"></message>
 						<message identifier="VDC_U.Susp_R_L" send="false"></message>
 						<message identifier="VDC_U.Susp_R_R" send="false"></message>
-						<message identifier="VDC_U.VDC_Max_tire_slip" send="false"></message>
+						<message identifier="VDC_U.VDC_Max_Tyre_Slip" send="false"></message>
 						<message identifier="VDC_U.TorqueEnable" send="false"></message>
 						<message identifier="VDC_U.CriticalDisconnection" send="false"></message>
 						<message identifier="VDC_U.Car_State" send="false"></message>

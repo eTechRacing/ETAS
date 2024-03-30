@@ -39,9 +39,9 @@ void initClass_RTWTop_Sensors(struct RTWTop_Sensors_Class *self)
 {
     /* Level 1 class variables */
     self->RTWWrapper_Sensors_ConstB_Subtract_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Subtract, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Sensors_ConstB_Subtract_a_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Subtract_a, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_ConstB_Subtract_e_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Subtract_e, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Sensors_ConstB_Subtract_ev_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Subtract_ev, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Sensors_ConstB_Subtract_k_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Subtract_k, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Sensors_ConstB_Subtract_n_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Subtract_n, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_ConstB_Subtract_p_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Subtract_p, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_ConstB_Sum1_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Sum1, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_ConstB_Sum1_f_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Sum1_f, sizeof(double), (uint32)ASD_VARIABLE);
@@ -50,7 +50,7 @@ void initClass_RTWTop_Sensors(struct RTWTop_Sensors_Class *self)
     self->RTWWrapper_Sensors_DW_Previous_OUT_Ptr = initInstance_scalarWrapper((void*)&Sensors_DW.Previous_OUT, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_U_APPS1_Bits_Ptr = initInstance_scalarWrapper((void*)&Sensors_U.APPS1_Bits, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_U_APPS2_Bits_Ptr = initInstance_scalarWrapper((void*)&Sensors_U.APPS2_Bits, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Sensors_U_BrakeSensor_Bits_Ptr = initInstance_scalarWrapper((void*)&Sensors_U.BrakeSensor_Bits, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Sensors_U_BrakePedal_Bits_Ptr = initInstance_scalarWrapper((void*)&Sensors_U.BrakePedal_Bits, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_U_SteeringSensor_Bits_Ptr = initInstance_scalarWrapper((void*)&Sensors_U.SteeringSensor_Bits, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_U_Susp_F_L_Bits_Ptr = initInstance_scalarWrapper((void*)&Sensors_U.Susp_F_L_Bits, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_U_Susp_F_R_Bits_Ptr = initInstance_scalarWrapper((void*)&Sensors_U.Susp_F_R_Bits, sizeof(double), (uint32)ASD_VARIABLE);
@@ -59,7 +59,7 @@ void initClass_RTWTop_Sensors(struct RTWTop_Sensors_Class *self)
     self->RTWWrapper_Sensors_Y_APPS1_Value_Ptr = initInstance_scalarWrapper((void*)&Sensors_Y.APPS1_Value, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_Y_APPS2_Value_Ptr = initInstance_scalarWrapper((void*)&Sensors_Y.APPS2_Value, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_Y_BrakeLight_Control_Ptr = initInstance_scalarWrapper((void*)&Sensors_Y.BrakeLight_Control, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Sensors_Y_BrakeSensor_Value_Ptr = initInstance_scalarWrapper((void*)&Sensors_Y.BrakeSensor_Value, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Sensors_Y_BrakePedal_Value_Ptr = initInstance_scalarWrapper((void*)&Sensors_Y.BrakePedal_Value, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_Y_SUSP_F_L_Ptr = initInstance_scalarWrapper((void*)&Sensors_Y.SUSP_F_L, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_Y_SUSP_F_R_Ptr = initInstance_scalarWrapper((void*)&Sensors_Y.SUSP_F_R, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_Y_SUSP_R_L_Ptr = initInstance_scalarWrapper((void*)&Sensors_Y.SUSP_R_L, sizeof(double), (uint32)ASD_VARIABLE);

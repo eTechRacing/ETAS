@@ -70,8 +70,6 @@ void initClass_RTWTop_Inverters_Data(struct RTWTop_Inverters_Data_Class *self)
     self->RTWWrapper_Inverters_Data_Y_Speed_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_Y.Speed, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_Y_Temp_IGBT_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_Y.Temp_IGBT, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_Y_Temp_Motors_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_Y.Temp_Motors, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Inverters_Data_Y_Wheel_RL_Speed_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_Y.Wheel_RL_Speed, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Inverters_Data_Y_Wheel_RR_Speed_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_Y.Wheel_RR_Speed, sizeof(double), (uint32)ASD_VARIABLE);
     return;
 }
 static uint8 * _L1_getPid_Inverters_Data(ASDObjectPtr self, uint8 *buffer)
@@ -92,11 +90,9 @@ static MethodList RTWTop_Inverters_Data_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_Inverters_Data_ClassHeader =
-    {0, 1, 0, 36 + 0, (MethodList *)0, (MethodList *)&RTWTop_Inverters_Data_ClassMethodList};
+    {0, 1, 0, 34 + 0, (MethodList *)0, (MethodList *)&RTWTop_Inverters_Data_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_Inverters_Data_Class RTWTop_Inverters_Data_ClassObj = {{1, {&RTWTop_Inverters_Data_ClassHeader}, {0}}
-    ,NULL
-    ,NULL
     ,NULL
     ,NULL
     ,NULL

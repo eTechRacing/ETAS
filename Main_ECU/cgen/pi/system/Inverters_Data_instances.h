@@ -58,8 +58,6 @@ struct RTWTop_Inverters_Data_Class
     scalarWrapper_Obj *RTWWrapper_Inverters_Data_Y_Speed_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Data_Y_Temp_IGBT_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Data_Y_Temp_Motors_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Inverters_Data_Y_Wheel_RL_Speed_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Inverters_Data_Y_Wheel_RR_Speed_Ptr;
 };
 /* Definition of the class object structure */
 struct RTWTop_Inverters_Data_Obj

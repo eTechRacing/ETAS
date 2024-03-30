@@ -16,11 +16,11 @@
 #include "./Ellipse_instances.h"
 #include "./Inverters_Action_instances.h"
 #include "./Inverters_Data_instances.h"
+#include "./Racing_Modes_instances.h"
 #include "./Sensors_instances.h"
 #include "./SoC_instances.h"
 #include "./Synchronism_instances.h"
-#include "./racing_modes_R2022a_instances.h"
-#include "./vdc_r2022a_instances.h"
+#include "./VDC_instances.h"
 /* Data structure for keeping the INTECRIO version (defines must be set) */
 #ifdef INTECRIO_VERSION_NUMBER
 static const uint32 intecrioVersionNumber = INTECRIO_VERSION_NUMBER;
@@ -59,11 +59,11 @@ static void initClass_INTECRIOTop_ROOT(struct INTECRIOTop_ROOT_Class *self)
     self->RTWTop_Ellipse_Ptr = (struct RTWTop_Ellipse_Obj*)initModel_RTWTop_Ellipse();
     self->RTWTop_Inverters_Action_Ptr = (struct RTWTop_Inverters_Action_Obj*)initModel_RTWTop_Inverters_Action();
     self->RTWTop_Inverters_Data_Ptr = (struct RTWTop_Inverters_Data_Obj*)initModel_RTWTop_Inverters_Data();
+    self->RTWTop_Racing_Modes_Ptr = (struct RTWTop_Racing_Modes_Obj*)initModel_RTWTop_Racing_Modes();
     self->RTWTop_Sensors_Ptr = (struct RTWTop_Sensors_Obj*)initModel_RTWTop_Sensors();
     self->RTWTop_SoC_Ptr = (struct RTWTop_SoC_Obj*)initModel_RTWTop_SoC();
     self->RTWTop_Synchronism_Ptr = (struct RTWTop_Synchronism_Obj*)initModel_RTWTop_Synchronism();
-    self->RTWTop_racing_modes_R2022a_Ptr = (struct RTWTop_racing_modes_R2022a_Obj*)initModel_RTWTop_racing_modes_R2022a();
-    self->RTWTop_vdc_r2022a_Ptr = (struct RTWTop_vdc_r2022a_Obj*)initModel_RTWTop_vdc_r2022a();
+    self->RTWTop_VDC_Ptr = (struct RTWTop_VDC_Obj*)initModel_RTWTop_VDC();
     return;
 }
 /* Definition of the class header */
@@ -99,11 +99,11 @@ void os_setDeltaT (void)
     setDeltaT_Ellipse();
     setDeltaT_Inverters_Action();
     setDeltaT_Inverters_Data();
+    setDeltaT_Racing_Modes();
     setDeltaT_Sensors();
     setDeltaT_SoC();
     setDeltaT_Synchronism();
-    setDeltaT_racing_modes_R2022a();
-    setDeltaT_vdc_r2022a();
+    setDeltaT_VDC();
 }
 /* Accessor for staticDT */
 uint32 getDeltaT (void)

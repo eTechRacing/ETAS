@@ -7,9 +7,9 @@
  *
  * Code generation for model "Disconnections".
  *
- * Model version              : 10.4
+ * Model version              : 10.5
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Mar 29 00:59:06 2024
+ * C source code generated on : Sat Mar 30 12:04:26 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -194,9 +194,9 @@ static void Disconnections_output(void)
 
   /* If: '<S26>/If' incorporates:
    *  DataStoreRead: '<S26>/Data Store Read'
-   *  Inport: '<Root>/BrakeSensor_Bits'
+   *  Inport: '<Root>/BrakePedal_Bits'
    */
-  if (Disconnections_U.BrakeSensor_Bits == Disconnections_DW.Last_alive_e) {
+  if (Disconnections_U.BrakePedal_Bits == Disconnections_DW.Last_alive_e) {
     /* Outputs for IfAction SubSystem: '<S26>/Error_Counter' incorporates:
      *  ActionPort: '<S33>/Action Port'
      */
@@ -207,7 +207,7 @@ static void Disconnections_output(void)
     /* Outputs for IfAction SubSystem: '<S26>/CAN_OK' incorporates:
      *  ActionPort: '<S32>/Action Port'
      */
-    Disconnections_CAN_OK(Disconnections_U.BrakeSensor_Bits, &rtb_Merge1_k,
+    Disconnections_CAN_OK(Disconnections_U.BrakePedal_Bits, &rtb_Merge1_k,
                           &Disconnections_DW.Last_alive_e);
 
     /* End of Outputs for SubSystem: '<S26>/CAN_OK' */

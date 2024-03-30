@@ -38,18 +38,12 @@ void initClass_RTWTop_Ellipse(struct RTWTop_Ellipse_Class *self)
     /* Level 1 class variables */
     self->RTWWrapper_Ellipse_U_el_AUTO_STATUS_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_AUTO_STATUS, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Ellipse_U_el_AngleTrack_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_AngleTrack, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Ellipse_U_el_CLOCK_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_CLOCK, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Ellipse_U_el_CurvatureRadius_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_CurvatureRadius, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Ellipse_U_el_GENERAL_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_GENERAL, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Ellipse_U_el_LATITUDE_EKF_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_LATITUDE_EKF, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Ellipse_U_el_LONGITUDE_EKF_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_LONGITUDE_EKF, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Ellipse_U_el_SlipAngle_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_SlipAngle, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Ellipse_Y_Clock_Tx_Ptr = initInstance_scalarWrapper((void*)&Ellipse_Y.Clock_Tx, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Ellipse_Y_CurvRadius_Ptr = initInstance_scalarWrapper((void*)&Ellipse_Y.CurvRadius, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Ellipse_Y_General_Tx_Ptr = initInstance_scalarWrapper((void*)&Ellipse_Y.General_Tx, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Ellipse_Y_Lat_EKF_Ptr = initInstance_scalarWrapper((void*)&Ellipse_Y.Lat_EKF, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Ellipse_Y_Long_EKF_Ptr = initInstance_scalarWrapper((void*)&Ellipse_Y.Long_EKF, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Ellipse_Y_SlipAngle_Ptr = initInstance_scalarWrapper((void*)&Ellipse_Y.SlipAngle, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Ellipse_Y_Status_Auto_Ptr = initInstance_scalarWrapper((void*)&Ellipse_Y.Status_Auto, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Ellipse_Y_TrackAngle_Ptr = initInstance_scalarWrapper((void*)&Ellipse_Y.TrackAngle, sizeof(double), (uint32)ASD_VARIABLE);
     return;
@@ -72,15 +66,9 @@ static MethodList RTWTop_Ellipse_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_Ellipse_ClassHeader =
-    {0, 1, 0, 16 + 0, (MethodList *)0, (MethodList *)&RTWTop_Ellipse_ClassMethodList};
+    {0, 1, 0, 10 + 0, (MethodList *)0, (MethodList *)&RTWTop_Ellipse_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_Ellipse_Class RTWTop_Ellipse_ClassObj = {{1, {&RTWTop_Ellipse_ClassHeader}, {0}}
-    ,NULL
-    ,NULL
-    ,NULL
-    ,NULL
-    ,NULL
-    ,NULL
     ,NULL
     ,NULL
     ,NULL
