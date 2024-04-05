@@ -7,9 +7,9 @@
  *
  * Code generation for model "Inverters_Data".
  *
- * Model version              : 10.13
+ * Model version              : 10.15
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Mar 29 01:02:41 2024
+ * C source code generated on : Sat Apr  6 01:22:19 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -83,10 +83,10 @@ static void Inverters_Data_output(void)
                      Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT * 0.158535)
     + -1260.62;
 
-  /* Outport: '<Root>/Temp_IGBT' incorporates:
+  /* Outport: '<Root>/Max_Temp_IGBT' incorporates:
    *  MinMax: '<Root>/Max'
    */
-  Inverters_Data_Y.Temp_IGBT = fmax(rtb_Abs1, rtb_RPMtorads_n);
+  Inverters_Data_Y.Max_Temp_IGBT = fmax(rtb_Abs1, rtb_RPMtorads_n);
 
   /* Outport: '<Root>/Inv_R_TempIGBT' */
   Inverters_Data_Y.Inv_R_TempIGBT = rtb_RPMtorads_n;
@@ -112,10 +112,10 @@ static void Inverters_Data_output(void)
   rtb_Abs1 = Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor * 0.03282 +
     -114.92892;
 
-  /* Outport: '<Root>/Temp_Motors' incorporates:
+  /* Outport: '<Root>/Max_Temp_Motors' incorporates:
    *  MinMax: '<Root>/Max1'
    */
-  Inverters_Data_Y.Temp_Motors = fmax(rtb_RPMtorads_n, rtb_Abs1);
+  Inverters_Data_Y.Max_Temp_Motors = fmax(rtb_RPMtorads_n, rtb_Abs1);
 
   /* Outport: '<Root>/Inv_L_TempMotor' */
   Inverters_Data_Y.Inv_L_TempMotor = rtb_RPMtorads_n;
@@ -179,16 +179,6 @@ static void Inverters_Data_output(void)
   Inverters_Data_Y.InvertersMinDCBus = fmin
     (Inverters_Data_U.Inv_L_RegID_M235_Inv_L_DCBus,
      Inverters_Data_U.Inv_R_RegID_M235_Inv_R_DCBus);
-
-  /* Outport: '<Root>/Inv_L_VdcBus' incorporates:
-   *  Inport: '<Root>/Inv_R_RegID_M235_Inv_R_DCBus'
-   */
-  Inverters_Data_Y.Inv_L_VdcBus = Inverters_Data_U.Inv_R_RegID_M235_Inv_R_DCBus;
-
-  /* Outport: '<Root>/Inv_R_VdcBus' incorporates:
-   *  Inport: '<Root>/Inv_L_RegID_M235_Inv_L_DCBus'
-   */
-  Inverters_Data_Y.Inv_R_VdcBus = Inverters_Data_U.Inv_L_RegID_M235_Inv_L_DCBus;
 
   /* Outport: '<Root>/Inv_L_Iq' incorporates:
    *  Gain: '<S6>/conversion ratio'
@@ -383,11 +373,11 @@ RT_MODEL_Inverters_Data_T *Inverters_Data(void)
 
   /* Initialize Sizes */
   Inverters_Data_M->Sizes.numContStates = (0);/* Number of continuous states */
-  Inverters_Data_M->Sizes.numY = (20); /* Number of model outputs */
+  Inverters_Data_M->Sizes.numY = (18); /* Number of model outputs */
   Inverters_Data_M->Sizes.numU = (14); /* Number of model inputs */
   Inverters_Data_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Inverters_Data_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  Inverters_Data_M->Sizes.numBlocks = (73);/* Number of blocks */
+  Inverters_Data_M->Sizes.numBlocks = (71);/* Number of blocks */
   Inverters_Data_M->Sizes.numBlockIO = (0);/* Number of block outputs */
   return Inverters_Data_M;
 }
