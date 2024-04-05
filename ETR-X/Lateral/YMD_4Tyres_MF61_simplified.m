@@ -89,8 +89,8 @@ MZ=@(SA)  a0m + a1m*cos(SA*wm) + b1m*sin(SA*wm) + a2m*cos(2*SA*wm) + b2m*sin(2*S
 V=90; %velocitat en X en km/h
 deltadg=-15:1:15; %Steering angles en graus
 SI=deltadg'.*pi/180; %Steering angle en rad
-Betadg=-6:1:6; %Slip angle en graus
-VS=Betadg'.*pi/180; %Slip angle rad
+Betadg=-6:1:6; %Whole car slip angle en graus
+VS=Betadg'.*pi/180; %Whole car slip angle rad
 sliplim=17*pi/180; %Limit slip angle
 
 
