@@ -2,13 +2,13 @@ clear all, clc
 load("B1654run21.mat")
 
 %camber 0, 12 psi
-FmZ0=(FZ(1)+FZ(2))/2;
-RR0=(RL(1)*10^(-2))-(RL(2)*10^(-2));
+FmZ0=abs(FZ(1)-FZ(2));
+RR0=abs(RL(1)*10^-2 -RL(2)*10^-2);
 TD0= vpa(FmZ0/RR0)
 
 %camber 2, 12 psi
-FmZ2=(FZ(7670)+FZ(7671))/2;
-RR2=(RL(7670)*10^-2 -RL(7671)*10^-2);
+FmZ2=abs(FZ(7670)-FZ(7671));
+RR2=abs(RL(7670)*10^-2 -RL(7671)*10^-2);
 TD2= vpa(FmZ2/RR2)
 
 %{
