@@ -16,15 +16,15 @@
 	<directoryLocations scheme="MATLAB 9.12">
 		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\"/>
 		<directory identifier="toolDir" path=".\"/>
-		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink\"/>
-		<directory identifier="codeDir" path="c:\users\joser\onedrive\documentos\github\etas\build\car_state_irt_rtw\"/>
+		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\"/>
+		<directory identifier="codeDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Car_State_irt_rtw\"/>
 	</directoryLocations>
 	<moduleInfo identifier="Car_State">
 		<name>Car_State</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Car_State.slx&quot;"/>
-		<version major="10" minor="13"/>
+		<version major="10" minor="15"/>
 		<dateTime kind="created" year="2021" month="2" day="18" hour="9" minute="1" second="3"/>
-		<dateTime kind="lastModified" year="2024" month="3" day="26" hour="15" minute="22" second="45"/>
+		<dateTime kind="lastModified" year="2024" month="4" day="9" hour="14" minute="4" second="14"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="3" day="29" hour="0" minute="58" second="48"/>
+		<dateTime kind="created" year="2024" month="4" day="9" hour="14" minute="10" second="42"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -137,15 +137,7 @@
 		<file name="Car_State.c" kind="body"/>
 		<file name="Car_State_private.h" kind="header"/>
 		<file name="Car_State.h" kind="header"/>
-		<!-- used through rtwShared.lib: rtwtypes.h -->
-		<!-- used through rtwShared.lib: builtin_typeid_types.h -->
-		<!-- used through rtwShared.lib: multiword_types.h -->
-		<!-- used through rtwShared.lib: zero_crossing_types.h -->
 		<file name="rtmodel.h" kind="header"/>
-		<!-- used through rtwShared.lib: rtGetInf.h -->
-		<!-- used through rtwShared.lib: rtGetInf.c -->
-		<!-- used through rtwShared.lib: rtGetNaN.h -->
-		<!-- used through rtwShared.lib: rtGetNaN.c -->
 		<file name="Car_State_main.c" kind="body"/>
 		<!-- Additionally registered model specific source files -->
 		<file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body"/>
@@ -161,9 +153,6 @@
 		<pathBase path="{{codeDir}}"/>
 		<fileOrigin name="Car_State.c"/>
 		<fileOrigin name="rt_nonfinite.c"/>
-		<fileOrigin name="rt_defines.c"/>
-		<fileOrigin name="rtGetInf.c"/>
-		<fileOrigin name="rtGetNaN.c"/>
 		<fileOrigin name="Car_State_main.c"/>
 		<headerFile name="Car_State.h"/>
 		<headerFile name="Car_State_private.h"/>
@@ -182,13 +171,13 @@
 				<structMember identifier="TorqueEnable">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;S5&gt;/ SFunction </documentation>
+						<documentation>&lt;S6&gt;/ SFunction </documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="error">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;S5&gt;/ SFunction </documentation>
+						<documentation>&lt;S6&gt;/ SFunction </documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -213,16 +202,22 @@
 						<documentation>&lt;Root&gt;/PrechargeRequest</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="EnableDrive_Order">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/EnableDrive_Order</documentation>
-					</annotation>
-				</structMember>
 				<structMember identifier="Torque_LockON">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Torque_LockON</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="EnableDrive_Order">
+					<type><typeRef name="boolean_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/EnableDrive_Order</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="BrakePedal_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/BrakePedal_Value</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="Critical_CAN_Disconnection">
@@ -545,19 +540,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Car_State_U.EnableDrive_Order">
+			<dataCInterface identifier="Car_State_U.Torque_LockON">
 				<definitionLocation>
 					<baseRef identifier="Car_State_U"/>
-					<memberRef identifier="EnableDrive_Order"/>
+					<memberRef identifier="Torque_LockON"/>
 				</definitionLocation>
 				<fileOrigin name="Car_State.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Car_State.EnableDrive_Order">
-				<name>EnableDrive_Order</name>
-				<modelLink href="Car_State/EnableDrive_Order"/>
+			<modelOrigin identifier="Car_State.Torque_LockON">
+				<name>Torque_LockON</name>
+				<modelLink href="Car_State/Torque_LockON"/>
 				<modelLocation>
 					<pathNode name="Car_State" kind="mlsl:model"/>
-					<pathNode name="EnableDrive_Order" kind="mlsl:block" type="Inport"/>
+					<pathNode name="Torque_LockON" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -576,19 +571,50 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Car_State_U.Torque_LockON">
+			<dataCInterface identifier="Car_State_U.EnableDrive_Order">
 				<definitionLocation>
 					<baseRef identifier="Car_State_U"/>
-					<memberRef identifier="Torque_LockON"/>
+					<memberRef identifier="EnableDrive_Order"/>
 				</definitionLocation>
 				<fileOrigin name="Car_State.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Car_State.Torque_LockON">
-				<name>Torque_LockON</name>
-				<modelLink href="Car_State/Torque_LockON"/>
+			<modelOrigin identifier="Car_State.EnableDrive_Order">
+				<name>EnableDrive_Order</name>
+				<modelLink href="Car_State/EnableDrive_Order"/>
 				<modelLocation>
 					<pathNode name="Car_State" kind="mlsl:model"/>
-					<pathNode name="Torque_LockON" kind="mlsl:block" type="Inport"/>
+					<pathNode name="EnableDrive_Order" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="Boolean">
+					<valueRange min="0.0" max="1.0"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_boolean"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_U.BrakePedal_Value">
+				<definitionLocation>
+					<baseRef identifier="Car_State_U"/>
+					<memberRef identifier="BrakePedal_Value"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.BrakePedal_Value">
+				<name>BrakePedal_Value</name>
+				<modelLink href="Car_State/BrakePedal_Value"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="BrakePedal_Value" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -1125,8 +1151,9 @@
 					<messageAccess>
 						<message identifier="Car_State_U.AIRs_State" send="false"></message>
 						<message identifier="Car_State_U.PrechargeRequest" send="false"></message>
-						<message identifier="Car_State_U.EnableDrive_Order" send="false"></message>
 						<message identifier="Car_State_U.Torque_LockON" send="false"></message>
+						<message identifier="Car_State_U.EnableDrive_Order" send="false"></message>
+						<message identifier="Car_State_U.BrakePedal_Value" send="false"></message>
 						<message identifier="Car_State_U.Critical_CAN_Disconnection" send="false"></message>
 						<message identifier="Car_State_U.InvertersSubscribed" send="false"></message>
 						<message identifier="Car_State_U.Shutdown_PackageIntck" send="false"></message>

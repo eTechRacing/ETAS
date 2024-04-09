@@ -36,6 +36,7 @@
 <!ENTITY _580 SYSTEM "OSrv://ObjectHandle#580" NDATA _OIDLink >
 <!ENTITY _581 SYSTEM "OSrv://ObjectHandle#581" NDATA _OIDLink >
 <!ENTITY _582 SYSTEM "OSrv://ObjectHandle#582" NDATA _OIDLink >
+<!ENTITY _3868 SYSTEM "OSrv://ObjectHandle#3868" NDATA _OIDLink >
 <!ENTITY _583 SYSTEM "OSrv://ObjectHandle#583" NDATA _OIDLink >
 <!ENTITY _584 SYSTEM "OSrv://ObjectHandle#584" NDATA _OIDLink >
 <!ENTITY _585 SYSTEM "OSrv://ObjectHandle#585" NDATA _OIDLink >
@@ -49,10 +50,11 @@
 ]><YBOModule
 	Name="Car_5FState"
 	ScoopIXSource="c:\users\joser\onedrive\documentos\github\etas\build\car_state_irt_rtw\car_state.six"
-	FileDateTime="133563027600026987"
+	FileDateTime="133571383576864347"
 	ModelingTool="MATLAB"
 	Kind="SOFTWARE"
-	VisibleName="Car_State"><_System><_AdminInfo/><_LinkTarget><_LinkTarget
+	VisibleName="Car_State"
+	ReferencedModuleListValid="TRUE"><_System><_AdminInfo/><_LinkTarget><_LinkTarget
 	Name="SoftwareSystem"
 	Index="549"
 	Type="YBOSoftwareSystem"><_LinkTarget
@@ -155,6 +157,9 @@
 	Name="Car_State_U.InvertersMinDCBus"
 	Index="582"
 	Type="YBOSWPort"/><_LinkTarget
+	Name="Car_State_U.BrakePedal_Value"
+	Index="3868"
+	Type="YBOSWPort"/><_LinkTarget
 	Name="Car_State_Y.Car_State_f"
 	Index="583"
 	Type="YBOSWPort"/><_LinkTarget
@@ -204,12 +209,12 @@
 	VisibleName="PrechargeRequest"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOConnection="_551"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
 	Name="Car_5FState.Car_5FState_5FU_5C.EnableDrive_5FOrder"
-	Size="REAL64"
-	PortType="CONTINUOUS"
+	Size="UINT8"
+	PortType="BOOLEAN"
 	Direction="IN"
 	Format="IMPLEMENTED"
-	LowerBound="-1.6999999999999999388e+308"
-	UpperBound="1.6999999999999999388e+308"
+	LowerBound="0."
+	UpperBound="1."
 	VisibleName="EnableDrive_Order"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOConnection="_552"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
 	Name="Car_5FState.Car_5FState_5FU_5C.Torque_5FLockON"
@@ -357,7 +362,15 @@
 	LowerBound="-1.6999999999999999388e+308"
 	UpperBound="1.6999999999999999388e+308"
 	VisibleName="Precharge_Voltage"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_572"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort></YBOPortList></YBOModule.Ports><YBOModule.Processes><YBOProcessList><YBOProcess
+	EmbeddedLink.ofTypeYBOConnection="_572"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Car_5FState.Car_5FState_5FU_5C.BrakePedal_5FValue"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="BrakePedal_Value"><YBOSWPort.Connections><YBOConnectionRefList/></YBOSWPort.Connections></YBOSWPort></YBOPortList></YBOModule.Ports><YBOModule.Processes><YBOProcessList><YBOProcess
 	Name="Car_5FState.irt_5FStart_5FCar_5FState"
 	Kind="INITIALIZATION"
 	Priority="0.5"
@@ -397,7 +410,8 @@
 	EmbeddedLink.ofTypeYBOSWPort="_579"/><YBOSWPortRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOSWPort="_580"/><YBOSWPortRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOSWPort="_581"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_582"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
+	EmbeddedLink.ofTypeYBOSWPort="_582"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_3868"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
 	Name="Car_5FState.irt_5FOneStep_5FCar_5FState.irt_5FOneStep_5FCar_5FState_5FSinkCopy"
 	Kind="SINK"
 	VisibleName="irt_OneStep_Car_State_SinkCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
