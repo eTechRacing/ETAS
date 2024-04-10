@@ -8,8 +8,8 @@
  * Code generation for model "Inverters_Data".
  *
  * Model version              : 10.15
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Sat Apr  6 01:22:19 2024
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Wed Apr 10 15:25:06 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

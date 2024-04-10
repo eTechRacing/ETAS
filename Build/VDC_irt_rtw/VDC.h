@@ -3,11 +3,6 @@
 #include "VDC_irtmacros.h"
 /* PATCH END */
 
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "VDC_irtmacros.h"
-/* PATCH END */
-
 /*
  * VDC.h
  *
@@ -17,9 +12,9 @@
  *
  * Code generation for model "VDC".
  *
- * Model version              : 1.5
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Sat Apr  6 01:20:50 2024
+ * Model version              : 1.14
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Wed Apr 10 15:32:18 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -196,6 +191,14 @@
 
 #ifndef rtmSetMdlRefGlobalTID
 #define rtmSetMdlRefGlobalTID(rtm, val) ()
+#endif
+
+#ifndef rtmGetMdlRefGlobalTimerIndices
+#define rtmGetMdlRefGlobalTimerIndices(rtm) ()
+#endif
+
+#ifndef rtmSetMdlRefGlobalTimerIndices
+#define rtmSetMdlRefGlobalTimerIndices(rtm, val) ()
 #endif
 
 #ifndef rtmGetMdlRefTriggerTID
@@ -857,17 +860,17 @@
 
 /* Block signals (default storage) */
 typedef struct {
-  real_T Merge1;                       /* '<Root>/Merge1' */
   real_T Merge2;                       /* '<Root>/Merge2' */
+  real_T Merge1;                       /* '<Root>/Merge1' */
   boolean_T Merge3;                    /* '<Root>/Merge3' */
 } B_VDC_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  real_T ERROR_Counter;                /* '<S20>/Data Store Memory1' */
+  real_T ERROR_Counter;                /* '<S21>/Data Store Memory1' */
   real_T correction;                   /* '<S6>/Rigid Axle with TC 2024 ' */
-  real_T correction_k;                 /* '<S8>/Rigid Axle with TC 2024 ' */
-  real_T A;                            /* '<S12>/Data Store Memory10' */
+  real_T correction_h;                 /* '<S8>/Rigid Axle with TC 2024 ' */
+  real_T A;                            /* '<S13>/Data Store Memory10' */
 } DW_VDC_T;
 
 /* External inputs (root inport signals with default storage) */
@@ -1081,28 +1084,32 @@ extern RT_MODEL_VDC_T *const VDC_M;
  * '<S7>'   : 'VDC/SAFETY BLOCK'
  * '<S8>'   : 'VDC/TC+TV'
  * '<S9>'   : 'VDC/TEST_MODE_IN'
- * '<S10>'  : 'VDC/Torque demanded by the driver'
- * '<S11>'  : 'VDC/WORKSHOP_MODE_RESTRICTIONS'
- * '<S12>'  : 'VDC/Accumulator Power/PowerLimitDetection'
- * '<S13>'  : 'VDC/Accumulator Power/W to kW'
- * '<S14>'  : 'VDC/Accumulator Power/PowerLimitDetection/LimitReached'
- * '<S15>'  : 'VDC/Accumulator Power/PowerLimitDetection/OK_OrLatch'
- * '<S16>'  : 'VDC/Accumulator Power/PowerLimitDetection/OK_OrLatch/Latched Error'
- * '<S17>'  : 'VDC/Accumulator Power/PowerLimitDetection/OK_OrLatch/OK'
- * '<S18>'  : 'VDC/RIGIDAXLE/Rigid Axle 2024 '
- * '<S19>'  : 'VDC/RIGIDAXLE WITH TC/Rigid Axle with TC 2024 '
- * '<S20>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY'
- * '<S21>'  : 'VDC/SAFETY BLOCK/Compare To Constant'
- * '<S22>'  : 'VDC/SAFETY BLOCK/DocBlock'
- * '<S23>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Imp'
- * '<S24>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Not Imp'
- * '<S25>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Signal_Failure'
- * '<S26>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Signal_OK'
- * '<S27>'  : 'VDC/TC+TV/MATLAB Function'
- * '<S28>'  : 'VDC/TC+TV/Rigid Axle with TC 2024 '
- * '<S29>'  : 'VDC/TEST_MODE_IN/BYPASS'
- * '<S30>'  : 'VDC/TEST_MODE_IN/TEST_CONSTANTS'
- * '<S31>'  : 'VDC/WORKSHOP_MODE_RESTRICTIONS/BYPASS'
- * '<S32>'  : 'VDC/WORKSHOP_MODE_RESTRICTIONS/Torque_Reduction '
+ * '<S10>'  : 'VDC/TV with TC OFF '
+ * '<S11>'  : 'VDC/Torque demanded by the driver'
+ * '<S12>'  : 'VDC/WORKSHOP_MODE_RESTRICTIONS'
+ * '<S13>'  : 'VDC/Accumulator Power/PowerLimitDetection'
+ * '<S14>'  : 'VDC/Accumulator Power/W to kW'
+ * '<S15>'  : 'VDC/Accumulator Power/PowerLimitDetection/LimitReached'
+ * '<S16>'  : 'VDC/Accumulator Power/PowerLimitDetection/OK_OrLatch'
+ * '<S17>'  : 'VDC/Accumulator Power/PowerLimitDetection/OK_OrLatch/Latched Error'
+ * '<S18>'  : 'VDC/Accumulator Power/PowerLimitDetection/OK_OrLatch/OK'
+ * '<S19>'  : 'VDC/RIGIDAXLE/Rigid Axle 2024 '
+ * '<S20>'  : 'VDC/RIGIDAXLE WITH TC/Rigid Axle with TC 2024 '
+ * '<S21>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY'
+ * '<S22>'  : 'VDC/SAFETY BLOCK/Compare To Constant'
+ * '<S23>'  : 'VDC/SAFETY BLOCK/DocBlock'
+ * '<S24>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Imp'
+ * '<S25>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Not Imp'
+ * '<S26>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Signal_Failure'
+ * '<S27>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Signal_OK'
+ * '<S28>'  : 'VDC/TC+TV/MATLAB Function'
+ * '<S29>'  : 'VDC/TC+TV/Rigid Axle with TC 2024 '
+ * '<S30>'  : 'VDC/TEST_MODE_IN/BYPASS'
+ * '<S31>'  : 'VDC/TEST_MODE_IN/TEST_CONSTANTS'
+ * '<S32>'  : 'VDC/TV with TC OFF /Enable regen?'
+ * '<S33>'  : 'VDC/TV with TC OFF /MATLAB Function'
+ * '<S34>'  : 'VDC/TV with TC OFF /TV with TC OFF 2024'
+ * '<S35>'  : 'VDC/WORKSHOP_MODE_RESTRICTIONS/BYPASS'
+ * '<S36>'  : 'VDC/WORKSHOP_MODE_RESTRICTIONS/Torque_Reduction '
  */
 #endif                                 /* RTW_HEADER_VDC_h_ */

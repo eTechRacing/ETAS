@@ -3,6 +3,11 @@
 #include "Disconnections_irtmacros.h"
 /* PATCH END */
 
+/* Patched in by the INTECRIO IRT target */
+/* PATCH BEGIN */
+#include "Disconnections_irtmacros.h"
+/* PATCH END */
+
 /*
  * Disconnections.h
  *
@@ -12,9 +17,9 @@
  *
  * Code generation for model "Disconnections".
  *
- * Model version              : 10.5
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Sat Mar 30 12:04:26 2024
+ * Model version              : 13.0
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Wed Apr 10 15:21:34 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -191,6 +196,14 @@
 
 #ifndef rtmSetMdlRefGlobalTID
 #define rtmSetMdlRefGlobalTID(rtm, val) ()
+#endif
+
+#ifndef rtmGetMdlRefGlobalTimerIndices
+#define rtmGetMdlRefGlobalTimerIndices(rtm) ()
+#endif
+
+#ifndef rtmSetMdlRefGlobalTimerIndices
+#define rtmSetMdlRefGlobalTimerIndices(rtm, val) ()
 #endif
 
 #ifndef rtmGetMdlRefTriggerTID
@@ -1110,9 +1123,11 @@ extern RT_MODEL_Disconnections_T *const Disconnections_M;
  * '<S43>'  : 'Disconnections/Signal Disconnections/Compare To Zero3'
  * '<S44>'  : 'Disconnections/Signal Disconnections/Compare To Zero4'
  * '<S45>'  : 'Disconnections/Subsystem/DocBlock1'
- * '<S46>'  : 'Disconnections/Subsystem/Others '
- * '<S47>'  : 'Disconnections/Subsystem/Rigid Axle 2024'
- * '<S48>'  : 'Disconnections/Subsystem/Rigid Axle with TC 2024'
- * '<S49>'  : 'Disconnections/Subsystem/Steering TV + TC 2024'
+ * '<S46>'  : 'Disconnections/Subsystem/Others FM2+'
+ * '<S47>'  : 'Disconnections/Subsystem/Others FM3+ '
+ * '<S48>'  : 'Disconnections/Subsystem/Rigid Axle 2024'
+ * '<S49>'  : 'Disconnections/Subsystem/Rigid Axle with TC 1'
+ * '<S50>'  : 'Disconnections/Subsystem/Rigid Axle with TC 2024'
+ * '<S51>'  : 'Disconnections/Subsystem/Steering TV without TC 2024'
  */
 #endif                                 /* RTW_HEADER_Disconnections_h_ */

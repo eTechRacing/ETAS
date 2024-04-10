@@ -8,8 +8,8 @@
  * Code generation for model "Inverters_Data".
  *
  * Model version              : 10.15
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Sat Apr  6 01:22:19 2024
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Wed Apr 10 15:25:06 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -48,7 +48,6 @@ static void Inverters_Data_output(void)
    *  Constant: '<S14>/B1'
    *  Constant: '<S14>/C1'
    *  Constant: '<S14>/Constant1'
-   *  Constant: '<S14>/D1'
    *  Inport: '<Root>/Inv_L_RegID_M74_Inv_L_TempIGBT'
    *  Math: '<S14>/Math Function2'
    *  Math: '<S14>/Math Function3'
@@ -60,14 +59,13 @@ static void Inverters_Data_output(void)
                Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT * -6.6188E-6 +
                rt_powd_snf(Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT, 3.0)
                * 9.69483E-11) + Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT *
-              0.158535) + -1260.62;
+              0.158535) - 1260.62;
 
   /* Sum: '<S15>/Add1' incorporates:
    *  Constant: '<S15>/A1'
    *  Constant: '<S15>/B1'
    *  Constant: '<S15>/C1'
    *  Constant: '<S15>/Constant1'
-   *  Constant: '<S15>/D1'
    *  Inport: '<Root>/Inv_R_RegID_M74_Inv_R_TempIGBT'
    *  Math: '<S15>/Math Function2'
    *  Math: '<S15>/Math Function3'
@@ -81,7 +79,7 @@ static void Inverters_Data_output(void)
                       (Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT, 3.0) *
                       9.69483E-11) +
                      Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT * 0.158535)
-    + -1260.62;
+    - 1260.62;
 
   /* Outport: '<Root>/Max_Temp_IGBT' incorporates:
    *  MinMax: '<Root>/Max'
@@ -96,21 +94,19 @@ static void Inverters_Data_output(void)
 
   /* Sum: '<S16>/Add1' incorporates:
    *  Constant: '<S16>/C1'
-   *  Constant: '<S16>/D1'
    *  Inport: '<Root>/Inv_L_RegID_M73_Inv_L_TempMotor'
    *  Product: '<S16>/Product5'
    */
-  rtb_RPMtorads_n = Inverters_Data_U.Inv_L_RegID_M73_Inv_L_TempMotor * 0.03282 +
-    -114.92892;
+  rtb_RPMtorads_n = Inverters_Data_U.Inv_L_RegID_M73_Inv_L_TempMotor * 0.03282 -
+    114.92892;
 
   /* Sum: '<S17>/Add1' incorporates:
    *  Constant: '<S17>/C1'
-   *  Constant: '<S17>/D1'
    *  Inport: '<Root>/Inv_R_RegID_M73_Inv_R_TempMotor'
    *  Product: '<S17>/Product5'
    */
-  rtb_Abs1 = Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor * 0.03282 +
-    -114.92892;
+  rtb_Abs1 = Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor * 0.03282 -
+    114.92892;
 
   /* Outport: '<Root>/Max_Temp_Motors' incorporates:
    *  MinMax: '<Root>/Max1'

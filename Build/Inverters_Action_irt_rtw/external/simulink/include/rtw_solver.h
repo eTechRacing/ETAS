@@ -121,6 +121,7 @@ typedef struct _ssSolverInfo_tag {
     boolean_T isMinorTimeStepWithModeChange;
     int_T maxZcPerStep;
     real_T** zcSignalPtr;
+    boolean_T** contStateDisabledPtr;
 } ssSolverInfo;
 
 /* Support old name RTWSolverInfo */
@@ -238,6 +239,9 @@ typedef ssSolverInfo RTWSolverInfo;
 
 #define rtsiSetContStatesPtr(S, cp) ((S)->contStatesPtr = (cp))
 #define rtsiGetContStates(S) *((S)->contStatesPtr)
+
+#define rtsiSetContStateDisabledPtr(S, cdp) ((S)->contStateDisabledPtr = (cdp))
+#define rtsiGetContStateDisabledPtr(S) *((S)->contStateDisabledPtr)
 
 #define rtsiSetNumContStatesPtr(S, cp) ((S)->numContStatesPtr = (cp))
 #define rtsiGetNumContStates(S) *((S)->numContStatesPtr)

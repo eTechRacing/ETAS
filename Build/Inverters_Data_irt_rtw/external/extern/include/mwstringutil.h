@@ -67,6 +67,7 @@ EXTERN_C void suNumericToString_cdouble(void* outstr, double xr, double xi);
 
 EXTERN_C void suFromCStr(void* outstr, const char* incstr);
 EXTERN_C char* suToCStr(const void* instr);
+EXTERN_C void suFreeCStr(char* str);
 
 EXTERN_C void suSprintf_int8(void* outstr, const void* format, int8_T x);
 EXTERN_C void suSprintf_int16(void* outstr, const void* format, int16_T x);

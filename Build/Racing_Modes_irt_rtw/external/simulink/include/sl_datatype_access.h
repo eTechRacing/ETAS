@@ -162,7 +162,7 @@ typedef void (*UpdateContainedDataDimsFcn)(size_t, const size_t*, size_t, void*)
 typedef UpdateContainedDataDimsFcn (*GetUpdateContainedDataDimsFcn)(void*, DTypeId);
 typedef int_T (*SetUpdateContainedDataDimsFcn)(void*, DTypeId, UpdateContainedDataDimsFcn);
 
-typedef void (*UpdateContainedDataDimFcn)(size_t, size_t, void*);
+typedef void (*UpdateContainedDataDimFcn)(size_t, SLSize, void*);
 typedef UpdateContainedDataDimFcn (*GetUpdateContainedDataDimFcn)(void*, DTypeId);
 typedef int_T (*SetUpdateContainedDataDimFcn)(void*, DTypeId, UpdateContainedDataDimFcn);
 

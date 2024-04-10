@@ -2,7 +2,7 @@
 #define RTW_WINDOWS_H
 
 /*
- * Copyright 2011 The MathWorks, Inc.
+ * Copyright 2011-2022 The MathWorks, Inc.
  *
  * File: rtw_windows.h
  *
@@ -24,8 +24,9 @@
     CloseHandle(mutexDW);
 
 #define rtw_win_sem_create( semaphoreDW, initVal ) \
-    if ((initVal) == 0) {*(semaphoreDW) =  CreateSemaphore(NULL, 0, 1, NULL);} \
-    else {*(semaphoreDW) = CreateSemaphore(NULL, (initVal), (initVal), NULL);} 
+	*(semaphoreDW) = ((initVal) == 0) ? \
+	CreateSemaphore(NULL, 0, 1, NULL) : \
+	CreateSemaphore(NULL, (initVal), (initVal), NULL);
 
 #define rtw_win_sem_wait( semaphoreDW ) \
     WaitForSingleObject(semaphoreDW, INFINITE);

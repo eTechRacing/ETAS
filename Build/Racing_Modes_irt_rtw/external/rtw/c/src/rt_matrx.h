@@ -11,7 +11,7 @@
 
 
 /*
- * Copyright 1994-2020 The MathWorks, Inc.
+ * Copyright 1994-2022 The MathWorks, Inc.
  */
 
 /*==========*
@@ -23,10 +23,10 @@
 #endif
 
 #include <stdlib.h>    /* needed for malloc, calloc, free, realloc */
-#include <string.h>    /* needed for strlen                        */
-#include "rtwtypes.h"  /* needed for real_T                        */
-#include "rt_mxclassid.h" /* needed for mxClassID                     */
 
+#include "rtwtypes.h"
+
+#include "rt_mxclassid.h" /* mxClassID */
 
 
 /*==========*

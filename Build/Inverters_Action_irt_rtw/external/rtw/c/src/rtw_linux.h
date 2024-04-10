@@ -2,7 +2,7 @@
 #define RTW_LINUX_H
 
 /*
- * Copyright 2011-2018 The MathWorks, Inc.
+ * Copyright 2011-2022 The MathWorks, Inc.
  *
  * File: rtw_linux.h
  *
@@ -44,16 +44,16 @@ extern void rtw_deregister_task(void*);
 
 #define rtw_pthread_sem_create( semaphoreDW, initVal ) \
     *semaphoreDW = malloc(sizeof(sem_t));               \
-    sem_init(*(semaphoreDW), 0, (initVal));
+    sem_init((sem_t *)(*semaphoreDW), 0, (initVal));
 
 #define rtw_pthread_sem_wait( semaphoreDW ) \
-    sem_wait(semaphoreDW);
+    sem_wait((sem_t *)(semaphoreDW));
 
 #define rtw_pthread_sem_post( semaphoreDW ) \
-    sem_post(semaphoreDW);
+    sem_post((sem_t *)(semaphoreDW));
 
 #define rtw_pthread_sem_destroy( semaphoreDW ) \
-    sem_destroy(semaphoreDW);                   \
+    sem_destroy((sem_t *)semaphoreDW);         \
     free(semaphoreDW);
 
 #endif /* RTW_LINUX_H */

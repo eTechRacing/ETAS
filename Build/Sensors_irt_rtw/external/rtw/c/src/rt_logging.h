@@ -1,4 +1,4 @@
-/* Copyright 2012-2020 The MathWorks, Inc. */
+/* Copyright 2012-2022 The MathWorks, Inc. */
 
 #ifndef rt_logging_h
 #define rt_logging_h

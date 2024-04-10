@@ -1,4 +1,4 @@
-/* Copyright 1990-2021 The MathWorks, Inc. */
+/* Copyright 1990-2022 The MathWorks, Inc. */
 
 /*
  *
@@ -216,9 +216,9 @@ struct DimsInfo_tag {
 
 /* SLSize version of DimsInfo_tag struct */
 struct DimsInfo_tag_SLSize {
-    int width;                               /* number of elements    */
+    SLSize width;                            /* number of elements    */
     int numDims;                             /* number of dimensions  */
-    int* dims;                               /* dimensions            */
+    SLSize* dims;                            /* dimensions            */
     struct DimsInfo_tag_SLSize* nextSigDims; /* for composite signals */
 };
 
@@ -286,7 +286,7 @@ struct _ssDWorkRecord {
  * Lightweight structure for holding a real, sparse matrix
  * as used by the analytical Jacobian methods.
  */
-typedef struct SparseHeader_Tag {
+struct SparseHeader_Tag {
     int_T mRows; /* number of rows   */
     int_T nCols; /* number of cols   */
     int_T nzMax; /* size of *pr, *ir */
@@ -297,7 +297,21 @@ typedef struct SparseHeader_Tag {
 #else
     void* Pr;
 #endif
-} SparseHeader;
+};
+
+struct SparseHeader_Tag_SLSize {
+    SLSize mRows;
+    SLSize nCols;
+    SLSize nzMax;
+    SLSize* Ir;
+    SLSize* Jc;
+};
+
+#if defined(SL_INTERNAL) || defined(SFCN64)
+typedef struct SparseHeader_Tag_SLSize SparseHeader;
+#else
+typedef struct SparseHeader_Tag SparseHeader;
+#endif
 
 /*========================*
  * Setup for multitasking *
@@ -377,5 +391,17 @@ typedef struct _ssFcnCallExecArgs_tag {
 typedef _ssFcnCallExecArgs ssFcnCallExecArgs;
 
 #endif /* SIMULINK_FUNCTION_TYPES */
+
+
+#ifndef SS_EXEC_SERVICE_INFO
+#define SS_EXEC_SERVICE_INFO
+
+typedef struct _ssExecServiceInfo_tag {
+    void* host;        /* service host pointer */
+    void* fcn;         /* service function pointer*/
+    void* reserved[2]; /* reserved fields*/
+} ssExecServiceInfo;
+
+#endif
 
 #endif /* __SIMSTRUC_TYPES_H__ */

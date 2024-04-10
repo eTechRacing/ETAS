@@ -10,20 +10,20 @@
  *
  */
 
-/* Copyright 2011-2020 The MathWorks, Inc. */
+/* Copyright 2011-2022 The MathWorks, Inc. */
 
 #ifdef BUILDING_LIBMWSLSA_SIM
- /* being included from inside SLSA_SIM module */
-  #include "package.h"
-  #define SLSA_SIM_PUBLISHED_C        extern "C" DLL_EXPORT_SYM
+/* being included from inside SLSA_SIM module */
+#include "package.h"
+#define SLSA_SIM_PUBLISHED_C extern "C" DLL_EXPORT_SYM
 #else
- /* being included from outside, such as raccel code */
-  #if defined(__cplusplus)
- /* Needed for non-inlined C++ S-functions */
-    #define SLSA_SIM_PUBLISHED_C     extern "C"
-  #else
-    #define SLSA_SIM_PUBLISHED_C     extern
-  #endif
+/* being included from outside, such as raccel code */
+#if defined(__cplusplus)
+/* Needed for non-inlined C++ S-functions */
+#define SLSA_SIM_PUBLISHED_C extern "C"
+#else
+#define SLSA_SIM_PUBLISHED_C extern
+#endif
 #endif
 
-#endif //SLSA_SIM_H
+#endif // SLSA_SIM_H

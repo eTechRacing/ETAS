@@ -34,12 +34,14 @@
 #endif
 
 EXTERN_C LIBSLCCRT_API void slccrtCallOutOfProcessFcn(const char* ccChecksum, 
-                                                      const char* fcnName, 
+                                                      const char* fcnName,
+                                                      const char* fcnDisplayName,
                                                       int32_T argNum, 
                                                       int32_T* scopeIds,
                                                       int32_T* dims,
                                                       int32_T* elemSizes,
-                                                      void** dataPtrs);
+                                                      void** dataPtrs,
+                                                      const char* processInfoID);
 
 EXTERN_C LIBSLCCRT_API bool slccrtIsLibAllowToDebug(const char* ccChecksum);
 

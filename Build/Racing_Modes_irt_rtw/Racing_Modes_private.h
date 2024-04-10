@@ -8,8 +8,8 @@
  * Code generation for model "Racing_Modes".
  *
  * Model version              : 1.7
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Mar 29 01:02:59 2024
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Wed Apr 10 15:25:34 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -24,6 +24,7 @@
 #include "builtin_typeid_types.h"
 #include "multiword_types.h"
 #include "zero_crossing_types.h"
+#include "Racing_Modes_types.h"
 #include "Racing_Modes.h"
 
 extern void Racing_Modes_WorkshopTest01(real_T *rty_Params);

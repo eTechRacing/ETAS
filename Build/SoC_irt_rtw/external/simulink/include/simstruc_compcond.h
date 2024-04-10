@@ -302,11 +302,10 @@ typedef struct SimStruct_tag SimStruct;
 /*=======================================================*
  * Determine => MODE: ACCESS 32-BIT OR 64-BIT OR BOTH SIMSTRUCT FIELDS
  */
-#if defined(SFCN64)
+#if defined(SFCN64) ||                                                        \
+    ((defined(SL_INTERNAL) || defined(IS_RSIM) || defined(IS_RAPID_ACCEL)) && \
+     !(defined(RTW_GENERATED_S_FUNCTION) || defined(MATLAB_MEX_FILE) || defined(S_FUNCTION_NAME)))
 #define USE_64BIT_FIELDS
-#elif (defined(SL_INTERNAL) || defined(IS_RSIM) || defined(IS_RAPID_ACCEL)) && \
-    !(defined(RTW_GENERATED_S_FUNCTION) || defined(MATLAB_MEX_FILE) || defined(S_FUNCTION_NAME))
-#define USE_32BIT_AND_64BIT_FIELDS
 #else
 #define USE_32BIT_FIELDS
 #endif
@@ -353,18 +352,13 @@ typedef struct SimStruct_tag SimStruct;
 #error MATLAB/Simulink does not support MULTITASKING
 #endif
 
-#if (defined(USE_32BIT_FIELDS) + defined(USE_64BIT_FIELDS) + \
-         defined(USE_32BIT_AND_64BIT_FIELDS) !=              \
-     1)
-#error Must define one of USE_32BIT_FIELDS, USE_64BIT_FIELDS, or USE_32BIT_AND_64BIT_FIELDS
+#if (defined(USE_32BIT_FIELDS) + defined(USE_64BIT_FIELDS)) != 1
+#error Must define one of USE_32BIT_FIELDS or USE_64BIT_FIELDS
 #if defined(USE_32BIT_FIELDS)
 #error defined(USE_32BIT_FIELDS)
 #endif
 #if defined(USE_64BIT_FIELDS)
 #error defined(USE_64BIT_FIELDS)
-#endif
-#if defined(USE_32BIT_AND_64BIT_FIELDS)
-#error defined(USE_32BIT_AND_64BIT_FIELDS)
 #endif
 #endif
 

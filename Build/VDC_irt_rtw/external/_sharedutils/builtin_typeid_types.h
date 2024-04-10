@@ -5,36 +5,35 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * Code generation for model "Car_State".
+ * Code generation for model "Synchronism".
  *
- * Model version              : 10.13
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Mar 29 00:58:48 2024
+ * Model version              : 10.0
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Wed Apr 10 15:29:25 2024
  */
 
 #ifndef BUILTIN_TYPEID_TYPES_H
 #define BUILTIN_TYPEID_TYPES_H
-#include "rtwtypes.h"
 #ifndef BUILTIN_TYPEID_TYPES
 #define BUILTIN_TYPEID_TYPES
 
 /* Enumeration of built-in data types */
 typedef enum {
-  SS_DOUBLE = 0,                       /* real_T    */
-  SS_SINGLE = 1,                       /* real32_T  */
-  SS_INT8 = 2,                         /* int8_T    */
-  SS_UINT8 = 3,                        /* uint8_T   */
-  SS_INT16 = 4,                        /* int16_T   */
-  SS_UINT16 = 5,                       /* uint16_T  */
-  SS_INT32 = 6,                        /* int32_T   */
-  SS_UINT32 = 7,                       /* uint32_T  */
-  SS_BOOLEAN = 8                       /* boolean_T */
+  SS_DOUBLE = 0,
+  SS_SINGLE = 1,
+  SS_INT8 = 2,
+  SS_UINT8 = 3,
+  SS_INT16 = 4,
+  SS_UINT16 = 5,
+  SS_INT32 = 6,
+  SS_UINT32 = 7,
+  SS_BOOLEAN = 8
 } BuiltInDTypeId;
 
-#define SS_NUM_BUILT_IN_DTYPE          ((int_T)SS_BOOLEAN+1)
+#define SS_NUM_BUILT_IN_DTYPE          ((int)SS_BOOLEAN+1)
 
 /* Enumeration for MAT-file logging code */
-typedef int_T DTypeId;
+typedef int DTypeId;
 
 /* Enumeration of pre-defined data types */
 typedef enum {

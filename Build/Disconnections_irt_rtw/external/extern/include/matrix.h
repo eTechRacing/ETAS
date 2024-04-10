@@ -1,7 +1,9 @@
-/*
- * External header for the libmx library.
+/**
+ * @file extern/include/matrix.h
  *
- * Copyright 1984-2018 The MathWorks, Inc.
+ * @brief External header for the libmx library.
+ *
+ * @copyright 1984-2022 The MathWorks, Inc.
  * All Rights Reserved.
  */
 
@@ -53,6 +55,9 @@
 #define R2020b 800
 #define R2021a 800
 #define R2021b 800
+#define R2022a 800
+#define R2022b 800
+#define R2023a 800
 #define MW_LATEST_API_VERSION 800
 
 
@@ -182,7 +187,12 @@ typedef CHAR16_T mxChar;
 /**
  * mxArray classes.
  */
-typedef enum {
+#if !defined(__cplusplus) || __cplusplus < 201103L || defined(SWIG)
+typedef enum
+#else
+enum mxClassID : int
+#endif
+{
     mxUNKNOWN_CLASS = 0,
     mxCELL_CLASS,
     mxSTRUCT_CLASS,
@@ -207,7 +217,11 @@ typedef enum {
 #else
     mxINDEX_CLASS = mxUINT32_CLASS
 #endif
-} mxClassID;
+}
+#if !defined(__cplusplus) || __cplusplus < 201103L || defined(SWIG)
+    mxClassID
+#endif
+    ;
 
 /**
  * Indicates whether floating-point mxArrays are real or complex.

@@ -112,8 +112,9 @@ extern double rtwISigstreamManagerNextTimeForDestination(void* pOpaqueISigstream
 extern double rtwISigstreamManagerNextTime(void* pOpaqueISigstreamManager, const double time);
 
 /* get the next data time for external inputs that is after time (time) */
-extern double rtwISigstreamManagerNextTimeForExternalInputs(void* pOpaqueISigstreamManager,
-                                                            const double time);
+extern double rtwISigstreamManagerNextTimeForTriggeringExternalInputs(
+    void* pOpaqueISigstreamManager,
+    const double time);
 
 /* get the next hit time for aperiodic partitions that is after time (time) */
 extern double rtwISigstreamManagerNextTimeForAperiodicPartitions(void* pOpaqueISigstreamManager,

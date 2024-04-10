@@ -3,13 +3,17 @@
 
 <!NOTATION _OSrvLink SYSTEM "_OSrvLink" >
 <!ENTITY _1213 SYSTEM "OSrv://ObjectHandle#1213" NDATA _OIDLink >
-<!ENTITY _1214 SYSTEM "OSrv://ObjectHandle#1214" NDATA _OIDLink >
-<!ENTITY _1215 SYSTEM "OSrv://ObjectHandle#1215" NDATA _OIDLink >
 <!ENTITY _1216 SYSTEM "OSrv://ObjectHandle#1216" NDATA _OIDLink >
 <!ENTITY _1217 SYSTEM "OSrv://ObjectHandle#1217" NDATA _OIDLink >
+<!ENTITY _5626 SYSTEM "OSrv://ObjectHandle#5626" NDATA _OIDLink >
+<!ENTITY _5627 SYSTEM "OSrv://ObjectHandle#5627" NDATA _OIDLink >
 <!ENTITY _1218 SYSTEM "OSrv://ObjectHandle#1218" NDATA _OIDLink >
 <!ENTITY _1219 SYSTEM "OSrv://ObjectHandle#1219" NDATA _OIDLink >
 <!ENTITY _1220 SYSTEM "OSrv://ObjectHandle#1220" NDATA _OIDLink >
+<!ENTITY _5628 SYSTEM "OSrv://ObjectHandle#5628" NDATA _OIDLink >
+<!ENTITY _5629 SYSTEM "OSrv://ObjectHandle#5629" NDATA _OIDLink >
+<!ENTITY _5630 SYSTEM "OSrv://ObjectHandle#5630" NDATA _OIDLink >
+<!ENTITY _5631 SYSTEM "OSrv://ObjectHandle#5631" NDATA _OIDLink >
 ]><GMBOWindow
 	Name="Window7"
 	Zoom="100"
@@ -17,17 +21,17 @@
 	Name="SoC"
 	Index="1213"
 	Type="YBOModule"><_LinkTarget
-	Name="SoC_U.Lowest_CellVoltage"
-	Index="1214"
-	Type="YBOSWPort"/><_LinkTarget
-	Name="SoC_U.Highest_CellVoltage"
-	Index="1215"
-	Type="YBOSWPort"/><_LinkTarget
 	Name="SoC_U.Accumulator_Current"
 	Index="1216"
 	Type="YBOSWPort"/><_LinkTarget
 	Name="SoC_U.Car_State"
 	Index="1217"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="SoC_U.Lowest_Cell_Voltage"
+	Index="5626"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="SoC_U.Highest_Cell_Voltage"
+	Index="5627"
 	Type="YBOSWPort"/><_LinkTarget
 	Name="SoC_Y.SoC_Avg"
 	Index="1218"
@@ -37,6 +41,18 @@
 	Type="YBOSWPort"/><_LinkTarget
 	Name="SoC_Y.SoC_High"
 	Index="1220"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="SoC_Y.CSoC_L"
+	Index="5628"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="SoC_Y.KFSoC_L"
+	Index="5629"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="SoC_Y.CSoC_H"
+	Index="5630"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="SoC_Y.KFSoC_H"
+	Index="5631"
 	Type="YBOSWPort"/></_LinkTarget></_LinkTarget></_System><GMBOWindow.Position><GMBOPoint
 	X="0"
 	Y="0"/></GMBOWindow.Position><GMBOWindow.Size><GMBOSize
@@ -62,20 +78,19 @@
 	Y="0"/></GMBOConnectionPoint.Position></GMBOConnectionPoint><GMBOConnectionPoint
 	Name="Window7.Components.PortContainer.ConnectionPoint1"><GMBOConnectionPoint.Position><GMBOPoint
 	X="0"
-	Y="277"/></GMBOConnectionPoint.Position></GMBOConnectionPoint><GMBOConnectionPoint
+	Y="397"/></GMBOConnectionPoint.Position></GMBOConnectionPoint><GMBOConnectionPoint
 	Name="Window7.Components.PortContainer.ConnectionPoint2"><GMBOConnectionPoint.Position><GMBOPoint
 	X="300"
-	Y="277"/></GMBOConnectionPoint.Position></GMBOConnectionPoint><GMBOConnectionPoint
+	Y="397"/></GMBOConnectionPoint.Position></GMBOConnectionPoint><GMBOConnectionPoint
 	Name="Window7.Components.PortContainer.ConnectionPoint3"><GMBOConnectionPoint.Position><GMBOPoint
 	X="600"
-	Y="277"/></GMBOConnectionPoint.Position></GMBOConnectionPoint><GMBOConnectionPoint
+	Y="397"/></GMBOConnectionPoint.Position></GMBOConnectionPoint><GMBOConnectionPoint
 	Name="Window7.Components.PortContainer.ConnectionPoint4"><GMBOConnectionPoint.Position><GMBOPoint/></GMBOConnectionPoint.Position></GMBOConnectionPoint><GMBOConnectionPoint
 	Name="Window7.Components.PortContainer.ConnectionPoint5"><GMBOConnectionPoint.Position><GMBOPoint/></GMBOConnectionPoint.Position></GMBOConnectionPoint></GMBOConnectionPointList></GMBOPortContainer.ConnectionPoints><GMBOPortContainer.Size><GMBOSize
 	Width="600"
-	Height="277"/></GMBOPortContainer.Size><GMBOPortContainer.BorderColor><GMBOColor/></GMBOPortContainer.BorderColor><GMBOPortContainer.BackgroundColor><GMBOColor/></GMBOPortContainer.BackgroundColor><GMBOPortContainer.GraphicalObjects><GMBOGraphicalObjectRefList/></GMBOPortContainer.GraphicalObjects><GMBOPortContainer.InPortRefs><GMBOPortRefList><GMBOPortRef
+	Height="397"/></GMBOPortContainer.Size><GMBOPortContainer.BorderColor><GMBOColor/></GMBOPortContainer.BorderColor><GMBOPortContainer.BackgroundColor><GMBOColor/></GMBOPortContainer.BackgroundColor><GMBOPortContainer.GraphicalObjects><GMBOGraphicalObjectRefList/></GMBOPortContainer.GraphicalObjects><GMBOPortContainer.InPortRefs><GMBOPortRefList><GMBOPortRef
 	Name="Window7.Components.PortContainer.PortRef"
-	Docking="LEFT"
-	Port.ofTypeYBOPort="_1214"><GMBOPortRef.Position><GMBOPoint
+	Docking="LEFT"><GMBOPortRef.Position><GMBOPoint
 	Y="103"/></GMBOPortRef.Position><GMBOPortRef.ConnectionPoints><GMBOConnectionPointList><GMBOConnectionPoint
 	Name="Window7.Components.PortContainer.PortRef.ConnectionPoint"><GMBOConnectionPoint.Position><GMBOPoint
 	X="-10"
@@ -84,8 +99,7 @@
 	X="33"
 	Y="17"/></GMBOConnectionPoint.Position></GMBOConnectionPoint></GMBOConnectionPointList></GMBOPortRef.ConnectionPoints></GMBOPortRef><GMBOPortRef
 	Name="Window7.Components.PortContainer.PortRef6"
-	Docking="LEFT"
-	Port.ofTypeYBOPort="_1215"><GMBOPortRef.Position><GMBOPoint
+	Docking="LEFT"><GMBOPortRef.Position><GMBOPoint
 	Y="143"/></GMBOPortRef.Position><GMBOPortRef.ConnectionPoints><GMBOConnectionPointList><GMBOConnectionPoint
 	Name="Window7.Components.PortContainer.PortRef6.ConnectionPoint"><GMBOConnectionPoint.Position><GMBOPoint
 	X="-10"
@@ -111,6 +125,35 @@
 	X="-10"
 	Y="17"/></GMBOConnectionPoint.Position></GMBOConnectionPoint><GMBOConnectionPoint
 	Name="Window7.Components.PortContainer.PortRef8.ConnectionPoint1"><GMBOConnectionPoint.Position><GMBOPoint
+	X="33"
+	Y="17"/></GMBOConnectionPoint.Position></GMBOConnectionPoint></GMBOConnectionPointList></GMBOPortRef.ConnectionPoints></GMBOPortRef><GMBOPortRef
+	Name="Window7.Components.PortContainer.PortRef1"
+	Docking="LEFT"
+	Port.ofTypeYBOPort="_5626"><GMBOPortRef.Position><GMBOPoint
+	Y="263"/></GMBOPortRef.Position><GMBOPortRef.ConnectionPoints><GMBOConnectionPointList><GMBOConnectionPoint
+	Name="Window7.Components.PortContainer.PortRef1.ConnectionPoint"><GMBOConnectionPoint.Position><GMBOPoint
+	X="-10"
+	Y="17"/></GMBOConnectionPoint.Position></GMBOConnectionPoint><GMBOConnectionPoint
+	Name="Window7.Components.PortContainer.PortRef1.ConnectionPoint1"><GMBOConnectionPoint.Position><GMBOPoint
+	X="33"
+	Y="17"/></GMBOConnectionPoint.Position></GMBOConnectionPoint></GMBOConnectionPointList></GMBOPortRef.ConnectionPoints></GMBOPortRef><GMBOPortRef
+	Name="Window7.Components.PortContainer.PortRef2"
+	Docking="LEFT"
+	Port.ofTypeYBOPort="_5627"><GMBOPortRef.Position><GMBOPoint
+	Y="303"/></GMBOPortRef.Position><GMBOPortRef.ConnectionPoints><GMBOConnectionPointList><GMBOConnectionPoint
+	Name="Window7.Components.PortContainer.PortRef2.ConnectionPoint"><GMBOConnectionPoint.Position><GMBOPoint
+	X="-10"
+	Y="17"/></GMBOConnectionPoint.Position></GMBOConnectionPoint><GMBOConnectionPoint
+	Name="Window7.Components.PortContainer.PortRef2.ConnectionPoint1"><GMBOConnectionPoint.Position><GMBOPoint
+	X="33"
+	Y="17"/></GMBOConnectionPoint.Position></GMBOConnectionPoint></GMBOConnectionPointList></GMBOPortRef.ConnectionPoints></GMBOPortRef><GMBOPortRef
+	Name="Window7.Components.PortContainer.PortRef13"
+	Docking="LEFT"><GMBOPortRef.Position><GMBOPoint
+	Y="343"/></GMBOPortRef.Position><GMBOPortRef.ConnectionPoints><GMBOConnectionPointList><GMBOConnectionPoint
+	Name="Window7.Components.PortContainer.PortRef13.ConnectionPoint"><GMBOConnectionPoint.Position><GMBOPoint
+	X="-10"
+	Y="17"/></GMBOConnectionPoint.Position></GMBOConnectionPoint><GMBOConnectionPoint
+	Name="Window7.Components.PortContainer.PortRef13.ConnectionPoint1"><GMBOConnectionPoint.Position><GMBOPoint
 	X="33"
 	Y="17"/></GMBOConnectionPoint.Position></GMBOConnectionPoint></GMBOConnectionPointList></GMBOPortRef.ConnectionPoints></GMBOPortRef></GMBOPortRefList></GMBOPortContainer.InPortRefs><GMBOPortContainer.OutPortRefs><GMBOPortRefList><GMBOPortRef
 	Name="Window7.Components.PortContainer.PortRef9"
@@ -147,13 +190,47 @@
 	X="0"
 	Y="17"/></GMBOConnectionPoint.Position></GMBOConnectionPoint></GMBOConnectionPointList></GMBOPortRef.ConnectionPoints></GMBOPortRef><GMBOPortRef
 	Name="Window7.Components.PortContainer.PortRef12"
-	Docking="RIGHT"><GMBOPortRef.Position><GMBOPoint
+	Docking="RIGHT"
+	Port.ofTypeYBOPort="_5628"><GMBOPortRef.Position><GMBOPoint
 	X="567"
 	Y="223"/></GMBOPortRef.Position><GMBOPortRef.ConnectionPoints><GMBOConnectionPointList><GMBOConnectionPoint
 	Name="Window7.Components.PortContainer.PortRef12.ConnectionPoint"><GMBOConnectionPoint.Position><GMBOPoint
 	X="43"
 	Y="17"/></GMBOConnectionPoint.Position></GMBOConnectionPoint><GMBOConnectionPoint
 	Name="Window7.Components.PortContainer.PortRef12.ConnectionPoint1"><GMBOConnectionPoint.Position><GMBOPoint
+	X="0"
+	Y="17"/></GMBOConnectionPoint.Position></GMBOConnectionPoint></GMBOConnectionPointList></GMBOPortRef.ConnectionPoints></GMBOPortRef><GMBOPortRef
+	Name="Window7.Components.PortContainer.PortRef3"
+	Docking="RIGHT"
+	Port.ofTypeYBOPort="_5629"><GMBOPortRef.Position><GMBOPoint
+	X="567"
+	Y="263"/></GMBOPortRef.Position><GMBOPortRef.ConnectionPoints><GMBOConnectionPointList><GMBOConnectionPoint
+	Name="Window7.Components.PortContainer.PortRef3.ConnectionPoint"><GMBOConnectionPoint.Position><GMBOPoint
+	X="43"
+	Y="17"/></GMBOConnectionPoint.Position></GMBOConnectionPoint><GMBOConnectionPoint
+	Name="Window7.Components.PortContainer.PortRef3.ConnectionPoint1"><GMBOConnectionPoint.Position><GMBOPoint
+	X="0"
+	Y="17"/></GMBOConnectionPoint.Position></GMBOConnectionPoint></GMBOConnectionPointList></GMBOPortRef.ConnectionPoints></GMBOPortRef><GMBOPortRef
+	Name="Window7.Components.PortContainer.PortRef4"
+	Docking="RIGHT"
+	Port.ofTypeYBOPort="_5630"><GMBOPortRef.Position><GMBOPoint
+	X="567"
+	Y="303"/></GMBOPortRef.Position><GMBOPortRef.ConnectionPoints><GMBOConnectionPointList><GMBOConnectionPoint
+	Name="Window7.Components.PortContainer.PortRef4.ConnectionPoint"><GMBOConnectionPoint.Position><GMBOPoint
+	X="43"
+	Y="17"/></GMBOConnectionPoint.Position></GMBOConnectionPoint><GMBOConnectionPoint
+	Name="Window7.Components.PortContainer.PortRef4.ConnectionPoint1"><GMBOConnectionPoint.Position><GMBOPoint
+	X="0"
+	Y="17"/></GMBOConnectionPoint.Position></GMBOConnectionPoint></GMBOConnectionPointList></GMBOPortRef.ConnectionPoints></GMBOPortRef><GMBOPortRef
+	Name="Window7.Components.PortContainer.PortRef5"
+	Docking="RIGHT"
+	Port.ofTypeYBOPort="_5631"><GMBOPortRef.Position><GMBOPoint
+	X="567"
+	Y="343"/></GMBOPortRef.Position><GMBOPortRef.ConnectionPoints><GMBOConnectionPointList><GMBOConnectionPoint
+	Name="Window7.Components.PortContainer.PortRef5.ConnectionPoint"><GMBOConnectionPoint.Position><GMBOPoint
+	X="43"
+	Y="17"/></GMBOConnectionPoint.Position></GMBOConnectionPoint><GMBOConnectionPoint
+	Name="Window7.Components.PortContainer.PortRef5.ConnectionPoint1"><GMBOConnectionPoint.Position><GMBOPoint
 	X="0"
 	Y="17"/></GMBOConnectionPoint.Position></GMBOConnectionPoint></GMBOConnectionPointList></GMBOPortRef.ConnectionPoints></GMBOPortRef></GMBOPortRefList></GMBOPortContainer.OutPortRefs></GMBOPortContainer></GMBOGraphicalObjectList></GMBOLayer.GraphicalObjects><GMBOLayer.Groups><GMBOObjectGroupList/></GMBOLayer.Groups></GMBOLayer><GMBOLayer
 	Name="Window7.Connections"

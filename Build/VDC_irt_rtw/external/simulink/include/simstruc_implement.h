@@ -10,6 +10,8 @@
 #ifndef __SIMSTRUC__IMPLEMENT
 #define __SIMSTRUC__IMPLEMENT
 
+#include "sl_common_types_def.h"
+#include "simstruc_compcond.h"
 
 #define _ssSafelyCallConstGenericFcnStart(S) \
        (((S)->mdlInfo->genericFcn==NULL) ? 0 : ((*((_ConstGenericFcn)(S)->mdlInfo->genericFcn))
@@ -47,7 +49,7 @@
 struct _ssVarDimsIdxVal_tag {
     int dIdx;
     int dVal;
-#if defined(INT64_T) && defined(INT_TYPE_64_IS_SUPPORTED)
+#if defined(USE_64BIT_FIELDS) || defined(USE_32BIT_AND_64BIT_FIELDS)
     SLSize dValSLSize;
 #endif
 };
@@ -70,10 +72,9 @@ struct _ssVarDimsIdxVal_tag {
 #endif
 
 
-#define ssIsTIDInStInfo(S, tid)                                                               \
-    (((tid) >= 0) &&                                                                          \
-     ((tid) <                                                                                 \
-      (ssGetParentSS(S) ? ssGetNumSampleTimes(ssGetParentSS(S)) : ssGetNumSampleTimes(S))) && \
+#define ssIsTIDInStInfo(S, tid)                                                             \
+    (((tid) >= 0) &&                                                                        \
+     ((tid) < ((S)->parent ? ssGetNumSampleTimes((S)->parent) : ssGetNumSampleTimes(S))) && \
      (ssGetSampleTimeTaskID(S, tid) < ssGetNumRootSampleTimes(S)))
 
 #define ssGetSampleHitPtr(S) (S)->mdlInfo->sampleHits /*   (int_T *) */
@@ -111,6 +112,9 @@ struct _ssVarDimsIdxVal_tag {
 #define ssSetOutputPortFrameData(S, port, val) \
     (S)->portInfo.outputs[(port)].attributes.frameData = CONV_INT2BITS(val)
 
+/* Check if the model has any zero crossing states */
+#define ssMdlHasZcStates(S) \
+    ((S)->root->blkInfo.blkInfo2->blkInfoSLSize->sizes.numNonsampledZCs != 0)
 
 
 #if SS_SFCN_FOR_SIM
@@ -131,10 +135,16 @@ extern int_T _ssSetInputPortVectorDimension(SimStruct* S, int_T port, int_T m);
 extern int_T _ssSetOutputPortVectorDimension(SimStruct* S, int_T port, int_T m);
 extern int_T ssIsRunTimeParamTunable(SimStruct* S, const int_T rtPIdx);
 extern double ssGetSFuncBlockHandle(SimStruct* S);
-extern int_T _ssGetCurrentInputPortWidth(SimStruct* S, int_T pIdx);
-extern int_T _ssGetCurrentOutputPortWidth(SimStruct* S, int_T pIdx);
 extern int_T _ssGetCallSystemNumFcnCallDestinations(SimStruct* S, int_T elemIdx);
 extern boolean_T ssGetParameterTuningCompliance(SimStruct* S);
+
+#if defined(SFCN64)
+extern SLSize _ssGetCurrentInputPortWidth(SimStruct* S, int_T pIdx);
+extern SLSize _ssGetCurrentOutputPortWidth(SimStruct* S, int_T pIdx);
+#else
+extern int_T _ssGetCurrentInputPortWidth(SimStruct* S, int_T pIdx);
+extern int_T _ssGetCurrentOutputPortWidth(SimStruct* S, int_T pIdx);
+#endif
 #ifdef __cplusplus
 }
 #endif
@@ -232,7 +242,7 @@ extern boolean_T ssGetIsInputPortElementContinuous(SimStruct* S, int_T pIdx, int
 
 
 
-#define ssGetNumRootSampleTimes(S) ssGetNumSampleTimes(ssGetRootSS(S))
+#define ssGetNumRootSampleTimes(S) ssGetNumSampleTimes((S)->root)
 
 
 
@@ -262,27 +272,26 @@ extern boolean_T ssGetIsInputPortElementContinuous(SimStruct* S, int_T pIdx, int
 
 #if SS_SL_INTERNAL || SS_SFCN_FOR_SIM
 #if defined(RTW_GENERATED_S_FUNCTION)
-#define ssSetTimeOfNextVarHit(S, sti, tNext)                                                      \
-    {                                                                                             \
-        _ssSetVarNextHitTime(ssGetRootSS(S), (int)(ssGetOffsetTime(ssGetRootSS(S), sti)), tNext); \
-        ssSetTNext(S, tNext);                                                                     \
+#define ssSetTimeOfNextVarHit(S, sti, tNext)                                            \
+    {                                                                                   \
+        _ssSetVarNextHitTime((S)->root, (int)(ssGetOffsetTime((S)->root, sti)), tNext); \
+        ssSetTNext(S, tNext);                                                           \
     }
 
 #define ssGetTimeOfNextVarHit(S, sti) \
-    _ssGetVarNextHitTime(ssGetRootSS(S), (int)(ssGetOffsetTime(ssGetRootSS(S), sti)))
+    _ssGetVarNextHitTime((S)->root, (int)(ssGetOffsetTime((S)->root, sti)))
 
 #else
-#define ssSetTimeOfNextVarHit(S, sti, tNext)                                                       \
-    {                                                                                              \
-        _ssSetVarNextHitTime(                                                                      \
-            ssGetRootSS(S), (int)(ssGetOffsetTime(ssGetRootSS(S), ssGetSampleTimeTaskID(S, sti))), \
-            tNext);                                                                                \
-        ssSetTNext(S, tNext);                                                                      \
+#define ssSetTimeOfNextVarHit(S, sti, tNext)                                                     \
+    {                                                                                            \
+        _ssSetVarNextHitTime(                                                                    \
+            (S)->root, (int)(ssGetOffsetTime((S)->root, ssGetSampleTimeTaskID(S, sti))), tNext); \
+        ssSetTNext(S, tNext);                                                                    \
     }
 
-#define ssGetTimeOfNextVarHit(S, sti)    \
-    _ssGetVarNextHitTime(ssGetRootSS(S), \
-                         (int)(ssGetOffsetTime(ssGetRootSS(S), ssGetSampleTimeTaskID(S, sti))))
+#define ssGetTimeOfNextVarHit(S, sti) \
+    _ssGetVarNextHitTime((S)->root,   \
+                         (int)(ssGetOffsetTime((S)->root, ssGetSampleTimeTaskID(S, sti))))
 
 #endif
 #endif
@@ -1364,6 +1373,8 @@ typedef void (*mdlSetInputPortDimensionsModeFcn)(SimStruct* S,
     dtaGetParameterDowncastDiagnostic_cannot_be_used_in_RTW
 #endif
 
+#define ssIsMinorTimeStepWithModeChange(S) \
+    (S)->mdlInfo->solverInfo->isMinorTimeStepWithModeChange /*  (boolean_T)  */
 
 
 #endif /* __SIMSTRUC__IMPLEMENT */

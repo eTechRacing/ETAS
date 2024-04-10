@@ -8,8 +8,8 @@
  * Code generation for model "Racing_Modes".
  *
  * Model version              : 1.7
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Mar 29 01:02:59 2024
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Wed Apr 10 15:25:34 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -60,6 +60,8 @@ void Racing_Modes_WorkshopTest01(real_T *rty_Params)
 /* Model output function */
 static void Racing_Modes_output(void)
 {
+  real_T tmp;
+
   /* SwitchCase: '<Root>/Mode Selection' incorporates:
    *  Inport: '<Root>/RacingMode'
    */
@@ -74,44 +76,39 @@ static void Racing_Modes_output(void)
     break;
 
    case 2:
-    {
-      real_T tmp;
-
-      /* Outputs for IfAction SubSystem: '<Root>/Custom Dash (11)' incorporates:
-       *  ActionPort: '<S2>/Action Port'
-       */
-      /* SwitchCase: '<S2>/Switch Case' incorporates:
-       *  Inport: '<Root>/CustomMode_Identifier'
-       */
-      tmp = trunc(Racing_Modes_U.CustomMode_Identifier);
-      if (rtIsNaN(tmp) || rtIsInf(tmp)) {
-        tmp = 0.0;
-      } else {
-        tmp = fmod(tmp, 4.294967296E+9);
-      }
-
-      if ((tmp < 0.0 ? -(int32_T)(uint32_T)-tmp : (int32_T)(uint32_T)tmp) == 1)
-      {
-        /* Outputs for IfAction SubSystem: '<S2>/Max tyre slip' incorporates:
-         *  ActionPort: '<S6>/Action Port'
-         */
-        /* Gain: '<S6>/Gain' incorporates:
-         *  Inport: '<Root>/CustomMode_Data'
-         */
-        Racing_Modes_B.Gain = 0.001 * Racing_Modes_U.CustomMode_Data;
-
-        /* End of Outputs for SubSystem: '<S2>/Max tyre slip' */
-      }
-
-      /* End of SwitchCase: '<S2>/Switch Case' */
-
-      /* Merge: '<Root>/Merge' incorporates:
-       *  SignalConversion generated from: '<S2>/Params'
-       */
-      Racing_Modes_B.Merge = Racing_Modes_B.Gain;
-
-      /* End of Outputs for SubSystem: '<Root>/Custom Dash (11)' */
+    /* Outputs for IfAction SubSystem: '<Root>/Custom Dash (11)' incorporates:
+     *  ActionPort: '<S2>/Action Port'
+     */
+    /* SwitchCase: '<S2>/Switch Case' incorporates:
+     *  Inport: '<Root>/CustomMode_Identifier'
+     */
+    tmp = trunc(Racing_Modes_U.CustomMode_Identifier);
+    if (rtIsNaN(tmp) || rtIsInf(tmp)) {
+      tmp = 0.0;
+    } else {
+      tmp = fmod(tmp, 4.294967296E+9);
     }
+
+    if ((tmp < 0.0 ? -(int32_T)(uint32_T)-tmp : (int32_T)(uint32_T)tmp) == 1) {
+      /* Outputs for IfAction SubSystem: '<S2>/Max tyre slip' incorporates:
+       *  ActionPort: '<S6>/Action Port'
+       */
+      /* Gain: '<S6>/Gain' incorporates:
+       *  Inport: '<Root>/CustomMode_Data'
+       */
+      Racing_Modes_B.Gain = 0.001 * Racing_Modes_U.CustomMode_Data;
+
+      /* End of Outputs for SubSystem: '<S2>/Max tyre slip' */
+    }
+
+    /* End of SwitchCase: '<S2>/Switch Case' */
+
+    /* Merge: '<Root>/Merge' incorporates:
+     *  SignalConversion generated from: '<S2>/Params'
+     */
+    Racing_Modes_B.Merge = Racing_Modes_B.Gain;
+
+    /* End of Outputs for SubSystem: '<Root>/Custom Dash (11)' */
     break;
 
    case 21:

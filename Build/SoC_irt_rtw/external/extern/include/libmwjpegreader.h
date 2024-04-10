@@ -1,4 +1,4 @@
-/* Copyright 2015-2016 The MathWorks, Inc. */
+/* Copyright 2015-2022 The MathWorks, Inc. */
 
 /* This file is used for imread code generation. The API is for internal 
  purposes and is subject to change. */
@@ -42,6 +42,7 @@ EXTERN_C LIBMWJPEGREADER_API void jpegreader_uint8(
     int8_T         *libjpegReadDone,
     real64_T       *libjpegMsgCode, 
     char           *libjpegErrWarnBuffer,
-    int8_T         *errWarnFlag);
+    int8_T         *errWarnFlag,
+    int8_T         *runtimeFileDimsConsistent);
 
 #endif /* _JPEGREADER_H_ */

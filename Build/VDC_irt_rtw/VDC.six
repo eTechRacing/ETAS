@@ -13,7 +13,7 @@
 -->
 <module xmlns="http://www.etas.com/scoop-ix/1.5" xmlns:ix="http://www.etas.com/scoop-ix/1.5" xmlns:mlsl="http://www.etas.com/scoop-ix/1.5/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.5
         file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
-	<directoryLocations scheme="MATLAB 9.12">
+	<directoryLocations scheme="MATLAB 23.2">
 		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\"/>
 		<directory identifier="toolDir" path=".\"/>
 		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\"/>
@@ -22,9 +22,9 @@
 	<moduleInfo identifier="VDC">
 		<name>VDC</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}VDC.slx&quot;"/>
-		<version major="1" minor="5"/>
+		<version major="1" minor="14"/>
 		<dateTime kind="created" year="2024" month="3" day="15" hour="15" minute="34" second="18"/>
-		<dateTime kind="lastModified" year="2024" month="4" day="6" hour="0" minute="7" second="21"/>
+		<dateTime kind="lastModified" year="2024" month="4" day="10" hour="13" minute="58" second="24"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -34,15 +34,15 @@
 		<creators>
 			<user lastName="no" role="creator"/>
 			<tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
-				<version major="9" minor="12" year="2021" month="11" day="13" info="R2022a"/>
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
 			</tool>
 			<tool kind="modeler" vendor="The Mathworks, Inc." name="Simulink">
-				<version major="10" minor="5" year="2021" month="11" day="13" info="R2022a"/>
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
 			</tool>
 			<tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
 			</tool>
 			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
-				<version major="9" minor="7" year="2021" month="11" day="13" info="R2022a"/>
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
 				<mode name="target" value="INTECRIO Real-Time Target"/>
 				<configuration>
 					<option identifier="InlineParameters">1</option>
@@ -54,7 +54,7 @@
 				</configuration>
 			</tool>
 			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="MATLAB Coder">
-				<version major="5" minor="4" year="2021" month="11" day="13" info="R2022a"/>
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
 			</tool>
 			<tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
 				<configuration>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="4" day="6" hour="1" minute="20" second="50"/>
+		<dateTime kind="created" year="2024" month="4" day="10" hour="15" minute="32" second="18"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -139,7 +139,6 @@
 		<file name="VDC.h" kind="header"/>
 		<file name="rtmodel.h" kind="header"/>
 		<file name="VDC_main.c" kind="body"/>
-		<!-- Additionally registered model specific source files -->
 		<file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body"/>
 		<!-- Target specific libraries -->
 		<file name="rtwStaticLib.lib" kind="symbolicLibrary"/>
@@ -162,13 +161,13 @@
 		<definitions>
 			<structDef name="_B_VDC_T">
 				<fileOrigin name="VDC.h"/>
-				<structMember identifier="Merge1">
+				<structMember identifier="Merge2">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Opaque</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Merge2">
+				<structMember identifier="Merge1">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Opaque</documentation>
@@ -480,7 +479,7 @@
 						<documentation>State information for 'DWORK1'.</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="correction_k">
+				<structMember identifier="correction_h">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>State information for 'DWORK1'.</documentation>
@@ -550,20 +549,20 @@
 		<!-- Imported extern parameters following -->
 		<!-- Global BlockIO (rtB) signals following -->
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_B.Merge1">
+			<dataCInterface identifier="VDC_B.Merge2">
 				<definitionLocation>
 					<baseRef identifier="VDC_B"/>
-					<memberRef identifier="Merge1"/>
+					<memberRef identifier="Merge2"/>
 				</definitionLocation>
 				<fileOrigin name="VDC.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="VDC.Opaque.Merge1">
-				<name>Merge1</name>
+			<modelOrigin identifier="VDC.Opaque.Merge2">
+				<name>Merge2</name>
 				<modelLink href="VDC/Opaque"/>
 				<modelLocation>
 					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Merge1" kind="mlsl:block"/>
-					<pathNode name="Merge1" kind="mlsl:signal"/>
+					<pathNode name="Merge2" kind="mlsl:block"/>
+					<pathNode name="Merge2" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
@@ -583,20 +582,20 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_B.Merge2">
+			<dataCInterface identifier="VDC_B.Merge1">
 				<definitionLocation>
 					<baseRef identifier="VDC_B"/>
-					<memberRef identifier="Merge2"/>
+					<memberRef identifier="Merge1"/>
 				</definitionLocation>
 				<fileOrigin name="VDC.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="VDC.Opaque.Merge2">
-				<name>Merge2</name>
+			<modelOrigin identifier="VDC.Opaque.Merge1">
+				<name>Merge1</name>
 				<modelLink href="VDC/Opaque"/>
 				<modelLocation>
 					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Merge2" kind="mlsl:block"/>
-					<pathNode name="Merge2" kind="mlsl:signal"/>
+					<pathNode name="Merge1" kind="mlsl:block"/>
+					<pathNode name="Merge1" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>

@@ -8,8 +8,8 @@
  * Code generation for model "Inverters_Action".
  *
  * Model version              : 10.2
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Mar 29 01:01:21 2024
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Wed Apr 10 15:24:13 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -397,9 +397,6 @@ static void Inverters_Action_output(void)
   real_T tmp_0;
   uint8_T rtb_Merge;
   uint8_T rtb_Merge1;
-  uint8_T rtb_Merge3;
-  uint8_T rtb_Merge4;
-  uint8_T rtb_Merge5;
   boolean_T rtb_MergeMuxEnable;
   boolean_T tmp_1;
   boolean_T tmp_2;
@@ -555,30 +552,33 @@ static void Inverters_Action_output(void)
     /* Outputs for IfAction SubSystem: '<S2>/bypass' incorporates:
      *  ActionPort: '<S34>/Action Port'
      */
+    /* Outport: '<Root>/Inverter_L_b7tob0' incorporates:
+     *  Outport: '<Root>/Inverter_L_RegID'
+     *  Outport: '<Root>/Inverter_L_b15tob8'
+     */
     Inverters_Action_bypass(rtb_Merge, rtb_Merge1, Inverters_Action_B.Merge2,
-      &rtb_Merge4, &rtb_Merge3, &rtb_Merge5);
+      &Inverters_Action_Y.Inverter_L_RegID,
+      &Inverters_Action_Y.Inverter_L_b7tob0,
+      &Inverters_Action_Y.Inverter_L_b15tob8);
 
     /* End of Outputs for SubSystem: '<S2>/bypass' */
   } else {
     /* Outputs for IfAction SubSystem: '<S2>/Torque Command 0' incorporates:
      *  ActionPort: '<S32>/Action Port'
      */
-    Inverters_Action_TorqueCommand0(&rtb_Merge4, &rtb_Merge3, &rtb_Merge5,
+    /* Outport: '<Root>/Inverter_L_b7tob0' incorporates:
+     *  Outport: '<Root>/Inverter_L_RegID'
+     *  Outport: '<Root>/Inverter_L_b15tob8'
+     */
+    Inverters_Action_TorqueCommand0(&Inverters_Action_Y.Inverter_L_RegID,
+      &Inverters_Action_Y.Inverter_L_b7tob0,
+      &Inverters_Action_Y.Inverter_L_b15tob8,
       &Inverters_Action_ConstB.TorqueCommand0_g);
 
     /* End of Outputs for SubSystem: '<S2>/Torque Command 0' */
   }
 
   /* End of If: '<S2>/If1' */
-
-  /* Outport: '<Root>/Inverter_L_RegID' */
-  Inverters_Action_Y.Inverter_L_RegID = rtb_Merge4;
-
-  /* Outport: '<Root>/Inverter_L_b15tob8' */
-  Inverters_Action_Y.Inverter_L_b15tob8 = rtb_Merge5;
-
-  /* Outport: '<Root>/Inverter_L_b7tob0' */
-  Inverters_Action_Y.Inverter_L_b7tob0 = rtb_Merge3;
 
   /* SwitchCase: '<S1>/Action Selector' incorporates:
    *  Inport: '<Root>/InvertersAction'
@@ -713,30 +713,33 @@ static void Inverters_Action_output(void)
     /* Outputs for IfAction SubSystem: '<S1>/bypass' incorporates:
      *  ActionPort: '<S9>/Action Port'
      */
+    /* Outport: '<Root>/Inverter_R_b7tob0' incorporates:
+     *  Outport: '<Root>/Inverter_R_RegID'
+     *  Outport: '<Root>/Inverter_R_b15tob8'
+     */
     Inverters_Action_bypass(rtb_Merge, rtb_Merge1, Inverters_Action_B.Merge2_p,
-      &rtb_Merge3, &rtb_Merge4, &rtb_Merge5);
+      &Inverters_Action_Y.Inverter_R_RegID,
+      &Inverters_Action_Y.Inverter_R_b7tob0,
+      &Inverters_Action_Y.Inverter_R_b15tob8);
 
     /* End of Outputs for SubSystem: '<S1>/bypass' */
   } else {
     /* Outputs for IfAction SubSystem: '<S1>/Torque Command 0' incorporates:
      *  ActionPort: '<S7>/Action Port'
      */
-    Inverters_Action_TorqueCommand0(&rtb_Merge3, &rtb_Merge4, &rtb_Merge5,
+    /* Outport: '<Root>/Inverter_R_b7tob0' incorporates:
+     *  Outport: '<Root>/Inverter_R_RegID'
+     *  Outport: '<Root>/Inverter_R_b15tob8'
+     */
+    Inverters_Action_TorqueCommand0(&Inverters_Action_Y.Inverter_R_RegID,
+      &Inverters_Action_Y.Inverter_R_b7tob0,
+      &Inverters_Action_Y.Inverter_R_b15tob8,
       &Inverters_Action_ConstB.TorqueCommand0);
 
     /* End of Outputs for SubSystem: '<S1>/Torque Command 0' */
   }
 
   /* End of If: '<S1>/If1' */
-
-  /* Outport: '<Root>/Inverter_R_RegID' */
-  Inverters_Action_Y.Inverter_R_RegID = rtb_Merge3;
-
-  /* Outport: '<Root>/Inverter_R_b15tob8' */
-  Inverters_Action_Y.Inverter_R_b15tob8 = rtb_Merge5;
-
-  /* Outport: '<Root>/Inverter_R_b7tob0' */
-  Inverters_Action_Y.Inverter_R_b7tob0 = rtb_Merge4;
 
   /* Outport: '<Root>/InvertersSubscribed' */
   Inverters_Action_Y.InvertersSubscribed = Inverters_Action_B.Merge;

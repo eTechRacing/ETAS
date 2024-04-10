@@ -54,8 +54,8 @@ typedef struct mxGPUArray_tag mxGPUArray;
 /*
  * MATLAB INTERNAL USE ONLY :: MEX Version
  */
-#define EMLRT_VERSION_R2022A 0x2022A
-#define EMLRT_VERSION_INFO EMLRT_VERSION_R2022A
+#define EMLRT_VERSION_R2023B 0x2023B
+#define EMLRT_VERSION_INFO EMLRT_VERSION_R2023B
 
 /*
  * MATLAB INTERNAL USE ONLY :: Thread local context type
@@ -177,7 +177,7 @@ typedef struct emlrtECInfo {
 /*
  * MATLAB INTERNAL USE ONLY :: Array bounds check parameters
  */
-typedef struct {
+typedef struct emlrtRTEInfo {
     int32_T lineNo;
     int32_T colNo;
     const char* fName;
@@ -188,6 +188,18 @@ typedef emlrtRTEInfo emlrtMCInfo;
 
 /* MATLAB INTERNAL USE ONLY :: Reference to global runtime context */
 extern emlrtContext emlrtContextGlobal;
+
+EXTERN_C LIBEMLRT_API mxArray* emlrtAllocateClassEntryPointMx(emlrtCTX aTLS, uint32_T aClassIndex);
+
+EXTERN_C LIBEMLRT_API void* emlrtExtractClassEntryPointInstance(emlrtCTX aTLS,
+                                                                uint32_T aClassIndex,
+                                                                const mxArray* aClassMx);
+
+EXTERN_C LIBEMLRT_API boolean_T emlrtIsCoderlibClassEntryPoint(emlrtCTX aTLS,
+                                                               uint32_T aClassIndex,
+                                                               const mxArray* aClassMx);
+
+EXTERN_C LIBEMLRT_API void emlrtClassEntryPointAtExit(emlrtCTX aTLS);
 
 /*
  * MATLAB INTERNAL USE ONLY :: Dispatch to mexPrintf
@@ -1156,11 +1168,6 @@ EXTERN_C LIBEMLRT_API void addResultsToFPTRepository(const char* const blkSID);
 EXTERN_C LIBEMLRT_API void emlrtEnterRtStackR2012b(emlrtCTX aTLS);
 
 /*
- * MATLAB INTERNAL USE ONLY :: Terminate a runtime stack
- */
-EXTERN_C LIBEMLRT_API void emlrtLeaveRtStackR2012b(emlrtCTX aTLS);
-
-/*
  * MATLAB INTERNAL USE ONLY :: Push to runtime stack
  */
 EXTERN_C LIBEMLRT_API void emlrtPushRtStackR2012b(const struct emlrtRSInfo* aRSInfo, emlrtCTX aTLS);
@@ -1173,7 +1180,7 @@ EXTERN_C LIBEMLRT_API void emlrtPopRtStackR2012b(const struct emlrtRSInfo* aRSIn
 /*
  * MATLAB INTERNAL USE ONLY :: Get the address of the Ctrl-C flag.
  */
-EXTERN_C LIBEMLRT_API const volatile char* emlrtGetBreakCheckFlagAddressR2012b(void);
+EXTERN_C LIBEMLRT_API const volatile char* emlrtGetBreakCheckFlagAddressR2022b(emlrtConstCTX aTLS);
 
 /*
  * MATLAB INTERNAL USE ONLY :: Check for Ctrl+C (break)
@@ -1449,7 +1456,8 @@ EXTERN_C LIBEMLRT_API void emlrtImportArrayR2015b_SameComplex(emlrtConstCTX aTLS
 /*
  * MATLAB INTERNAL USE ONLY :: Import a FI mxArray
  */
-EXTERN_C LIBEMLRT_API void emlrtImportVsFiArrayR2011b(const mxArray* aFiMx,
+EXTERN_C LIBEMLRT_API void emlrtImportVsFiArrayR2023a(emlrtConstCTX aTLS,
+                                                      const mxArray* aFiMx,
                                                       const mxArray* aIntMx,
                                                       void* aOutData,
                                                       int32_T aElementSize,
@@ -1685,6 +1693,16 @@ EXTERN_C LIBEMLRT_API void emlrtCUDAError(uint32_T errcode,
                                           const char* emsg,
                                           const emlrtRTEInfo* aInfo,
                                           emlrtConstCTX aTLS);
+
+/*
+ * MATLAB INTERNAL USE ONLY :: Report a detected OpenCL runtime error
+ */
+EXTERN_C LIBEMLRT_API void emlrtOpenCLError(int32_T errcode,
+                                            const char* ename,
+                                            const char* emsg,
+                                            const emlrtRTEInfo* aInfo,
+                                            emlrtConstCTX aTLS);
+
 /*
  * MATLAB INTERNAL USE ONLY :: Report a detected CUDA runtime error as a warning
  * useful for capturing errors within destructors and throwing those as warnings, so that
@@ -1712,7 +1730,11 @@ EXTERN_C LIBEMLRT_API void emlrtMxFree(void* in);
 
 EXTERN_C LIBEMLRT_API mxArray* emlrtMxCreateString(const char* aStr);
 
+EXTERN_C LIBEMLRT_API mxArray* emlrtMxCreateRowVectorUINT8(const uint8_T* aArray, uint32_T aSize);
+
 EXTERN_C LIBEMLRT_API mxArray* emlrtMxCreateDoubleScalar(double v);
+
+EXTERN_C LIBEMLRT_API mxArray* emlrtMxCreateLogicalScalar(bool v);
 
 EXTERN_C LIBEMLRT_API void* emlrtMxGetData(const mxArray* aMxArray);
 

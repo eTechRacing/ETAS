@@ -7,9 +7,9 @@
  *
  * Code generation for model "SoC".
  *
- * Model version              : 10.1
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Mar 29 01:21:10 2024
+ * Model version              : 13.0
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Wed Apr 10 15:35:56 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -22,14 +22,18 @@
 #include "rtwtypes.h"
 #include "SoC_private.h"
 #include <string.h>
+#include <math.h>
+#include "qr_AN2ohs8Z.h"
+#include "rotate_nRcnRDPx.h"
+#include <emmintrin.h>
+#include "xnrm2_cFB6ntui.h"
+#include "rt_hypotd_snf.h"
 #include "look1_binlxpw.h"
+#include "look1_pbinlcpw.h"
 #include "rt_nonfinite.h"
 
 /* Block signals (default storage) */
 B_SoC_T SoC_B;
-
-/* Continuous states */
-X_SoC_T SoC_X;
 
 /* Block states (default storage) */
 DW_SoC_T SoC_DW;
@@ -43,255 +47,1247 @@ ExtY_SoC_T SoC_Y;
 /* Real-time model */
 static RT_MODEL_SoC_T SoC_M_;
 RT_MODEL_SoC_T *const SoC_M = &SoC_M_;
+static void rate_scheduler(void);
 
 /*
- * This function updates continuous states using the ODE3 fixed-step
- * solver algorithm
+ *         This function updates active task flag for each subrate.
+ *         The function is called at model base rate, hence the
+ *         generated code self-manages all its subrates.
  */
-static void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si )
+static void rate_scheduler(void)
 {
-  /* Solver Matrices */
-  static const real_T rt_ODE3_A[3] = {
-    1.0/2.0, 3.0/4.0, 1.0
-  };
-
-  static const real_T rt_ODE3_B[3][3] = {
-    { 1.0/2.0, 0.0, 0.0 },
-
-    { 0.0, 3.0/4.0, 0.0 },
-
-    { 2.0/9.0, 1.0/3.0, 4.0/9.0 }
-  };
-
-  time_T t = rtsiGetT(si);
-  time_T tnew = rtsiGetSolverStopTime(si);
-  time_T h = rtsiGetStepSize(si);
-  real_T *x = rtsiGetContStates(si);
-  ODE3_IntgData *id = (ODE3_IntgData *)rtsiGetSolverData(si);
-  real_T *y = id->y;
-  real_T *f0 = id->f[0];
-  real_T *f1 = id->f[1];
-  real_T *f2 = id->f[2];
-  real_T hB[3];
-  int_T i;
-  int_T nXc = 2;
-  rtsiSetSimTimeStep(si,MINOR_TIME_STEP);
-
-  /* Save the state values at time t in y, we'll use x as ynew. */
-  (void) memcpy(y, x,
-                (uint_T)nXc*sizeof(real_T));
-
-  /* Assumes that rtsiSetT and ModelOutputs are up-to-date */
-  /* f0 = f(t,y) */
-  rtsiSetdX(si, f0);
-  SoC_derivatives();
-
-  /* f(:,2) = feval(odefile, t + hA(1), y + f*hB(:,1), args(:)(*)); */
-  hB[0] = h * rt_ODE3_B[0][0];
-  for (i = 0; i < nXc; i++) {
-    x[i] = y[i] + (f0[i]*hB[0]);
+  /* Compute which subrates run during the next base time step.  Subrates
+   * are an integer multiple of the base rate counter.  Therefore, the subtask
+   * counter is reset when it reaches its limit (zero means run).
+   */
+  (SoC_M->Timing.TaskCounters.TID[1])++;
+  if ((SoC_M->Timing.TaskCounters.TID[1]) > 39) {/* Sample time: [1.0s, 0.0s] */
+    SoC_M->Timing.TaskCounters.TID[1] = 0;
   }
 
-  rtsiSetT(si, t + h*rt_ODE3_A[0]);
-  rtsiSetdX(si, f1);
-  SoC_output();
-  SoC_derivatives();
+  SoC_M->Timing.sampleHits[1] = (SoC_M->Timing.TaskCounters.TID[1] == 0) ? 1 : 0;
+}
 
-  /* f(:,3) = feval(odefile, t + hA(2), y + f*hB(:,2), args(:)(*)); */
-  for (i = 0; i <= 1; i++) {
-    hB[i] = h * rt_ODE3_B[1][i];
+/*
+ * System initialize for iterator system:
+ *    '<S2>/SOC Estimator (Coulomb Counting)'
+ *    '<S3>/SOC Estimator (Coulomb Counting)'
+ */
+void SOCEstimatorCoulombCountin_Init(int32_T NumIters,
+  DW_SOCEstimatorCoulombCountin_T localDW[1])
+{
+  /* local scratch DWork variables */
+  int32_T ForEach_itr;
+  for (ForEach_itr = 0; ForEach_itr < NumIters; ForEach_itr++) {
+    /* InitializeConditions for DiscreteIntegrator: '<S9>/Integrator' */
+    localDW[ForEach_itr].CoreSubsys.Integrator_IC_LOADING = 1U;
+  }
+}
+
+/*
+ * Start for iterator system:
+ *    '<S2>/SOC Estimator (Coulomb Counting)'
+ *    '<S3>/SOC Estimator (Coulomb Counting)'
+ */
+void SOCEstimatorCoulombCounti_Start(int32_T NumIters,
+  B_SOCEstimatorCoulombCounting_T localB[1], DW_SOCEstimatorCoulombCountin_T
+  localDW[1])
+{
+  /* local scratch DWork variables */
+  int32_T ForEach_itr;
+  for (ForEach_itr = 0; ForEach_itr < NumIters; ForEach_itr++) {
+    /* Start for Gain: '<S6>/Gain' */
+    localB[ForEach_itr].CoreSubsys.Gain = 0.0;
+    localDW[ForEach_itr].CoreSubsys.Integrator_DSTATE = 0.0;
+  }
+}
+
+/*
+ * Outputs for iterator system:
+ *    '<S2>/SOC Estimator (Coulomb Counting)'
+ *    '<S3>/SOC Estimator (Coulomb Counting)'
+ */
+void SoC_SOCEstimatorCoulombCounting(int32_T NumIters, RT_MODEL_SoC_T * const
+  SoC_M, const real_T *rtu_Current, const real_T *rtu_InitialSOC, real_T
+  *rty_SOC, real_T rtp_AH, B_SOCEstimatorCoulombCounting_T localB[1],
+  DW_SOCEstimatorCoulombCountin_T localDW[1])
+{
+  /* local scratch DWork variables */
+  int32_T ForEach_itr;
+
+  /* Outputs for Iterator SubSystem: '<S2>/SOC Estimator (Coulomb Counting)' incorporates:
+   *  ForEach: '<S6>/For Each'
+   */
+  for (ForEach_itr = 0; ForEach_itr < NumIters; ForEach_itr++) {
+    if (SoC_M->Timing.TaskCounters.TID[1] == 0) {
+      /* Gain: '<S6>/Gain' */
+      localB[ForEach_itr].CoreSubsys.Gain = 1.0 / (rtp_AH * 3600.0) *
+        rtu_Current[ForEach_itr];
+
+      /* DiscreteIntegrator: '<S9>/Integrator' */
+      if (localDW[ForEach_itr].CoreSubsys.Integrator_IC_LOADING != 0) {
+        localDW[ForEach_itr].CoreSubsys.Integrator_DSTATE =
+          rtu_InitialSOC[ForEach_itr];
+      }
+
+      /* ForEachSliceAssignment generated from: '<S6>/SOC' incorporates:
+       *  DiscreteIntegrator: '<S9>/Integrator'
+       */
+      rty_SOC[ForEach_itr] = localDW[ForEach_itr].CoreSubsys.Integrator_DSTATE;
+    }
   }
 
-  for (i = 0; i < nXc; i++) {
-    x[i] = y[i] + (f0[i]*hB[0] + f1[i]*hB[1]);
+  /* End of Outputs for SubSystem: '<S2>/SOC Estimator (Coulomb Counting)' */
+}
+
+/*
+ * Update for iterator system:
+ *    '<S2>/SOC Estimator (Coulomb Counting)'
+ *    '<S3>/SOC Estimator (Coulomb Counting)'
+ */
+void SOCEstimatorCoulombCount_Update(int32_T NumIters, RT_MODEL_SoC_T * const
+  SoC_M, B_SOCEstimatorCoulombCounting_T localB[1],
+  DW_SOCEstimatorCoulombCountin_T localDW[1])
+{
+  /* local scratch DWork variables */
+  int32_T ForEach_itr;
+  for (ForEach_itr = 0; ForEach_itr < NumIters; ForEach_itr++) {
+    if (SoC_M->Timing.TaskCounters.TID[1] == 0) {
+      /* Update for DiscreteIntegrator: '<S9>/Integrator' */
+      localDW[ForEach_itr].CoreSubsys.Integrator_IC_LOADING = 0U;
+      localDW[ForEach_itr].CoreSubsys.Integrator_DSTATE += localB[ForEach_itr].
+        CoreSubsys.Gain;
+    }
   }
-
-  rtsiSetT(si, t + h*rt_ODE3_A[1]);
-  rtsiSetdX(si, f2);
-  SoC_output();
-  SoC_derivatives();
-
-  /* tnew = t + hA(3);
-     ynew = y + f*hB(:,3); */
-  for (i = 0; i <= 2; i++) {
-    hB[i] = h * rt_ODE3_B[2][i];
-  }
-
-  for (i = 0; i < nXc; i++) {
-    x[i] = y[i] + (f0[i]*hB[0] + f1[i]*hB[1] + f2[i]*hB[2]);
-  }
-
-  rtsiSetT(si, tnew);
-  rtsiSetSimTimeStep(si,MAJOR_TIME_STEP);
 }
 
 /* Model output function */
-void SoC_output(void)
+static void SoC_output(void)
 {
-  real_T rtb_Merge;
-  real_T rtb_Saturation1;
-  int8_T rtAction;
-  if (rtmIsMajorTimeStep(SoC_M)) {
-    /* set solver stop time */
-    if (!(SoC_M->Timing.clockTick0+1)) {
-      rtsiSetSolverStopTime(&SoC_M->solverInfo, ((SoC_M->Timing.clockTickH0 + 1)
-        * SoC_M->Timing.stepSize0 * 4294967296.0));
-    } else {
-      rtsiSetSolverStopTime(&SoC_M->solverInfo, ((SoC_M->Timing.clockTick0 + 1) *
-        SoC_M->Timing.stepSize0 + SoC_M->Timing.clockTickH0 *
-        SoC_M->Timing.stepSize0 * 4294967296.0));
-    }
-  }                                    /* end MajorTimeStep */
+  /* local block i/o variables */
+  real_T rtb_Delay[2];
+  real_T rtb_ImpAsg_InsertedFor_SOC_at_k;
+  real_T rtb_ImpAsg_InsertedFor_SOC_a_ia;
 
-  /* Update absolute time of base rate at minor time step */
-  if (rtmIsMinorTimeStep(SoC_M)) {
-    SoC_M->Timing.t[0] = rtsiGetT(&SoC_M->solverInfo);
-  }
+  /* local scratch DWork variables */
+  int32_T ForEach_itr;
+  int32_T ForEach_itr_m;
+  int32_T ForEach_itr_l;
+  int32_T ForEach_itr_f;
+  __m128d tmp_4;
+  real_T b[25];
+  real_T a__1[12];
+  real_T residual_1[12];
+  real_T residual[10];
+  real_T rtb_ImpAsg_InsertedFor_Wm_ixk1_[10];
+  real_T rtb_X1[10];
+  real_T A[5];
+  real_T residual_0[5];
+  real_T rtb_ImpAsg_InsertedFor_Wm_iy_i_[5];
+  real_T rtb_ImpAsg_InsertedFor_y_at_inp[5];
+  real_T rtb_Y1[5];
+  real_T rtb_Gain_b[4];
+  real_T rtb_MatrixMultiply[4];
+  real_T tmp[4];
+  real_T rtb_Add_i[2];
+  real_T rtb_Kk1_p[2];
+  real_T rtb_SumofElements[2];
+  real_T s[2];
+  real_T tmp_5[2];
+  real_T absxk;
+  real_T b_c_idx_0;
+  real_T rtb_Gain_i;
+  real_T rtb_ImpAsg_InsertedFor_SOC_at_h;
+  real_T rtb_Kk1_l;
+  real_T rtb_ManualSwitch1;
+  real_T rtb_MatrixMultiply_0;
+  real_T rtb_Saturation_m;
+  real_T tmp_0;
+  real_T tmp_1;
+  real_T tmp_2;
+  real_T tmp_3;
+  int32_T i;
+  int32_T iAcol;
+  int32_T knt;
+  int32_T rtb_X1_tmp;
+  boolean_T errorCondition;
 
   /* If: '<S1>/If' incorporates:
    *  Inport: '<Root>/Car_State'
+   *  Logic: '<S2>/NOT'
+   *  Logic: '<S3>/NOT'
    */
-  if (rtsiIsModeUpdateTimeStep(&SoC_M->solverInfo)) {
-    rtAction = (int8_T)((!(SoC_U.Car_State >= 12.0)) || (!(SoC_U.Car_State <=
-      15.0)));
-    SoC_DW.If_ActiveSubsystem = rtAction;
-  } else {
-    rtAction = SoC_DW.If_ActiveSubsystem;
-  }
+  errorCondition = ((!(SoC_U.Car_State >= 12.0)) || (!(SoC_U.Car_State <= 15.0)));
 
-  switch (rtAction) {
-   case 0:
-    /* Outputs for IfAction SubSystem: '<S1>/Latches OCV SoC' incorporates:
-     *  ActionPort: '<S4>/Action Port'
-     */
-    if (rtmIsMajorTimeStep(SoC_M)) {
-      /* SignalConversion generated from: '<S4>/Out1' incorporates:
-       *  Constant: '<S4>/Constant'
-       */
-      rtb_Merge = 1.0;
-    }
-
-    /* End of Outputs for SubSystem: '<S1>/Latches OCV SoC' */
-    break;
-
-   case 1:
-    /* Outputs for IfAction SubSystem: '<S1>/Measures OCV SoC' incorporates:
-     *  ActionPort: '<S5>/Action Port'
-     */
-    if (rtmIsMajorTimeStep(SoC_M)) {
-      /* SignalConversion generated from: '<S5>/Out0' incorporates:
-       *  Constant: '<S5>/Constant'
-       */
-      rtb_Merge = 0.0;
-    }
-
-    /* End of Outputs for SubSystem: '<S1>/Measures OCV SoC' */
-    break;
-  }
-
-  /* End of If: '<S1>/If' */
-  if (rtmIsMajorTimeStep(SoC_M)) {
-    /* Logic: '<S3>/NOT' */
-    SoC_B.NOT = !(rtb_Merge != 0.0);
-
-    /* Memory: '<S3>/Memory' */
-    SoC_B.Memory = SoC_DW.Memory_PreviousInput;
-  }
-
-  /* Switch: '<S3>/Switch' */
-  if (SoC_B.NOT) {
+  /* Switch: '<S3>/Switch' incorporates:
+   *  Logic: '<S3>/NOT'
+   */
+  if (errorCondition) {
     /* Switch: '<S3>/Switch' incorporates:
-     *  Inport: '<Root>/Lowest_CellVoltage'
+     *  Inport: '<Root>/Lowest_Cell_Voltage'
      *  Lookup_n-D: '<S3>/OCV to SoC'
      */
-    SoC_B.Switch = look1_binlxpw(SoC_U.Lowest_CellVoltage,
+    SoC_B.Switch = look1_binlxpw(SoC_U.Lowest_Cell_Voltage,
       rtCP_OCVtoSoC_bp01Data_n, rtCP_OCVtoSoC_tableData_k, 25U);
   } else {
-    /* Switch: '<S3>/Switch' */
-    SoC_B.Switch = SoC_B.Memory;
+    /* Switch: '<S3>/Switch' incorporates:
+     *  Memory: '<S3>/Memory'
+     */
+    SoC_B.Switch = SoC_DW.Memory_PreviousInput;
   }
 
   /* End of Switch: '<S3>/Switch' */
 
-  /* Sum: '<S3>/Add' incorporates:
-   *  Gain: '<S3>/Gain'
-   *  Integrator: '<S3>/Integrator'
+  /* Outputs for Iterator SubSystem: '<S3>/SOC Estimator (Coulomb Counting)' */
+  /* Inport: '<Root>/Accumulator_Current' */
+  SoC_SOCEstimatorCoulombCounting(1, SoC_M, &SoC_U.Accumulator_Current,
+    &SoC_B.Switch, &rtb_ImpAsg_InsertedFor_SOC_at_k, 13.0,
+    SoC_B.SOCEstimatorCoulombCounting_p, SoC_DW.SOCEstimatorCoulombCounting_p);
+
+  /* End of Outputs for SubSystem: '<S3>/SOC Estimator (Coulomb Counting)' */
+  if (SoC_M->Timing.TaskCounters.TID[1] == 0) {
+    /* Saturate: '<S3>/Saturation1' */
+    if (rtb_ImpAsg_InsertedFor_SOC_at_k > 100.0) {
+      /* Saturate: '<S3>/Saturation1' */
+      SoC_B.Saturation1 = 100.0;
+    } else if (rtb_ImpAsg_InsertedFor_SOC_at_k < 0.0) {
+      /* Saturate: '<S3>/Saturation1' */
+      SoC_B.Saturation1 = 0.0;
+    } else {
+      /* Saturate: '<S3>/Saturation1' */
+      SoC_B.Saturation1 = rtb_ImpAsg_InsertedFor_SOC_at_k;
+    }
+
+    /* End of Saturate: '<S3>/Saturation1' */
+  }
+
+  /* Outputs for Iterator SubSystem: '<S3>/SOC Estimator (Kalman Filter)' incorporates:
+   *  ForEach: '<S30>/For Each'
    */
-  rtb_Saturation1 = SoC_B.Switch - 288.0 * SoC_X.Integrator_CSTATE;
+  for (ForEach_itr = 0; ForEach_itr < 1; ForEach_itr++) {
+    if (SoC_M->Timing.TaskCounters.TID[1] == 0) {
+      /* Gain: '<S30>/Gain' incorporates:
+       *  Inport: '<Root>/Accumulator_Current'
+       */
+      SoC_B.CoreSubsys_g[ForEach_itr].Gain = -SoC_U.Accumulator_Current;
+    }
 
-  /* Saturate: '<S3>/Saturation1' */
-  if (rtb_Saturation1 > 100.0) {
-    rtb_Saturation1 = 100.0;
-  } else if (rtb_Saturation1 < 0.0) {
-    rtb_Saturation1 = 0.0;
+    /* SignalConversion generated from: '<S37>/Assignment' incorporates:
+     *  Assignment: '<S37>/Assignment'
+     *  Constant: '<S37>/Constant'
+     */
+    rtb_Gain_b[0] = 1.0;
+    rtb_Gain_b[1] = 0.0;
+    rtb_Gain_b[2] = 0.0;
+
+    /* SignalConversion generated from: '<S36>/Delay' incorporates:
+     *  Constant: '<S36>/Constant1'
+     */
+    SoC_B.CoreSubsys_g[ForEach_itr].TmpSignalConversionAtDelayInpor[0] =
+      SoC_B.Switch;
+    SoC_B.CoreSubsys_g[ForEach_itr].TmpSignalConversionAtDelayInpor[1] = 0.0;
+
+    /* Delay: '<S36>/Delay' */
+    if (SoC_DW.CoreSubsys_g[ForEach_itr].icLoad) {
+      SoC_DW.CoreSubsys_g[ForEach_itr].Delay_DSTATE[0] =
+        SoC_B.CoreSubsys_g[ForEach_itr].TmpSignalConversionAtDelayInpor[0];
+      SoC_DW.CoreSubsys_g[ForEach_itr].Delay_DSTATE[1] = 0.0;
+    }
+
+    /* Delay: '<S36>/Delay' */
+    rtb_Delay[0] = SoC_DW.CoreSubsys_g[ForEach_itr].Delay_DSTATE[0];
+    rtb_Delay[1] = SoC_DW.CoreSubsys_g[ForEach_itr].Delay_DSTATE[1];
+
+    /* Lookup_n-D: '<S37>/2-D Lookup Table R1' */
+    rtb_ManualSwitch1 = look1_binlxpw(rtb_Delay[0],
+      rtCP_uDLookupTableR1_bp01Data, rtCP_uDLookupTableR1_tableData, 25U);
+
+    /* Math: '<S37>/Math Function' incorporates:
+     *  Gain: '<S37>/-Ts'
+     *  Lookup_n-D: '<S37>/2-D Lookup Table C1'
+     *  Product: '<S37>/Product'
+     *  Product: '<S37>/Product2'
+     *
+     * About '<S37>/Math Function':
+     *  Operator: exp
+     */
+    rtb_Saturation_m = exp(1.0 / (rtb_ManualSwitch1 * look1_binlxpw(rtb_Delay[0],
+      rtCP_uDLookupTableC1_bp01Data, rtCP_uDLookupTableC1_tableData, 25U)) *
+      -SoC_B.CoreSubsys_g[ForEach_itr].Probe[0]);
+
+    /* Assignment: '<S37>/Assignment' */
+    rtb_Gain_b[3] = rtb_Saturation_m;
+
+    /* Product: '<S38>/Product2' incorporates:
+     *  Assignment: '<S37>/Assignment'
+     *  Math: '<S38>/Transpose'
+     *  UnitDelay: '<S34>/Unit Delay - P'
+     */
+    for (iAcol = 0; iAcol < 2; iAcol++) {
+      b_c_idx_0 = SoC_DW.CoreSubsys_g[ForEach_itr].UnitDelayP_DSTATE[iAcol + 2];
+      absxk = SoC_DW.CoreSubsys_g[ForEach_itr].UnitDelayP_DSTATE[iAcol];
+      tmp[iAcol] = b_c_idx_0 * 0.0 + absxk;
+      tmp[iAcol + 2] = b_c_idx_0 * rtb_Saturation_m + absxk * 0.0;
+    }
+
+    /* Lookup_n-D: '<S37>/2-D Lookup Table dV0' */
+    b_c_idx_0 = look1_binlxpw(rtb_Delay[0], rtCP_uDLookupTabledV0_bp01Data,
+      rtCP_uDLookupTabledV0_tableData, 25U);
+
+    /* SignalConversion generated from: '<S37>/Transpose1' incorporates:
+     *  Constant: '<S37>/Constant4'
+     */
+    rtb_Add_i[0] = b_c_idx_0;
+    rtb_Add_i[1] = -1.0;
+
+    /* Product: '<S35>/Product2' */
+    absxk = 0.0;
+
+    /* Product: '<S38>/Product2' */
+    tmp_0 = tmp[1];
+    tmp_1 = tmp[0];
+    tmp_2 = tmp[3];
+    tmp_3 = tmp[2];
+    for (iAcol = 0; iAcol < 2; iAcol++) {
+      /* Sum: '<S38>/Sum1' incorporates:
+       *  Assignment: '<S37>/Assignment'
+       *  Constant: '<S38>/Constant'
+       *  Product: '<S15>/Matrix Multiply'
+       *  Product: '<S38>/Product2'
+       */
+      rtb_Gain_i = rtb_Gain_b[iAcol + 2];
+      rtb_X1_tmp = (int32_T)rtb_Gain_b[iAcol];
+      rtb_MatrixMultiply_0 = (rtb_Gain_i * tmp_0 + (real_T)rtb_X1_tmp * tmp_1) +
+        rtCP_Constant_Value_a[iAcol];
+      rtb_MatrixMultiply[iAcol] = rtb_MatrixMultiply_0;
+
+      /* Product: '<S35>/Product2' incorporates:
+       *  Lookup_n-D: '<S37>/2-D Lookup Table dV0'
+       *  Product: '<S35>/Product'
+       */
+      rtb_Kk1_l = rtb_MatrixMultiply_0 * b_c_idx_0;
+
+      /* Sum: '<S38>/Sum1' incorporates:
+       *  Constant: '<S38>/Constant'
+       *  Product: '<S15>/Matrix Multiply'
+       *  Product: '<S38>/Product2'
+       */
+      rtb_MatrixMultiply_0 = (rtb_Gain_i * tmp_2 + (real_T)rtb_X1_tmp * tmp_3) +
+        rtCP_Constant_Value_a[iAcol + 2];
+      rtb_MatrixMultiply[iAcol + 2] = rtb_MatrixMultiply_0;
+
+      /* Product: '<S35>/Product2' incorporates:
+       *  Math: '<S37>/Transpose1'
+       *  Product: '<S35>/Product'
+       */
+      rtb_Kk1_l -= rtb_MatrixMultiply_0;
+      rtb_Kk1_p[iAcol] = rtb_Kk1_l;
+      absxk += rtb_Add_i[iAcol] * rtb_Kk1_l;
+    }
+
+    /* Product: '<S35>/Divide' incorporates:
+     *  Constant: '<S35>/Constant'
+     *  Constant: '<S35>/Constant1'
+     *  Product: '<S35>/Product2'
+     *  Sum: '<S35>/Sum2'
+     */
+    absxk = 1.0 / (absxk + 0.001);
+
+    /* Product: '<S35>/Product1' incorporates:
+     *  Product: '<S35>/Product'
+     */
+    rtb_Kk1_p[0] *= absxk;
+    rtb_Kk1_p[1] *= absxk;
+
+    /* RateTransition: '<S34>/Rate Transition1' */
+    if (SoC_M->Timing.TaskCounters.TID[1] == 0) {
+      /* RateTransition: '<S34>/Rate Transition1' */
+      SoC_B.CoreSubsys_g[ForEach_itr].RateTransition1 =
+        SoC_DW.CoreSubsys_g[ForEach_itr].RateTransition1_Buffer0;
+    }
+
+    /* End of RateTransition: '<S34>/Rate Transition1' */
+
+    /* Sum: '<S34>/Sum' incorporates:
+     *  Inport: '<Root>/Lowest_Cell_Voltage'
+     *  Lookup_n-D: '<S37>/2-D Lookup Table R0'
+     *  Lookup_n-D: '<S37>/2-D Lookup Table V0'
+     *  Product: '<S37>/Product6'
+     *  Sum: '<S37>/Sum2'
+     */
+    absxk = SoC_U.Lowest_Cell_Voltage - ((look1_binlxpw(rtb_Delay[0],
+      rtCP_uDLookupTableV0_bp01Data, rtCP_uDLookupTableV0_tableData, 25U) -
+      look1_binlxpw(rtb_Delay[0], rtCP_uDLookupTableR0_bp01Data,
+                    rtCP_uDLookupTableR0_tableData, 25U) *
+      SoC_B.CoreSubsys_g[ForEach_itr].RateTransition1) - rtb_Delay[1]);
+
+    /* Sum: '<S35>/Sum3' incorporates:
+     *  Constant: '<S35>/Constant2'
+     *  Product: '<S35>/Product1'
+     *  Product: '<S35>/Product4'
+     */
+    tmp[0] = 1.0 - rtb_Kk1_p[0] * b_c_idx_0;
+    tmp[1] = 0.0 - b_c_idx_0 * rtb_Kk1_p[1];
+
+    /* Sum: '<S35>/Sum' incorporates:
+     *  Gain: '<S37>/-Ts'
+     *  Gain: '<S37>/Gain'
+     *  Product: '<S35>/Product1'
+     *  Product: '<S35>/Product3'
+     *  Product: '<S38>/Product'
+     *  Product: '<S38>/Product1'
+     *  Sum: '<S38>/Sum'
+     */
+    SoC_B.CoreSubsys_g[ForEach_itr].Sum[0] = ((rtb_Delay[1] * 0.0 + rtb_Delay[0])
+      + 2.2222222222222223E-5 * -SoC_B.CoreSubsys_g[ForEach_itr].Probe[0] *
+      SoC_B.CoreSubsys_g[ForEach_itr].RateTransition1) + rtb_Kk1_p[0] * absxk;
+
+    /* Sum: '<S35>/Sum3' incorporates:
+     *  Constant: '<S35>/Constant2'
+     *  Product: '<S35>/Product1'
+     *  Product: '<S35>/Product4'
+     */
+    tmp[2] = 0.0 - (-rtb_Kk1_p[0]);
+    tmp[3] = 1.0 - (-rtb_Kk1_p[1]);
+
+    /* Sum: '<S35>/Sum' incorporates:
+     *  Assignment: '<S37>/Assignment'
+     *  Constant: '<S37>/Constant1'
+     *  Product: '<S35>/Product1'
+     *  Product: '<S35>/Product3'
+     *  Product: '<S37>/Product4'
+     *  Product: '<S38>/Product'
+     *  Product: '<S38>/Product1'
+     *  Sum: '<S37>/Sum'
+     *  Sum: '<S38>/Sum'
+     */
+    SoC_B.CoreSubsys_g[ForEach_itr].Sum[1] = ((1.0 - rtb_Saturation_m) *
+      rtb_ManualSwitch1 * SoC_B.CoreSubsys_g[ForEach_itr].RateTransition1 +
+      (rtb_Delay[0] * 0.0 + rtb_Delay[1] * rtb_Saturation_m)) + rtb_Kk1_p[1] *
+      absxk;
+
+    /* Product: '<S35>/Product5' incorporates:
+     *  Product: '<S15>/Matrix Multiply'
+     */
+    rtb_MatrixMultiply_0 = rtb_MatrixMultiply[0];
+    rtb_ManualSwitch1 = rtb_MatrixMultiply[1];
+    absxk = rtb_MatrixMultiply[2];
+    rtb_Saturation_m = rtb_MatrixMultiply[3];
+    for (iAcol = 0; iAcol < 2; iAcol++) {
+      /* Product: '<S35>/Product5' */
+      b_c_idx_0 = tmp[iAcol];
+      tmp_0 = tmp[iAcol + 2];
+      SoC_B.CoreSubsys_g[ForEach_itr].Product5[iAcol] = tmp_0 *
+        rtb_ManualSwitch1 + b_c_idx_0 * rtb_MatrixMultiply_0;
+      SoC_B.CoreSubsys_g[ForEach_itr].Product5[iAcol + 2] = tmp_0 *
+        rtb_Saturation_m + b_c_idx_0 * absxk;
+    }
+
+    /* ForEachSliceAssignment generated from: '<S30>/SOC' */
+    rtb_Saturation_m = SoC_B.CoreSubsys_g[ForEach_itr].Sum[0];
   }
 
-  /* End of Saturate: '<S3>/Saturation1' */
-  if (rtmIsMajorTimeStep(SoC_M)) {
-    /* Logic: '<S2>/NOT' */
-    SoC_B.NOT_p = !(rtb_Merge != 0.0);
+  /* End of Outputs for SubSystem: '<S3>/SOC Estimator (Kalman Filter)' */
 
-    /* Memory: '<S2>/Memory' */
-    SoC_B.Memory_p = SoC_DW.Memory_PreviousInput_p;
+  /* Saturate: '<S3>/Saturation' */
+  if (rtb_Saturation_m > 100.0) {
+    /* Outport: '<Root>/KFSoC_L' */
+    SoC_Y.KFSoC_L = 100.0;
+  } else if (rtb_Saturation_m < 0.0) {
+    /* Outport: '<Root>/KFSoC_L' */
+    SoC_Y.KFSoC_L = 0.0;
+  } else {
+    /* Outport: '<Root>/KFSoC_L' */
+    SoC_Y.KFSoC_L = rtb_Saturation_m;
   }
+
+  /* End of Saturate: '<S3>/Saturation' */
 
   /* Switch: '<S2>/Switch' */
-  if (SoC_B.NOT_p) {
+  if (errorCondition) {
     /* Switch: '<S2>/Switch' incorporates:
-     *  Inport: '<Root>/Highest_CellVoltage'
+     *  Inport: '<Root>/Highest_Cell_Voltage'
      *  Lookup_n-D: '<S2>/OCV to SoC'
      */
-    SoC_B.Switch_d = look1_binlxpw(SoC_U.Highest_CellVoltage,
+    SoC_B.Switch_d = look1_binlxpw(SoC_U.Highest_Cell_Voltage,
       rtCP_OCVtoSoC_bp01Data, rtCP_OCVtoSoC_tableData, 25U);
   } else {
-    /* Switch: '<S2>/Switch' */
-    SoC_B.Switch_d = SoC_B.Memory_p;
+    /* Switch: '<S2>/Switch' incorporates:
+     *  Memory: '<S2>/Memory'
+     */
+    SoC_B.Switch_d = SoC_DW.Memory_PreviousInput_p;
   }
 
   /* End of Switch: '<S2>/Switch' */
 
-  /* Sum: '<S2>/Add' incorporates:
-   *  Gain: '<S2>/Gain'
-   *  Integrator: '<S2>/Integrator'
-   */
-  rtb_Merge = SoC_B.Switch_d - 288.0 * SoC_X.Integrator_CSTATE_b;
+  /* Outputs for Iterator SubSystem: '<S2>/SOC Estimator (Coulomb Counting)' */
+  /* Inport: '<Root>/Accumulator_Current' */
+  SoC_SOCEstimatorCoulombCounting(1, SoC_M, &SoC_U.Accumulator_Current,
+    &SoC_B.Switch_d, &rtb_ImpAsg_InsertedFor_SOC_a_ia, 13.0,
+    SoC_B.SOCEstimatorCoulombCounting, SoC_DW.SOCEstimatorCoulombCounting);
 
-  /* Saturate: '<S2>/Saturation1' */
-  if (rtb_Merge > 100.0) {
-    rtb_Merge = 100.0;
-  } else if (rtb_Merge < 0.0) {
-    rtb_Merge = 0.0;
+  /* End of Outputs for SubSystem: '<S2>/SOC Estimator (Coulomb Counting)' */
+  if (SoC_M->Timing.TaskCounters.TID[1] == 0) {
+    /* Saturate: '<S2>/Saturation1' */
+    if (rtb_ImpAsg_InsertedFor_SOC_a_ia > 100.0) {
+      /* Saturate: '<S2>/Saturation1' */
+      SoC_B.Saturation1_i = 100.0;
+    } else if (rtb_ImpAsg_InsertedFor_SOC_a_ia < 0.0) {
+      /* Saturate: '<S2>/Saturation1' */
+      SoC_B.Saturation1_i = 0.0;
+    } else {
+      /* Saturate: '<S2>/Saturation1' */
+      SoC_B.Saturation1_i = rtb_ImpAsg_InsertedFor_SOC_a_ia;
+    }
+
+    /* End of Saturate: '<S2>/Saturation1' */
   }
 
-  /* End of Saturate: '<S2>/Saturation1' */
+  /* Outputs for Iterator SubSystem: '<S2>/SOC Estimator (Kalman Filter)' incorporates:
+   *  ForEach: '<S7>/For Each'
+   */
+  for (ForEach_itr_m = 0; ForEach_itr_m < 1; ForEach_itr_m++) {
+    if (SoC_M->Timing.TaskCounters.TID[1] == 0) {
+      /* Gain: '<S7>/Gain' incorporates:
+       *  Inport: '<Root>/Accumulator_Current'
+       */
+      SoC_B.CoreSubsys[ForEach_itr_m].Gain = -SoC_U.Accumulator_Current;
+
+      /* RateTransition: '<S11>/Rate Transition1' */
+      SoC_B.CoreSubsys[ForEach_itr_m].RateTransition1 =
+        SoC_DW.CoreSubsys[ForEach_itr_m].RateTransition1_Buffer0;
+    }
+
+    /* Reshape: '<S13>/Reshape' incorporates:
+     *  Constant: '<S13>/Constant1'
+     *  ForEachSliceSelector generated from: '<S7>/InitialSOC'
+     */
+    SoC_B.CoreSubsys[ForEach_itr_m].Reshape[0] = SoC_B.Switch_d;
+    SoC_B.CoreSubsys[ForEach_itr_m].Reshape[1] = 0.0;
+
+    /* Delay: '<S13>/Delay' incorporates:
+     *  Reshape: '<S13>/Reshape'
+     */
+    if (SoC_DW.CoreSubsys[ForEach_itr_m].icLoad) {
+      SoC_DW.CoreSubsys[ForEach_itr_m].Delay_DSTATE[0] =
+        SoC_B.CoreSubsys[ForEach_itr_m].Reshape[0];
+      SoC_DW.CoreSubsys[ForEach_itr_m].Delay_DSTATE[1] = 0.0;
+    }
+
+    /* Assignment: '<S15>/Assignment' incorporates:
+     *  Assignment: '<S15>/Assignment2'
+     *  Delay: '<S13>/Delay'
+     */
+    SoC_B.CoreSubsys[ForEach_itr_m].Assignment2[0] =
+      SoC_DW.CoreSubsys[ForEach_itr_m].Delay_DSTATE[0];
+    SoC_B.CoreSubsys[ForEach_itr_m].Assignment2[1] =
+      SoC_DW.CoreSubsys[ForEach_itr_m].Delay_DSTATE[1];
+
+    /* Gain: '<S15>/Gain' incorporates:
+     *  UnitDelay: '<S11>/Unit Delay - P'
+     */
+    rtb_Gain_b[0] = 1.4142135623730951 * SoC_DW.CoreSubsys[ForEach_itr_m].
+      UnitDelayP_DSTATE[0];
+    rtb_Gain_b[1] = 1.4142135623730951 * SoC_DW.CoreSubsys[ForEach_itr_m].
+      UnitDelayP_DSTATE[1];
+    rtb_Gain_b[2] = 1.4142135623730951 * SoC_DW.CoreSubsys[ForEach_itr_m].
+      UnitDelayP_DSTATE[2];
+    rtb_Gain_b[3] = 1.4142135623730951 * SoC_DW.CoreSubsys[ForEach_itr_m].
+      UnitDelayP_DSTATE[3];
+
+    /* Assignment: '<S15>/Assignment1' incorporates:
+     *  Assignment: '<S15>/Assignment2'
+     *  Delay: '<S13>/Delay'
+     *  Gain: '<S15>/Gain'
+     *  Product: '<S15>/Matrix Multiply'
+     *  Sum: '<S15>/Sum'
+     */
+    SoC_B.CoreSubsys[ForEach_itr_m].Assignment2[2] =
+      SoC_DW.CoreSubsys[ForEach_itr_m].Delay_DSTATE[0] + rtb_Gain_b[0];
+
+    /* Assignment: '<S15>/Assignment2' incorporates:
+     *  Delay: '<S13>/Delay'
+     *  Gain: '<S15>/Gain'
+     *  Product: '<S15>/Matrix Multiply'
+     *  Sum: '<S15>/Sum'
+     *  Sum: '<S15>/Sum1'
+     */
+    SoC_B.CoreSubsys[ForEach_itr_m].Assignment2[6] =
+      SoC_DW.CoreSubsys[ForEach_itr_m].Delay_DSTATE[0] - rtb_Gain_b[0];
+
+    /* Assignment: '<S15>/Assignment1' incorporates:
+     *  Assignment: '<S15>/Assignment2'
+     *  Delay: '<S13>/Delay'
+     *  Gain: '<S15>/Gain'
+     *  Product: '<S15>/Matrix Multiply'
+     *  Sum: '<S15>/Sum'
+     */
+    SoC_B.CoreSubsys[ForEach_itr_m].Assignment2[3] =
+      SoC_DW.CoreSubsys[ForEach_itr_m].Delay_DSTATE[1] + rtb_Gain_b[1];
+
+    /* Assignment: '<S15>/Assignment2' incorporates:
+     *  Delay: '<S13>/Delay'
+     *  Gain: '<S15>/Gain'
+     *  Product: '<S15>/Matrix Multiply'
+     *  Sum: '<S15>/Sum'
+     *  Sum: '<S15>/Sum1'
+     */
+    SoC_B.CoreSubsys[ForEach_itr_m].Assignment2[7] =
+      SoC_DW.CoreSubsys[ForEach_itr_m].Delay_DSTATE[1] - rtb_Gain_b[1];
+
+    /* Assignment: '<S15>/Assignment1' incorporates:
+     *  Assignment: '<S15>/Assignment2'
+     *  Delay: '<S13>/Delay'
+     *  Gain: '<S15>/Gain'
+     *  Product: '<S15>/Matrix Multiply'
+     *  Sum: '<S15>/Sum'
+     */
+    SoC_B.CoreSubsys[ForEach_itr_m].Assignment2[4] =
+      SoC_DW.CoreSubsys[ForEach_itr_m].Delay_DSTATE[0] + rtb_Gain_b[2];
+
+    /* Assignment: '<S15>/Assignment2' incorporates:
+     *  Delay: '<S13>/Delay'
+     *  Gain: '<S15>/Gain'
+     *  Product: '<S15>/Matrix Multiply'
+     *  Sum: '<S15>/Sum'
+     *  Sum: '<S15>/Sum1'
+     */
+    SoC_B.CoreSubsys[ForEach_itr_m].Assignment2[8] =
+      SoC_DW.CoreSubsys[ForEach_itr_m].Delay_DSTATE[0] - rtb_Gain_b[2];
+
+    /* Assignment: '<S15>/Assignment1' incorporates:
+     *  Assignment: '<S15>/Assignment2'
+     *  Delay: '<S13>/Delay'
+     *  Gain: '<S15>/Gain'
+     *  Product: '<S15>/Matrix Multiply'
+     *  Sum: '<S15>/Sum'
+     */
+    SoC_B.CoreSubsys[ForEach_itr_m].Assignment2[5] =
+      SoC_DW.CoreSubsys[ForEach_itr_m].Delay_DSTATE[1] + rtb_Gain_b[3];
+
+    /* Assignment: '<S15>/Assignment2' incorporates:
+     *  Delay: '<S13>/Delay'
+     *  Gain: '<S15>/Gain'
+     *  Product: '<S15>/Matrix Multiply'
+     *  Sum: '<S15>/Sum'
+     *  Sum: '<S15>/Sum1'
+     */
+    SoC_B.CoreSubsys[ForEach_itr_m].Assignment2[9] =
+      SoC_DW.CoreSubsys[ForEach_itr_m].Delay_DSTATE[1] - rtb_Gain_b[3];
+
+    /* Outputs for Iterator SubSystem: '<S14>/State function' incorporates:
+     *  ForEach: '<S20>/For Each'
+     */
+    for (ForEach_itr_f = 0; ForEach_itr_f < 5; ForEach_itr_f++) {
+      /* Lookup_n-D: '<S26>/R1' incorporates:
+       *  Assignment: '<S15>/Assignment2'
+       *  ForEachSliceSelector generated from: '<S20>/X'
+       */
+      rtb_Saturation_m = look1_pbinlcpw(SoC_B.CoreSubsys[ForEach_itr_m].
+        Assignment2[ForEach_itr_f << 1], rtCP_R1_bp01Data, rtCP_R1_tableData,
+        &SoC_DW.CoreSubsys[ForEach_itr_m].CoreSubsys[ForEach_itr_f].m_bpIndex,
+        25U);
+
+      /* Lookup_n-D: '<S26>/C1' incorporates:
+       *  Assignment: '<S15>/Assignment2'
+       *  ForEachSliceSelector generated from: '<S20>/X'
+       */
+      rtb_ManualSwitch1 = look1_pbinlcpw(SoC_B.CoreSubsys[ForEach_itr_m].
+        Assignment2[ForEach_itr_f << 1], rtCP_C1_bp01Data, rtCP_C1_tableData,
+        &SoC_DW.CoreSubsys[ForEach_itr_m].CoreSubsys[ForEach_itr_f].m_bpIndex_n,
+        25U);
+
+      /* Selector: '<S20>/Selector' incorporates:
+       *  Constant: '<S20>/Constant'
+       */
+      b_c_idx_0 = rtCP_Constant_Value_n[ForEach_itr_f];
+
+      /* ForEachSliceSelector generated from: '<S20>/X' incorporates:
+       *  Product: '<S26>/Divide2'
+       *  Sum: '<S26>/Add'
+       */
+      rtb_X1_tmp = ForEach_itr_f << 1;
+
+      /* Sum: '<S26>/Add' incorporates:
+       *  Assignment: '<S15>/Assignment2'
+       *  ForEachSliceSelector generated from: '<S20>/X'
+       *  Gain: '<S26>/Gain'
+       *  Product: '<S26>/Product'
+       */
+      absxk = (real32_T)(-2.2222222222222223E-5 * SoC_B.CoreSubsys[ForEach_itr_m]
+                         .RateTransition1 * SoC_B.CoreSubsys[ForEach_itr_m].
+                         CoreSubsys[ForEach_itr_f].Probe[0]) +
+        SoC_B.CoreSubsys[ForEach_itr_m].Assignment2[rtb_X1_tmp];
+      rtb_Add_i[0] = absxk;
+
+      /* ForEachSliceAssignment generated from: '<S20>/xk1' incorporates:
+       *  Sum: '<S26>/Add'
+       */
+      SoC_B.CoreSubsys[ForEach_itr_m].ImpAsg_InsertedFor_xk1_at_inpor[rtb_X1_tmp]
+        = absxk;
+
+      /* ForEachSliceAssignment generated from: '<S20>/Wm_i*xk1_i' incorporates:
+       *  Product: '<S20>/Product'
+       *  Sum: '<S26>/Add'
+       */
+      rtb_ImpAsg_InsertedFor_Wm_ixk1_[rtb_X1_tmp] = b_c_idx_0 * absxk;
+
+      /* Sum: '<S26>/Add' incorporates:
+       *  Assignment: '<S15>/Assignment2'
+       *  ForEachSliceSelector generated from: '<S20>/X'
+       *  Product: '<S26>/Divide1'
+       *  Product: '<S26>/Divide2'
+       *  Product: '<S26>/Product'
+       *  Product: '<S26>/Product1'
+       *  Sum: '<S26>/Add1'
+       */
+      rtb_ImpAsg_InsertedFor_SOC_at_h = SoC_B.CoreSubsys[ForEach_itr_m].
+        Assignment2[rtb_X1_tmp + 1];
+      absxk = (real32_T)((SoC_B.CoreSubsys[ForEach_itr_m].RateTransition1 /
+                          rtb_ManualSwitch1 - rtb_ImpAsg_InsertedFor_SOC_at_h /
+                          (rtb_Saturation_m * rtb_ManualSwitch1)) *
+                         SoC_B.CoreSubsys[ForEach_itr_m]
+                         .CoreSubsys[ForEach_itr_f].Probe[0]) +
+        rtb_ImpAsg_InsertedFor_SOC_at_h;
+      rtb_Add_i[1] = absxk;
+
+      /* ForEachSliceAssignment generated from: '<S20>/xk1' incorporates:
+       *  Product: '<S26>/Divide2'
+       *  Sum: '<S26>/Add'
+       */
+      SoC_B.CoreSubsys[ForEach_itr_m].ImpAsg_InsertedFor_xk1_at_inpor[rtb_X1_tmp
+        + 1] = absxk;
+
+      /* ForEachSliceAssignment generated from: '<S20>/Wm_i*xk1_i' incorporates:
+       *  Product: '<S20>/Product'
+       *  Product: '<S26>/Divide2'
+       *  Sum: '<S26>/Add'
+       */
+      rtb_ImpAsg_InsertedFor_Wm_ixk1_[rtb_X1_tmp + 1] = b_c_idx_0 * absxk;
+    }
+
+    /* End of Outputs for SubSystem: '<S14>/State function' */
+
+    /* Sum: '<S14>/Sum of Elements' incorporates:
+     *  ForEachSliceAssignment generated from: '<S20>/Wm_i*xk1_i'
+     */
+    for (iAcol = 0; iAcol < 2; iAcol++) {
+      rtb_Saturation_m = -0.0;
+      for (knt = 0; knt < 5; knt++) {
+        rtb_Saturation_m += rtb_ImpAsg_InsertedFor_Wm_ixk1_[(knt << 1) + iAcol];
+      }
+
+      rtb_SumofElements[iAcol] = rtb_Saturation_m;
+    }
+
+    /* End of Sum: '<S14>/Sum of Elements' */
+
+    /* MATLAB Function: '<S14>/updatePx' incorporates:
+     *  ForEachSliceAssignment generated from: '<S20>/xk1'
+     *  Sum: '<S14>/Sum of Elements'
+     */
+    rtb_ImpAsg_InsertedFor_SOC_at_h = rtb_SumofElements[0];
+    rtb_ManualSwitch1 = rtb_SumofElements[1];
+    for (knt = 0; knt < 5; knt++) {
+      rtb_X1_tmp = knt << 1;
+      rtb_X1[rtb_X1_tmp] = SoC_B.CoreSubsys[ForEach_itr_m].
+        ImpAsg_InsertedFor_xk1_at_inpor[rtb_X1_tmp] -
+        rtb_ImpAsg_InsertedFor_SOC_at_h;
+      rtb_X1[rtb_X1_tmp + 1] = SoC_B.CoreSubsys[ForEach_itr_m].
+        ImpAsg_InsertedFor_xk1_at_inpor[rtb_X1_tmp + 1] - rtb_ManualSwitch1;
+      rtb_Y1[knt] = sqrt(fabs(rtCP_updatePx_Wc[knt]));
+    }
+
+    memset(&b[0], 0, 25U * sizeof(real_T));
+    for (iAcol = 0; iAcol < 5; iAcol++) {
+      b[iAcol + 5 * iAcol] = rtb_Y1[iAcol];
+    }
+
+    for (iAcol = 0; iAcol < 2; iAcol++) {
+      for (knt = 0; knt < 5; knt++) {
+        rtb_ImpAsg_InsertedFor_SOC_at_h = 0.0;
+        for (rtb_X1_tmp = 0; rtb_X1_tmp < 5; rtb_X1_tmp++) {
+          rtb_ImpAsg_InsertedFor_SOC_at_h += rtb_X1[(rtb_X1_tmp << 1) + iAcol] *
+            b[5 * knt + rtb_X1_tmp];
+        }
+
+        residual[iAcol + (knt << 1)] = rtb_ImpAsg_InsertedFor_SOC_at_h;
+      }
+
+      residual_1[6 * iAcol] = residual[iAcol + 2];
+      residual_1[6 * iAcol + 1] = residual[iAcol + 4];
+      residual_1[6 * iAcol + 2] = residual[iAcol + 6];
+      residual_1[6 * iAcol + 3] = residual[iAcol + 8];
+      residual_1[6 * iAcol + 4] = rtCP_updatePx_Q[iAcol];
+      residual_1[6 * iAcol + 5] = rtCP_updatePx_Q[iAcol + 2];
+    }
+
+    qr_AN2ohs8Z(residual_1, a__1, rtb_MatrixMultiply);
+    for (iAcol = 0; iAcol < 2; iAcol++) {
+      if (-iAcol >= 0) {
+        rtb_MatrixMultiply[(iAcol + (iAcol << 1)) + 1] = 0.0;
+      }
+    }
+
+    rotate_nRcnRDPx(rtb_MatrixMultiply[0], residual[0], &b_c_idx_0,
+                    &rtb_Saturation_m, &rtb_MatrixMultiply[0]);
+    rtb_ImpAsg_InsertedFor_SOC_at_h = b_c_idx_0 * residual[1] - rtb_Saturation_m
+      * rtb_MatrixMultiply[2];
+    rtb_MatrixMultiply[2] = b_c_idx_0 * rtb_MatrixMultiply[2] + rtb_Saturation_m
+      * residual[1];
+    rotate_nRcnRDPx(rtb_MatrixMultiply[3], rtb_ImpAsg_InsertedFor_SOC_at_h,
+                    &absxk, &rtb_Saturation_m, &rtb_MatrixMultiply[3]);
+
+    /* End of MATLAB Function: '<S14>/updatePx' */
+
+    /* Outputs for Iterator SubSystem: '<S14>/Measurement function' incorporates:
+     *  ForEach: '<S19>/For Each'
+     */
+    for (ForEach_itr_l = 0; ForEach_itr_l < 5; ForEach_itr_l++) {
+      /* Lookup_n-D: '<S24>/OCV Table' incorporates:
+       *  ForEachSliceAssignment generated from: '<S20>/xk1'
+       *  ForEachSliceSelector generated from: '<S19>/X'
+       */
+      absxk = look1_pbinlcpw(SoC_B.CoreSubsys[ForEach_itr_m].
+        ImpAsg_InsertedFor_xk1_at_inpor[ForEach_itr_l << 1],
+        rtCP_OCVTable_bp01Data, rtCP_OCVTable_tableData,
+        &SoC_DW.CoreSubsys[ForEach_itr_m].CoreSubsys_m[ForEach_itr_l].m_bpIndex,
+        25U);
+
+      /* Lookup_n-D: '<S24>/R0 Table' incorporates:
+       *  ForEachSliceAssignment generated from: '<S20>/xk1'
+       *  ForEachSliceSelector generated from: '<S19>/X'
+       */
+      rtb_Saturation_m = look1_pbinlcpw(SoC_B.CoreSubsys[ForEach_itr_m].
+        ImpAsg_InsertedFor_xk1_at_inpor[ForEach_itr_l << 1],
+        rtCP_R0Table_bp01Data, rtCP_R0Table_tableData,
+        &SoC_DW.CoreSubsys[ForEach_itr_m].CoreSubsys_m[ForEach_itr_l].
+        m_bpIndex_d, 25U);
+
+      /* Sum: '<S24>/Add2' incorporates:
+       *  ForEachSliceAssignment generated from: '<S20>/xk1'
+       *  ForEachSliceSelector generated from: '<S19>/X'
+       *  Product: '<S24>/Product2'
+       */
+      rtb_Saturation_m = (absxk - rtb_Saturation_m *
+                          SoC_B.CoreSubsys[ForEach_itr_m].RateTransition1) -
+        SoC_B.CoreSubsys[ForEach_itr_m].ImpAsg_InsertedFor_xk1_at_inpor
+        [(ForEach_itr_l << 1) + 1];
+
+      /* ForEachSliceAssignment generated from: '<S19>/y' */
+      rtb_ImpAsg_InsertedFor_y_at_inp[ForEach_itr_l] = rtb_Saturation_m;
+
+      /* ForEachSliceAssignment generated from: '<S19>/Wm_i*y_i' incorporates:
+       *  Constant: '<S19>/Constant'
+       *  Product: '<S19>/Product'
+       *  Selector: '<S19>/Selector'
+       */
+      rtb_ImpAsg_InsertedFor_Wm_iy_i_[ForEach_itr_l] =
+        rtCP_Constant_Value_i[ForEach_itr_l] * rtb_Saturation_m;
+    }
+
+    /* End of Outputs for SubSystem: '<S14>/Measurement function' */
+
+    /* Sum: '<S14>/Sum of Elements1' incorporates:
+     *  ForEachSliceAssignment generated from: '<S19>/Wm_i*y_i'
+     */
+    b_c_idx_0 = -0.0;
+    for (iAcol = 0; iAcol < 5; iAcol++) {
+      b_c_idx_0 += rtb_ImpAsg_InsertedFor_Wm_iy_i_[iAcol];
+    }
+
+    /* End of Sum: '<S14>/Sum of Elements1' */
+    for (knt = 0; knt <= 2; knt += 2) {
+      /* MATLAB Function: '<S14>/updatePy' incorporates:
+       *  ForEachSliceAssignment generated from: '<S19>/y'
+       */
+      tmp_4 = _mm_loadu_pd(&rtb_ImpAsg_InsertedFor_y_at_inp[knt]);
+      _mm_storeu_pd(&rtb_Y1[knt], _mm_sub_pd(tmp_4, _mm_set1_pd(b_c_idx_0)));
+      tmp_5[0] = fabs(rtCP_updatePy_Wc[knt]);
+      tmp_5[1] = fabs(rtCP_updatePy_Wc[knt + 1]);
+      tmp_4 = _mm_loadu_pd(&tmp_5[0]);
+
+      /* MATLAB Function: '<S14>/updatePy' */
+      _mm_storeu_pd(&residual_0[knt], _mm_sqrt_pd(tmp_4));
+    }
+
+    /* MATLAB Function: '<S14>/updatePy' incorporates:
+     *  ForEachSliceAssignment generated from: '<S19>/y'
+     */
+    for (knt = 4; knt < 5; knt++) {
+      rtb_Y1[knt] = rtb_ImpAsg_InsertedFor_y_at_inp[knt] - b_c_idx_0;
+      residual_0[knt] = sqrt(fabs(rtCP_updatePy_Wc[knt]));
+    }
+
+    memset(&b[0], 0, 25U * sizeof(real_T));
+    for (iAcol = 0; iAcol < 5; iAcol++) {
+      b[iAcol + 5 * iAcol] = residual_0[iAcol];
+    }
+
+    for (iAcol = 0; iAcol < 5; iAcol++) {
+      rtb_ImpAsg_InsertedFor_SOC_at_h = 0.0;
+      for (knt = 0; knt < 5; knt++) {
+        rtb_ImpAsg_InsertedFor_SOC_at_h += b[5 * iAcol + knt] * rtb_Y1[knt];
+      }
+
+      residual_0[iAcol] = rtb_ImpAsg_InsertedFor_SOC_at_h;
+    }
+
+    A[0] = residual_0[1];
+    A[1] = residual_0[2];
+    A[2] = residual_0[3];
+    A[3] = residual_0[4];
+    A[4] = 0.001;
+    for (rtb_X1_tmp = 0; rtb_X1_tmp < 1; rtb_X1_tmp++) {
+      rtb_ImpAsg_InsertedFor_SOC_at_h = A[0];
+      rtb_Saturation_m = xnrm2_cFB6ntui(4, A, 2);
+      if (rtb_Saturation_m != 0.0) {
+        rtb_Saturation_m = rt_hypotd_snf(A[0], rtb_Saturation_m);
+        if (A[0] >= 0.0) {
+          rtb_Saturation_m = -rtb_Saturation_m;
+        }
+
+        if (fabs(rtb_Saturation_m) < 1.0020841800044864E-292) {
+          knt = 0;
+          do {
+            knt++;
+            A[1] *= 9.9792015476736E+291;
+            A[2] *= 9.9792015476736E+291;
+            A[3] *= 9.9792015476736E+291;
+            A[4] *= 9.9792015476736E+291;
+            rtb_Saturation_m *= 9.9792015476736E+291;
+            rtb_ImpAsg_InsertedFor_SOC_at_h *= 9.9792015476736E+291;
+          } while ((fabs(rtb_Saturation_m) < 1.0020841800044864E-292) && (knt <
+                    20));
+
+          rtb_Saturation_m = rt_hypotd_snf(rtb_ImpAsg_InsertedFor_SOC_at_h,
+            xnrm2_cFB6ntui(4, A, 2));
+          if (rtb_ImpAsg_InsertedFor_SOC_at_h >= 0.0) {
+            rtb_Saturation_m = -rtb_Saturation_m;
+          }
+
+          rtb_ImpAsg_InsertedFor_SOC_at_h = 1.0 /
+            (rtb_ImpAsg_InsertedFor_SOC_at_h - rtb_Saturation_m);
+          A[1] *= rtb_ImpAsg_InsertedFor_SOC_at_h;
+          A[2] *= rtb_ImpAsg_InsertedFor_SOC_at_h;
+          A[3] *= rtb_ImpAsg_InsertedFor_SOC_at_h;
+          A[4] *= rtb_ImpAsg_InsertedFor_SOC_at_h;
+          for (iAcol = 0; iAcol < knt; iAcol++) {
+            rtb_Saturation_m *= 1.0020841800044864E-292;
+          }
+
+          rtb_ImpAsg_InsertedFor_SOC_at_h = rtb_Saturation_m;
+        } else {
+          rtb_ImpAsg_InsertedFor_SOC_at_h = 1.0 / (A[0] - rtb_Saturation_m);
+          A[1] *= rtb_ImpAsg_InsertedFor_SOC_at_h;
+          A[2] *= rtb_ImpAsg_InsertedFor_SOC_at_h;
+          A[3] *= rtb_ImpAsg_InsertedFor_SOC_at_h;
+          A[4] *= rtb_ImpAsg_InsertedFor_SOC_at_h;
+          rtb_ImpAsg_InsertedFor_SOC_at_h = rtb_Saturation_m;
+        }
+      }
+
+      A[0] = rtb_ImpAsg_InsertedFor_SOC_at_h;
+    }
+
+    rotate_nRcnRDPx(A[0], residual_0[0], &rtb_Saturation_m, &rtb_ManualSwitch1,
+                    &rtb_ImpAsg_InsertedFor_SOC_at_h);
+
+    /* Sum: '<S11>/Sum' incorporates:
+     *  Inport: '<Root>/Highest_Cell_Voltage'
+     */
+    rtb_Saturation_m = SoC_U.Highest_Cell_Voltage - b_c_idx_0;
+    for (rtb_X1_tmp = 0; rtb_X1_tmp < 2; rtb_X1_tmp++) {
+      /* Product: '<S12>/Product1' */
+      b_c_idx_0 = 0.0;
+      for (iAcol = 0; iAcol < 5; iAcol++) {
+        /* Product: '<S14>/Product5' incorporates:
+         *  Constant: '<S14>/Constant'
+         */
+        rtb_ManualSwitch1 = 0.0;
+        for (knt = 0; knt < 5; knt++) {
+          rtb_ManualSwitch1 += rtb_X1[(knt << 1) + rtb_X1_tmp] *
+            rtCP_Constant_Value_f[5 * iAcol + knt];
+        }
+
+        /* Product: '<S12>/Product1' incorporates:
+         *  Math: '<S14>/Math Function'
+         *  Product: '<S14>/Product1'
+         *  Product: '<S14>/Product5'
+         */
+        b_c_idx_0 += rtb_ManualSwitch1 * rtb_Y1[iAcol];
+      }
+
+      /* Product: '<S12>/Product1' incorporates:
+       *  MATLAB Function: '<S14>/updatePy'
+       *  Product: '<S12>/Product6'
+       *  Product: '<S14>/Product1'
+       */
+      rtb_Kk1_l = b_c_idx_0 / rtb_ImpAsg_InsertedFor_SOC_at_h /
+        rtb_ImpAsg_InsertedFor_SOC_at_h;
+
+      /* Sum: '<S12>/Sum' incorporates:
+       *  Product: '<S12>/Product1'
+       *  Product: '<S12>/Product3'
+       *  Sum: '<S14>/Sum of Elements'
+       */
+      SoC_B.CoreSubsys[ForEach_itr_m].Sum[rtb_X1_tmp] = rtb_Kk1_l *
+        rtb_Saturation_m + rtb_SumofElements[rtb_X1_tmp];
+
+      /* Product: '<S12>/Product5' incorporates:
+       *  MATLAB Function: '<S14>/updatePy'
+       *  Product: '<S12>/Product1'
+       */
+      rtb_Kk1_p[rtb_X1_tmp] = rtb_Kk1_l * rtb_ImpAsg_InsertedFor_SOC_at_h;
+    }
+
+    /* MATLAB Function: '<S12>/updatePk' incorporates:
+     *  Product: '<S12>/Product5'
+     */
+    SoC_B.CoreSubsys[ForEach_itr_m].Pk1_k1[0] = rtb_MatrixMultiply[0];
+    SoC_B.CoreSubsys[ForEach_itr_m].Pk1_k1[1] = rtb_MatrixMultiply[1];
+    SoC_B.CoreSubsys[ForEach_itr_m].Pk1_k1[2] = rtb_MatrixMultiply[2];
+    SoC_B.CoreSubsys[ForEach_itr_m].Pk1_k1[3] = rtb_MatrixMultiply[3];
+    for (rtb_X1_tmp = 0; rtb_X1_tmp < 1; rtb_X1_tmp++) {
+      errorCondition = false;
+      for (iAcol = 0; iAcol < 2; iAcol++) {
+        if (-iAcol >= 0) {
+          SoC_B.CoreSubsys[ForEach_itr_m].Pk1_k1[(iAcol + (iAcol << 1)) + 1] =
+            0.0;
+        }
+
+        if (errorCondition || (SoC_B.CoreSubsys[ForEach_itr_m].Pk1_k1[(iAcol <<
+              1) + iAcol] == 0.0)) {
+          errorCondition = true;
+        }
+      }
+
+      if (!errorCondition) {
+        for (i = 0; i < 2; i++) {
+          rtb_Saturation_m = rtb_Kk1_p[i];
+          rtb_Add_i[i] = rtb_Saturation_m;
+          iAcol = i << 1;
+          for (knt = 0; knt < i; knt++) {
+            rtb_Saturation_m -= SoC_B.CoreSubsys[ForEach_itr_m].Pk1_k1[iAcol] *
+              rtb_Add_i[0];
+          }
+
+          rtb_Add_i[i] = rtb_Saturation_m / SoC_B.CoreSubsys[ForEach_itr_m].
+            Pk1_k1[i + iAcol];
+        }
+
+        rtb_ManualSwitch1 = 3.3121686421112381E-170;
+        b_c_idx_0 = fabs(rtb_Add_i[0]);
+        if (b_c_idx_0 > 3.3121686421112381E-170) {
+          rtb_Saturation_m = 1.0;
+          rtb_ManualSwitch1 = b_c_idx_0;
+        } else {
+          rtb_ImpAsg_InsertedFor_SOC_at_h = b_c_idx_0 / 3.3121686421112381E-170;
+          rtb_Saturation_m = rtb_ImpAsg_InsertedFor_SOC_at_h *
+            rtb_ImpAsg_InsertedFor_SOC_at_h;
+        }
+
+        absxk = fabs(rtb_Add_i[1]);
+        if (absxk > rtb_ManualSwitch1) {
+          rtb_ImpAsg_InsertedFor_SOC_at_h = rtb_ManualSwitch1 / absxk;
+          rtb_Saturation_m = rtb_Saturation_m * rtb_ImpAsg_InsertedFor_SOC_at_h *
+            rtb_ImpAsg_InsertedFor_SOC_at_h + 1.0;
+          rtb_ManualSwitch1 = absxk;
+        } else {
+          rtb_ImpAsg_InsertedFor_SOC_at_h = absxk / rtb_ManualSwitch1;
+          rtb_Saturation_m += rtb_ImpAsg_InsertedFor_SOC_at_h *
+            rtb_ImpAsg_InsertedFor_SOC_at_h;
+        }
+
+        rtb_Saturation_m = rtb_ManualSwitch1 * sqrt(rtb_Saturation_m);
+        if (!(rtb_Saturation_m >= 1.0)) {
+          rtb_ManualSwitch1 = sqrt(1.0 - rtb_Saturation_m * rtb_Saturation_m);
+          if (absxk == 0.0) {
+            rtb_SumofElements[1] = 1.0;
+            s[1] = 0.0;
+          } else {
+            rtb_ImpAsg_InsertedFor_SOC_at_h = rtb_ManualSwitch1 + absxk;
+            rtb_ManualSwitch1 /= rtb_ImpAsg_InsertedFor_SOC_at_h;
+            absxk = rtb_Add_i[1] / rtb_ImpAsg_InsertedFor_SOC_at_h;
+            rtb_Saturation_m = rt_hypotd_snf(rtb_ManualSwitch1, fabs(absxk));
+            rtb_SumofElements[1] = rtb_ManualSwitch1 / rtb_Saturation_m;
+            rtb_ManualSwitch1 /= rtb_ManualSwitch1;
+            s[1] = rtb_ManualSwitch1 * absxk / rtb_Saturation_m;
+            rtb_ManualSwitch1 *= rtb_Saturation_m *
+              rtb_ImpAsg_InsertedFor_SOC_at_h;
+          }
+
+          rtb_Add_i[1] = 0.0;
+          if (b_c_idx_0 == 0.0) {
+            rtb_SumofElements[0] = 1.0;
+            s[0] = 0.0;
+          } else if (rtb_ManualSwitch1 == 0.0) {
+            rtb_SumofElements[0] = 0.0;
+            s[0] = 1.0;
+          } else {
+            rtb_ImpAsg_InsertedFor_SOC_at_h = rtb_ManualSwitch1 + b_c_idx_0;
+            rtb_ManualSwitch1 /= rtb_ImpAsg_InsertedFor_SOC_at_h;
+            absxk = rtb_Add_i[0] / rtb_ImpAsg_InsertedFor_SOC_at_h;
+            rtb_Saturation_m = rt_hypotd_snf(rtb_ManualSwitch1, fabs(absxk));
+            rtb_SumofElements[0] = rtb_ManualSwitch1 / rtb_Saturation_m;
+            s[0] = rtb_ManualSwitch1 / rtb_ManualSwitch1 * absxk /
+              rtb_Saturation_m;
+          }
+
+          rtb_Add_i[0] = 0.0;
+          for (iAcol = 0; iAcol < 2; iAcol++) {
+            for (knt = iAcol + 1; knt >= 1; knt--) {
+              rtb_ImpAsg_InsertedFor_SOC_at_h = s[knt - 1];
+              i = ((iAcol << 1) + knt) - 1;
+              rtb_ManualSwitch1 = SoC_B.CoreSubsys[ForEach_itr_m].Pk1_k1[i];
+              b_c_idx_0 = rtb_SumofElements[knt - 1];
+              absxk = rtb_Add_i[iAcol];
+              SoC_B.CoreSubsys[ForEach_itr_m].Pk1_k1[i] = b_c_idx_0 *
+                rtb_ManualSwitch1 - rtb_ImpAsg_InsertedFor_SOC_at_h * absxk;
+              rtb_Add_i[iAcol] = b_c_idx_0 * absxk +
+                rtb_ImpAsg_InsertedFor_SOC_at_h * rtb_ManualSwitch1;
+            }
+          }
+        }
+      }
+    }
+
+    /* End of MATLAB Function: '<S12>/updatePk' */
+
+    /* ForEachSliceAssignment generated from: '<S7>/SOC' */
+    rtb_ImpAsg_InsertedFor_SOC_at_h = SoC_B.CoreSubsys[ForEach_itr_m].Sum[0];
+  }
+
+  /* End of Outputs for SubSystem: '<S2>/SOC Estimator (Kalman Filter)' */
 
   /* Outport: '<Root>/SoC_Avg' incorporates:
    *  Gain: '<Root>/Gain1'
+   *  ManualSwitch: '<Root>/Manual Switch'
+   *  ManualSwitch: '<Root>/Manual Switch1'
    *  Sum: '<Root>/Add'
    */
-  SoC_Y.SoC_Avg = (rtb_Saturation1 + rtb_Merge) * 0.5;
+  SoC_Y.SoC_Avg = (SoC_B.Saturation1 + SoC_B.Saturation1_i) * 0.5;
+  if (SoC_M->Timing.TaskCounters.TID[1] == 0) {
+    /* Outport: '<Root>/CSoC_L' */
+    SoC_Y.CSoC_L = SoC_B.Saturation1;
 
-  /* Outport: '<Root>/SoC_Low' */
-  SoC_Y.SoC_Low = rtb_Saturation1;
+    /* Outport: '<Root>/CSoC_H' */
+    SoC_Y.CSoC_H = SoC_B.Saturation1_i;
+  }
 
-  /* Outport: '<Root>/SoC_High' */
-  SoC_Y.SoC_High = rtb_Merge;
+  /* Saturate: '<S2>/Saturation' */
+  if (rtb_ImpAsg_InsertedFor_SOC_at_h > 100.0) {
+    /* Outport: '<Root>/KFSoC_H' */
+    SoC_Y.KFSoC_H = 100.0;
+  } else if (rtb_ImpAsg_InsertedFor_SOC_at_h < 0.0) {
+    /* Outport: '<Root>/KFSoC_H' */
+    SoC_Y.KFSoC_H = 0.0;
+  } else {
+    /* Outport: '<Root>/KFSoC_H' */
+    SoC_Y.KFSoC_H = rtb_ImpAsg_InsertedFor_SOC_at_h;
+  }
+
+  /* End of Saturate: '<S2>/Saturation' */
+
+  /* Outport: '<Root>/SoC_Low' incorporates:
+   *  ManualSwitch: '<Root>/Manual Switch'
+   */
+  SoC_Y.SoC_Low = SoC_B.Saturation1;
+
+  /* Outport: '<Root>/SoC_High' incorporates:
+   *  ManualSwitch: '<Root>/Manual Switch1'
+   */
+  SoC_Y.SoC_High = SoC_B.Saturation1_i;
 }
 
 /* Model update function */
-void SoC_update(void)
+static void SoC_update(void)
 {
-  if (rtmIsMajorTimeStep(SoC_M)) {
-    /* Update for Memory: '<S3>/Memory' */
-    SoC_DW.Memory_PreviousInput = SoC_B.Switch;
+  /* local scratch DWork variables */
+  int32_T ForEach_itr;
+  int32_T ForEach_itr_m;
 
-    /* Update for Memory: '<S2>/Memory' */
-    SoC_DW.Memory_PreviousInput_p = SoC_B.Switch_d;
+  /* Update for Memory: '<S3>/Memory' */
+  SoC_DW.Memory_PreviousInput = SoC_B.Switch;
+
+  /* Update for Iterator SubSystem: '<S3>/SOC Estimator (Coulomb Counting)' */
+  SOCEstimatorCoulombCount_Update(1, SoC_M, SoC_B.SOCEstimatorCoulombCounting_p,
+    SoC_DW.SOCEstimatorCoulombCounting_p);
+
+  /* End of Update for SubSystem: '<S3>/SOC Estimator (Coulomb Counting)' */
+
+  /* Update for Iterator SubSystem: '<S3>/SOC Estimator (Kalman Filter)' */
+  for (ForEach_itr = 0; ForEach_itr < 1; ForEach_itr++) {
+    /* Update for Delay: '<S36>/Delay' */
+    SoC_DW.CoreSubsys_g[ForEach_itr].icLoad = false;
+    SoC_DW.CoreSubsys_g[ForEach_itr].Delay_DSTATE[0] =
+      SoC_B.CoreSubsys_g[ForEach_itr].Sum[0];
+    SoC_DW.CoreSubsys_g[ForEach_itr].Delay_DSTATE[1] =
+      SoC_B.CoreSubsys_g[ForEach_itr].Sum[1];
+
+    /* Update for UnitDelay: '<S34>/Unit Delay - P' incorporates:
+     *  Product: '<S35>/Product5'
+     */
+    SoC_DW.CoreSubsys_g[ForEach_itr].UnitDelayP_DSTATE[0] =
+      SoC_B.CoreSubsys_g[ForEach_itr].Product5[0];
+    SoC_DW.CoreSubsys_g[ForEach_itr].UnitDelayP_DSTATE[1] =
+      SoC_B.CoreSubsys_g[ForEach_itr].Product5[1];
+    SoC_DW.CoreSubsys_g[ForEach_itr].UnitDelayP_DSTATE[2] =
+      SoC_B.CoreSubsys_g[ForEach_itr].Product5[2];
+    SoC_DW.CoreSubsys_g[ForEach_itr].UnitDelayP_DSTATE[3] =
+      SoC_B.CoreSubsys_g[ForEach_itr].Product5[3];
+
+    /* Update for RateTransition: '<S34>/Rate Transition1' */
+    if (SoC_M->Timing.TaskCounters.TID[1] == 0) {
+      SoC_DW.CoreSubsys_g[ForEach_itr].RateTransition1_Buffer0 =
+        SoC_B.CoreSubsys_g[ForEach_itr].Gain;
+    }
+
+    /* End of Update for RateTransition: '<S34>/Rate Transition1' */
   }
 
-  if (rtmIsMajorTimeStep(SoC_M)) {
-    rt_ertODEUpdateContinuousStates(&SoC_M->solverInfo);
+  /* End of Update for SubSystem: '<S3>/SOC Estimator (Kalman Filter)' */
+
+  /* Update for Memory: '<S2>/Memory' */
+  SoC_DW.Memory_PreviousInput_p = SoC_B.Switch_d;
+
+  /* Update for Iterator SubSystem: '<S2>/SOC Estimator (Coulomb Counting)' */
+  SOCEstimatorCoulombCount_Update(1, SoC_M, SoC_B.SOCEstimatorCoulombCounting,
+    SoC_DW.SOCEstimatorCoulombCounting);
+
+  /* End of Update for SubSystem: '<S2>/SOC Estimator (Coulomb Counting)' */
+
+  /* Update for Iterator SubSystem: '<S2>/SOC Estimator (Kalman Filter)' */
+  for (ForEach_itr_m = 0; ForEach_itr_m < 1; ForEach_itr_m++) {
+    /* Update for RateTransition: '<S11>/Rate Transition1' */
+    if (SoC_M->Timing.TaskCounters.TID[1] == 0) {
+      SoC_DW.CoreSubsys[ForEach_itr_m].RateTransition1_Buffer0 =
+        SoC_B.CoreSubsys[ForEach_itr_m].Gain;
+    }
+
+    /* End of Update for RateTransition: '<S11>/Rate Transition1' */
+
+    /* Update for Delay: '<S13>/Delay' incorporates:
+     *  Sum: '<S12>/Sum'
+     */
+    SoC_DW.CoreSubsys[ForEach_itr_m].icLoad = false;
+    SoC_DW.CoreSubsys[ForEach_itr_m].Delay_DSTATE[0] =
+      SoC_B.CoreSubsys[ForEach_itr_m].Sum[0];
+    SoC_DW.CoreSubsys[ForEach_itr_m].Delay_DSTATE[1] =
+      SoC_B.CoreSubsys[ForEach_itr_m].Sum[1];
+
+    /* Update for UnitDelay: '<S11>/Unit Delay - P' */
+    SoC_DW.CoreSubsys[ForEach_itr_m].UnitDelayP_DSTATE[0] =
+      SoC_B.CoreSubsys[ForEach_itr_m].Pk1_k1[0];
+    SoC_DW.CoreSubsys[ForEach_itr_m].UnitDelayP_DSTATE[1] =
+      SoC_B.CoreSubsys[ForEach_itr_m].Pk1_k1[1];
+    SoC_DW.CoreSubsys[ForEach_itr_m].UnitDelayP_DSTATE[2] =
+      SoC_B.CoreSubsys[ForEach_itr_m].Pk1_k1[2];
+    SoC_DW.CoreSubsys[ForEach_itr_m].UnitDelayP_DSTATE[3] =
+      SoC_B.CoreSubsys[ForEach_itr_m].Pk1_k1[3];
   }
+
+  /* End of Update for SubSystem: '<S2>/SOC Estimator (Kalman Filter)' */
 
   /* Update absolute time for base rate */
   /* The "clockTick0" counts the number of times the code of this task has
@@ -306,10 +1302,10 @@ void SoC_update(void)
     ++SoC_M->Timing.clockTickH0;
   }
 
-  SoC_M->Timing.t[0] = rtsiGetSolverStopTime(&SoC_M->solverInfo);
-
-  {
-    /* Update absolute timer for sample time: [280.0s, 0.0s] */
+  SoC_M->Timing.t[0] = SoC_M->Timing.clockTick0 * SoC_M->Timing.stepSize0 +
+    SoC_M->Timing.clockTickH0 * SoC_M->Timing.stepSize0 * 4294967296.0;
+  if (SoC_M->Timing.TaskCounters.TID[1] == 0) {
+    /* Update absolute timer for sample time: [1.0s, 0.0s] */
     /* The "clockTick1" counts the number of times the code of this task has
      * been executed. The absolute time is the multiplication of "clockTick1"
      * and "Timing.stepSize1". Size of "clockTick1" ensures timer will not
@@ -325,46 +1321,184 @@ void SoC_update(void)
     SoC_M->Timing.t[1] = SoC_M->Timing.clockTick1 * SoC_M->Timing.stepSize1 +
       SoC_M->Timing.clockTickH1 * SoC_M->Timing.stepSize1 * 4294967296.0;
   }
-}
 
-/* Derivatives for root system: '<Root>' */
-void SoC_derivatives(void)
-{
-  XDot_SoC_T *_rtXdot;
-  _rtXdot = ((XDot_SoC_T *) SoC_M->derivs);
-
-  /* Derivatives for Integrator: '<S3>/Integrator' incorporates:
-   *  Inport: '<Root>/Accumulator_Current'
-   */
-  _rtXdot->Integrator_CSTATE = SoC_U.Accumulator_Current;
-
-  /* Derivatives for Integrator: '<S2>/Integrator' incorporates:
-   *  Inport: '<Root>/Accumulator_Current'
-   */
-  _rtXdot->Integrator_CSTATE_b = SoC_U.Accumulator_Current;
+  rate_scheduler();
 }
 
 /* Model initialize function */
-void SoC_initialize(void)
+static void SoC_initialize(void)
 {
-  /* Start for If: '<S1>/If' */
-  SoC_DW.If_ActiveSubsystem = -1;
+  {
+    /* local scratch DWork variables */
+    int32_T ForEach_itr;
+    int32_T ForEach_itr_m;
+    int32_T ForEach_itr_f;
 
-  /* InitializeConditions for Memory: '<S3>/Memory' */
-  SoC_DW.Memory_PreviousInput = 0.0;
+    /* Start for Iterator SubSystem: '<S3>/SOC Estimator (Coulomb Counting)' */
+    SOCEstimatorCoulombCounti_Start(1, SoC_B.SOCEstimatorCoulombCounting_p,
+      SoC_DW.SOCEstimatorCoulombCounting_p);
 
-  /* InitializeConditions for Integrator: '<S3>/Integrator' */
-  SoC_X.Integrator_CSTATE = 0.0;
+    /* End of Start for SubSystem: '<S3>/SOC Estimator (Coulomb Counting)' */
 
-  /* InitializeConditions for Memory: '<S2>/Memory' */
-  SoC_DW.Memory_PreviousInput_p = 0.0;
+    /* Start for Iterator SubSystem: '<S3>/SOC Estimator (Kalman Filter)' */
+    for (ForEach_itr = 0; ForEach_itr < 1; ForEach_itr++) {
+      /* Start for Gain: '<S30>/Gain' */
+      SoC_B.CoreSubsys_g[ForEach_itr].Gain = 0.0;
 
-  /* InitializeConditions for Integrator: '<S2>/Integrator' */
-  SoC_X.Integrator_CSTATE_b = 0.0;
+      /* Start for SignalConversion generated from: '<S36>/Delay' */
+      SoC_B.CoreSubsys_g[ForEach_itr].TmpSignalConversionAtDelayInpor[0] = 0.0;
+      SoC_DW.CoreSubsys_g[ForEach_itr].Delay_DSTATE[0] = 0.0;
+
+      /* Start for SignalConversion generated from: '<S36>/Delay' */
+      SoC_B.CoreSubsys_g[ForEach_itr].TmpSignalConversionAtDelayInpor[1] = 0.0;
+      SoC_DW.CoreSubsys_g[ForEach_itr].Delay_DSTATE[1] = 0.0;
+      SoC_DW.CoreSubsys_g[ForEach_itr].UnitDelayP_DSTATE[0] = 0.0;
+      SoC_DW.CoreSubsys_g[ForEach_itr].UnitDelayP_DSTATE[1] = 0.0;
+      SoC_DW.CoreSubsys_g[ForEach_itr].UnitDelayP_DSTATE[2] = 0.0;
+      SoC_DW.CoreSubsys_g[ForEach_itr].UnitDelayP_DSTATE[3] = 0.0;
+      SoC_DW.CoreSubsys_g[ForEach_itr].Divide_DWORK4 = 0.0;
+
+      /* Start for RateTransition: '<S34>/Rate Transition1' */
+      SoC_B.CoreSubsys_g[ForEach_itr].RateTransition1 = 0.0;
+      SoC_DW.CoreSubsys_g[ForEach_itr].RateTransition1_Buffer0 = 0.0;
+
+      /* Start for Sum: '<S35>/Sum' */
+      SoC_B.CoreSubsys_g[ForEach_itr].Sum[0] = 0.0;
+      SoC_B.CoreSubsys_g[ForEach_itr].Sum[1] = 0.0;
+
+      /* Start for Product: '<S35>/Product5' */
+      SoC_B.CoreSubsys_g[ForEach_itr].Product5[0] = 0.0;
+      SoC_B.CoreSubsys_g[ForEach_itr].Product5[1] = 0.0;
+      SoC_B.CoreSubsys_g[ForEach_itr].Product5[2] = 0.0;
+      SoC_B.CoreSubsys_g[ForEach_itr].Product5[3] = 0.0;
+
+      /* Start for Probe: '<S37>/Probe' */
+      SoC_B.CoreSubsys_g[ForEach_itr].Probe[0] = 0.025;
+      SoC_B.CoreSubsys_g[ForEach_itr].Probe[1] = 0.0;
+
+      /* Start for RateTransition: '<S34>/Rate Transition1' */
+      SoC_B.CoreSubsys_g[ForEach_itr].RateTransition1 = 0.0;
+    }
+
+    /* End of Start for SubSystem: '<S3>/SOC Estimator (Kalman Filter)' */
+
+    /* Start for Iterator SubSystem: '<S2>/SOC Estimator (Coulomb Counting)' */
+    SOCEstimatorCoulombCounti_Start(1, SoC_B.SOCEstimatorCoulombCounting,
+      SoC_DW.SOCEstimatorCoulombCounting);
+
+    /* End of Start for SubSystem: '<S2>/SOC Estimator (Coulomb Counting)' */
+
+    /* Start for Iterator SubSystem: '<S2>/SOC Estimator (Kalman Filter)' */
+    for (ForEach_itr_m = 0; ForEach_itr_m < 1; ForEach_itr_m++) {
+      /* Start for Gain: '<S7>/Gain' */
+      SoC_B.CoreSubsys[ForEach_itr_m].Gain = 0.0;
+
+      /* Start for RateTransition: '<S11>/Rate Transition1' */
+      SoC_B.CoreSubsys[ForEach_itr_m].RateTransition1 = 0.0;
+      SoC_DW.CoreSubsys[ForEach_itr_m].RateTransition1_Buffer0 = 0.0;
+
+      /* Start for Reshape: '<S13>/Reshape' */
+      SoC_B.CoreSubsys[ForEach_itr_m].Reshape[0] = 0.0;
+      SoC_DW.CoreSubsys[ForEach_itr_m].Delay_DSTATE[0] = 0.0;
+
+      /* Start for Reshape: '<S13>/Reshape' */
+      SoC_B.CoreSubsys[ForEach_itr_m].Reshape[1] = 0.0;
+      SoC_DW.CoreSubsys[ForEach_itr_m].Delay_DSTATE[1] = 0.0;
+      SoC_DW.CoreSubsys[ForEach_itr_m].UnitDelayP_DSTATE[0] = 0.0;
+      SoC_DW.CoreSubsys[ForEach_itr_m].UnitDelayP_DSTATE[1] = 0.0;
+      SoC_DW.CoreSubsys[ForEach_itr_m].UnitDelayP_DSTATE[2] = 0.0;
+      SoC_DW.CoreSubsys[ForEach_itr_m].UnitDelayP_DSTATE[3] = 0.0;
+
+      /* Start for Assignment: '<S15>/Assignment2' */
+      memset(&SoC_B.CoreSubsys[ForEach_itr_m].Assignment2[0], 0, 10U * sizeof
+             (real_T));
+
+      /* Start for Sum: '<S12>/Sum' */
+      SoC_B.CoreSubsys[ForEach_itr_m].Sum[0] = 0.0;
+      SoC_B.CoreSubsys[ForEach_itr_m].Sum[1] = 0.0;
+
+      /* Start for RateTransition: '<S11>/Rate Transition1' */
+      SoC_B.CoreSubsys[ForEach_itr_m].RateTransition1 = 0.0;
+
+      /* Start for Iterator SubSystem: '<S14>/State function' */
+      for (ForEach_itr_f = 0; ForEach_itr_f < 5; ForEach_itr_f++) {
+        /* Start for Probe: '<S26>/Probe' */
+        SoC_B.CoreSubsys[ForEach_itr_m].CoreSubsys[ForEach_itr_f].Probe[0] =
+          0.025;
+        SoC_B.CoreSubsys[ForEach_itr_m].CoreSubsys[ForEach_itr_f].Probe[1] = 0.0;
+      }
+
+      /* End of Start for SubSystem: '<S14>/State function' */
+
+      /* Start for MATLAB Function: '<S12>/updatePk' */
+      SoC_B.CoreSubsys[ForEach_itr_m].Pk1_k1[0] = 0.0;
+      SoC_B.CoreSubsys[ForEach_itr_m].Pk1_k1[1] = 0.0;
+      SoC_B.CoreSubsys[ForEach_itr_m].Pk1_k1[2] = 0.0;
+      SoC_B.CoreSubsys[ForEach_itr_m].Pk1_k1[3] = 0.0;
+    }
+
+    /* End of Start for SubSystem: '<S2>/SOC Estimator (Kalman Filter)' */
+  }
+
+  {
+    /* local scratch DWork variables */
+    int32_T ForEach_itr;
+    int32_T ForEach_itr_m;
+
+    /* InitializeConditions for Memory: '<S3>/Memory' */
+    SoC_DW.Memory_PreviousInput = 0.0;
+
+    /* InitializeConditions for Memory: '<S2>/Memory' */
+    SoC_DW.Memory_PreviousInput_p = 0.0;
+
+    /* SystemInitialize for Iterator SubSystem: '<S3>/SOC Estimator (Coulomb Counting)' */
+    SOCEstimatorCoulombCountin_Init(1, SoC_DW.SOCEstimatorCoulombCounting_p);
+
+    /* End of SystemInitialize for SubSystem: '<S3>/SOC Estimator (Coulomb Counting)' */
+
+    /* SystemInitialize for Iterator SubSystem: '<S3>/SOC Estimator (Kalman Filter)' */
+    for (ForEach_itr = 0; ForEach_itr < 1; ForEach_itr++) {
+      /* InitializeConditions for Delay: '<S36>/Delay' */
+      SoC_DW.CoreSubsys_g[ForEach_itr].icLoad = true;
+
+      /* InitializeConditions for UnitDelay: '<S34>/Unit Delay - P' */
+      SoC_DW.CoreSubsys_g[ForEach_itr].UnitDelayP_DSTATE[0] = 1.0E-8;
+      SoC_DW.CoreSubsys_g[ForEach_itr].UnitDelayP_DSTATE[1] = 0.0;
+      SoC_DW.CoreSubsys_g[ForEach_itr].UnitDelayP_DSTATE[2] = 0.0;
+      SoC_DW.CoreSubsys_g[ForEach_itr].UnitDelayP_DSTATE[3] = 1.0;
+
+      /* InitializeConditions for RateTransition: '<S34>/Rate Transition1' */
+      SoC_DW.CoreSubsys_g[ForEach_itr].RateTransition1_Buffer0 = 0.0;
+    }
+
+    /* End of SystemInitialize for SubSystem: '<S3>/SOC Estimator (Kalman Filter)' */
+
+    /* SystemInitialize for Iterator SubSystem: '<S2>/SOC Estimator (Coulomb Counting)' */
+    SOCEstimatorCoulombCountin_Init(1, SoC_DW.SOCEstimatorCoulombCounting);
+
+    /* End of SystemInitialize for SubSystem: '<S2>/SOC Estimator (Coulomb Counting)' */
+
+    /* SystemInitialize for Iterator SubSystem: '<S2>/SOC Estimator (Kalman Filter)' */
+    for (ForEach_itr_m = 0; ForEach_itr_m < 1; ForEach_itr_m++) {
+      /* InitializeConditions for RateTransition: '<S11>/Rate Transition1' */
+      SoC_DW.CoreSubsys[ForEach_itr_m].RateTransition1_Buffer0 = 0.0;
+
+      /* InitializeConditions for Delay: '<S13>/Delay' */
+      SoC_DW.CoreSubsys[ForEach_itr_m].icLoad = true;
+
+      /* InitializeConditions for UnitDelay: '<S11>/Unit Delay - P' */
+      SoC_DW.CoreSubsys[ForEach_itr_m].UnitDelayP_DSTATE[0] = 0.0001;
+      SoC_DW.CoreSubsys[ForEach_itr_m].UnitDelayP_DSTATE[1] = 0.0;
+      SoC_DW.CoreSubsys[ForEach_itr_m].UnitDelayP_DSTATE[2] = 0.0;
+      SoC_DW.CoreSubsys[ForEach_itr_m].UnitDelayP_DSTATE[3] = 1.0;
+    }
+
+    /* End of SystemInitialize for SubSystem: '<S2>/SOC Estimator (Kalman Filter)' */
+  }
 }
 
 /* Model terminate function */
-void SoC_terminate(void)
+static void SoC_terminate(void)
 {
   /* (no terminate code required) */
 }
@@ -372,30 +1506,6 @@ void SoC_terminate(void)
 /*========================================================================*
  * Start of Classic call interface                                        *
  *========================================================================*/
-
-/* Solver interface called by GRT_Main */
-#ifndef USE_GENERATED_SOLVER
-
-void rt_ODECreateIntegrationData(RTWSolverInfo *si)
-{
-  UNUSED_PARAMETER(si);
-  return;
-}                                      /* do nothing */
-
-void rt_ODEDestroyIntegrationData(RTWSolverInfo *si)
-{
-  UNUSED_PARAMETER(si);
-  return;
-}                                      /* do nothing */
-
-void rt_ODEUpdateContinuousStates(RTWSolverInfo *si)
-{
-  UNUSED_PARAMETER(si);
-  return;
-}                                      /* do nothing */
-
-#endif
-
 void MdlOutputs(int_T tid)
 {
   SoC_output();
@@ -442,34 +1552,6 @@ RT_MODEL_SoC_T *SoC(void)
   (void) memset((void *)SoC_M, 0,
                 sizeof(RT_MODEL_SoC_T));
 
-  {
-    /* Setup solver object */
-    rtsiSetSimTimeStepPtr(&SoC_M->solverInfo, &SoC_M->Timing.simTimeStep);
-    rtsiSetTPtr(&SoC_M->solverInfo, &rtmGetTPtr(SoC_M));
-    rtsiSetStepSizePtr(&SoC_M->solverInfo, &SoC_M->Timing.stepSize0);
-    rtsiSetdXPtr(&SoC_M->solverInfo, &SoC_M->derivs);
-    rtsiSetContStatesPtr(&SoC_M->solverInfo, (real_T **) &SoC_M->contStates);
-    rtsiSetNumContStatesPtr(&SoC_M->solverInfo, &SoC_M->Sizes.numContStates);
-    rtsiSetNumPeriodicContStatesPtr(&SoC_M->solverInfo,
-      &SoC_M->Sizes.numPeriodicContStates);
-    rtsiSetPeriodicContStateIndicesPtr(&SoC_M->solverInfo,
-      &SoC_M->periodicContStateIndices);
-    rtsiSetPeriodicContStateRangesPtr(&SoC_M->solverInfo,
-      &SoC_M->periodicContStateRanges);
-    rtsiSetErrorStatusPtr(&SoC_M->solverInfo, (&rtmGetErrorStatus(SoC_M)));
-    rtsiSetRTModelPtr(&SoC_M->solverInfo, SoC_M);
-  }
-
-  rtsiSetSimTimeStep(&SoC_M->solverInfo, MAJOR_TIME_STEP);
-  SoC_M->intgData.y = SoC_M->odeY;
-  SoC_M->intgData.f[0] = SoC_M->odeF[0];
-  SoC_M->intgData.f[1] = SoC_M->odeF[1];
-  SoC_M->intgData.f[2] = SoC_M->odeF[2];
-  SoC_M->contStates = ((real_T *) &SoC_X);
-  rtsiSetSolverData(&SoC_M->solverInfo, (void *)&SoC_M->intgData);
-  rtsiSetIsMinorTimeStepWithModeChange(&SoC_M->solverInfo, false);
-  rtsiSetSolverName(&SoC_M->solverInfo,"ode3");
-
   /* Initialize timing info */
   {
     int_T *mdlTsMap = SoC_M->Timing.sampleTimeTaskIDArray;
@@ -483,8 +1565,8 @@ RT_MODEL_SoC_T *SoC(void)
     SoC_M->Timing.offsetTimes = (&SoC_M->Timing.offsetTimesArray[0]);
 
     /* task periods */
-    SoC_M->Timing.sampleTimes[0] = (0.0);
-    SoC_M->Timing.sampleTimes[1] = (280.0);
+    SoC_M->Timing.sampleTimes[0] = (0.025);
+    SoC_M->Timing.sampleTimes[1] = (1.0);
 
     /* task offsets */
     SoC_M->Timing.offsetTimes[0] = (0.0);
@@ -501,8 +1583,8 @@ RT_MODEL_SoC_T *SoC(void)
   }
 
   rtmSetTFinal(SoC_M, 14000.0);
-  SoC_M->Timing.stepSize0 = 280.0;
-  SoC_M->Timing.stepSize1 = 280.0;
+  SoC_M->Timing.stepSize0 = 0.025;
+  SoC_M->Timing.stepSize1 = 1.0;
 
   /* Setup for data logging */
   {
@@ -528,22 +1610,14 @@ RT_MODEL_SoC_T *SoC(void)
   }
 
   SoC_M->solverInfoPtr = (&SoC_M->solverInfo);
-  SoC_M->Timing.stepSize = (280.0);
-  rtsiSetFixedStepSize(&SoC_M->solverInfo, 280.0);
+  SoC_M->Timing.stepSize = (0.025);
+  rtsiSetFixedStepSize(&SoC_M->solverInfo, 0.025);
   rtsiSetSolverMode(&SoC_M->solverInfo, SOLVER_MODE_SINGLETASKING);
 
   /* block I/O */
   SoC_M->blockIO = ((void *) &SoC_B);
   (void) memset(((void *) &SoC_B), 0,
                 sizeof(B_SoC_T));
-
-  /* states (continuous) */
-  {
-    real_T *x = (real_T *) &SoC_X;
-    SoC_M->contStates = (x);
-    (void) memset((void *)&SoC_X, 0,
-                  sizeof(X_SoC_T));
-  }
 
   /* states (dwork) */
   SoC_M->dwork = ((void *) &SoC_DW);
@@ -559,15 +1633,13 @@ RT_MODEL_SoC_T *SoC(void)
   (void)memset(&SoC_Y, 0, sizeof(ExtY_SoC_T));
 
   /* Initialize Sizes */
-  SoC_M->Sizes.numContStates = (2);    /* Number of continuous states */
-  SoC_M->Sizes.numPeriodicContStates = (0);
-                                      /* Number of periodic continuous states */
-  SoC_M->Sizes.numY = (3);             /* Number of model outputs */
+  SoC_M->Sizes.numContStates = (0);    /* Number of continuous states */
+  SoC_M->Sizes.numY = (7);             /* Number of model outputs */
   SoC_M->Sizes.numU = (4);             /* Number of model inputs */
   SoC_M->Sizes.sysDirFeedThru = (1);   /* The model is direct feedthrough */
   SoC_M->Sizes.numSampTimes = (2);     /* Number of sample times */
-  SoC_M->Sizes.numBlocks = (31);       /* Number of blocks */
-  SoC_M->Sizes.numBlockIO = (6);       /* Number of block outputs */
+  SoC_M->Sizes.numBlocks = (173);      /* Number of blocks */
+  SoC_M->Sizes.numBlockIO = (20);      /* Number of block outputs */
   return SoC_M;
 }
 

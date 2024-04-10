@@ -8,8 +8,9 @@
  * 
  */
 
-/* Copyright 2015 The MathWorks, Inc. */
+/* Copyright 2015-2023 The MathWorks, Inc. */
 #include "simstruc_types.h"
+#include "solver_zc.h"
 
 #ifdef BUILDING_SLEXEC_SIMBRIDGE
  /* being included from inside slexec_simbridge module */
@@ -30,4 +31,6 @@ SLEXEC_SIMBRIDGE_PUBLISHED_C ZCEventType rt_ZCFcn(
 SLEXEC_SIMBRIDGE_PUBLISHED_C ZCEventType rt_I32ZCFcn(
     ZCDirection zcDir, uint8_T* prevZc, int32_T currValue);
 
+SLEXEC_SIMBRIDGE_PUBLISHED_C ZCEventType rt_ZCFcnRefine(
+    slZcEventType zcsDir, uint8_T* prevZc, double currValue);
 #endif

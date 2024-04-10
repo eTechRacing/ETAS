@@ -7,9 +7,9 @@
  *
  * Code generation for model "Disconnections".
  *
- * Model version              : 10.5
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Sat Mar 30 12:04:26 2024
+ * Model version              : 13.0
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Wed Apr 10 15:21:34 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -115,9 +115,9 @@ void Disconnections_Signal_OK(real_T *rty_Out1)
 static void Disconnections_output(void)
 {
   real_T rtb_Add;
-  real_T rtb_Merge1;
-  real_T rtb_Merge1_iz;
-  real_T rtb_Merge1_k;
+  real_T rtb_Merge1_l;
+  real_T rtb_Merge1_o;
+  real_T rtb_Merge1_p;
   uint8_T rtb_Compare_k;
   boolean_T rtb_OR3;
   boolean_T rtb_OR4;
@@ -153,14 +153,14 @@ static void Disconnections_output(void)
     /* Outputs for IfAction SubSystem: '<S25>/Error_Counter' incorporates:
      *  ActionPort: '<S29>/Action Port'
      */
-    Disconnections_Error_Counter(&rtb_Merge1, &Disconnections_DW.Tot_Errors);
+    Disconnections_Error_Counter(&rtb_Merge1_l, &Disconnections_DW.Tot_Errors);
 
     /* End of Outputs for SubSystem: '<S25>/Error_Counter' */
   } else {
     /* Outputs for IfAction SubSystem: '<S25>/CAN_OK' incorporates:
      *  ActionPort: '<S28>/Action Port'
      */
-    Disconnections_CAN_OK(Disconnections_U.APPS2_Bits, &rtb_Merge1,
+    Disconnections_CAN_OK(Disconnections_U.APPS2_Bits, &rtb_Merge1_l,
                           &Disconnections_DW.Last_alive);
 
     /* End of Outputs for SubSystem: '<S25>/CAN_OK' */
@@ -169,23 +169,23 @@ static void Disconnections_output(void)
   /* End of If: '<S25>/If' */
 
   /* DataStoreWrite: '<S25>/Data Store Write' */
-  Disconnections_DW.Tot_Errors = rtb_Merge1;
+  Disconnections_DW.Tot_Errors = rtb_Merge1_l;
 
   /* If: '<S25>/If2' incorporates:
    *  Constant: '<S3>/Number_of_periods'
    */
-  if (rtb_Merge1 > 4800.0) {
+  if (rtb_Merge1_l > 4800.0) {
     /* Outputs for IfAction SubSystem: '<S25>/Signal_Failure' incorporates:
      *  ActionPort: '<S30>/Action Port'
      */
-    Disconnections_Reset_counter(&rtb_Merge1);
+    Disconnections_Reset_counter(&rtb_Merge1_l);
 
     /* End of Outputs for SubSystem: '<S25>/Signal_Failure' */
   } else {
     /* Outputs for IfAction SubSystem: '<S25>/Signal_OK' incorporates:
      *  ActionPort: '<S31>/Action Port'
      */
-    Disconnections_Signal_OK(&rtb_Merge1);
+    Disconnections_Signal_OK(&rtb_Merge1_l);
 
     /* End of Outputs for SubSystem: '<S25>/Signal_OK' */
   }
@@ -200,14 +200,14 @@ static void Disconnections_output(void)
     /* Outputs for IfAction SubSystem: '<S26>/Error_Counter' incorporates:
      *  ActionPort: '<S33>/Action Port'
      */
-    Disconnections_Error_Counter(&rtb_Merge1_k, &Disconnections_DW.Tot_Errors_h);
+    Disconnections_Error_Counter(&rtb_Merge1_o, &Disconnections_DW.Tot_Errors_h);
 
     /* End of Outputs for SubSystem: '<S26>/Error_Counter' */
   } else {
     /* Outputs for IfAction SubSystem: '<S26>/CAN_OK' incorporates:
      *  ActionPort: '<S32>/Action Port'
      */
-    Disconnections_CAN_OK(Disconnections_U.BrakePedal_Bits, &rtb_Merge1_k,
+    Disconnections_CAN_OK(Disconnections_U.BrakePedal_Bits, &rtb_Merge1_o,
                           &Disconnections_DW.Last_alive_e);
 
     /* End of Outputs for SubSystem: '<S26>/CAN_OK' */
@@ -216,23 +216,23 @@ static void Disconnections_output(void)
   /* End of If: '<S26>/If' */
 
   /* DataStoreWrite: '<S26>/Data Store Write' */
-  Disconnections_DW.Tot_Errors_h = rtb_Merge1_k;
+  Disconnections_DW.Tot_Errors_h = rtb_Merge1_o;
 
   /* If: '<S26>/If1' incorporates:
    *  Constant: '<S3>/Number_of_periods'
    */
-  if (rtb_Merge1_k > 4800.0) {
+  if (rtb_Merge1_o > 4800.0) {
     /* Outputs for IfAction SubSystem: '<S26>/Signal_Failure' incorporates:
      *  ActionPort: '<S34>/Action Port'
      */
-    Disconnections_Reset_counter(&rtb_Merge1_k);
+    Disconnections_Reset_counter(&rtb_Merge1_o);
 
     /* End of Outputs for SubSystem: '<S26>/Signal_Failure' */
   } else {
     /* Outputs for IfAction SubSystem: '<S26>/Signal_OK' incorporates:
      *  ActionPort: '<S35>/Action Port'
      */
-    Disconnections_Signal_OK(&rtb_Merge1_k);
+    Disconnections_Signal_OK(&rtb_Merge1_o);
 
     /* End of Outputs for SubSystem: '<S26>/Signal_OK' */
   }
@@ -247,14 +247,14 @@ static void Disconnections_output(void)
     /* Outputs for IfAction SubSystem: '<S27>/Error_Counter' incorporates:
      *  ActionPort: '<S37>/Action Port'
      */
-    Disconnections_Error_Counter(&rtb_Merge1_iz, &Disconnections_DW.Tot_Errors_f);
+    Disconnections_Error_Counter(&rtb_Merge1_p, &Disconnections_DW.Tot_Errors_f);
 
     /* End of Outputs for SubSystem: '<S27>/Error_Counter' */
   } else {
     /* Outputs for IfAction SubSystem: '<S27>/CAN_OK' incorporates:
      *  ActionPort: '<S36>/Action Port'
      */
-    Disconnections_CAN_OK(Disconnections_U.APPS1_Bits, &rtb_Merge1_iz,
+    Disconnections_CAN_OK(Disconnections_U.APPS1_Bits, &rtb_Merge1_p,
                           &Disconnections_DW.Last_alive_o);
 
     /* End of Outputs for SubSystem: '<S27>/CAN_OK' */
@@ -263,23 +263,23 @@ static void Disconnections_output(void)
   /* End of If: '<S27>/If' */
 
   /* DataStoreWrite: '<S27>/Data Store Write' */
-  Disconnections_DW.Tot_Errors_f = rtb_Merge1_iz;
+  Disconnections_DW.Tot_Errors_f = rtb_Merge1_p;
 
   /* If: '<S27>/If1' incorporates:
    *  Constant: '<S3>/Number_of_periods'
    */
-  if (rtb_Merge1_iz > 4800.0) {
+  if (rtb_Merge1_p > 4800.0) {
     /* Outputs for IfAction SubSystem: '<S27>/Signal_Failure' incorporates:
      *  ActionPort: '<S38>/Action Port'
      */
-    Disconnections_Reset_counter(&rtb_Merge1_iz);
+    Disconnections_Reset_counter(&rtb_Merge1_p);
 
     /* End of Outputs for SubSystem: '<S27>/Signal_Failure' */
   } else {
     /* Outputs for IfAction SubSystem: '<S27>/Signal_OK' incorporates:
      *  ActionPort: '<S39>/Action Port'
      */
-    Disconnections_Signal_OK(&rtb_Merge1_iz);
+    Disconnections_Signal_OK(&rtb_Merge1_p);
 
     /* End of Outputs for SubSystem: '<S27>/Signal_OK' */
   }
@@ -422,7 +422,7 @@ static void Disconnections_output(void)
   Disconnections_Y.Critical_CAN_Disconnection = rtb_OR4;
 
   /* Logic: '<Root>/OR3' */
-  rtb_OR3 = ((rtb_Merge1_k != 0.0) || (rtb_Merge1_iz != 0.0) || (rtb_Merge1 !=
+  rtb_OR3 = ((rtb_Merge1_o != 0.0) || (rtb_Merge1_p != 0.0) || (rtb_Merge1_l !=
               0.0));
 
   /* Outport: '<Root>/Critical_Signal_Disconnection' */
@@ -474,69 +474,88 @@ static void Disconnections_output(void)
   Disconnections_Y.Disconnection_Susp_R_R = (uint8_T)
     (Disconnections_U.Susp_R_R_Bits == 0.0);
 
-  /* If: '<S5>/If2' incorporates:
+  /* If: '<S5>/If1' incorporates:
+   *  If: '<S5>/If2'
    *  If: '<S5>/If3'
    *  Logic: '<Root>/OR2'
    *  Logic: '<S5>/Logical Operator1'
    *  Logic: '<S5>/Logical Operator2'
+   *  Logic: '<S5>/Logical Operator3'
    */
   if ((!(Disconnections_B.Merge_d != 0.0)) && (rtb_Compare_k == 0)) {
-    /* Outputs for IfAction SubSystem: '<S5>/Steering TV + TC 2024' incorporates:
+    /* Outputs for IfAction SubSystem: '<S5>/Rigid Axle with TC 1' incorporates:
      *  ActionPort: '<S49>/Action Port'
      */
     /* Outport: '<Root>/TV_mode' incorporates:
      *  Constant: '<S49>/Constant'
-     *  SignalConversion generated from: '<S49>/3'
+     *  SignalConversion generated from: '<S49>/1'
      */
-    Disconnections_Y.TV_mode = 3.0;
+    Disconnections_Y.TV_mode = 1.0;
 
-    /* End of Outputs for SubSystem: '<S5>/Steering TV + TC 2024' */
+    /* End of Outputs for SubSystem: '<S5>/Rigid Axle with TC 1' */
   } else if (!(Disconnections_B.Merge_d != 0.0)) {
-    /* Outputs for IfAction SubSystem: '<S5>/Others ' incorporates:
+    /* Outputs for IfAction SubSystem: '<S5>/Others FM2+' incorporates:
      *  ActionPort: '<S46>/Action Port'
      */
     /* Outputs for IfAction SubSystem: '<S5>/Rigid Axle with TC 2024' incorporates:
+     *  ActionPort: '<S50>/Action Port'
+     */
+    /* If: '<S5>/If2' incorporates:
+     *  Constant: '<S50>/Constant'
+     *  Outport: '<Root>/TV_mode'
+     *  SignalConversion generated from: '<S46>/4, 3 or 2'
+     *  SignalConversion generated from: '<S50>/2'
+     */
+    Disconnections_Y.TV_mode = 2.0;
+
+    /* End of Outputs for SubSystem: '<S5>/Rigid Axle with TC 2024' */
+    /* End of Outputs for SubSystem: '<S5>/Others FM2+' */
+  } else if (rtb_Compare_k == 0) {
+    /* Outputs for IfAction SubSystem: '<S5>/Others FM2+' incorporates:
+     *  ActionPort: '<S46>/Action Port'
+     */
+    /* Outputs for IfAction SubSystem: '<S5>/Steering TV without TC 2024' incorporates:
+     *  ActionPort: '<S51>/Action Port'
+     */
+    /* If: '<S5>/If3' incorporates:
+     *  Constant: '<S51>/Constant'
+     *  Outport: '<Root>/TV_mode'
+     *  SignalConversion generated from: '<S46>/4, 3 or 2'
+     *  SignalConversion generated from: '<S51>/3'
+     */
+    Disconnections_Y.TV_mode = 3.0;
+
+    /* End of Outputs for SubSystem: '<S5>/Steering TV without TC 2024' */
+    /* End of Outputs for SubSystem: '<S5>/Others FM2+' */
+  } else {
+    /* Outputs for IfAction SubSystem: '<S5>/Others FM2+' incorporates:
+     *  ActionPort: '<S46>/Action Port'
+     */
+    /* Outputs for IfAction SubSystem: '<S5>/Rigid Axle 2024' incorporates:
      *  ActionPort: '<S48>/Action Port'
      */
     /* If: '<S5>/If3' incorporates:
      *  Constant: '<S48>/Constant'
      *  Outport: '<Root>/TV_mode'
-     *  SignalConversion generated from: '<S46>/In1'
+     *  SignalConversion generated from: '<S46>/4, 3 or 2'
      *  SignalConversion generated from: '<S48>/4'
      */
     Disconnections_Y.TV_mode = 4.0;
 
-    /* End of Outputs for SubSystem: '<S5>/Rigid Axle with TC 2024' */
-    /* End of Outputs for SubSystem: '<S5>/Others ' */
-  } else {
-    /* Outputs for IfAction SubSystem: '<S5>/Others ' incorporates:
-     *  ActionPort: '<S46>/Action Port'
-     */
-    /* Outputs for IfAction SubSystem: '<S5>/Rigid Axle 2024' incorporates:
-     *  ActionPort: '<S47>/Action Port'
-     */
-    /* If: '<S5>/If3' incorporates:
-     *  Constant: '<S47>/Constant'
-     *  Outport: '<Root>/TV_mode'
-     *  SignalConversion generated from: '<S46>/In1'
-     *  SignalConversion generated from: '<S47>/5'
-     */
-    Disconnections_Y.TV_mode = 5.0;
-
     /* End of Outputs for SubSystem: '<S5>/Rigid Axle 2024' */
-    /* End of Outputs for SubSystem: '<S5>/Others ' */
+    /* End of Outputs for SubSystem: '<S5>/Others FM2+' */
   }
 
-  /* End of If: '<S5>/If2' */
+  /* End of If: '<S5>/If1' */
 
   /* Outport: '<Root>/Disconnection_APPS1' */
-  Disconnections_Y.Disconnection_APPS1 = rtb_Merge1_iz;
+  Disconnections_Y.Disconnection_APPS1 = rtb_Merge1_p;
 
   /* Outport: '<Root>/Disconnection_APPS2' */
-  Disconnections_Y.Disconnection_APPS2 = rtb_Merge1;
+  Disconnections_Y.Disconnection_APPS2 = rtb_Merge1_l;
 
   /* Outport: '<Root>/Disconnection_BrakePedal' */
-  Disconnections_Y.Disconnection_BrakePedal = rtb_Merge1_k;
+  Disconnections_Y.Disconnection_BrakePedal = rtb_Merge1_o;
 
   /* Outport: '<Root>/Disconnection_BMS' */
   Disconnections_Y.Disconnection_BMS = Disconnections_B.Merge;
@@ -774,7 +793,7 @@ RT_MODEL_Disconnections_T *Disconnections(void)
   Disconnections_M->Sizes.numU = (13); /* Number of model inputs */
   Disconnections_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Disconnections_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  Disconnections_M->Sizes.numBlocks = (139);/* Number of blocks */
+  Disconnections_M->Sizes.numBlocks = (147);/* Number of blocks */
   Disconnections_M->Sizes.numBlockIO = (5);/* Number of block outputs */
   return Disconnections_M;
 }

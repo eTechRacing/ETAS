@@ -1,4 +1,4 @@
-/* Copyright 1994-2016 The MathWorks, Inc. */
+/* Copyright 1994-2023 The MathWorks, Inc. */
 
 /*
  * File: rtw_capi.h
@@ -19,13 +19,18 @@
 #ifdef HOST_CAPI_BUILD
 #include "simstruc_types.h"
 #else
+/* Macro SIMPLIFIED_RTWTYPES_COMPATIBILITY declares compatibility with simplified version of
+ * rtwtypes.h */
+#define SIMPLIFIED_RTWTYPES_COMPATIBILITY
 #include "rtwtypes.h"
+#undef SIMPLIFIED_RTWTYPES_COMPATIBILITY
 #endif
 #endif
+#include <stddef.h>
 
 #define SS_ENUM_TYPE (((uint8_T)(255U))-1)
 #define SS_STRUCT    (((uint8_T)(255U)))
-#define rt_offsetof(s,el) ((uint32_T)((char_T *)&((s *)0)->el - (char_T *)(s *)0))
+#define rt_offsetof(s,el) offsetof(s,el)
 
 /* Enumeration for fixed point scaling type*/
 typedef enum {
@@ -262,9 +267,9 @@ typedef struct rtwCAPI_FixPtMap_tag {
   const void*       biasPtr;        /* pointer to bias value                    */
   rtwCAPI_FixPtScalingType scaleType;      
                               /* scaling type - uniform/non-uniform       */
-  uint8_T     wordLength;     /* number of bits required to store value   *
+  uint32_T     wordLength;     /* number of bits required to store value   *
                                * In MATLAB, word length of the fi object  */
-  int8_T      exponent;       /* exponent                                 */
+  int32_T      exponent;       /* exponent                                 */
   boolean_T   isSigned;       /* 1 = signed data, 0 = unsigned data       */
 } rtwCAPI_FixPtMap;
 

@@ -1,4 +1,4 @@
-/* Copyright 1990-2021 The MathWorks, Inc. */
+/* Copyright 1990-2023 The MathWorks, Inc. */
 
 /**
  * @file: simstruc_internal.h
@@ -13,9 +13,7 @@
 
 #include "simstruc_compcond.h"
 #include "simstruc_implement.h"
-#if defined(USE_32BIT_AND_64BIT_FIELDS)
-#include "simstruc_64_internal.h"
-#endif
+#include "simstruc_internal_types.h"
 
 /*======================================*
  * SimStruct Get and Set Access methods *
@@ -56,9 +54,10 @@
  *   There is also a SimStruct for the model itself. The SimStruct's are
  *   arranged as a tree with the model SimStruct as the root. The ParentSS
  *   field is used to get at the model SimStruct. User written S-functions
- *   should not use the ssGetParentSS macro directly.
+ *   should not use the ssSetParentSS macro directly.
  */
 
+#define _ssGetParentSS(S) (S)->parent
 #define _ssSetParentSS(S, parentSS) (S)->parent = (parentSS)
 #if !SS_SFCN
 #define ssSetParentSS(S, parentSS) _ssSetParentSS(S, parentSS)
@@ -69,9 +68,10 @@
 /*-------------------------------- S->root ----------------------------------*/
 /*
  * RootSS - This is the "root" SimStruct corresponding to the Simulink
- *   model.
+ *   model. DO NOT use this macro in S-Functions.
  */
 
+#define _ssGetRootSS(S) (S)->root
 #define _ssSetRootSS(S, rootSS) (S)->root = (rootSS)
 #if !SS_SFCN
 #define ssSetRootSS(S, rootSS) _ssSetRootSS(S, rootSS)
@@ -79,6 +79,20 @@
 #define ssSetRootSS(S, rootSS) ssSetRootSS_cannot_be_used_in_SFunctions
 #endif
 
+/*----------------------- S->blkInfo.blkInfo2->sfcnBitness -------------------*/
+/*
+ * This is the bitness of the owning S-Function. It is used to determine the
+ * allocation/destruction of fields with corresponding 32-bit and 64-bit
+ * equivalents.
+ */
+
+#define _ssSetSFcnBitness(S, bitness) (S)->blkInfo.blkInfo2->sfcnBitness = (bitness)
+#if !SS_SFCN
+#define ssSetSFcnBitness(S, bitness) _ssSetSFcnBitness(S, bitness)
+#else
+#define ssSetSFcnBitness(S, rootSS) ssSetSFcnBitness_cannot_be_used_in_SFunctions
+#endif
+#define ssGetSFcnBitness(S) (S)->blkInfo.blkInfo2->sfcnBitness
 
 /*-------------------------------- S->errorStatus ---------------------------*/
 
@@ -97,31 +111,29 @@
 
 
 
-#define _ssGetErrorStatus(S)                                         \
-    (ssGetRootSS(S)->mdlInfo->mdlFlags.errorStatusIsMsg == 1U ? NULL \
-                                                              : ssGetRootSS(S)->errorStatus.str)
+#define _ssGetErrorStatus(S) \
+    ((S)->root->mdlInfo->mdlFlags.errorStatusIsMsg == 1U ? NULL : (S)->root->errorStatus.str)
 #define _ssGetLocalErrorStatus(S)                       \
     ((S)->blkInfo.sfcnFlags.localErrorStatusIsMsg == 1U \
          ? NULL                                         \
          : S->blkInfo.blkInfo2->localErrorStatus.str)
-#define _ssGet_slErrMsg(S)                                           \
-    (ssGetRootSS(S)->mdlInfo->mdlFlags.errorStatusIsMsg == 0U ? NULL \
-                                                              : ssGetRootSS(S)->errorStatus.msg)
+#define _ssGet_slErrMsg(S) \
+    ((S)->root->mdlInfo->mdlFlags.errorStatusIsMsg == 0U ? NULL : (S)->root->errorStatus.msg)
 #define _ssGet_slLocalErrMsg(S)                         \
     ((S)->blkInfo.sfcnFlags.localErrorStatusIsMsg == 0U \
          ? NULL                                         \
          : S->blkInfo.blkInfo2->localErrorStatus.msg)
-#define _ssSet_slErrMsg(S, msg_arg)                              \
-    {                                                            \
-        ssGetRootSS(S)->mdlInfo->mdlFlags.errorStatusIsMsg = 1U; \
-        ssGetRootSS(S)->errorStatus.msg = (msg_arg);             \
+#define _ssSet_slErrMsg(S, msg_arg)                         \
+    {                                                       \
+        (S)->root->mdlInfo->mdlFlags.errorStatusIsMsg = 1U; \
+        (S)->root->errorStatus.msg = (msg_arg);             \
     }
 #define _ssSet_slLocalErrMsg(S, msg_arg)                       \
     {                                                          \
         (S)->blkInfo.sfcnFlags.localErrorStatusIsMsg = 1U;     \
         S->blkInfo.blkInfo2->localErrorStatus.msg = (msg_arg); \
     }
-#define _ssIsErrorStatusAslErrMsg(S) (ssGetRootSS(S)->mdlInfo->mdlFlags.errorStatusIsMsg == 1U)
+#define _ssIsErrorStatusAslErrMsg(S) ((S)->root->mdlInfo->mdlFlags.errorStatusIsMsg == 1U)
 #define _ssIsLocalErrorStatusAslErrMsg(S) ((S)->blkInfo.sfcnFlags.localErrorStatusIsMsg == 1U)
 
 #define _ssReportDiagnosticAsWarning(S, diag)                                           \
@@ -141,13 +153,13 @@
 
 #define SS_ERROR_STATUS_BUFFER_SIZE 1024
 
-#define _ssCopyErrorStatusToBuffer(S, string, size)                        \
-    {                                                                      \
-        (void)memcpy(ssGetRootSS(S)->mdlInfo->errorStatusBuffer, (string), \
-                     ((size) > SS_ERROR_STATUS_BUFFER_SIZE - 1)            \
-                         ? (SS_ERROR_STATUS_BUFFER_SIZE - 1)               \
-                         : (size));                                        \
-        ssSetErrorStatus(S, ssGetRootSS(S)->mdlInfo->errorStatusBuffer);   \
+#define _ssCopyErrorStatusToBuffer(S, string, size)                   \
+    {                                                                 \
+        (void)memcpy((S)->root->mdlInfo->errorStatusBuffer, (string), \
+                     ((size) > SS_ERROR_STATUS_BUFFER_SIZE - 1)       \
+                         ? (SS_ERROR_STATUS_BUFFER_SIZE - 1)          \
+                         : (size));                                   \
+        ssSetErrorStatus(S, (S)->root->mdlInfo->errorStatusBuffer);   \
     }
 
 #define _ssCopyLocalErrorStatusToBuffer(S, string, size)                         \
@@ -198,70 +210,6 @@
 #define ssGetPortInfoForInputs(S) (S)->portInfo.inputs
 #endif
 
-
-#if defined(USE_32BIT_AND_64BIT_FIELDS)
-/*
- * Set/Get number of DWork elements
- */
-#define ssSetNumDWork(S, num) ((_ssSetNumDWorkSLSize(S, num)) >= -1)
-/* We really should combine these with the above macros
-   for USE_32BIT_AND_64BIT_FIELDS */
-#define _ssSetNumDWork(S, nDWork) ((S)->sizes.numDWork = (nDWork))
-#define _ssSetNumDWorkSLSize(S, nDWork) \
-    ((S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numDWork = (nDWork))
-#define ssGetNumDWork(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numDWork
-
-/*
- * Set/Get number continuous states
- */
-#define ssGetNumContStates(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numContStates
-#define ssSetNumContStates(S, nContStates) \
-    ((S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numContStates = (nContStates))
-
-/* This is needed for codegen in file odesup.h */
-#define ssGetNumContStatesPtr(S) &((S)->sizes.numContStates)
-
-
-/*
- * Set/Get number discrete states
- */
-#define ssGetNumDiscStates(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numDiscStates
-#define ssSetNumDiscStates(S, nDiscStates) \
-    ((S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numDiscStates = (nDiscStates))
-
-/*
- * Set/Get number of nonsampled zero-crossings
- */
-#define ssGetNumNonsampledZCs(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numNonsampledZCs
-#define ssSetNumNonsampledZCs(S, nNonsampledZCs) \
-    ((S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numNonsampledZCs = (nNonsampledZCs))
-
-/*
- * Set/Get number of RWork elements
- */
-#define ssGetNumRWork(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numRWork
-#define ssSetNumRWork(S, nRWork) ((S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numRWork = (nRWork))
-
-/*
- * Set/Get number of IWork elements
- */
-#define ssGetNumIWork(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numIWork
-#define ssSetNumIWork(S, nIWork) ((S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numIWork = (nIWork))
-
-/*
- * Set/Get number of PWork elements
- */
-#define ssGetNumPWork(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numPWork
-#define ssSetNumPWork(S, nPWork) ((S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numPWork = (nPWork))
-
-/*
- * Set/Get number of modes
- */
-#define ssGetNumModes(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numModes
-#define ssSetNumModes(S, n) ((S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numModes = (n))
-
-#endif /* USE_32BIT_AND_64BIT_FIELDS */
-
 /* AsInt macros should only be used in code allocating and initializing 32-bit
    S-Functions. Currently, this includes simulink engine and sim targets */
 #define ssGetNumContStatesAsInt(S) (S)->sizes.numContStates
@@ -273,6 +221,7 @@
 #define ssSetNumRWorkAsInt(S, nRWork) ((S)->sizes.numRWork = (nRWork))
 #define ssSetNumIWorkAsInt(S, nIWork) ((S)->sizes.numIWork = (nIWork))
 #define ssSetNumPWorkAsInt(S, nPWork) ((S)->sizes.numPWork = (nPWork))
+#define ssSetNumDWorkAsInt(S, nDWork) ((S)->sizes.numDWork = (nDWork))
 #define ssSetNumModesAsInt(S, n) ((S)->sizes.numModes = (n))
 #define ssSetNumYAsInt(S, ny) ((S)->sizes.out.numY = (ny))
 #define ssSetNumUAsInt(S, nu) ((S)->sizes.in.numU = (nu))
@@ -282,35 +231,32 @@
 #define ssSetNumContStatesSLSize(S, nContStates) \
     ((S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numContStates = (nContStates))
 
-#if defined(USE_32BIT_AND_64BIT_FIELDS)
+/* This is needed for codegen in file odesup.h */
+#define ssGetNumContStatesPtr(S) &((S)->sizes.numContStates)
+
+#define _ssGetSize64ofY(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.sizeofY
+#define _ssGetSize64ofU(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.sizeofU
+
+#if SS_SL_INTERNAL || SS_RTW_INTERNAL || SS_GENERATED_S_FUNCTION
+#if defined(USE_64BIT_FIELDS)
 /* NumY, SizeofY - This is the length of the root output
  * vector, Y, which is the sum of all the widths of the root outport blocks.
  */
-#define ssGetNumY_fwd(S) (S)->sizes.out.numY
-#define ssGetNumYSLSize_fwd(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numY
-#define ssSetNumY_fwd(S, ny) ((S)->sizes.out.numY = (ny))
-#define ssSetNumYSLSize_fwd(S, ny) ((S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numY = (ny))
+#define ssGetNumY(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numY
+#define ssSetNumY(S, ny) ((S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numY = (ny))
 
-#define ssGetSizeofY_fwd(S) (S)->sizes.sizeofY
-#define ssGetSizeofYSLSize_fwd(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.sizeofY
-#define ssSetSizeofY_fwd(S, nbytes) (S)->sizes.sizeofY = (nbytes)
-#define ssSetSizeofYSLSize_fwd(S, nbytes) \
-    (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.sizeofY = (nbytes)
+#define ssGetSizeofY(S) _ssGetSize64ofY(S)
+#define ssSetSizeofY(S, nbytes) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.sizeofY = (nbytes)
 
 /* NumU, SizeofU - This is the length of the root input
  * vector, U, which is the sum of all the widths of the root inport blocks.
  */
-#define ssGetNumU_fwd(S) (S)->sizes.in.numU
-#define ssGetNumUSLSize_fwd(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numU
-#define ssSetNumU_fwd(S, nu) ((S)->sizes.in.numU = (nu))
-#define ssSetNumUSLSize_fwd(S, nu) ((S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numU = (nu))
+#define ssGetNumU(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numU
+#define ssSetNumU(S, nu) ((S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numU = (nu))
 
-#define ssGetSizeofU_fwd(S) (S)->sizes.sizeofU
-#define ssGetSizeofUSLSize_fwd(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.sizeofU
-#define ssSetSizeofU_fwd(S, nbytes) (S)->sizes.sizeofU = (nbytes)
-#define ssSetSizeofUSLSize_fwd(S, nbytes) \
-    (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.sizeofU = (nbytes)
-#elif defined(RSIM_WITH_SL_SOLVER) || SS_RTW_INTERNAL || SS_GENERATED_S_FUNCTION
+#define ssGetSizeofU(S) _ssGetSize64ofU(S)
+#define ssSetSizeofU(S, nbytes) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.sizeofU = (nbytes)
+#elif defined(USE_32BIT_FIELDS)
 
 /* NumY, SizeofY - This is the length of the root output
  * vector, Y, which is the sum of all the widths of the root outport blocks.
@@ -330,8 +276,13 @@
 #define ssGetSizeofU(S) (S)->sizes.sizeofU /*   (int_T)       */
 #define ssSetSizeofU(S, nbytes) (S)->sizes.sizeofU = (nbytes)
 #endif
+#endif
 
 #if SS_SL_INTERNAL || SS_RTW_INTERNAL || SS_GENERATED_S_FUNCTION
+#define ssHasParamTable(S, result)                                             \
+    _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_HAS_PARAM_TABLE, 0, (result)) \
+        _ssSafelyCallGenericFcnEnd
+
 #define ssGetSizeofParams(S, result)                                              \
     _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_GET_SIZE_OF_PARAMS, 0, (result)) \
         _ssSafelyCallGenericFcnEnd
@@ -396,8 +347,14 @@
  *   valid for the root SimStruct. S-function blocks should not use this
  *   field (i.e. set it to 0).
  */
+#if defined(USE_64BIT_FIELDS)
+#define ssGetNumBlockIO(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numBlockIO
+#define ssSetNumBlockIO(S, nBlockIO) \
+    (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numBlockIO = (nBlockIO)
+#elif defined(USE_32BIT_FIELDS)
 #define ssGetNumBlockIO(S) (S)->sizes.numBlockIO /*   (int_T)       */
 #define ssSetNumBlockIO(S, nBlockIO) (S)->sizes.numBlockIO = (nBlockIO)
+#endif
 
 /* NumBlockParams - Number of parameter elements in the model-wide parameter
  *   vector. Only valid for the root SimStruct. S-function blocks should not
@@ -447,41 +404,45 @@
  *   uses this field. It is also used by root SimStruct for versioning.
  */
 #define ssGetVersion(S) (S)->sizes.simStructVer /*   (int_T)       */
-#define ssSetVersion(S, ver) (S)->sizes.simStructVer = (int32_T)(ver)
+#define ssSetVersion(S, ver) (S)->sizes.simStructVer = SS_STATIC_CAST(int32_T, ver)
 
-#define ssGetSFcnLevel(S) ((S)->sizes.simStructVer == (int32_T)SIMSTRUCT_VERSION_LEVEL2 ? 2 : 1)
-
+#define ssGetSFcnLevel(S) \
+    ((S)->sizes.simStructVer == SS_STATIC_CAST(int32_T, SIMSTRUCT_VERSION_LEVEL2) ? 2 : 1)
 
 /* NumZCEvents - This is the number of zero crossing events within your model.
  *   This field is not for use by S-functions (i.e. should be 0).
  */
-#define ssGetNumZCEvents(S) (S)->sizes.numZCEvents /*   (int_T)       */
-#define ssSetNumZCEvents(S, nZCEvents) (S)->sizes.numZCEvents = (nZCEvents)
-
+#define ssGetNumZCEvents(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numZCEvents
+#define ssSetNumZCEvents(S, nZCEvents) \
+    (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.numZCEvents = (nZCEvents)
 
 
 /* SizeofBlockIO - This is the size of the block I/O vector in bytes.
  *  These should not be used by S-functions (accelerated models need to
  *  set the size though).
  */
-#define ssGetSizeofBlockIO(S) (S)->sizes.sizeofBlockIO /*   (int_T)       */
-#define ssSetSizeofBlockIO(S, n) (S)->sizes.sizeofBlockIO = (n)
+#define ssGetSizeofBlockIO(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.sizeofBlockIO
+#define ssSetSizeofBlockIO(S, n) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.sizeofBlockIO = (n)
+
 
 /* SizeofGlobalBlockIO - This is the size of the global block I/O
  * vector in bytes. This is the size of rtB in the generated code.
  *  These should not be used by S-functions (accelerated models need to
  *  set the size though).
  */
-#define ssGetSizeofGlobalBlockIO(S) (S)->sizes.sizeofGlobalBlockIO /*   (int_T)       */
-#define ssSetSizeofGlobalBlockIO(S, n) (S)->sizes.sizeofGlobalBlockIO = (n)
+#define ssGetSizeofGlobalBlockIO(S) \
+    (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.sizeofGlobalBlockIO /*   (int_T)       */
+#define ssSetSizeofGlobalBlockIO(S, n) \
+    (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.sizeofGlobalBlockIO = (n)
 
 
 /* SizeofDWork - This is the size of the data type work vector in bytes.
  *  These should not be used by S-functions (accelerated models need to
  *  set the size though).
  */
-#define ssGetSizeofDWork(S) (S)->sizes.sizeofDWork /*   (int_T)       */
-#define ssSetSizeofDWork(S, n) (S)->sizes.sizeofDWork = (n)
+#define ssGetSizeofDWork(S) \
+    (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.sizeofDWork /*   (int_T)       */
+#define ssSetSizeofDWork(S, n) (S)->blkInfo.blkInfo2->blkInfoSLSize->sizes.sizeofDWork = (n)
 
 /* RTWGeneratedSFcn - This is the flag which is set for rtw generated
  * s-function.  Can be removed once all dstates are changed to dworks
@@ -540,16 +501,6 @@
         (S)->blkInfo.sfcnFlags.sReuseAcrossModels = 0U; \
     }
 
-/* Block need absolute time. If block requiring absolute does not
- * set this flag. Obsolete absolute time will be used. Obsolete absolute
- * timer cannot support fixed pt blocks.
- */
-#define ssGetNeedAbsoluteTime(S) (S)->sizes.flags.needAbsoluteTime /*   (unsigned int_T: 1) */
-
-
-#define ssGetNeedElapseTime(S) (S)->sizes.flags.needElapseTime /*   (unsigned int_T: 1) */
-#define ssSetNeedElapseTime(S, n) (S)->sizes.flags.needElapseTime = (n)
-
 /*
  * mdlProjection may be present but S-Fcn may not want to call it
  */
@@ -573,7 +524,7 @@
  * simulation mode != rapid hence we need this query
  */
 #define ssSetIsRapidAcceleratorActive(S, boolVal) \
-    ((!ssGetParentSS(S)) ? ((S)->sizes.flags.isRapidAcceleratorActive = (boolVal) ? 1U : 0U) : 0)
+    ((!(S)->parent) ? ((S)->sizes.flags.isRapidAcceleratorActive = (boolVal) ? 1U : 0U) : 0)
 
 /*
  * Query to see if the simstruc is in VM Simulations
@@ -596,7 +547,7 @@
 
 
 #define ssGetModelReferenceNormalModeSupport(S) \
-    (ssModelReferenceNormalModeSupport)((S)->sizes.flags.modelRefNormalModeSupport)
+    SS_STATIC_CAST(ssModelReferenceNormalModeSupport, (S)->sizes.flags.modelRefNormalModeSupport)
 
 
 /* Method to register that an S-function uses the LibSystemOutputCustomCode
@@ -618,16 +569,15 @@
 /* BEGIN long level 1 exclusion */
 #if !SS_SFCN_LEVEL_1
 
-#if SS_SL_INTERNAL || SS_SFCN_FOR_SIM
-#define ssSetRegInputPortDimensionInfoFcn(S, fcn) (S)->mdlInfo->regInputPortDimsInfo = (fcn)
-
-#define ssSetRegOutputPortDimensionInfoFcn(S, fcn) (S)->mdlInfo->regOutputPortDimsInfo = (fcn)
-
-#define ssSetRegInputPortDimensionInfoFcnSLSize(S, fcn) \
+#if SS_SL_INTERNAL || SS_GENERATED_S_FUNCTION
+#define ssSetRegInputPortDimensionInfoFcn(S, fcn) \
     (S)->blkInfo.blkInfo2->mdlInfoSLSize->regInputPortDimsInfo = (fcn)
 
-#define ssSetRegOutputPortDimensionInfoFcnSLSize(S, fcn) \
+#define ssSetRegOutputPortDimensionInfoFcn(S, fcn) \
     (S)->blkInfo.blkInfo2->mdlInfoSLSize->regOutputPortDimsInfo = (fcn)
+#define ssSetRegInputPortDimensionInfoFcnInt(S, fcn) (S)->mdlInfo->regInputPortDimsInfo = (fcn)
+
+#define ssSetRegOutputPortDimensionInfoFcnInt(S, fcn) (S)->mdlInfo->regOutputPortDimsInfo = (fcn)
 #endif
 
 
@@ -636,24 +586,15 @@
  * Input Port Width/Number of Dimensions/Dimensions Methods *
  ************************************************************/
 /* Number of Dimensions */
+
+#ifdef _MSC_VER
+#pragma warning(push)
+// warning C4127: conditional expression is constant
+#pragma warning(disable : 4127)
+#endif
+
 #if defined(USE_64BIT_FIELDS)
-#define _ssSetInputPortNumDimensions(S, port, val)                             \
-    {                                                                          \
-        (S)->portInfo.inputs[(port)].numDims = (val);                          \
-        if (val == 1) {                                                        \
-            (S)->blkInfo.blkInfo2->blkInfoSLSize->inputs[(port)].dims =        \
-                &((S)->blkInfo.blkInfo2->blkInfoSLSize->inputs[(port)].width); \
-        }                                                                      \
-    }
-#elif defined(USE_32BIT_FIELDS)
-#define _ssSetInputPortNumDimensions(S, port, val)                                     \
-    {                                                                                  \
-        (S)->portInfo.inputs[(port)].numDims = (val);                                  \
-        if (val == 1) {                                                                \
-            (S)->portInfo.inputs[(port)].dims = &((S)->portInfo.inputs[(port)].width); \
-        }                                                                              \
-    }
-#elif defined(USE_32BIT_AND_64BIT_FIELDS)
+#if defined(SL_INTERNAL) || defined(IS_RSIM) || defined(IS_RAPID_ACCEL)
 #define _ssSetInputPortNumDimensions(S, port, val)                                             \
     {                                                                                          \
         (S)->portInfo.inputs[(port)].numDims = (val);                                          \
@@ -667,76 +608,67 @@
             }                                                                                  \
         }                                                                                      \
     }
+#else
+#define _ssSetInputPortNumDimensions(S, port, val)                             \
+    {                                                                          \
+        (S)->portInfo.inputs[(port)].numDims = (val);                          \
+        if (val == 1) {                                                        \
+            (S)->blkInfo.blkInfo2->blkInfoSLSize->inputs[(port)].dims =        \
+                &((S)->blkInfo.blkInfo2->blkInfoSLSize->inputs[(port)].width); \
+        }                                                                      \
+    }
+#endif
+#elif defined(USE_32BIT_FIELDS)
+#define _ssSetInputPortNumDimensions(S, port, val)                                     \
+    {                                                                                  \
+        (S)->portInfo.inputs[(port)].numDims = (val);                                  \
+        if (val == 1) {                                                                \
+            (S)->portInfo.inputs[(port)].dims = &((S)->portInfo.inputs[(port)].width); \
+        }                                                                              \
+    }
+#endif
+
+#ifdef _MSC_VER
+#pragma warning(pop)
 #endif
 
 /*
  *Input dimensions ptr
  */
-#if defined(USE_32BIT_AND_64BIT_FIELDS)
-/* varDims */
-#define ssGetCurrentInputPortDimensions(S, pIdx, dIdx) \
-    (S)->blkInfo.blkInfo2->portInfo2->inputs[(pIdx)].portVarDims[(dIdx)]
-#define ssGetCurrentInputPortDimensionsSLSize(S, pIdx, dIdx) \
-    (S)->blkInfo.blkInfo2->blkInfoSLSize->inputs[(pIdx)].portVarDims[(dIdx)]
-
-/* portInfo dims */
-#define ssGetInputPortDimensions_fwd(S, port) ((S)->portInfo.inputs[(port)].dims)
-#define ssGetInputPortDimensionsSLSize_fwd(S, port) \
-    (S)->blkInfo.blkInfo2->blkInfoSLSize->inputs[(port)].dims
-#define ssGetInputPortDimensionSize_fwd(S, port, dIdx)                                             \
-    ((dIdx) < ssGetInputPortNumDimensions((S), (port)) ? (S)->portInfo.inputs[(port)].dims[(dIdx)] \
-                                                       : 1)
-#define ssGetInputPortDimensionSizeSLSize_fwd(S, port, dIdx)                 \
-    ((dIdx) < ssGetInputPortNumDimensions((S), (port))                       \
-         ? (S)->blkInfo.blkInfo2->blkInfoSLSize->inputs[(port)].dims[(dIdx)] \
-         : 1)
-
-/* port dimensions info (DimsInfo_T) */
-#define ssGetRegInputPortDimensionInfoFcn(S) \
-    ((S)->blkInfo.blkInfo2->mdlInfoSLSize->regInputPortDimsInfo)
-#endif
-
 /* AsInt and SLSize macros should only be used in code allocating and initializing 32-bit
    and 64-bit S-Functions. Currently, this includes simulink engine and sim targets */
+/* varDims */
+#define ssGetCurrentInputPortDimensionsAsInt(S, pIdx, dIdx) \
+    (S)->blkInfo.blkInfo2->portInfo2->inputs[(pIdx)].portVarDims[(dIdx)]
 #define ssGetInputPortDimensionsAsInt(S, port) ((S)->portInfo.inputs[(port)].dims)
 #define ssGetInputPortDimensionsSLSize(S, port) \
     (S)->blkInfo.blkInfo2->blkInfoSLSize->inputs[(port)].dims
 
 /* Do not make a copy. S-function port dimension = Ptr. */
 #define _ssSetInputPortDimensionsPtr(S, port, ptr) \
-    { (S)->portInfo.inputs[(port)].dims = (ptr); }
-#define _ssSetInputPortDimensionsPtrSLSize(S, port, ptr) \
     { (S)->blkInfo.blkInfo2->blkInfoSLSize->inputs[(port)].dims = (ptr); }
+#define _ssSetInputPortDimensionsPtrAsInt(S, port, ptr) \
+    { (S)->portInfo.inputs[(port)].dims = (ptr); }
 
 /*
  * Copy 'd' to S-function port dimensions. It is assumed that
  * port has enough storage/memory to store the dimensions.
  */
-#define _ssCopyInputPortDimensions(S, port, d)                                        \
+#define _ssCopyInputPortDimensions(S, port, d)                                           \
+    {                                                                                    \
+        int nn = ssGetInputPortNumDimensions(S, port);                                   \
+        if (nn >= 1) {                                                                   \
+            (void)memcpy(((S)->blkInfo.blkInfo2->blkInfoSLSize->inputs[(port)].dims), d, \
+                         nn * sizeof(SLSize));                                           \
+        }                                                                                \
+    }
+#define _ssCopyInputPortDimensionsAsInt(S, port, d)                                   \
     {                                                                                 \
         int nn = ssGetInputPortNumDimensions(S, port);                                \
         if (nn >= 1) {                                                                \
             (void)memcpy(((S)->portInfo.inputs[(port)].dims), d, nn * sizeof(int_T)); \
         }                                                                             \
     }
-#define _ssCopyInputPortDimensionsToSLSize(S, port, d)                                   \
-    {                                                                                    \
-        int nn = ssGetInputPortNumDimensions(S, port);                                   \
-        if (nn >= 1) {                                                                   \
-            (void)memcpy(((S)->blkInfo.blkInfo2->blkInfoSLSize->inputs[(port)].dims), d, \
-                         nn * sizeof(int_T));                                            \
-        }                                                                                \
-    }
-
-/* Input port width */
-#if defined(USE_32BIT_AND_64BIT_FIELDS)
-#define ssGetInputPortWidth_fwd(S, port) (S)->portInfo.inputs[(port)].width
-#define ssGetInputPortWidthSLSize_fwd(S, port) \
-    (S)->blkInfo.blkInfo2->blkInfoSLSize->inputs[(port)].width
-#define ssSetInputPortWidth_fwd(S, port, val) ((S)->portInfo.inputs[(port)].width = (val))
-#define ssSetInputPortWidthSLSize_fwd(S, port, val) \
-    ((S)->blkInfo.blkInfo2->blkInfoSLSize->inputs[(port)].width = (val))
-#endif
 
 /* AsInt macros should only be used in code allocating and initializing 32-bit
    S-Functions. Currently, this includes simulink engine and sim targets */
@@ -980,25 +912,14 @@ extern void _ssSetInputPortReusableFcn(SimStruct* S, int port, int val);
  * Output Port Number of Dimensions *
  ***********************************/
 
+#ifdef _MSC_VER
+#pragma warning(push)
+// warning C4127: conditional expression is constant
+#pragma warning(disable : 4127)
+#endif
 
 #if defined(USE_64BIT_FIELDS)
-#define _ssSetOutputPortNumDimensions(S, port, val)                             \
-    {                                                                           \
-        (S)->portInfo.outputs[(port)].numDims = (val);                          \
-        if (val == 1) {                                                         \
-            (S)->blkInfo.blkInfo2->blkInfoSLSize->outputs[(port)].dims =        \
-                &((S)->blkInfo.blkInfo2->blkInfoSLSize->outputs[(port)].width); \
-        }                                                                       \
-    }
-#elif defined(USE_32BIT_FIELDS)
-#define _ssSetOutputPortNumDimensions(S, port, val)                                      \
-    {                                                                                    \
-        (S)->portInfo.outputs[(port)].numDims = (val);                                   \
-        if (val == 1) {                                                                  \
-            (S)->portInfo.outputs[(port)].dims = &((S)->portInfo.outputs[(port)].width); \
-        }                                                                                \
-    }
-#elif defined(USE_32BIT_AND_64BIT_FIELDS)
+#if defined(SL_INTERNAL) || defined(IS_RSIM) || defined(IS_RAPID_ACCEL)
 #define _ssSetOutputPortNumDimensions(S, port, val)                                            \
     {                                                                                          \
         (S)->portInfo.outputs[(port)].numDims = (val);                                         \
@@ -1012,83 +933,77 @@ extern void _ssSetInputPortReusableFcn(SimStruct* S, int port, int val);
             }                                                                                  \
         }                                                                                      \
     }
+#else
+#define _ssSetOutputPortNumDimensions(S, port, val)                             \
+    {                                                                           \
+        (S)->portInfo.outputs[(port)].numDims = (val);                          \
+        if (val == 1) {                                                         \
+            (S)->blkInfo.blkInfo2->blkInfoSLSize->outputs[(port)].dims =        \
+                &((S)->blkInfo.blkInfo2->blkInfoSLSize->outputs[(port)].width); \
+        }                                                                       \
+    }
+#endif
+#elif defined(USE_32BIT_FIELDS)
+#define _ssSetOutputPortNumDimensions(S, port, val)                                      \
+    {                                                                                    \
+        (S)->portInfo.outputs[(port)].numDims = (val);                                   \
+        if (val == 1) {                                                                  \
+            (S)->portInfo.outputs[(port)].dims = &((S)->portInfo.outputs[(port)].width); \
+        }                                                                                \
+    }
+#endif
+
+#ifdef _MSC_VER
+#pragma warning(pop)
 #endif
 
 /*************************
  * Output Port Dimensions *
  *************************/
-#if defined(USE_32BIT_AND_64BIT_FIELDS)
-/* varDims */
-#define ssGetCurrentOutputPortDimensions(S, pIdx, dIdx) \
-    (S)->blkInfo.blkInfo2->portInfo2->outputs[(pIdx)].portVarDims[(dIdx)]
-#define ssGetCurrentOutputPortDimensionsSLSize(S, pIdx, dIdx) \
-    (S)->blkInfo.blkInfo2->blkInfoSLSize->outputs[(pIdx)].portVarDims[(dIdx)]
-#define _ssSetCurrentOutputPortDimensions(S, pIdx, dIdx, val) \
-    (S)->blkInfo.blkInfo2->portInfo2->outputs[(pIdx)].portVarDims[(dIdx)] = (val)
-#define _ssSetCurrentOutputPortDimensionsSLSize(S, pIdx, dIdx, val) \
-    (S)->blkInfo.blkInfo2->blkInfoSLSize->outputs[(pIdx)].portVarDims[(dIdx)] = (val)
-
-/* portInfo dims */
-#define ssGetOutputPortDimensions_fwd(S, port) ((S)->portInfo.outputs[(port)].dims)
-#define ssGetOutputPortDimensionsSLSize_fwd(S, port) \
-    (S)->blkInfo.blkInfo2->blkInfoSLSize->outputs[(port)].dims
-#define ssGetOutputPortDimensionSize_fwd(S, port, dIdx) \
-    ((dIdx) < ssGetOutputPortNumDimensions((S), (port)) \
-         ? (S)->portInfo.outputs[(port)].dims[(dIdx)]   \
-         : 1)
-#define ssGetOutputPortDimensionSizeSLSize_fwd(S, port, dIdx)                 \
-    ((dIdx) < ssGetOutputPortNumDimensions((S), (port))                       \
-         ? (S)->blkInfo.blkInfo2->blkInfoSLSize->outputs[(port)].dims[(dIdx)] \
-         : 1)
-
-/* port dimensions info (DimsInfo_T) */
-#define ssGetRegOutputPortDimensionInfoFcn(S) \
-    ((S)->blkInfo.blkInfo2->mdlInfoSLSize->regOutputPortDimsInfo)
-#endif
-
 /* AsInt and SLSize macros should only be used in code allocating and initializing 32-bit
    and 64-bit S-Functions. Currently, this includes simulink engine and sim targets */
+/* varDims */
+#define ssGetCurrentOutputPortDimensionsAsInt(S, pIdx, dIdx) \
+    (S)->blkInfo.blkInfo2->portInfo2->outputs[(pIdx)].portVarDims[(dIdx)]
+#define _ssSetCurrentOutputPortDimensionsAsInt(S, pIdx, dIdx, val) \
+    (S)->blkInfo.blkInfo2->portInfo2->outputs[(pIdx)].portVarDims[(dIdx)] = (val)
+#define ssSetCurrentOutputPortDimensionsAsInt(S, pIdx, _dIdx, _val)                        \
+    {                                                                                      \
+        struct _ssVarDimsIdxVal_tag dIdxVal;                                               \
+        dIdxVal.dIdx = _dIdx;                                                              \
+        dIdxVal.dVal = _val;                                                               \
+        _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_SET_CURR_OUTPUT_DIMS, pIdx, &dIdxVal) \
+            _ssSafelyCallGenericFcnEnd;                                                    \
+    }
 #define ssGetOutputPortDimensionsAsInt(S, port) ((S)->portInfo.outputs[(port)].dims)
 #define ssGetOutputPortDimensionsSLSize(S, port) \
     (S)->blkInfo.blkInfo2->blkInfoSLSize->outputs[(port)].dims
 
 /* Do not make a copy. S-function port dimension = Ptr. */
 #define _ssSetOutputPortDimensionsPtr(S, port, ptr) \
-    { (S)->portInfo.outputs[(port)].dims = (ptr); }
-#define _ssSetOutputPortDimensionsPtrSLSize(S, port, ptr) \
     { (S)->blkInfo.blkInfo2->blkInfoSLSize->outputs[(port)].dims = (ptr); }
+#define _ssSetOutputPortDimensionsPtrAsInt(S, port, ptr) \
+    { (S)->portInfo.outputs[(port)].dims = (ptr); }
 
 /*
  * Copy 'd' to S-function port dimensions. It is assumed that
  * port has enough storage/memory to store the dimensions.
  */
-#define _ssCopyOutputPortDimensions(S, port, d)                                        \
+#define _ssCopyOutputPortDimensions(S, port, d)                                           \
+    {                                                                                     \
+        int nn = ssGetOutputPortNumDimensions(S, port);                                   \
+        if (nn >= 1) {                                                                    \
+            (void)memcpy(((S)->blkInfo.blkInfo2->blkInfoSLSize->outputs[(port)].dims), d, \
+                         nn * sizeof(SLSize));                                            \
+        }                                                                                 \
+    }
+#define _ssCopyOutputPortDimensionsAsInt(S, port, d)                                   \
     {                                                                                  \
         int nn = ssGetOutputPortNumDimensions(S, port);                                \
         if (nn >= 1) {                                                                 \
             (void)memcpy(((S)->portInfo.outputs[(port)].dims), d, nn * sizeof(int_T)); \
         }                                                                              \
     }
-#define _ssCopyOutputPortDimensionsToSLSize(S, port, d)                                   \
-    {                                                                                     \
-        int nn = ssGetOutputPortNumDimensions(S, port);                                   \
-        if (nn >= 1) {                                                                    \
-            (void)memcpy(((S)->blkInfo.blkInfo2->blkInfoSLSize->outputs[(port)].dims), d, \
-                         nn * sizeof(int_T));                                             \
-        }                                                                                 \
-    }
-
-/*************************
- * Output Port Width     *
- *************************/
-#if defined(USE_32BIT_AND_64BIT_FIELDS)
-#define ssGetOutputPortWidth_fwd(S, port) (S)->portInfo.outputs[(port)].width
-#define ssGetOutputPortWidthSLSize_fwd(S, port) \
-    (S)->blkInfo.blkInfo2->blkInfoSLSize->outputs[(port)].width
-#define ssSetOutputPortWidth_fwd(S, port, val) ((S)->portInfo.outputs[(port)].width = (val))
-#define ssSetOutputPortWidthSLSize_fwd(S, port, val) \
-    ((S)->blkInfo.blkInfo2->blkInfoSLSize->outputs[(port)].width = (val))
-#endif
 
 /* AsInt macros should only be used in code allocating and initializing 32-bit
    S-Functions. Currently, this includes simulink engine and sim targets */
@@ -1672,22 +1587,6 @@ typedef struct _ssTimerInfo_tag {
     }
 #endif
 
-#define ssGetElapseTime(S, dataPtr)                                                  \
-    _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_ELAPSE_TIME, 0, (double*)dataPtr) \
-        _ssSafelyCallGenericFcnEnd
-
-#define ssGetElapseTimeCounter(S, dataPtr)                                                \
-    _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_ELAPSE_TIME_COUNTER, 0, (int*)dataPtr) \
-        _ssSafelyCallGenericFcnEnd
-
-#define ssGetElapseTimeCounterDtype(S, dataPtr)                                                 \
-    _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_ELAPSE_TIME_COUNTER_DTYPE, 0, (int*)dataPtr) \
-        _ssSafelyCallGenericFcnEnd
-
-#define ssGetElapseTimeResolution(S, dataPtr)                                                   \
-    _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_ELAPSE_TIME_RESOLUTION, 0, (double*)dataPtr) \
-        _ssSafelyCallGenericFcnEnd
-
 #if SS_SFCN && SS_SIM
 #define ssGetTimeResolution(S, sti, dataPtr)                                               \
     _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_TIME_RESOLUTION, sti, (double*)dataPtr) \
@@ -2062,7 +1961,7 @@ typedef struct _ssSymbolicDimStringOp {
 
 typedef struct _ssSymbolicDimMATLABExprOp {
     const char_T* fMATLABExpr;
-    const DimsInfo_T* fDimsInfo;
+    const DimsInfo_AsInt* fDimsInfo;
     SymbDimsId returnValue;
 } ssSymbolicDimMatlabExprOp;
 
@@ -2120,7 +2019,7 @@ extern SymbDimsId _ssRegisterSymbolicDimsExpr(SimStruct* S, const char_T* aExpr)
 #if (SS_SFCN_FOR_SIM)
 extern SymbDimsId _ssRegisterSymbolicDimsMATLABExpr(SimStruct* S,
                                                     const char_T* aMATLABExpr,
-                                                    const DimsInfo_T* aDimsInfo);
+                                                    const DimsInfo_AsInt* aDimsInfo);
 #define ssRegisterSymbolicDimsMATLABExpr(S, aMATLABExpr, aDimsInfo) \
     _ssRegisterSymbolicDimsMATLABExpr(S, aMATLABExpr, aDimsInfo)
 #else
@@ -2537,12 +2436,6 @@ typedef struct {
                                         (chksum)) _ssSafelyCallGenericFcnEnd;             \
     }
 
-#define ssCallSetRegCodeVariantFcnCall(S, numParams, paramIdxs)                           \
-    {                                                                                     \
-        _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_REG_CODE_VARIANT_FCNCALL, numParams, \
-                                        paramIdxs) _ssSafelyCallGenericFcnEnd;            \
-    }
-
 #define ssCallSetRegAutosarClientBlock(S, isClientBlock)                                      \
     {                                                                                         \
         _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_REG_AUTOSAR_CLIENT_BLOCK, isClientBlock, \
@@ -2553,12 +2446,6 @@ typedef struct {
     {                                                                                            \
         _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_GET_NUM_VARIANT_CONDITIONS, conditionIndex, \
                                         result) _ssSafelyCallGenericFcnEnd;                      \
-    }
-
-#define ssCallGetEvalCodeVariantFcnCall(S, numParams, paramIdxs)                           \
-    {                                                                                      \
-        _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_EVAL_CODE_VARIANT_FCNCALL, numParams, \
-                                        paramIdxs) _ssSafelyCallGenericFcnEnd;             \
     }
 
 #endif
@@ -2617,11 +2504,6 @@ typedef struct {
 #elif defined(USE_32BIT_FIELDS)
 #define _ssSetInputPortVariableDimsPtr(S, pIdx, uDims) \
     (S)->blkInfo.blkInfo2->portInfo2->inputs[(pIdx)].portVarDims = (uDims)
-#elif defined(USE_32BIT_AND_64BIT_FIELDS)
-#define _ssSetInputPortVariableDimsPtr(S, pIdx, uDims) \
-    (S)->blkInfo.blkInfo2->portInfo2->inputs[(pIdx)].portVarDims = (uDims)
-#define _ssSetInputPortVariableDimsPtrSLSize(S, pIdx, uDims) \
-    (S)->blkInfo.blkInfo2->blkInfoSLSize->inputs[(pIdx)].portVarDims = (uDims)
 #endif
 
 #if defined(USE_64BIT_FIELDS)
@@ -2630,12 +2512,17 @@ typedef struct {
 #elif defined(USE_32BIT_FIELDS)
 #define _ssSetOutputPortVariableDimsPtr(S, pIdx, yDims) \
     (S)->blkInfo.blkInfo2->portInfo2->outputs[(pIdx)].portVarDims = (yDims)
-#elif defined(USE_32BIT_AND_64BIT_FIELDS)
+#elif defined(SL_INTERNAL) || defined(IS_RSIM) || defined(IS_RAPID_ACCEL)
 #define _ssSetOutputPortVariableDimsPtr(S, pIdx, yDims) \
-    (S)->blkInfo.blkInfo2->portInfo2->outputs[(pIdx)].portVarDims = (yDims)
-#define _ssSetOutputPortVariableDimsPtrSLSize(S, pIdx, yDims) \
     (S)->blkInfo.blkInfo2->blkInfoSLSize->outputs[(pIdx)].portVarDims = (yDims)
 #endif
+
+/* AsInt macros should only be used in code allocating and initializing 32-bit
+   S-Functions. Currently, this includes simulink engine and sim targets */
+#define _ssSetInputPortVariableDimsPtrAsInt(S, pIdx, uDims) \
+    (S)->blkInfo.blkInfo2->portInfo2->inputs[(pIdx)].portVarDims = (uDims)
+#define _ssSetOutputPortVariableDimsPtrAsInt(S, pIdx, yDims) \
+    (S)->blkInfo.blkInfo2->portInfo2->outputs[(pIdx)].portVarDims = (yDims)
 
 #if !SS_SFCN
 
@@ -3018,7 +2905,7 @@ typedef enum { MDLREF_UNKNOWN = 0, MDLREF_ACCEL_SIM, MDLREF_NORMAL_SIM, MDLREF_R
 #define ssGetModelReferenceType(S, val)                                         \
     {                                                                           \
         *(val) = MDLREF_UNKNOWN;                                                \
-        if (!((ssGetOwnerBlock(S) == NULL) && (ssGetParentSS(S) != NULL))) {    \
+        if (!((ssGetOwnerBlock(S) == NULL) && ((S)->parent != NULL))) {         \
             _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_MDLREF_TYPE, 0, val) \
                 _ssSafelyCallGenericFcnEnd;                                     \
         }                                                                       \
@@ -3300,11 +3187,11 @@ typedef struct {
  *   SimStruct, this is the external output vector. The length of this
  *   vector is ssGetNumOutputs.
  */
-#define _ssGetY(S) ((real_T*)((S)->states.Y)) /*   (real_T *)    */
+#define _ssGetY(S) (SS_STATIC_CAST(real_T*, (S)->states.Y)) /*   (real_T *)    */
 
 #if !SS_SFCN_NORMAL
 #define ssGetY(S) _ssGetY(S)
-#define _ssSetY(S, y) (S)->states.Y = ((void*)(y))
+#define _ssSetY(S, y) (S)->states.Y = (SS_STATIC_CAST(void*, y))
 #endif
 #if !SS_SFCN
 #define ssSetY(S, y) _ssSetY(S, y)
@@ -3391,21 +3278,101 @@ typedef struct {
  *   correct value).  Setting nzmax == -1 will construct a full matrix.  It
  *   is then your responsibility to fill in correct values for *pr, *ir, *jc.
  */
+#if defined(USE_64BIT_FIELDS)
+#define ssGetSlvrJacobianNzMax(S) \
+    ((S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.numSlvrJacobianNzmax)
+#define ssSetSlvrJacobianNzMax(S, n) \
+    ((S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.numSlvrJacobianNzmax = (n))
 
+#define ssGetSlvrJacobianHeader(S) \
+    ((S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.slvrJacobianMatrix)
+#if !SS_SFCN
+#define ssSetSlvrJacobianHeader(S, p) \
+    ((S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.slvrJacobianMatrix = (p))
+#else
+#define ssSetSlvrJacobianHeader(S, p) ssSetSlvrJacobianHeader_cannot_be_used_in_SFunctions
+#endif
+
+#define ssGetSlvrJacobianIr(S) \
+    ((S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.slvrJacobianMatrix->Ir)
+#if !SS_SFCN
+#define ssSetSlvrJacobianIr(S, ir) \
+    ((S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.slvrJacobianMatrix->Ir = (ir))
+#else
+#define ssSetSlvrJacobianIr(S, ir) ssSetSlvrJacobianIr_cannot_be_used_in_SFunctions
+#endif
+
+#define ssGetSlvrJacobianJc(S) \
+    ((S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.slvrJacobianMatrix->Jc)
+#if !SS_SFCN
+#define ssSetSlvrJacobianJc(S, jc) \
+    ((S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.slvrJacobianMatrix->Jc = (jc))
+#else
+#define ssSetSlvrJacobianJc(S, jc) ssSetSlvrJacobianJc_cannot_be_used_in_SFunctions
+#endif
+
+#define ssGetSlvrJacobianM(S) \
+    ((S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.slvrJacobianMatrix->mRows)
+#if !SS_SFCN
+#define ssSetSlvrJacobianM(S, m) \
+    ((S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.slvrJacobianMatrix->mRows = (m))
+#else
+#define ssSetSlvrJacobianM(S, m) ssSetSlvrJacobianM_cannot_be_used_in_SFunctions
+#endif
+
+#define ssGetSlvrJacobianN(S) \
+    ((S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.slvrJacobianMatrix->nCols)
+#if !SS_SFCN
+#define ssSetSlvrJacobianN(S, n) \
+    ((S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.slvrJacobianMatrix->nCols = (n))
+#else
+#define ssSetSlvrJacobianN(S, n) ssSetSlvrJacobianN_cannot_be_used_in_SFunctions
+#endif
+#elif defined(USE_32BIT_FIELDS)
 #define ssGetSlvrJacobianNzMax(S) ((S)->states.modelMethods2->modelMethods3->numSlvrJacobianNzmax)
 #define ssSetSlvrJacobianNzMax(S, n) \
     ((S)->states.modelMethods2->modelMethods3->numSlvrJacobianNzmax = (n))
 
 #define ssGetSlvrJacobianHeader(S) ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix)
-#define _ssSetSlvrJacobianHeader(S, p) \
-    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix = (p))
-
 #if !SS_SFCN
-#define ssSetSlvrJacobianHeader(S, p) _ssSetSlvrJacobianHeader(S, p)
+#define ssSetSlvrJacobianHeader(S, p) \
+    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix = (p))
 #else
 #define ssSetSlvrJacobianHeader(S, p) ssSetSlvrJacobianHeader_cannot_be_used_in_SFunctions
 #endif
 
+#define ssGetSlvrJacobianIr(S) ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->Ir)
+#if !SS_SFCN
+#define ssSetSlvrJacobianIr(S, ir) \
+    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->Ir = (ir))
+#else
+#define ssSetSlvrJacobianIr(S, ir) ssSetSlvrJacobianIr_cannot_be_used_in_SFunctions
+#endif
+
+#define ssGetSlvrJacobianJc(S) ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->Jc)
+#if !SS_SFCN
+#define ssSetSlvrJacobianJc(S, jc) \
+    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->Jc = (jc))
+#else
+#define ssSetSlvrJacobianJc(S, jc) ssSetSlvrJacobianJc_cannot_be_used_in_SFunctions
+#endif
+
+#define ssGetSlvrJacobianM(S) ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->mRows)
+#if !SS_SFCN
+#define ssSetSlvrJacobianM(S, m) \
+    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->mRows)
+#else
+#define ssSetSlvrJacobianM(S, m) ssSetSlvrJacobianM_cannot_be_used_in_SFunctions
+#endif
+
+#define ssGetSlvrJacobianN(S) ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->nCols)
+#if !SS_SFCN
+#define ssSetSlvrJacobianN(S, n) \
+    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->nCols = (n))
+#else
+#define ssSetSlvrJacobianN(S, n) ssSetSlvrJacobianN_cannot_be_used_in_SFunctions
+#endif
+#endif
 
 #define ssGetSlvrJacobianPr(S) ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->Pr)
 #define _ssSetSlvrJacobianPr(S, pr) \
@@ -3417,42 +3384,23 @@ typedef struct {
 #define ssSetSlvrJacobianPr(S, pr) ssSetSlvrJacobian_cannot_be_used_in_SFunctions
 #endif
 
-#define ssGetSlvrJacobianIr(S) ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->Ir)
-#define _ssSetSlvrJacobianIr(S, ir) \
+/* Int and AsInt APIs should exclusively be used to setup and destruction of Int versions of there
+   Jacobian header, Ir, and Jc for 32-bit S-Functions and root SimStruct. For all other use cases,
+   use the non-int versions of these macros defined above. */
+#if defined(SL_INTERNAL)
+#define ssGetSlvrJacobianHeaderInt(S) ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix)
+#define ssSetSlvrJacobianHeaderInt(S, p) \
+    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix = (p))
+
+#define ssGetSlvrJacobianIrAsInt(S) \
+    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->Ir)
+#define ssSetSlvrJacobianIrAsInt(S, ir) \
     ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->Ir = (ir))
-#if !SS_SFCN
-#define ssSetSlvrJacobianIr(S, ir) _ssSetSlvrJacobianIr(S, ir)
-#else
-#define ssSetSlvrJacobianIr(S, ir) ssSetSlvrJacobianIr_cannot_be_used_in_SFunctions
-#endif
-
-#define ssGetSlvrJacobianJc(S) ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->Jc)
-#define _ssSetSlvrJacobianJc(S, jc) \
+#define ssGetSlvrJacobianJcAsInt(S) \
+    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->Jc)
+#define ssSetSlvrJacobianJcAsInt(S, jc) \
     ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->Jc = (jc))
-#if !SS_SFCN
-#define ssSetSlvrJacobianJc(S, jc) _ssSetSlvrJacobianJc(S, jc)
-#else
-#define ssSetSlvrJacobianJc(S, jc) ssSetSlvrJacobianJc_cannot_be_used_in_SFunctions
 #endif
-
-#define ssGetSlvrJacobianM(S) ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->mRows)
-#define _ssSetSlvrJacobianM(S, m) \
-    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->mRows)
-#if !SS_SFCN
-#define ssSetSlvrJacobianM(S, m) _ssSetSlvrJacobianM(S, m)
-#else
-#define ssSetSlvrJacobianM(S, m) ssSetSlvrJacobianM_cannot_be_used_in_SFunctions
-#endif
-
-#define ssGetSlvrJacobianN(S) ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->nCols)
-#define _ssSetSlvrJacobianN(S, n) \
-    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->nCols = (n))
-#if !SS_SFCN
-#define ssSetSlvrJacobianN(S, n) _ssSetSlvrJacobianN(S, n)
-#else
-#define ssSetSlvrJacobianN(S, n) ssSetSlvrJacobianN_cannot_be_used_in_SFunctions
-#endif
-
 
 /* Jacobian - This struct contains the Jacobian matrix for your S-function
  *   block.  The size of this matrix is (nxc + nxd + ny) x (nxc + ndx + nu).
@@ -3463,15 +3411,92 @@ typedef struct {
  *   The values for *ir and *jc should be initialized in function mdlJacobianIrJc.
  */
 
+#if defined(USE_64BIT_FIELDS)
+#define ssGetJacobianNzMax(S) ((S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.numJacobianNzMax)
+#define ssSetJacobianNzMax(S, n) \
+    ((S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.numJacobianNzMax = (n))
+
+#define ssGetJacobianHeader(S) \
+    (S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.jacobian /* (SparseHeader *) */
+#if !SS_SFCN
+#define ssSetJacobianHeader(S, p) (S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.jacobian = (p)
+#else
+#define ssSetJacobianHeader(S, p) ssSetJacobianHeader_cannot_be_used_in_SFunctions
+#endif
+
+#define ssGetJacobianIr(S) \
+    (S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.jacobian->Ir /*   (int_T *)    */
+#if !SS_SFCN
+#define ssSetJacobianIr(S, ir) \
+    (S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.jacobian->Ir = (ir)
+#else
+#define ssSetJacobianIr(S, ir) ssSetJacobianIr_cannot_be_used_in_SFunctions
+#endif
+
+#define ssGetJacobianJc(S) \
+    (S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.jacobian->Jc /*   (int_T *)    */
+#if !SS_SFCN
+#define ssSetJacobianJc(S, jc) \
+    (S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.jacobian->Jc = (jc)
+#else
+#define ssSetJacobianJc(S, jc) ssSetJacobianJc_cannot_be_used_in_SFunctions
+#endif
+
+#define ssGetJacobianM(S) \
+    (S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.jacobian->mRows /*   (int_T *)    */
+#if !SS_SFCN
+#define ssSetJacobianM(S, m) \
+    (S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.jacobian->mRows = (m)
+#else
+#define ssSetJacobianM(S, m) ssSetJacobianM_cannot_be_used_in_SFunctions
+#endif
+
+#define ssGetJacobianN(S) \
+    (S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.jacobian->nCols /*   (int_T *)    */
+#if !SS_SFCN
+#define ssSetJacobianN(S, n) \
+    (S)->blkInfo.blkInfo2->blkInfoSLSize->jacobianInfo.jacobian->nCols = (n)
+#else
+#define ssSetJacobianN(S, n) ssSetJacobianN_cannot_be_used_in_SFunctions
+#endif
+#elif defined(USE_32BIT_FIELDS)
 #define ssGetJacobianNzMax(S) ((S)->sizes.numJacobianNzMax)
 #define ssSetJacobianNzMax(S, n) ((S)->sizes.numJacobianNzMax = (n))
 
 #define ssGetJacobianHeader(S) (S)->states.jacobian /* (SparseHeader *) */
-#define _ssSetJacobianHeader(S, p) (S)->states.jacobian = (p)
 #if !SS_SFCN
-#define ssSetJacobianHeader(S, p) _ssSetJacobianHeader(S, p)
+#define ssSetJacobianHeader(S, p) (S)->states.jacobian = (p)
 #else
 #define ssSetJacobianHeader(S, p) ssSetJacobianHeader_cannot_be_used_in_SFunctions
+#endif
+
+#define ssGetJacobianIr(S) (S)->states.jacobian->Ir /*   (int_T *)    */
+#if !SS_SFCN
+#define ssSetJacobianIr(S, ir) (S)->states.jacobian->Ir = (ir)
+#else
+#define ssSetJacobianIr(S, ir) ssSetJacobianIr_cannot_be_used_in_SFunctions
+#endif
+
+#define ssGetJacobianJc(S) (S)->states.jacobian->Jc /*   (int_T *)    */
+#if !SS_SFCN
+#define ssSetJacobianJc(S, jc) (S)->states.jacobian->Jc = (jc)
+#else
+#define ssSetJacobianJc(S, jc) ssSetJacobianJc_cannot_be_used_in_SFunctions
+#endif
+
+#define ssGetJacobianM(S) (S)->states.jacobian->mRows /*   (int_T *)    */
+#if !SS_SFCN
+#define ssSetJacobianM(S, m) (S)->states.jacobian->mRows = (m)
+#else
+#define ssSetJacobianM(S, m) ssSetJacobianM_cannot_be_used_in_SFunctions
+#endif
+
+#define ssGetJacobianN(S) (S)->states.jacobian->nCols /*   (int_T *)    */
+#if !SS_SFCN
+#define ssSetJacobianN(S, n) (S)->states.jacobian->nCols = (n)
+#else
+#define ssSetJacobianN(S, n) ssSetJacobianN_cannot_be_used_in_SFunctions
+#endif
 #endif
 
 #define ssGetJacobianPr(S) (S)->states.jacobian->Pr /*   (real_T *)    */
@@ -3482,36 +3507,17 @@ typedef struct {
 #define ssSetJacobianPr(S, pr) ssSetJacobian_cannot_be_used_in_SFunctions
 #endif
 
-#define ssGetJacobianIr(S) (S)->states.jacobian->Ir /*   (int_T *)    */
-#define _ssSetJacobianIr(S, ir) (S)->states.jacobian->Ir = (ir)
-#if !SS_SFCN
-#define ssSetJacobianIr(S, ir) _ssSetJacobianIr(S, ir)
-#else
-#define ssSetJacobianIr(S, ir) ssSetJacobianIr_cannot_be_used_in_SFunctions
-#endif
-
-#define ssGetJacobianJc(S) (S)->states.jacobian->Jc /*   (int_T *)    */
-#define _ssSetJacobianJc(S, jc) (S)->states.jacobian->Jc = (jc)
-#if !SS_SFCN
-#define ssSetJacobianJc(S, jc) _ssSetJacobianJc(S, jc)
-#else
-#define ssSetJacobianJc(S, jc) ssSetJacobianJc_cannot_be_used_in_SFunctions
-#endif
-
-#define ssGetJacobianM(S) (S)->states.jacobian->mRows /*   (int_T *)    */
-#define _ssSetJacobianM(S, m) (S)->states.jacobian->mRows = (m)
-#if !SS_SFCN
-#define ssSetJacobianM(S, m) _ssSetJacobianM(S, m)
-#else
-#define ssSetJacobianM(S, m) ssSetJacobianM_cannot_be_used_in_SFunctions
-#endif
-
-#define ssGetJacobianN(S) (S)->states.jacobian->nCols /*   (int_T *)    */
-#define _ssSetJacobianN(S, n) (S)->states.jacobian->nCols = (n)
-#if !SS_SFCN
-#define ssSetJacobianN(S, n) _ssSetJacobianN(S, n)
-#else
-#define ssSetJacobianN(S, n) ssSetJacobianN_cannot_be_used_in_SFunctions
+/* Int and AsInt APIs should exclusively be used to setup and destruction of Int versions of there
+   Jacobian header, Ir, and Jc for 32-bit S-Functions and root SimStruct. For all other use cases,
+   use the non-int versions of these macros defined above. */
+#if defined(SL_INTERNAL)
+#define ssGetJacobianNzMaxAsInt(S) ((S)->sizes.numJacobianNzMax)
+#define ssGetJacobianHeaderInt(S) (S)->states.jacobian
+#define ssSetJacobianHeaderInt(S, p) (S)->states.jacobian = (p)
+#define ssGetJacobianJcAsInt(S) (S)->states.jacobian->Jc
+#define ssSetJacobianJcAsInt(S, jc) (S)->states.jacobian->Jc = (jc)
+#define ssGetJacobianIrAsInt(S) (S)->states.jacobian->Ir
+#define ssSetJacobianIrAsInt(S, ir) (S)->states.jacobian->Ir = (ir)
 #endif
 
 typedef enum {
@@ -3572,31 +3578,6 @@ The default value for the flag is true.
     (S)->states.modelMethods2->modelMethods3->massMatrix.type /*   (ssMatrixType)  */
 #define ssSetMassMatrixType(S, t) (S)->states.modelMethods2->modelMethods3->massMatrix.type = (t)
 
-#define ssGetMassMatrixNzMax(S) \
-    (S)->states.modelMethods2->modelMethods3->massMatrix.info.nzMax /*   (int_T)    */
-#define ssSetMassMatrixNzMax(S, n) \
-    (S)->states.modelMethods2->modelMethods3->massMatrix.info.nzMax = (n)
-
-#define ssGetMassMatrixIr(S) \
-    (S)->states.modelMethods2->modelMethods3->massMatrix.info.Ir /*   (int_T *)    */
-#define _ssSetMassMatrixIr(S, ir) \
-    (S)->states.modelMethods2->modelMethods3->massMatrix.info.Ir = (ir)
-#if !SS_SFCN
-#define ssSetMassMatrixIr(S, ir) _ssSetMassMatrixIr(S, ir)
-#else
-#define ssSetMassMatrixIr(S, ir) ssSetMassMatrixIr_cannot_be_used_in_SFunctions
-#endif
-
-#define ssGetMassMatrixJc(S) \
-    (S)->states.modelMethods2->modelMethods3->massMatrix.info.Jc /*   (int_T *)    */
-#define _ssSetMassMatrixJc(S, jc) \
-    (S)->states.modelMethods2->modelMethods3->massMatrix.info.Jc = (jc)
-#if !SS_SFCN
-#define ssSetMassMatrixJc(S, jc) _ssSetMassMatrixJc(S, jc)
-#else
-#define ssSetMassMatrixJc(S, jc) ssSetMassMatrixJc_cannot_be_used_in_SFunctions
-#endif
-
 #define ssGetMassMatrixPr(S) \
     (S)->states.modelMethods2->modelMethods3->massMatrix.info.Pr /*   (real_T *)    */
 #define _ssSetMassMatrixPr(S, pr) \
@@ -3605,6 +3586,50 @@ The default value for the flag is true.
 #define ssSetMassMatrixPr(S, pr) _ssSetMassMatrixPr(S, pr)
 #else
 #define ssSetMassMatrixPr(S, pr) ssSetMassMatrix_cannot_be_used_in_SFunctions
+#endif
+
+#if defined(USE_32BIT_FIELDS) || (defined(IS_RSIM) || defined(IS_RAPID_ACCEL))
+#define ssGetMassMatrixNzMax(S) (S)->states.modelMethods2->modelMethods3->massMatrix.info.nzMax
+#define ssSetMassMatrixNzMax(S, n) \
+    (S)->states.modelMethods2->modelMethods3->massMatrix.info.nzMax = (n)
+
+#define ssGetMassMatrixIr(S) (S)->states.modelMethods2->modelMethods3->massMatrix.info.Ir
+
+#define ssGetMassMatrixJc(S) (S)->states.modelMethods2->modelMethods3->massMatrix.info.Jc
+#elif defined(USE_64BIT_FIELDS)
+#define ssGetMassMatrixNzMax(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->massMatrix.nzMax
+#define ssSetMassMatrixNzMax(S, n) (S)->blkInfo.blkInfo2->blkInfoSLSize->massMatrix.nzMax = (n)
+
+#define ssGetMassMatrixIr(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->massMatrix.Ir
+
+#define ssGetMassMatrixJc(S) (S)->blkInfo.blkInfo2->blkInfoSLSize->massMatrix.Jc
+#endif
+
+/* AsInt macros only be used by Simulink Engine code */
+
+#define ssGetMassMatrixIrAsInt(S) (S)->states.modelMethods2->modelMethods3->massMatrix.info.Ir
+#define ssGetMassMatrixJcAsInt(S) (S)->states.modelMethods2->modelMethods3->massMatrix.info.Jc
+#define ssSetMassMatrixIrAsInt(S, ir) \
+    (S)->states.modelMethods2->modelMethods3->massMatrix.info.Ir = (ir)
+#define ssSetMassMatrixJcAsInt(S, jc) \
+    (S)->states.modelMethods2->modelMethods3->massMatrix.info.Jc = (jc)
+#define ssGetMassMatrixNzMaxAsInt(S) (S)->states.modelMethods2->modelMethods3->massMatrix.info.nzMax
+
+/* There are two versions of this setter version, one to set Ir and Jc pointers to a 64-bit
+   S-Function SimStruct and the other (AsInt) to set the pointers to a 32-bit S-Function
+   SimStruct. Bitness can be queried using ssGetSFcnBitness(S)*/
+#if !SS_SFCN
+/* For now, rapid accel and rsim target will only use 32-bit setters */
+#if defined(IS_RSIM) || defined(IS_RAPID_ACCEL)
+#define ssSetMassMatrixIr(S, ir) (S)->states.modelMethods2->modelMethods3->massMatrix.info.Ir = (ir)
+#define ssSetMassMatrixJc(S, jc) (S)->states.modelMethods2->modelMethods3->massMatrix.info.Jc = (jc)
+#else
+#define ssSetMassMatrixIr(S, ir) (S)->blkInfo.blkInfo2->blkInfoSLSize->massMatrix.Ir = (ir)
+#define ssSetMassMatrixJc(S, jc) (S)->blkInfo.blkInfo2->blkInfoSLSize->massMatrix.Jc = (jc)
+#endif
+#else
+#define ssSetMassMatrixIr(S, ir) ssSetMassMatrixIr_cannot_be_used_in_SFunctions
+#define ssSetMassMatrixJc(S, jc) ssSetMassMatrixJc_cannot_be_used_in_SFunctions
 #endif
 
 
@@ -3926,16 +3951,6 @@ The default value for the flag is true.
 #define ssSetDWork(S, index, dwork) ssSetDWork_cannot_be_used_in_SFunctions
 #endif
 
-/*
- * Get/Set DWork data array width
- */
-#if defined(USE_32BIT_AND_64BIT_FIELDS)
-#define ssGetDWorkWidth_fwd(S, index) ((S)->work.dWork.sfcn[(index)].width)
-#define ssGetDWorkWidthSLSize_fwd(S, index) ((S)->work.dWorkAux[(index)].widthSLSize)
-#define ssSetDWorkWidth_fwd(S, index, val) ((S)->work.dWork.sfcn[index].width = (val))
-#define ssSetDWorkWidthSLSize_fwd(S, index, val) ((S)->work.dWorkAux[(index)].widthSLSize = (val))
-#endif
-
 /* AsInt macros should only be used in code allocating and initializing 32-bit
    S-Functions. Currently, this includes simulink engine and sim targets */
 #define ssSetDWorkWidthAsInt(S, index, val) ((S)->work.dWork.sfcn[index].width = (val))
@@ -4103,9 +4118,8 @@ typedef enum {
  * This is a void pointer to the owning compiled block diagram.
  */
 #define _ssSetOwnerCbd(S, cbd) (S)->work.localMdlInfo->ownerCbd = ((void*)cbd)
-#define _ssGetOwnerCbd(S)                                             \
-    (ssGetParentSS(S) ? ssGetParentSS(S)->work.localMdlInfo->ownerCbd \
-                      : (S)->work.localMdlInfo->ownerCbd)
+#define _ssGetOwnerCbd(S) \
+    ((S)->parent ? (S)->parent->work.localMdlInfo->ownerCbd : (S)->work.localMdlInfo->ownerCbd)
 
 #if !SS_SFCN
 #define ssSetOwnerCbd(S, cbd) _ssSetOwnerCbd(S, cbd)
@@ -4125,9 +4139,8 @@ typedef enum {
    multiple ExecBds corresponding to one SimStruct, it will be swapped appropriately.
 */
 #define _ssSetOwnerEbd(S, ebd) (S)->work.localMdlInfo->ownerEbd = ((void*)ebd)
-#define _ssGetOwnerEbd(S)                                             \
-    (ssGetParentSS(S) ? ssGetParentSS(S)->work.localMdlInfo->ownerEbd \
-                      : (S)->work.localMdlInfo->ownerEbd)
+#define _ssGetOwnerEbd(S) \
+    ((S)->parent ? (S)->parent->work.localMdlInfo->ownerEbd : (S)->work.localMdlInfo->ownerEbd)
 
 #if !SS_SFCN
 #define ssSetOwnerEbd(S, ebd) _ssSetOwnerEbd(S, ebd)
@@ -4268,6 +4281,81 @@ typedef enum {
 #else
 #define ssGetGlobalRuntimeEventIndex(S, localIndex) \
     ssGetGlobalRuntimeEventIndex_cannot_be_used_in_SFunctions
+#endif
+
+
+/*  - Internal use only
+ * This is a uint_T pointer to the NumTimers of a model.
+ */
+#define _ssSetNumTimersPtr(S, ptr) (S)->work.localMdlInfo->numTimers = (ptr)
+#define _ssGetNumTimersPtr(S) (S)->work.localMdlInfo->numTimers /*   (uint_T*)    */
+#if !SS_SFCN
+#define ssSetNumTimersPtr(S, ptr) _ssSetNumTimersPtr(S, ptr)
+#else
+#define ssSetNumTimersPtr(S, ptr) ssSet_cannot_be_used_in_SFunctions
+#endif
+#if !SS_SFCN || SS_GENERATED_S_FUNCTION
+#define ssGetNumTimersPtr(S) _ssGetNumTimersPtr(S)
+#else
+#define ssGetNumTimersPtr(S) ssGet_cannot_be_used_in_SFunctions
+#endif
+
+
+/*  - Internal use only
+ * This is uint_T value of the NumTimers of a model.
+ */
+#define _ssSetNumTimers(S, num) *(S)->work.localMdlInfo->numTimers = (num)
+#define _ssGetNumTimers(S) *(S)->work.localMdlInfo->numTimers /*   (uint_T)    */
+#if !SS_SFCN
+#define ssSetNumTimers(S, num) _ssSetNumTimers(S, num)
+#else
+#define ssSetNumTimers(S, num) ssSetNumTimers_cannot_be_used_in_SFunctions
+#endif
+#if !SS_SFCN || SS_GENERATED_S_FUNCTION
+#define ssGetNumTimers(S) _ssGetNumTimers(S)
+#else
+#define ssGetNumTimers(S) ssGetNumTimers_cannot_be_used_in_SFunctions
+#endif
+
+
+/*  - Internal use only
+ * This is a uint_T pointer to the GlobalTimerIndices of a model.
+ */
+#define _ssSetGlobalTimerIndices(S, ptr) (S)->work.localMdlInfo->globalTimerIndices = (ptr)
+#define _ssGetGlobalTimerIndices(S) (S)->work.localMdlInfo->globalTimerIndices /*   (uint_T*) */
+#if !SS_SFCN
+#define ssSetGlobalTimerIndices(S, ptr) _ssSetGlobalTimerIndices(S, ptr)
+#else
+#define ssSetGlobalTimerIndices(S, ptr) ssSetGlobalTimerIndices_cannot_be_used_in_SFunctions
+#endif
+#if !SS_SFCN || SS_GENERATED_S_FUNCTION
+#define ssGetGlobalTimerIndices(S) _ssGetGlobalTimerIndices(S)
+#else
+#define ssGetGlobalTimerIndices(S) ssGetGlobalTimerIndices_cannot_be_used_in_SFunctions
+#endif
+
+
+/*  - Internal use only
+ * This is a uint_T GlobalTimerIndex corresponding to localIndex of a model.
+ */
+#define _ssSetGlobalTimerIndex(S, localIndex, globalIndex)                        \
+    if ((S)->work.localMdlInfo != NULL) {                                         \
+        (S)->work.localMdlInfo->globalTimerIndices[(localIndex)] = (globalIndex); \
+    }
+#define _ssGetGlobalTimerIndex(S, localIndex)                                                  \
+    ((S)->work.localMdlInfo != NULL ? (S)->work.localMdlInfo->globalTimerIndices[(localIndex)] \
+                                    : (localIndex)) /*   (uint_T)    */
+#if !SS_SFCN
+#define ssSetGlobalTimerIndex(S, localIndex, globalIndex) \
+    _ssSetGlobalTimerIndex(S, localIndex, globalIndex)
+#else
+#define ssSetGlobalTimerIndex(S, localIndex, globalIndex) \
+    ssSetGlobalTimerIndex_cannot_be_used_in_SFunctions
+#endif
+#if !SS_SFCN || SS_GENERATED_S_FUNCTION
+#define ssGetGlobalTimerIndex(S, localIndex) _ssGetGlobalTimerIndex(S, localIndex)
+#else
+#define ssGetGlobalTimerIndex(S, localIndex) ssGetGlobalTimerIndex_cannot_be_used_in_SFunctions
 #endif
 
 
@@ -4740,15 +4828,11 @@ typedef enum {
 #define ssSetBlkStateChange(S) (S)->mdlInfo->mdlFlags.blkStateChange = 1U
 #define ssClearBlkStateChange(S) (S)->mdlInfo->mdlFlags.blkStateChange = 0U
 
-#define ssIsMinorTimeStepWithModeChange(S) \
-    (S)->mdlInfo->solverInfo->isMinorTimeStepWithModeChange /*  (boolean_T)  */
 #define ssSetIsMinorTimeStepWithModeChange(S) \
     (S)->mdlInfo->solverInfo->isMinorTimeStepWithModeChange = 1U
 #define ssClearIsMinorTimeStepWithModeChange(S) \
     (S)->mdlInfo->solverInfo->isMinorTimeStepWithModeChange = 0U
 
-#define ssIsModeUpdateTimeStep(S) \
-    ((S)->mdlInfo->simTimeStep == MAJOR_TIME_STEP || ssIsMinorTimeStepWithModeChange(S))
 
 #define ssGetContTimeOutputInconsistentWithStateAtMajorStep(S) \
     (S)->mdlInfo->mdlFlags.cTimeOutputInconsistentWithStateAtMajorStep
@@ -5249,8 +5333,12 @@ typedef enum {
 
 #if SS_SL_INTERNAL
 #define ssSetWriteRTWStrFcn(S, fcn) (S)->mdlInfo->writeRTWStrFcn = (fcn)
-#define ssSetWriteRTWNameValuePairFcn(S, fcn) (S)->mdlInfo->writeRTWNameValuePairFcn = (fcn)
-#define ssSetWriteRTWParameterFcn(S, fcn) (S)->mdlInfo->writeRTWParameterFcn = (fcn)
+#define ssSetWriteRTWNameValuePairFcn(S, fcn) \
+    (S)->blkInfo.blkInfo2->mdlInfoSLSize->writeRTWNameValuePairFcn = (fcn)
+#define ssSetWriteRTWNameValuePairFcnInt(S, fcn) (S)->mdlInfo->writeRTWNameValuePairFcn = (fcn)
+#define ssSetWriteRTWParameterFcn(S, fcn) \
+    (S)->blkInfo.blkInfo2->mdlInfoSLSize->writeRTWParameterFcn = (fcn)
+#define ssSetWriteRTWParameterFcnInt(S, fcn) (S)->mdlInfo->writeRTWParameterFcn = (fcn)
 #define ssSetWriteRTWFcnArg(S, fcnarg) (S)->mdlInfo->writeRTWFcnArg = (fcnarg)
 #define ssSetGenericFcn(S, fcn) (S)->mdlInfo->genericFcn = (fcn)
 #endif
@@ -5517,6 +5605,8 @@ typedef struct {
  */
 #define ssGetMexApiInt2(S) (S)->mdlInfo->mexApiInt2 /*   (int_T)       */
 #define ssSetMexApiInt2(S, val) (S)->mdlInfo->mexApiInt2 = (val)
+#define ssGetMexApiSLSize2(S) (S)->blkInfo.blkInfo2->mdlInfoSLSize->mexApiSLSize2;
+#define ssSetMexApiSLSize2(S, val) (S)->blkInfo.blkInfo2->mdlInfoSLSize->mexApiSLSize2 = (val);
 
 #define ssGetMexApiReal1(S) (S)->mdlInfo->mexApiReal1              /*   (real_T)      */
 #define ssSetMexApiReal1(S, val) (S)->mdlInfo->mexApiReal1 = (val) /*   (real_T)      */
@@ -5525,7 +5615,7 @@ typedef struct {
 #define ssSetMexApiReal2(S, val) (S)->mdlInfo->mexApiReal2 = (val) /*   (real_T)      */
 
 #define ssGetMexApiVoidPtr1(S) (S)->mdlInfo->mexApiVoidPtr1 /*   (void *)      */
-#define ssSetMexApiVoidPtr1(S, val) (S)->mdlInfo->mexApiVoidPtr1 = (void*)(val)
+#define ssSetMexApiVoidPtr1(S, val) (S)->mdlInfo->mexApiVoidPtr1 = SS_STATIC_CAST(void*, val)
 
 /*
  * Set data alignment
@@ -5746,20 +5836,21 @@ typedef struct {
 #define ssSetGetDataTypeIdFcn(S, val) (S)->regDataType.getIdFcn = (val)
 
 /*ssGetSetNumDWorkFcn*/
-#if defined(USE_32BIT_AND_64BIT_FIELDS)
-#define ssGetSetNumDWorkFcn(S) ((S)->regDataType.setNumDWorkFcn) /* (SetNumDWork)     */
-#define ssGetSetNumDWorkFcnSLSize(S) \
-    ((S)->blkInfo.blkInfo2->blkInfoSLSize->regDataType.setNumDWorkFcn)
+#if defined(USE_64BIT_FIELDS)
+#define ssGetSetNumDWorkFcn(S) ((S)->blkInfo.blkInfo2->blkInfoSLSize->regDataType.setNumDWorkFcn)
 #elif defined(USE_32BIT_FIELDS)
 #define ssGetSetNumDWorkFcn(S) ((S)->regDataType.setNumDWorkFcn) /* (SetNumDWork)     */
 #endif
+
+/* Int version for use by Simulink engine only */
+#define ssGetSetNumDWorkFcnInt(S) ((S)->regDataType.setNumDWorkFcn) /* (SetNumDWork)     */
 /*end ssGetSetNumDWorkFcn*/
 
 /*ssSetNumDWorkFcn*/
-#if defined(USE_32BIT_AND_64BIT_FIELDS)
-#define ssSetNumDWorkFcn(S, val) ((S)->regDataType.setNumDWorkFcn = (val))
-#define ssSetNumDWorkFcnSLSize(S, val) \
+#if defined(USE_64BIT_FIELDS)
+#define ssSetNumDWorkFcn(S, val) \
     ((S)->blkInfo.blkInfo2->blkInfoSLSize->regDataType.setNumDWorkFcn = (val))
+#define ssSetNumDWorkFcnInt(S, val) ((S)->regDataType.setNumDWorkFcn = (val))
 #elif defined(USE_32BIT_FIELDS)
 #define ssSetNumDWorkFcn(S, val) ((S)->regDataType.setNumDWorkFcn = (val))
 #endif
@@ -6219,63 +6310,169 @@ typedef struct {
 #define sfcnGetOutputPortWidthLevel1(S, inputPortWidth) \
     (*(S)->modelMethods.sFcn.mdlGetOutputPortWidthLevel1)(S, inputPortWidth)
 
+
+#if defined(SS_SFCN)
+#if defined(USE_64BIT_FIELDS)
+#define ssGetmdlSetInputPortWidth(S)   \
+    ((ssGetSfcnHasMdlDimensionsFcn(S)) \
+         ? NULL                        \
+         : ((S)->blkInfo.blkInfo2->mdlInfoSLSize->mdlSetInputPortDimensions.mdlSetInputPortWidth))
+#define ssSetmdlSetInputPortWidth(S, setInputPortWidth)                                        \
+    {                                                                                          \
+        (S)->blkInfo.blkInfo2->mdlInfoSLSize->mdlSetInputPortDimensions.mdlSetInputPortWidth = \
+            (setInputPortWidth);                                                               \
+        _ssSetSfcnHasMdlDimensionsFcn(S, 0);                                                   \
+    }
+#elif defined(USE_32BIT_FIELDS)
 #define ssGetmdlSetInputPortWidth(S)   \
     ((ssGetSfcnHasMdlDimensionsFcn(S)) \
          ? NULL                        \
          : ((S)->modelMethods.sFcn.mdlSetInputPortDimensions.mdlSetInputPortWidth))
-
 #define ssSetmdlSetInputPortWidth(S, setInputPortWidth)                         \
     {                                                                           \
         (S)->modelMethods.sFcn.mdlSetInputPortDimensions.mdlSetInputPortWidth = \
             (setInputPortWidth);                                                \
         _ssSetSfcnHasMdlDimensionsFcn(S, 0);                                    \
     }
+#endif
+#endif
 
-#define sfcnSetInputPortWidth(S, portIdx, width) \
+#define ssGetSfcnHasMdlInputWidthFcn(S)                                                    \
+    ((ssGetSFcnBitness(S) == SS_32BIT)                                                     \
+         ? ((S)->modelMethods.sFcn.mdlSetInputPortDimensions.mdlSetInputPortWidth != NULL) \
+         : ((S)->blkInfo.blkInfo2->mdlInfoSLSize->mdlSetInputPortDimensions                \
+                .mdlSetInputPortWidth != NULL))
+
+/* There are two versions of this setter version, one for 32-bit width and one for
+   64-bit width. Which version to call should be determined by bitness of the S-Function
+   owning the SimStruct. Bitness can be queried using ssGetSFcnBitness(S) */
+#define sfcnSetInputPortWidth(S, portIdx, width)                                             \
+    (*(S)->blkInfo.blkInfo2->mdlInfoSLSize->mdlSetInputPortDimensions.mdlSetInputPortWidth)( \
+        S, portIdx, width)
+#define sfcnSetInputPortWidthAsInt(S, portIdx, width) \
     (*(S)->modelMethods.sFcn.mdlSetInputPortDimensions.mdlSetInputPortWidth)(S, portIdx, width)
 
+#if defined(SS_SFCN)
+#if defined(USE_64BIT_FIELDS)
+#define ssGetmdlSetOutputPortWidth(S)                                          \
+    ((ssGetSfcnHasMdlDimensionsFcn(S)) ? NULL                                  \
+                                       : ((S)->blkInfo.blkInfo2->mdlInfoSLSize \
+                                              ->mdlSetOutputPortDimensions.mdlSetOutputPortWidth))
+#define ssSetmdlSetOutputPortWidth(S, setOutputPortWidth)                                        \
+    {                                                                                            \
+        (S)->blkInfo.blkInfo2->mdlInfoSLSize->mdlSetOutputPortDimensions.mdlSetOutputPortWidth = \
+            (setOutputPortWidth);                                                                \
+        _ssSetSfcnHasMdlDimensionsFcn(S, 0);                                                     \
+    }
+#elif defined(USE_32BIT_FIELDS)
 #define ssGetmdlSetOutputPortWidth(S)  \
     ((ssGetSfcnHasMdlDimensionsFcn(S)) \
          ? NULL                        \
-         : (S)->modelMethods.sFcn.mdlSetOutputPortDimensions.mdlSetOutputPortWidth)
-
+         : ((S)->modelMethods.sFcn.mdlSetOutputPortDimensions.mdlSetOutputPortWidth))
 #define ssSetmdlSetOutputPortWidth(S, setOutputPortWidth)                         \
     {                                                                             \
         (S)->modelMethods.sFcn.mdlSetOutputPortDimensions.mdlSetOutputPortWidth = \
             (setOutputPortWidth);                                                 \
         _ssSetSfcnHasMdlDimensionsFcn(S, 0);                                      \
     }
+#endif
+#endif
 
-#define sfcnSetOutputPortWidth(S, portIdx, width) \
+#define ssGetSfcnHasMdlOutputWidthFcn(S)                                                     \
+    ((ssGetSFcnBitness(S) == SS_32BIT)                                                       \
+         ? ((S)->modelMethods.sFcn.mdlSetOutputPortDimensions.mdlSetOutputPortWidth != NULL) \
+         : ((S)->blkInfo.blkInfo2->mdlInfoSLSize->mdlSetOutputPortDimensions                 \
+                .mdlSetOutputPortWidth != NULL))
+
+/* There are two versions of this setter version, one for 32-bit width and one for
+   64-bit width. Which version to call should be determined by bitness of the S-Function
+   owning the SimStruct. Bitness can be queried using ssGetSFcnBitness(S) */
+#define sfcnSetOutputPortWidth(S, portIdx, width)                                              \
+    (*(S)->blkInfo.blkInfo2->mdlInfoSLSize->mdlSetOutputPortDimensions.mdlSetOutputPortWidth)( \
+        S, portIdx, width)
+#define sfcnSetOutputPortWidthAsInt(S, portIdx, width) \
     (*(S)->modelMethods.sFcn.mdlSetOutputPortDimensions.mdlSetOutputPortWidth)(S, portIdx, width)
 
+#if defined(SS_SFCN)
+#if defined(USE_64BIT_FIELDS)
+#define ssGetmdlSetInputPortDimensions(S)                                                        \
+    ((ssGetSfcnHasMdlDimensionsFcn(S))                                                           \
+         ? ((S)->blkInfo.blkInfo2->mdlInfoSLSize->mdlSetInputPortDimensions.mdlSetInputPortDims) \
+         : NULL)
+#define ssSetmdlSetInputPortDimensions(S, setInputPortDimensions)                             \
+    {                                                                                         \
+        (S)->blkInfo.blkInfo2->mdlInfoSLSize->mdlSetInputPortDimensions.mdlSetInputPortDims = \
+            (setInputPortDimensions);                                                         \
+        _ssSetSfcnHasMdlDimensionsFcn(S, 1);                                                  \
+    }
+#elif defined(USE_32BIT_FIELDS)
 #define ssGetmdlSetInputPortDimensions(S)                                         \
     ((ssGetSfcnHasMdlDimensionsFcn(S))                                            \
          ? ((S)->modelMethods.sFcn.mdlSetInputPortDimensions.mdlSetInputPortDims) \
          : NULL)
-
 #define ssSetmdlSetInputPortDimensions(S, setInputPortDimensions)              \
     {                                                                          \
         (S)->modelMethods.sFcn.mdlSetInputPortDimensions.mdlSetInputPortDims = \
             (setInputPortDimensions);                                          \
         _ssSetSfcnHasMdlDimensionsFcn(S, 1);                                   \
     }
-#define sfcnSetInputPortDimensionInfo(S, portIdx, dimsInfo) \
+#endif
+#endif
+
+#define ssGetSfcnHasMdlInputDimensionsFcn(S)                                                       \
+    ((ssGetSFcnBitness(S) == SS_32BIT)                                                             \
+         ? ((S)->modelMethods.sFcn.mdlSetInputPortDimensions.mdlSetInputPortDims != NULL)          \
+         : ((S)->blkInfo.blkInfo2->mdlInfoSLSize->mdlSetInputPortDimensions.mdlSetInputPortDims != \
+            NULL))
+
+/* There are two versions of this setter version, one for 32-bit dimsInfo and one for
+   64-bit dimsInfo. Which version to call should be determined by bitness of the S-Function
+   owning the SimStruct. Bitness can be queried using ssGetSFcnBitness(S) */
+#define sfcnSetInputPortDimensionInfo(S, portIdx, dimsInfo)                                 \
+    (*(S)->blkInfo.blkInfo2->mdlInfoSLSize->mdlSetInputPortDimensions.mdlSetInputPortDims)( \
+        S, portIdx, dimsInfo)
+#define sfcnSetInputPortDimensionInfoAsInt(S, portIdx, dimsInfo) \
     (*(S)->modelMethods.sFcn.mdlSetInputPortDimensions.mdlSetInputPortDims)(S, portIdx, dimsInfo)
 
+#if defined(SS_SFCN)
+#if defined(USE_64BIT_FIELDS)
+#define ssGetmdlSetOutputPortDimensions(S)                                                         \
+    ((ssGetSfcnHasMdlDimensionsFcn(S))                                                             \
+         ? ((S)->blkInfo.blkInfo2->mdlInfoSLSize->mdlSetOutputPortDimensions.mdlSetOutputPortDims) \
+         : NULL)
+#define ssSetmdlSetOutputPortDimensions(S, setOutputPortDimensions)                             \
+    {                                                                                           \
+        (S)->blkInfo.blkInfo2->mdlInfoSLSize->mdlSetOutputPortDimensions.mdlSetOutputPortDims = \
+            (setOutputPortDimensions);                                                          \
+        _ssSetSfcnHasMdlDimensionsFcn(S, 1);                                                    \
+    }
+#elif defined(USE_32BIT_FIELDS)
 #define ssGetmdlSetOutputPortDimensions(S)                                          \
     ((ssGetSfcnHasMdlDimensionsFcn(S))                                              \
          ? ((S)->modelMethods.sFcn.mdlSetOutputPortDimensions.mdlSetOutputPortDims) \
          : NULL)
-
 #define ssSetmdlSetOutputPortDimensions(S, setOutputPortDimensions)              \
     {                                                                            \
         (S)->modelMethods.sFcn.mdlSetOutputPortDimensions.mdlSetOutputPortDims = \
             (setOutputPortDimensions);                                           \
         _ssSetSfcnHasMdlDimensionsFcn(S, 1);                                     \
     }
+#endif
+#endif
 
-#define sfcnSetOutputPortDimensionInfo(S, portIdx, dimsInfo) \
+#define ssGetSfcnHasMdlOutputDimensionsFcn(S)                                               \
+    ((ssGetSFcnBitness(S) == SS_32BIT)                                                      \
+         ? ((S)->modelMethods.sFcn.mdlSetOutputPortDimensions.mdlSetOutputPortDims != NULL) \
+         : ((S)->blkInfo.blkInfo2->mdlInfoSLSize->mdlSetOutputPortDimensions                \
+                .mdlSetOutputPortDims != NULL))
+
+/* There are two versions of this setter version, one for 32-bit dimsInfo and one for
+   64-bit dimsInfo. Which version to call should be determined by bitness of the S-Function
+   owning the SimStruct. Bitness can be queried using ssGetSFcnBitness(S) */
+#define sfcnSetOutputPortDimensionInfo(S, portIdx, dimsInfo)                                  \
+    (*(S)->blkInfo.blkInfo2->mdlInfoSLSize->mdlSetOutputPortDimensions.mdlSetOutputPortDims)( \
+        S, portIdx, dimsInfo)
+#define sfcnSetOutputPortDimensionInfoAsInt(S, portIdx, dimsInfo) \
     (*(S)->modelMethods.sFcn.mdlSetOutputPortDimensions.mdlSetOutputPortDims)(S, portIdx, dimsInfo)
 
 #define ssGetmdlSetDefaultPortDimensions(S) ((S)->states.modelMethods2)->mdlSetDefaultPortDimensions
@@ -6722,8 +6919,7 @@ typedef void (*voidFcnVoidStarIntType)(void*, void*, boolean_T);
 
 
 /* --------------set/get methods for firstInitCondCalled-------------------- */
-#define _ssSetFirstInitCondCalled(S, val) \
-    (ssGetRootSS(S)->mdlInfo->mdlFlags).firstInitCondCalled = (val)
+#define _ssSetFirstInitCondCalled(S, val) ((S)->root->mdlInfo->mdlFlags).firstInitCondCalled = (val)
 
 #if !SS_SFCN
 #define ssSetFirstInitCondCalled(S) _ssSetFirstInitCondCalled(S, 1U)
@@ -6744,7 +6940,7 @@ typedef void (*voidFcnVoidStarIntType)(void*, void*, boolean_T);
 #define ssGetSupportedForRowMajorCodeGen(S) ((S)->blkInfo.sfcnFlags.sRowMajorOptIn)
 
 /* Get/Set for Model Param 'RowMajorDimensionSupport */
-#define ssIsModelRowMajor(S) (ssGetRootSS(S)->mdlInfo->mdlFlags.isRowMajor)
+#define ssIsModelRowMajor(S) ((S)->root->mdlInfo->mdlFlags.isRowMajor)
 
 /*----------------------- representation ------------------------*/
 /* This determines how an s-function is used in accelerated simulations (i.e.,
@@ -7149,60 +7345,513 @@ typedef struct {
     }
 
 /**
- *   Implementation of Simulink Pointer S-Function API
+ *   Implementation of Simulink String S-Function API
  */
-#define ssIsPointerDataType(S, dataTypeId)                                                       \
-    ({                                                                                           \
-        bool isPointer;                                                                          \
-        _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_IS_POINTER_DATA_TYPE, dataTypeId, &isPointer) \
+
+#if !SS_SFCN_LEVEL_1
+
+/* Return default buffer size (Bytes) for dynamic (unbounded) string data type. */
+#if SS_SIM
+#define ssGetDynamicStringDefaultBufferSize(S)                                                   \
+    ((size_t)_ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_STRING_DEFAULT_BUFFER_SIZE, 0, NULL) \
+         _ssSafelyCallGenericFcnEnd)
+#else
+#define ssGetDynamicStringDefaultBufferSize(S) \
+    ssGetDynamicStringDefaultBufferSize_cannot_be_used_in_RTW
+#endif
+
+/* Return buffer size (Bytes) for a string data type - N+1 for 'stringtype(N)' or model config
+ * setting for 'string'. */
+#if SS_SIM
+#define ssGetStringDataTypeBufferSize(S, dataTypeId)                                             \
+    ((size_t)_ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_STRING_TYPE_BUFFER_SIZE, dataTypeId, \
+                                             NULL) _ssSafelyCallGenericFcnEnd)
+#else
+#define ssGetStringDataTypeBufferSize(S, dataTypeId) \
+    ssGetStringDataTypeBufferSize_cannot_be_used_in_RTW
+#endif
+
+/* Return diagnostic setting in model config set for string truncation - Error/Warning/None. */
+#if SS_SIM
+#define ssGetStringTruncationDiagnosticSetting(S)                                                  \
+    ((BDErrorValue)_ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_STRING_TRUNCATION_DIAGNOSTIC, 0, \
+                                                   NULL) _ssSafelyCallGenericFcnEnd)
+#else
+#define ssGetStringTruncationDiagnosticSetting(S) \
+    ssGetStringDataTypeBufferSize_cannot_be_used_in_RTW
+#endif
+
+/* Return target language standard */
+#if SS_SIM
+#define ssGetTargetLangStandard(S)                                                        \
+    (_ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_STRING_TARGET_LANG_STANDARD, 0, NULL) \
+         _ssSafelyCallGenericFcnEnd)
+#else
+#define ssGetTargetLangStandard(S) ssGetTargetLangStandard_cannot_be_used_in_RTW
+#endif
+
+/* Needed to pass the information that "we should use cpp string class" to stateflow string. */
+#if SS_SIM
+#define ssGetUseCppClass(S)                                                              \
+    ((bool)_ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_STRING_USE_CPP_CLASS, 0, NULL) \
+         _ssSafelyCallGenericFcnEnd)
+#else
+#define ssGetUseCppClass(S) ssGetUseCppClass_cannot_be_used_in_RTW
+#endif
+
+/* Opt-in string support on input port - call after EvalDlgPrms stage */
+#if SS_SIM
+#define ssSetInputSupportStringDataType(S, portIdx, support)                                     \
+    {                                                                                            \
+        bool s = support;                                                                        \
+        _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_SET_INPUT_SUPPORT_STRING, portIdx, (void*)&s) \
             _ssSafelyCallGenericFcnEnd;                                                          \
-        isPointer;                                                                               \
-    })
+    }
+#else
+#define ssSetInputSupportStringDataType(S, portIdx, support) \
+    ssSetInputSupportStringDataType_cannot_be_used_in_RTW
+#endif
 
-#define ssGetPointerContainedDataType(S, dataTypeId)                                            \
-    ({                                                                                          \
-        DTypeId retDtId;                                                                        \
-        _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_POINTER_CONTAINED_DATA_TYPE, dataTypeId, \
-                                        &retDtId) _ssSafelyCallGenericFcnEnd;                   \
-        retDtId;                                                                                \
-    })
-
-#define ssGetPointerContainedDataComplexity(S, dataTypeId)                                \
-    ({                                                                                    \
-        \ ssComplexity retCplx;                                                           \
-        _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_POINTER_CONTAINED_DATA_COMPLEXITY, \
-                                        dataTypeId, &retCplx) _ssSafelyCallGenericFcnEnd; \
-        retCplx;                                                                          \
-    })
-
-#define ssGetPointerContainedData(S, dtId, dataArg)                                       \
-    ({                                                                                    \
-        PointerRec slPointerRec;                                                          \
-        slPointerRec.dataTypeId = (dtId);                                                 \
-        slPointerRec.data = (dataArg);                                                    \
-        _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_POINTER_CONTAINED_DATA, 0,         \
-                                        (void*)&slPointerRec) _ssSafelyCallGenericFcnEnd; \
-        slPointerRec.retData;                                                             \
-    })
-
-#define ssGetPointerContainedDataWidth(S, dtId, dataArg)                                  \
-    ({                                                                                    \
-        PointerRec slPointerRec;                                                          \
-        slPointerRec.dataTypeId = (dtId);                                                 \
-        slPointerRec.data = (dataArg);                                                    \
-        _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_POINTER_CONTAINED_DATA_WIDTH, 0,   \
-                                        (void*)&slPointerRec) _ssSafelyCallGenericFcnEnd; \
-        slPointerRec.retWidth;                                                            \
-    })
+/* Opt-in string support on output port - call after EvalDlgPrms stage  */
+#if SS_SIM
+#define ssSetOutputSupportStringDataType(S, portIdx, support)                                     \
+    {                                                                                             \
+        bool s = support;                                                                         \
+        _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_SET_OUTPUT_SUPPORT_STRING, portIdx, (void*)&s) \
+            _ssSafelyCallGenericFcnEnd;                                                           \
+    }
+#else
+#define ssSetOutputSupportStringDataType(S, portIdx, support) \
+    ssSetOutputSupportStringDataType_cannot_be_used_in_RTW
+#endif
 
 #endif
 
-#define ssIsDimensionUnbounded(dim) ((dim) == (INT_MAX - 1))
+/**
+ *   Implementation of Simulink Half precision S-Function APIs
+ *   For internal usage only. The APIs should not be published and accessed by customers
+ */
+
+#if !SS_SFCN_LEVEL_1
+/* Set whether the specified input port support half precision data type */
+#if SS_SIM
+#define ssSetInputSupportHalfPrecisionDataType(S, portIdx, support)                          \
+    {                                                                                        \
+        bool s = support;                                                                    \
+        _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_SET_INPUT_SUPPORT_HALFPRECISION, portIdx, \
+                                        (void*)&s) _ssSafelyCallGenericFcnEnd;               \
+    }
+#else
+#define ssSetInputSupportHalfPrecisionDataType(S, portIdx, support) \
+    ssSetInputSupportHalfPrecisionDataType_cannot_be_used_in_RTW
+#endif
+
+/* Set whether the specified output port support half precision data type */
+#if SS_SIM
+#define ssSetOutputSupportHalfPrecisionDataType(S, portIdx, support)                          \
+    {                                                                                         \
+        bool s = support;                                                                     \
+        _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_SET_OUTPUT_SUPPORT_HALFPRECISION, portIdx, \
+                                        (void*)&s) _ssSafelyCallGenericFcnEnd;                \
+    }
+#else
+#define ssSetOutputSupportHalfPrecisionDataType(S, portIdx, support) \
+    ssSetOutputSupportHalfPrecisionDataType_cannot_be_used_in_RTW
+#endif
+
+#endif
+
+
+/**
+ *   Implementation of Simulink Pointer S-Function API
+ */
+
+#define ssIsPointerDataType(S, dataTypeId)                                                    \
+    ((bool)_ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_IS_POINTER_DATA_TYPE, dataTypeId, NULL) \
+         _ssSafelyCallGenericFcnEnd)
+
+#define ssGetPointerContainedDataType(S, dataTypeId)                                      \
+    ((DTypeId)_ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_POINTER_CONTAINED_DATA_TYPE, \
+                                              dataTypeId, NULL) _ssSafelyCallGenericFcnEnd)
+
+#define ssGetPointerContainedDataComplexity(S, dataTypeId)                  \
+    ((ssComplexity)_ssSafelyCallGenericFcnStart(S)(                         \
+        S, GEN_FCN_GET_POINTER_CONTAINED_DATA_COMPLEXITY, dataTypeId, NULL) \
+         _ssSafelyCallGenericFcnEnd)
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+extern void* _ssGetPointerContainedData(SimStruct* S, DTypeId dTypeId, void* dataArg);
+extern size_t _ssGetPointerContainedDataWidth(SimStruct* S, DTypeId dTypeId, void* dataArg);
+#ifdef __cplusplus
+}
+#endif
+
+#define ssGetPointerContainedData(S, dTypeId, dataArg) \
+    _ssGetPointerContainedData(S, dTypeId, dataArg)
+
+#define ssGetPointerContainedDataWidth(S, dTypeId, dataArg) \
+    _ssGetPointerContainedDataWidth(S, dTypeId, dataArg)
+
+#define ssAddFullBlockPathToStructuralCheckSumForInvariantInput(S, dataTypeId)                \
+    ((void)_ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_SET_BLOCK_PATH_TO_CHECKSUM, dataTypeId, \
+                                           NULL) _ssSafelyCallGenericFcnEnd)
+
+#endif
+
+#define ssIsDimensionUnbounded(dim) ((dim) == (INT_MIN + 10))
 
 /*
  * API specific to Simulink solver that needs to be accessed in
  * Rapid accelerator and RSIM
  */
+
+
+/** @defgroup Dynamic Array
+ *  @{
+ */
+
+#if !SS_SFCN_LEVEL_1
+
+#ifndef SS_INT32_INF_DIM
+#define SS_INT32_INF_DIM (INT_MIN + 10)
+#endif
+
+typedef struct DynamicArrayRec_t {
+    size_t numDims;
+    size_t width;
+    void* data;
+    const void* constData;
+    void* retData;
+    size_t* dims;
+    const size_t* constDims;
+    DTypeId dataTypeId;
+} DynamicArrayRec;
+
+typedef struct RegisterDynamicArrayDataTypeRec_t {
+    DTypeId dataTypeId;
+    DTypeId retDataTypeId;
+    int_T* dataDims;
+    int_T dataNumDims;
+    boolean_T dataIsComplex;
+} RegisterDynamicArrayDataTypeRec;
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+extern DTypeId _ssRegisterDynamicArrayDataTypeFcn(SimStruct* S,
+                                                  DTypeId containedDataTypeId,
+                                                  int_T containedDataNumDims,
+                                                  int_T* containedDataDims,
+                                                  boolean_T containedDataIsComplex);
+#ifdef __cplusplus
+}
+#endif
+
+#if SS_SIM
+#define ssRegisterDynamicArrayDataType(S, containedDataTypeId, containedDataNumDims, \
+                                       containedDataDims, containedDataIsComplex)    \
+    _ssRegisterDynamicArrayDataTypeFcn(S, containedDataTypeId, containedDataNumDims, \
+                                       containedDataDims, containedDataIsComplex)
+#else
+#define ssRegisterDynamicArrayDataType(S, containedDataTypeId, containedDataNumDims, \
+                                       containedDataDims, containedDataIsComplex)    \
+    ssRegisterDynamicArrayDataType_cannot_be_used_in_RTW
+#endif
+
+
+#if SS_SIM
+#define ssCreateDynamicArrayForDt(S, dataTypeId, buffer)                                       \
+    _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_CREATE_DYNAMIC_ARRAY_FOR_DATA_TYPE, dataTypeId, \
+                                    buffer) _ssSafelyCallGenericFcnEnd;
+#else
+#define ssCreateDynamicArrayForDt(S, dataTypeId, buffer) \
+    ssCreateDynamicArrayForDt_cannot_be_used_in_RTW
+#endif
+
+#if SS_SIM
+#define ssDestroyDynamicArrayForDt(S, dataTypeId, buffer)                                       \
+    _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_DESTROY_DYNAMIC_ARRAY_FOR_DATA_TYPE, dataTypeId, \
+                                    buffer) _ssSafelyCallGenericFcnEnd;
+#else
+#define ssDestroyDynamicArrayForDt(S, dataTypeId, buffer) \
+    ssDestroyDynamicArrayForDt_cannot_be_used_in_RTW
+#endif
+
+#if SS_SIM
+#define ssIsDynamicArrayDataType(S, dataTypeId)                                               \
+    ((bool)_ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_IS_DYNAMIC_ARRAY_DATA_TYPE, dataTypeId, \
+                                           NULL) _ssSafelyCallGenericFcnEnd)
+#else
+#define ssIsDynamicArrayDataType(S, dataTypeId) ssIsDynamicArrayDataType_cannot_be_used_in_RTW
+#endif
+
+#if SS_SIM
+#define ssGetDynamicArrayContainedDataType(S, dataTypeId)                                          \
+    (_ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_DYNAMIC_ARRAY_CONTAINED_DATA_TYPE, dataTypeId, \
+                                     NULL) _ssSafelyCallGenericFcnEnd)
+#else
+#define ssGetDynamicArrayContainedDataType(S, dataTypeId) \
+    ssGetDynamicArrayContainedDataType_cannot_be_used_in_RTW
+#endif
+
+#if SS_SIM
+#define ssGetDynamicArrayContainedDataNumDimensions(S, dataTypeId)                                 \
+    ((size_t)_ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_DYNAMIC_ARRAY_CONTAINED_DATA_NUM_DIMS, \
+                                             dataTypeId, NULL) _ssSafelyCallGenericFcnEnd)
+#else
+#define ssGetDynamicArrayContainedDataNumDimensions(S, dataTypeId) \
+    ssGetDynamicArrayContainedDataNumDimensions_cannot_be_used_in_RTW
+#endif
+
+#if SS_SIM
+#define ssGetDynamicArrayContainedDataComplexity(S, dataTypeId)                   \
+    ((ssComplexity)_ssSafelyCallGenericFcnStart(S)(                               \
+        S, GEN_FCN_GET_DYNAMIC_ARRAY_CONTAINED_DATA_COMPLEXITY, dataTypeId, NULL) \
+         _ssSafelyCallGenericFcnEnd)
+#else
+#define ssGetDynamicArrayContainedDataComplexity(S, dataTypeId) \
+    ssGetDynamicArrayContainedDataComplexity_cannot_be_used_in_RTW
+#endif
+
+#if SS_SIM
+#define ssGetDynamicArrayContainedDataDimensions(S, dtId, dimsArg)                             \
+    {                                                                                          \
+        DynamicArrayRec slDynamicArrayRec;                                                     \
+        slDynamicArrayRec.numDims = 0;                                                         \
+        slDynamicArrayRec.width = 0;                                                           \
+        slDynamicArrayRec.data = NULL;                                                         \
+        slDynamicArrayRec.constData = NULL;                                                    \
+        slDynamicArrayRec.retData = NULL;                                                      \
+        slDynamicArrayRec.dims = (dimsArg);                                                    \
+        slDynamicArrayRec.constDims = NULL;                                                    \
+        slDynamicArrayRec.dataTypeId = (dtId);                                                 \
+        _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_DYNAMIC_ARRAY_CONTAINED_DATA_DIMS, 0,   \
+                                        (void*)&slDynamicArrayRec) _ssSafelyCallGenericFcnEnd; \
+    }
+#else
+#define ssGetDynamicArrayContainedDataDimensions \
+    ssGetDynamicArrayContainedDataDimensions_cannot_be_used_in_RTW
+#endif
+
+
+#if SS_SIM
+#define ssGetDynamicArrayContainedDataWidth(S, dataTypeId)                                      \
+    ((size_t)_ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_DYNAMIC_ARRAY_CONTAINED_DATA_WIDTH, \
+                                             dataTypeId, NULL) _ssSafelyCallGenericFcnEnd)
+#else
+#define ssGetDynamicArrayContainedDataWidth \
+    ssGetDynamicArrayContainedDataWidth_cannot_be_used_in_RTW
+#endif
+
+
+#if SS_SIM
+#define ssGetDynamicArrayContainedDataCurrentDimensions(S, dtId, dataArg, dimsArg)                \
+    {                                                                                             \
+        DynamicArrayRec slDynamicArrayRec;                                                        \
+        slDynamicArrayRec.numDims = 0;                                                            \
+        slDynamicArrayRec.width = 0;                                                              \
+        slDynamicArrayRec.data = NULL;                                                            \
+        slDynamicArrayRec.constData = (dataArg);                                                  \
+        slDynamicArrayRec.retData = NULL;                                                         \
+        slDynamicArrayRec.dims = (dimsArg);                                                       \
+        slDynamicArrayRec.constDims = NULL;                                                       \
+        slDynamicArrayRec.dataTypeId = (dtId);                                                    \
+        _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_DYNAMIC_ARRAY_CONTAINED_DATA_CURRENT_DIMS, \
+                                        0, (void*)&slDynamicArrayRec) _ssSafelyCallGenericFcnEnd; \
+    }
+#else
+#define ssGetDynamicArrayContainedDataCurrentDimensions \
+    ssGetDynamicArrayContainedDataCurrentDimensions_cannot_be_used_in_RTW
+#endif
+
+#if SS_SIM
+#define ssSetDynamicArrayContainedDataCurrentDimensions(S, dtId, dataArg, numDimsArg, dimsArg)    \
+    {                                                                                             \
+        DynamicArrayRec slDynamicArrayRec;                                                        \
+        slDynamicArrayRec.numDims = (numDimsArg);                                                 \
+        slDynamicArrayRec.width = 0;                                                              \
+        slDynamicArrayRec.data = (dataArg);                                                       \
+        slDynamicArrayRec.constData = NULL;                                                       \
+        slDynamicArrayRec.retData = NULL;                                                         \
+        slDynamicArrayRec.dims = NULL;                                                            \
+        slDynamicArrayRec.constDims = (dimsArg);                                                  \
+        slDynamicArrayRec.dataTypeId = (dtId);                                                    \
+        _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_SET_DYNAMIC_ARRAY_CONTAINED_DATA_CURRENT_DIMS, \
+                                        0, (void*)&slDynamicArrayRec) _ssSafelyCallGenericFcnEnd; \
+    }
+#else
+#define ssSetDynamicArrayContainedDataCurrentDimensions \
+    ssSetDynamicArrayContainedDataCurrentDimensions_cannot_be_used_in_RTW
+#endif
+
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+extern size_t _ssGetDynamicArrayContainedDataCurrentWidthFcn(SimStruct* S,
+                                                             DTypeId dtId,
+                                                             void* data);
+#ifdef __cplusplus
+}
+#endif
+
+#if SS_SIM
+#define ssGetDynamicArrayContainedDataCurrentWidth(S, dtId, data) \
+    _ssGetDynamicArrayContainedDataCurrentWidthFcn(S, dtId, data)
+#else
+#define ssGetDynamicArrayContainedDataCurrentWidth \
+    ssGetDynamicArrayContainedDataCurrentWidth_cannot_be_used_in_RTW
+#endif
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+extern void* _ssGetDynamicArrayContainedDataFcn(SimStruct* S, DTypeId dtId, void* data);
+#ifdef __cplusplus
+}
+#endif
+
+#if SS_SIM
+#define ssGetDynamicArrayContainedData(S, dtId, data) \
+    _ssGetDynamicArrayContainedDataFcn(S, dtId, data)
+#else
+#define ssGetDynamicArrayContainedData ssGetDynamicArrayContainedData_cannot_be_used_in_RTW
+#endif
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+extern const void* _ssGetInputPortDynamicArrayDataFcn(SimStruct* S, int portIdx);
+#ifdef __cplusplus
+}
+#endif
+
+#if SS_SIM
+#define ssGetInputPortDynamicArrayData(S, portIdx) _ssGetInputPortDynamicArrayDataFcn(S, portIdx)
+#else
+#define ssGetInputPortDynamicArrayData ssGetInputPortDynamicArrayData_cannot_be_used_in_RTW
+#endif
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+extern void* _ssGetOutputPortDynamicArrayDataFcn(SimStruct* S, int portIdx);
+#ifdef __cplusplus
+}
+#endif
+
+#if SS_SIM
+#define ssGetOutputPortDynamicArrayData(S, portIdx) _ssGetOutputPortDynamicArrayDataFcn(S, portIdx)
+#else
+#define ssGetOutputPortDynamicArrayData ssGetOutputPortDynamicArrayData_cannot_be_used_in_RTW
+#endif
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+extern const void* _ssGetInputPortDynamicArrayContainedDataFcn(SimStruct* S, int portIdx);
+#ifdef __cplusplus
+}
+#endif
+
+#if SS_SIM
+#define ssGetInputPortDynamicArrayContainedData(S, portIdx) \
+    _ssGetInputPortDynamicArrayContainedDataFcn(S, portIdx)
+#else
+#define ssGetInputPortDynamicArrayContainedData \
+    ssGetInputPortDynamicArrayContainedData_cannot_be_used_in_RTW
+#endif
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+extern void* _ssGetOutputPortDynamicArrayContainedDataFcn(SimStruct* S, int portIdx);
+#ifdef __cplusplus
+}
+#endif
+
+#if SS_SIM
+#define ssGetOutputPortDynamicArrayContainedData(S, portIdx) \
+    _ssGetOutputPortDynamicArrayContainedDataFcn(S, portIdx)
+#else
+#define ssGetOutputPortDynamicArrayContainedData \
+    ssGetOutputPortDynamicArrayContainedData_cannot_be_used_in_RTW
+#endif
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+extern void* _ssGetDynamicArrayDWorkContainedDataFcn(SimStruct* S, int idx);
+#ifdef __cplusplus
+}
+#endif
+
+#if SS_SIM
+#define ssGetDynamicArrayDWorkContainedData(S, idx) _ssGetDynamicArrayDWorkContainedDataFcn(S, idx)
+#else
+#define ssGetDynamicArrayDWorkContainedData \
+    ssGetDynamicArrayDWorkContainedData_cannot_be_used_in_RTW
+#endif
+
+#if SS_SIM
+#define ssGetDynamicArrayDWorkContainedDataWidth(S, idx)                                           \
+    ((int)_ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_DYNAMIC_ARRAY_DWORK_CONTAINED_DATA_WIDTH, \
+                                          idx, NULL) _ssSafelyCallGenericFcnEnd)
+#else
+#define ssGetDynamicArrayDWorkContainedDataWidth(S, udx) \
+    ssGetDynamicArrayDWorkContainedDataWidth_cannot_be_used_in_RTW
+#endif
+
+#if SS_SIM
+#define ssGetDynamicArrayDWorkContainedDataComplexSignal(S, idx)                 \
+    ((ssComplexity)_ssSafelyCallGenericFcnStart(S)(                              \
+        S, GEN_FCN_GET_DYNAMIC_ARRAY_DWORK_CONTAINED_DATA_COMPLEXITY, idx, NULL) \
+         _ssSafelyCallGenericFcnEnd)
+#else
+#define ssGetDynamicArrayDWorkContainedDataComplexSignal(S, udx) \
+    ssGetDynamicArrayDWorkContainedDataComplexSignal_cannot_be_used_in_RTW
+#endif
+
+#if SS_SIM
+#define ssGetDynamicArrayDWorkContainedDataType(S, idx)                                           \
+    (_ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_DYNAMIC_ARRAY_DWORK_CONTAINED_DATA_TYPE, idx, \
+                                     NULL) _ssSafelyCallGenericFcnEnd)
+#else
+#define ssGetDynamicArrayDWorkContainedDataType(S, idx) \
+    ssGetDynamicArrayDWorkContainedDataType_cannot_be_used_in_RTW
+#endif
+
+#if SS_SIM
+#define ssGetDynamicArrayDWorkContainedDataCurrentDimensions(S, idx, dims)         \
+    (_ssSafelyCallGenericFcnStart(S)(                                              \
+        S, GEN_FCN_GET_DYNAMIC_ARRAY_DWORK_CONTAINED_DATA_CURRENT_DIMS, idx, dims) \
+         _ssSafelyCallGenericFcnEnd)
+#else
+#define ssGetDynamicArrayDWorkContainedDataCurrentDimensions(S, idx, dims) \
+    ssGetDynamicArrayDWorkContainedDataCurrentDimensions_cannot_be_used_in_RTW
+#endif
+
+#if SS_SIM
+#define ssSetDynamicArrayDWorkContainedDataCurrentDimensions(S, idx, dims)         \
+    (_ssSafelyCallGenericFcnStart(S)(                                              \
+        S, GEN_FCN_SET_DYNAMIC_ARRAY_DWORK_CONTAINED_DATA_CURRENT_DIMS, idx, dims) \
+         _ssSafelyCallGenericFcnEnd)
+#else
+#define ssSetDynamicArrayDWorkContainedDataCurrentDimensions(S, idx, dims) \
+    ssSetDynamicArrayDWorkContainedDataCurrentDimensions_cannot_be_used_in_RTW
+#endif
+
+#endif /* !SS_SFCN_LEVEL_1 */
+
+/** @} */ /* end of Dynamic Array */
+
 
 #include "simulink_solver_api.h"
 
@@ -7220,7 +7869,7 @@ typedef struct {
 /* LocalWords:  SimStruct's NRT NSAMPLE NUMST sfunc sfunctions RSIM sfunction Fxp getters DAE meth
  * LocalWords:  elif ID's EXTLOGTASK ONESHOT ir Lcs dworks dstates fcncall DWork Vec Bds odesup
  * LocalWords:  SlvrJacobianFcn extmode DTypeId SIGSET sigmapdef th th'signal NOSYMBDIMS MExpr
- * LocalWords:  tid's zc intg conds nd resolveCBK vals sti iwork rwork pwork
+ * LocalWords:  tid's zc intg conds nd resolveCBK vals sti iwork rwork pwork stringtype
  * LocalWords:  nzMax compat SG et AslErrMsg RWork IWork PWork SFunctions untest
  * LocalWords:  versioning NonsampledZCs SlvrJacobian FCSSCtrl fixedpoint CSignal
  * LocalWords:  OptimOpts reusability ny OR'd mxCalloc vxlib ASYNC cycan VxWorks

@@ -1,4 +1,4 @@
-/* Copyright 1990-2021 The MathWorks, Inc. */
+/* Copyright 1990-2023 The MathWorks, Inc. */
 
 /**
  * @file: simstruc_def.h
@@ -259,7 +259,7 @@ struct _ssSizes {
 
     /* -------- Zero Crossings ---------------------- */
     int_T numNonsampledZCs; /* number of non-sampled zero crossings            */
-    int_T numZCEvents;      /* number of zero crossing events                 */
+    int_T reservedInt;
 
     /* -------- Modes ------------------------------- */
     int_T numModes; /* number of modes                                */
@@ -270,16 +270,14 @@ struct _ssSizes {
 
     /* -------- Vector Sizes In Bytes  -------------- */
 
-    int_T sizeofY;       /* Sizeof of external input, Y, in bytes          */
-    int_T sizeofU;       /* Sizeof of external input, U, in bytes          */
-    int_T sizeofBlockIO; /* size of block outputs (number of bytes)        */
+    int_T sizeofY; /* Sizeof of external input, Y, in bytes          */
+    int_T sizeofU; /* Sizeof of external input, U, in bytes          */
+    int_T reservedInt2;
 
-    int_T sizeofGlobalBlockIO; /* size of the global block outputs in bytes*/
+    int_T reservedInt3;
 
-    int_T numDWork;         /* size of data type work vectors                 */
-    int_T sizeofDWork;      /* Size of data type work vector. Depends on
-                               dwork data types, complex signals, and
-                               num dworks.                                    */
+    int_T numDWork; /* size of data type work vectors                 */
+    int_T reservedInt4;
     int_T RTWGeneratedSFcn; /* Flag which is set for rtw generated s-function */
                             /* Remove once all dstates are changed to dworks  */
                             /* ------------- Reserved ------------------------*/
@@ -401,8 +399,7 @@ struct _ssDWorkAuxRecord {
                           * dwork; 0 for none
                           */
     int_T bitFieldWidth;
-    int_T widthSLSize;
-    int_T unusedInts[1];
+    SLSize widthSLSize;
 
     void* resolvedSignalObject;
     void* unusedPtrs[3];
@@ -523,9 +520,9 @@ typedef struct ssContextMemoryInfo_tag {
 } ssContextMemoryInfo;
 
 /* Masks for determining the parameter attributes (see ssSfcnParams struct). */
-#define SFCNPARAM_NOT_TUNABLE (1 << 0x0)
-#define SFCNPARAM_TUNABLE (1 << 0x1)
-#define SFCNPARAM_SIMONLY_TUNABLE (1 << 0x2)
+#define SFCNPARAM_NOT_TUNABLE (1U << 0x0)
+#define SFCNPARAM_TUNABLE (1U << 0x1)
+#define SFCNPARAM_SIMONLY_TUNABLE (1U << 0x2)
 #define SFCNPARAM_CLEAR_TUNABLE \
     (~(SFCNPARAM_NOT_TUNABLE | SFCNPARAM_TUNABLE | SFCNPARAM_SIMONLY_TUNABLE))
 
@@ -665,14 +662,14 @@ typedef enum {
 } SSArrayLayout;
 
 struct _ssPortInputsSLSize {
-    int_T width;
-    int_T* dims;
-    const int_T* portVarDims;
+    SLSize width;
+    SLSize* dims;
+    const SLSize* portVarDims;
 };
 struct _ssPortOutputsSLSize {
-    int_T width;
-    int_T* dims;
-    int_T* portVarDims;
+    SLSize width;
+    SLSize* dims;
+    SLSize* portVarDims;
 };
 struct _ssSizesSLSize {
     SLSize numContStates;
@@ -683,10 +680,17 @@ struct _ssSizesSLSize {
     SLSize numRWork;
     SLSize numPWork;
     SLSize numDWork;
-    int_T numY;
-    int_T numU;
-    int_T sizeofY;
-    int_T sizeofU;
+    SLSize numY;
+    SLSize numU;
+    SLSize sizeofY;
+    SLSize sizeofU;
+    SLSize numBlockIO;
+    SLSize numZCEvents;
+    SLSize sizeofBlockIO;
+    SLSize sizeofGlobalBlockIO;
+    SLSize sizeofDWork; /* Size of data type work vector. Depends on
+                           dwork data types, complex signals, and
+                           num dworks.                                    */
 };
 
 typedef int_T (*SetNumDWorkSLSize)(SimStruct*, SLSize);
@@ -695,13 +699,64 @@ struct _ssRegDataTypeSLSize {
 };
 
 struct _ssJacobianInfoSLSize {
-    int_T numSlvrJacobianNzmax;
-    int_T numJacobianNzmax;
+    SLSize numSlvrJacobianNzmax;
+    SLSize numJacobianNzMax;
+    SparseHeader_AsSLSize* slvrJacobianMatrix;
+    SparseHeader_AsSLSize* jacobian;
 };
+
+struct _ssMassMatrixInfoSLSize {
+    SLSize nzMax;
+    SLSize* Ir;
+    SLSize* Jc;
+};
+
+#if SS_SL_INTERNAL || SS_SFCN_FOR_SIM
+typedef int_T (*_WriteRTWNameValuePairFcnSLSize)(void* writeRTWFcnArg,
+                                                 int_T type,
+                                                 const char_T* name,
+                                                 const void* value,
+                                                 DTypeId dataTypeId,
+                                                 SLSize nRows,
+                                                 SLSize nCols);
+
+typedef int_T (*_WriteRTWParameterFcnSLSize)(void* writeRTWFcnArg,
+                                             int_T type,
+                                             const char_T* name,
+                                             const char_T* str,
+                                             const void* value,
+                                             DTypeId dataTypeId,
+                                             SLSize nRows,
+                                             SLSize nCols);
+#endif
+typedef void (*mdlSetInputPortWidthFcnSLSize)(SimStruct* S, int_T portIdx, SLSize width);
+typedef void (*mdlSetOutputPortWidthFcnSLSize)(SimStruct* S, int_T portIdx, SLSize width);
+typedef void (*mdlSetInputPortDimensionsFcnSLSize)(SimStruct* S,
+                                                   int_T portIdx,
+                                                   const DimsInfo_AsSLSize* dimsInfo);
+
+typedef void (*mdlSetOutputPortDimensionsFcnSLSize)(SimStruct* S,
+                                                    int_T portIdx,
+                                                    const DimsInfo_AsSLSize* dimsInfo);
 
 struct _ssMdlInfoSLSize {
     _ssSetInputPortDimensionInfoFcnSLSize regInputPortDimsInfo;
     _ssSetOutputPortDimensionInfoFcnSLSize regOutputPortDimsInfo;
+#if SS_SL_INTERNAL || SS_SFCN_FOR_SIM
+    _WriteRTWNameValuePairFcnSLSize writeRTWNameValuePairFcn;
+    _WriteRTWParameterFcnSLSize writeRTWParameterFcn;
+#endif
+    union {
+        mdlSetInputPortWidthFcnSLSize mdlSetInputPortWidth;
+        mdlSetInputPortDimensionsFcnSLSize mdlSetInputPortDims;
+    } mdlSetInputPortDimensions;
+
+    union {
+        mdlSetOutputPortWidthFcnSLSize mdlSetOutputPortWidth;
+        mdlSetOutputPortDimensionsFcnSLSize mdlSetOutputPortDims;
+    } mdlSetOutputPortDimensions;
+
+    SLSize mexApiSLSize2;
 };
 
 struct _ssBlkInfoSLSize {
@@ -710,6 +765,7 @@ struct _ssBlkInfoSLSize {
     struct _ssSizesSLSize sizes;
     struct _ssRegDataTypeSLSize regDataType;
     struct _ssJacobianInfoSLSize jacobianInfo;
+    struct _ssMassMatrixInfoSLSize massMatrix;
 };
 
 /*
@@ -722,6 +778,8 @@ typedef enum {
     SS_SFCNREP_TLC,
     SS_SFCNREP_CCODE
 } SSRepresentation;
+
+typedef enum { SS_32BIT = 0, SS_64BIT = 1 } SSBitness;
 
 /*
  * The _ssBlkInfo structure can be used by S-function blocks to determine
@@ -743,7 +801,8 @@ struct _ssBlkInfo2 {
     void* reservedPtrs[9];
 
     int_T impulseResponseLength;
-    int_T reserved[15];
+    int_T reserved[14];
+    int_T sfcnBitness;
 };
 
 struct _ssBlkInfo {
@@ -791,20 +850,20 @@ typedef enum {
     GEN_FCN_UPDATE_RUN_TIME_PARAM,
     GEN_FCN_REG_ALL_TUNE_PRM_AS_RTP,
     GEN_FCN_UPDATE_ALL_TUNE_PRM_AS_RTP,
-    GENFCNFIXPT_DIMS_SUM_IN,
-    GENFCNFIXPT_DIMS_SUM_OUT,
-    GENFCNFIXPT_DIMS_SUM_DEFAULT,
-    GENFCNFIXPT_DIMS_PROD_IN,
-    GENFCNFIXPT_DIMS_PROD_OUT,
-    GENFCNFIXPT_DIMS_PROD_DEFAULT,
-    GENFCNFIXPT_DIMS_MPSWITCH_IN,
-    GENFCNFIXPT_DIMS_MPSWITCH_OUT,
-    GENFCNFIXPT_DIMS_LOGIC_IN,
-    GENFCNFIXPT_DIMS_LOGIC_OUT,
-    GENFCNFIXPT_DIMS_LOGIC_DEFAULT,
-    GENFCNFIXPT_DIMS_GAIN_IN,
-    GENFCNFIXPT_DIMS_GAIN_OUT,
-    GENFCNFIXPT_DIMS_GAIN_DEFAULT,
+    GEN_FCN_UNUSED_91,
+    GEN_FCN_UNUSED_92,
+    GEN_FCN_UNUSED_93,
+    GEN_FCN_UNUSED_94,
+    GEN_FCN_UNUSED_95,
+    GEN_FCN_UNUSED_96,
+    GEN_FCN_UNUSED_97,
+    GEN_FCN_UNUSED_98,
+    GEN_FCN_UNUSED_99,
+    GEN_FCN_UNUSED_100,
+    GEN_FCN_UNUSED_101,
+    GEN_FCN_UNUSED_102,
+    GEN_FCN_UNUSED_103,
+    GEN_FCN_UNUSED_104,
     GENFCNFIXPT_LICENSE,
     GEN_FCN_IS_RTPARAM_TUNABLE,
     GEN_FCN_GET_BLOCK_HANDLE,
@@ -830,19 +889,19 @@ typedef enum {
     GEN_FCN_REGISTER_TYPE_FROM_PARAMETER,
     GEN_FCN_CREATE_SLCG_STRING_BUFFER,
     GEN_FCN_ADD_TO_SLCG_STRING_BUFFER,
-    GEN_FCN_UNUSED_22,
-    GEN_FCN_UNUSED_23,
+    GEN_FCN_GET_STRING_DEFAULT_BUFFER_SIZE,
+    GEN_FCN_GET_STRING_TYPE_BUFFER_SIZE,
     GEN_FCN_CREATE_RUN_TIME_PARAM_FROM_DATA,
     GEN_FCN_UPDATE_RUN_TIME_PARAM_FROM_DATA,
     GEN_FCN_FULL_REG_AND_CNV_RUN_TIME_PARAM,
-    GEN_FCN_UNUSED_PARAMS1,
-    GEN_FCN_UNUSED_PARAMS2,
+    GEN_FCN_GET_STRING_TRUNCATION_DIAGNOSTIC,
+    GEN_FCN_GET_STRING_TARGET_LANG_STANDARD,
     GEN_FCN_GET_MODELREF_INTFPARAM_MODEL_ARG_DATA,
     GEN_FCN_SET_DATA_ALIGNMENT,
     GEN_FCN_SET_ASYNC_TIMER_ATTRIBUTES,
     GEN_FCN_SET_ASYNC_TASK_PRIORITIES,
-    GEN_FCN_UNUSED_PARAMS5,
-    GEN_FCN_UNUSED_PARAMS6,
+    GEN_FCN_SET_INPUT_SUPPORT_STRING,
+    GEN_FCN_SET_OUTPUT_SUPPORT_STRING,
     GEN_FCN_GET_MODELREF_INTFPARAM_GLOBAL_DATA,
     GEN_FCN_GET_ELAPSE_TIME,
     GEN_FCN_GET_ELAPSE_TIME_COUNTER_DTYPE,
@@ -861,22 +920,22 @@ typedef enum {
     GEN_FCN_REG_MODELREF_MDL_INFO,
     GEN_FCN_SET_MODELREF_TO_FILES,
     GEN_FCN_SET_MODELREF_FROM_FILES,
-    GEN_FCN_UNUSED_65,
+    GEN_FCN_GET_STRING_USE_CPP_CLASS,
     GEN_FCN_SET_BUS_PROPAGATION,
     GEN_FCN_SET_BUS_SOURCE_PORT,
     GEN_FCN_SET_BUS_INPORTS,
     GEN_FCN_GET_PARAM_NAME,
     GEN_FCN_SET_BUS_OUTPUT_OBJECT_NAME,
     GEN_FCN_SET_BUS_OUTPUT_AS_STRUCT,
-    GEN_FCN_UNUSED_50,
+    GEN_FCN_SET_BLOCK_PATH_TO_CHECKSUM,
     GEN_FCN_COMPUTE_STATEFLOW_SYMBOL_NAME,
     GEN_FCN_UNUSED_38,
     GEN_FCN_REG_MDL_INFO,
     GEN_FCN_SET_BUS_INPUT_AS_STRUCT,
     GEN_FCN_UNUSED_17,
     GEN_FCN_SET_TIME_SOURCE,
-    GEN_FCN_UNUSED_16,
-    GEN_FCN_UNUSED_42,
+    GEN_FCN_SET_INPUT_SUPPORT_HALFPRECISION,
+    GEN_FCN_SET_OUTPUT_SUPPORT_HALFPRECISION,
     GEN_FCN_UNUSED_29,
     GEN_FCN_ENABLE_FCN_IS_TRIVIAL,
     GEN_FCN_DISABLE_FCN_IS_TRIVIAL,
@@ -953,13 +1012,13 @@ typedef enum {
     GEN_FCN_GET_STATEFLOW_SUBCHART_SIMSTRUCT,
     GEN_FCN_GET_STATEFLOW_SUBCHART_SYS_INST_INDICES,
     GEN_FCN_GET_DATATYPE_CHECKSUM,
-    GEN_FCN_REG_CODE_VARIANT_FCNCALL,
-    GEN_FCN_EVAL_CODE_VARIANT_FCNCALL,
+    GEN_FCN_UNUSED_84,
+    GEN_FCN_UNUSED_85,
     GEN_FCN_CHECK_STRUCTPARAM_CHECKSUM,
     GEN_FCN_GET_PARAM_DATATYPE,
     GEN_FCN_GET_SIMULATIONTYPE,
     GEN_FCN_GET_NET_SLOPE_VIA_DIVISION,
-    GEN_FCN_SET_MODELREF_ALLOW_IN_STATE_ENABLED_SS_OBSOLETE,
+    GEN_FCN_UNUSED_87,
     GEN_FCN_UNUSED_36,
     GEN_FCN_GET_IS_INPORT_ELEMENT_CONTINUOUS,
     GEN_FCN_SET_IS_INPORT_USEDFOR_CONT_ZC,
@@ -987,7 +1046,7 @@ typedef enum {
     GEN_FCN_REQUEST_IIS_NUM_ITER_DWORK,
     GEN_FCN_GET_STATEFLOW_RTWCONTEXT,
     GEN_FCN_GET_NUM_FCNCALL_DEST,
-    GEN_FCN_GET_NUM_VARIANT_CONDITIONS,
+    GEN_FCN_UNUSED_86,
     GEN_FCN_UNUSED_53,
     GEN_FCN_SET_REQUIRED_STACK_SIZE,
     GEN_FCN_ACCEL_COPY_STATE_CACHE_FOR_IIS_IN_DESC_SYS_LIST,
@@ -1022,23 +1081,23 @@ typedef enum {
     GEN_FCN_READ_STRING_INPUT,
     GEN_FCN_GET_INPUT_STRING_LENGTH,
     GEN_FCN_WRITE_STRING_OUTPUT,
-    GEN_FCN_UNUSED_63,
-    GEN_FCN_UNUSED_64,
+    GEN_FCN_REGISTER_DYNAMIC_ARRAY_DATA_TYPE,
+    GEN_FCN_IS_DYNAMIC_ARRAY_DATA_TYPE,
     GEN_FCN_MODEL_WIDE_EVENT_BEING_PROCESSED,
     GEN_FCN_GET_REG_SUBMODELS_MDLINFO,
-    GEN_FCN_UNUSED_75,
-    GEN_FCN_UNUSED_76,
+    GEN_FCN_GET_DYNAMIC_ARRAY_CONTAINED_DATA_TYPE,
+    GEN_FCN_GET_DYNAMIC_ARRAY_CONTAINED_DATA_NUM_DIMS,
     GEN_FCN_GET_BLK_SUPPORT_CONCURRENT_TASKS,
     GEN_FCN_SET_BLK_SUPPORT_CONCURRENT_TASKS,
-    GEN_FCN_UNUSED_24,
+    GEN_FCN_GET_DYNAMIC_ARRAY_CONTAINED_DATA_COMPLEXITY,
     GEN_FCN_ACCEL_CALL_MODEL_FCNCALL_INPUT,
-    GEN_FCN_UNUSED_40,
-    GEN_FCN_UNUSED70,
-    GEN_FCN_UNUSED_77,
-    GEN_FCN_UNUSED_78,
-    GEN_FCN_UNUSED_48,
-    GEN_FCN_UNUSED_79,
-    GEN_FCN_UNUSED_80,
+    GEN_FCN_GET_DYNAMIC_ARRAY_CONTAINED_DATA_DIMS,
+    GEN_FCN_GET_DYNAMIC_ARRAY_CONTAINED_DATA_WIDTH,
+    GEN_FCN_GET_DYNAMIC_ARRAY_CONTAINED_DATA_CURRENT_DIMS,
+    GEN_FCN_SET_DYNAMIC_ARRAY_CONTAINED_DATA_CURRENT_DIMS,
+    GEN_FCN_GET_DYNAMIC_ARRAY_CONTAINED_DATA_CURRENT_WIDTH,
+    GEN_FCN_GET_DYNAMIC_ARRAY_CONTAINED_DATA,
+    GEN_FCN_GET_INPUT_DYNAMIC_ARRAY_DATA,
     GEN_FCN_SET_INPUT_PORT_IS_MESSAGE,
     GEN_FCN_SET_OUTPUT_PORT_IS_MESSAGE,
     GEN_FCN_SEND_MESSAGE,
@@ -1046,28 +1105,28 @@ typedef enum {
     GEN_FCN_CHK_MESSAGE_INPUT,
     GEN_FCN_NO_MESSAGE_ON_INPUTS,
     GEN_FCN_CHK_MESSAGE_OUTPUT,
-    GEN_FCN_UNUSED_25,
-    GEN_FCN_UNUSED_32,
+    GEN_FCN_GET_OUTPUT_DYNAMIC_ARRAY_DATA,
+    GEN_FCN_GET_INPUT_DYNAMIC_ARRAY_CONTAINED_DATA,
     GEN_FCN_GET_SIZE_OF_PARAMS,
-    GEN_FCN_UNUSED_49,
-    GEN_FCN_UNUSED_81,
-    GEN_FCN_UNUSED_10,
-    GEN_FCN_UNUSED_11,
-    GEN_FCN_UNUSED_12,
+    GEN_FCN_GET_OUTPUT_DYNAMIC_ARRAY_CONTAINED_DATA,
+    GEN_FCN_HAS_PARAM_TABLE,
+    GEN_FCN_GET_DYNAMIC_ARRAY_DWORK_CONTAINED_DATA_WIDTH,
+    GEN_FCN_GET_DYNAMIC_ARRAY_DWORK_CONTAINED_DATA_COMPLEXITY,
+    GEN_FCN_GET_DYNAMIC_ARRAY_DWORK_CONTAINED_DATA_TYPE,
     GEN_FCN_MULTI_INS_NO_SUPPORT_MESSAGE,
-    GEN_FCN_UNUSED_13,
+    GEN_FCN_GET_DYNAMIC_ARRAY_DWORK_CONTAINED_DATA_CURRENT_DIMS,
     GEN_FCN_GET_STRICT_SINGLE,
-    GEN_FCN_UNUSED_70,
-    GEN_FCN_UNUSED_71,
-    GEN_FCN_UNUSED_72,
-    GEN_FCN_UNUSED_69,
+    GEN_FCN_SET_DYNAMIC_ARRAY_DWORK_CONTAINED_DATA_CURRENT_DIMS,
+    GEN_FCN_GET_DYNAMIC_ARRAY_DWORK_CONTAINED_DATA,
+    GEN_FCN_CREATE_DYNAMIC_ARRAY_FOR_DATA_TYPE,
+    GEN_FCN_DESTROY_DYNAMIC_ARRAY_FOR_DATA_TYPE,
     GEN_FCN_UNUSED_68,
     GEN_FCN_UNUSED_67,
     GEN_FCN_UNUSED_14,
     GEN_FCN_UNUSED_15,
     GEN_FCN_SET_VARIABLE_SAMPLE_TIME_UID,
     GEN_FCN_SET_VARTS_MDLREF_SUPPORT,
-    GEN_FCN_IS_SF_OUTPUT_DRIVING_COND_SUBSYS,
+    GEN_FCN_UNUSED_88,
     GEN_FCN_FILE_LOGGING_MANAGER_ADD_ELEMENT,
     GEN_FCN_FILE_LOGGING_MANAGER_REMOVE_ELEMENT,
     GEN_FCN_UNUSED_41,
@@ -1100,11 +1159,11 @@ typedef enum {
     GEN_FCN_GET_NUM_SYMBOLIC_DIMS,
     GEN_FCN_GET_SYMBOLIC_DIM,
     GEN_FCN_SET_INPUT_PORT_SYMBOLIC_DIMS_ID,
-    GEN_FCN_GET_INPUT_PORT_SYMBOLIC_DIMS_ID,
+    GEN_FCN_UNUSED_89,
     GEN_FCN_GET_COMP_INPUT_PORT_SYMBOLIC_DIMS_ID,
     GEN_FCN_SET_COMP_INPUT_PORT_SYMBOLIC_DIMS_ID,
     GEN_FCN_SET_OUTPUT_PORT_SYMBOLIC_DIMS_ID,
-    GEN_FCN_GET_OUTPUT_PORT_SYMBOLIC_DIMS_ID,
+    GEN_FCN_UNUSED_90,
     GEN_FCN_GET_COMP_OUTPUT_PORT_SYMBOLIC_DIMS_ID,
     GEN_FCN_SET_COMP_OUTPUT_PORT_SYMBOLIC_DIMS_ID,
     GEN_FCN_GET_COMP_DWORK_SYMBOLIC_DIMS_ID,
@@ -1157,7 +1216,8 @@ typedef enum {
     GEN_FCN_REGISTER_SYMBOLIC_EQUAL_RELATION,
     GEN_FCN_REGISTER_SYMBOLIC_EQUAL_VALUE,
     GEN_FCN_AMEND_LEADING_SYMBOLIC_DIMS,
-    GEN_FCN_AMEND_TRAILING_SYMBOLIC_DIMS
+    GEN_FCN_AMEND_TRAILING_SYMBOLIC_DIMS,
+    NUM_GEN_FCNS
 } GenFcnType;
 
 #if SS_SL_INTERNAL || SS_SFCN_FOR_SIM
@@ -1517,19 +1577,22 @@ struct _ssLocalMdlInfo {
     uint_T* globalRuntimeEventIndices;
     void* execSimStructMgr;
     void* simStruct;
-    void* reserved[22];
+    uint_T* numTimers;
+    uint_T* globalTimerIndices;
+    void* reserved[20];
 };
 
 /* returns 1 on success and 0 on failure */
 typedef ssFcnCallErr_T (*SysOutputFcn)(void*, int_T, int_T);
 
 #ifdef __cplusplus
-#define SS_FCNCALL_NO_ERR static_cast<ssFcnCallErr_T>(1)
-#define SS_FCNCALL_ERR static_cast<ssFcnCallErr_T>(0)
+#define SS_STATIC_CAST(T, E) static_cast<T>(E)
 #else
-#define SS_FCNCALL_NO_ERR ((ssFcnCallErr_T)1)
-#define SS_FCNCALL_ERR ((ssFcnCallErr_T)0)
+#define SS_STATIC_CAST(T, E) (T)(E)
 #endif
+
+#define SS_FCNCALL_NO_ERR SS_STATIC_CAST(ssFcnCallErr_T, 1)
+#define SS_FCNCALL_ERR SS_STATIC_CAST(ssFcnCallErr_T, 0)
 
 struct _ssCallSys {
     int_T* outputs;     /* Which output elements call a system    */
@@ -1696,11 +1759,11 @@ typedef int_T (*mdlGetOutputPortWidthLevel1Fcn)(SimStruct* S, int_T inputWidth);
 
 typedef void (*mdlSetInputPortDimensionsFcn)(SimStruct* S,
                                              int_T portIdx,
-                                             const DimsInfo_T* dimsInfo);
+                                             const DimsInfo_AsInt* dimsInfo);
 
 typedef void (*mdlSetOutputPortDimensionsFcn)(SimStruct* S,
                                               int_T portIdx,
-                                              const DimsInfo_T* dimsInfo);
+                                              const DimsInfo_AsInt* dimsInfo);
 
 typedef void (*mdlSetDefaultPortDimensionsFcn)(SimStruct* S);
 
@@ -1923,7 +1986,7 @@ struct _ssSFcnModelMethods3 {
     mdlInitSystemMatricesFcn mdlInitSystemMatrices;
 
     int_T numSlvrJacobianNzmax;
-    SparseHeader* slvrJacobianMatrix;
+    SparseHeader_AsInt* slvrJacobianMatrix;
     mdlJacobianIrJcFcn mdlJacobianIrJc;
     void* reservedForFutureUse;
 };
@@ -2034,7 +2097,7 @@ struct _ssStates {
     real_T* nonsampledZCs;              /* Non-sampled zero crossing signals */
     ZCDirection* nonsampledZCDirs;      /* Non-sampled zc directions          */
 
-    SparseHeader* jacobian; /* struct containing system Jacobian  */
+    SparseHeader_AsInt* jacobian; /* struct containing system Jacobian  */
     struct _ssSFcnModelMethods2* modelMethods2;
     int_T reservedSize;
 };

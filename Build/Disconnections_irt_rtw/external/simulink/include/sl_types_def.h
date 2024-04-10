@@ -1,4 +1,4 @@
-/* Copyright 2009-2021 The MathWorks, Inc. */
+/* Copyright 2009-2022 The MathWorks, Inc. */
 
 /*
  * File: sl_types_def.h
@@ -6,7 +6,6 @@
  * Abstract:
  *   The embedded RTW code formats do not include simstruc.h, but
  *   needs these common types.
- *   Generated from sl_types_def.tpl.
  */
 
 #ifndef __SL_TYPES_DEF_H__

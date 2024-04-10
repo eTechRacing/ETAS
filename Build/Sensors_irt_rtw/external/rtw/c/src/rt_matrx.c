@@ -11,7 +11,7 @@
 
 
 /*
- * Copyright 1994-2020 The MathWorks, Inc.
+ * Copyright 1994-2022 The MathWorks, Inc.
  */
 
 /*==========*
@@ -26,10 +26,7 @@
 # error "rt_matrix cannot be used within a mex file. It is for codegen only."
 #endif
 
-#include <stdlib.h>    /* needed for malloc, calloc, free, realloc */
-#include <string.h>    /* needed for strlen                        */
-#include "rtwtypes.h"  /* needed for real_T                        */
-#include "rt_mxclassid.h" /* needed for mxClassID                     */
+#include <string.h>    /* for strlen */
 #include "rt_matrx.h"
 
 #include <stddef.h> /* needed for size_t and NULL */
@@ -225,7 +222,7 @@ mxArray *rt_mxCreateCharMatrixFromStrings(int_T m, const char_T **str)
 	    n = nchars;
 	}
     }
-    /*LINTED E_PASS_INT_TO_SMALL_INT*/
+
     pa = (mxArray *)malloc((m*n+2)*sizeof(real_T));
     if(pa!=NULL) {
 	mxChar *chars;
@@ -269,7 +266,7 @@ extern "C" {
 mxArray *rt_mxCreateString(const char *str)
 {
     int_T   len = (int_T)strlen(str);
-    /*LINTED E_PASS_INT_TO_SMALL_INT*/
+
     mxArray *pa = (mxArray *)malloc((len+2)*sizeof(real_T));
 
     if(pa!=NULL) {
@@ -296,7 +293,6 @@ mxArray *rt_mxCreateString(const char *str)
  *	Create a two-dimensional array to hold real_T data,
  *	initialize each data element to 0.
  */
-/*LINTLIBRARY*/
 
 #ifdef __cplusplus
 extern "C" {
@@ -356,7 +352,7 @@ extern "C" {
 
 mxArray *rt_mxDuplicateArray(const mxArray *pa)
 {
-    /*LINTED E_ASSIGN_INT_TO_SMALL_INT*/
+
     size_t   nbytes = (mxGetNumberOfElements(pa)+2)*mxGetElementSize(pa);
     mxArray *pcopy = (mxArray *)malloc(nbytes);
 
@@ -376,7 +372,6 @@ mxArray *rt_mxDuplicateArray(const mxArray *pa)
 /* Function: mxGetDimensions ==================================================
  * Abstract:
  *	Get pointer to dimension array
- * 	NOTE: This routine is not reentrant.
  */
 
 
@@ -403,7 +398,6 @@ const mwSize *rt_mxGetDimensions(const mxArray *pa)
  * Abstract:
  *	Return eps, the difference between 1.0 and the least value
  *	greater than 1.0 that is representable as a real_T.
- *	NOTE: Assumes real_T is either double or float.
  */
 
 
