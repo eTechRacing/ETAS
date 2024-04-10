@@ -7,9 +7,9 @@
  *
  * Code generation for model "VDC".
  *
- * Model version              : 1.0
+ * Model version              : 1.5
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Sat Mar 30 17:29:17 2024
+ * C source code generated on : Sat Apr  6 01:20:50 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

@@ -1,0 +1,403 @@
+<?DTDVersion "4.7.0"?>
+<?CompatibleDTDVersion "3.2.1"?>
+<?CompatibleDTDVersion "3.2.0"?>
+<?CompatibleDTDVersion "2.1.1"?>
+<?CompatibleDTDVersion "2.1"?>
+<?CompatibleDTDVersion "2.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!NOTATION ofTypeES910SysCtrNodeMain SYSTEM "ES910SysCtrNodeMain">
+<!NOTATION ofTypeES910SysCtrNodeDevice SYSTEM "ES910SysCtrNodeDevice">
+<!NOTATION ofTypeES910SysCtrNodeSignalGroupSend SYSTEM "ES910SysCtrNodeSignalGroupSend">
+<!NOTATION ofTypeES910SysCtrNodeSignalGroupReceive SYSTEM "ES910SysCtrNodeSignalGroupReceive">
+<!NOTATION ofTypeES910SysCtrNodeSignalGroupServicePort SYSTEM "ES910SysCtrNodeSignalGroupServicePort">
+<!NOTATION ofTypeES910SysCtrNodeSignalGroupUserWatchdog SYSTEM "ES910SysCtrNodeSignalGroupUserWatchdog">
+<!NOTATION ofTypeES910SysCtrNodeSignal SYSTEM "ES910SysCtrNodeSignal">
+
+<?SuperClass ES910SysCtrNodeMain->ES900Component ?>
+
+<?SuperClass ES910SysCtrNodeMain->ESNodeMain ?>
+<?SuperClass ES910SysCtrNodeDevice->ESNodeDevice?>
+<?SuperClass ES910SysCtrNodeSignalGroup->ESNodeSignalGroup ?>
+<?SuperClass ES910SysCtrNodeSignalGroupReceive->ES910SysCtrNodeSignalGroup ?>
+<?SuperClass ES910SysCtrNodeSignalGroupSend->ES910SysCtrNodeSignalGroup ?>
+<?SuperClass ES910SysCtrNodeSignalGroupServicePort->ES910SysCtrNodeSignalGroup ?>
+<?SuperClass ES910SysCtrNodeSignalGroupUserWatchdog->ES910SysCtrNodeSignalGroup ?>
+<?SuperClass ES910SysCtrNodeSignal->ESNodeSignal ?>
+
+<!-- node main -->
+
+<!ELEMENT ES910SysCtrNodeMain (ES910SysCtrNodeMain.Parameters, ES910SysCtrNodeMain.L1Generation, ES910SysCtrNodeMain.SubNodes, _System)>
+<!ATTLIST ES910SysCtrNodeMain
+    Name ID #REQUIRED
+    GlobalObject.ofTypeYBOBoard ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOCPUBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ES910SysCtrNodeMain.Parameters (ES910SysCtrNodeMainParameters)>
+<!ELEMENT ES910SysCtrNodeMain.L1Generation (ES910SysCtrNodeMainL1Generation)>
+<!ELEMENT ES910SysCtrNodeMain.SubNodes (ES910SysCtrNodeMainSubNodeList)>
+
+<!ELEMENT ES910SysCtrNodeMainL1Generation (ES910SysCtrNodeMainL1Generation.NotRunning, ES910SysCtrNodeMainL1Generation.Reconnect, ES910SysCtrNodeMainL1Generation.WriteToStream)>
+<!ATTLIST ES910SysCtrNodeMainL1Generation
+    L1TreeIndex CDATA "-1"
+
+    ConfigROID CDATA "-1"
+    APIROIDArray1 CDATA "-1"
+    APIROIDArray2 CDATA "-1"
+    APIROIDArray3 CDATA "-1"
+    APIROIDArray4 CDATA "-1"
+>
+
+<!ELEMENT ES910SysCtrNodeMainL1Generation.NotRunning (ES910SysCtrNodeMainL1GenerationNotRunning)>
+<!ELEMENT ES910SysCtrNodeMainL1Generation.Reconnect (ES910SysCtrNodeMainL1GenerationReconnect)>
+<!ELEMENT ES910SysCtrNodeMainL1Generation.WriteToStream (ES910SysCtrNodeMainL1GenerationWriteToStream)>
+
+<!ELEMENT ES910SysCtrNodeMainL1GenerationNotRunning EMPTY>
+<!ELEMENT ES910SysCtrNodeMainL1GenerationReconnect EMPTY>
+<!ELEMENT ES910SysCtrNodeMainL1GenerationWriteToStream EMPTY>
+
+<!ELEMENT ES910SysCtrNodeMainParameters (ES910SysCtrNodeMainParameters.Name,ES910SysCtrNodeMainParameters.Enabled)>
+
+<!ELEMENT ES910SysCtrNodeMainParameters.Name (ESParameterName)>
+<!ELEMENT ES910SysCtrNodeMainParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ES910SysCtrNodeMainSubNodeList (ES910SysCtrNodeDevice)*>
+
+
+<!-- node device -->
+
+<!ELEMENT ES910SysCtrNodeDevice (ES910SysCtrNodeDevice.Parameters, ES910SysCtrNodeDevice.L1Generation, ES910SysCtrNodeDevice.SubNodes)>
+<!ATTLIST ES910SysCtrNodeDevice
+    Name ID #REQUIRED
+    GlobalObject.ofTypeYBODevice ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ES910SysCtrNodeDevice.Parameters (ES910SysCtrNodeDeviceParameters)>
+<!ELEMENT ES910SysCtrNodeDevice.L1Generation (ES910SysCtrNodeDeviceL1Generation)>
+<!ELEMENT ES910SysCtrNodeDevice.SubNodes (ES910SysCtrNodeDeviceSubNodeList)>
+
+<!ELEMENT ES910SysCtrNodeDeviceL1Generation (ES910SysCtrNodeDeviceL1Generation.UnionCase, ES910SysCtrNodeDeviceL1Generation.Reconnect)>
+<!ATTLIST ES910SysCtrNodeDeviceL1Generation
+    L1TreeIndex CDATA "-1"
+
+    APIROIDArray1 CDATA "-1"
+    APIROIDArray2 CDATA "-1"
+
+  IRQTriggeredSignalGroups CDATA "0"
+    L1SignalGroupCount CDATA "0"
+>
+
+<!ELEMENT ES910SysCtrNodeDeviceL1Generation.UnionCase (ES910SysCtrNodeDeviceL1GenerationUnionCase)>
+<!ELEMENT ES910SysCtrNodeDeviceL1Generation.Reconnect (ES910SysCtrNodeDeviceL1GenerationReconnect)>
+
+<!ELEMENT ES910SysCtrNodeDeviceL1GenerationUnionCase EMPTY>
+<!ELEMENT ES910SysCtrNodeDeviceL1GenerationReconnect EMPTY>
+
+<!ELEMENT ES910SysCtrNodeDeviceParameters (ES910SysCtrNodeDeviceParameters.Name,ES910SysCtrNodeDeviceParameters.Enabled, ES910SysCtrNodeDeviceParameters.UseBuzzer, ES910SysCtrNodeDeviceParameters.UseLED, ES910SysCtrNodeDeviceParameters.UseServicePort, ES910SysCtrNodeDeviceParameters.UseTemperatureMonitoring, ES910SysCtrNodeDeviceParameters.UseTemperatureAlarm, ES910SysCtrNodeDeviceParameters.UseUserWatchdog, ES910SysCtrNodeDeviceParameters.ISR)>
+
+<!ELEMENT ES910SysCtrNodeDeviceParameters.Name (ESParameterName)>
+<!ELEMENT ES910SysCtrNodeDeviceParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES910SysCtrNodeDeviceParameters.UseBuzzer (ESParameterBoolean)>
+<!ELEMENT ES910SysCtrNodeDeviceParameters.UseLED (ESParameterBoolean)>
+<!ELEMENT ES910SysCtrNodeDeviceParameters.UseServicePort (ESParameterBoolean)>
+<!ELEMENT ES910SysCtrNodeDeviceParameters.UseTemperatureMonitoring (ESParameterBoolean)>
+<!ELEMENT ES910SysCtrNodeDeviceParameters.UseTemperatureAlarm (ESParameterBoolean)>
+<!ELEMENT ES910SysCtrNodeDeviceParameters.UseUserWatchdog (ESParameterBoolean)>
+<!ELEMENT ES910SysCtrNodeDeviceParameters.ISR (ESParameterString)>
+
+<!ELEMENT ES910SysCtrNodeDeviceSubNodeList (ES910SysCtrNodeSignalGroupSend|ES910SysCtrNodeSignalGroupReceive|ES910SysCtrNodeSignalGroupServicePort|ES910SysCtrNodeSignalGroupUserWatchdog)*>
+
+<!-- node signal group send -->
+
+<!ELEMENT ES910SysCtrNodeSignalGroupSend (ES910SysCtrNodeSignalGroupSend.Parameters, ES910SysCtrNodeSignalGroupSend.L1Generation, ES910SysCtrNodeSignalGroupSend.SubNodes)>
+<!ATTLIST ES910SysCtrNodeSignalGroupSend
+    Name ID #REQUIRED
+    
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+  MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+
+  SignalGroupType CDATA ""
+
+>
+
+
+<!ELEMENT ES910SysCtrNodeSignalGroupSend.Parameters (ES910SysCtrNodeSignalGroupSendParameters)>
+<!ELEMENT ES910SysCtrNodeSignalGroupSend.L1Generation (ES910SysCtrNodeSignalGroupSendL1Generation)>
+<!ELEMENT ES910SysCtrNodeSignalGroupSend.SubNodes (ES910SysCtrNodeSignalGroupSendSubNodeList)>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupSendL1Generation (ES910SysCtrNodeSignalGroupSendL1Generation.UnionCase, ES910SysCtrNodeSignalGroupSendL1Generation.Reconnect)>
+<!ATTLIST ES910SysCtrNodeSignalGroupSendL1Generation
+    L1TreeIndex CDATA "-1"
+
+    APIROID CDATA "-1"
+>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupSendL1Generation.UnionCase (ES910SysCtrNodeSignalGroupSendL1GenerationUnionCase)>
+<!ELEMENT ES910SysCtrNodeSignalGroupSendL1Generation.Reconnect (ESL1GenerationCaseSignalGroupReconnect)>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupSendL1GenerationUnionCase EMPTY>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupSendParameters (ES910SysCtrNodeSignalGroupSendParameters.Name, ES910SysCtrNodeSignalGroupSendParameters.Enabled, ES910SysCtrNodeSignalGroupSendParameters.Direction, ES910SysCtrNodeSignalGroupSendParameters.Polling, ES910SysCtrNodeSignalGroupSendParameters.dTMonitoring, ES910SysCtrNodeSignalGroupSendParameters.Task)>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupSendParameters.Name (ESParameterName)>
+<!ELEMENT ES910SysCtrNodeSignalGroupSendParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES910SysCtrNodeSignalGroupSendParameters.Task (ESParameterString)>
+<!ELEMENT ES910SysCtrNodeSignalGroupSendParameters.Direction (ESParameterEnum)>
+<!ATTLIST ES910SysCtrNodeSignalGroupSendParameters.Direction
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupSendParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ES910SysCtrNodeSignalGroupSendParameters.dTMonitoring (ESParameterBoolean)>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupSendSubNodeList (ES910SysCtrNodeSignal)*>
+
+<!-- node signal group receive-->
+
+<!ELEMENT ES910SysCtrNodeSignalGroupReceive (ES910SysCtrNodeSignalGroupReceive.Parameters, ES910SysCtrNodeSignalGroupReceive.L1Generation, ES910SysCtrNodeSignalGroupReceive.SubNodes)>
+<!ATTLIST ES910SysCtrNodeSignalGroupReceive
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+    
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+  MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+
+  SignalGroupType CDATA ""
+
+>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupReceive.Parameters (ES910SysCtrNodeSignalGroupReceiveParameters)>
+<!ELEMENT ES910SysCtrNodeSignalGroupReceive.L1Generation (ES910SysCtrNodeSignalGroupReceiveL1Generation)>
+<!ELEMENT ES910SysCtrNodeSignalGroupReceive.SubNodes (ES910SysCtrNodeSignalGroupReceiveSubNodeList)>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupReceiveL1Generation (ES910SysCtrNodeSignalGroupReceiveL1Generation.UnionCase, ES910SysCtrNodeSignalGroupReceiveL1Generation.Reconnect)>
+<!ATTLIST ES910SysCtrNodeSignalGroupReceiveL1Generation
+    L1TreeIndex CDATA "-1"
+
+    APIROID CDATA "-1"
+    MonitoringROID CDATA "-1"
+    ActivationCount CDATA "0"
+    ExecutionROID CDATA "-1"
+>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupReceiveL1Generation.UnionCase (ES910SysCtrNodeSignalGroupReceiveL1GenerationUnionCase)>
+<!ELEMENT ES910SysCtrNodeSignalGroupReceiveL1Generation.Reconnect (ES910SysCtrNodeSignalGroupReceiveL1GenerationReconnect)>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupReceiveL1GenerationUnionCase EMPTY>
+<!ELEMENT ES910SysCtrNodeSignalGroupReceiveL1GenerationReconnect EMPTY>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupReceiveParameters (ES910SysCtrNodeSignalGroupReceiveParameters.Name, ES910SysCtrNodeSignalGroupReceiveParameters.Enabled, ES910SysCtrNodeSignalGroupReceiveParameters.Direction, ES910SysCtrNodeSignalGroupReceiveParameters.Polling, ES910SysCtrNodeSignalGroupReceiveParameters.dTMonitoring, , ES910SysCtrNodeSignalGroupReceiveParameters.Task)>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupReceiveParameters.Name (ESParameterName)>
+<!ELEMENT ES910SysCtrNodeSignalGroupReceiveParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES910SysCtrNodeSignalGroupReceiveParameters.Task (ESParameterString)>
+<!ELEMENT ES910SysCtrNodeSignalGroupReceiveParameters.Direction (ESParameterEnum)>
+<!ATTLIST ES910SysCtrNodeSignalGroupReceiveParameters.Direction
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupReceiveParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ES910SysCtrNodeSignalGroupReceiveParameters.dTMonitoring (ESParameterBoolean)>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupReceiveSubNodeList (ES910SysCtrNodeSignal)*>
+
+<!-- node signal group service port-->
+
+<!ELEMENT ES910SysCtrNodeSignalGroupServicePort (ES910SysCtrNodeSignalGroupServicePort.Parameters, ES910SysCtrNodeSignalGroupServicePort.L1Generation, ES910SysCtrNodeSignalGroupServicePort.SubNodes)>
+<!ATTLIST ES910SysCtrNodeSignalGroupServicePort
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+    
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+  MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+
+  SignalGroupType CDATA ""
+
+>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupServicePort.Parameters (ES910SysCtrNodeSignalGroupServicePortParameters)>
+<!ELEMENT ES910SysCtrNodeSignalGroupServicePort.L1Generation (ES910SysCtrNodeSignalGroupServicePortL1Generation)>
+<!ELEMENT ES910SysCtrNodeSignalGroupServicePort.SubNodes (ES910SysCtrNodeSignalGroupServicePortSubNodeList)>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupServicePortL1Generation (ES910SysCtrNodeSignalGroupServicePortL1Generation.UnionCase, ES910SysCtrNodeSignalGroupServicePortL1Generation.Reconnect)>
+<!ATTLIST ES910SysCtrNodeSignalGroupServicePortL1Generation  
+    L1TreeIndex CDATA "-1"
+
+    APIROID CDATA "-1"
+    MonitoringROID CDATA "-1"
+    ActivationCount CDATA "0"
+    ExecutionROID CDATA "-1"
+>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupServicePortL1Generation.UnionCase (ES910SysCtrNodeSignalGroupServicePortL1GenerationUnionCase)>
+<!ELEMENT ES910SysCtrNodeSignalGroupServicePortL1Generation.Reconnect (ES910SysCtrNodeSignalGroupReceiveL1GenerationReconnect)>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupServicePortL1GenerationUnionCase EMPTY>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupServicePortParameters (ES910SysCtrNodeSignalGroupServicePortParameters.Name, ES910SysCtrNodeSignalGroupServicePortParameters.Enabled, ES910SysCtrNodeSignalGroupServicePortParameters.Direction, ES910SysCtrNodeSignalGroupServicePortParameters.Polling, ES910SysCtrNodeSignalGroupServicePortParameters.dTMonitoring, ES910SysCtrNodeSignalGroupServicePortParameters.InputFilterTime, ES910SysCtrNodeSignalGroupServicePortParameters.Task)>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupServicePortParameters.Name (ESParameterName)>
+<!ELEMENT ES910SysCtrNodeSignalGroupServicePortParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES910SysCtrNodeSignalGroupServicePortParameters.Task (ESParameterString)>
+<!ELEMENT ES910SysCtrNodeSignalGroupServicePortParameters.Direction (ESParameterEnum)>
+<!ATTLIST ES910SysCtrNodeSignalGroupServicePortParameters.Direction
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupServicePortParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ES910SysCtrNodeSignalGroupServicePortParameters.dTMonitoring (ESParameterBoolean)>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupServicePortParameters.InputFilterTime (ESParameterEnum)>
+<!ATTLIST ES910SysCtrNodeSignalGroupServicePortParameters.InputFilterTime
+    EnumText1      CDATA "25ms"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "250ms"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupServicePortSubNodeList (ES910SysCtrNodeSignal)*>
+
+<!-- node signal group user watchdog -->
+
+<!ELEMENT ES910SysCtrNodeSignalGroupUserWatchdog (ES910SysCtrNodeSignalGroupUserWatchdog.Parameters, ES910SysCtrNodeSignalGroupUserWatchdog.SubNodes)>
+<!ATTLIST ES910SysCtrNodeSignalGroupUserWatchdog
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+    
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+  MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+
+  SignalGroupType CDATA ""
+
+>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupUserWatchdog.Parameters (ES910SysCtrNodeSignalGroupUserWatchdogParameters)>
+<!ELEMENT ES910SysCtrNodeSignalGroupUserWatchdog.SubNodes (ES910SysCtrNodeSignalGroupUserWatchdogSubNodeList)>
+
+
+<!ELEMENT ES910SysCtrNodeSignalGroupUserWatchdogParameters (ES910SysCtrNodeSignalGroupUserWatchdogParameters.Name, ES910SysCtrNodeSignalGroupUserWatchdogParameters.Enabled, ES910SysCtrNodeSignalGroupUserWatchdogParameters.Direction, ES910SysCtrNodeSignalGroupUserWatchdogParameters.Polling, ES910SysCtrNodeSignalGroupUserWatchdogParameters.dTMonitoring, ES910SysCtrNodeSignalGroupUserWatchdogParameters.ISR)>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupUserWatchdogParameters.Name (ESParameterName)>
+<!ELEMENT ES910SysCtrNodeSignalGroupUserWatchdogParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES910SysCtrNodeSignalGroupUserWatchdogParameters.ISR (ESParameterString)>
+<!ELEMENT ES910SysCtrNodeSignalGroupUserWatchdogParameters.Direction (ESParameterEnum)>
+<!ATTLIST ES910SysCtrNodeSignalGroupUserWatchdogParameters.Direction
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupUserWatchdogParameters.Polling (ESParameterBoolean)>
+<!ELEMENT ES910SysCtrNodeSignalGroupUserWatchdogParameters.dTMonitoring (ESParameterBoolean)>
+
+<!ELEMENT ES910SysCtrNodeSignalGroupUserWatchdogSubNodeList (ES910SysCtrNodeSignal)*>
+
+
+<!-- node signal -->
+
+<!ELEMENT ES910SysCtrNodeSignal (ES910SysCtrNodeSignal.Parameters, ES910SysCtrNodeSignal.L1Generation, ES910SysCtrNodeSignal.SubNodes)>
+<!ATTLIST ES910SysCtrNodeSignal
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOHWPort ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+
+<!ELEMENT ES910SysCtrNodeSignal.Parameters (ES910SysCtrNodeSignalParameters)>
+<!ELEMENT ES910SysCtrNodeSignal.L1Generation (ES910SysCtrNodeSignalL1Generation)>
+<!ELEMENT ES910SysCtrNodeSignal.SubNodes (ES910SysCtrNodeSignalSubNodeList)>
+
+<!ELEMENT ES910SysCtrNodeSignalL1Generation (ES910SysCtrNodeSignalL1Generation.UnionCase, ES910SysCtrNodeSignalL1Generation.Reconnect)>
+<!ATTLIST ES910SysCtrNodeSignalL1Generation     
+    L1TreeIndex CDATA "-1"
+    
+    MappingROID CDATA "-1"
+>
+
+<!ELEMENT ES910SysCtrNodeSignalL1Generation.UnionCase (ES910SysCtrNodeSignalL1GenerationUnionCase)>
+<!ELEMENT ES910SysCtrNodeSignalL1Generation.Reconnect (ESL1GenerationCaseSignalReconnect)>
+
+<!ELEMENT ES910SysCtrNodeSignalL1GenerationUnionCase EMPTY>
+
+<!ELEMENT ES910SysCtrNodeSignalParameters (ES910SysCtrNodeSignalParameters.Name,ES910SysCtrNodeSignalParameters.Enabled,ES910SysCtrNodeSignalParameters.SignalType, ES910SysCtrNodeSignalParameters.Unit, ES910SysCtrNodeSignalParameters.Formula, ES910SysCtrNodeSignalParameters.Min, ES910SysCtrNodeSignalParameters.Max, ES910SysCtrNodeSignalParameters.InitValue, ES910SysCtrNodeSignalParameters.Message)>
+
+<!ELEMENT ES910SysCtrNodeSignalParameters.Name (ESParameterName)>
+<!ELEMENT ES910SysCtrNodeSignalParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ES910SysCtrNodeSignalParameters.SignalType (ESParameterEnum)>
+<!ATTLIST ES910SysCtrNodeSignalParameters.SignalType 
+    EnumText1      CDATA "cont"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "sdisc"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "udisc"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "boolean"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "enum"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+<!ELEMENT ES910SysCtrNodeSignalParameters.Unit (ESParameterString)>
+<!ELEMENT ES910SysCtrNodeSignalParameters.Formula (ESParameterUnion)>
+<!ELEMENT ES910SysCtrNodeSignalParameters.Min (ESParameterFloat)>
+<!ELEMENT ES910SysCtrNodeSignalParameters.Max (ESParameterFloat)>
+<!ELEMENT ES910SysCtrNodeSignalParameters.InitValue (ESParameterFloat)>
+<!ELEMENT ES910SysCtrNodeSignalParameters.Message (ESParameterString)>
+
+<!ELEMENT ES910SysCtrNodeSignalSubNodeList EMPTY>

@@ -1,0 +1,119 @@
+<?DTDVersion "4.3.0"?>
+<?CompatibleDTDVersion "2.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!ENTITY % ESx86VP_XCPEthSlaveNodeDevice SYSTEM "ESx86VP_XCPEthSlaveNodeDevice.DTD">
+%ESx86VP_XCPEthSlaveNodeDevice;
+
+<!NOTATION ofTypeESx86VP_ETHNodeMain SYSTEM "ESx86VP_ETHNodeMain">
+<!NOTATION ofTypeESx86VP_ETHNodeController SYSTEM "ESx86VP_ETHNodeController">
+
+<?SuperClass ESETHBaseNodeMainBase->ESNodeMain ?>
+<?SuperClass ESx86VP_ETHNodeMain->ESx86VPComponent ?>
+<?SuperClass ESx86VP_ETHNodeMain->ESETHBaseNodeMainBase ?>
+
+<?SuperClass ESETHBaseNodeControllerBase->ESNodeController ?>
+<?SuperClass ESx86VP_ETHNodeController->ESETHBaseNodeControllerBase ?>
+
+<!-- main node -->
+
+<!ELEMENT ESx86VP_ETHNodeMain (ESx86VP_ETHNodeMain.Parameters, ESx86VP_ETHNodeMain.L1Generation, ESx86VP_ETHNodeMain.SubNodes, _System)>
+<!ATTLIST ESx86VP_ETHNodeMain
+    Name ID #REQUIRED
+  
+    GlobalObject.ofTypeYBOBoard ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOCPUBoard ENTITY #REQUIRED
+>
+<!ELEMENT ESx86VP_ETHNodeMain.Parameters (ESx86VP_ETHNodeMainParameters)>
+<!ELEMENT ESx86VP_ETHNodeMain.L1Generation (ESx86VP_ETHNodeMainL1GenerationBlock)>
+<!ELEMENT ESx86VP_ETHNodeMain.SubNodes (ESx86VP_ETHNodeMainSubNodeList)>
+
+
+<!ELEMENT ESx86VP_ETHNodeMainL1GenerationBlock (ESx86VP_ETHNodeMainL1GenerationBlock.NotRunning, ESx86VP_ETHNodeMainL1GenerationBlock.Reconnect, ESx86VP_ETHNodeMainL1GenerationBlock.WriteToStream)>
+<!ATTLIST ESx86VP_ETHNodeMainL1GenerationBlock
+    L1TreeIndex CDATA "-1"
+
+    ConfigROID CDATA "-1"
+>
+
+<!ELEMENT ESx86VP_ETHNodeMainL1GenerationBlock.NotRunning (ESETHBaseNodeMainL1GenerationNotRunning)>
+<!ELEMENT ESx86VP_ETHNodeMainL1GenerationBlock.Reconnect (ESETHBaseNodeMainL1GenerationReconnect)>
+<!ELEMENT ESx86VP_ETHNodeMainL1GenerationBlock.WriteToStream (ESETHBaseNodeMainL1GenerationWriteToStream)>
+
+<!--MPP dies gehört eignentlich in die ESETHBaseNodeMain.dtd -->
+<!ELEMENT ESETHBaseNodeMainL1GenerationNotRunning EMPTY>
+<!ELEMENT ESETHBaseNodeMainL1GenerationReconnect EMPTY>
+<!ELEMENT ESETHBaseNodeMainL1GenerationWriteToStream EMPTY>
+
+<!ELEMENT ESx86VP_ETHNodeMainParameters (ESx86VP_ETHNodeMainParameters.Name, ESx86VP_ETHNodeMainParameters.Enabled)>
+<!ELEMENT ESx86VP_ETHNodeMainParameters.Name (ESParameterName)>
+<!ELEMENT ESx86VP_ETHNodeMainParameters.Enabled (ESParameterBoolean)>
+
+
+<!ELEMENT ESx86VP_ETHNodeMainSubNodeList (ESx86VP_ETHNodeController)*>
+
+
+
+<!-- controller node -->
+
+<!ELEMENT ESx86VP_ETHNodeController (ESx86VP_ETHNodeController.Parameters, ESx86VP_ETHNodeController.L1Generation, ESx86VP_ETHNodeController.SubNodes)>
+<!ATTLIST ESx86VP_ETHNodeController
+    Name ID #REQUIRED
+>
+
+<!ELEMENT ESx86VP_ETHNodeController.Parameters (ESx86VP_ETHNodeControllerParameters)>
+<!ELEMENT ESx86VP_ETHNodeController.L1Generation (ESETHBaseNodeControllerL1GenerationBlock)>
+<!ELEMENT ESx86VP_ETHNodeController.SubNodes (ESx86VP_ETHNodeControllerSubNodeList)>
+
+<!--MPP dies gehört eignentlich in die ESETHBaseNodeMain.dtd  -->
+<!ELEMENT ESETHBaseNodeControllerL1GenerationBlock (ESETHBaseNodeControllerL1GenerationBlock.UnionCase, ESETHBaseNodeControllerL1GenerationBlock.Reconnect)>
+<!ATTLIST ESETHBaseNodeControllerL1GenerationBlock
+    L1TreeIndex CDATA "-1"
+
+>
+
+<!ELEMENT ESETHBaseNodeControllerL1GenerationBlock.UnionCase (ESETHBaseNodeControllerL1GenerationUnionCase)>
+<!ELEMENT ESETHBaseNodeControllerL1GenerationBlock.Reconnect (ESETHBaseNodeControllerL1GenerationReconnect)>
+
+<!ELEMENT ESETHBaseNodeControllerL1GenerationUnionCase EMPTY>
+<!ELEMENT ESETHBaseNodeControllerL1GenerationReconnect EMPTY>
+
+
+<!ELEMENT ESx86VP_ETHNodeControllerParameters (ESx86VP_ETHNodeControllerParameters.Name, 
+                                                 ESx86VP_ETHNodeControllerParameters.Enabled, 
+                                                 ESx86VP_ETHNodeControllerParameters.Port,
+                                                 ESx86VP_ETHNodeControllerParameters.IPAddress,
+                                                 ESx86VP_ETHNodeControllerParameters.SubnetMask)>
+
+
+<!ELEMENT ESx86VP_ETHNodeControllerParameters.Name (ESParameterName)>
+<!ELEMENT ESx86VP_ETHNodeControllerParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ESx86VP_ETHNodeControllerParameters.Port (ESParameterEnum)>
+<!ATTLIST ESx86VP_ETHNodeControllerParameters.Port 
+    EnumText1      CDATA "Port 1"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Port 2"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "0"
+>
+
+<!ELEMENT ESx86VP_ETHNodeControllerParameters.IPAddress (ESParameterIPAddress)>
+<!ELEMENT ESx86VP_ETHNodeControllerParameters.SubnetMask (ESParameterIPAddress)>
+
+<!ELEMENT ESx86VP_ETHNodeControllerSubNodeList (ESx86VP_XCPEthSlaveNodeDevice)*>
+
+
+
+
+
+
+
+
+

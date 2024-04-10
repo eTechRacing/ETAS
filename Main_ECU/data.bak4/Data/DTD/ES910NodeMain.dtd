@@ -1,0 +1,64 @@
+<?DTDVersion "5.0.2.0"?>
+<?CompatibleDTDVersion "2.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!NOTATION ofTypeES910NodeMain SYSTEM "ES910NodeMain">
+<!NOTATION ofTypeESNode SYSTEM "ESNode">
+<!NOTATION ofTypeESNodeDevice SYSTEM "ESNodeDevice">
+<!NOTATION ofTypeESNodeMain SYSTEM "ESNodeMain">
+<!NOTATION ofTypeESNodeProcessor SYSTEM "ESNodeProcessor">
+<!NOTATION ofTypeESNodeSignal SYSTEM "ESNodeSignal">
+<!NOTATION ofTypeESNodeSignalGroup SYSTEM "ESNodeSignalGroup">
+<!NOTATION ofTypeESPoolSignal SYSTEM "ESPoolSignal">
+<!NOTATION ofTypeESSystem SYSTEM "ESSystem">
+
+<?SuperClass ES910NodeMain->ESNodeProcessor ?>
+
+<!ELEMENT ES910NodeMain (ES910NodeMain.Parameters, ES910NodeMain.L1Generation, ES910NodeMain.SubNodes, _System)>
+<!ATTLIST ES910NodeMain
+    Name ID #REQUIRED
+    ConfigurationID CDATA ""
+    
+    GlobalObject.ofTypeYBOCPUBoard ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOECU ENTITY #REQUIRED
+>
+<!ELEMENT ES910NodeMain.Parameters (ES910NodeMainParameters)>
+<!ELEMENT ES910NodeMain.L1Generation (ES910NodeMainL1Generation)>
+<!ELEMENT ES910NodeMain.SubNodes (ES910NodeMainSubNodeList)>
+
+<!ELEMENT ES910NodeMainL1Generation (ES910NodeMainL1Generation.NotRunning, ES910NodeMainL1Generation.Reconnect, ES910NodeMainL1Generation.WriteToStream)>
+<!ATTLIST ES910NodeMainL1Generation
+    L1TreeIndex CDATA "-1"
+    ObjectsToReconnect CDATA "-1"
+>
+
+<!ELEMENT ES910NodeMainL1Generation.NotRunning (ES910NodeMainL1GenerationNotRunning)>
+<!ELEMENT ES910NodeMainL1Generation.Reconnect (ES910NodeMainL1GenerationReconnect)>
+<!ELEMENT ES910NodeMainL1Generation.WriteToStream (ES910NodeMainL1GenerationWriteToStream)>
+
+<!ELEMENT ES910NodeMainL1GenerationNotRunning EMPTY>
+<!ELEMENT ES910NodeMainL1GenerationReconnect EMPTY>
+<!ELEMENT ES910NodeMainL1GenerationWriteToStream EMPTY>
+
+<!ELEMENT ES910NodeMainParameters (ES910NodeMainParameters.Name,ES910NodeMainParameters.Enabled,ES910NodeMainParameters.IOFailureBehaviour)>
+
+<!ELEMENT ES910NodeMainParameters.Name (ESParameterName)>
+<!ELEMENT ES910NodeMainParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES910NodeMainParameters.IOFailureBehaviour (ESParameterEnum)>
+
+<!ATTLIST ES910NodeMainParameters.IOFailureBehaviour  
+    EnumText1      CDATA "abort"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "continue"
+    EnumL1Value2     CDATA "0"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES910NodeMainSubNodeList (ESNodeRef)*>

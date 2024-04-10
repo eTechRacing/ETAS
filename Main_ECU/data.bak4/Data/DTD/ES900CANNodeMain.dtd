@@ -1,0 +1,69 @@
+<?DTDVersion "4.7.3.1"?>
+<?CompatibleDTDVersion "4.0.0"?>
+<?CompatibleDTDVersion "3.1.0"?>
+<?CompatibleDTDVersion "3.0.1"?>
+<?CompatibleDTDVersion "3.0.0"?>
+<?CompatibleDTDVersion "2.2.0"?>
+<?CompatibleDTDVersion "2.0.3"?>
+<?CompatibleDTDVersion "2.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!ENTITY % ESXCPBNodeMain SYSTEM "ESXCPBNodeMain.DTD">
+%ESXCPBNodeMain;
+
+<!ENTITY % ESCANFoundationNodeMainBase SYSTEM "ESCANFoundationNodeMainBase.dtd">
+%ESCANFoundationNodeMainBase;
+
+<?SuperClass ES900CANNodeMain->ES900Component ?>
+<?SuperClass ES900CANNodeMain->ESCANFoundationNodeMainBase ?>
+<?SuperClass ES900CANNodeCANController->ESCANFoundationNodeControllerBase ?>
+<?SuperClass ES900CANNodeDevice->ESCANFoundationNodeIODeviceBase ?>
+
+<!-- Board -->
+
+<!ELEMENT ES900CANNodeMain (ES900CANNodeMain.Parameters, ES900CANNodeMain.L1Generation, ES900CANNodeMain.SubNodes, _System)>
+<!ATTLIST ES900CANNodeMain
+    Name ID #REQUIRED
+    
+    GlobalObject.ofTypeYBOBoard ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOCPUBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ES900CANNodeMain.Parameters (ESCANBaseNodeMainParameters)>
+<!ELEMENT ES900CANNodeMain.L1Generation (ESCANBaseNodeMainL1Generation)>
+<!ELEMENT ES900CANNodeMain.SubNodes (ES900CANNodeMainSubNodeList)>
+
+<!ELEMENT ES900CANNodeMainSubNodeList (ES900CANNodeCANController)*>
+
+<!-- controller node -->
+
+<!ELEMENT ES900CANNodeCANController (ES900CANNodeCANController.Parameters, ES900CANNodeCANController.L1Generation, ES900CANNodeCANController.SubNodes, ES900CANNodeCANController.SignalPool)>
+<!ATTLIST ES900CANNodeCANController
+    Name ID #REQUIRED
+>
+
+<!ELEMENT ES900CANNodeCANController.Parameters (ESCANBaseNodeCANControllerParameters)>
+<!ELEMENT ES900CANNodeCANController.L1Generation (ESCANBaseNodeCANControllerL1Generation)>
+<!ELEMENT ES900CANNodeCANController.SubNodes (ES900CANNodeCANControllerSubNodeList)>
+<!ELEMENT ES900CANNodeCANController.SignalPool (ESCANBasePoolSignal)>
+
+<!ELEMENT ES900CANNodeCANControllerSubNodeList (ES900CANNodeDevice, ESCANBaseNodeXCPBDevice)*>
+
+<!-- IO device node -->
+
+<!ELEMENT ES900CANNodeDevice (ES900CANNodeDevice.Parameters, ES900CANNodeDevice.L1Generation, ES900CANNodeDevice.SubNodes)>
+<!ATTLIST ES900CANNodeDevice
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBODevice ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ES900CANNodeDevice.Parameters (ESCANBaseNodeDeviceParameters)>
+<!ELEMENT ES900CANNodeDevice.L1Generation (ESCANBaseNodeDeviceL1Generation)>
+<!ELEMENT ES900CANNodeDevice.SubNodes (ESCANBaseNodeDeviceSubNodeList)>
