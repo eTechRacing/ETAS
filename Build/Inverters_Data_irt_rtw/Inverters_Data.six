@@ -16,15 +16,15 @@
 	<directoryLocations scheme="MATLAB 9.12">
 		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\"/>
 		<directory identifier="toolDir" path=".\"/>
-		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink\"/>
-		<directory identifier="codeDir" path="c:\users\joser\onedrive\documentos\github\etas\build\inverters_data_irt_rtw\"/>
+		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\"/>
+		<directory identifier="codeDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Inverters_Data_irt_rtw\"/>
 	</directoryLocations>
 	<moduleInfo identifier="Inverters_Data">
 		<name>Inverters_Data</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Inverters_Data.slx&quot;"/>
-		<version major="10" minor="13"/>
+		<version major="10" minor="15"/>
 		<dateTime kind="created" year="2021" month="2" day="22" hour="11" minute="1" second="38"/>
-		<dateTime kind="lastModified" year="2024" month="3" day="29" hour="1" minute="2" second="30"/>
+		<dateTime kind="lastModified" year="2024" month="4" day="3" hour="16" minute="36" second="41"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="3" day="29" hour="1" minute="2" second="41"/>
+		<dateTime kind="created" year="2024" month="4" day="6" hour="1" minute="22" second="19"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -253,16 +253,16 @@
 			</typeDef>
 			<structDef name="ExtY_Inverters_Data_T_tag">
 				<fileOrigin name="Inverters_Data.h"/>
-				<structMember identifier="Temp_IGBT">
+				<structMember identifier="Max_Temp_IGBT">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/Temp_IGBT</documentation>
+						<documentation>&lt;Root&gt;/Max_Temp_IGBT</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Temp_Motors">
+				<structMember identifier="Max_Temp_Motors">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/Temp_Motors</documentation>
+						<documentation>&lt;Root&gt;/Max_Temp_Motors</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="RL_Vel_ms_Wheel">
@@ -347,18 +347,6 @@
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Inv_L_TempIGBT</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Inv_L_VdcBus">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Inv_L_VdcBus</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Inv_R_VdcBus">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Inv_R_VdcBus</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="RL_rads_Motor">
@@ -847,19 +835,19 @@
 		</dataElement>
 		<!-- rtY output ports following -->
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_Y.Temp_IGBT">
+			<dataCInterface identifier="Inverters_Data_Y.Max_Temp_IGBT">
 				<definitionLocation>
 					<baseRef identifier="Inverters_Data_Y"/>
-					<memberRef identifier="Temp_IGBT"/>
+					<memberRef identifier="Max_Temp_IGBT"/>
 				</definitionLocation>
 				<fileOrigin name="Inverters_Data.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Temp_IGBT">
-				<name>Temp_IGBT</name>
-				<modelLink href="Inverters_Data/Temp_IGBT"/>
+			<modelOrigin identifier="Inverters_Data.Max_Temp_IGBT">
+				<name>Max_Temp_IGBT</name>
+				<modelLink href="Inverters_Data/Max_Temp_IGBT"/>
 				<modelLocation>
 					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Temp_IGBT" kind="mlsl:block" type="Outport"/>
+					<pathNode name="Max_Temp_IGBT" kind="mlsl:block" type="Outport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection out="true"/>
@@ -878,19 +866,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_Y.Temp_Motors">
+			<dataCInterface identifier="Inverters_Data_Y.Max_Temp_Motors">
 				<definitionLocation>
 					<baseRef identifier="Inverters_Data_Y"/>
-					<memberRef identifier="Temp_Motors"/>
+					<memberRef identifier="Max_Temp_Motors"/>
 				</definitionLocation>
 				<fileOrigin name="Inverters_Data.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Temp_Motors">
-				<name>Temp_Motors</name>
-				<modelLink href="Inverters_Data/Temp_Motors"/>
+			<modelOrigin identifier="Inverters_Data.Max_Temp_Motors">
+				<name>Max_Temp_Motors</name>
+				<modelLink href="Inverters_Data/Max_Temp_Motors"/>
 				<modelLocation>
 					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Temp_Motors" kind="mlsl:block" type="Outport"/>
+					<pathNode name="Max_Temp_Motors" kind="mlsl:block" type="Outport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection out="true"/>
@@ -1343,68 +1331,6 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_Y.Inv_L_VdcBus">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_Y"/>
-					<memberRef identifier="Inv_L_VdcBus"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Inv_L_VdcBus">
-				<name>Inv_L_VdcBus</name>
-				<modelLink href="Inverters_Data/Inv_L_VdcBus"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Inv_L_VdcBus" kind="mlsl:block" type="Outport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection out="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_Y.Inv_R_VdcBus">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Data_Y"/>
-					<memberRef identifier="Inv_R_VdcBus"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Data.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Inv_R_VdcBus">
-				<name>Inv_R_VdcBus</name>
-				<modelLink href="Inverters_Data/Inv_R_VdcBus"/>
-				<modelLocation>
-					<pathNode name="Inverters_Data" kind="mlsl:model"/>
-					<pathNode name="Inv_R_VdcBus" kind="mlsl:block" type="Outport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection out="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Data_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
 			<dataCInterface identifier="Inverters_Data_Y.RL_rads_Motor">
 				<definitionLocation>
 					<baseRef identifier="Inverters_Data_Y"/>
@@ -1531,8 +1457,8 @@
 						<message identifier="Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor" send="false"></message>
 						<message identifier="Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT" send="false"></message>
 						<message identifier="Inverters_Data_U.Inv_R_RegID_M235_Inv_R_DCBus" send="false"></message>
-						<message identifier="Inverters_Data_Y.Temp_IGBT" send="true"></message>
-						<message identifier="Inverters_Data_Y.Temp_Motors" send="true"></message>
+						<message identifier="Inverters_Data_Y.Max_Temp_IGBT" send="true"></message>
+						<message identifier="Inverters_Data_Y.Max_Temp_Motors" send="true"></message>
 						<message identifier="Inverters_Data_Y.RL_Vel_ms_Wheel" send="true"></message>
 						<message identifier="Inverters_Data_Y.RR_Vel_ms_Wheel" send="true"></message>
 						<message identifier="Inverters_Data_Y.InvertersMinDCBus" send="true"></message>
@@ -1547,8 +1473,6 @@
 						<message identifier="Inverters_Data_Y.Inv_R_TempMotor" send="true"></message>
 						<message identifier="Inverters_Data_Y.Inv_R_TempIGBT" send="true"></message>
 						<message identifier="Inverters_Data_Y.Inv_L_TempIGBT" send="true"></message>
-						<message identifier="Inverters_Data_Y.Inv_L_VdcBus" send="true"></message>
-						<message identifier="Inverters_Data_Y.Inv_R_VdcBus" send="true"></message>
 						<message identifier="Inverters_Data_Y.RL_rads_Motor" send="true"></message>
 						<message identifier="Inverters_Data_Y.RR_rads_Motor" send="true"></message>
 					</messageAccess>

@@ -12,9 +12,9 @@
  *
  * Code generation for model "Inverters_Data".
  *
- * Model version              : 10.13
+ * Model version              : 10.15
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Mar 29 01:02:41 2024
+ * C source code generated on : Sat Apr  6 01:22:19 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -880,8 +880,8 @@ typedef struct {
 
 /* External outputs (root outports fed by signals with default storage) */
 typedef struct {
-  real_T Temp_IGBT;                    /* '<Root>/Temp_IGBT' */
-  real_T Temp_Motors;                  /* '<Root>/Temp_Motors' */
+  real_T Max_Temp_IGBT;                /* '<Root>/Max_Temp_IGBT' */
+  real_T Max_Temp_Motors;              /* '<Root>/Max_Temp_Motors' */
   real_T RL_Vel_ms_Wheel;              /* '<Root>/RL_Vel_ms_Wheel' */
   real_T RR_Vel_ms_Wheel;              /* '<Root>/RR_Vel_ms_Wheel' */
   real_T InvertersMinDCBus;            /* '<Root>/InvertersMinDCBus' */
@@ -896,8 +896,6 @@ typedef struct {
   real_T Inv_R_TempMotor;              /* '<Root>/Inv_R_TempMotor' */
   real_T Inv_R_TempIGBT;               /* '<Root>/Inv_R_TempIGBT' */
   real_T Inv_L_TempIGBT;               /* '<Root>/Inv_L_TempIGBT' */
-  real_T Inv_L_VdcBus;                 /* '<Root>/Inv_L_VdcBus' */
-  real_T Inv_R_VdcBus;                 /* '<Root>/Inv_R_VdcBus' */
   real_T RL_rads_Motor;                /* '<Root>/RL_rads_Motor' */
   real_T RR_rads_Motor;                /* '<Root>/RR_rads_Motor' */
 } ExtY_Inverters_Data_T;
