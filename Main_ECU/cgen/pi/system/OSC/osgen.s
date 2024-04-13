@@ -7,7 +7,7 @@
 #
 # "Project is 'os_config'"
 # "Last edited 'unknown'"
-# "File generated 'Thu Mar 28 16:23:14 2024'"
+# "File generated 'Fri Apr 12 20:11:07 2024'"
 # "Target variant 'ES900'"
 	.section	".os_pir","aw",@progbits
 	.align 2
@@ -140,7 +140,7 @@ OS_L0033:
 	.long	0
 	.long	36
 	.align 2
-	.long	osek_task_e_SWT_CAN2_AP_FECU_Data1
+	.long	osek_task_e_SWT_CAN2_2024_AP_FECU_Data1
 	.align 2
 	.long	0
 	.align 2
@@ -160,7 +160,7 @@ OS_L0034:
 	.long	0
 	.long	35
 	.align 2
-	.long	osek_task_e_SWT_CAN2_AP_FECU_Data2
+	.long	osek_task_e_SWT_CAN2_2024_AP_FECU_Data2
 	.align 2
 	.long	0
 	.align 2
@@ -180,7 +180,7 @@ OS_L0035:
 	.long	0
 	.long	34
 	.align 2
-	.long	osek_task_e_SWT_CAN2_NM_RECU_Keep_Alive
+	.long	osek_task_e_SWT_CAN2_2024_NM_RECU_Keep_Alive
 	.align 2
 	.long	0
 	.align 2
@@ -200,7 +200,7 @@ OS_L0036:
 	.long	0
 	.long	33
 	.align 2
-	.long	osek_task_e_SWT_CAN2_NM_FECU_Keep_Alive
+	.long	osek_task_e_SWT_CAN2_2024_NM_FECU_Keep_Alive
 	.align 2
 	.long	0
 	.align 2
@@ -220,7 +220,7 @@ OS_L0037:
 	.long	0
 	.long	32
 	.align 2
-	.long	osek_task_e_SWT_CAN2_AP_RECU_Data
+	.long	osek_task_e_SWT_CAN2_2024_AP_RECU_Data
 	.align 2
 	.long	0
 	.align 2
@@ -240,7 +240,7 @@ OS_L0038:
 	.long	0
 	.long	31
 	.align 2
-	.long	osek_task_e_SWT_CAN2_AP_ELLIPSE_SLIP_CURV
+	.long	osek_task_e_SWT_CAN2_2024_AP_ELLIPSE_SLIP_CURV
 	.align 2
 	.long	0
 	.align 2
@@ -260,7 +260,7 @@ OS_L0039:
 	.long	0
 	.long	30
 	.align 2
-	.long	osek_task_e_SWT_CAN2_AP_ELLIPSE_IMU_GYRO
+	.long	osek_task_e_SWT_CAN2_2024_AP_ELLIPSE_IMU_GYRO
 	.align 2
 	.long	0
 	.align 2
@@ -280,7 +280,7 @@ OS_L003A:
 	.long	0
 	.long	29
 	.align 2
-	.long	osek_task_e_SWT_CAN2_NM_ELLIPSE_Status
+	.long	osek_task_e_SWT_CAN2_2024_NM_ELLIPSE_Status
 	.align 2
 	.long	0
 	.align 2
@@ -300,7 +300,7 @@ OS_L003B:
 	.long	0
 	.long	28
 	.align 2
-	.long	osek_task_e_SWT_CAN2_AP_ELLIPSE_EKF_VEL
+	.long	osek_task_e_SWT_CAN2_2024_AP_ELLIPSE_EKF_VEL
 	.align 2
 	.long	0
 	.align 2
@@ -320,7 +320,7 @@ OS_L003C:
 	.long	0
 	.long	27
 	.align 2
-	.long	osek_task_e_SWT_CAN2_AP_ELLIPSE_EKF_EULER
+	.long	osek_task_e_SWT_CAN2_2024_AP_ELLIPSE_EKF_EULER
 	.align 2
 	.long	0
 	.align 2
@@ -340,7 +340,7 @@ OS_L003D:
 	.long	0
 	.long	26
 	.align 2
-	.long	osek_task_e_SWT_CAN2_AP_ELLIPSE_IMU_ACCEL
+	.long	osek_task_e_SWT_CAN2_2024_AP_ELLIPSE_IMU_ACCEL
 	.align 2
 	.long	0
 	.align 2
@@ -360,7 +360,7 @@ OS_L003E:
 	.long	0
 	.long	25
 	.align 2
-	.long	osek_task_e_SWT_CAN2_AP_ELLIPSE_EKF_POS
+	.long	osek_task_e_SWT_CAN2_2024_AP_ELLIPSE_EKF_POS
 	.align 2
 	.long	0
 	.align 2
@@ -380,7 +380,7 @@ OS_L003F:
 	.long	0
 	.long	24
 	.align 2
-	.long	osek_task_e_SWT_CAN2_MEAS_FECU_SDC
+	.long	osek_task_e_SWT_CAN2_2024_MEAS_FECU_SDC
 	.align 2
 	.long	0
 	.align 2
@@ -400,7 +400,7 @@ OS_L0040:
 	.long	0
 	.long	23
 	.align 2
-	.long	osek_task_e_SWT_CAN2_MEAS_RECU_SDC
+	.long	osek_task_e_SWT_CAN2_2024_MEAS_RECU_SDC
 	.align 2
 	.long	0
 	.align 2
@@ -420,7 +420,7 @@ OS_L0041:
 	.long	0
 	.long	22
 	.align 2
-	.long	osek_task_e_SWT_CAN1_AP_DASH_EnableDrive
+	.long	osek_task_e_SWT_CAN1_2024_AP_DASH_EnableDrive
 	.align 2
 	.long	0
 	.align 2
@@ -440,7 +440,7 @@ OS_L0042:
 	.long	0
 	.long	21
 	.align 2
-	.long	osek_task_e_SWT_CAN1_AP_DASH_PrechargeRequest
+	.long	osek_task_e_SWT_CAN1_2024_AP_DASH_PrechargeRequest
 	.align 2
 	.long	0
 	.align 2
@@ -460,7 +460,7 @@ OS_L0043:
 	.long	0
 	.long	20
 	.align 2
-	.long	osek_task_e_SWT_CAN1_AP_DASH_TorqueLockOn
+	.long	osek_task_e_SWT_CAN1_2024_AP_DASH_TorqueLockOn
 	.align 2
 	.long	0
 	.align 2
@@ -480,7 +480,7 @@ OS_L0044:
 	.long	0
 	.long	19
 	.align 2
-	.long	osek_task_e_SWT_CAN1_NM_DASH_Keep_Alive
+	.long	osek_task_e_SWT_CAN1_2024_NM_DASH_Keep_Alive
 	.align 2
 	.long	0
 	.align 2
@@ -500,7 +500,7 @@ OS_L0045:
 	.long	0
 	.long	18
 	.align 2
-	.long	osek_task_e_SWT_CAN1_AP_BMS_AIRs_State
+	.long	osek_task_e_SWT_CAN1_2024_AP_BMS_AIRs_State
 	.align 2
 	.long	0
 	.align 2
@@ -520,7 +520,7 @@ OS_L0046:
 	.long	0
 	.long	17
 	.align 2
-	.long	osek_task_e_SWT_CAN1_NM_BMS_Keep_Alive
+	.long	osek_task_e_SWT_CAN1_2024_NM_BMS_Keep_Alive
 	.align 2
 	.long	0
 	.align 2
@@ -540,7 +540,7 @@ OS_L0047:
 	.long	0
 	.long	16
 	.align 2
-	.long	osek_task_e_SWT_CAN1_AP_DASH_Mode
+	.long	osek_task_e_SWT_CAN1_2024_AP_DASH_Mode
 	.align 2
 	.long	0
 	.align 2
@@ -560,7 +560,7 @@ OS_L0048:
 	.long	0
 	.long	15
 	.align 2
-	.long	osek_task_e_SWT_CAN1_AP_DASH_CustomMode
+	.long	osek_task_e_SWT_CAN1_2024_AP_DASH_CustomMode
 	.align 2
 	.long	0
 	.align 2
@@ -580,7 +580,7 @@ OS_L0049:
 	.long	0
 	.long	14
 	.align 2
-	.long	osek_task_e_SWT_CAN1_AP_Inverter_L_Tx
+	.long	osek_task_e_SWT_CAN1_2024_AP_Inverter_L_Tx
 	.align 2
 	.long	0
 	.align 2
@@ -600,7 +600,7 @@ OS_L004A:
 	.long	0
 	.long	13
 	.align 2
-	.long	osek_task_e_SWT_CAN1_AP_Inverter_R_Tx
+	.long	osek_task_e_SWT_CAN1_2024_AP_Inverter_R_Tx
 	.align 2
 	.long	0
 	.align 2
@@ -620,7 +620,7 @@ OS_L004B:
 	.long	0
 	.long	12
 	.align 2
-	.long	osek_task_e_SWT_CAN1_AP_BMS_BatteryTemperatures
+	.long	osek_task_e_SWT_CAN1_2024_AP_BMS_BatteryTemperature
 	.align 2
 	.long	0
 	.align 2
@@ -640,7 +640,7 @@ OS_L004C:
 	.long	0
 	.long	11
 	.align 2
-	.long	osek_task_e_SWT_CAN1_AP_BMS_ChargerParameters
+	.long	osek_task_e_SWT_CAN1_2024_AP_BMS_ChargerParameters
 	.align 2
 	.long	0
 	.align 2
@@ -660,7 +660,7 @@ OS_L004D:
 	.long	0
 	.long	10
 	.align 2
-	.long	osek_task_e_SWT_CAN1_AP_BMS_Voltages
+	.long	osek_task_e_SWT_CAN1_2024_AP_BMS_Voltages
 	.align 2
 	.long	0
 	.align 2
@@ -680,7 +680,7 @@ OS_L004E:
 	.long	0
 	.long	9
 	.align 2
-	.long	osek_task_e_SWT_CAN1_AP_CurrentSensor
+	.long	osek_task_e_SWT_CAN1_2024_AP_CurrentSensor
 	.align 2
 	.long	0
 	.align 2
@@ -700,7 +700,7 @@ OS_L004F:
 	.long	0
 	.long	8
 	.align 2
-	.long	osek_task_e_SWT_CAN1_AP_BMS_SDC
+	.long	osek_task_e_SWT_CAN1_2024_AP_BMS_SDC
 	.align 2
 	.long	0
 	.align 2
@@ -940,7 +940,7 @@ OS_L005E:
 	.long	0
 	.long	0
 	.align 2
-	.long	osE_ISR_CAN1
+	.long	osE_ISR_CAN1_2024
 	.align 2
 	.long	1
 	.align 2
@@ -960,7 +960,7 @@ OS_L005F:
 	.long	0
 	.long	0
 	.align 2
-	.long	osE_ISR_CAN2
+	.long	osE_ISR_CAN2_2024
 	.align 2
 	.long	1
 	.align 2
@@ -1096,12 +1096,12 @@ os_sivt:
 	.byte	203
 	.byte	2
 	.zero	2
-	.long	osE_ISR_CAN1
+	.long	osE_ISR_CAN1_2024
 	.long	1
 	.byte	205
 	.byte	2
 	.zero	2
-	.long	osE_ISR_CAN2
+	.long	osE_ISR_CAN2_2024
 	.long	1
 	.byte	206
 	.byte	2

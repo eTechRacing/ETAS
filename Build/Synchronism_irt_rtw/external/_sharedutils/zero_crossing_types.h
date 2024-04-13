@@ -9,7 +9,7 @@
  *
  * Model version              : 10.0
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Wed Apr 10 15:29:25 2024
+ * C source code generated on : Fri Apr 12 20:09:03 2024
  */
 
 #ifndef ZERO_CROSSING_TYPES_H

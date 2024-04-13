@@ -7,8 +7,8 @@
 		<define name="MODEL=SoC"/>
 		<define name="RT"/>
 		<define name="NUMST=2"/>
-		<define name="TID01EQ=1"/>
-		<define name="NCSTATES=2"/>
+		<define name="TID01EQ=0"/>
+		<define name="NCSTATES=0"/>
 		<define name="MT=0"/>
 		<define name="HAVESTDIO"/>
 		<define name="MdlStart=MdlStart_SoC"/>
@@ -44,20 +44,20 @@
 		<define name="rt_UpdateDiscreteTaskTime=rt_UpdateDiscreteTaskTime_SoC"/>
 	</defineset>
 	<path>
-		<pathelement path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\SoC_irt_rtw\SoC.c"/>
-		<pathelement path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\SoC_irt_rtw\SoC_main.c"/>
-		<pathelement path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\SoC_irt_rtw\external\rtw\c\src\rt_sim.c"/>
-		<pathelement path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\c\src\ode3.c"/>
+		<pathelement path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\SoC.c"/>
+		<pathelement path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\SoC_data.c"/>
+		<pathelement path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\SoC_main.c"/>
+		<pathelement path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\rtw\c\src\rt_sim.c"/>
 	</path>
 	<includepath>
-		<pathelement path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\SoC_irt_rtw"/>
+		<pathelement path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw"/>
 		<pathelement path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\c\src"/>
 		<pathelement path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\c\lib"/>
-		<pathelement path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\SoC_irt_rtw\external\simulink\include"/>
-		<pathelement path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\SoC_irt_rtw\external\extern\include"/>
-		<pathelement path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\SoC_irt_rtw\external\rtw\c\src"/>
-		<pathelement path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\SoC_irt_rtw\external\rtw\c\libsrc"/>
-		<pathelement path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\SoC_irt_rtw\external\_sharedutils"/>
+		<pathelement path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\simulink\include"/>
+		<pathelement path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\extern\include"/>
+		<pathelement path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\rtw\c\src"/>
+		<pathelement path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\rtw\c\libsrc"/>
+		<pathelement path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils"/>
 		<pathelement path=".\SoC1"/>
 	</includepath>
 </compiler>
@@ -65,9 +65,9 @@
 <linker id="archiver.package.SoC1" extends="qnx-6.5.qcc-archiver.powerpc-nto-gnu-4.4.2" outfile="SoC1\SoC1.a">
 	<path>
 		<pathelement path="SoC1\SoC${fileext.obj}"/>
+		<pathelement path="SoC1\SoC_data${fileext.obj}"/>
 		<pathelement path="SoC1\SoC_main${fileext.obj}"/>
 		<pathelement path="SoC1\rt_sim${fileext.obj}"/>
-		<pathelement path="SoC1\ode3${fileext.obj}"/>
 	</path>
 </linker>
 

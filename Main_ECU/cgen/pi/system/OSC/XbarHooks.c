@@ -7,91 +7,91 @@
 
 /* entries for crossbar task table */
 
-/* crossbar hook in task 1 SWT_CAN1_AP_BMS_AIRs_State */
+/* crossbar hook in task 1 SWT_CAN1_2024_AP_BMS_AIRs_State */
 crossbarHookTableEntry crossbarHookTable1[1] = {NULL};
 
-/* crossbar hook in task 2 SWT_CAN1_AP_BMS_BatteryTemperatures */
+/* crossbar hook in task 2 SWT_CAN1_2024_AP_BMS_BatteryTemperature */
 crossbarHookTableEntry crossbarHookTable2[1] = {NULL};
 
-/* crossbar hook in task 3 SWT_CAN1_AP_BMS_ChargerParameters */
+/* crossbar hook in task 3 SWT_CAN1_2024_AP_BMS_ChargerParameters */
 crossbarHookTableEntry crossbarHookTable3[1] = {NULL};
 
-/* crossbar hook in task 4 SWT_CAN1_AP_BMS_SDC */
+/* crossbar hook in task 4 SWT_CAN1_2024_AP_BMS_SDC */
 crossbarHookTableEntry crossbarHookTable4[1] = {NULL};
 
-/* crossbar hook in task 5 SWT_CAN1_AP_BMS_Voltages */
+/* crossbar hook in task 5 SWT_CAN1_2024_AP_BMS_Voltages */
 crossbarHookTableEntry crossbarHookTable5[1] = {NULL};
 
-/* crossbar hook in task 6 SWT_CAN1_AP_CurrentSensor */
+/* crossbar hook in task 6 SWT_CAN1_2024_AP_CurrentSensor */
 crossbarHookTableEntry crossbarHookTable6[1] = {NULL};
 
-/* crossbar hook in task 7 SWT_CAN1_AP_DASH_CustomMode */
+/* crossbar hook in task 7 SWT_CAN1_2024_AP_DASH_CustomMode */
 crossbarHookTableEntry crossbarHookTable7[1] = {NULL};
 
-/* crossbar hook in task 8 SWT_CAN1_AP_DASH_EnableDrive */
+/* crossbar hook in task 8 SWT_CAN1_2024_AP_DASH_EnableDrive */
 crossbarHookTableEntry crossbarHookTable8[1] = {NULL};
 
-/* crossbar hook in task 9 SWT_CAN1_AP_DASH_Mode */
+/* crossbar hook in task 9 SWT_CAN1_2024_AP_DASH_Mode */
 crossbarHookTableEntry crossbarHookTable9[1] = {NULL};
 
-/* crossbar hook in task 10 SWT_CAN1_AP_DASH_PrechargeRequest */
+/* crossbar hook in task 10 SWT_CAN1_2024_AP_DASH_PrechargeRequest */
 crossbarHookTableEntry crossbarHookTable10[1] = {NULL};
 
-/* crossbar hook in task 11 SWT_CAN1_AP_DASH_TorqueLockOn */
+/* crossbar hook in task 11 SWT_CAN1_2024_AP_DASH_TorqueLockOn */
 crossbarHookTableEntry crossbarHookTable11[1] = {NULL};
 
-/* crossbar hook in task 12 SWT_CAN1_AP_Inverter_L_Tx */
+/* crossbar hook in task 12 SWT_CAN1_2024_AP_Inverter_L_Tx */
 crossbarHookTableEntry crossbarHookTable12[1] = {NULL};
 
-/* crossbar hook in task 13 SWT_CAN1_AP_Inverter_R_Tx */
+/* crossbar hook in task 13 SWT_CAN1_2024_AP_Inverter_R_Tx */
 crossbarHookTableEntry crossbarHookTable13[1] = {NULL};
 
-/* crossbar hook in task 14 SWT_CAN1_NM_BMS_Keep_Alive */
+/* crossbar hook in task 14 SWT_CAN1_2024_NM_BMS_Keep_Alive */
 crossbarHookTableEntry crossbarHookTable14[1] = {NULL};
 
-/* crossbar hook in task 15 SWT_CAN1_NM_DASH_Keep_Alive */
+/* crossbar hook in task 15 SWT_CAN1_2024_NM_DASH_Keep_Alive */
 crossbarHookTableEntry crossbarHookTable15[1] = {NULL};
 
-/* crossbar hook in task 16 SWT_CAN2_AP_ELLIPSE_EKF_EULER */
+/* crossbar hook in task 16 SWT_CAN2_2024_AP_ELLIPSE_EKF_EULER */
 crossbarHookTableEntry crossbarHookTable16[1] = {NULL};
 
-/* crossbar hook in task 17 SWT_CAN2_AP_ELLIPSE_EKF_POS */
+/* crossbar hook in task 17 SWT_CAN2_2024_AP_ELLIPSE_EKF_POS */
 crossbarHookTableEntry crossbarHookTable17[1] = {NULL};
 
-/* crossbar hook in task 18 SWT_CAN2_AP_ELLIPSE_EKF_VEL */
+/* crossbar hook in task 18 SWT_CAN2_2024_AP_ELLIPSE_EKF_VEL */
 crossbarHookTableEntry crossbarHookTable18[1] = {NULL};
 
-/* crossbar hook in task 19 SWT_CAN2_AP_ELLIPSE_IMU_ACCEL */
+/* crossbar hook in task 19 SWT_CAN2_2024_AP_ELLIPSE_IMU_ACCEL */
 crossbarHookTableEntry crossbarHookTable19[1] = {NULL};
 
-/* crossbar hook in task 20 SWT_CAN2_AP_ELLIPSE_IMU_GYRO */
+/* crossbar hook in task 20 SWT_CAN2_2024_AP_ELLIPSE_IMU_GYRO */
 crossbarHookTableEntry crossbarHookTable20[1] = {NULL};
 
-/* crossbar hook in task 21 SWT_CAN2_AP_ELLIPSE_SLIP_CURV */
+/* crossbar hook in task 21 SWT_CAN2_2024_AP_ELLIPSE_SLIP_CURV */
 crossbarHookTableEntry crossbarHookTable21[1] = {NULL};
 
-/* crossbar hook in task 22 SWT_CAN2_AP_FECU_Data1 */
+/* crossbar hook in task 22 SWT_CAN2_2024_AP_FECU_Data1 */
 crossbarHookTableEntry crossbarHookTable22[1] = {NULL};
 
-/* crossbar hook in task 23 SWT_CAN2_AP_FECU_Data2 */
+/* crossbar hook in task 23 SWT_CAN2_2024_AP_FECU_Data2 */
 crossbarHookTableEntry crossbarHookTable23[1] = {NULL};
 
-/* crossbar hook in task 24 SWT_CAN2_AP_RECU_Data */
+/* crossbar hook in task 24 SWT_CAN2_2024_AP_RECU_Data */
 crossbarHookTableEntry crossbarHookTable24[1] = {NULL};
 
-/* crossbar hook in task 25 SWT_CAN2_MEAS_FECU_SDC */
+/* crossbar hook in task 25 SWT_CAN2_2024_MEAS_FECU_SDC */
 crossbarHookTableEntry crossbarHookTable25[1] = {NULL};
 
-/* crossbar hook in task 26 SWT_CAN2_MEAS_RECU_SDC */
+/* crossbar hook in task 26 SWT_CAN2_2024_MEAS_RECU_SDC */
 crossbarHookTableEntry crossbarHookTable26[1] = {NULL};
 
-/* crossbar hook in task 27 SWT_CAN2_NM_ELLIPSE_Status */
+/* crossbar hook in task 27 SWT_CAN2_2024_NM_ELLIPSE_Status */
 crossbarHookTableEntry crossbarHookTable27[1] = {NULL};
 
-/* crossbar hook in task 28 SWT_CAN2_NM_FECU_Keep_Alive */
+/* crossbar hook in task 28 SWT_CAN2_2024_NM_FECU_Keep_Alive */
 crossbarHookTableEntry crossbarHookTable28[1] = {NULL};
 
-/* crossbar hook in task 29 SWT_CAN2_NM_RECU_Keep_Alive */
+/* crossbar hook in task 29 SWT_CAN2_2024_NM_RECU_Keep_Alive */
 crossbarHookTableEntry crossbarHookTable29[1] = {NULL};
 
 /* crossbar hook in task 30 Sync_25ms */
@@ -109,10 +109,10 @@ crossbarHookTableEntry crossbarHookTable33[16] = {NULL, NULL, NULL, NULL, NULL, 
 /* crossbar hook in task 34 Timer_Inv */
 crossbarHookTableEntry crossbarHookTable34[6] = {NULL, NULL, NULL, NULL, NULL, NULL};
 
-/* crossbar hook in task 35 ISR_CAN1 */
+/* crossbar hook in task 35 ISR_CAN1_2024 */
 crossbarHookTableEntry crossbarHookTable35[1] = {NULL};
 
-/* crossbar hook in task 36 ISR_CAN2 */
+/* crossbar hook in task 36 ISR_CAN2_2024 */
 crossbarHookTableEntry crossbarHookTable36[1] = {NULL};
 
 /* crossbar hook in task 37 Init */

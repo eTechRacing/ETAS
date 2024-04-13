@@ -7,9 +7,9 @@
  *
  * Code generation for model "SoC".
  *
- * Model version              : 13.0
+ * Model version              : 13.3
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Wed Apr 10 15:35:56 2024
+ * C source code generated on : Fri Apr 12 20:16:22 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -24,76 +24,28 @@
 #include "builtin_typeid_types.h"
 #include "multiword_types.h"
 #include "zero_crossing_types.h"
-#include "SoC.h"
 #include "SoC_types.h"
 
-extern const real_T rtCP_pooled_uSMstfL7HqJ8[5];
-extern const real_T rtCP_pooled_APSB2csM7gij[4];
-extern const real_T rtCP_pooled_zeQjGgJAQ7eV[5];
-extern const real_T rtCP_pooled_EdsT8Tjv7lqP[26];
-extern const real_T rtCP_pooled_pnOlrjzZzxZ2[26];
-extern const real_T rtCP_pooled_eGbGXldrMtNl[26];
-extern const real_T rtCP_pooled_r7AaOepUOeVE[26];
-extern const real_T rtCP_pooled_hR2h2voUnDxS[26];
-extern const real_T rtCP_pooled_3QeDdWtAFELL[26];
-extern const real_T rtCP_pooled_tT86VTMf2jBZ[26];
-extern const real_T rtCP_pooled_m98KDp8d47S6[26];
-extern const real_T rtCP_pooled_8oebaMKQEEf3[25];
 extern const real_T rtCP_pooled_LIqzArrgGjnH[26];
 extern const real_T rtCP_pooled_AOZKK8H4A7cg[26];
-extern const real_T rtCP_pooled_h4JrfJfJVj21[26];
-extern const real_T rtCP_pooled_p2mHo2nMnYmN[26];
-extern const real_T rtCP_pooled_gQzxlYtQcuvQ[26];
+extern const real_T rtCP_pooled_7uQrBQO0lhJL[21];
+extern const real_T rtCP_pooled_g3ZH6wLdBrI2[7];
+extern const real_T rtCP_pooled_J5uXhC2IRx72[3];
+extern const real_T rtCP_pooled_h4JrfJfJVj21[21];
+extern const real_T rtCP_pooled_p2mHo2nMnYmN[7];
+extern const real_T rtCP_pooled_F1GEPTKRUH9c[3];
+extern const real_T rtCP_pooled_EZ7KVwkkakp0[21];
+extern const real_T rtCP_pooled_gQzxlYtQcuvQ[7];
+extern const real_T rtCP_pooled_Sac7GoYkY0nW[3];
 extern const real_T rtCP_pooled_cUwhCMO9gSLX[4];
-extern const real_T rtCP_pooled_amELkqglNv3q[26];
-extern const real_T rtCP_pooled_g3ZH6wLdBrI2[26];
-extern const real_T rtCP_pooled_hQWAy4uJ4xaH[26];
-extern const real_T rtCP_pooled_os6pSZgArQ0S[26];
-extern const real_T rtCP_pooled_LRnB1sHbUayW[26];
-extern const real_T rtCP_pooled_bFeUxFDZCwO1[26];
+extern const real_T rtCP_pooled_hQWAy4uJ4xaH[21];
+extern const real_T rtCP_pooled_os6pSZgArQ0S[7];
+extern const real_T rtCP_pooled_FSHZlevTDdeI[3];
+extern const real_T rtCP_pooled_LRnB1sHbUayW[21];
+extern const real_T rtCP_pooled_bFeUxFDZCwO1[7];
+extern const real_T rtCP_pooled_I2hMmD3VJnxv[3];
+extern const uint32_T rtCP_pooled_pKrzWuvSuY78[2];
 
-#define rtCP_updatePy_Wc               rtCP_pooled_uSMstfL7HqJ8  /* Expression: Wc
-                                                                  * Referenced by: '<S14>/updatePy'
-                                                                  */
-#define rtCP_updatePx_Q                rtCP_pooled_APSB2csM7gij  /* Expression: Q
-                                                                  * Referenced by: '<S14>/updatePx'
-                                                                  */
-#define rtCP_updatePx_Wc               rtCP_pooled_uSMstfL7HqJ8  /* Expression: Wc
-                                                                  * Referenced by: '<S14>/updatePx'
-                                                                  */
-#define rtCP_Constant_Value_n          rtCP_pooled_zeQjGgJAQ7eV  /* Expression: Wm
-                                                                  * Referenced by: '<S20>/Constant'
-                                                                  */
-#define rtCP_R1_tableData              rtCP_pooled_EdsT8Tjv7lqP  /* Expression: R1_mat
-                                                                  * Referenced by: '<S26>/R1'
-                                                                  */
-#define rtCP_R1_bp01Data               rtCP_pooled_pnOlrjzZzxZ2  /* Expression: SOC_vec
-                                                                  * Referenced by: '<S26>/R1'
-                                                                  */
-#define rtCP_C1_tableData              rtCP_pooled_eGbGXldrMtNl  /* Expression: C1_mat
-                                                                  * Referenced by: '<S26>/C1'
-                                                                  */
-#define rtCP_C1_bp01Data               rtCP_pooled_r7AaOepUOeVE  /* Expression: SOC_vec
-                                                                  * Referenced by: '<S26>/C1'
-                                                                  */
-#define rtCP_Constant_Value_i          rtCP_pooled_zeQjGgJAQ7eV  /* Expression: Wm
-                                                                  * Referenced by: '<S19>/Constant'
-                                                                  */
-#define rtCP_OCVTable_tableData        rtCP_pooled_hR2h2voUnDxS  /* Expression: V0_mat
-                                                                  * Referenced by: '<S24>/OCV Table'
-                                                                  */
-#define rtCP_OCVTable_bp01Data         rtCP_pooled_3QeDdWtAFELL  /* Expression: SOC_vec
-                                                                  * Referenced by: '<S24>/OCV Table'
-                                                                  */
-#define rtCP_R0Table_tableData         rtCP_pooled_tT86VTMf2jBZ  /* Expression: R0_mat
-                                                                  * Referenced by: '<S24>/R0 Table'
-                                                                  */
-#define rtCP_R0Table_bp01Data          rtCP_pooled_m98KDp8d47S6  /* Expression: SOC_vec
-                                                                  * Referenced by: '<S24>/R0 Table'
-                                                                  */
-#define rtCP_Constant_Value_f          rtCP_pooled_8oebaMKQEEf3  /* Expression: diag(Wc)
-                                                                  * Referenced by: '<S14>/Constant'
-                                                                  */
 #define rtCP_OCVtoSoC_tableData        rtCP_pooled_LIqzArrgGjnH  /* Expression: [0.00364887820512694
                                                                     0.0406322115384605
                                                                     0.0806891025641018
@@ -150,38 +102,53 @@ extern const real_T rtCP_pooled_bFeUxFDZCwO1[26];
                                                                     4.18278376875771]
                                                                   * Referenced by: '<S2>/OCV to SoC'
                                                                   */
-#define rtCP_uDLookupTableR1_tableData rtCP_pooled_h4JrfJfJVj21  /* Expression: R1_mat
-                                                                  * Referenced by: '<S37>/2-D Lookup Table R1'
-                                                                  */
-#define rtCP_uDLookupTableR1_bp01Data  rtCP_pooled_p2mHo2nMnYmN  /* Expression: SOC_vec
-                                                                  * Referenced by: '<S37>/2-D Lookup Table R1'
-                                                                  */
-#define rtCP_uDLookupTableC1_tableData rtCP_pooled_eGbGXldrMtNl  /* Expression: C1_mat
-                                                                  * Referenced by: '<S37>/2-D Lookup Table C1'
-                                                                  */
-#define rtCP_uDLookupTableC1_bp01Data  rtCP_pooled_gQzxlYtQcuvQ  /* Expression: SOC_vec
-                                                                  * Referenced by: '<S37>/2-D Lookup Table C1'
-                                                                  */
-#define rtCP_Constant_Value_a          rtCP_pooled_cUwhCMO9gSLX  /* Expression: Q
-                                                                  * Referenced by: '<S38>/Constant'
-                                                                  */
-#define rtCP_uDLookupTabledV0_tableData rtCP_pooled_amELkqglNv3q /* Expression: dV0_mat
-                                                                  * Referenced by: '<S37>/2-D Lookup Table dV0'
+#define rtCP_uDLookupTabledV0_tableData rtCP_pooled_7uQrBQO0lhJL /* Expression: dV0_mat
+                                                                  * Referenced by: '<S17>/2-D Lookup Table dV0'
                                                                   */
 #define rtCP_uDLookupTabledV0_bp01Data rtCP_pooled_g3ZH6wLdBrI2  /* Expression: SOC_vec
-                                                                  * Referenced by: '<S37>/2-D Lookup Table dV0'
+                                                                  * Referenced by: '<S17>/2-D Lookup Table dV0'
+                                                                  */
+#define rtCP_uDLookupTabledV0_bp02Data rtCP_pooled_J5uXhC2IRx72  /* Expression: T_vec
+                                                                  * Referenced by: '<S17>/2-D Lookup Table dV0'
+                                                                  */
+#define rtCP_uDLookupTableR1_tableData rtCP_pooled_h4JrfJfJVj21  /* Expression: R1_mat
+                                                                  * Referenced by: '<S17>/2-D Lookup Table R1'
+                                                                  */
+#define rtCP_uDLookupTableR1_bp01Data  rtCP_pooled_p2mHo2nMnYmN  /* Expression: SOC_vec
+                                                                  * Referenced by: '<S17>/2-D Lookup Table R1'
+                                                                  */
+#define rtCP_uDLookupTableR1_bp02Data  rtCP_pooled_F1GEPTKRUH9c  /* Expression: T_vec
+                                                                  * Referenced by: '<S17>/2-D Lookup Table R1'
+                                                                  */
+#define rtCP_uDLookupTableC1_tableData rtCP_pooled_EZ7KVwkkakp0  /* Expression: C1_mat
+                                                                  * Referenced by: '<S17>/2-D Lookup Table C1'
+                                                                  */
+#define rtCP_uDLookupTableC1_bp01Data  rtCP_pooled_gQzxlYtQcuvQ  /* Expression: SOC_vec
+                                                                  * Referenced by: '<S17>/2-D Lookup Table C1'
+                                                                  */
+#define rtCP_uDLookupTableC1_bp02Data  rtCP_pooled_Sac7GoYkY0nW  /* Expression: T_vec
+                                                                  * Referenced by: '<S17>/2-D Lookup Table C1'
+                                                                  */
+#define rtCP_Constant_Value_j2w        rtCP_pooled_cUwhCMO9gSLX  /* Expression: Q
+                                                                  * Referenced by: '<S18>/Constant'
                                                                   */
 #define rtCP_uDLookupTableV0_tableData rtCP_pooled_hQWAy4uJ4xaH  /* Expression: V0_mat
-                                                                  * Referenced by: '<S37>/2-D Lookup Table V0'
+                                                                  * Referenced by: '<S17>/2-D Lookup Table V0'
                                                                   */
 #define rtCP_uDLookupTableV0_bp01Data  rtCP_pooled_os6pSZgArQ0S  /* Expression: SOC_vec
-                                                                  * Referenced by: '<S37>/2-D Lookup Table V0'
+                                                                  * Referenced by: '<S17>/2-D Lookup Table V0'
+                                                                  */
+#define rtCP_uDLookupTableV0_bp02Data  rtCP_pooled_FSHZlevTDdeI  /* Expression: T_vec
+                                                                  * Referenced by: '<S17>/2-D Lookup Table V0'
                                                                   */
 #define rtCP_uDLookupTableR0_tableData rtCP_pooled_LRnB1sHbUayW  /* Expression: R0_mat
-                                                                  * Referenced by: '<S37>/2-D Lookup Table R0'
+                                                                  * Referenced by: '<S17>/2-D Lookup Table R0'
                                                                   */
 #define rtCP_uDLookupTableR0_bp01Data  rtCP_pooled_bFeUxFDZCwO1  /* Expression: SOC_vec
-                                                                  * Referenced by: '<S37>/2-D Lookup Table R0'
+                                                                  * Referenced by: '<S17>/2-D Lookup Table R0'
+                                                                  */
+#define rtCP_uDLookupTableR0_bp02Data  rtCP_pooled_I2hMmD3VJnxv  /* Expression: T_vec
+                                                                  * Referenced by: '<S17>/2-D Lookup Table R0'
                                                                   */
 #define rtCP_OCVtoSoC_tableData_k      rtCP_pooled_LIqzArrgGjnH  /* Expression: [0.00364887820512694
                                                                     0.0406322115384605
@@ -239,18 +206,19 @@ extern const real_T rtCP_pooled_bFeUxFDZCwO1[26];
                                                                     4.18278376875771]
                                                                   * Referenced by: '<S3>/OCV to SoC'
                                                                   */
-
-extern void SOCEstimatorCoulombCountin_Init(int32_T NumIters,
-  DW_SOCEstimatorCoulombCountin_T localDW[1]);
-extern void SOCEstimatorCoulombCounti_Start(int32_T NumIters,
-  B_SOCEstimatorCoulombCounting_T localB[1], DW_SOCEstimatorCoulombCountin_T
-  localDW[1]);
-extern void SOCEstimatorCoulombCount_Update(int32_T NumIters, RT_MODEL_SoC_T *
-  const SoC_M, B_SOCEstimatorCoulombCounting_T localB[1],
-  DW_SOCEstimatorCoulombCountin_T localDW[1]);
-extern void SoC_SOCEstimatorCoulombCounting(int32_T NumIters, RT_MODEL_SoC_T *
-  const SoC_M, const real_T *rtu_Current, const real_T *rtu_InitialSOC, real_T
-  *rty_SOC, real_T rtp_AH, B_SOCEstimatorCoulombCounting_T localB[1],
-  DW_SOCEstimatorCoulombCountin_T localDW[1]);
-
+#define rtCP_uDLookupTabledV0_maxIndex rtCP_pooled_pKrzWuvSuY78  /* Computed Parameter: rtCP_uDLookupTabledV0_maxIndex
+                                                                  * Referenced by: '<S17>/2-D Lookup Table dV0'
+                                                                  */
+#define rtCP_uDLookupTableR1_maxIndex  rtCP_pooled_pKrzWuvSuY78  /* Computed Parameter: rtCP_uDLookupTableR1_maxIndex
+                                                                  * Referenced by: '<S17>/2-D Lookup Table R1'
+                                                                  */
+#define rtCP_uDLookupTableC1_maxIndex  rtCP_pooled_pKrzWuvSuY78  /* Computed Parameter: rtCP_uDLookupTableC1_maxIndex
+                                                                  * Referenced by: '<S17>/2-D Lookup Table C1'
+                                                                  */
+#define rtCP_uDLookupTableV0_maxIndex  rtCP_pooled_pKrzWuvSuY78  /* Computed Parameter: rtCP_uDLookupTableV0_maxIndex
+                                                                  * Referenced by: '<S17>/2-D Lookup Table V0'
+                                                                  */
+#define rtCP_uDLookupTableR0_maxIndex  rtCP_pooled_pKrzWuvSuY78  /* Computed Parameter: rtCP_uDLookupTableR0_maxIndex
+                                                                  * Referenced by: '<S17>/2-D Lookup Table R0'
+                                                                  */
 #endif                                 /* RTW_HEADER_SoC_private_h_ */

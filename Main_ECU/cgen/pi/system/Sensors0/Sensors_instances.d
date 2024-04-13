@@ -1,48 +1,48 @@
 Sensors_instances.o: \
  c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\Sensors_instances.c \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw/Sensors.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw/Sensors_irtmacros.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\_sharedutils/rtwtypes.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\extern\include/tmwtypes.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/simstruc.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/simstruc_compcond.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/simstruc_types.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/sl_types_def.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/rtw_matlogging.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/rtw_extmode.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/rtw_continuous.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/rtw_solver.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/sysran_types.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/sl_sample_time_defs.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/solver_zc.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/slexec_block_runtime_service.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/simstruc_def.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/simstruc_internal_types.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/sl_common_types_def.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/sl_fixpt.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/sl_datatype_access.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/sl_report_types.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/rtw_storage.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/simstruc_debug.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/simstruc_internal.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/simstruc_implement.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/sl_prodhwdevicetype.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/simulink_solver_api.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/simstruc.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\rtw\c\src/sfcn_bridge.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/fixedpoint.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/fixpoint_spec.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\rtw\c\src/rt_logging.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\_sharedutils/builtin_typeid_types.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\_sharedutils/rtwtypes.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\_sharedutils/multiword_types.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\rtw\c\src/rt_mxclassid.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\simulink\include/rtw_matlogging.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw/Sensors_types.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\_sharedutils/rt_defines.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\_sharedutils/rt_nonfinite.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw\external\_sharedutils/zero_crossing_types.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink_C\Sensors_irt_rtw/Sensors_private.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw/Sensors.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw/Sensors_irtmacros.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\_sharedutils/rtwtypes.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\extern\include/tmwtypes.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/simstruc.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/simstruc_compcond.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/simstruc_types.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/sl_types_def.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/rtw_matlogging.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/rtw_extmode.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/rtw_continuous.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/rtw_solver.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/sysran_types.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/sl_sample_time_defs.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/solver_zc.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/slexec_block_runtime_service.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/simstruc_def.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/simstruc_internal_types.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/sl_common_types_def.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/sl_fixpt.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/sl_datatype_access.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/sl_report_types.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/rtw_storage.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/simstruc_debug.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/simstruc_internal.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/simstruc_implement.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/sl_prodhwdevicetype.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/simulink_solver_api.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/simstruc.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\rtw\c\src/sfcn_bridge.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/fixedpoint.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/fixpoint_spec.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\rtw\c\src/rt_logging.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\_sharedutils/builtin_typeid_types.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\_sharedutils/multiword_types.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\_sharedutils/rtwtypes.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\rtw\c\src/rt_mxclassid.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\simulink\include/rtw_matlogging.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw/Sensors_types.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\_sharedutils/rt_defines.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\_sharedutils/rt_nonfinite.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\_sharedutils/zero_crossing_types.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw/Sensors_private.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../a_basdef.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../a_limits.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\common/etashead/etas_typ.h \
@@ -88,6 +88,7 @@ Sensors_instances.o: \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../t_rtcros.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../i_rtioma.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../t_croman.h \
+ C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../t_crotyp.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../t_sglow.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../t_sgman.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../i_mapfnc.h \

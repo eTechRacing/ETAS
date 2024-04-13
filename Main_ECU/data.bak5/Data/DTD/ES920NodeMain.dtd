@@ -1,0 +1,546 @@
+<?DTDVersion "4.7.3.1"?>
+<?CompatibleDTDVersion "4.7.0"?>
+<?CompatibleDTDVersion "4.6.2"?>
+<?CompatibleDTDVersion "4.6.0"?>
+<?CompatibleDTDVersion "4.4.0"?>
+<?CompatibleDTDVersion "4.2.1"?>
+<?CompatibleDTDVersion "4.0.1"?>
+<?CompatibleDTDVersion "4.0.0"?>
+<?CompatibleDTDVersion "3.3.0"?>
+<?CompatibleDTDVersion "3.2.1"?>
+<?CompatibleDTDVersion "3.2.0"?>
+<?CompatibleDTDVersion "3.1.0"?>
+<?CompatibleDTDVersion "2.2.0"?>
+<?CompatibleDTDVersion "2.0.2"?>
+<?CompatibleDTDVersion "2.0.1"?>
+<?CompatibleDTDVersion "2.0"?>
+
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!ENTITY % ESFlexRayNodeMainBase SYSTEM "ESFlexRayNodeMainBase.dtd">
+%ESFlexRayNodeMainBase;
+
+<!NOTATION ofTypeES920NodeMain SYSTEM "ES920NodeMain">
+<!NOTATION ofTypeES920NodeDevice SYSTEM "ES920NodeDevice">
+
+<?SuperClass ES920NodeMain->ES900Component ?>
+<?SuperClass ES920NodeMain->ESFlexRayNodeMainBase ?>
+<?SuperClass ES920NodeDevice->ESFlexRayNodeDeviceBase ?>
+
+<!-- node main -->
+
+<!ELEMENT ES920NodeMain (ES920NodeMain.Parameters, ES920NodeMain.L1Generation, ES920NodeMain.SubNodes, _System)>
+<!ATTLIST ES920NodeMain
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOBoard ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOCPUBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ES920NodeMain.Parameters (ES920NodeMainParameters)>
+<!ELEMENT ES920NodeMain.L1Generation (ES920NodeMainL1Generation)>
+<!ELEMENT ES920NodeMain.SubNodes (ES920NodeMainSubNodeList)>
+
+<!ELEMENT ES920NodeMainL1Generation (ES920NodeMainL1Generation.NotRunning, ES920NodeMainL1Generation.Reconnect, ES920NodeMainL1Generation.WriteToStream)>
+<!ATTLIST ES920NodeMainL1Generation
+    L1TreeIndex CDATA "-1"
+
+    ConfigROID CDATA "-1"
+    APIROIDArray1 CDATA "-1"
+    APIROIDArray2 CDATA "-1"
+    APIROIDArray3 CDATA "-1"
+    APIROIDArray4 CDATA "-1"
+>
+
+<!ELEMENT ES920NodeMainL1Generation.NotRunning (ES920NodeMainL1GenerationNotRunning)>
+<!ELEMENT ES920NodeMainL1Generation.Reconnect (ES920NodeMainL1GenerationReconnect)>
+<!ELEMENT ES920NodeMainL1Generation.WriteToStream (ES920NodeMainL1GenerationWriteToStream)>
+
+<!ELEMENT ES920NodeMainL1GenerationNotRunning EMPTY>
+<!ELEMENT ES920NodeMainL1GenerationReconnect EMPTY>
+<!ELEMENT ES920NodeMainL1GenerationWriteToStream EMPTY>
+
+<!ELEMENT ES920NodeMainParameters (ES920NodeMainParameters.Name, ES920NodeMainParameters.Enabled, ES920NodeMainParameters.BoardInstance)>
+
+<!ELEMENT ES920NodeMainParameters.Name (ESParameterName)>
+<!ELEMENT ES920NodeMainParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES920NodeMainParameters.BoardInstance (ESParameterEnum)>
+<!ATTLIST ES920NodeMainParameters.BoardInstance 
+    EnumText1      CDATA "ID1"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+>
+
+<!ELEMENT ES920NodeMainSubNodeList (ES920NodeDevice)*>
+
+<!-- node device -->
+
+<!ELEMENT ES920NodeDevice (ES920NodeDevice.Parameters, ES920NodeDevice.L1Generation, ES920NodeDevice.SubNodes, ES920NodeDevice.SignalPool)>
+<!ATTLIST ES920NodeDevice
+    Name ID #REQUIRED
+    CalculatorActive ( False | True ) "True"
+    CalculatorSilentMode ( False | True ) "False"
+
+    GlobalObject.ofTypeYBODevice ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOBoard ENTITY #REQUIRED
+    
+    CustomerEngineeringFIBEXSolution ( False | True ) "False"
+>
+
+<!ELEMENT ES920NodeDevice.Parameters (ES920NodeDeviceParameters)>
+<!ELEMENT ES920NodeDevice.L1Generation (ES920NodeDeviceL1Generation)>
+<!ELEMENT ES920NodeDevice.SubNodes (ES920NodeDeviceSubNodeList)>
+<!ELEMENT ES920NodeDevice.SignalPool (ES920PoolSignal)>
+
+<!ELEMENT ES920NodeDeviceL1Generation (ES920NodeDeviceL1Generation.UnionCase, ES920NodeDeviceL1Generation.Reconnect)>
+<!ATTLIST ES920NodeDeviceL1Generation  
+    L1TreeIndex CDATA "-1"
+
+    APIROIDArray1 CDATA "-1"
+    APIROIDArray2 CDATA "-1"
+    
+    IRQTriggeredSignalGroups CDATA "0"
+    L1SignalGroupCount CDATA "0"
+    SyncAPICount CDATA "-1"
+    L1FrameDescEntryCount CDATA "-1"
+>
+
+<!ELEMENT ES920NodeDeviceL1Generation.UnionCase (ES920NodeDeviceL1GenerationUnionCase)>
+<!ELEMENT ES920NodeDeviceL1Generation.Reconnect (ES920NodeDeviceL1GenerationReconnect)>
+
+<!ELEMENT ES920NodeDeviceL1GenerationUnionCase EMPTY>
+<!ELEMENT ES920NodeDeviceL1GenerationReconnect EMPTY>
+
+<!ELEMENT ES920NodeDeviceParameters (ES920NodeDeviceParameters.Name, 
+                                    ES920NodeDeviceParameters.Enabled, 
+                                    ES920NodeDeviceParameters.ModuleType,
+                                    ES920NodeDeviceParameters.ModuleTypeInstance,
+                                    ES920NodeDeviceParameters.Port, 
+                                    ES920NodeDeviceParameters.gdStaticSlot, 
+                                    ES920NodeDeviceParameters.gNumberOfStaticSlots, 
+                                    ES920NodeDeviceParameters.gdMinislot, 
+                                    ES920NodeDeviceParameters.gColdStartAttempts, 
+                                    ES920NodeDeviceParameters.gPayloadLengthStatic, 
+                                    ES920NodeDeviceParameters.gdMinislotActionPointOffset, 
+                                    ES920NodeDeviceParameters.gdActionPointOffset, 
+                                    ES920NodeDeviceParameters.gdSymbolWindow, 
+                                    ES920NodeDeviceParameters.gClusterDriftDamping, 
+                                    ES920NodeDeviceParameters.gdTSSTransmitter, 
+                                    ES920NodeDeviceParameters.gListenNoise, 
+                                    ES920NodeDeviceParameters.gdMinPropagationDelay, 
+                                    ES920NodeDeviceParameters.gMaxWithoutClockCorrectionFatal, 
+                                    ES920NodeDeviceParameters.gMaxWithoutClockCorrectionPassive, 
+                                    ES920NodeDeviceParameters.gChannels, 
+                                    ES920NodeDeviceParameters.DefaultByteOrder, 
+                                    ES920NodeDeviceParameters.FIBEXFile, 
+                                    ES920NodeDeviceParameters.gSyncNodeMax, 
+                                    ES920NodeDeviceParameters.gNetworkManagementVectorLength, 
+                                    ES920NodeDeviceParameters.gdCycle, 
+                                    ES920NodeDeviceParameters.gMacroPerCycle, 
+                                    ES920NodeDeviceParameters.gdMaxMicrotick, 
+                                    ES920NodeDeviceParameters.gdMaxPropagationDelay, 
+                                    ES920NodeDeviceParameters.gNumberOfMinislots, 
+                                    ES920NodeDeviceParameters.gdDynamicSlotIdlePhase, 
+                                    ES920NodeDeviceParameters.gOffsetCorrectionMax, 
+                                    ES920NodeDeviceParameters.gOffsetCorrectionStart, 
+                                    ES920NodeDeviceParameters.gdMaxInitializationError, 
+                                    ES920NodeDeviceParameters.gdCASRxLowMax, 
+                                    ES920NodeDeviceParameters.gdWakeupSymbolTxIdle, 
+                                    ES920NodeDeviceParameters.gdWakeupSymbolTxLow, 
+                                    ES920NodeDeviceParameters.gdWakeupSymbolRxIdle, 
+                                    ES920NodeDeviceParameters.gdWakeupSymbolRxLow, 
+                                    ES920NodeDeviceParameters.gdWakeupSymbolRxWindow, 
+                                    ES920NodeDeviceParameters.ProtocolVersion, 
+                                    ES920NodeDeviceParameters.BaudRate, 
+                                    ES920NodeDeviceParameters.gdSampleClockPeriod, 
+                                    ES920NodeDeviceParameters.gdBit, 
+                                    ES920NodeDeviceParameters.gdMacrotick, 
+                                    ES920NodeDeviceParameters.gAssumedPrecision, 
+                                    ES920NodeDeviceParameters.aFrameLengthStatic, 
+                                    ES920NodeDeviceParameters.gdNIT, 
+                                    ES920NodeDeviceParameters.dBDRxai, 
+                                    ES920NodeDeviceParameters.dBDRxia, 
+                                    ES920NodeDeviceParameters.cdBSS, 
+                                    ES920NodeDeviceParameters.cdCAS, 
+                                    ES920NodeDeviceParameters.cClockDeviationMax, 
+                                    ES920NodeDeviceParameters.cChannelIdleDelimiter, 
+                                    ES920NodeDeviceParameters.cdCycleMax, 
+                                    ES920NodeDeviceParameters.cdFES, 
+                                    ES920NodeDeviceParameters.cdFSS, 
+                                    ES920NodeDeviceParameters.cdMaxMTNom, 
+                                    ES920NodeDeviceParameters.cMicroPerMacroMin, 
+                                    ES920NodeDeviceParameters.cMicroPerMacroNomMin, 
+                                    ES920NodeDeviceParameters.cMicroPerMacroNomMax, 
+                                    ES920NodeDeviceParameters.cdMinMTNom, 
+                                    ES920NodeDeviceParameters.cPayloadLengthMax, 
+                                    ES920NodeDeviceParameters.cPropagationDelayMax, 
+                                    ES920NodeDeviceParameters.cSamplesPerBit, 
+                                    ES920NodeDeviceParameters.cSlotIDMax, 
+                                    ES920NodeDeviceParameters.cStaticSlotIDMax, 
+                                    ES920NodeDeviceParameters.cdWakeupMaxCollision, 
+                                    ES920NodeDeviceParameters.cStrobeOffset, 
+                                    ES920NodeDeviceParameters.cSyncNodeMax, 
+                                    ES920NodeDeviceParameters.cdWakeupSymbolTxLow, 
+                                    ES920NodeDeviceParameters.cdWakeupSymbolTxIdle, 
+                                    ES920NodeDeviceParameters.cVotingDelay, 
+                                    ES920NodeDeviceParameters.pPayloadLengthDynMax, 
+                                    ES920NodeDeviceParameters.pdAcceptedStartupRange, 
+                                    ES920NodeDeviceParameters.pClusterDriftDamping, 
+                                    ES920NodeDeviceParameters.pRateCorrectionOut, 
+                                    ES920NodeDeviceParameters.pOffsetCorrectionOut, 
+                                    ES920NodeDeviceParameters.pdMaxDrift, 
+                                    ES920NodeDeviceParameters.pdListenTimeout, 
+                                    ES920NodeDeviceParameters.pDecodingCorrection, 
+                                    ES920NodeDeviceParameters.pDelayCompensationA, 
+                                    ES920NodeDeviceParameters.pDelayCompensationB, 
+                                    ES920NodeDeviceParameters.pMacroInitialOffsetA, 
+                                    ES920NodeDeviceParameters.pMacroInitialOffsetB, 
+                                    ES920NodeDeviceParameters.pMicroInitialOffsetA, 
+                                    ES920NodeDeviceParameters.pMicroInitialOffsetB, 
+                                    ES920NodeDeviceParameters.pLatestTx, 
+                                    ES920NodeDeviceParameters.pAllowHaltDueToClock, 
+                                    ES920NodeDeviceParameters.pAllowPassiveToActive, 
+                                    ES920NodeDeviceParameters.pChannels, 
+                                    ES920NodeDeviceParameters.pKeySlotId, 
+                                    ES920NodeDeviceParameters.pKeySlotUsedForStartup, 
+                                    ES920NodeDeviceParameters.pKeySlotUsedForSync, 
+                                    ES920NodeDeviceParameters.pSingleSlotEnabled, 
+                                    ES920NodeDeviceParameters.pWakeupChannel, 
+                                    ES920NodeDeviceParameters.pWakeupPattern, 
+                                    ES920NodeDeviceParameters.pSamplesPerMicrotick, 
+                                    ES920NodeDeviceParameters.pdMicrotick, 
+                                    ES920NodeDeviceParameters.pMicroPerMacroNom, 
+                                    ES920NodeDeviceParameters.pMicroPerCycle, 
+                                    ES920NodeDeviceParameters.pExternRateCorrection, 
+                                    ES920NodeDeviceParameters.pExternOffsetCorrection, 
+                                    ES920NodeDeviceParameters.aFrameLengthDynamic, 
+                                    ES920NodeDeviceParameters.WakeupEnabled, 
+                                    ES920NodeDeviceParameters.WaitForWUPA, 
+                                    ES920NodeDeviceParameters.WaitForWUPB, 
+                                    ES920NodeDeviceParameters.ColdstartInhibit, 
+                                    ES920NodeDeviceParameters.RepeatColdstart, 
+                                    ES920NodeDeviceParameters.ResumeAfterHalt, 
+                                    ES920NodeDeviceParameters.UsedCommunicationRegisters, 
+                                    ES920NodeDeviceParameters.UsedCommunicationMemory, 
+                                    ES920NodeDeviceParameters.ClusterName, 
+                                    ES920NodeDeviceParameters.vDTSLowMin, 
+                                    ES920NodeDeviceParameters.nStarPathMax, 
+                                    ES920NodeDeviceParameters.dStarTruncation, 
+                                    ES920NodeDeviceParameters.adOffsetCorrection, 
+                                    ES920NodeDeviceParameters.cdMaxOffsetCalculation, 
+                                    ES920NodeDeviceParameters.cdMaxRateCalculation, 
+                                    ES920NodeDeviceParameters.gdActionPointOffset_AutoCalc, 
+                                    ES920NodeDeviceParameters.gdCASRxLowMax_AutoCalc, 
+                                    ES920NodeDeviceParameters.gdDynamicSlotIdlePhase_AutoCalc, 
+                                    ES920NodeDeviceParameters.gdMinislot_AutoCalc, 
+                                    ES920NodeDeviceParameters.gdMinislotActionPointOffset_AutoCalc, 
+                                    ES920NodeDeviceParameters.gdStaticSlot_AutoCalc, 
+                                    ES920NodeDeviceParameters.gdSymbolWindow_AutoCalc, 
+                                    ES920NodeDeviceParameters.gdTSSTransmitter_AutoCalc, 
+                                    ES920NodeDeviceParameters.gdWakeupSymbolRxIdle_AutoCalc, 
+                                    ES920NodeDeviceParameters.gdWakeupSymbolRxLow_AutoCalc, 
+                                    ES920NodeDeviceParameters.gdWakeupSymbolRxWindow_AutoCalc, 
+                                    ES920NodeDeviceParameters.gdWakeupSymbolTxIdle_AutoCalc, 
+                                    ES920NodeDeviceParameters.gdWakeupSymbolTxLow_AutoCalc, 
+                                    ES920NodeDeviceParameters.gListenNoise_AutoCalc, 
+                                    ES920NodeDeviceParameters.gOffsetCorrectionStart_AutoCalc, 
+                                    ES920NodeDeviceParameters.pdAcceptedStartupRange_AutoCalc, 
+                                    ES920NodeDeviceParameters.pClusterDriftDamping_AutoCalc, 
+                                    ES920NodeDeviceParameters.pDecodingCorrection_AutoCalc, 
+                                    ES920NodeDeviceParameters.pdListenTimeout_AutoCalc, 
+                                    ES920NodeDeviceParameters.pdMaxDrift_AutoCalc, 
+                                    ES920NodeDeviceParameters.pLatestTx_AutoCalc, 
+                                    ES920NodeDeviceParameters.pMacroInitialOffsetA_AutoCalc, 
+                                    ES920NodeDeviceParameters.pMacroInitialOffsetB_AutoCalc, 
+                                    ES920NodeDeviceParameters.pMicroInitialOffsetA_AutoCalc, 
+                                    ES920NodeDeviceParameters.pMicroInitialOffsetB_AutoCalc, 
+                                    ES920NodeDeviceParameters.pMicroPerCycle_AutoCalc, 
+                                    ES920NodeDeviceParameters.pOffsetCorrectionOut_AutoCalc, 
+                                    ES920NodeDeviceParameters.pRateCorrectionOut_AutoCalc, 
+                                    ES920NodeDeviceParameters.adOffsetCorrection_AutoCalc, 
+                                    ES920NodeDeviceParameters.gColdStartAttempts_AutoCalc, 
+                                    ES920NodeDeviceParameters.gMaxWithoutClockCorrectionFatal_AutoCalc, 
+                                    ES920NodeDeviceParameters.gMaxWithoutClockCorrectionPassive_AutoCalc, 
+                                    ES920NodeDeviceParameters.gSyncNodeMax_AutoCalc, 
+                                    ES920NodeDeviceParameters.gOffsetCorrectionMax_AutoCalc, 
+                                    ES920NodeDeviceParameters.gdMaxInitializationError_AutoCalc, 
+                                    ES920NodeDeviceParameters.gAssumedPrecision_AutoCalc, 
+                                    ES920NodeDeviceParameters.pAllowHaltDueToClock_AutoCalc, 
+                                    ES920NodeDeviceParameters.pAllowPassiveToActive_AutoCalc, 
+                                    ES920NodeDeviceParameters.pKeySlotUsedForStartup_AutoCalc, 
+                                    ES920NodeDeviceParameters.pKeySlotUsedForSync_AutoCalc, 
+                                    ES920NodeDeviceParameters.pSingleSlotEnabled_AutoCalc, 
+                                    ES920NodeDeviceParameters.pWakeupPattern_AutoCalc, 
+                                    ES920NodeDeviceParameters.ISR, 
+                                    ES920NodeDeviceParameters.FIBEXVersion, 
+                                    ES920NodeDeviceParameters.UsedTripleBuffers, 
+                                    ES920NodeDeviceParameters.UsedSignalGroups,
+                                    ES920NodeDeviceParameters.pSecondKeySlotId,
+                                    ES920NodeDeviceParameters.IRQSource)>
+
+<!ELEMENT ES920NodeDeviceParameters.Name (ESParameterName)>
+<!ELEMENT ES920NodeDeviceParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.ModuleType (ESParameterDynamicEnum)>
+<!ELEMENT ES920NodeDeviceParameters.ModuleTypeInstance (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.Port (ESParameterDynamicEnum)>
+<!ELEMENT ES920NodeDeviceParameters.gdStaticSlot (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gNumberOfStaticSlots (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gdMinislot (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gColdStartAttempts (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gPayloadLengthStatic (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gdMinislotActionPointOffset (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gdActionPointOffset (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gdSymbolWindow (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gClusterDriftDamping (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gdTSSTransmitter (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gListenNoise (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gdMinPropagationDelay (ESParameterFloat)>
+<!ELEMENT ES920NodeDeviceParameters.gMaxWithoutClockCorrectionFatal (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gMaxWithoutClockCorrectionPassive (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gChannels (ESParameterEnum)>
+<!ATTLIST ES920NodeDeviceParameters.gChannels  
+    EnumText1      CDATA "A"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "B"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "A&B"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ES920NodeDeviceParameters.DefaultByteOrder (ESParameterEnum)>
+<!ATTLIST ES920NodeDeviceParameters.DefaultByteOrder 
+    EnumText1      CDATA "little endian (Intel)"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "big endian (Motorola)"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+<!ELEMENT ES920NodeDeviceParameters.FIBEXFile (ESParameterString)>
+<!ELEMENT ES920NodeDeviceParameters.gSyncNodeMax (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gNetworkManagementVectorLength (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gdCycle (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gMacroPerCycle (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gdMaxMicrotick (ESParameterFloat)>
+<!ELEMENT ES920NodeDeviceParameters.gdMaxPropagationDelay (ESParameterFloat)>
+<!ELEMENT ES920NodeDeviceParameters.gNumberOfMinislots (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gdDynamicSlotIdlePhase (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gOffsetCorrectionMax (ESParameterFloat)>
+<!ELEMENT ES920NodeDeviceParameters.gOffsetCorrectionStart (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gdMaxInitializationError (ESParameterFloat)>
+<!ELEMENT ES920NodeDeviceParameters.gdCASRxLowMax (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gdWakeupSymbolTxIdle (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gdWakeupSymbolTxLow (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gdWakeupSymbolRxIdle (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gdWakeupSymbolRxLow (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gdWakeupSymbolRxWindow (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.ProtocolVersion (ESParameterEnum)>
+<!ATTLIST ES920NodeDeviceParameters.ProtocolVersion  
+    EnumText1      CDATA "2.1.A"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+>
+<!ELEMENT ES920NodeDeviceParameters.BaudRate (ESParameterEnum)>
+<!ATTLIST ES920NodeDeviceParameters.BaudRate  
+    EnumText1      CDATA "10"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "5"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "2.5"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+<!ELEMENT ES920NodeDeviceParameters.gdSampleClockPeriod (ESParameterFloat)>
+<!ELEMENT ES920NodeDeviceParameters.gdBit (ESParameterFloat)>
+<!ELEMENT ES920NodeDeviceParameters.gdMacrotick (ESParameterFloat)>
+<!ELEMENT ES920NodeDeviceParameters.gAssumedPrecision (ESParameterFloat)>
+<!ELEMENT ES920NodeDeviceParameters.aFrameLengthStatic (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.gdNIT (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.dBDRxai (ESParameterFloat)>
+<!ELEMENT ES920NodeDeviceParameters.dBDRxia (ESParameterFloat)>
+<!ELEMENT ES920NodeDeviceParameters.cdBSS (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.cdCAS (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.cClockDeviationMax (ESParameterFloat)>
+<!ELEMENT ES920NodeDeviceParameters.cChannelIdleDelimiter (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.cdCycleMax (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.cdFES (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.cdFSS (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.cdMaxMTNom (ESParameterFloat)>
+<!ELEMENT ES920NodeDeviceParameters.cMicroPerMacroMin (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.cMicroPerMacroNomMin (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.cMicroPerMacroNomMax (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.cdMinMTNom (ESParameterFloat)>
+<!ELEMENT ES920NodeDeviceParameters.cPayloadLengthMax (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.cPropagationDelayMax (ESParameterFloat)>
+<!ELEMENT ES920NodeDeviceParameters.cSamplesPerBit (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.cSlotIDMax (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.cStaticSlotIDMax (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.cdWakeupMaxCollision (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.cStrobeOffset (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.cSyncNodeMax (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.cdWakeupSymbolTxLow (ESParameterFloat)>
+<!ELEMENT ES920NodeDeviceParameters.cdWakeupSymbolTxIdle (ESParameterFloat)>
+<!ELEMENT ES920NodeDeviceParameters.cVotingDelay (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pPayloadLengthDynMax (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pdAcceptedStartupRange (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pClusterDriftDamping (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pRateCorrectionOut (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pOffsetCorrectionOut (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pdMaxDrift (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pdListenTimeout (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pDecodingCorrection (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pDelayCompensationA (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pDelayCompensationB (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pMacroInitialOffsetA (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pMacroInitialOffsetB (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pMicroInitialOffsetA (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pMicroInitialOffsetB (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pLatestTx (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pAllowHaltDueToClock (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pAllowPassiveToActive (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pChannels (ESParameterEnum)>
+<!ATTLIST ES920NodeDeviceParameters.pChannels   
+    EnumText1      CDATA "A"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "B"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "A&B"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+<!ELEMENT ES920NodeDeviceParameters.pKeySlotId (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pKeySlotUsedForStartup (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pKeySlotUsedForSync (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pSingleSlotEnabled (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pWakeupChannel (ESParameterEnum)>
+<!ATTLIST ES920NodeDeviceParameters.pWakeupChannel    
+    EnumText1      CDATA "A"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "B"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+<!ELEMENT ES920NodeDeviceParameters.pWakeupPattern (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pSamplesPerMicrotick (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pdMicrotick (ESParameterFloat)>
+<!ELEMENT ES920NodeDeviceParameters.pMicroPerMacroNom (ESParameterFloat)>
+<!ELEMENT ES920NodeDeviceParameters.pMicroPerCycle (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pExternRateCorrection (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pExternOffsetCorrection (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.aFrameLengthDynamic (ESParameterUInt)>
+
+<!ELEMENT ES920NodeDeviceParameters.WakeupEnabled (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.WaitForWUPA (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.WaitForWUPB (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.ColdstartInhibit (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.RepeatColdstart (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.ResumeAfterHalt (ESParameterBoolean)>
+
+<!ELEMENT ES920NodeDeviceParameters.UsedCommunicationRegisters (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.UsedCommunicationMemory (ESParameterUInt)>
+
+<!ELEMENT ES920NodeDeviceParameters.ClusterName (ESParameterString)>
+<!ELEMENT ES920NodeDeviceParameters.vDTSLowMin (ESParameterUInt)>
+
+<!ELEMENT ES920NodeDeviceParameters.nStarPathMax (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.dStarTruncation (ESParameterFloat)>
+<!ELEMENT ES920NodeDeviceParameters.adOffsetCorrection (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.cdMaxOffsetCalculation (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.cdMaxRateCalculation (ESParameterUInt)>
+
+<!ELEMENT ES920NodeDeviceParameters.gdActionPointOffset_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gdCASRxLowMax_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gdDynamicSlotIdlePhase_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gdMinislot_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gdMinislotActionPointOffset_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gdStaticSlot_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gdSymbolWindow_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gdTSSTransmitter_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gdWakeupSymbolRxIdle_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gdWakeupSymbolRxLow_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gdWakeupSymbolRxWindow_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gdWakeupSymbolTxIdle_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gdWakeupSymbolTxLow_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gListenNoise_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gOffsetCorrectionStart_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pdAcceptedStartupRange_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pClusterDriftDamping_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pDecodingCorrection_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pdListenTimeout_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pdMaxDrift_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pLatestTx_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pMacroInitialOffsetA_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pMacroInitialOffsetB_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pMicroInitialOffsetA_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pMicroInitialOffsetB_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pMicroPerCycle_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pOffsetCorrectionOut_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pRateCorrectionOut_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.adOffsetCorrection_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gColdStartAttempts_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gMaxWithoutClockCorrectionFatal_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gMaxWithoutClockCorrectionPassive_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gSyncNodeMax_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gOffsetCorrectionMax_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gdMaxInitializationError_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.gAssumedPrecision_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pAllowHaltDueToClock_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pAllowPassiveToActive_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pKeySlotUsedForStartup_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pKeySlotUsedForSync_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pSingleSlotEnabled_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.pWakeupPattern_AutoCalc (ESParameterBoolean)>
+<!ELEMENT ES920NodeDeviceParameters.ISR (ESParameterString)>
+<!ELEMENT ES920NodeDeviceParameters.FIBEXVersion (ESParameterEnum)>
+<!ATTLIST ES920NodeDeviceParameters.FIBEXVersion    
+    EnumText1      CDATA "unspecified"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "1.2"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "2.0"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "2.0+"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"   
+
+    EnumText5      CDATA "3.0"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"   
+
+    EnumText6      CDATA "3.1"
+    EnumL1Value6     CDATA "5"
+    EnumAvailable6 CDATA "1"   
+>
+<!ELEMENT ES920NodeDeviceParameters.UsedTripleBuffers (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.UsedSignalGroups (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.pSecondKeySlotId (ESParameterUInt)>
+<!ELEMENT ES920NodeDeviceParameters.IRQSource (ESParameterString)>
+
+<!ELEMENT ES920NodeDeviceSubNodeList (ES920NodeChannels | ES920NodeStatus | ES920NodeFramePool | ES920NodePDUPool)*>

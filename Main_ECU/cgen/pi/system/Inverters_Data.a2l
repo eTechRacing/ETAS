@@ -347,22 +347,6 @@ ASAP2_VERSION
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     Inverters_Data_Y.Inv_L_VdcBus 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Inverters_Data_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Data.Inv_L_VdcBus 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
             /* Name                */     Inverters_Data_Y.Inv_R_Iactual 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
@@ -443,22 +427,6 @@ ASAP2_VERSION
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     Inverters_Data_Y.Inv_R_VdcBus 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Inverters_Data_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Data.Inv_R_VdcBus 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
             /* Name                */     Inverters_Data_Y.InvertersMinDCBus 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
@@ -469,6 +437,38 @@ ASAP2_VERSION
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.InvertersMinDCBus 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     Inverters_Data_Y.Max_Temp_IGBT 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Inverters_Data_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Inverters_Data.Max_Temp_IGBT 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     Inverters_Data_Y.Max_Temp_Motors 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Inverters_Data_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Inverters_Data.Max_Temp_Motors 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -549,38 +549,6 @@ ASAP2_VERSION
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Speed 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     Inverters_Data_Y.Temp_IGBT 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Inverters_Data_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Data.Temp_IGBT 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     Inverters_Data_Y.Temp_Motors 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Inverters_Data_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Data.Temp_Motors 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 

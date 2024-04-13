@@ -44,7 +44,7 @@ BUILD_SUCCESS = successful
 
 # make matlab happy
 MODEL                = rtwshared
-MODULES              = const_params.c div_nde_s32_floor.c look1_binlxpw.c look1_pbinlcpw.c qr_AN2ohs8Z.c rotate_nRcnRDPx.c rtGetInf.c rtGetNaN.c rt_hypotd_snf.c rt_nonfinite.c xgemv_qp73QypX.c xgerc_FRu4rrSR.c xnrm2_BUFaA6pd.c xnrm2_cFB6ntui.c
+MODULES              = const_params.c look1_binlxpw.c rtGetInf.c rtGetNaN.c rt_nonfinite.c look2_binlxpw.c
 MAKEFILE             = 
 MATLAB_ROOT          = C:\Program Files\MATLAB\R2023b
 MATLAB_BIN           = C:\Program Files\MATLAB\R2023b\bin

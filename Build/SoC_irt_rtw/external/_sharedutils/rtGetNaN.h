@@ -7,9 +7,9 @@
  *
  * Code generation for model "SoC".
  *
- * Model version              : 13.0
+ * Model version              : 13.3
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Wed Apr 10 15:35:56 2024
+ * C source code generated on : Fri Apr 12 20:10:40 2024
  */
 
 #ifndef RTW_HEADER_rtGetNaN_h_

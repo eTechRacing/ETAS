@@ -34,7 +34,7 @@ ASAP2_VERSION
 
  
         /begin MEASUREMENT 
-            /* Name                */     SoC_B.Memory 
+            /* Name                */     SoC_B.CoreSubsys[0].Gain 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     SoC_CM_double 
@@ -43,7 +43,7 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER SoC.SoC_Lowest.Memory.Memory 
+            DISPLAY_IDENTIFIER SoC.SoC_Highest.SOC_Estimator__Coulomb_Counting_.Gain.Gain 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -59,7 +59,7 @@ ASAP2_VERSION
 
  
         /begin MEASUREMENT 
-            /* Name                */     SoC_B.Memory_p 
+            /* Name                */     SoC_B.CoreSubsys_j[0].Probe 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     SoC_CM_double 
@@ -68,48 +68,91 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER SoC.SoC_Highest.Memory.Memory_p 
+            DISPLAY_IDENTIFIER SoC.SoC_Lowest.SOC_Estimator__Kalman_Filter_.Kalman_Filter.EKF.Jacobian.Probe.Probe 
+            ARRAY_SIZE 2 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     SoC_B.NOT 
+            /* Name                */     SoC_B.CoreSubsys_j[0].Product5 
             /* Long identifier     */     "" 
-            /* Data type           */     UBYTE 
-            /* Conversion method   */     SoC_CM_boolean 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     SoC_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
-            /* Lower limit         */     0 
-            /* Upper limit         */     1 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER SoC.SoC_Lowest.NOT.NOT 
+            DISPLAY_IDENTIFIER SoC.SoC_Lowest.SOC_Estimator__Kalman_Filter_.Kalman_Filter.EKF.Correction.Product5.Product5 
+            MATRIX_DIM 2 2 1  
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
         /end MEASUREMENT
-        /begin COMPU_METHOD 
-            /* Name                */     SoC_CM_boolean 
-            /* Long identifier     */     "Q = V" 
-            /* ConversionType      */     RAT_FUNC 
-            /* Format              */     "%9.6" 
-            /* Unit                */     "NO_PHYSICAL_QTY" 
-            COEFFS            0.0 1.0 0.0 0.0 0.0 1.0  
-        /end COMPU_METHOD 
-
  
         /begin MEASUREMENT 
-            /* Name                */     SoC_B.NOT_p 
+            /* Name                */     SoC_B.CoreSubsys_j[0].Sum 
             /* Long identifier     */     "" 
-            /* Data type           */     UBYTE 
-            /* Conversion method   */     SoC_CM_boolean 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     SoC_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
-            /* Lower limit         */     0 
-            /* Upper limit         */     1 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER SoC.SoC_Highest.NOT.NOT_p 
+            DISPLAY_IDENTIFIER SoC.SoC_Lowest.SOC_Estimator__Kalman_Filter_.Kalman_Filter.EKF.Correction.Sum.Sum 
+            ARRAY_SIZE 2 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     SoC_B.CoreSubsys_j[0].TmpSignalConversionAtDelayInpor 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     SoC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER SoC.Opaque.TmpSignalConversionAtDelayInpor 
+            ARRAY_SIZE 2 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     SoC_B.CoreSubsys_l[0].Gain 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     SoC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER SoC.SoC_Lowest.SOC_Estimator__Coulomb_Counting_.Gain.Gain 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     SoC_B.Saturation1 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     SoC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER SoC.SoC_Lowest.Saturation1.Saturation1 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -148,6 +191,22 @@ ASAP2_VERSION
         /end MEASUREMENT
  
         /begin MEASUREMENT 
+            /* Name                */     SoC_ConstB.Saturation 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     SoC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER SoC.SoC_Highest.Saturation.Saturation 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
             /* Name                */     SoC_U.Accumulator_Current 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
@@ -180,7 +239,7 @@ ASAP2_VERSION
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     SoC_U.Highest_CellVoltage 
+            /* Name                */     SoC_U.Highest_Cell_Voltage 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     SoC_CM_double 
@@ -189,14 +248,14 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER SoC.Highest_CellVoltage 
+            DISPLAY_IDENTIFIER SoC.Highest_Cell_Voltage 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     SoC_U.Lowest_CellVoltage 
+            /* Name                */     SoC_U.Lowest_Cell_Voltage 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     SoC_CM_double 
@@ -205,7 +264,71 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER SoC.Lowest_CellVoltage 
+            DISPLAY_IDENTIFIER SoC.Lowest_Cell_Voltage 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     SoC_Y.CSoC_H 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     SoC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER SoC.CSoC_H 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     SoC_Y.CSoC_L 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     SoC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER SoC.CSoC_L 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     SoC_Y.KFSoC_H 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     SoC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER SoC.KFSoC_H 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     SoC_Y.KFSoC_L 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     SoC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER SoC.KFSoC_L 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
