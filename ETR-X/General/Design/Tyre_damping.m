@@ -4,13 +4,13 @@ load("B1654run21.mat")
 %camber 0, 12 psi
 FmZ0=abs(FZ(1)-FZ(2)); %FZ in N
 time0= abs(ET(1)-ET(2)); %time in sec
-RR0=abs(RL(1)*10^-2 -RL(2)*10^-2); %Loaded radius in m
+RR0=abs(RE(1)*10^-2 -RE(2)*10^-2); %Effective radius in m
 TD0= vpa((FmZ0*time0)/RR0); %Tyre damping 
 
 %camber 2, 12 psi
 FmZ2=abs(FZ(7670)-FZ(7671)); %FZ in N
 time2=abs(ET(7670)-ET(7671)); %time in sec
-RR2=abs(RL(7670)*10^-2 -RL(7671)*10^-2); %Loaded radius in m
+RR2=abs(RE(7670)*10^-2 -RE(7671)*10^-2); %Effective radius in m
 TD2= vpa((FmZ2*time2)/RR2); %Tyre damping
 
 %interpolacio
