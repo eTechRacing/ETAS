@@ -23,13 +23,13 @@ PHX2=-0.0018;
 %PDXP1=
 %PDXP2=
 %PDXP3=
-%RHX1=
-%REX1=
-%REX2=
-%RCX1=
-%RBX1=
-%RBX2=
-%RBX3=
+RHX1=0;
+REX1=-1;
+REX2=-0.1;
+RCX1=1;
+RBX1=5;
+RBX2=5;
+RBX3=0;
 SVX=1;
 
 %Scaling coefficients
@@ -70,6 +70,22 @@ PPY2 = 0.9444;
 PPY3 = -0.9607;
 PPY4 = -2;
 PPY5 = 0.0000;
+RBY1= 5;
+RBY2= 2;
+RBY3= 0.02;            
+RBY4 =0;                
+RCY1= 1;                 
+REY1= -0.1; 
+REY2= 0.1;         
+RHY1= 0;             
+RHY2= 0;     
+RVY1= 0;                
+RVY2= 0;        
+RVY3= 0;
+RVY4= 0;  
+RVY5= 0;
+RVY6= 0;
+
 Fz0 = 1080;
 P0=0.97;
 %Turn slip
@@ -94,7 +110,49 @@ b5m =       3.801;
 wm =      0.2417;
 
 MZ=@(SA)  a0m + a1m*cos(SA*wm) + b1m*sin(SA*wm) + a2m*cos(2*SA*wm) + b2m*sin(2*SA*wm) + a3m*cos(3*SA*wm) + b3m*sin(3*SA*wm) + a4m*cos(4*SA*wm) + b4m*sin(4*SA*wm) + a5m*cos(5*SA*wm) + b5m*sin(5*SA*wm);
+%--------------------------------------------------------------------------
+%Inputs
+g=9.81;
+m = 320; % vechicle mass in kg 
+R = 22.3969*10^-2 ; %efective rolling radius
+CAMdeg = 0.9; %inclination angle en graus
+CAM = CAMdeg*pi/180; %Camber in radians
+VV = (0:5:90)/3.6; %Vehicle Velocity m/s
+FZ = m*g/4; % single wheel load 
+DFZ = (FZ-1080)/1080; %diferencial de carrega
+PI = 0.8; %pressio en bar
+DPI = (PI-0.84)/0.84;
+%Steering
+deltadg=-15:1:15; %Steering angle en graus
+SI=deltadg'.*pi/180; %Steering angle en rad
+%Slip angle
+Betadg=-6:1:6; %Whole car slip angle en graus
+VS=Betadg'.*pi/180; %Whole car slip angle rad
+sliplim=17*pi/180; %Limit slip angle
+%Slip ratio
+slip = 0:0.01:1.0; %vehicle slip ratio
 
+%Combined slip for FX
+SHalfa= RHX1;
+alfaS= alfaF+SHalfa;
+BXalfa= (RBX1+RBX3*CAM^2)*cos(arctan(RBX2*k))*LXalfa;
+CXalfa= RCX1;
+EXA= REX1+REX2*DFZ;
+GXalfa= (cos(CXalfa*arctan(BXalfa*alfaS-EXA(BXalfa*alfaS-arctan(BXalfa*alfaS)))))/(cos(CXalfa*arctan(BXalfa*SHalfa-EXalfa(BXalfa-SHalfa-arctan(BXalfa*SHXalfa)))));
+
+%Combined Slip for FY
+%weighting function
+SHYK= RHY1+RHY2*DFZ;
+EYK= REY1+REY2*DFZ;
+CYK=RCY1;
+BYK= (RBY1+RBY4*CAM^2)cos(arctan(RBY2*(alfa-RBY3)))^LYK;
+KS=K+SHYK;
+GYK= (cos(CYK*arctan(BYK*KS-EYK(BYK*KS-arctan(BYK*KS)))))/(cos(CYK*arctan(BYK*SHYK-EYK*(BYK*SHYK-arctan(BYK*SHYK)))));
+%braling induced plysteer
+DVYK= MUY*FZ*(RV1+RVY2*DFZ+RVY3)*cos(arctan(RVY4*alfaF))*DAMP2;
+SVYK= DVYK*sin(RVY5*arctan(RVY6*KS))*LVYK;
+
+FY= GXalfa*FYP+SVYK;
 
 
 

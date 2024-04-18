@@ -85,7 +85,7 @@ MZ=@(SA)  a0m + a1m*cos(SA*wm) + b1m*sin(SA*wm) + a2m*cos(2*SA*wm) + b2m*sin(2*S
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Imputs
+%Inputs
 V=90; %velocitat en X en km/h
 deltadg=-15:1:15; %Steering angles en graus
 SI=deltadg'.*pi/180; %Steering angle en rad

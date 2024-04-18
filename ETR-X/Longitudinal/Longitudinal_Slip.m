@@ -4,7 +4,7 @@ clc
 g=9.81;
 m = 320; % vechicle mass in kg 
 R = 22.3969*10^-2 ; %efective rolling radius
-CAMdeg = 1; %inclination angle en graus
+CAMdeg = 0.9; %inclination angle en graus
 CAM = CAMdeg*pi/180; %Camber in radians
 
 %Longitudinal Coefficients
