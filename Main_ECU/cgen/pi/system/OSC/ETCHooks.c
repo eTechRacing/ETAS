@@ -13,13 +13,13 @@ rtioHookTableEntry rtioHookTable0[1] = {NULL};
 /* rtio hook in task 1 SWT_CAN1_2024_AP_BMS_AIRs_State */
 rtioHookTableEntry rtioHookTable1[1] = {NULL};
 
-/* rtio hook in task 2 SWT_CAN1_2024_AP_BMS_BatteryTemperature */
+/* rtio hook in task 2 SWT_CAN1_2024_AP_BMS_ChargerParameters */
 rtioHookTableEntry rtioHookTable2[1] = {NULL};
 
-/* rtio hook in task 3 SWT_CAN1_2024_AP_BMS_ChargerParameters */
+/* rtio hook in task 3 SWT_CAN1_2024_AP_BMS_SDC */
 rtioHookTableEntry rtioHookTable3[1] = {NULL};
 
-/* rtio hook in task 4 SWT_CAN1_2024_AP_BMS_SDC */
+/* rtio hook in task 4 SWT_CAN1_2024_AP_BMS_Temperatures */
 rtioHookTableEntry rtioHookTable4[1] = {NULL};
 
 /* rtio hook in task 5 SWT_CAN1_2024_AP_BMS_Voltages */

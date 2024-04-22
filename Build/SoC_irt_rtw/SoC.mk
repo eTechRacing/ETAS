@@ -44,7 +44,7 @@ BUILD_SUCCESS = successful
 
 # make matlab happy
 MODEL                = SoC
-MODULES              = rt_logging.c SoC_data.c SoC_main.c rt_sim.c
+MODULES              = rt_logging.c SoC_main.c rt_sim.c
 MAKEFILE             = SoC.mk
 MATLAB_ROOT          = C:\Program Files\MATLAB\R2023b
 MATLAB_BIN           = C:\Program Files\MATLAB\R2023b\bin

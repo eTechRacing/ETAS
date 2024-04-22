@@ -39,9 +39,9 @@ T_taskTableEntry taskTableEntries[] =
 {
     {(TaskType *)&etasConfigTask, "etasConfigTask", TASK_MONITOR_PTR(etasConfigTask)},
     {(TaskType *)&SWT_CAN1_2024_AP_BMS_AIRs_State, "SWT_CAN1_2024_AP_BMS_AIRs_State", TASK_MONITOR_PTR(SWT_CAN1_2024_AP_BMS_AIRs_State)},
-    {(TaskType *)&SWT_CAN1_2024_AP_BMS_BatteryTemperature, "SWT_CAN1_2024_AP_BMS_BatteryTemperature", TASK_MONITOR_PTR(SWT_CAN1_2024_AP_BMS_BatteryTemperature)},
     {(TaskType *)&SWT_CAN1_2024_AP_BMS_ChargerParameters, "SWT_CAN1_2024_AP_BMS_ChargerParameters", TASK_MONITOR_PTR(SWT_CAN1_2024_AP_BMS_ChargerParameters)},
     {(TaskType *)&SWT_CAN1_2024_AP_BMS_SDC, "SWT_CAN1_2024_AP_BMS_SDC", TASK_MONITOR_PTR(SWT_CAN1_2024_AP_BMS_SDC)},
+    {(TaskType *)&SWT_CAN1_2024_AP_BMS_Temperatures, "SWT_CAN1_2024_AP_BMS_Temperatures", TASK_MONITOR_PTR(SWT_CAN1_2024_AP_BMS_Temperatures)},
     {(TaskType *)&SWT_CAN1_2024_AP_BMS_Voltages, "SWT_CAN1_2024_AP_BMS_Voltages", TASK_MONITOR_PTR(SWT_CAN1_2024_AP_BMS_Voltages)},
     {(TaskType *)&SWT_CAN1_2024_AP_CurrentSensor, "SWT_CAN1_2024_AP_CurrentSensor", TASK_MONITOR_PTR(SWT_CAN1_2024_AP_CurrentSensor)},
     {(TaskType *)&SWT_CAN1_2024_AP_DASH_CustomMode, "SWT_CAN1_2024_AP_DASH_CustomMode", TASK_MONITOR_PTR(SWT_CAN1_2024_AP_DASH_CustomMode)},

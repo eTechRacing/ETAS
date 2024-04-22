@@ -39,10 +39,13 @@ SoC_instances.o: \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\rtw\c\src/rt_mxclassid.h \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\simulink\include/rtw_matlogging.h \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw/SoC_types.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/rtGetNaN.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/rt_nonfinite.h \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/rt_defines.h \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/rt_nonfinite.h \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/zero_crossing_types.h \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw/SoC_private.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw/SoC.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../a_basdef.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../a_limits.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\common/etashead/etas_typ.h \

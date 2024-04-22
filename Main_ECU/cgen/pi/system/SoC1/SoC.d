@@ -39,9 +39,16 @@ SoC.o: \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\rtw\c\src/rt_mxclassid.h \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\simulink\include/rtw_matlogging.h \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\/SoC_types.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/rtGetNaN.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/rt_nonfinite.h \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/rt_defines.h \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/rt_nonfinite.h \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/zero_crossing_types.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\/SoC_private.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\/SoC.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/qr_AN2ohs8Z.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/rotate_nRcnRDPx.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/xnrm2_cFB6ntui.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/rt_hypotd_snf.h \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/look1_binlxpw.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/look2_binlxpw.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\/SoC_private.h
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/look1_pbinlcpw.h

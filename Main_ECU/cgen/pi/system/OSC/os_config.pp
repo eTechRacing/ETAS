@@ -1089,9 +1089,9 @@ task osek_task_SWT_CAN1_2024_AP_Inverter_R_Tx {
 # 285 "os_config.stc"
 
 # 286 "os_config.stc"
-task osek_task_SWT_CAN1_2024_AP_BMS_BatteryTemperature {
+task osek_task_SWT_CAN1_2024_AP_BMS_Temperatures {
 # 287 "os_config.stc"
-	entry osek_task_e_SWT_CAN1_2024_AP_BMS_BatteryTemperature;
+	entry osek_task_e_SWT_CAN1_2024_AP_BMS_Temperatures;
 # 287 "os_config.stc"
 
 # 288 "os_config.stc"
@@ -1585,7 +1585,7 @@ taskset osek_bcc1_tasks {
 # 424 "os_config.stc"
 
 # 425 "os_config.stc"
-	task osek_task_SWT_CAN1_2024_AP_BMS_BatteryTemperature;
+	task osek_task_SWT_CAN1_2024_AP_BMS_Temperatures;
 # 425 "os_config.stc"
 
 # 426 "os_config.stc"
@@ -2097,7 +2097,7 @@ task priority order {
 # 569 "os_config.stc"
 
 # 570 "os_config.stc"
-	task osek_task_SWT_CAN1_2024_AP_BMS_BatteryTemperature;
+	task osek_task_SWT_CAN1_2024_AP_BMS_Temperatures;
 # 570 "os_config.stc"
 
 # 571 "os_config.stc"

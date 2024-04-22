@@ -7,9 +7,9 @@
  *
  * Code generation for model "VDC".
  *
- * Model version              : 1.14
+ * Model version              : 4.1
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Wed Apr 10 15:32:18 2024
+ * C source code generated on : Mon Apr 22 17:13:08 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -28,6 +28,5 @@
 #include "VDC.h"
 
 extern void VDC_LimitReached(real_T *rty_Out);
-extern void VDC_AutomaticFailureMode(real_T rtu_In1, real_T *rty_Out1);
 
 #endif                                 /* RTW_HEADER_VDC_private_h_ */

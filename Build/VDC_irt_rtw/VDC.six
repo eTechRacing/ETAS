@@ -22,9 +22,9 @@
 	<moduleInfo identifier="VDC">
 		<name>VDC</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}VDC.slx&quot;"/>
-		<version major="1" minor="14"/>
+		<version major="4" minor="1"/>
 		<dateTime kind="created" year="2024" month="3" day="15" hour="15" minute="34" second="18"/>
-		<dateTime kind="lastModified" year="2024" month="4" day="10" hour="13" minute="58" second="24"/>
+		<dateTime kind="lastModified" year="2024" month="4" day="22" hour="17" minute="8" second="3"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="4" day="10" hour="15" minute="32" second="18"/>
+		<dateTime kind="created" year="2024" month="4" day="22" hour="17" minute="13" second="8"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -161,6 +161,12 @@
 		<definitions>
 			<structDef name="_B_VDC_T">
 				<fileOrigin name="VDC.h"/>
+				<structMember identifier="Merge">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
 				<structMember identifier="Merge2">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
@@ -393,6 +399,12 @@
 						<documentation>&lt;Root&gt;/el_SlipAngle</documentation>
 					</annotation>
 				</structMember>
+				<structMember identifier="RacingMode">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/RacingMode</documentation>
+					</annotation>
+				</structMember>
 			</structDef>
 			<typeDef name="ExtU_VDC_T">
 				<struct/><typeRef name="ExtU_VDC_T_tag"/>
@@ -548,6 +560,39 @@
 		<!-- Exported global parameters following -->
 		<!-- Imported extern parameters following -->
 		<!-- Global BlockIO (rtB) signals following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.Merge">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="Merge"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.Opaque.Merge">
+				<name>Merge</name>
+				<modelLink href="VDC/Opaque"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Merge" kind="mlsl:block"/>
+					<pathNode name="Merge" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
 		<dataElement interfaceKind="export">
 			<dataCInterface identifier="VDC_B.Merge2">
 				<definitionLocation>
@@ -1775,6 +1820,37 @@
 				</address>
 			</usage>
 		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_U.RacingMode">
+				<definitionLocation>
+					<baseRef identifier="VDC_U"/>
+					<memberRef identifier="RacingMode"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.RacingMode">
+				<name>RacingMode</name>
+				<modelLink href="VDC/RacingMode"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model"/>
+					<pathNode name="RacingMode" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
 		<!-- rtY output ports following -->
 		<dataElement interfaceKind="export">
 			<dataCInterface identifier="VDC_Y.Power">
@@ -2171,6 +2247,7 @@
 						<message identifier="VDC_U.CriticalDisconnection" send="false"></message>
 						<message identifier="VDC_U.Car_State" send="false"></message>
 						<message identifier="VDC_U.el_SlipAngle" send="false"></message>
+						<message identifier="VDC_U.RacingMode" send="false"></message>
 						<message identifier="VDC_Y.Power" send="true"></message>
 						<message identifier="VDC_Y.PowerLimitReached" send="true"></message>
 						<message identifier="VDC_Y.PowerMean500ms" send="true"></message>

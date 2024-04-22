@@ -7,7 +7,7 @@
 #
 # "Project is 'os_config'"
 # "Last edited 'unknown'"
-# "File generated 'Fri Apr 12 20:11:07 2024'"
+# "File generated 'Mon Apr 22 17:33:14 2024'"
 # "Target variant 'ES900'"
 	.section	".os_pir","aw",@progbits
 	.align 2
@@ -620,7 +620,7 @@ OS_L004B:
 	.long	0
 	.long	12
 	.align 2
-	.long	osek_task_e_SWT_CAN1_2024_AP_BMS_BatteryTemperature
+	.long	osek_task_e_SWT_CAN1_2024_AP_BMS_Temperatures
 	.align 2
 	.long	0
 	.align 2

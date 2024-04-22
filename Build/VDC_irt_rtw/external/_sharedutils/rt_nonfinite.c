@@ -7,9 +7,9 @@
  *
  * Code generation for model "Synchronism".
  *
- * Model version              : 10.0
+ * Model version              : 13.0
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Wed Apr 10 15:29:25 2024
+ * C source code generated on : Mon Apr 22 17:12:40 2024
  */
 
 #include "rtGetNaN.h"

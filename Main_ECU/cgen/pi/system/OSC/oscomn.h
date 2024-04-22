@@ -6,7 +6,7 @@
  * Build level is standard
  * Project is 'os_config'
  * Last edited 'unknown'
- * File generated 'Fri Apr 12 20:11:07 2024'
+ * File generated 'Mon Apr 22 17:33:14 2024'
  * Target variant 'ES900'
  */
 #ifndef __OS_COMN_H__
@@ -86,7 +86,7 @@ extern struct os_task OS_L0049;
 extern struct os_task OS_L004A;
 #define osek_task_SWT_CAN1_2024_AP_Inverter_R_Tx (&OS_L004A)
 extern struct os_task OS_L004B;
-#define osek_task_SWT_CAN1_2024_AP_BMS_BatteryTemperature (&OS_L004B)
+#define osek_task_SWT_CAN1_2024_AP_BMS_Temperatures (&OS_L004B)
 extern struct os_task OS_L004C;
 #define osek_task_SWT_CAN1_2024_AP_BMS_ChargerParameters (&OS_L004C)
 extern struct os_task OS_L004D;

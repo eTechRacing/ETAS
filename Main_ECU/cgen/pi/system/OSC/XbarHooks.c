@@ -10,13 +10,13 @@
 /* crossbar hook in task 1 SWT_CAN1_2024_AP_BMS_AIRs_State */
 crossbarHookTableEntry crossbarHookTable1[1] = {NULL};
 
-/* crossbar hook in task 2 SWT_CAN1_2024_AP_BMS_BatteryTemperature */
+/* crossbar hook in task 2 SWT_CAN1_2024_AP_BMS_ChargerParameters */
 crossbarHookTableEntry crossbarHookTable2[1] = {NULL};
 
-/* crossbar hook in task 3 SWT_CAN1_2024_AP_BMS_ChargerParameters */
+/* crossbar hook in task 3 SWT_CAN1_2024_AP_BMS_SDC */
 crossbarHookTableEntry crossbarHookTable3[1] = {NULL};
 
-/* crossbar hook in task 4 SWT_CAN1_2024_AP_BMS_SDC */
+/* crossbar hook in task 4 SWT_CAN1_2024_AP_BMS_Temperatures */
 crossbarHookTableEntry crossbarHookTable4[1] = {NULL};
 
 /* crossbar hook in task 5 SWT_CAN1_2024_AP_BMS_Voltages */

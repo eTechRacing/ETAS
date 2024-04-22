@@ -12,12 +12,12 @@ extern uint Xcp_Event (uint eventId, uint doDaq);
 
 #define XCP_DAQ_SWT_CAN1_2024_AP_BMS_AIRs_State Xcp_Event(0,0);
 #define XCP_STIM_SWT_CAN1_2024_AP_BMS_AIRs_State Xcp_Event(0,1);
-#define XCP_DAQ_SWT_CAN1_2024_AP_BMS_BatteryTemperature Xcp_Event(1,0);
-#define XCP_STIM_SWT_CAN1_2024_AP_BMS_BatteryTemperature Xcp_Event(1,1);
-#define XCP_DAQ_SWT_CAN1_2024_AP_BMS_ChargerParameters Xcp_Event(2,0);
-#define XCP_STIM_SWT_CAN1_2024_AP_BMS_ChargerParameters Xcp_Event(2,1);
-#define XCP_DAQ_SWT_CAN1_2024_AP_BMS_SDC Xcp_Event(3,0);
-#define XCP_STIM_SWT_CAN1_2024_AP_BMS_SDC Xcp_Event(3,1);
+#define XCP_DAQ_SWT_CAN1_2024_AP_BMS_ChargerParameters Xcp_Event(1,0);
+#define XCP_STIM_SWT_CAN1_2024_AP_BMS_ChargerParameters Xcp_Event(1,1);
+#define XCP_DAQ_SWT_CAN1_2024_AP_BMS_SDC Xcp_Event(2,0);
+#define XCP_STIM_SWT_CAN1_2024_AP_BMS_SDC Xcp_Event(2,1);
+#define XCP_DAQ_SWT_CAN1_2024_AP_BMS_Temperatures Xcp_Event(3,0);
+#define XCP_STIM_SWT_CAN1_2024_AP_BMS_Temperatures Xcp_Event(3,1);
 #define XCP_DAQ_SWT_CAN1_2024_AP_BMS_Voltages Xcp_Event(4,0);
 #define XCP_STIM_SWT_CAN1_2024_AP_BMS_Voltages Xcp_Event(4,1);
 #define XCP_DAQ_SWT_CAN1_2024_AP_CurrentSensor Xcp_Event(5,0);
@@ -82,12 +82,12 @@ extern uint Xcp_Event (uint eventId, uint doDaq);
 #else
 #define XCP_DAQ_SWT_CAN1_2024_AP_BMS_AIRs_State 
 #define XCP_STIM_SWT_CAN1_2024_AP_BMS_AIRs_State
-#define XCP_DAQ_SWT_CAN1_2024_AP_BMS_BatteryTemperature 
-#define XCP_STIM_SWT_CAN1_2024_AP_BMS_BatteryTemperature
 #define XCP_DAQ_SWT_CAN1_2024_AP_BMS_ChargerParameters 
 #define XCP_STIM_SWT_CAN1_2024_AP_BMS_ChargerParameters
 #define XCP_DAQ_SWT_CAN1_2024_AP_BMS_SDC 
 #define XCP_STIM_SWT_CAN1_2024_AP_BMS_SDC
+#define XCP_DAQ_SWT_CAN1_2024_AP_BMS_Temperatures 
+#define XCP_STIM_SWT_CAN1_2024_AP_BMS_Temperatures
 #define XCP_DAQ_SWT_CAN1_2024_AP_BMS_Voltages 
 #define XCP_STIM_SWT_CAN1_2024_AP_BMS_Voltages
 #define XCP_DAQ_SWT_CAN1_2024_AP_CurrentSensor 

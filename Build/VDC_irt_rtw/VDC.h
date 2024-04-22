@@ -12,9 +12,9 @@
  *
  * Code generation for model "VDC".
  *
- * Model version              : 1.14
+ * Model version              : 4.1
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Wed Apr 10 15:32:18 2024
+ * C source code generated on : Mon Apr 22 17:13:08 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -860,6 +860,7 @@
 
 /* Block signals (default storage) */
 typedef struct {
+  real_T Merge;                        /* '<Root>/Merge' */
   real_T Merge2;                       /* '<Root>/Merge2' */
   real_T Merge1;                       /* '<Root>/Merge1' */
   boolean_T Merge3;                    /* '<Root>/Merge3' */
@@ -867,7 +868,7 @@ typedef struct {
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  real_T ERROR_Counter;                /* '<S21>/Data Store Memory1' */
+  real_T ERROR_Counter;                /* '<S25>/Data Store Memory1' */
   real_T correction;                   /* '<S6>/Rigid Axle with TC 2024 ' */
   real_T correction_h;                 /* '<S8>/Rigid Axle with TC 2024 ' */
   real_T A;                            /* '<S13>/Data Store Memory10' */
@@ -909,6 +910,7 @@ typedef struct {
   boolean_T CriticalDisconnection;     /* '<Root>/CriticalDisconnection' */
   real_T Car_State;                    /* '<Root>/Car_State' */
   real_T el_SlipAngle;                 /* '<Root>/el_SlipAngle' */
+  real_T RacingMode;                   /* '<Root>/RacingMode' */
 } ExtU_VDC_T;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -1093,23 +1095,27 @@ extern RT_MODEL_VDC_T *const VDC_M;
  * '<S16>'  : 'VDC/Accumulator Power/PowerLimitDetection/OK_OrLatch'
  * '<S17>'  : 'VDC/Accumulator Power/PowerLimitDetection/OK_OrLatch/Latched Error'
  * '<S18>'  : 'VDC/Accumulator Power/PowerLimitDetection/OK_OrLatch/OK'
- * '<S19>'  : 'VDC/RIGIDAXLE/Rigid Axle 2024 '
- * '<S20>'  : 'VDC/RIGIDAXLE WITH TC/Rigid Axle with TC 2024 '
- * '<S21>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY'
- * '<S22>'  : 'VDC/SAFETY BLOCK/Compare To Constant'
- * '<S23>'  : 'VDC/SAFETY BLOCK/DocBlock'
- * '<S24>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Imp'
- * '<S25>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Not Imp'
- * '<S26>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Signal_Failure'
- * '<S27>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Signal_OK'
- * '<S28>'  : 'VDC/TC+TV/MATLAB Function'
- * '<S29>'  : 'VDC/TC+TV/Rigid Axle with TC 2024 '
- * '<S30>'  : 'VDC/TEST_MODE_IN/BYPASS'
- * '<S31>'  : 'VDC/TEST_MODE_IN/TEST_CONSTANTS'
- * '<S32>'  : 'VDC/TV with TC OFF /Enable regen?'
- * '<S33>'  : 'VDC/TV with TC OFF /MATLAB Function'
- * '<S34>'  : 'VDC/TV with TC OFF /TV with TC OFF 2024'
- * '<S35>'  : 'VDC/WORKSHOP_MODE_RESTRICTIONS/BYPASS'
- * '<S36>'  : 'VDC/WORKSHOP_MODE_RESTRICTIONS/Torque_Reduction '
+ * '<S19>'  : 'VDC/Automatic Failure Mode/DocBlock'
+ * '<S20>'  : 'VDC/Automatic Failure Mode/If Accel & FM1 -> FM2'
+ * '<S21>'  : 'VDC/Automatic Failure Mode/If Accel & FM2 or FM4 If not Accel'
+ * '<S22>'  : 'VDC/Automatic Failure Mode/If Accel & FM3 -> FM4'
+ * '<S23>'  : 'VDC/RIGIDAXLE/Rigid Axle 2024 '
+ * '<S24>'  : 'VDC/RIGIDAXLE WITH TC/Rigid Axle with TC 2024 '
+ * '<S25>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY'
+ * '<S26>'  : 'VDC/SAFETY BLOCK/Compare To Constant'
+ * '<S27>'  : 'VDC/SAFETY BLOCK/DocBlock'
+ * '<S28>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Imp'
+ * '<S29>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Not Imp'
+ * '<S30>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Signal_Failure'
+ * '<S31>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Signal_OK'
+ * '<S32>'  : 'VDC/TC+TV/MATLAB Function'
+ * '<S33>'  : 'VDC/TC+TV/Rigid Axle with TC 2024 '
+ * '<S34>'  : 'VDC/TEST_MODE_IN/BYPASS'
+ * '<S35>'  : 'VDC/TEST_MODE_IN/TEST_CONSTANTS'
+ * '<S36>'  : 'VDC/TV with TC OFF /Enable regen?'
+ * '<S37>'  : 'VDC/TV with TC OFF /MATLAB Function'
+ * '<S38>'  : 'VDC/TV with TC OFF /TV with TC OFF 2024'
+ * '<S39>'  : 'VDC/WORKSHOP_MODE_RESTRICTIONS/BYPASS'
+ * '<S40>'  : 'VDC/WORKSHOP_MODE_RESTRICTIONS/Torque_Reduction '
  */
 #endif                                 /* RTW_HEADER_VDC_h_ */

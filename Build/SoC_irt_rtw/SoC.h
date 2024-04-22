@@ -14,7 +14,7 @@
  *
  * Model version              : 13.3
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Fri Apr 12 20:16:22 2024
+ * C source code generated on : Mon Apr 22 17:11:45 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -34,6 +34,7 @@
 #endif                                 /* SoC_COMMON_INCLUDES_ */
 
 #include "SoC_types.h"
+#include "rtGetNaN.h"
 #include "rt_defines.h"
 #include <string.h>
 #include <stddef.h>
@@ -865,69 +866,105 @@ typedef struct {
 
 /* Block states (default storage) for system '<S2>/SOC Estimator (Coulomb Counting)' */
 typedef struct {
-  real_T Integrator_DSTATE;            /* '<S8>/Integrator' */
-  uint8_T Integrator_IC_LOADING;       /* '<S8>/Integrator' */
+  real_T Integrator_DSTATE;            /* '<S9>/Integrator' */
+  uint8_T Integrator_IC_LOADING;       /* '<S9>/Integrator' */
 } DW_CoreSubsys_SoC_T;
 
-/* Block signals for system '<S3>/SOC Estimator (Coulomb Counting)' */
+/* Block signals for system '<S2>/SOC Estimator (Coulomb Counting)' */
 typedef struct {
-  real_T Gain;                         /* '<S9>/Gain' */
-} B_CoreSubsys_SoC_m_T;
+  B_CoreSubsys_SoC_T CoreSubsys;   /* '<S2>/SOC Estimator (Coulomb Counting)' */
+} B_SOCEstimatorCoulombCounting_T;
 
-/* Block states (default storage) for system '<S3>/SOC Estimator (Coulomb Counting)' */
+/* Block states (default storage) for system '<S2>/SOC Estimator (Coulomb Counting)' */
 typedef struct {
-  real_T Integrator_DSTATE;            /* '<S12>/Integrator' */
-  uint8_T Integrator_IC_LOADING;       /* '<S12>/Integrator' */
-} DW_CoreSubsys_SoC_e_T;
+  DW_CoreSubsys_SoC_T CoreSubsys;  /* '<S2>/SOC Estimator (Coulomb Counting)' */
+} DW_SOCEstimatorCoulombCountin_T;
+
+/* Block signals for system '<S14>/State function' */
+typedef struct {
+  real_T Probe[2];                     /* '<S26>/Probe' */
+} B_CoreSubsys_SoC_jr_T;
+
+/* Block states (default storage) for system '<S14>/State function' */
+typedef struct {
+  uint32_T m_bpIndex;                  /* '<S26>/R1' */
+  uint32_T m_bpIndex_n;                /* '<S26>/C1' */
+} DW_CoreSubsys_SoC_cl_T;
+
+/* Block states (default storage) for system '<S14>/Measurement function' */
+typedef struct {
+  uint32_T m_bpIndex;                  /* '<S24>/OCV Table' */
+  uint32_T m_bpIndex_d;                /* '<S24>/R0 Table' */
+} DW_CoreSubsys_SoC_clb_T;
+
+/* Block signals for system '<S2>/SOC Estimator (Kalman Filter)' */
+typedef struct {
+  real_T Gain;                         /* '<S7>/Gain' */
+  real_T RateTransition1;              /* '<S11>/Rate Transition1' */
+  real_T Reshape[2];                   /* '<S13>/Reshape' */
+  real_T Assignment2[10];              /* '<S15>/Assignment2' */
+  real_T Sum[2];                       /* '<S12>/Sum' */
+  real_T Pk1_k1[4];                    /* '<S12>/updatePk' */
+  real_T ImpAsg_InsertedFor_xk1_at_inpor[10];/* '<S20>/State function' */
+  B_CoreSubsys_SoC_jr_T CoreSubsys[5]; /* '<S14>/State function' */
+} B_CoreSubsys_SoC_j_T;
+
+/* Block states (default storage) for system '<S2>/SOC Estimator (Kalman Filter)' */
+typedef struct {
+  real_T Delay_DSTATE[2];              /* '<S13>/Delay' */
+  real_T UnitDelayP_DSTATE[4];         /* '<S11>/Unit Delay - P' */
+  real_T RateTransition1_Buffer0;      /* '<S11>/Rate Transition1' */
+  boolean_T icLoad;                    /* '<S13>/Delay' */
+  DW_CoreSubsys_SoC_clb_T CoreSubsys_m[5];/* '<S14>/Measurement function' */
+  DW_CoreSubsys_SoC_cl_T CoreSubsys[5];/* '<S14>/State function' */
+} DW_CoreSubsys_SoC_c_T;
 
 /* Block signals for system '<S3>/SOC Estimator (Kalman Filter)' */
 typedef struct {
+  real_T Gain;                         /* '<S30>/Gain' */
   real_T TmpSignalConversionAtDelayInpor[2];
-  real_T Probe[2];                     /* '<S17>/Probe' */
-  real_T Product5[4];                  /* '<S15>/Product5' */
-  real_T Sum[2];                       /* '<S15>/Sum' */
-} B_CoreSubsys_SoC_h_T;
+  real_T Probe[2];                     /* '<S37>/Probe' */
+  real_T RateTransition1;              /* '<S34>/Rate Transition1' */
+  real_T Sum[2];                       /* '<S35>/Sum' */
+  real_T Product5[4];                  /* '<S35>/Product5' */
+} B_CoreSubsys_SoC_b_T;
 
 /* Block states (default storage) for system '<S3>/SOC Estimator (Kalman Filter)' */
 typedef struct {
-  real_T Delay_DSTATE[2];              /* '<S16>/Delay' */
-  real_T UnitDelayP_DSTATE[4];         /* '<S14>/Unit Delay - P' */
-  real_T RateTransition3_Buffer;       /* '<S14>/Rate Transition3' */
-  real_T RateTransition2_Buffer;       /* '<S14>/Rate Transition2' */
-  real_T Divide_DWORK4;                /* '<S15>/Divide' */
-  real_T RateTransition_Buffer;        /* '<S14>/Rate Transition' */
-  real_T RateTransition1_Buffer;       /* '<S14>/Rate Transition1' */
-  boolean_T icLoad;                    /* '<S16>/Delay' */
-} DW_CoreSubsys_SoC_j_T;
+  real_T Delay_DSTATE[2];              /* '<S36>/Delay' */
+  real_T UnitDelayP_DSTATE[4];         /* '<S34>/Unit Delay - P' */
+  real_T Divide_DWORK4;                /* '<S35>/Divide' */
+  real_T RateTransition1_Buffer0;      /* '<S34>/Rate Transition1' */
+  boolean_T icLoad;                    /* '<S36>/Delay' */
+} DW_CoreSubsys_SoC_f_T;
 
 /* Block signals (default storage) */
 typedef struct {
   real_T Switch;                       /* '<S3>/Switch' */
   real_T Saturation1;                  /* '<S3>/Saturation1' */
   real_T Switch_d;                     /* '<S2>/Switch' */
-  B_CoreSubsys_SoC_h_T CoreSubsys_j[1];
+  real_T Saturation1_i;                /* '<S2>/Saturation1' */
+  B_CoreSubsys_SoC_b_T CoreSubsys_g[1];
                                       /* '<S3>/SOC Estimator (Kalman Filter)' */
-  B_CoreSubsys_SoC_m_T CoreSubsys_l[1];
+  B_SOCEstimatorCoulombCounting_T SOCEstimatorCoulombCounting_p[1];
                                    /* '<S3>/SOC Estimator (Coulomb Counting)' */
-  B_CoreSubsys_SoC_T CoreSubsys[1];/* '<S2>/SOC Estimator (Coulomb Counting)' */
+  B_CoreSubsys_SoC_j_T CoreSubsys[1]; /* '<S2>/SOC Estimator (Kalman Filter)' */
+  B_SOCEstimatorCoulombCounting_T SOCEstimatorCoulombCounting[1];
+                                   /* '<S2>/SOC Estimator (Coulomb Counting)' */
 } B_SoC_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   real_T Memory_PreviousInput;         /* '<S3>/Memory' */
   real_T Memory_PreviousInput_p;       /* '<S2>/Memory' */
-  DW_CoreSubsys_SoC_j_T CoreSubsys_j[1];
+  DW_CoreSubsys_SoC_f_T CoreSubsys_g[1];
                                       /* '<S3>/SOC Estimator (Kalman Filter)' */
-  DW_CoreSubsys_SoC_e_T CoreSubsys_l[1];
+  DW_SOCEstimatorCoulombCountin_T SOCEstimatorCoulombCounting_p[1];
                                    /* '<S3>/SOC Estimator (Coulomb Counting)' */
-  DW_CoreSubsys_SoC_T CoreSubsys[1];
+  DW_CoreSubsys_SoC_c_T CoreSubsys[1];/* '<S2>/SOC Estimator (Kalman Filter)' */
+  DW_SOCEstimatorCoulombCountin_T SOCEstimatorCoulombCounting[1];
                                    /* '<S2>/SOC Estimator (Coulomb Counting)' */
 } DW_SoC_T;
-
-/* Invariant block signals (default storage) */
-typedef struct {
-  const real_T Saturation;             /* '<S2>/Saturation' */
-} ConstB_SoC_T;
 
 /* External inputs (root inport signals with default storage) */
 typedef struct {
@@ -957,8 +994,6 @@ typedef struct {
 #define ExternalOutputs                ExtY_SoC_T
 #define rtDWork                        SoC_DW
 #define D_Work                         DW_SoC_T
-#define tConstBlockIOType              ConstB_SoC_T
-#define rtC                            SoC_ConstB
 
 /* Real-time Model Data Structure */
 struct tag_RTM_SoC_T {
@@ -1076,7 +1111,6 @@ extern ExtU_SoC_T SoC_U;
 
 /* External outputs (root outports fed by signals with default storage) */
 extern ExtY_SoC_T SoC_Y;
-extern ConstB_SoC_T SoC_ConstB;  /* constant block i/o */
 
 /*====================*
  * External functions *
@@ -1092,25 +1126,6 @@ extern void MdlTerminate(void);
 
 /* Real-time Model object */
 extern RT_MODEL_SoC_T *const SoC_M;
-
-/*-
- * These blocks were eliminated from the model due to optimizations:
- *
- * Block '<S19>/Data Type Duplicate' : Unused code path elimination
- * Block '<S20>/Data Type Duplicate' : Unused code path elimination
- * Block '<S21>/Data Type Duplicate' : Unused code path elimination
- * Block '<S22>/Data Type Duplicate' : Unused code path elimination
- * Block '<S23>/Data Type Duplicate' : Unused code path elimination
- * Block '<S24>/Data Type Duplicate' : Unused code path elimination
- * Block '<Root>/Manual Switch' : Eliminated due to constant selection input
- * Block '<Root>/Manual Switch1' : Eliminated due to constant selection input
- * Block '<S19>/Conversion' : Eliminate redundant data type conversion
- * Block '<S20>/Conversion' : Eliminate redundant data type conversion
- * Block '<S21>/Conversion' : Eliminate redundant data type conversion
- * Block '<S22>/Conversion' : Eliminate redundant data type conversion
- * Block '<S23>/Conversion' : Eliminate redundant data type conversion
- * Block '<S24>/Conversion' : Eliminate redundant data type conversion
- */
 
 /*-
  * The generated code includes comments that allow you to trace directly
@@ -1133,23 +1148,43 @@ extern RT_MODEL_SoC_T *const SoC_M;
  * '<S4>'   : 'SoC/Init_SoC_Trigger value/Latches OCV SoC'
  * '<S5>'   : 'SoC/Init_SoC_Trigger value/Measures OCV SoC'
  * '<S6>'   : 'SoC/SoC_Highest/SOC Estimator (Coulomb Counting)'
- * '<S7>'   : 'SoC/SoC_Highest/SOC Estimator (Coulomb Counting)/Integrator'
- * '<S8>'   : 'SoC/SoC_Highest/SOC Estimator (Coulomb Counting)/Integrator/Discrete'
- * '<S9>'   : 'SoC/SoC_Lowest/SOC Estimator (Coulomb Counting)'
- * '<S10>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)'
- * '<S11>'  : 'SoC/SoC_Lowest/SOC Estimator (Coulomb Counting)/Integrator'
- * '<S12>'  : 'SoC/SoC_Lowest/SOC Estimator (Coulomb Counting)/Integrator/Discrete'
- * '<S13>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter'
- * '<S14>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF'
- * '<S15>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF/Correction'
- * '<S16>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF/Delay - X'
- * '<S17>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF/Jacobian'
- * '<S18>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF/Prediction'
- * '<S19>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF/Correction/Data Type Conversion Inherited'
- * '<S20>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF/Correction/Data Type Conversion Inherited1'
- * '<S21>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF/Delay - X/Data Type Conversion Inherited'
- * '<S22>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF/Jacobian/Data Type Conversion Inherited'
- * '<S23>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF/Jacobian/Data Type Conversion Inherited1'
- * '<S24>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF/Jacobian/Data Type Conversion Inherited2'
+ * '<S7>'   : 'SoC/SoC_Highest/SOC Estimator (Kalman Filter)'
+ * '<S8>'   : 'SoC/SoC_Highest/SOC Estimator (Coulomb Counting)/Integrator'
+ * '<S9>'   : 'SoC/SoC_Highest/SOC Estimator (Coulomb Counting)/Integrator/Discrete'
+ * '<S10>'  : 'SoC/SoC_Highest/SOC Estimator (Kalman Filter)/Kalman Filter'
+ * '<S11>'  : 'SoC/SoC_Highest/SOC Estimator (Kalman Filter)/Kalman Filter/UKF'
+ * '<S12>'  : 'SoC/SoC_Highest/SOC Estimator (Kalman Filter)/Kalman Filter/UKF/Correction'
+ * '<S13>'  : 'SoC/SoC_Highest/SOC Estimator (Kalman Filter)/Kalman Filter/UKF/Delay - X'
+ * '<S14>'  : 'SoC/SoC_Highest/SOC Estimator (Kalman Filter)/Kalman Filter/UKF/Prediction'
+ * '<S15>'  : 'SoC/SoC_Highest/SOC Estimator (Kalman Filter)/Kalman Filter/UKF/Sigma points'
+ * '<S16>'  : 'SoC/SoC_Highest/SOC Estimator (Kalman Filter)/Kalman Filter/UKF/Correction/updatePk'
+ * '<S17>'  : 'SoC/SoC_Highest/SOC Estimator (Kalman Filter)/Kalman Filter/UKF/Delay - X/Data Type Conversion Inherited'
+ * '<S18>'  : 'SoC/SoC_Highest/SOC Estimator (Kalman Filter)/Kalman Filter/UKF/Prediction/Data Type Conversion Inherited'
+ * '<S19>'  : 'SoC/SoC_Highest/SOC Estimator (Kalman Filter)/Kalman Filter/UKF/Prediction/Measurement function'
+ * '<S20>'  : 'SoC/SoC_Highest/SOC Estimator (Kalman Filter)/Kalman Filter/UKF/Prediction/State function'
+ * '<S21>'  : 'SoC/SoC_Highest/SOC Estimator (Kalman Filter)/Kalman Filter/UKF/Prediction/updatePx'
+ * '<S22>'  : 'SoC/SoC_Highest/SOC Estimator (Kalman Filter)/Kalman Filter/UKF/Prediction/updatePy'
+ * '<S23>'  : 'SoC/SoC_Highest/SOC Estimator (Kalman Filter)/Kalman Filter/UKF/Prediction/Measurement function/Data Type Conversion Inherited'
+ * '<S24>'  : 'SoC/SoC_Highest/SOC Estimator (Kalman Filter)/Kalman Filter/UKF/Prediction/Measurement function/Measurement function'
+ * '<S25>'  : 'SoC/SoC_Highest/SOC Estimator (Kalman Filter)/Kalman Filter/UKF/Prediction/State function/Data Type Conversion Inherited'
+ * '<S26>'  : 'SoC/SoC_Highest/SOC Estimator (Kalman Filter)/Kalman Filter/UKF/Prediction/State function/State function'
+ * '<S27>'  : 'SoC/SoC_Highest/SOC Estimator (Kalman Filter)/Kalman Filter/UKF/Sigma points/Data Type Conversion Inherited'
+ * '<S28>'  : 'SoC/SoC_Highest/SOC Estimator (Kalman Filter)/Kalman Filter/UKF/Sigma points/Data Type Conversion Inherited1'
+ * '<S29>'  : 'SoC/SoC_Lowest/SOC Estimator (Coulomb Counting)'
+ * '<S30>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)'
+ * '<S31>'  : 'SoC/SoC_Lowest/SOC Estimator (Coulomb Counting)/Integrator'
+ * '<S32>'  : 'SoC/SoC_Lowest/SOC Estimator (Coulomb Counting)/Integrator/Discrete'
+ * '<S33>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter'
+ * '<S34>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF'
+ * '<S35>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF/Correction'
+ * '<S36>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF/Delay - X'
+ * '<S37>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF/Jacobian'
+ * '<S38>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF/Prediction'
+ * '<S39>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF/Correction/Data Type Conversion Inherited'
+ * '<S40>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF/Correction/Data Type Conversion Inherited1'
+ * '<S41>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF/Delay - X/Data Type Conversion Inherited'
+ * '<S42>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF/Jacobian/Data Type Conversion Inherited'
+ * '<S43>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF/Jacobian/Data Type Conversion Inherited1'
+ * '<S44>'  : 'SoC/SoC_Lowest/SOC Estimator (Kalman Filter)/Kalman Filter/EKF/Jacobian/Data Type Conversion Inherited2'
  */
 #endif                                 /* RTW_HEADER_SoC_h_ */

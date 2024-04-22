@@ -24,6 +24,7 @@ void setDeltaT_VDC(void);
 struct RTWTop_VDC_Class
 {
     ASDObjectHeader objectHeader;
+    scalarWrapper_Obj *RTWWrapper_VDC_B_Merge_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_B_Merge1_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_B_Merge2_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_B_Merge3_Ptr;
@@ -40,6 +41,7 @@ struct RTWTop_VDC_Class
     scalarWrapper_Obj *RTWWrapper_VDC_U_RL_rads_Motor_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_RR_Vel_ms_Wheel_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_RR_rads_Motor_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDC_U_RacingMode_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_Shutdown_PackageIntck_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_SteeringSensor_Value_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_Susp_F_L_Ptr;

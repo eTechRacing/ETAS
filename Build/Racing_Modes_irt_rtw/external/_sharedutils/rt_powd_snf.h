@@ -7,9 +7,9 @@
  *
  * Code generation for model "Inverters_Data".
  *
- * Model version              : 10.15
+ * Model version              : 13.0
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Wed Apr 10 15:25:06 2024
+ * C source code generated on : Mon Apr 22 17:10:06 2024
  * Created for block: Inverters_Data
  */
 
