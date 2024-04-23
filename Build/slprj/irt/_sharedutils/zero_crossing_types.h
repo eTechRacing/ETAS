@@ -5,11 +5,11 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * Code generation for model "Synchronism".
+ * Code generation for model "SoC".
  *
- * Model version              : 13.0
+ * Model version              : 13.5
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Mon Apr 22 17:12:40 2024
+ * C source code generated on : Tue Apr 23 14:24:31 2024
  */
 
 #ifndef ZERO_CROSSING_TYPES_H
