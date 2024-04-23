@@ -37,6 +37,7 @@ struct RTWTop_VDC_Class
     scalarWrapper_Obj *RTWWrapper_VDC_U_BrakePedal_Value_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_Car_State_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_CriticalDisconnection_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDC_U_Disconnection_Mode_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_RL_Vel_ms_Wheel_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_RL_rads_Motor_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_RR_Vel_ms_Wheel_Ptr;
@@ -48,7 +49,6 @@ struct RTWTop_VDC_Class
     scalarWrapper_Obj *RTWWrapper_VDC_U_Susp_F_R_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_Susp_R_L_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_Susp_R_R_Ptr;
-    scalarWrapper_Obj *RTWWrapper_VDC_U_TV_Mode_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_TorqueEnable_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_VDC_Max_Tyre_Slip_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_Workshop_Mode_Enable_Ptr;
@@ -71,6 +71,7 @@ struct RTWTop_VDC_Class
     scalarWrapper_Obj *RTWWrapper_VDC_Y_PowerMean500ms_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_Y_Regenerative_Enable_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_Y_TC_Warning_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDC_Y_TV_Mode_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_Y_Throttle_Torque_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_Y_Torque_L_out_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_Y_Torque_OK_Ptr;

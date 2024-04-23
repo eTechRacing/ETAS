@@ -22,9 +22,9 @@
 	<moduleInfo identifier="Disconnections">
 		<name>Disconnections</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Disconnections.slx&quot;"/>
-		<version major="13" minor="0"/>
+		<version major="13" minor="1"/>
 		<dateTime kind="created" year="2021" month="2" day="17" hour="16" minute="42" second="47"/>
-		<dateTime kind="lastModified" year="2024" month="4" day="22" hour="17" minute="9" second="18"/>
+		<dateTime kind="lastModified" year="2024" month="4" day="23" hour="15" minute="49" second="3"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="4" day="23" hour="14" minute="19" second="3"/>
+		<dateTime kind="created" year="2024" month="4" day="23" hour="15" minute="53" second="54"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -135,9 +135,17 @@
 		<!-- Model specific source files -->
 		<file name="Disconnections_types.h" kind="header"/>
 		<file name="Disconnections.h" kind="header"/>
+		<!-- used through rtwShared.lib: rtwtypes.h -->
+		<!-- used through rtwShared.lib: builtin_typeid_types.h -->
+		<!-- used through rtwShared.lib: multiword_types.h -->
+		<!-- used through rtwShared.lib: zero_crossing_types.h -->
 		<file name="Disconnections.c" kind="body"/>
 		<file name="Disconnections_private.h" kind="header"/>
 		<file name="rtmodel.h" kind="header"/>
+		<!-- used through rtwShared.lib: rtGetInf.h -->
+		<!-- used through rtwShared.lib: rtGetInf.c -->
+		<!-- used through rtwShared.lib: rtGetNaN.h -->
+		<!-- used through rtwShared.lib: rtGetNaN.c -->
 		<file name="Disconnections_main.c" kind="body"/>
 		<file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body"/>
 		<!-- Target specific libraries -->
@@ -152,6 +160,9 @@
 		<pathBase path="{{codeDir}}"/>
 		<fileOrigin name="Disconnections.c"/>
 		<fileOrigin name="rt_nonfinite.c"/>
+		<fileOrigin name="rt_defines.c"/>
+		<fileOrigin name="rtGetInf.c"/>
+		<fileOrigin name="rtGetNaN.c"/>
 		<fileOrigin name="Disconnections_main.c"/>
 		<headerFile name="Disconnections.h"/>
 		<headerFile name="Disconnections_private.h"/>
@@ -334,10 +345,10 @@
 						<documentation>&lt;Root&gt;/Disconnection_Susp_R_R</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="TV_mode">
+				<structMember identifier="Disconnection_Mode">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/TV_mode</documentation>
+						<documentation>&lt;Root&gt;/Disconnection_Mode</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="Disconnection_APPS1">
@@ -1784,19 +1795,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Disconnections_Y.TV_mode">
+			<dataCInterface identifier="Disconnections_Y.Disconnection_Mode">
 				<definitionLocation>
 					<baseRef identifier="Disconnections_Y"/>
-					<memberRef identifier="TV_mode"/>
+					<memberRef identifier="Disconnection_Mode"/>
 				</definitionLocation>
 				<fileOrigin name="Disconnections.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Disconnections.TV_mode">
-				<name>TV_mode</name>
-				<modelLink href="Disconnections/TV_mode"/>
+			<modelOrigin identifier="Disconnections.Disconnection_Mode">
+				<name>Disconnection_Mode</name>
+				<modelLink href="Disconnections/Disconnection_Mode"/>
 				<modelLocation>
 					<pathNode name="Disconnections" kind="mlsl:model"/>
-					<pathNode name="TV_mode" kind="mlsl:block" type="Outport"/>
+					<pathNode name="Disconnection_Mode" kind="mlsl:block" type="Outport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection out="true"/>
@@ -2134,7 +2145,7 @@
 						<message identifier="Disconnections_Y.Disconnection_Susp_F_R" send="true"></message>
 						<message identifier="Disconnections_Y.Disconnection_Susp_R_L" send="true"></message>
 						<message identifier="Disconnections_Y.Disconnection_Susp_R_R" send="true"></message>
-						<message identifier="Disconnections_Y.TV_mode" send="true"></message>
+						<message identifier="Disconnections_Y.Disconnection_Mode" send="true"></message>
 						<message identifier="Disconnections_Y.Disconnection_APPS1" send="true"></message>
 						<message identifier="Disconnections_Y.Disconnection_APPS2" send="true"></message>
 						<message identifier="Disconnections_Y.Disconnection_BrakePedal" send="true"></message>

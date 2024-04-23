@@ -75,6 +75,7 @@
 0x0000; debug_info: MEASUREMENT element found: 'Disconnections_Y.Disconnection_DashBoard', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'Disconnections_Y.Disconnection_Ellipse', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'Disconnections_Y.Disconnection_Front', adding definition.
+0x0000; debug_info: MEASUREMENT element found: 'Disconnections_Y.Disconnection_Mode', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'Disconnections_Y.Disconnection_Rear', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'Disconnections_Y.Disconnection_SteeringSensor', adding definition.
 0x0000; debug_info: COMPU_METHOD element found: 'Disconnections_CM_uint8', adding definition.
@@ -82,7 +83,6 @@
 0x0000; debug_info: MEASUREMENT element found: 'Disconnections_Y.Disconnection_Susp_F_R', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'Disconnections_Y.Disconnection_Susp_R_L', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'Disconnections_Y.Disconnection_Susp_R_R', adding definition.
-0x0000; debug_info: MEASUREMENT element found: 'Disconnections_Y.TV_mode', adding definition.
 0x0000; verbose_info: Parsing ASAM MCD-2MC file 'Ellipse.a2l'.
 0x0000; debug_info: MODULE element found: 'Ellipse', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'Ellipse_U.el_AUTO_STATUS', adding definition.
@@ -253,6 +253,7 @@
 0x0000; debug_info: MEASUREMENT element found: 'VDC_U.BrakePedal_Value', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'VDC_U.Car_State', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'VDC_U.CriticalDisconnection', adding definition.
+0x0000; debug_info: MEASUREMENT element found: 'VDC_U.Disconnection_Mode', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'VDC_U.RL_Vel_ms_Wheel', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'VDC_U.RL_rads_Motor', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'VDC_U.RR_Vel_ms_Wheel', adding definition.
@@ -264,7 +265,6 @@
 0x0000; debug_info: MEASUREMENT element found: 'VDC_U.Susp_F_R', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'VDC_U.Susp_R_L', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'VDC_U.Susp_R_R', adding definition.
-0x0000; debug_info: MEASUREMENT element found: 'VDC_U.TV_Mode', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'VDC_U.TorqueEnable', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'VDC_U.VDC_Max_Tyre_Slip', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'VDC_U.Workshop_Mode_Enable', adding definition.
@@ -287,6 +287,7 @@
 0x0000; debug_info: MEASUREMENT element found: 'VDC_Y.PowerMean500ms', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'VDC_Y.Regenerative_Enable', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'VDC_Y.TC_Warning', adding definition.
+0x0000; debug_info: MEASUREMENT element found: 'VDC_Y.TV_Mode', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'VDC_Y.Throttle_Torque', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'VDC_Y.Torque_L_out', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'VDC_Y.Torque_OK', adding definition.
@@ -877,13 +878,13 @@
 0x0000; debug_info: Prefixing label 'Disconnections_Y.Disconnection_DashBoard' to 'Disconnections.Disconnections_Y.Disconnection_DashBoard' according to settings.
 0x0000; debug_info: Prefixing label 'Disconnections_Y.Disconnection_Ellipse' to 'Disconnections.Disconnections_Y.Disconnection_Ellipse' according to settings.
 0x0000; debug_info: Prefixing label 'Disconnections_Y.Disconnection_Front' to 'Disconnections.Disconnections_Y.Disconnection_Front' according to settings.
+0x0000; debug_info: Prefixing label 'Disconnections_Y.Disconnection_Mode' to 'Disconnections.Disconnections_Y.Disconnection_Mode' according to settings.
 0x0000; debug_info: Prefixing label 'Disconnections_Y.Disconnection_Rear' to 'Disconnections.Disconnections_Y.Disconnection_Rear' according to settings.
 0x0000; debug_info: Prefixing label 'Disconnections_Y.Disconnection_SteeringSensor' to 'Disconnections.Disconnections_Y.Disconnection_SteeringSensor' according to settings.
 0x0000; debug_info: Prefixing label 'Disconnections_Y.Disconnection_Susp_F_L' to 'Disconnections.Disconnections_Y.Disconnection_Susp_F_L' according to settings.
 0x0000; debug_info: Prefixing label 'Disconnections_Y.Disconnection_Susp_F_R' to 'Disconnections.Disconnections_Y.Disconnection_Susp_F_R' according to settings.
 0x0000; debug_info: Prefixing label 'Disconnections_Y.Disconnection_Susp_R_L' to 'Disconnections.Disconnections_Y.Disconnection_Susp_R_L' according to settings.
 0x0000; debug_info: Prefixing label 'Disconnections_Y.Disconnection_Susp_R_R' to 'Disconnections.Disconnections_Y.Disconnection_Susp_R_R' according to settings.
-0x0000; debug_info: Prefixing label 'Disconnections_Y.TV_mode' to 'Disconnections.Disconnections_Y.TV_mode' according to settings.
 0x0000; debug_info: Updating element name from 'Disconnections_B.Merge' to 'Disconnections.Disconnections_B.Merge'.
 0x0000; debug_info: Updating element name from 'Disconnections_B.Merge_d' to 'Disconnections.Disconnections_B.Merge_d'.
 0x0000; debug_info: Updating element name from 'Disconnections_B.Merge_g' to 'Disconnections.Disconnections_B.Merge_g'.
@@ -924,13 +925,13 @@
 0x0000; debug_info: Updating element name from 'Disconnections_Y.Disconnection_DashBoard' to 'Disconnections.Disconnections_Y.Disconnection_DashBoard'.
 0x0000; debug_info: Updating element name from 'Disconnections_Y.Disconnection_Ellipse' to 'Disconnections.Disconnections_Y.Disconnection_Ellipse'.
 0x0000; debug_info: Updating element name from 'Disconnections_Y.Disconnection_Front' to 'Disconnections.Disconnections_Y.Disconnection_Front'.
+0x0000; debug_info: Updating element name from 'Disconnections_Y.Disconnection_Mode' to 'Disconnections.Disconnections_Y.Disconnection_Mode'.
 0x0000; debug_info: Updating element name from 'Disconnections_Y.Disconnection_Rear' to 'Disconnections.Disconnections_Y.Disconnection_Rear'.
 0x0000; debug_info: Updating element name from 'Disconnections_Y.Disconnection_SteeringSensor' to 'Disconnections.Disconnections_Y.Disconnection_SteeringSensor'.
 0x0000; debug_info: Updating element name from 'Disconnections_Y.Disconnection_Susp_F_L' to 'Disconnections.Disconnections_Y.Disconnection_Susp_F_L'.
 0x0000; debug_info: Updating element name from 'Disconnections_Y.Disconnection_Susp_F_R' to 'Disconnections.Disconnections_Y.Disconnection_Susp_F_R'.
 0x0000; debug_info: Updating element name from 'Disconnections_Y.Disconnection_Susp_R_L' to 'Disconnections.Disconnections_Y.Disconnection_Susp_R_L'.
 0x0000; debug_info: Updating element name from 'Disconnections_Y.Disconnection_Susp_R_R' to 'Disconnections.Disconnections_Y.Disconnection_Susp_R_R'.
-0x0000; debug_info: Updating element name from 'Disconnections_Y.TV_mode' to 'Disconnections.Disconnections_Y.TV_mode'.
 0x0000; verbose_info: Coder ('RTW') specific number hierarchy levels for CHARACTERISTICS used: '0'.
 0x0000; verbose_info: Coder ('RTW') specific number hierarchy levels for MEASUREMENTS used: '0'.
 0x0000; debug_info: Prefixing label 'Ellipse_U.el_AUTO_STATUS' to 'Ellipse.Ellipse_U.el_AUTO_STATUS' according to settings.
@@ -1214,6 +1215,7 @@
 0x0000; debug_info: Prefixing label 'VDC_U.BrakePedal_Value' to 'VDC.VDC_U.BrakePedal_Value' according to settings.
 0x0000; debug_info: Prefixing label 'VDC_U.Car_State' to 'VDC.VDC_U.Car_State' according to settings.
 0x0000; debug_info: Prefixing label 'VDC_U.CriticalDisconnection' to 'VDC.VDC_U.CriticalDisconnection' according to settings.
+0x0000; debug_info: Prefixing label 'VDC_U.Disconnection_Mode' to 'VDC.VDC_U.Disconnection_Mode' according to settings.
 0x0000; debug_info: Prefixing label 'VDC_U.RL_Vel_ms_Wheel' to 'VDC.VDC_U.RL_Vel_ms_Wheel' according to settings.
 0x0000; debug_info: Prefixing label 'VDC_U.RL_rads_Motor' to 'VDC.VDC_U.RL_rads_Motor' according to settings.
 0x0000; debug_info: Prefixing label 'VDC_U.RR_Vel_ms_Wheel' to 'VDC.VDC_U.RR_Vel_ms_Wheel' according to settings.
@@ -1225,7 +1227,6 @@
 0x0000; debug_info: Prefixing label 'VDC_U.Susp_F_R' to 'VDC.VDC_U.Susp_F_R' according to settings.
 0x0000; debug_info: Prefixing label 'VDC_U.Susp_R_L' to 'VDC.VDC_U.Susp_R_L' according to settings.
 0x0000; debug_info: Prefixing label 'VDC_U.Susp_R_R' to 'VDC.VDC_U.Susp_R_R' according to settings.
-0x0000; debug_info: Prefixing label 'VDC_U.TV_Mode' to 'VDC.VDC_U.TV_Mode' according to settings.
 0x0000; debug_info: Prefixing label 'VDC_U.TorqueEnable' to 'VDC.VDC_U.TorqueEnable' according to settings.
 0x0000; debug_info: Prefixing label 'VDC_U.VDC_Max_Tyre_Slip' to 'VDC.VDC_U.VDC_Max_Tyre_Slip' according to settings.
 0x0000; debug_info: Prefixing label 'VDC_U.Workshop_Mode_Enable' to 'VDC.VDC_U.Workshop_Mode_Enable' according to settings.
@@ -1248,6 +1249,7 @@
 0x0000; debug_info: Prefixing label 'VDC_Y.PowerMean500ms' to 'VDC.VDC_Y.PowerMean500ms' according to settings.
 0x0000; debug_info: Prefixing label 'VDC_Y.Regenerative_Enable' to 'VDC.VDC_Y.Regenerative_Enable' according to settings.
 0x0000; debug_info: Prefixing label 'VDC_Y.TC_Warning' to 'VDC.VDC_Y.TC_Warning' according to settings.
+0x0000; debug_info: Prefixing label 'VDC_Y.TV_Mode' to 'VDC.VDC_Y.TV_Mode' according to settings.
 0x0000; debug_info: Prefixing label 'VDC_Y.Throttle_Torque' to 'VDC.VDC_Y.Throttle_Torque' according to settings.
 0x0000; debug_info: Prefixing label 'VDC_Y.Torque_L_out' to 'VDC.VDC_Y.Torque_L_out' according to settings.
 0x0000; debug_info: Prefixing label 'VDC_Y.Torque_OK' to 'VDC.VDC_Y.Torque_OK' according to settings.
@@ -1265,6 +1267,7 @@
 0x0000; debug_info: Updating element name from 'VDC_U.BrakePedal_Value' to 'VDC.VDC_U.BrakePedal_Value'.
 0x0000; debug_info: Updating element name from 'VDC_U.Car_State' to 'VDC.VDC_U.Car_State'.
 0x0000; debug_info: Updating element name from 'VDC_U.CriticalDisconnection' to 'VDC.VDC_U.CriticalDisconnection'.
+0x0000; debug_info: Updating element name from 'VDC_U.Disconnection_Mode' to 'VDC.VDC_U.Disconnection_Mode'.
 0x0000; debug_info: Updating element name from 'VDC_U.RL_Vel_ms_Wheel' to 'VDC.VDC_U.RL_Vel_ms_Wheel'.
 0x0000; debug_info: Updating element name from 'VDC_U.RL_rads_Motor' to 'VDC.VDC_U.RL_rads_Motor'.
 0x0000; debug_info: Updating element name from 'VDC_U.RR_Vel_ms_Wheel' to 'VDC.VDC_U.RR_Vel_ms_Wheel'.
@@ -1276,7 +1279,6 @@
 0x0000; debug_info: Updating element name from 'VDC_U.Susp_F_R' to 'VDC.VDC_U.Susp_F_R'.
 0x0000; debug_info: Updating element name from 'VDC_U.Susp_R_L' to 'VDC.VDC_U.Susp_R_L'.
 0x0000; debug_info: Updating element name from 'VDC_U.Susp_R_R' to 'VDC.VDC_U.Susp_R_R'.
-0x0000; debug_info: Updating element name from 'VDC_U.TV_Mode' to 'VDC.VDC_U.TV_Mode'.
 0x0000; debug_info: Updating element name from 'VDC_U.TorqueEnable' to 'VDC.VDC_U.TorqueEnable'.
 0x0000; debug_info: Updating element name from 'VDC_U.VDC_Max_Tyre_Slip' to 'VDC.VDC_U.VDC_Max_Tyre_Slip'.
 0x0000; debug_info: Updating element name from 'VDC_U.Workshop_Mode_Enable' to 'VDC.VDC_U.Workshop_Mode_Enable'.
@@ -1299,6 +1301,7 @@
 0x0000; debug_info: Updating element name from 'VDC_Y.PowerMean500ms' to 'VDC.VDC_Y.PowerMean500ms'.
 0x0000; debug_info: Updating element name from 'VDC_Y.Regenerative_Enable' to 'VDC.VDC_Y.Regenerative_Enable'.
 0x0000; debug_info: Updating element name from 'VDC_Y.TC_Warning' to 'VDC.VDC_Y.TC_Warning'.
+0x0000; debug_info: Updating element name from 'VDC_Y.TV_Mode' to 'VDC.VDC_Y.TV_Mode'.
 0x0000; debug_info: Updating element name from 'VDC_Y.Throttle_Torque' to 'VDC.VDC_Y.Throttle_Torque'.
 0x0000; debug_info: Updating element name from 'VDC_Y.Torque_L_out' to 'VDC.VDC_Y.Torque_L_out'.
 0x0000; debug_info: Updating element name from 'VDC_Y.Torque_OK' to 'VDC.VDC_Y.Torque_OK'.

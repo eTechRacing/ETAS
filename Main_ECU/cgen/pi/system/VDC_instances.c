@@ -51,6 +51,7 @@ void initClass_RTWTop_VDC(struct RTWTop_VDC_Class *self)
     self->RTWWrapper_VDC_U_BrakePedal_Value_Ptr = initInstance_scalarWrapper((void*)&VDC_U.BrakePedal_Value, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_U_Car_State_Ptr = initInstance_scalarWrapper((void*)&VDC_U.Car_State, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_U_CriticalDisconnection_Ptr = initInstance_scalarWrapper((void*)&VDC_U.CriticalDisconnection, sizeof(char), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDC_U_Disconnection_Mode_Ptr = initInstance_scalarWrapper((void*)&VDC_U.Disconnection_Mode, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_U_RL_Vel_ms_Wheel_Ptr = initInstance_scalarWrapper((void*)&VDC_U.RL_Vel_ms_Wheel, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_U_RL_rads_Motor_Ptr = initInstance_scalarWrapper((void*)&VDC_U.RL_rads_Motor, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_U_RR_Vel_ms_Wheel_Ptr = initInstance_scalarWrapper((void*)&VDC_U.RR_Vel_ms_Wheel, sizeof(double), (uint32)ASD_VARIABLE);
@@ -62,7 +63,6 @@ void initClass_RTWTop_VDC(struct RTWTop_VDC_Class *self)
     self->RTWWrapper_VDC_U_Susp_F_R_Ptr = initInstance_scalarWrapper((void*)&VDC_U.Susp_F_R, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_U_Susp_R_L_Ptr = initInstance_scalarWrapper((void*)&VDC_U.Susp_R_L, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_U_Susp_R_R_Ptr = initInstance_scalarWrapper((void*)&VDC_U.Susp_R_R, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_VDC_U_TV_Mode_Ptr = initInstance_scalarWrapper((void*)&VDC_U.TV_Mode, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_U_TorqueEnable_Ptr = initInstance_scalarWrapper((void*)&VDC_U.TorqueEnable, sizeof(char), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_U_VDC_Max_Tyre_Slip_Ptr = initInstance_scalarWrapper((void*)&VDC_U.VDC_Max_Tyre_Slip, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_U_Workshop_Mode_Enable_Ptr = initInstance_scalarWrapper((void*)&VDC_U.Workshop_Mode_Enable, sizeof(double), (uint32)ASD_VARIABLE);
@@ -85,6 +85,7 @@ void initClass_RTWTop_VDC(struct RTWTop_VDC_Class *self)
     self->RTWWrapper_VDC_Y_PowerMean500ms_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.PowerMean500ms, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_Y_Regenerative_Enable_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.Regenerative_Enable, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_Y_TC_Warning_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.TC_Warning, sizeof(char), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDC_Y_TV_Mode_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.TV_Mode, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_Y_Throttle_Torque_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.Throttle_Torque, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_Y_Torque_L_out_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.Torque_L_out, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_Y_Torque_OK_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.Torque_OK, sizeof(double), (uint32)ASD_VARIABLE);
@@ -109,9 +110,10 @@ static MethodList RTWTop_VDC_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_VDC_ClassHeader =
-    {0, 1, 0, 51 + 0, (MethodList *)0, (MethodList *)&RTWTop_VDC_ClassMethodList};
+    {0, 1, 0, 52 + 0, (MethodList *)0, (MethodList *)&RTWTop_VDC_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_VDC_Class RTWTop_VDC_ClassObj = {{1, {&RTWTop_VDC_ClassHeader}, {0}}
+    ,NULL
     ,NULL
     ,NULL
     ,NULL

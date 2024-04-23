@@ -14,7 +14,7 @@
  *
  * Model version              : 4.1
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Apr 23 14:22:04 2024
+ * C source code generated on : Tue Apr 23 15:57:19 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -900,7 +900,7 @@ typedef struct {
   real_T Accumulator_Current;          /* '<Root>/Accumulator_Current' */
   boolean_T Shutdown_PackageIntck;     /* '<Root>/Shutdown_PackageIntck' */
   real_T Workshop_Mode_Enable;         /* '<Root>/Workshop_Mode_Enable' */
-  real_T TV_Mode;                      /* '<Root>/TV_Mode' */
+  real_T Disconnection_Mode;           /* '<Root>/Disconnection_Mode' */
   real_T Susp_F_L;                     /* '<Root>/Susp_F_L' */
   real_T Susp_F_R;                     /* '<Root>/Susp_F_R' */
   real_T Susp_R_L;                     /* '<Root>/Susp_R_L' */
@@ -925,6 +925,7 @@ typedef struct {
   real_T Torque_OK;                    /* '<Root>/Torque_OK' */
   real_T Regenerative_Enable;          /* '<Root>/Regenerative_Enable' */
   real_T Throttle_Torque;              /* '<Root>/Throttle_Torque' */
+  real_T TV_Mode;                      /* '<Root>/TV_Mode' */
 } ExtY_VDC_T;
 
 /* Backward compatible GRT Identifiers */

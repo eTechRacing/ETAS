@@ -64,13 +64,13 @@ struct RTWTop_Disconnections_Class
     scalarWrapper_Obj *RTWWrapper_Disconnections_Y_Disconnection_DashBoard_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_Y_Disconnection_Ellipse_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_Y_Disconnection_Front_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Disconnections_Y_Disconnection_Mode_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_Y_Disconnection_Rear_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_Y_Disconnection_SteeringSensor_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_Y_Disconnection_Susp_F_L_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_Y_Disconnection_Susp_F_R_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_Y_Disconnection_Susp_R_L_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_Y_Disconnection_Susp_R_R_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Disconnections_Y_TV_mode_Ptr;
 };
 /* Definition of the class object structure */
 struct RTWTop_Disconnections_Obj

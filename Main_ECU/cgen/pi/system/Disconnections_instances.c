@@ -78,13 +78,13 @@ void initClass_RTWTop_Disconnections(struct RTWTop_Disconnections_Class *self)
     self->RTWWrapper_Disconnections_Y_Disconnection_DashBoard_Ptr = initInstance_scalarWrapper((void*)&Disconnections_Y.Disconnection_DashBoard, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_Y_Disconnection_Ellipse_Ptr = initInstance_scalarWrapper((void*)&Disconnections_Y.Disconnection_Ellipse, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_Y_Disconnection_Front_Ptr = initInstance_scalarWrapper((void*)&Disconnections_Y.Disconnection_Front, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Disconnections_Y_Disconnection_Mode_Ptr = initInstance_scalarWrapper((void*)&Disconnections_Y.Disconnection_Mode, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_Y_Disconnection_Rear_Ptr = initInstance_scalarWrapper((void*)&Disconnections_Y.Disconnection_Rear, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_Y_Disconnection_SteeringSensor_Ptr = initInstance_scalarWrapper((void*)&Disconnections_Y.Disconnection_SteeringSensor, sizeof(char), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_Y_Disconnection_Susp_F_L_Ptr = initInstance_scalarWrapper((void*)&Disconnections_Y.Disconnection_Susp_F_L, sizeof(char), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_Y_Disconnection_Susp_F_R_Ptr = initInstance_scalarWrapper((void*)&Disconnections_Y.Disconnection_Susp_F_R, sizeof(char), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_Y_Disconnection_Susp_R_L_Ptr = initInstance_scalarWrapper((void*)&Disconnections_Y.Disconnection_Susp_R_L, sizeof(char), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_Y_Disconnection_Susp_R_R_Ptr = initInstance_scalarWrapper((void*)&Disconnections_Y.Disconnection_Susp_R_R, sizeof(char), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Disconnections_Y_TV_mode_Ptr = initInstance_scalarWrapper((void*)&Disconnections_Y.TV_mode, sizeof(double), (uint32)ASD_VARIABLE);
     return;
 }
 static uint8 * _L1_getPid_Disconnections(ASDObjectPtr self, uint8 *buffer)

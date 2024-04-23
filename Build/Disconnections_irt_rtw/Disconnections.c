@@ -7,9 +7,9 @@
  *
  * Code generation for model "Disconnections".
  *
- * Model version              : 13.0
+ * Model version              : 13.1
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Apr 23 14:19:03 2024
+ * C source code generated on : Tue Apr 23 15:53:54 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -486,11 +486,11 @@ static void Disconnections_output(void)
     /* Outputs for IfAction SubSystem: '<S5>/Rigid Axle with TC 1' incorporates:
      *  ActionPort: '<S49>/Action Port'
      */
-    /* Outport: '<Root>/TV_mode' incorporates:
+    /* Outport: '<Root>/Disconnection_Mode' incorporates:
      *  Constant: '<S49>/Constant'
      *  SignalConversion generated from: '<S49>/1'
      */
-    Disconnections_Y.TV_mode = 1.0;
+    Disconnections_Y.Disconnection_Mode = 1.0;
 
     /* End of Outputs for SubSystem: '<S5>/Rigid Axle with TC 1' */
   } else if (!(Disconnections_B.Merge_d != 0.0)) {
@@ -502,11 +502,11 @@ static void Disconnections_output(void)
      */
     /* If: '<S5>/If2' incorporates:
      *  Constant: '<S50>/Constant'
-     *  Outport: '<Root>/TV_mode'
+     *  Outport: '<Root>/Disconnection_Mode'
      *  SignalConversion generated from: '<S46>/4, 3 or 2'
      *  SignalConversion generated from: '<S50>/2'
      */
-    Disconnections_Y.TV_mode = 2.0;
+    Disconnections_Y.Disconnection_Mode = 2.0;
 
     /* End of Outputs for SubSystem: '<S5>/Rigid Axle with TC 2024' */
     /* End of Outputs for SubSystem: '<S5>/Others FM2+' */
@@ -519,11 +519,11 @@ static void Disconnections_output(void)
      */
     /* If: '<S5>/If3' incorporates:
      *  Constant: '<S51>/Constant'
-     *  Outport: '<Root>/TV_mode'
+     *  Outport: '<Root>/Disconnection_Mode'
      *  SignalConversion generated from: '<S46>/4, 3 or 2'
      *  SignalConversion generated from: '<S51>/3'
      */
-    Disconnections_Y.TV_mode = 3.0;
+    Disconnections_Y.Disconnection_Mode = 3.0;
 
     /* End of Outputs for SubSystem: '<S5>/Steering TV without TC 2024' */
     /* End of Outputs for SubSystem: '<S5>/Others FM2+' */
@@ -536,11 +536,11 @@ static void Disconnections_output(void)
      */
     /* If: '<S5>/If3' incorporates:
      *  Constant: '<S48>/Constant'
-     *  Outport: '<Root>/TV_mode'
+     *  Outport: '<Root>/Disconnection_Mode'
      *  SignalConversion generated from: '<S46>/4, 3 or 2'
      *  SignalConversion generated from: '<S48>/4'
      */
-    Disconnections_Y.TV_mode = 4.0;
+    Disconnections_Y.Disconnection_Mode = 4.0;
 
     /* End of Outputs for SubSystem: '<S5>/Rigid Axle 2024' */
     /* End of Outputs for SubSystem: '<S5>/Others FM2+' */

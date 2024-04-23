@@ -5,11 +5,11 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * Code generation for model "SoC".
+ * Code generation for model "Disconnections".
  *
- * Model version              : 13.5
+ * Model version              : 13.1
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Apr 23 14:24:31 2024
+ * C source code generated on : Tue Apr 23 15:53:54 2024
  */
 
 #ifndef RTW_HEADER_rt_nonfinite_h_

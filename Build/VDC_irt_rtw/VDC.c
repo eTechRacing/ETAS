@@ -9,7 +9,7 @@
  *
  * Model version              : 4.1
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Apr 23 14:22:04 2024
+ * C source code generated on : Tue Apr 23 15:57:19 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -210,10 +210,10 @@ static void VDC_output(void)
      *  ActionPort: '<S2>/Action Port'
      */
     /* If: '<S2>/If' incorporates:
+     *  Inport: '<Root>/Disconnection_Mode'
      *  Inport: '<Root>/RacingMode'
-     *  Inport: '<Root>/TV_Mode'
      */
-    if ((VDC_U.TV_Mode == 1.0) && ((VDC_U.RacingMode == 21.0) ||
+    if ((VDC_U.Disconnection_Mode == 1.0) && ((VDC_U.RacingMode == 21.0) ||
          (VDC_U.RacingMode == 22.0))) {
       /* Outputs for IfAction SubSystem: '<S2>/If Accel & FM1 -> FM2' incorporates:
        *  ActionPort: '<S20>/Action Port'
@@ -225,7 +225,7 @@ static void VDC_output(void)
       VDC_B.Merge = 2.0;
 
       /* End of Outputs for SubSystem: '<S2>/If Accel & FM1 -> FM2' */
-    } else if ((VDC_U.TV_Mode == 3.0) && ((VDC_U.RacingMode == 21.0) ||
+    } else if ((VDC_U.Disconnection_Mode == 3.0) && ((VDC_U.RacingMode == 21.0) ||
                 (VDC_U.RacingMode == 22.0))) {
       /* Outputs for IfAction SubSystem: '<S2>/If Accel & FM3 -> FM4' incorporates:
        *  ActionPort: '<S22>/Action Port'
@@ -244,7 +244,7 @@ static void VDC_output(void)
       /* Merge: '<Root>/Merge' incorporates:
        *  SignalConversion generated from: '<S21>/FM In'
        */
-      VDC_B.Merge = VDC_U.TV_Mode;
+      VDC_B.Merge = VDC_U.Disconnection_Mode;
 
       /* End of Outputs for SubSystem: '<S2>/If Accel & FM2 or FM4 If not Accel' */
     }
@@ -621,6 +621,9 @@ static void VDC_output(void)
 
   /* Outport: '<Root>/Throttle_Torque' */
   VDC_Y.Throttle_Torque = rtb_Product;
+
+  /* Outport: '<Root>/TV_Mode' */
+  VDC_Y.TV_Mode = VDC_B.Merge;
 }
 
 /* Model update function */
@@ -812,11 +815,11 @@ RT_MODEL_VDC_T *VDC(void)
 
   /* Initialize Sizes */
   VDC_M->Sizes.numContStates = (0);    /* Number of continuous states */
-  VDC_M->Sizes.numY = (10);            /* Number of model outputs */
+  VDC_M->Sizes.numY = (11);            /* Number of model outputs */
   VDC_M->Sizes.numU = (35);            /* Number of model inputs */
   VDC_M->Sizes.sysDirFeedThru = (1);   /* The model is direct feedthrough */
   VDC_M->Sizes.numSampTimes = (1);     /* Number of sample times */
-  VDC_M->Sizes.numBlocks = (155);      /* Number of blocks */
+  VDC_M->Sizes.numBlocks = (156);      /* Number of blocks */
   VDC_M->Sizes.numBlockIO = (4);       /* Number of block outputs */
   return VDC_M;
 }
