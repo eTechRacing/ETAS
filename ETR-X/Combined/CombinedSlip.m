@@ -39,6 +39,8 @@ LEX=1; %Scale factor of Fx curvature factor; valor inventat
 LKXk=1; %Scale factor of slip stiffness; valor inventat 
 LHX=1; %Scale factor of Fx horizontal shift; valor inventat
 LXA=1; %Scale factor of alpha influence on Fx; valor inventat
+LYK=1;
+LVYK=1;
 
 %%
 
@@ -132,6 +134,8 @@ sliplim=17*pi/180; %Limit slip angle
 %Slip ratio
 slip = 0:0.01:1.0; %vehicle slip ratio
 
+%-------------------------------------------------------------------------
+
 %Combined slip for FX
 SHalfa= RHX1;
 alfaS= alfaF+SHalfa;
@@ -145,11 +149,11 @@ GXalfa= (cos(CXalfa*arctan(BXalfa*alfaS-EXA(BXalfa*alfaS-arctan(BXalfa*alfaS))))
 SHYK= RHY1+RHY2*DFZ;
 EYK= REY1+REY2*DFZ;
 CYK=RCY1;
-BYK= (RBY1+RBY4*CAM^2)cos(arctan(RBY2*(alfa-RBY3)))^LYK;
+BYK= (RBY1+RBY4*CAM^2)*cos(arctan(RBY2*(alfa-RBY3)))^LYK;
 KS=K+SHYK;
 GYK= (cos(CYK*arctan(BYK*KS-EYK(BYK*KS-arctan(BYK*KS)))))/(cos(CYK*arctan(BYK*SHYK-EYK*(BYK*SHYK-arctan(BYK*SHYK)))));
 %braling induced plysteer
-DVYK= MUY*FZ*(RV1+RVY2*DFZ+RVY3)*cos(arctan(RVY4*alfaF))*DAMP2;
+DVYK= MUY*FZ*(RVY1+RVY2*DFZ+RVY3)*cos(arctan(RVY4*alfaF))*DAMP2;
 SVYK= DVYK*sin(RVY5*arctan(RVY6*KS))*LVYK;
 
 FY= GXalfa*FYP+SVYK;
