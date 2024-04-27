@@ -158,13 +158,13 @@ SVYK= DVYK*sin(RVY5*arctan(RVY6*KS))*LVYK;
 
 FY= GXalfa*FYP+SVYK;
 
+%--------------------------------------------------------------------------
 %Downforce
 df=2.3*((V/3.6)^2)
 dfR=(df*copx)/l %Down Force front
 dfF=df-dfR %Down Force rear
 
 %Weight transfer
-
 for i = 1:length(SI);
     for j = 1:length(VS);
         Vy(j)=(V/3.6).*VS(j); 
@@ -184,24 +184,25 @@ for i = 1:length(slip)
         Acx(i,j) = 0; %Acceleracio inicial en m/s
         fzr(i,j) = W*cogx/l; % Rear axle load load
         fzf(i,j) = W-fzr(i,j); % Front axle load load
-    for k=1:100
-         V(i,j) = VV(j)*(slip(i)+1); % Wheel velocity m/s
-         k(i,j) = (V(i,j)-VV(j))/VV(j); %slip(i)
-         WTx(i,j) = (h/l)*m*Acx(i,j); %Longitudinal weight transfer N
-         WTF(i,j) = -WTx(i,j); 
-         WTR(i,j) = WTx(i,j);            
-         FZf(i,j) = fzf(i,j) + WTF(i,j);% Front axle load + weight transfer
-         FZr(i,j) = fzr(i,j) + WTR(i,j);% Rear axle load + weight transfer
-         FZFL(i,j) = FZf(i,j)/2; % Front left wheel load
-         FZFR(i,j) = FZf(i,j)/2; % Front right wheel load
-         FZRL(i,j) = FZr(i,j)/2; % Rear left wheel load
-         FZRR(i,j) = FZr(i,j)/2; % Rear right wheel load
-         DFZFL(i,j) = (FZFL(i,j)-1080)/1080; %load diferential FL
-         DFZFR(i,j) = (FZFR(i,j)-1080)/1080; %load diferential FR
-         DFZRL(i,j) = (FZRL(i,j)-1080)/1080; %load diferential RL
-         DFZRR(i,j) = (FZRR(i,j)-1080)/1080; %load diferential RR
+        for k=1:10
+            V(i,j) = VV(j)*(slip(i)+1); % Wheel velocity m/s
+            k(i,j) = (V(i,j)-VV(j))/VV(j); %slip(i)
+            WTx(i,j) = (h/l)*m*Acx(i,j); %Longitudinal weight transfer N
+            WTF(i,j) = -WTx(i,j); 
+            WTR(i,j) = WTx(i,j);            
+            FZf(i,j) = fzf(i,j) + WTF(i,j);% Front axle load + weight transfer
+            FZr(i,j) = fzr(i,j) + WTR(i,j);% Rear axle load + weight transfer
+            FZFL(i,j) = FZf(i,j)/2; % Front left wheel load
+            FZFR(i,j) = FZf(i,j)/2; % Front right wheel load
+            FZRL(i,j) = FZr(i,j)/2; % Rear left wheel load
+            FZRR(i,j) = FZr(i,j)/2; % Rear right wheel load
+            DFZFL(i,j) = (FZFL(i,j)-1080)/1080; %load diferential FL
+            DFZFR(i,j) = (FZFR(i,j)-1080)/1080; %load diferential FR
+            DFZRL(i,j) = (FZRL(i,j)-1080)/1080; %load diferential RL
+            DFZRR(i,j) = (FZRR(i,j)-1080)/1080; %load diferential RR
 
 
+for k=1:10 %Addition of weighttransfer
 
 
 
