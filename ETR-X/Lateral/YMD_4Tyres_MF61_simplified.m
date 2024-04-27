@@ -159,8 +159,8 @@ for i = 1:length(SI);
            %}
 
             %Camber variation 
-            gammaFL(i,j)=gammaF0*pi/180+C(i); %gammaFL rad
-            gammaFR(i,j)=gammaF0*pi/180+C(i);
+            gammaFL(i,j)=gammaF0*pi/180+C(i); % gammaFL rad
+            gammaFR(i,j)=gammaF0*pi/180+C(i); 
             gammaRL(i,j)=gammaR0*pi/180;
             gammaRR(i,j)=gammaR0*pi/180;
 
