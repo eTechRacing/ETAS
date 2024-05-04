@@ -160,12 +160,14 @@ for i = 1:length(SI);
             %Camber variation with steering increment 
             gammasFL(i,j)=gammaF0*pi/180+C(SI(i)); % gammaFL rad
             gammasFR(i,j)=gammaF0*pi/180+C(SI(i)); %gammaFR rad
-            
+            gammasRL(i,j)=gammaR0*pi/180; %gammaRL rad
+            gammasRR(i,j)=gammaR0*pi/180; %gammaRR rad
+
             %Total camber
-            gammaFL(i,j)=gammarFL(i,j)+gammasFL(i,j);
-            gammaFR(i,j)=gammarFR(i,j)+gammasFR(i,j);
-            gammaRL(i,j)=gammarRL(i,j);
-            gammaRR(i,j)=gammarRR(i,j);
+            gammaFL(i,j)=gammarFL(i,j)+gammasFL(i,j)
+            gammaFR(i,j)=gammarFR(i,j)+gammasFR(i,j)
+            gammaRL(i,j)=gammarRL(i,j)+gammasRL(i,j)
+            gammaRR(i,j)=gammarRR(i,j)+gammasRR(i,j)
 
             %Front Left wheel
             FzFL(i,j) = (Wf/2)+(WFL(i,j))+dfF/2;
