@@ -32,9 +32,12 @@ PSI=P/0.0689475729; %Pressure in psi
 %Srping rate for 12PSI interpoling inclination angles (cambers) (imperail units)
 K12=((IA-2)/(0-2))*(635-578)+578;
 
+figure(1)
 plot(FZ(27012:27728),FX(27012:27728))
+figure(2)
 plot(FX(27012:27728))
-plot(SR)
+figure(3)
+plot(SR(27012:27728),FX(27012:27728))
 
 
 
