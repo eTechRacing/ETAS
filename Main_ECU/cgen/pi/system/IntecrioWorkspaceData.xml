@@ -5,8 +5,8 @@
 	<Name value="Main_ECU"/>
 	<Caption value="Main_ECU"/>
 	<DateTimeCreated value="2024-04-20T01:28:13.0Z"/>
-	<DateTimeLastOpened value="2024-04-22T17:13:51.0Z"/>
-	<DateTimeLastSaved value="2024-04-22T17:13:51.0Z"/>
+	<DateTimeLastOpened value="2024-04-23T13:36:38.0Z"/>
+	<DateTimeLastSaved value="2024-04-23T13:36:38.0Z"/>
 	<VersionCreated value="5.0.5.1003"/>
 	<VersionLastSaved value="5.0.5.1003"/>
 	<VersionMinRequired value="5.0.5.1001"/>
@@ -27,13 +27,13 @@
 							<DateTimeCreated value="2021-2-18T9:1:3.0Z"/>
 							<Version value="13.0"/>
 							<ModelLink value="mlsl:\\\&quot;C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\Car_State.slx&quot;"/>
-							<DateTimeModified value="2024-4-22T17:6:46.0Z"/>
+							<DateTimeModified value="2024-4-22T17:9:14.0Z"/>
 							<Description/>
 							<InterfaceFile>
 								<Name value="car_state.six"/>
 								<Path value="c:\users\joser\onedrive\documentos\github\etas\build\car_state_irt_rtw\car_state.six"/>
 								<Kind value="SCOOP-IX"/>
-								<DateTime value="2024-04-22T17:14:02.0Z"/>
+								<DateTime value="2024-04-23T14:22:19.0Z"/>
 							</InterfaceFile>
 							<Suitabilities>
 								<Suitability>
@@ -797,15 +797,15 @@
 							<Company value=""/>
 							<UserRole value="modifier"/>
 							<DateTimeCreated value="2021-2-17T16:42:47.0Z"/>
-							<Version value="13.0"/>
+							<Version value="13.1"/>
 							<ModelLink value="mlsl:\\\&quot;C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\Disconnections.slx&quot;"/>
-							<DateTimeModified value="2024-4-22T17:6:51.0Z"/>
+							<DateTimeModified value="2024-4-23T15:49:3.0Z"/>
 							<Description/>
 							<InterfaceFile>
 								<Name value="disconnections.six"/>
 								<Path value="c:\users\joser\onedrive\documentos\github\etas\build\disconnections_irt_rtw\disconnections.six"/>
 								<Kind value="SCOOP-IX"/>
-								<DateTime value="2024-04-22T17:14:07.0Z"/>
+								<DateTime value="2024-04-23T15:55:41.0Z"/>
 							</InterfaceFile>
 							<Suitabilities>
 								<Suitability>
@@ -1481,32 +1481,6 @@
 										<Kind value="Linear"/>
 									</QuantizationFormula>
 								</Port>
-								<Port id="Handle_806_Disconnections.Disconnections_Y\.TV_mode">
-									<ID value="Disconnections.Disconnections_Y\.TV_mode"/>
-									<ShortId value="Disconnections_Y.TV_mode"/>
-									<Name value="Disconnections.TV_mode"/>
-									<Caption value="TV_mode"/>
-									<Direction value="Out"/>
-									<Type value="continuous"/>
-									<Size value="real64"/>
-									<Unit value=""/>
-									<LowerBound value="-1.7E+308"/>
-									<UpperBound value="1.7E+308"/>
-									<Saturated value="true"/>
-									<RepresentationFormat value="Implemented"/>
-									<InitValue value="0"/>
-									<Kind value="ModulePort"/>
-									<Connected value="true"/>
-									<QuantizationFormula id="Handle_806_Disconnections.Disconnections_Y\.TV_mode">
-										<ID value="Disconnections.Disconnections_Y\.TV_mode"/>
-										<ShortId value="Disconnections_Y.TV_mode"/>
-										<Name value="TV_mode"/>
-										<Caption value="TV_mode"/>
-										<ParamM value="1"/>
-										<ParamT value="0"/>
-										<Kind value="Linear"/>
-									</QuantizationFormula>
-								</Port>
 								<Port id="Handle_807_Disconnections.Disconnections_Y\.Disconnection_APPS1">
 									<ID value="Disconnections.Disconnections_Y\.Disconnection_APPS1"/>
 									<ShortId value="Disconnections_Y.Disconnection_APPS1"/>
@@ -1715,6 +1689,32 @@
 										<Kind value="Linear"/>
 									</QuantizationFormula>
 								</Port>
+								<Port id="Handle_6048_Disconnections.Disconnections_Y\.Disconnection_Mode">
+									<ID value="Disconnections.Disconnections_Y\.Disconnection_Mode"/>
+									<ShortId value="Disconnections_Y.Disconnection_Mode"/>
+									<Name value="Disconnections.Disconnection_Mode"/>
+									<Caption value="Disconnection_Mode"/>
+									<Direction value="Out"/>
+									<Type value="continuous"/>
+									<Size value="real64"/>
+									<Unit value=""/>
+									<LowerBound value="-1.7E+308"/>
+									<UpperBound value="1.7E+308"/>
+									<Saturated value="true"/>
+									<RepresentationFormat value="Implemented"/>
+									<InitValue value="0"/>
+									<Kind value="ModulePort"/>
+									<Connected value="true"/>
+									<QuantizationFormula id="Handle_6048_Disconnections.Disconnections_Y\.Disconnection_Mode">
+										<ID value="Disconnections.Disconnections_Y\.Disconnection_Mode"/>
+										<ShortId value="Disconnections_Y.Disconnection_Mode"/>
+										<Name value="Disconnection_Mode"/>
+										<Caption value="Disconnection_Mode"/>
+										<ParamM value="1"/>
+										<ParamT value="0"/>
+										<Kind value="Linear"/>
+									</QuantizationFormula>
+								</Port>
 							</Ports>
 							<Processes>
 								<Process id="Handle_815_Disconnections.irt_Start_Disconnections">
@@ -1782,7 +1782,6 @@
 										<MessageReference targetRef="Handle_803_Disconnections.Disconnections_Y\.Disconnection_Susp_F_R"/>
 										<MessageReference targetRef="Handle_804_Disconnections.Disconnections_Y\.Disconnection_Susp_R_L"/>
 										<MessageReference targetRef="Handle_805_Disconnections.Disconnections_Y\.Disconnection_Susp_R_R"/>
-										<MessageReference targetRef="Handle_806_Disconnections.Disconnections_Y\.TV_mode"/>
 										<MessageReference targetRef="Handle_807_Disconnections.Disconnections_Y\.Disconnection_APPS1"/>
 										<MessageReference targetRef="Handle_808_Disconnections.Disconnections_Y\.Disconnection_APPS2"/>
 										<MessageReference targetRef="Handle_809_Disconnections.Disconnections_Y\.Disconnection_BrakePedal"/>
@@ -1791,6 +1790,7 @@
 										<MessageReference targetRef="Handle_812_Disconnections.Disconnections_Y\.Disconnection_Front"/>
 										<MessageReference targetRef="Handle_813_Disconnections.Disconnections_Y\.Disconnection_Rear"/>
 										<MessageReference targetRef="Handle_814_Disconnections.Disconnections_Y\.Disconnection_Ellipse"/>
+										<MessageReference targetRef="Handle_6048_Disconnections.Disconnections_Y\.Disconnection_Mode"/>
 									</MessageReferences>
 								</Process>
 								<Process id="Handle_827_Disconnections.irt_Terminate_Disconnections">
@@ -1841,13 +1841,13 @@
 							<DateTimeCreated value="2022-8-20T10:22:41.0Z"/>
 							<Version value="13.0"/>
 							<ModelLink value="mlsl:\\\&quot;C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\Ellipse.slx&quot;"/>
-							<DateTimeModified value="2024-4-22T17:6:56.0Z"/>
+							<DateTimeModified value="2024-4-22T17:9:35.0Z"/>
 							<Description/>
 							<InterfaceFile>
 								<Name value="ellipse.six"/>
 								<Path value="c:\users\joser\onedrive\documentos\github\etas\build\ellipse_irt_rtw\ellipse.six"/>
 								<Kind value="SCOOP-IX"/>
-								<DateTime value="2024-04-22T17:14:12.0Z"/>
+								<DateTime value="2024-04-23T14:22:21.0Z"/>
 							</InterfaceFile>
 							<Suitabilities>
 								<Suitability>
@@ -2343,13 +2343,13 @@
 							<DateTimeCreated value="2021-7-16T11:31:58.0Z"/>
 							<Version value="13.0"/>
 							<ModelLink value="mlsl:\\\&quot;C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\Inverters_Action.slx&quot;"/>
-							<DateTimeModified value="2024-4-22T17:7:1.0Z"/>
+							<DateTimeModified value="2024-4-22T17:9:58.0Z"/>
 							<Description/>
 							<InterfaceFile>
 								<Name value="inverters_action.six"/>
 								<Path value="c:\users\joser\onedrive\documentos\github\etas\build\inverters_action_irt_rtw\inverters_action.six"/>
 								<Kind value="SCOOP-IX"/>
-								<DateTime value="2024-04-22T17:14:16.0Z"/>
+								<DateTime value="2024-04-23T14:22:22.0Z"/>
 							</InterfaceFile>
 							<Suitabilities>
 								<Suitability>
@@ -2851,13 +2851,13 @@
 							<DateTimeCreated value="2021-2-22T11:1:38.0Z"/>
 							<Version value="13.0"/>
 							<ModelLink value="mlsl:\\\&quot;C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\Inverters_Data.slx&quot;"/>
-							<DateTimeModified value="2024-4-22T17:7:7.0Z"/>
+							<DateTimeModified value="2024-4-22T17:10:18.0Z"/>
 							<Description/>
 							<InterfaceFile>
 								<Name value="inverters_data.six"/>
 								<Path value="c:\users\joser\onedrive\documentos\github\etas\build\inverters_data_irt_rtw\inverters_data.six"/>
 								<Kind value="SCOOP-IX"/>
-								<DateTime value="2024-04-22T17:14:21.0Z"/>
+								<DateTime value="2024-04-23T14:22:24.0Z"/>
 							</InterfaceFile>
 							<Suitabilities>
 								<Suitability>
@@ -3947,13 +3947,13 @@
 							<DateTimeCreated value="2024-3-20T11:49:26.0Z"/>
 							<Version value="4.0"/>
 							<ModelLink value="mlsl:\\\&quot;C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\Racing_Modes.slx&quot;"/>
-							<DateTimeModified value="2024-4-22T17:7:11.0Z"/>
+							<DateTimeModified value="2024-4-22T17:10:36.0Z"/>
 							<Description/>
 							<InterfaceFile>
 								<Name value="racing_modes.six"/>
 								<Path value="c:\users\joser\onedrive\documentos\github\etas\build\racing_modes_irt_rtw\racing_modes.six"/>
 								<Kind value="SCOOP-IX"/>
-								<DateTime value="2024-04-22T17:14:28.0Z"/>
+								<DateTime value="2024-04-23T14:22:25.0Z"/>
 							</InterfaceFile>
 							<Suitabilities>
 								<Suitability>
@@ -4314,13 +4314,13 @@
 							<DateTimeCreated value="2021-2-17T15:47:20.0Z"/>
 							<Version value="13.0"/>
 							<ModelLink value="mlsl:\\\&quot;C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\Sensors.slx&quot;"/>
-							<DateTimeModified value="2024-4-22T17:7:17.0Z"/>
+							<DateTimeModified value="2024-4-22T17:10:54.0Z"/>
 							<Description/>
 							<InterfaceFile>
 								<Name value="sensors.six"/>
 								<Path value="c:\users\joser\onedrive\documentos\github\etas\build\sensors_irt_rtw\sensors.six"/>
 								<Kind value="SCOOP-IX"/>
-								<DateTime value="2024-04-22T17:14:33.0Z"/>
+								<DateTime value="2024-04-23T14:22:25.0Z"/>
 							</InterfaceFile>
 							<Suitabilities>
 								<Suitability>
@@ -5009,15 +5009,15 @@
 							<Company value=""/>
 							<UserRole value="modifier"/>
 							<DateTimeCreated value="2022-10-8T20:38:24.0Z"/>
-							<Version value="13.3"/>
+							<Version value="13.5"/>
 							<ModelLink value="mlsl:\\\&quot;C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\SoC.slx&quot;"/>
-							<DateTimeModified value="2024-4-22T17:7:26.0Z"/>
+							<DateTimeModified value="2024-4-23T14:16:48.0Z"/>
 							<Description/>
 							<InterfaceFile>
 								<Name value="soc.six"/>
 								<Path value="c:\users\joser\onedrive\documentos\github\etas\build\soc_irt_rtw\soc.six"/>
 								<Kind value="SCOOP-IX"/>
-								<DateTime value="2024-04-22T17:14:38.0Z"/>
+								<DateTime value="2024-04-23T16:11:38.0Z"/>
 							</InterfaceFile>
 							<Suitabilities>
 								<Suitability>
@@ -5109,6 +5109,12 @@
 								<DateTime value=""/>
 							</File>
 							<File>
+								<Name value="SoC_data.c"/>
+								<Path value="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\SoC_data.c"/>
+								<Kind value="body"/>
+								<DateTime value=""/>
+							</File>
+							<File>
 								<Name value="SoC_main.c"/>
 								<Path value="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\SoC_main.c"/>
 								<Kind value="body"/>
@@ -5127,14 +5133,14 @@
 								<DateTime value=""/>
 							</File>
 							<File>
-								<Name value="SoC_private.h"/>
-								<Path value="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\SoC_private.h"/>
+								<Name value="SoC.h"/>
+								<Path value="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\SoC.h"/>
 								<Kind value="header"/>
 								<DateTime value=""/>
 							</File>
 							<File>
-								<Name value="SoC.h"/>
-								<Path value="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\SoC.h"/>
+								<Name value="SoC_private.h"/>
+								<Path value="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\SoC_private.h"/>
 								<Kind value="header"/>
 								<DateTime value=""/>
 							</File>
@@ -5162,7 +5168,7 @@
 									<RepresentationFormat value="Implemented"/>
 									<InitValue value="0"/>
 									<Kind value="ModulePort"/>
-									<Connected value="false"/>
+									<Connected value="true"/>
 									<QuantizationFormula id="Handle_1429_SoC.SoC_U\.Lowest_Cell_Voltage">
 										<ID value="SoC.SoC_U\.Lowest_Cell_Voltage"/>
 										<ShortId value="SoC_U.Lowest_Cell_Voltage"/>
@@ -5188,7 +5194,7 @@
 									<RepresentationFormat value="Implemented"/>
 									<InitValue value="0"/>
 									<Kind value="ModulePort"/>
-									<Connected value="false"/>
+									<Connected value="true"/>
 									<QuantizationFormula id="Handle_1430_SoC.SoC_U\.Highest_Cell_Voltage">
 										<ID value="SoC.SoC_U\.Highest_Cell_Voltage"/>
 										<ShortId value="SoC_U.Highest_Cell_Voltage"/>
@@ -5464,7 +5470,7 @@
 									<Name value="irt_OneStep_SoC"/>
 									<Caption value="irt_OneStep_SoC"/>
 									<Kind value="TimerProcess"/>
-									<Period value="0.025"/>
+									<Period value="1"/>
 									<Offset value="0"/>
 									<Priority value="Normal"/>
 									<SoftwareActions>
@@ -5538,15 +5544,15 @@
 							<Company value=""/>
 							<UserRole value="modifier"/>
 							<DateTimeCreated value="2021-2-17T14:58:42.0Z"/>
-							<Version value="13.0"/>
+							<Version value="13.1"/>
 							<ModelLink value="mlsl:\\\&quot;C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\Synchronism.slx&quot;"/>
-							<DateTimeModified value="2024-4-22T17:7:34.0Z"/>
+							<DateTimeModified value="2024-4-22T17:12:55.0Z"/>
 							<Description/>
 							<InterfaceFile>
 								<Name value="synchronism.six"/>
 								<Path value="c:\users\joser\onedrive\documentos\github\etas\build\synchronism_irt_rtw\synchronism.six"/>
 								<Kind value="SCOOP-IX"/>
-								<DateTime value="2024-04-22T17:14:47.0Z"/>
+								<DateTime value="2024-04-23T14:22:30.0Z"/>
 							</InterfaceFile>
 							<Suitabilities>
 								<Suitability>
@@ -5826,13 +5832,13 @@
 							<DateTimeCreated value="2024-3-15T15:34:18.0Z"/>
 							<Version value="4.1"/>
 							<ModelLink value="mlsl:\\\&quot;C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\VDC.slx&quot;"/>
-							<DateTimeModified value="2024-4-22T17:8:3.0Z"/>
+							<DateTimeModified value="2024-4-22T17:13:24.0Z"/>
 							<Description/>
 							<InterfaceFile>
 								<Name value="vdc.six"/>
 								<Path value="c:\users\joser\onedrive\documentos\github\etas\build\vdc_irt_rtw\vdc.six"/>
 								<Kind value="SCOOP-IX"/>
-								<DateTime value="2024-04-22T17:14:51.0Z"/>
+								<DateTime value="2024-04-23T15:57:38.0Z"/>
 							</InterfaceFile>
 							<Suitabilities>
 								<Suitability>
@@ -5961,7 +5967,7 @@
 							</File>
 						</FileContainer>
 						<Interface>
-							<Ports portCount="45">
+							<Ports portCount="46">
 								<Port id="Handle_1558_VDC.VDC_U\.el_ACCEL_X">
 									<ID value="VDC.VDC_U\.el_ACCEL_X"/>
 									<ShortId value="VDC_U.el_ACCEL_X"/>
@@ -6586,32 +6592,6 @@
 										<Kind value="Linear"/>
 									</QuantizationFormula>
 								</Port>
-								<Port id="Handle_1582_VDC.VDC_U\.TV_Mode">
-									<ID value="VDC.VDC_U\.TV_Mode"/>
-									<ShortId value="VDC_U.TV_Mode"/>
-									<Name value="VDC.TV_Mode"/>
-									<Caption value="TV_Mode"/>
-									<Direction value="In"/>
-									<Type value="continuous"/>
-									<Size value="real64"/>
-									<Unit value=""/>
-									<LowerBound value="-1.7E+308"/>
-									<UpperBound value="1.7E+308"/>
-									<Saturated value="true"/>
-									<RepresentationFormat value="Implemented"/>
-									<InitValue value="0"/>
-									<Kind value="ModulePort"/>
-									<Connected value="true"/>
-									<QuantizationFormula id="Handle_1582_VDC.VDC_U\.TV_Mode">
-										<ID value="VDC.VDC_U\.TV_Mode"/>
-										<ShortId value="VDC_U.TV_Mode"/>
-										<Name value="TV_Mode"/>
-										<Caption value="TV_Mode"/>
-										<ParamM value="1"/>
-										<ParamT value="0"/>
-										<Kind value="Linear"/>
-									</QuantizationFormula>
-								</Port>
 								<Port id="Handle_1583_VDC.VDC_U\.Susp_F_L">
 									<ID value="VDC.VDC_U\.Susp_F_L"/>
 									<ShortId value="VDC_U.Susp_F_L"/>
@@ -7132,6 +7112,58 @@
 										<Kind value="Linear"/>
 									</QuantizationFormula>
 								</Port>
+								<Port id="Handle_6066_VDC.VDC_U\.Disconnection_Mode">
+									<ID value="VDC.VDC_U\.Disconnection_Mode"/>
+									<ShortId value="VDC_U.Disconnection_Mode"/>
+									<Name value="VDC.Disconnection_Mode"/>
+									<Caption value="Disconnection_Mode"/>
+									<Direction value="In"/>
+									<Type value="continuous"/>
+									<Size value="real64"/>
+									<Unit value=""/>
+									<LowerBound value="-1.7E+308"/>
+									<UpperBound value="1.7E+308"/>
+									<Saturated value="true"/>
+									<RepresentationFormat value="Implemented"/>
+									<InitValue value="0"/>
+									<Kind value="ModulePort"/>
+									<Connected value="true"/>
+									<QuantizationFormula id="Handle_6066_VDC.VDC_U\.Disconnection_Mode">
+										<ID value="VDC.VDC_U\.Disconnection_Mode"/>
+										<ShortId value="VDC_U.Disconnection_Mode"/>
+										<Name value="Disconnection_Mode"/>
+										<Caption value="Disconnection_Mode"/>
+										<ParamM value="1"/>
+										<ParamT value="0"/>
+										<Kind value="Linear"/>
+									</QuantizationFormula>
+								</Port>
+								<Port id="Handle_6067_VDC.VDC_Y\.TV_Mode">
+									<ID value="VDC.VDC_Y\.TV_Mode"/>
+									<ShortId value="VDC_Y.TV_Mode"/>
+									<Name value="VDC.TV_Mode"/>
+									<Caption value="TV_Mode"/>
+									<Direction value="Out"/>
+									<Type value="continuous"/>
+									<Size value="real64"/>
+									<Unit value=""/>
+									<LowerBound value="-1.7E+308"/>
+									<UpperBound value="1.7E+308"/>
+									<Saturated value="true"/>
+									<RepresentationFormat value="Implemented"/>
+									<InitValue value="0"/>
+									<Kind value="ModulePort"/>
+									<Connected value="true"/>
+									<QuantizationFormula id="Handle_6067_VDC.VDC_Y\.TV_Mode">
+										<ID value="VDC.VDC_Y\.TV_Mode"/>
+										<ShortId value="VDC_Y.TV_Mode"/>
+										<Name value="TV_Mode"/>
+										<Caption value="TV_Mode"/>
+										<ParamM value="1"/>
+										<ParamT value="0"/>
+										<Kind value="Linear"/>
+									</QuantizationFormula>
+								</Port>
 							</Ports>
 							<Processes>
 								<Process id="Handle_1603_VDC.irt_Start_VDC">
@@ -7202,7 +7234,6 @@
 										<MessageReference targetRef="Handle_1579_VDC.VDC_U\.Accumulator_Current"/>
 										<MessageReference targetRef="Handle_1580_VDC.VDC_U\.Shutdown_PackageIntck"/>
 										<MessageReference targetRef="Handle_1581_VDC.VDC_U\.Workshop_Mode_Enable"/>
-										<MessageReference targetRef="Handle_1582_VDC.VDC_U\.TV_Mode"/>
 										<MessageReference targetRef="Handle_1583_VDC.VDC_U\.Susp_F_L"/>
 										<MessageReference targetRef="Handle_1584_VDC.VDC_U\.Susp_F_R"/>
 										<MessageReference targetRef="Handle_1585_VDC.VDC_U\.Susp_R_L"/>
@@ -7213,6 +7244,7 @@
 										<MessageReference targetRef="Handle_1590_VDC.VDC_U\.Car_State"/>
 										<MessageReference targetRef="Handle_1591_VDC.VDC_U\.el_SlipAngle"/>
 										<MessageReference targetRef="Handle_1592_VDC.VDC_U\.RacingMode"/>
+										<MessageReference targetRef="Handle_6066_VDC.VDC_U\.Disconnection_Mode"/>
 										<MessageReference targetRef="Handle_1593_VDC.VDC_Y\.Power"/>
 										<MessageReference targetRef="Handle_1594_VDC.VDC_Y\.PowerLimitReached"/>
 										<MessageReference targetRef="Handle_1595_VDC.VDC_Y\.PowerMean500ms"/>
@@ -7223,6 +7255,7 @@
 										<MessageReference targetRef="Handle_1600_VDC.VDC_Y\.Torque_OK"/>
 										<MessageReference targetRef="Handle_1601_VDC.VDC_Y\.Regenerative_Enable"/>
 										<MessageReference targetRef="Handle_1602_VDC.VDC_Y\.Throttle_Torque"/>
+										<MessageReference targetRef="Handle_6067_VDC.VDC_Y\.TV_Mode"/>
 									</MessageReferences>
 								</Process>
 								<Process id="Handle_1615_VDC.irt_Terminate_VDC">
@@ -9484,32 +9517,6 @@
 									<Kind value="Linear"/>
 								</QuantizationFormula>
 							</Port>
-							<Port id="Handle_4403_SoftwareSystem.SAP111">
-								<ID value="SoftwareSystem.SAP111"/>
-								<ShortId value="SAP111"/>
-								<Name value="out"/>
-								<Caption value="Disconnections.TV_mode"/>
-								<Direction value="Out"/>
-								<Type value="continuous"/>
-								<Size value="real64"/>
-								<Unit value=""/>
-								<LowerBound value="-1.7E+308"/>
-								<UpperBound value="1.7E+308"/>
-								<Saturated value="true"/>
-								<RepresentationFormat value="Implemented"/>
-								<InitValue value="0"/>
-								<Kind value="FunctionPort"/>
-								<Connected value="true"/>
-								<QuantizationFormula id="Handle_806_Disconnections.Disconnections_Y\.TV_mode">
-									<ID value="Disconnections.Disconnections_Y\.TV_mode"/>
-									<ShortId value="Disconnections_Y.TV_mode"/>
-									<Name value="TV_mode"/>
-									<Caption value="TV_mode"/>
-									<ParamM value="1"/>
-									<ParamT value="0"/>
-									<Kind value="Linear"/>
-								</QuantizationFormula>
-							</Port>
 							<Port id="Handle_4512_SoftwareSystem.SAP5">
 								<ID value="SoftwareSystem.SAP5"/>
 								<ShortId value="SAP5"/>
@@ -9531,58 +9538,6 @@
 									<ShortId value="SoC_U.Accumulator_Current"/>
 									<Name value="Accumulator_Current"/>
 									<Caption value="Accumulator_Current"/>
-									<ParamM value="1"/>
-									<ParamT value="0"/>
-									<Kind value="Linear"/>
-								</QuantizationFormula>
-							</Port>
-							<Port id="Handle_4519_SoftwareSystem.SAP115">
-								<ID value="SoftwareSystem.SAP115"/>
-								<ShortId value="SAP115"/>
-								<Name value="in"/>
-								<Caption value="SoC.Highest_Cell_Voltage"/>
-								<Direction value="In"/>
-								<Type value="continuous"/>
-								<Size value="real64"/>
-								<Unit value=""/>
-								<LowerBound value="-1.7E+308"/>
-								<UpperBound value="1.7E+308"/>
-								<Saturated value="true"/>
-								<RepresentationFormat value="Implemented"/>
-								<InitValue value="0"/>
-								<Kind value="FunctionPort"/>
-								<Connected value="true"/>
-								<QuantizationFormula id="Handle_1430_SoC.SoC_U\.Highest_Cell_Voltage">
-									<ID value="SoC.SoC_U\.Highest_Cell_Voltage"/>
-									<ShortId value="SoC_U.Highest_Cell_Voltage"/>
-									<Name value="Highest_Cell_Voltage"/>
-									<Caption value="Highest_Cell_Voltage"/>
-									<ParamM value="1"/>
-									<ParamT value="0"/>
-									<Kind value="Linear"/>
-								</QuantizationFormula>
-							</Port>
-							<Port id="Handle_4526_SoftwareSystem.SAP117">
-								<ID value="SoftwareSystem.SAP117"/>
-								<ShortId value="SAP117"/>
-								<Name value="in"/>
-								<Caption value="SoC.Lowest_Cell_Voltage"/>
-								<Direction value="In"/>
-								<Type value="continuous"/>
-								<Size value="real64"/>
-								<Unit value=""/>
-								<LowerBound value="-1.7E+308"/>
-								<UpperBound value="1.7E+308"/>
-								<Saturated value="true"/>
-								<RepresentationFormat value="Implemented"/>
-								<InitValue value="0"/>
-								<Kind value="FunctionPort"/>
-								<Connected value="true"/>
-								<QuantizationFormula id="Handle_1429_SoC.SoC_U\.Lowest_Cell_Voltage">
-									<ID value="SoC.SoC_U\.Lowest_Cell_Voltage"/>
-									<ShortId value="SoC_U.Lowest_Cell_Voltage"/>
-									<Name value="Lowest_Cell_Voltage"/>
-									<Caption value="Lowest_Cell_Voltage"/>
 									<ParamM value="1"/>
 									<ParamT value="0"/>
 									<Kind value="Linear"/>
@@ -11382,6 +11337,84 @@
 									<Kind value="Linear"/>
 								</QuantizationFormula>
 							</Port>
+							<Port id="Handle_6087_SoftwareSystem.SAP209">
+								<ID value="SoftwareSystem.SAP209"/>
+								<ShortId value="SAP209"/>
+								<Name value="out"/>
+								<Caption value="VDC.TV_Mode"/>
+								<Direction value="Out"/>
+								<Type value="continuous"/>
+								<Size value="real64"/>
+								<Unit value=""/>
+								<LowerBound value="-1.7E+308"/>
+								<UpperBound value="1.7E+308"/>
+								<Saturated value="true"/>
+								<RepresentationFormat value="Implemented"/>
+								<InitValue value="0"/>
+								<Kind value="FunctionPort"/>
+								<Connected value="true"/>
+								<QuantizationFormula id="Handle_6067_VDC.VDC_Y\.TV_Mode">
+									<ID value="VDC.VDC_Y\.TV_Mode"/>
+									<ShortId value="VDC_Y.TV_Mode"/>
+									<Name value="TV_Mode"/>
+									<Caption value="TV_Mode"/>
+									<ParamM value="1"/>
+									<ParamT value="0"/>
+									<Kind value="Linear"/>
+								</QuantizationFormula>
+							</Port>
+							<Port id="Handle_6046_SoftwareSystem.SAP10">
+								<ID value="SoftwareSystem.SAP10"/>
+								<ShortId value="SAP10"/>
+								<Name value="SoC.Highest_CellVoltage"/>
+								<Caption value="SoC.Highest_CellVoltage"/>
+								<Direction value="In"/>
+								<Type value="continuous"/>
+								<Size value="real64"/>
+								<Unit value=""/>
+								<LowerBound value="-1.7E+308"/>
+								<UpperBound value="1.7E+308"/>
+								<Saturated value="true"/>
+								<RepresentationFormat value="Implemented"/>
+								<InitValue value="0"/>
+								<Kind value="FunctionPort"/>
+								<Connected value="true"/>
+								<QuantizationFormula id="Handle_1430_SoC.SoC_U\.Highest_Cell_Voltage">
+									<ID value="SoC.SoC_U\.Highest_Cell_Voltage"/>
+									<ShortId value="SoC_U.Highest_Cell_Voltage"/>
+									<Name value="Highest_Cell_Voltage"/>
+									<Caption value="Highest_Cell_Voltage"/>
+									<ParamM value="1"/>
+									<ParamT value="0"/>
+									<Kind value="Linear"/>
+								</QuantizationFormula>
+							</Port>
+							<Port id="Handle_6080_SoftwareSystem.SAP11">
+								<ID value="SoftwareSystem.SAP11"/>
+								<ShortId value="SAP11"/>
+								<Name value="SoC.Lowest_CellVoltage"/>
+								<Caption value="SoC.Lowest_CellVoltage"/>
+								<Direction value="In"/>
+								<Type value="continuous"/>
+								<Size value="real64"/>
+								<Unit value=""/>
+								<LowerBound value="-1.7E+308"/>
+								<UpperBound value="1.7E+308"/>
+								<Saturated value="true"/>
+								<RepresentationFormat value="Implemented"/>
+								<InitValue value="0"/>
+								<Kind value="FunctionPort"/>
+								<Connected value="true"/>
+								<QuantizationFormula id="Handle_1429_SoC.SoC_U\.Lowest_Cell_Voltage">
+									<ID value="SoC.SoC_U\.Lowest_Cell_Voltage"/>
+									<ShortId value="SoC_U.Lowest_Cell_Voltage"/>
+									<Name value="Lowest_Cell_Voltage"/>
+									<Caption value="Lowest_Cell_Voltage"/>
+									<ParamM value="1"/>
+									<ParamT value="0"/>
+									<Kind value="Linear"/>
+								</QuantizationFormula>
+							</Port>
 						</Ports>
 					</Interface>
 					<Connections connectionCount="182">
@@ -11608,21 +11641,6 @@
 							</SourcePortRef>
 							<SinkPortRef refId="Handle_1581_VDC.VDC_U\.Workshop_Mode_Enable">
 								<Name value="Workshop_Mode_Enable"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_3589_SoftwareSystem.Connection15">
-							<ID value="SoftwareSystem.Connection15"/>
-							<ShortId value="Connection15"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_806_Disconnections.Disconnections_Y\.TV_mode">
-								<Name value="TV_mode"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1582_VDC.VDC_U\.TV_Mode">
-								<Name value="TV_Mode"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_3590_SoftwareSystem.Connection16">
@@ -13020,21 +13038,6 @@
 								<Name value="Disconnections.Disconnection_Susp_R_R"/>
 							</SinkPortRef>
 						</Connection>
-						<Connection id="Handle_4408_SoftwareSystem.Connection112">
-							<ID value="SoftwareSystem.Connection112"/>
-							<ShortId value="Connection112"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_806_Disconnections.Disconnections_Y\.TV_mode">
-								<Name value="TV_mode"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_4403_SoftwareSystem.SAP111">
-								<Name value="Disconnections.TV_mode"/>
-							</SinkPortRef>
-						</Connection>
 						<Connection id="Handle_4517_SoftwareSystem.Connection114">
 							<ID value="SoftwareSystem.Connection114"/>
 							<ShortId value="Connection114"/>
@@ -13048,36 +13051,6 @@
 							</SourcePortRef>
 							<SinkPortRef refId="Handle_1431_SoC.SoC_U\.Accumulator_Current">
 								<Name value="Accumulator_Current"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_4524_SoftwareSystem.Connection116">
-							<ID value="SoftwareSystem.Connection116"/>
-							<ShortId value="Connection116"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_4519_SoftwareSystem.SAP115">
-								<Name value="SoC.Highest_Cell_Voltage"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1430_SoC.SoC_U\.Highest_Cell_Voltage">
-								<Name value="Highest_Cell_Voltage"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_4531_SoftwareSystem.Connection118">
-							<ID value="SoftwareSystem.Connection118"/>
-							<ShortId value="Connection118"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_4526_SoftwareSystem.SAP117">
-								<Name value="SoC.Lowest_Cell_Voltage"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1429_SoC.SoC_U\.Lowest_Cell_Voltage">
-								<Name value="Lowest_Cell_Voltage"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_4538_SoftwareSystem.Connection120">
@@ -14115,6 +14088,66 @@
 								<Name value="Ellipse.TrackAngle"/>
 							</SinkPortRef>
 						</Connection>
+						<Connection id="Handle_6092_SoftwareSystem.Connection210">
+							<ID value="SoftwareSystem.Connection210"/>
+							<ShortId value="Connection210"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_6067_VDC.VDC_Y\.TV_Mode">
+								<Name value="TV_Mode"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_6087_SoftwareSystem.SAP209">
+								<Name value="VDC.TV_Mode"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_6058_SoftwareSystem.Connection206">
+							<ID value="SoftwareSystem.Connection206"/>
+							<ShortId value="Connection206"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_6048_Disconnections.Disconnections_Y\.Disconnection_Mode">
+								<Name value="Disconnection_Mode"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_6066_VDC.VDC_U\.Disconnection_Mode">
+								<Name value="Disconnection_Mode"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_6085_SoftwareSystem.Connection208">
+							<ID value="SoftwareSystem.Connection208"/>
+							<ShortId value="Connection208"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_6046_SoftwareSystem.SAP10">
+								<Name value="SoC.Highest_CellVoltage"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1430_SoC.SoC_U\.Highest_Cell_Voltage">
+								<Name value="Highest_Cell_Voltage"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_6643_SoftwareSystem.Connection212">
+							<ID value="SoftwareSystem.Connection212"/>
+							<ShortId value="Connection212"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_6080_SoftwareSystem.SAP11">
+								<Name value="SoC.Lowest_CellVoltage"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1429_SoC.SoC_U\.Lowest_Cell_Voltage">
+								<Name value="Lowest_Cell_Voltage"/>
+							</SinkPortRef>
+						</Connection>
 					</Connections>
 					<EmbeddedComponents>
 						<Functions>
@@ -14146,7 +14179,7 @@
 					<Caption value="ETAS"/>
 					<Kind value="StandardSystem"/>
 					<SystemMetaInfo>
-						<ProgramIdentifier value="0xd0590f75"/>
+						<ProgramIdentifier value="0xda9773f9"/>
 					</SystemMetaInfo>
 					<Hardware id="Handle_1850_System.YBOMappedECU" refId="">
 						<ID value="System.YBOMappedECU"/>
@@ -14529,7 +14562,7 @@
 																		<ShortId value="Lowest_CellVoltage"/>
 																		<Name value="CAN1.CAN1_2024.AP_BMS_Voltages.Lowest_CellVoltage"/>
 																		<Caption value="Lowest_CellVoltage"/>
-																		<Connected value="false"/>
+																		<Connected value="true"/>
 																		<Type value="udiscrete"/>
 																		<Unit value="V"/>
 																		<RepresentationFormat value="Physical"/>
@@ -14556,7 +14589,7 @@
 																		<ShortId value="Highest_CellVoltage"/>
 																		<Name value="CAN1.CAN1_2024.AP_BMS_Voltages.Highest_CellVoltage"/>
 																		<Caption value="Highest_CellVoltage"/>
-																		<Connected value="false"/>
+																		<Connected value="true"/>
 																		<Type value="udiscrete"/>
 																		<Unit value="V"/>
 																		<RepresentationFormat value="Physical"/>
@@ -16796,7 +16829,7 @@
 																	<ShortId value="Lowest_CellVoltage"/>
 																	<Name value="CAN1.CAN1_2024.AP_BMS_Voltages.Lowest_CellVoltage"/>
 																	<Caption value="Lowest_CellVoltage"/>
-																	<Connected value="false"/>
+																	<Connected value="true"/>
 																	<Type value="udiscrete"/>
 																	<Unit value="V"/>
 																	<RepresentationFormat value="Physical"/>
@@ -16822,7 +16855,7 @@
 																	<ShortId value="Highest_CellVoltage"/>
 																	<Name value="CAN1.CAN1_2024.AP_BMS_Voltages.Highest_CellVoltage"/>
 																	<Caption value="Highest_CellVoltage"/>
-																	<Connected value="false"/>
+																	<Connected value="true"/>
 																	<Type value="udiscrete"/>
 																	<Unit value="V"/>
 																	<RepresentationFormat value="Physical"/>
@@ -23178,7 +23211,7 @@
 						<Ports portCount="0">
 						</Ports>
 					</Interface>
-					<Connections connectionCount="130">
+					<Connections connectionCount="132">
 						<Connection id="Handle_5441_System.Connection">
 							<ID value="System.Connection"/>
 							<ShortId value="Connection"/>
@@ -23200,7 +23233,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_4085_SoftwareSystem.SAP79">
 								<Name value="Inverters_Data.Speed"/>
@@ -23215,7 +23248,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_4715_SoftwareSystem.SAP159">
 								<Name value="Car_State.Precharge_Voltage"/>
@@ -23245,7 +23278,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_3842_SoftwareSystem.SAP41">
 								<Name value="Racing_Modes.VDC_Max_Tyre_Slip"/>
@@ -23380,7 +23413,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_5055_SoftwareSystem.SAP195">
 								<Name value="VDC.TC_Warning"/>
@@ -23395,7 +23428,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_5048_SoftwareSystem.SAP193">
 								<Name value="VDC.Regenerative_Enable"/>
@@ -23410,7 +23443,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_4305_SoftwareSystem.SAP110">
 								<Name value="Disconnections.CriticalDisconnection"/>
@@ -23470,7 +23503,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_5076_SoftwareSystem.SAP201">
 								<Name value="VDC.Torque_OK"/>
@@ -23487,8 +23520,8 @@
 							<Kind value="Dynamic"/>
 							<Type value="Physical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_4403_SoftwareSystem.SAP111">
-								<Name value="Disconnections.TV_mode"/>
+							<SourcePortRef refId="Handle_6087_SoftwareSystem.SAP209">
+								<Name value="VDC.TV_Mode"/>
 							</SourcePortRef>
 							<SinkPortRef refId="Handle_330_ES9101.ES9102.CAN1.CAN1_2024.MEAS_ETAS_InternalVars.TV_Mode">
 								<Name value="TV_Mode"/>
@@ -23500,7 +23533,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_4298_SoftwareSystem.SAP108">
 								<Name value="Disconnections.Critical_Signal_Disconnection"/>
@@ -23515,7 +23548,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_4291_SoftwareSystem.SAP107">
 								<Name value="Disconnections.Critical_CAN_Disconnection"/>
@@ -23560,7 +23593,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_4396_SoftwareSystem.SAP109">
 								<Name value="Disconnections.Disconnection_Susp_R_R"/>
@@ -23575,7 +23608,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_4389_SoftwareSystem.SAP134">
 								<Name value="Disconnections.Disconnection_Susp_R_L"/>
@@ -23590,7 +23623,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_4382_SoftwareSystem.SAP132">
 								<Name value="Disconnections.Disconnection_Susp_F_R"/>
@@ -23605,7 +23638,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_4375_SoftwareSystem.SAP130">
 								<Name value="Disconnections.Disconnection_Susp_F_L"/>
@@ -23620,7 +23653,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_4368_SoftwareSystem.SAP128">
 								<Name value="Disconnections.Disconnection_SteeringSensor"/>
@@ -23710,7 +23743,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_4326_SoftwareSystem.SAP116">
 								<Name value="Disconnections.Disconnection_BMS"/>
@@ -23725,7 +23758,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_4319_SoftwareSystem.SAP114">
 								<Name value="Disconnections.Disconnection_APPS2"/>
@@ -23740,7 +23773,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_4312_SoftwareSystem.SAP112">
 								<Name value="Disconnections.Disconnection_APPS1"/>
@@ -23755,7 +23788,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_3732_SoftwareSystem.SAP50">
 								<Name value="Sensors.SteeringSensor_Value"/>
@@ -23770,7 +23803,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_3725_SoftwareSystem.SAP48">
 								<Name value="Sensors.BrakePedal_Value"/>
@@ -23785,7 +23818,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_3711_SoftwareSystem.SAP44">
 								<Name value="Sensors.APPS2_Value"/>
@@ -23800,7 +23833,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_3704_SoftwareSystem.SAP42">
 								<Name value="Sensors.APPS1_Value"/>
@@ -23815,7 +23848,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_3718_SoftwareSystem.SAP46">
 								<Name value="Sensors.BrakeLight_Control"/>
@@ -23920,7 +23953,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_3994_SoftwareSystem.SAP80">
 								<Name value="Inverters_Data.Inv_L_TempMotor"/>
@@ -23950,7 +23983,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_4057_SoftwareSystem.SAP98">
 								<Name value="Inverters_Data.RL_rads_Motor"/>
@@ -24010,7 +24043,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_3760_SoftwareSystem.SAP33">
 								<Name value="Sensors.SUSP_R_R"/>
@@ -24070,7 +24103,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_5062_SoftwareSystem.SAP197">
 								<Name value="VDC.Throttle_Torque"/>
@@ -24085,7 +24118,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_5083_SoftwareSystem.SAP203">
 								<Name value="VDC.Torque_R_out"/>
@@ -24100,7 +24133,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_5069_SoftwareSystem.SAP199">
 								<Name value="VDC.Torque_L_out"/>
@@ -24115,7 +24148,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_3629_SoftwareSystem.SAP25">
 								<Name value="Synchronism.Sync_CAN2"/>
@@ -24130,7 +24163,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_638_ES9101.ES9102.CAN2.CAN2_2024.AP_FECU_Data1.APPS1_Bits">
 								<Name value="APPS1_Bits"/>
@@ -24145,7 +24178,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_637_ES9101.ES9102.CAN2.CAN2_2024.AP_FECU_Data1.APPS2_Bits">
 								<Name value="APPS2_Bits"/>
@@ -24235,7 +24268,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_620_ES9101.ES9102.CAN2.CAN2_2024.AP_RECU_Data.Susp_R_R_Bits">
 								<Name value="Susp_R_R_Bits"/>
@@ -24310,7 +24343,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_261_ES9101.ES9102.CAN1.CAN1_2024.AP_Inverter_L_Tx.Inv_L_RegID_M32_Inv_L_Iactual">
 								<Name value="Inv_L_RegID_M32_Inv_L_Iactual"/>
@@ -24325,7 +24358,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_260_ES9101.ES9102.CAN1.CAN1_2024.AP_Inverter_L_Tx.Inv_L_RegID_M38_Inv_L_Icommand">
 								<Name value="Inv_L_RegID_M38_Inv_L_Icommand"/>
@@ -24340,7 +24373,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_259_ES9101.ES9102.CAN1.CAN1_2024.AP_Inverter_L_Tx.Inv_L_RegID_M39_Inv_L_Iq">
 								<Name value="Inv_L_RegID_M39_Inv_L_Iq"/>
@@ -24355,7 +24388,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_258_ES9101.ES9102.CAN1.CAN1_2024.AP_Inverter_L_Tx.Inv_L_RegID_M48_Inv_L_Speed">
 								<Name value="Inv_L_RegID_M48_Inv_L_Speed"/>
@@ -24370,7 +24403,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_256_ES9101.ES9102.CAN1.CAN1_2024.AP_Inverter_L_Tx.Inv_L_RegID_M73_Inv_L_TempMotor">
 								<Name value="Inv_L_RegID_M73_Inv_L_TempMotor"/>
@@ -24385,7 +24418,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_257_ES9101.ES9102.CAN1.CAN1_2024.AP_Inverter_L_Tx.Inv_L_RegID_M74_Inv_L_TempIGBT">
 								<Name value="Inv_L_RegID_M74_Inv_L_TempIGBT"/>
@@ -24400,7 +24433,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_252_ES9101.ES9102.CAN1.CAN1_2024.AP_Inverter_R_Tx.Inv_R_RegID_M235_Inv_R_DCBus">
 								<Name value="Inv_R_RegID_M235_Inv_R_DCBus"/>
@@ -24415,7 +24448,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_250_ES9101.ES9102.CAN1.CAN1_2024.AP_Inverter_R_Tx.Inv_R_RegID_M32_Inv_R_Iactual">
 								<Name value="Inv_R_RegID_M32_Inv_R_Iactual"/>
@@ -24535,7 +24568,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_273_ES9101.ES9102.CAN1.CAN1_2024.NM_BMS_Keep_Alive.BMS_Alive">
 								<Name value="BMS_Alive"/>
@@ -24550,7 +24583,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_636_ES9101.ES9102.CAN2.CAN2_2024.AP_FECU_Data1.BrakePedal_Bits">
 								<Name value="BrakePedal_Bits"/>
@@ -24565,7 +24598,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_279_ES9101.ES9102.CAN1.CAN1_2024.NM_DASH_Keep_Alive.Dash_Alive">
 								<Name value="Dash_Alive"/>
@@ -24730,7 +24763,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_276_ES9101.ES9102.CAN1.CAN1_2024.AP_BMS_AIRs_State.AIRs_State">
 								<Name value="AIRs_State"/>
@@ -24745,7 +24778,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_288_ES9101.ES9102.CAN1.CAN1_2024.AP_DASH_EnableDrive.EnableDrive_Order">
 								<Name value="EnableDrive_Order"/>
@@ -24760,7 +24793,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_285_ES9101.ES9102.CAN1.CAN1_2024.AP_DASH_PrechargeRequest.PrechargeRequest">
 								<Name value="PrechargeRequest"/>
@@ -24790,7 +24823,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_282_ES9101.ES9102.CAN1.CAN1_2024.AP_DASH_TorqueLockOn.Torque_LockOn">
 								<Name value="Torque_LockOn"/>
@@ -24820,7 +24853,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_232_ES9101.ES9102.CAN1.CAN1_2024.AP_BMS_Voltages.Accumulator_Voltage">
 								<Name value="Accumulator_Voltage"/>
@@ -24835,7 +24868,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_562_ES9101.ES9102.CAN2.CAN2_2024.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_X">
 								<Name value="el_ACCEL_X"/>
@@ -24850,7 +24883,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_561_ES9101.ES9102.CAN2.CAN2_2024.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_Y">
 								<Name value="el_ACCEL_Y"/>
@@ -24865,7 +24898,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_560_ES9101.ES9102.CAN2.CAN2_2024.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_Z">
 								<Name value="el_ACCEL_Z"/>
@@ -24880,7 +24913,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_580_ES9101.ES9102.CAN2.CAN2_2024.AP_ELLIPSE_IMU_GYRO.el_GYRO_X">
 								<Name value="el_GYRO_X"/>
@@ -24895,7 +24928,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_579_ES9101.ES9102.CAN2.CAN2_2024.AP_ELLIPSE_IMU_GYRO.el_GYRO_Y">
 								<Name value="el_GYRO_Y"/>
@@ -24910,7 +24943,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_578_ES9101.ES9102.CAN2.CAN2_2024.AP_ELLIPSE_IMU_GYRO.el_GYRO_Z">
 								<Name value="el_GYRO_Z"/>
@@ -24985,7 +25018,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_571_ES9101.ES9102.CAN2.CAN2_2024.AP_ELLIPSE_EKF_VEL.el_Vel_Y">
 								<Name value="el_Vel_Y"/>
@@ -25000,7 +25033,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_570_ES9101.ES9102.CAN2.CAN2_2024.AP_ELLIPSE_EKF_VEL.el_Vel_Z">
 								<Name value="el_Vel_Z"/>
@@ -25015,7 +25048,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_565_ES9101.ES9102.CAN2.CAN2_2024.AP_ELLIPSE_EKF_EULER.el_YAW">
 								<Name value="el_YAW"/>
@@ -25105,7 +25138,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_557_ES9101.ES9102.CAN2.CAN2_2024.AP_ELLIPSE_EKF_POS.el_LATITUDE_EKF">
 								<Name value="el_LATITUDE_EKF"/>
@@ -25120,13 +25153,43 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_556_ES9101.ES9102.CAN2.CAN2_2024.AP_ELLIPSE_EKF_POS.el_LONGITUDE_EKF">
 								<Name value="el_LONGITUDE_EKF"/>
 							</SourcePortRef>
 							<SinkPortRef refId="Handle_5178_SoftwareSystem.SAP212">
 								<Name value="Ellipse.el_LONGITUDE_EKF"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_6100_System.Connection130">
+							<ID value="System.Connection130"/>
+							<ShortId value="Connection130"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_231_ES9101.ES9102.CAN1.CAN1_2024.AP_BMS_Voltages.Highest_CellVoltage">
+								<Name value="Highest_CellVoltage"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_6046_SoftwareSystem.SAP10">
+								<Name value="SoC.Highest_CellVoltage"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_6101_System.Connection131">
+							<ID value="System.Connection131"/>
+							<ShortId value="Connection131"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_230_ES9101.ES9102.CAN1.CAN1_2024.AP_BMS_Voltages.Lowest_CellVoltage">
+								<Name value="Lowest_CellVoltage"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_6080_SoftwareSystem.SAP11">
+								<Name value="SoC.Lowest_CellVoltage"/>
 							</SinkPortRef>
 						</Connection>
 					</Connections>

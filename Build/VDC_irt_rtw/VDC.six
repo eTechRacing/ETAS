@@ -24,7 +24,7 @@
 		<modelLink href="mlsl:///&quot;{{modelDir}}VDC.slx&quot;"/>
 		<version major="4" minor="1"/>
 		<dateTime kind="created" year="2024" month="3" day="15" hour="15" minute="34" second="18"/>
-		<dateTime kind="lastModified" year="2024" month="4" day="22" hour="17" minute="8" second="3"/>
+		<dateTime kind="lastModified" year="2024" month="4" day="22" hour="17" minute="13" second="24"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="4" day="22" hour="17" minute="13" second="8"/>
+		<dateTime kind="created" year="2024" month="4" day="23" hour="15" minute="57" second="19"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -339,10 +339,10 @@
 						<documentation>&lt;Root&gt;/Workshop_Mode_Enable</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="TV_Mode">
+				<structMember identifier="Disconnection_Mode">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/TV_Mode</documentation>
+						<documentation>&lt;Root&gt;/Disconnection_Mode</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="Susp_F_L">
@@ -470,6 +470,12 @@
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Throttle_Torque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="TV_Mode">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/TV_Mode</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -1511,19 +1517,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_U.TV_Mode">
+			<dataCInterface identifier="VDC_U.Disconnection_Mode">
 				<definitionLocation>
 					<baseRef identifier="VDC_U"/>
-					<memberRef identifier="TV_Mode"/>
+					<memberRef identifier="Disconnection_Mode"/>
 				</definitionLocation>
 				<fileOrigin name="VDC.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="VDC.TV_Mode">
-				<name>TV_Mode</name>
-				<modelLink href="VDC/TV_Mode"/>
+			<modelOrigin identifier="VDC.Disconnection_Mode">
+				<name>Disconnection_Mode</name>
+				<modelLink href="VDC/Disconnection_Mode"/>
 				<modelLocation>
 					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="TV_Mode" kind="mlsl:block" type="Inport"/>
+					<pathNode name="Disconnection_Mode" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -2162,6 +2168,37 @@
 				</address>
 			</usage>
 		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Y.TV_Mode">
+				<definitionLocation>
+					<baseRef identifier="VDC_Y"/>
+					<memberRef identifier="TV_Mode"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.TV_Mode">
+				<name>TV_Mode</name>
+				<modelLink href="VDC/TV_Mode"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model"/>
+					<pathNode name="TV_Mode" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
 		<functionElement interfaceKind="export">
 			<functionCInterface identifier="irt_Start_VDC">
 				<signature>
@@ -2237,7 +2274,7 @@
 						<message identifier="VDC_U.Accumulator_Current" send="false"></message>
 						<message identifier="VDC_U.Shutdown_PackageIntck" send="false"></message>
 						<message identifier="VDC_U.Workshop_Mode_Enable" send="false"></message>
-						<message identifier="VDC_U.TV_Mode" send="false"></message>
+						<message identifier="VDC_U.Disconnection_Mode" send="false"></message>
 						<message identifier="VDC_U.Susp_F_L" send="false"></message>
 						<message identifier="VDC_U.Susp_F_R" send="false"></message>
 						<message identifier="VDC_U.Susp_R_L" send="false"></message>
@@ -2258,6 +2295,7 @@
 						<message identifier="VDC_Y.Torque_OK" send="true"></message>
 						<message identifier="VDC_Y.Regenerative_Enable" send="true"></message>
 						<message identifier="VDC_Y.Throttle_Torque" send="true"></message>
+						<message identifier="VDC_Y.TV_Mode" send="true"></message>
 					</messageAccess>
 					<constraint>
 						<period value="0.2"/>

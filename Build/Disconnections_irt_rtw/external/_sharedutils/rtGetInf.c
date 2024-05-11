@@ -5,11 +5,11 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * Code generation for model "Car_State".
+ * Code generation for model "Disconnections".
  *
- * Model version              : 13.0
+ * Model version              : 13.1
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Mon Apr 22 17:08:35 2024
+ * C source code generated on : Tue Apr 23 15:53:54 2024
  */
 
 #include "rtwtypes.h"

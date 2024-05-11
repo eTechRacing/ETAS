@@ -12,9 +12,9 @@
  *
  * Code generation for model "Disconnections".
  *
- * Model version              : 13.0
+ * Model version              : 13.1
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Mon Apr 22 17:08:56 2024
+ * C source code generated on : Tue Apr 23 15:53:54 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -912,7 +912,7 @@ typedef struct {
   uint8_T Disconnection_Susp_F_R;      /* '<Root>/Disconnection_Susp_F_R' */
   uint8_T Disconnection_Susp_R_L;      /* '<Root>/Disconnection_Susp_R_L' */
   uint8_T Disconnection_Susp_R_R;      /* '<Root>/Disconnection_Susp_R_R' */
-  real_T TV_mode;                      /* '<Root>/TV_mode' */
+  real_T Disconnection_Mode;           /* '<Root>/Disconnection_Mode' */
   real_T Disconnection_APPS1;          /* '<Root>/Disconnection_APPS1' */
   real_T Disconnection_APPS2;          /* '<Root>/Disconnection_APPS2' */
   real_T Disconnection_BrakePedal;     /* '<Root>/Disconnection_BrakePedal' */

@@ -7,6 +7,8 @@
 <!ENTITY _5565 SYSTEM "OSrv://ObjectHandle#5565" NDATA _OIDLink >
 <!ENTITY _5542 SYSTEM "OSrv://ObjectHandle#5542" NDATA _OIDLink >
 <!ENTITY _5549 SYSTEM "OSrv://ObjectHandle#5549" NDATA _OIDLink >
+<!ENTITY _6101 SYSTEM "OSrv://ObjectHandle#6101" NDATA _OIDLink >
+<!ENTITY _6100 SYSTEM "OSrv://ObjectHandle#6100" NDATA _OIDLink >
 <!ENTITY _5543 SYSTEM "OSrv://ObjectHandle#5543" NDATA _OIDLink >
 <!ENTITY _5550 SYSTEM "OSrv://ObjectHandle#5550" NDATA _OIDLink >
 <!ENTITY _5527 SYSTEM "OSrv://ObjectHandle#5527" NDATA _OIDLink >
@@ -151,6 +153,12 @@
 	Type="YBOConnection"/><_LinkTarget
 	Name="Connection108"
 	Index="5549"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection131"
+	Index="6101"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection130"
+	Index="6100"
 	Type="YBOConnection"/><_LinkTarget
 	Name="Connection102"
 	Index="5543"
@@ -615,14 +623,16 @@
 	PortType="UDISCRETE"
 	Saturated="FALSE"
 	Direction="OUT"
-	VisibleName="Lowest_CellVoltage"><YBOHWPort.Connections><YBOConnectionRefList/></YBOHWPort.Connections></YBOHWPort><YBOHWPort
+	VisibleName="Lowest_CellVoltage"><YBOHWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6101"/></YBOConnectionRefList></YBOHWPort.Connections></YBOHWPort><YBOHWPort
 	Name="ES9101.ES9102.CAN1.CAN1_5F2024.AP_5FBMS_5FVoltages.Highest_5FCellVoltage"
 	Unit="V"
 	Size="REAL64"
 	PortType="UDISCRETE"
 	Saturated="FALSE"
 	Direction="OUT"
-	VisibleName="Highest_CellVoltage"><YBOHWPort.Connections><YBOConnectionRefList/></YBOHWPort.Connections></YBOHWPort><YBOHWPort
+	VisibleName="Highest_CellVoltage"><YBOHWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6100"/></YBOConnectionRefList></YBOHWPort.Connections></YBOHWPort><YBOHWPort
 	Name="ES9101.ES9102.CAN1.CAN1_5F2024.AP_5FBMS_5FVoltages.Accumulator_5FVoltage"
 	Unit="V"
 	Size="REAL64"
