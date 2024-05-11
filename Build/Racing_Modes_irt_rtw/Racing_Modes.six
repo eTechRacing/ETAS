@@ -1,0 +1,610 @@
+<?xml version="1.0"?>
+<!DOCTYPE module [
+    <!ENTITY szlig "&#223;">
+    <!ENTITY copy "&#169;">
+    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/baseTypes-mlsl.six'>
+    ]>
+<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/showSCOOP-IX.xsl"?>
+<!--
+<h1>SCOOP-IX</h1>
+<p>
+    <strong>Copyright &copy; 2014 ETAS GmbH</strong>, Borsigstra&szlig;e 14, D-70469 Stuttgart. <em>All rights reserved.</em>
+</p>
+-->
+<module xmlns="http://www.etas.com/scoop-ix/1.5" xmlns:ix="http://www.etas.com/scoop-ix/1.5" xmlns:mlsl="http://www.etas.com/scoop-ix/1.5/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.5
+        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
+	<directoryLocations scheme="MATLAB 23.2">
+		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\"/>
+		<directory identifier="toolDir" path=".\"/>
+		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\"/>
+		<directory identifier="codeDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Racing_Modes_irt_rtw\"/>
+	</directoryLocations>
+	<moduleInfo identifier="Racing_Modes">
+		<name>Racing_Modes</name>
+		<modelLink href="mlsl:///&quot;{{modelDir}}Racing_Modes.slx&quot;"/>
+		<version major="4" minor="0"/>
+		<dateTime kind="created" year="2024" month="3" day="20" hour="11" minute="49" second="26"/>
+		<dateTime kind="lastModified" year="2024" month="4" day="22" hour="17" minute="10" second="36"/>
+		<completion degree="full"/>
+		<suitability>
+			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
+			<application domain="softwareDevelopment" addressesAvailable="false" nestedDataStructuresAvailable="true"/>
+		</suitability>
+		<user lastName="joser" role="modifier"/>
+		<creators>
+			<user lastName="no" role="creator"/>
+			<tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
+			</tool>
+			<tool kind="modeler" vendor="The Mathworks, Inc." name="Simulink">
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
+			</tool>
+			<tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
+			</tool>
+			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
+				<mode name="target" value="INTECRIO Real-Time Target"/>
+				<configuration>
+					<option identifier="InlineParameters">1</option>
+					<option identifier="InlineInvariantSignals">0</option>
+					<option identifier="Solver">FixedStepDiscrete</option>
+					<option identifier="SolverType">FixedStep</option>
+					<option identifier="FixedStepOpts.FixedStep">0.2</option>
+					<option identifier="FixedStepOpts.SolverMode">SingleTasking</option>
+				</configuration>
+			</tool>
+			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="MATLAB Coder">
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
+			</tool>
+			<tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
+				<configuration>
+					<option identifier="SCOOPIXFileName"><![CDATA[Racing_Modes.six]]></option>
+					<option identifier="ExternalMode">0</option>
+					<option identifier="IgnoreCustomStorageClasses">1</option>
+					<option identifier="StopSimuAfterAssert">1</option>
+					<option identifier="GenerateOnlySelectedSignalsToASAP2">0</option>
+				</configuration>
+			</tool>
+		</creators>
+	</moduleInfo>
+	<codeInfo>
+		<constitution mode="sourceCode"/>
+		<dateTime kind="created" year="2024" month="4" day="23" hour="14" minute="21" second="23"/>
+		<target>
+			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
+			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
+				<configuration>
+					<optionKind name="macroDefine" prefix="-D"/>
+					<optionKind name="includeDirectory" prefix="-I"/>
+					<!-- RTW specific defines -->
+					<option kind="macroDefine" name="USE_RTMODEL"/>
+					<option kind="macroDefine" name="MODEL">Racing_Modes</option>
+					<option kind="macroDefine" name="RT"/>
+					<option kind="macroDefine" name="NUMST">1</option>
+					<option kind="macroDefine" name="TID01EQ">0</option>
+					<option kind="macroDefine" name="NCSTATES">0</option>
+					<option kind="macroDefine" name="MT">0</option>
+					<option kind="macroDefine" name="HAVESTDIO"/>
+					<option kind="macroDefine" name="MdlStart">MdlStart_Racing_Modes</option>
+					<option kind="macroDefine" name="MdlOutputs">MdlOutputs_Racing_Modes</option>
+					<option kind="macroDefine" name="MdlUpdate">MdlUpdate_Racing_Modes</option>
+					<option kind="macroDefine" name="MdlTerminate">MdlTerminate_Racing_Modes</option>
+					<option kind="macroDefine" name="MdlInitializeSizes">MdlInitializeSizes_Racing_Modes</option>
+					<option kind="macroDefine" name="MdlInitializeSampleTimes">MdlInitializeSampleTimes_Racing_Modes</option>
+					<option kind="macroDefine" name="MdlInitialize">MdlInitialize_Racing_Modes</option>
+					<option kind="macroDefine" name="MdlEnable">MdlEnable_Racing_Modes</option>
+					<option kind="macroDefine" name="MdlDerivatives">MdlDerivatives_Racing_Modes</option>
+					<option kind="macroDefine" name="MdlProjection">MdlProjection_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_ODECreateIntegrationData">rt_ODECreateIntegrationData_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_ODEUpdateContinuousStates">rt_ODEUpdateContinuousStates_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_ODEDestroyIntegrationData">rt_ODEDestroyIntegrationData_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_ODECacheDataIntoSolverInfo">rt_ODECacheDataIntoSolverInfo_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_ODERetrieveDataFromSolverInfo">rt_ODERetrieveDataFromSolverInfo_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_ODECreateSolverInfo">rt_ODECreateSolverInfo_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_SimInitTimingEngine">rt_SimInitTimingEngine_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_SimGetNextSampleHit">rt_SimGetNextSampleHit_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteTaskSampleHits">rt_SimUpdateDiscreteTaskSampleHits_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteEvents">rt_SimUpdateDiscreteEvents_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteTaskTime">rt_SimUpdateDiscreteTaskTime_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_CallSys">rt_CallSys_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_EnableSys">rt_EnableSys_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_DisableSys">rt_DisableSys_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_SimDestroyTimingEngine">rt_SimDestroyTimingEngine_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_InitTimingEngine">rt_InitTimingEngine_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_DestroyTimingEngine">rt_DestroyTimingEngine_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteTaskSampleHits">rt_UpdateDiscreteTaskSampleHits_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_GetNextSampleHit">rt_GetNextSampleHit_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteEvents">rt_UpdateDiscreteEvents_Racing_Modes</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteTaskTime">rt_UpdateDiscreteTaskTime_Racing_Modes</option>
+					<!-- RTW specific include directories -->
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}]]></option>
+					<option kind="includeDirectory"><![CDATA[{{integratorDir}}c\src\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{integratorDir}}c\lib\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\simulink\include\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\extern\include\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\src\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\libsrc\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\_sharedutils\]]></option>
+				</configuration>
+			</tool>
+		</target>
+	</codeInfo>
+	<!-- Model specific files -->
+	<fileContainer constitution="sourceCode">
+		<pathBase path="{{codeDir}}"/>
+		<!-- Model specific source files -->
+		<file name="Racing_Modes_types.h" kind="header"/>
+		<file name="Racing_Modes.h" kind="header"/>
+		<file name="Racing_Modes.c" kind="body"/>
+		<file name="Racing_Modes_private.h" kind="header"/>
+		<file name="rtmodel.h" kind="header"/>
+		<file name="Racing_Modes_main.c" kind="body"/>
+		<file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body"/>
+		<!-- Target specific libraries -->
+		<file name="rtwStaticLib.lib" kind="symbolicLibrary"/>
+		<file name="rtwSharedLib.lib" kind="symbolicLibrary"/>
+		<!-- Additional files -->
+	</fileContainer>
+	<fileContainer constitution="referencedModels">
+	</fileContainer>
+	<interface>
+		<modelLinkBase href="mlsl:///{{modelDir}}Racing_Modes.slx?"/>
+		<pathBase path="{{codeDir}}"/>
+		<fileOrigin name="rt_nonfinite.c"/>
+		<fileOrigin name="Racing_Modes.c"/>
+		<fileOrigin name="Racing_Modes_main.c"/>
+		<headerFile name="Racing_Modes.h"/>
+		<headerFile name="Racing_Modes_private.h"/>
+		<usage layoutFamily="mlsl:standardLayout"/>
+		<!-- "import" MATLAB/Simulink base type and complex struct definitions via external entity -->
+		&baseTypes-mlsl;
+		<definitions>
+			<structDef name="_B_Racing_Modes_T">
+				<fileOrigin name="Racing_Modes.h"/>
+				<structMember identifier="Merge">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Gain">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="B_Racing_Modes_T">
+				<struct/><typeRef name="_B_Racing_Modes_T"/>
+				<fileOrigin name="Racing_Modes.h"/>
+				<annotation>
+					<documentation>Block signals (auto storage)</documentation>
+				</annotation>
+			</typeDef>
+			<structDef name="ExtU_Racing_Modes_T_tag">
+				<fileOrigin name="Racing_Modes.h"/>
+				<structMember identifier="RacingMode">
+					<type><typeRef name="uint8_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/RacingMode</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="CustomMode_Data">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/CustomMode_Data</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="CustomMode_Identifier">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/CustomMode_Identifier</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ExtU_Racing_Modes_T">
+				<struct/><typeRef name="ExtU_Racing_Modes_T_tag"/>
+				<fileOrigin name="Racing_Modes.h"/>
+			</typeDef>
+			<structDef name="ExtY_Racing_Modes_T_tag">
+				<fileOrigin name="Racing_Modes.h"/>
+				<structMember identifier="VDC_Max_Tyre_Slip">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/VDC_Max_Tyre_Slip</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Workshop_Mode_Enable">
+					<type><typeRef name="boolean_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Workshop_Mode_Enable</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ExtY_Racing_Modes_T">
+				<struct/><typeRef name="ExtY_Racing_Modes_T_tag"/>
+				<fileOrigin name="Racing_Modes.h"/>
+			</typeDef>
+			<baseDef identifier="Racing_Modes_B">
+				<type><typeRef name="B_Racing_Modes_T"/></type>
+				<fileOrigin name="Racing_Modes.c"/>
+				<annotation>
+					<documentation>The rtB data structure for signals.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="Racing_Modes_U">
+				<type><typeRef name="ExtU_Racing_Modes_T"/></type>
+				<fileOrigin name="Racing_Modes.c"/>
+				<annotation>
+					<documentation>The rtU data structure for external inputs.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="Racing_Modes_Y">
+				<type><typeRef name="ExtY_Racing_Modes_T"/></type>
+				<fileOrigin name="Racing_Modes.c"/>
+				<annotation>
+					<documentation>The rtY data structure for external outputs.</documentation>
+				</annotation>
+			</baseDef>
+			<conversion name="Racing_Modes_CM_double">
+				<rationalFunction>
+					<numerator bx="1.0"/>
+					<denominator f="1.0"/>
+				</rationalFunction>
+				<annotation>
+					<documentation>Q = V</documentation>
+				</annotation>
+			</conversion>
+			<conversion name="Racing_Modes_CM_uint8">
+				<rationalFunction>
+					<numerator bx="1.0"/>
+					<denominator f="1.0"/>
+				</rationalFunction>
+				<annotation>
+					<documentation>Q = V</documentation>
+				</annotation>
+			</conversion>
+			<conversion name="Racing_Modes_CM_boolean">
+				<rationalFunction>
+					<numerator bx="1.0"/>
+					<denominator f="1.0"/>
+				</rationalFunction>
+				<annotation>
+					<documentation>Q = V</documentation>
+				</annotation>
+			</conversion>
+		</definitions>
+		<!-- rtP parameters following -->
+		<!-- Constant parameters following -->
+		<!-- Exported global parameters following -->
+		<!-- Imported extern parameters following -->
+		<!-- Global BlockIO (rtB) signals following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Racing_Modes_B.Merge">
+				<definitionLocation>
+					<baseRef identifier="Racing_Modes_B"/>
+					<memberRef identifier="Merge"/>
+				</definitionLocation>
+				<fileOrigin name="Racing_Modes.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Racing_Modes.Opaque.Merge">
+				<name>Merge</name>
+				<modelLink href="Racing_Modes/Opaque"/>
+				<modelLocation>
+					<pathNode name="Racing_Modes" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Merge" kind="mlsl:block"/>
+					<pathNode name="Merge" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Racing_Modes_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Racing_Modes_B.Gain">
+				<definitionLocation>
+					<baseRef identifier="Racing_Modes_B"/>
+					<memberRef identifier="Gain"/>
+				</definitionLocation>
+				<fileOrigin name="Racing_Modes.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Racing_Modes.Opaque.Gain">
+				<name>Gain</name>
+				<modelLink href="Racing_Modes/Opaque"/>
+				<modelLocation>
+					<pathNode name="Racing_Modes" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Custom Dash (11)" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Max tyre slip" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Gain" kind="mlsl:block"/>
+					<pathNode name="Gain" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Racing_Modes_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- Global constant BlockIO (rtC) signals following -->
+		<!-- Exported global and imported extern signals following -->
+		<!-- Global IRT DWork port signals following -->
+		<!-- rtU input ports following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Racing_Modes_U.RacingMode">
+				<definitionLocation>
+					<baseRef identifier="Racing_Modes_U"/>
+					<memberRef identifier="RacingMode"/>
+				</definitionLocation>
+				<fileOrigin name="Racing_Modes.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Racing_Modes.RacingMode">
+				<name>RacingMode</name>
+				<modelLink href="Racing_Modes/RacingMode"/>
+				<modelLocation>
+					<pathNode name="Racing_Modes" kind="mlsl:model"/>
+					<pathNode name="RacingMode" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="discrete" signedness="unsigned">
+					<valueRange min="0.0" max="255.0"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Racing_Modes_CM_uint8"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Racing_Modes_U.CustomMode_Data">
+				<definitionLocation>
+					<baseRef identifier="Racing_Modes_U"/>
+					<memberRef identifier="CustomMode_Data"/>
+				</definitionLocation>
+				<fileOrigin name="Racing_Modes.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Racing_Modes.CustomMode_Data">
+				<name>CustomMode_Data</name>
+				<modelLink href="Racing_Modes/CustomMode_Data"/>
+				<modelLocation>
+					<pathNode name="Racing_Modes" kind="mlsl:model"/>
+					<pathNode name="CustomMode_Data" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Racing_Modes_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Racing_Modes_U.CustomMode_Identifier">
+				<definitionLocation>
+					<baseRef identifier="Racing_Modes_U"/>
+					<memberRef identifier="CustomMode_Identifier"/>
+				</definitionLocation>
+				<fileOrigin name="Racing_Modes.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Racing_Modes.CustomMode_Identifier">
+				<name>CustomMode_Identifier</name>
+				<modelLink href="Racing_Modes/CustomMode_Identifier"/>
+				<modelLocation>
+					<pathNode name="Racing_Modes" kind="mlsl:model"/>
+					<pathNode name="CustomMode_Identifier" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Racing_Modes_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- rtY output ports following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Racing_Modes_Y.VDC_Max_Tyre_Slip">
+				<definitionLocation>
+					<baseRef identifier="Racing_Modes_Y"/>
+					<memberRef identifier="VDC_Max_Tyre_Slip"/>
+				</definitionLocation>
+				<fileOrigin name="Racing_Modes.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Racing_Modes.VDC_Max_Tyre_Slip">
+				<name>VDC_Max_Tyre_Slip</name>
+				<modelLink href="Racing_Modes/VDC_Max_Tyre_Slip"/>
+				<modelLocation>
+					<pathNode name="Racing_Modes" kind="mlsl:model"/>
+					<pathNode name="VDC_Max_Tyre_Slip" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Racing_Modes_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Racing_Modes_Y.Workshop_Mode_Enable">
+				<definitionLocation>
+					<baseRef identifier="Racing_Modes_Y"/>
+					<memberRef identifier="Workshop_Mode_Enable"/>
+				</definitionLocation>
+				<fileOrigin name="Racing_Modes.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Racing_Modes.Workshop_Mode_Enable">
+				<name>Workshop_Mode_Enable</name>
+				<modelLink href="Racing_Modes/Workshop_Mode_Enable"/>
+				<modelLocation>
+					<pathNode name="Racing_Modes" kind="mlsl:model"/>
+					<pathNode name="Workshop_Mode_Enable" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="Boolean">
+					<valueRange min="0.0" max="1.0"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Racing_Modes_CM_boolean"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_Start_Racing_Modes">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Racing_Modes_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_Start_Racing_Modes">
+				<name>irt_Start_Racing_Modes</name>
+				<modelLocation>
+					<pathNode name="Racing_Modes" kind="mlsl:model"/>
+					<pathNode name="irt_Start_Racing_Modes" kind="mlsl:process" type="initialization"/>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<constraint>
+						<execution trigger="initialization"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the initialization process of the Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_OneStep_Racing_Modes">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Racing_Modes_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_OneStep_Racing_Modes">
+				<name>irt_OneStep_Racing_Modes</name>
+				<modelLocation>
+					<pathNode name="Racing_Modes" kind="mlsl:model"/>
+					<pathNode name="irt_OneStep_Racing_Modes" kind="mlsl:process" type="execution">
+						<pathParameter name="mlsl:baseSampleRate" value="0.2"/>
+						<pathParameter name="mlsl:sampleRates" value="0.2"/>
+					</pathNode>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<messageAccess>
+						<message identifier="Racing_Modes_U.RacingMode" send="false"></message>
+						<message identifier="Racing_Modes_U.CustomMode_Data" send="false"></message>
+						<message identifier="Racing_Modes_U.CustomMode_Identifier" send="false"></message>
+						<message identifier="Racing_Modes_Y.VDC_Max_Tyre_Slip" send="true"></message>
+						<message identifier="Racing_Modes_Y.Workshop_Mode_Enable" send="true"></message>
+					</messageAccess>
+					<constraint>
+						<period value="0.2"/>
+						<offset value="0.0"/>
+						<execution trigger="timer" priority="normal"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the execution process of the Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_Terminate_Racing_Modes">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Racing_Modes_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_Terminate_Racing_Modes">
+				<name>irt_Terminate_Racing_Modes</name>
+				<modelLocation>
+					<pathNode name="Racing_Modes" kind="mlsl:model"/>
+					<pathNode name="irt_Terminate_Racing_Modes" kind="mlsl:process" type="termination"/>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<constraint>
+						<execution trigger="termination"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the termination process of the INTECRIO Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+	</interface>
+</module>

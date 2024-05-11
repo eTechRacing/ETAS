@@ -1,0 +1,1523 @@
+<?xml version="1.0"?>
+<!DOCTYPE module [
+    <!ENTITY szlig "&#223;">
+    <!ENTITY copy "&#169;">
+    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/baseTypes-mlsl.six'>
+    ]>
+<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/showSCOOP-IX.xsl"?>
+<!--
+<h1>SCOOP-IX</h1>
+<p>
+    <strong>Copyright &copy; 2014 ETAS GmbH</strong>, Borsigstra&szlig;e 14, D-70469 Stuttgart. <em>All rights reserved.</em>
+</p>
+-->
+<module xmlns="http://www.etas.com/scoop-ix/1.5" xmlns:ix="http://www.etas.com/scoop-ix/1.5" xmlns:mlsl="http://www.etas.com/scoop-ix/1.5/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.5
+        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
+	<directoryLocations scheme="MATLAB 23.2">
+		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\"/>
+		<directory identifier="toolDir" path=".\"/>
+		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\"/>
+		<directory identifier="codeDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Inverters_Data_irt_rtw\"/>
+	</directoryLocations>
+	<moduleInfo identifier="Inverters_Data">
+		<name>Inverters_Data</name>
+		<modelLink href="mlsl:///&quot;{{modelDir}}Inverters_Data.slx&quot;"/>
+		<version major="13" minor="0"/>
+		<dateTime kind="created" year="2021" month="2" day="22" hour="11" minute="1" second="38"/>
+		<dateTime kind="lastModified" year="2024" month="4" day="22" hour="17" minute="10" second="18"/>
+		<completion degree="full"/>
+		<suitability>
+			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
+			<application domain="softwareDevelopment" addressesAvailable="false" nestedDataStructuresAvailable="true"/>
+		</suitability>
+		<user lastName="joser" role="modifier"/>
+		<creators>
+			<user lastName="cspt" role="creator"/>
+			<tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
+			</tool>
+			<tool kind="modeler" vendor="The Mathworks, Inc." name="Simulink">
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
+			</tool>
+			<tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
+			</tool>
+			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
+				<mode name="target" value="INTECRIO Real-Time Target"/>
+				<configuration>
+					<option identifier="InlineParameters">1</option>
+					<option identifier="InlineInvariantSignals">0</option>
+					<option identifier="Solver">FixedStepDiscrete</option>
+					<option identifier="SolverType">FixedStep</option>
+					<option identifier="FixedStepOpts.FixedStep">0.2</option>
+					<option identifier="FixedStepOpts.SolverMode">SingleTasking</option>
+				</configuration>
+			</tool>
+			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="MATLAB Coder">
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
+			</tool>
+			<tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
+				<configuration>
+					<option identifier="SCOOPIXFileName"><![CDATA[Inverters_Data.six]]></option>
+					<option identifier="ExternalMode">0</option>
+					<option identifier="IgnoreCustomStorageClasses">1</option>
+					<option identifier="StopSimuAfterAssert">1</option>
+					<option identifier="GenerateOnlySelectedSignalsToASAP2">0</option>
+				</configuration>
+			</tool>
+		</creators>
+	</moduleInfo>
+	<codeInfo>
+		<constitution mode="sourceCode"/>
+		<dateTime kind="created" year="2024" month="4" day="23" hour="14" minute="21" second="11"/>
+		<target>
+			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
+			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
+				<configuration>
+					<optionKind name="macroDefine" prefix="-D"/>
+					<optionKind name="includeDirectory" prefix="-I"/>
+					<!-- RTW specific defines -->
+					<option kind="macroDefine" name="USE_RTMODEL"/>
+					<option kind="macroDefine" name="MODEL">Inverters_Data</option>
+					<option kind="macroDefine" name="RT"/>
+					<option kind="macroDefine" name="NUMST">1</option>
+					<option kind="macroDefine" name="TID01EQ">0</option>
+					<option kind="macroDefine" name="NCSTATES">0</option>
+					<option kind="macroDefine" name="MT">0</option>
+					<option kind="macroDefine" name="HAVESTDIO"/>
+					<option kind="macroDefine" name="MdlStart">MdlStart_Inverters_Data</option>
+					<option kind="macroDefine" name="MdlOutputs">MdlOutputs_Inverters_Data</option>
+					<option kind="macroDefine" name="MdlUpdate">MdlUpdate_Inverters_Data</option>
+					<option kind="macroDefine" name="MdlTerminate">MdlTerminate_Inverters_Data</option>
+					<option kind="macroDefine" name="MdlInitializeSizes">MdlInitializeSizes_Inverters_Data</option>
+					<option kind="macroDefine" name="MdlInitializeSampleTimes">MdlInitializeSampleTimes_Inverters_Data</option>
+					<option kind="macroDefine" name="MdlInitialize">MdlInitialize_Inverters_Data</option>
+					<option kind="macroDefine" name="MdlEnable">MdlEnable_Inverters_Data</option>
+					<option kind="macroDefine" name="MdlDerivatives">MdlDerivatives_Inverters_Data</option>
+					<option kind="macroDefine" name="MdlProjection">MdlProjection_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_ODECreateIntegrationData">rt_ODECreateIntegrationData_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_ODEUpdateContinuousStates">rt_ODEUpdateContinuousStates_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_ODEDestroyIntegrationData">rt_ODEDestroyIntegrationData_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_ODECacheDataIntoSolverInfo">rt_ODECacheDataIntoSolverInfo_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_ODERetrieveDataFromSolverInfo">rt_ODERetrieveDataFromSolverInfo_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_ODECreateSolverInfo">rt_ODECreateSolverInfo_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_SimInitTimingEngine">rt_SimInitTimingEngine_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_SimGetNextSampleHit">rt_SimGetNextSampleHit_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteTaskSampleHits">rt_SimUpdateDiscreteTaskSampleHits_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteEvents">rt_SimUpdateDiscreteEvents_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteTaskTime">rt_SimUpdateDiscreteTaskTime_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_CallSys">rt_CallSys_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_EnableSys">rt_EnableSys_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_DisableSys">rt_DisableSys_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_SimDestroyTimingEngine">rt_SimDestroyTimingEngine_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_InitTimingEngine">rt_InitTimingEngine_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_DestroyTimingEngine">rt_DestroyTimingEngine_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteTaskSampleHits">rt_UpdateDiscreteTaskSampleHits_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_GetNextSampleHit">rt_GetNextSampleHit_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteEvents">rt_UpdateDiscreteEvents_Inverters_Data</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteTaskTime">rt_UpdateDiscreteTaskTime_Inverters_Data</option>
+					<!-- RTW specific include directories -->
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}]]></option>
+					<option kind="includeDirectory"><![CDATA[{{integratorDir}}c\src\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{integratorDir}}c\lib\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\simulink\include\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\extern\include\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\src\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\libsrc\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\_sharedutils\]]></option>
+				</configuration>
+			</tool>
+		</target>
+	</codeInfo>
+	<!-- Model specific files -->
+	<fileContainer constitution="sourceCode">
+		<pathBase path="{{codeDir}}"/>
+		<!-- Model specific source files -->
+		<file name="Inverters_Data_types.h" kind="header"/>
+		<file name="Inverters_Data.h" kind="header"/>
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\slprj\irt\_sharedutils\rt_powd_snf.c -->
+		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\slprj\irt\_sharedutils\rt_powd_snf.h -->
+		<file name="Inverters_Data.c" kind="body"/>
+		<file name="Inverters_Data_private.h" kind="header"/>
+		<file name="rtmodel.h" kind="header"/>
+		<file name="Inverters_Data_main.c" kind="body"/>
+		<file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body"/>
+		<!-- Target specific libraries -->
+		<file name="rtwStaticLib.lib" kind="symbolicLibrary"/>
+		<file name="rtwSharedLib.lib" kind="symbolicLibrary"/>
+		<!-- Additional files -->
+	</fileContainer>
+	<fileContainer constitution="referencedModels">
+	</fileContainer>
+	<interface>
+		<modelLinkBase href="mlsl:///{{modelDir}}Inverters_Data.slx?"/>
+		<pathBase path="{{codeDir}}"/>
+		<fileOrigin name="rt_nonfinite.c"/>
+		<fileOrigin name="Inverters_Data.c"/>
+		<fileOrigin name="Inverters_Data_main.c"/>
+		<headerFile name="Inverters_Data.h"/>
+		<headerFile name="Inverters_Data_private.h"/>
+		<usage layoutFamily="mlsl:standardLayout"/>
+		<!-- "import" MATLAB/Simulink base type and complex struct definitions via external entity -->
+		&baseTypes-mlsl;
+		<definitions>
+			<structDef name="ExtU_Inverters_Data_T_tag">
+				<fileOrigin name="Inverters_Data.h"/>
+				<structMember identifier="Inv_L_RegID_M48_Inv_L_Speed">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_L_RegID_M48_Inv_L_Speed</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_L_RegID_M73_Inv_L_TempMotor">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_L_RegID_M73_Inv_L_TempMotor</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_L_RegID_M74_Inv_L_TempIGBT">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_L_RegID_M74_Inv_L_TempIGBT</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_L_RegID_M235_Inv_L_DCBus">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_L_RegID_M235_Inv_L_DCBus</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_R_RegID_M32_Inv_R_Iactual">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_R_RegID_M32_Inv_R_Iactual</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_R_RegID_M38_Inv_R_Icommand">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_R_RegID_M38_Inv_R_Icommand</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_R_RegID_M39_Inv_R_Iq">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_R_RegID_M39_Inv_R_Iq</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_L_RegID_M32_Inv_L_Iactual">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_L_RegID_M32_Inv_L_Iactual</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_L_RegID_M38_Inv_L_Icommand">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_L_RegID_M38_Inv_L_Icommand</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_R_RegID_M48_Inv_R_Speed">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_R_RegID_M48_Inv_R_Speed</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_L_RegID_M39_Inv_L_Iq">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_L_RegID_M39_Inv_L_Iq</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_R_RegID_M73_Inv_R_TempMotor">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_R_RegID_M73_Inv_R_TempMotor</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_R_RegID_M74_Inv_R_TempIGBT">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_R_RegID_M74_Inv_R_TempIGBT</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_R_RegID_M235_Inv_R_DCBus">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_R_RegID_M235_Inv_R_DCBus</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ExtU_Inverters_Data_T">
+				<struct/><typeRef name="ExtU_Inverters_Data_T_tag"/>
+				<fileOrigin name="Inverters_Data.h"/>
+			</typeDef>
+			<structDef name="ExtY_Inverters_Data_T_tag">
+				<fileOrigin name="Inverters_Data.h"/>
+				<structMember identifier="Max_Temp_IGBT">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Max_Temp_IGBT</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Max_Temp_Motors">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Max_Temp_Motors</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="RL_Vel_ms_Wheel">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/RL_Vel_ms_Wheel</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="RR_Vel_ms_Wheel">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/RR_Vel_ms_Wheel</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="InvertersMinDCBus">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/InvertersMinDCBus</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Speed">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Speed</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_L_Iq">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_L_Iq</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_R_Iq">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_R_Iq</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_L_Iactual">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_L_Iactual</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_R_Iactual">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_R_Iactual</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_L_Icommand">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_L_Icommand</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_R_Icommand">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_R_Icommand</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_L_TempMotor">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_L_TempMotor</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_R_TempMotor">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_R_TempMotor</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_R_TempIGBT">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_R_TempIGBT</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_L_TempIGBT">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_L_TempIGBT</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="RL_rads_Motor">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/RL_rads_Motor</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="RR_rads_Motor">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/RR_rads_Motor</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ExtY_Inverters_Data_T">
+				<struct/><typeRef name="ExtY_Inverters_Data_T_tag"/>
+				<fileOrigin name="Inverters_Data.h"/>
+			</typeDef>
+			<baseDef identifier="Inverters_Data_U">
+				<type><typeRef name="ExtU_Inverters_Data_T"/></type>
+				<fileOrigin name="Inverters_Data.c"/>
+				<annotation>
+					<documentation>The rtU data structure for external inputs.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="Inverters_Data_Y">
+				<type><typeRef name="ExtY_Inverters_Data_T"/></type>
+				<fileOrigin name="Inverters_Data.c"/>
+				<annotation>
+					<documentation>The rtY data structure for external outputs.</documentation>
+				</annotation>
+			</baseDef>
+			<conversion name="Inverters_Data_CM_double">
+				<rationalFunction>
+					<numerator bx="1.0"/>
+					<denominator f="1.0"/>
+				</rationalFunction>
+				<annotation>
+					<documentation>Q = V</documentation>
+				</annotation>
+			</conversion>
+		</definitions>
+		<!-- rtP parameters following -->
+		<!-- Constant parameters following -->
+		<!-- Exported global parameters following -->
+		<!-- Imported extern parameters following -->
+		<!-- Global BlockIO (rtB) signals following -->
+		<!-- Global constant BlockIO (rtC) signals following -->
+		<!-- Exported global and imported extern signals following -->
+		<!-- Global IRT DWork port signals following -->
+		<!-- rtU input ports following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_U.Inv_L_RegID_M48_Inv_L_Speed">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_U"/>
+					<memberRef identifier="Inv_L_RegID_M48_Inv_L_Speed"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_L_RegID_M48_Inv_L_Speed">
+				<name>Inv_L_RegID_M48_Inv_L_Speed</name>
+				<modelLink href="Inverters_Data/Inv_L_RegID_M48_Inv_L_Speed"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_L_RegID_M48_Inv_L_Speed" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_U.Inv_L_RegID_M73_Inv_L_TempMotor">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_U"/>
+					<memberRef identifier="Inv_L_RegID_M73_Inv_L_TempMotor"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_L_RegID_M73_Inv_L_TempMotor">
+				<name>Inv_L_RegID_M73_Inv_L_TempMotor</name>
+				<modelLink href="Inverters_Data/Inv_L_RegID_M73_Inv_L_TempMotor"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_L_RegID_M73_Inv_L_TempMotor" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_U"/>
+					<memberRef identifier="Inv_L_RegID_M74_Inv_L_TempIGBT"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_L_RegID_M74_Inv_L_TempIGBT">
+				<name>Inv_L_RegID_M74_Inv_L_TempIGBT</name>
+				<modelLink href="Inverters_Data/Inv_L_RegID_M74_Inv_L_TempIGBT"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_L_RegID_M74_Inv_L_TempIGBT" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_U.Inv_L_RegID_M235_Inv_L_DCBus">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_U"/>
+					<memberRef identifier="Inv_L_RegID_M235_Inv_L_DCBus"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_L_RegID_M235_Inv_L_DCBus">
+				<name>Inv_L_RegID_M235_Inv_L_DCBus</name>
+				<modelLink href="Inverters_Data/Inv_L_RegID_M235_Inv_L_DCBus"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_L_RegID_M235_Inv_L_DCBus" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_U.Inv_R_RegID_M32_Inv_R_Iactual">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_U"/>
+					<memberRef identifier="Inv_R_RegID_M32_Inv_R_Iactual"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_R_RegID_M32_Inv_R_Iactual">
+				<name>Inv_R_RegID_M32_Inv_R_Iactual</name>
+				<modelLink href="Inverters_Data/Inv_R_RegID_M32_Inv_R_Iactual"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_R_RegID_M32_Inv_R_Iactual" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_U.Inv_R_RegID_M38_Inv_R_Icommand">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_U"/>
+					<memberRef identifier="Inv_R_RegID_M38_Inv_R_Icommand"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_R_RegID_M38_Inv_R_Icommand">
+				<name>Inv_R_RegID_M38_Inv_R_Icommand</name>
+				<modelLink href="Inverters_Data/Inv_R_RegID_M38_Inv_R_Icommand"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_R_RegID_M38_Inv_R_Icommand" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_U.Inv_R_RegID_M39_Inv_R_Iq">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_U"/>
+					<memberRef identifier="Inv_R_RegID_M39_Inv_R_Iq"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_R_RegID_M39_Inv_R_Iq">
+				<name>Inv_R_RegID_M39_Inv_R_Iq</name>
+				<modelLink href="Inverters_Data/Inv_R_RegID_M39_Inv_R_Iq"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_R_RegID_M39_Inv_R_Iq" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_U.Inv_L_RegID_M32_Inv_L_Iactual">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_U"/>
+					<memberRef identifier="Inv_L_RegID_M32_Inv_L_Iactual"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_L_RegID_M32_Inv_L_Iactual">
+				<name>Inv_L_RegID_M32_Inv_L_Iactual</name>
+				<modelLink href="Inverters_Data/Inv_L_RegID_M32_Inv_L_Iactual"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_L_RegID_M32_Inv_L_Iactual" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_U.Inv_L_RegID_M38_Inv_L_Icommand">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_U"/>
+					<memberRef identifier="Inv_L_RegID_M38_Inv_L_Icommand"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_L_RegID_M38_Inv_L_Icommand">
+				<name>Inv_L_RegID_M38_Inv_L_Icommand</name>
+				<modelLink href="Inverters_Data/Inv_L_RegID_M38_Inv_L_Icommand"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_L_RegID_M38_Inv_L_Icommand" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_U.Inv_R_RegID_M48_Inv_R_Speed">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_U"/>
+					<memberRef identifier="Inv_R_RegID_M48_Inv_R_Speed"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_R_RegID_M48_Inv_R_Speed">
+				<name>Inv_R_RegID_M48_Inv_R_Speed</name>
+				<modelLink href="Inverters_Data/Inv_R_RegID_M48_Inv_R_Speed"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_R_RegID_M48_Inv_R_Speed" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_U.Inv_L_RegID_M39_Inv_L_Iq">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_U"/>
+					<memberRef identifier="Inv_L_RegID_M39_Inv_L_Iq"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_L_RegID_M39_Inv_L_Iq">
+				<name>Inv_L_RegID_M39_Inv_L_Iq</name>
+				<modelLink href="Inverters_Data/Inv_L_RegID_M39_Inv_L_Iq"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_L_RegID_M39_Inv_L_Iq" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_U"/>
+					<memberRef identifier="Inv_R_RegID_M73_Inv_R_TempMotor"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_R_RegID_M73_Inv_R_TempMotor">
+				<name>Inv_R_RegID_M73_Inv_R_TempMotor</name>
+				<modelLink href="Inverters_Data/Inv_R_RegID_M73_Inv_R_TempMotor"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_R_RegID_M73_Inv_R_TempMotor" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_U"/>
+					<memberRef identifier="Inv_R_RegID_M74_Inv_R_TempIGBT"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_R_RegID_M74_Inv_R_TempIGBT">
+				<name>Inv_R_RegID_M74_Inv_R_TempIGBT</name>
+				<modelLink href="Inverters_Data/Inv_R_RegID_M74_Inv_R_TempIGBT"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_R_RegID_M74_Inv_R_TempIGBT" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_U.Inv_R_RegID_M235_Inv_R_DCBus">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_U"/>
+					<memberRef identifier="Inv_R_RegID_M235_Inv_R_DCBus"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_R_RegID_M235_Inv_R_DCBus">
+				<name>Inv_R_RegID_M235_Inv_R_DCBus</name>
+				<modelLink href="Inverters_Data/Inv_R_RegID_M235_Inv_R_DCBus"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_R_RegID_M235_Inv_R_DCBus" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- rtY output ports following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_Y.Max_Temp_IGBT">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_Y"/>
+					<memberRef identifier="Max_Temp_IGBT"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Max_Temp_IGBT">
+				<name>Max_Temp_IGBT</name>
+				<modelLink href="Inverters_Data/Max_Temp_IGBT"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Max_Temp_IGBT" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_Y.Max_Temp_Motors">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_Y"/>
+					<memberRef identifier="Max_Temp_Motors"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Max_Temp_Motors">
+				<name>Max_Temp_Motors</name>
+				<modelLink href="Inverters_Data/Max_Temp_Motors"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Max_Temp_Motors" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_Y.RL_Vel_ms_Wheel">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_Y"/>
+					<memberRef identifier="RL_Vel_ms_Wheel"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.RL_Vel_ms_Wheel">
+				<name>RL_Vel_ms_Wheel</name>
+				<modelLink href="Inverters_Data/RL_Vel_ms_Wheel"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="RL_Vel_ms_Wheel" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_Y.RR_Vel_ms_Wheel">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_Y"/>
+					<memberRef identifier="RR_Vel_ms_Wheel"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.RR_Vel_ms_Wheel">
+				<name>RR_Vel_ms_Wheel</name>
+				<modelLink href="Inverters_Data/RR_Vel_ms_Wheel"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="RR_Vel_ms_Wheel" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_Y.InvertersMinDCBus">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_Y"/>
+					<memberRef identifier="InvertersMinDCBus"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.InvertersMinDCBus">
+				<name>InvertersMinDCBus</name>
+				<modelLink href="Inverters_Data/InvertersMinDCBus"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="InvertersMinDCBus" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_Y.Speed">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_Y"/>
+					<memberRef identifier="Speed"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Speed">
+				<name>Speed</name>
+				<modelLink href="Inverters_Data/Speed"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Speed" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_Y.Inv_L_Iq">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_Y"/>
+					<memberRef identifier="Inv_L_Iq"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_L_Iq">
+				<name>Inv_L_Iq</name>
+				<modelLink href="Inverters_Data/Inv_L_Iq"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_L_Iq" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_Y.Inv_R_Iq">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_Y"/>
+					<memberRef identifier="Inv_R_Iq"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_R_Iq">
+				<name>Inv_R_Iq</name>
+				<modelLink href="Inverters_Data/Inv_R_Iq"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_R_Iq" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_Y.Inv_L_Iactual">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_Y"/>
+					<memberRef identifier="Inv_L_Iactual"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_L_Iactual">
+				<name>Inv_L_Iactual</name>
+				<modelLink href="Inverters_Data/Inv_L_Iactual"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_L_Iactual" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_Y.Inv_R_Iactual">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_Y"/>
+					<memberRef identifier="Inv_R_Iactual"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_R_Iactual">
+				<name>Inv_R_Iactual</name>
+				<modelLink href="Inverters_Data/Inv_R_Iactual"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_R_Iactual" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_Y.Inv_L_Icommand">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_Y"/>
+					<memberRef identifier="Inv_L_Icommand"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_L_Icommand">
+				<name>Inv_L_Icommand</name>
+				<modelLink href="Inverters_Data/Inv_L_Icommand"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_L_Icommand" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_Y.Inv_R_Icommand">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_Y"/>
+					<memberRef identifier="Inv_R_Icommand"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_R_Icommand">
+				<name>Inv_R_Icommand</name>
+				<modelLink href="Inverters_Data/Inv_R_Icommand"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_R_Icommand" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_Y.Inv_L_TempMotor">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_Y"/>
+					<memberRef identifier="Inv_L_TempMotor"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_L_TempMotor">
+				<name>Inv_L_TempMotor</name>
+				<modelLink href="Inverters_Data/Inv_L_TempMotor"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_L_TempMotor" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_Y.Inv_R_TempMotor">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_Y"/>
+					<memberRef identifier="Inv_R_TempMotor"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_R_TempMotor">
+				<name>Inv_R_TempMotor</name>
+				<modelLink href="Inverters_Data/Inv_R_TempMotor"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_R_TempMotor" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_Y.Inv_R_TempIGBT">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_Y"/>
+					<memberRef identifier="Inv_R_TempIGBT"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_R_TempIGBT">
+				<name>Inv_R_TempIGBT</name>
+				<modelLink href="Inverters_Data/Inv_R_TempIGBT"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_R_TempIGBT" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_Y.Inv_L_TempIGBT">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_Y"/>
+					<memberRef identifier="Inv_L_TempIGBT"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_L_TempIGBT">
+				<name>Inv_L_TempIGBT</name>
+				<modelLink href="Inverters_Data/Inv_L_TempIGBT"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_L_TempIGBT" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_Y.RL_rads_Motor">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_Y"/>
+					<memberRef identifier="RL_rads_Motor"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.RL_rads_Motor">
+				<name>RL_rads_Motor</name>
+				<modelLink href="Inverters_Data/RL_rads_Motor"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="RL_rads_Motor" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_Y.RR_rads_Motor">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_Y"/>
+					<memberRef identifier="RR_rads_Motor"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.RR_rads_Motor">
+				<name>RR_rads_Motor</name>
+				<modelLink href="Inverters_Data/RR_rads_Motor"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="RR_rads_Motor" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_Start_Inverters_Data">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Inverters_Data_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_Start_Inverters_Data">
+				<name>irt_Start_Inverters_Data</name>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="irt_Start_Inverters_Data" kind="mlsl:process" type="initialization"/>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<constraint>
+						<execution trigger="initialization"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the initialization process of the Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_OneStep_Inverters_Data">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Inverters_Data_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_OneStep_Inverters_Data">
+				<name>irt_OneStep_Inverters_Data</name>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="irt_OneStep_Inverters_Data" kind="mlsl:process" type="execution">
+						<pathParameter name="mlsl:baseSampleRate" value="0.2"/>
+						<pathParameter name="mlsl:sampleRates" value="0.2"/>
+					</pathNode>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<messageAccess>
+						<message identifier="Inverters_Data_U.Inv_L_RegID_M48_Inv_L_Speed" send="false"></message>
+						<message identifier="Inverters_Data_U.Inv_L_RegID_M73_Inv_L_TempMotor" send="false"></message>
+						<message identifier="Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT" send="false"></message>
+						<message identifier="Inverters_Data_U.Inv_L_RegID_M235_Inv_L_DCBus" send="false"></message>
+						<message identifier="Inverters_Data_U.Inv_R_RegID_M32_Inv_R_Iactual" send="false"></message>
+						<message identifier="Inverters_Data_U.Inv_R_RegID_M38_Inv_R_Icommand" send="false"></message>
+						<message identifier="Inverters_Data_U.Inv_R_RegID_M39_Inv_R_Iq" send="false"></message>
+						<message identifier="Inverters_Data_U.Inv_L_RegID_M32_Inv_L_Iactual" send="false"></message>
+						<message identifier="Inverters_Data_U.Inv_L_RegID_M38_Inv_L_Icommand" send="false"></message>
+						<message identifier="Inverters_Data_U.Inv_R_RegID_M48_Inv_R_Speed" send="false"></message>
+						<message identifier="Inverters_Data_U.Inv_L_RegID_M39_Inv_L_Iq" send="false"></message>
+						<message identifier="Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor" send="false"></message>
+						<message identifier="Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT" send="false"></message>
+						<message identifier="Inverters_Data_U.Inv_R_RegID_M235_Inv_R_DCBus" send="false"></message>
+						<message identifier="Inverters_Data_Y.Max_Temp_IGBT" send="true"></message>
+						<message identifier="Inverters_Data_Y.Max_Temp_Motors" send="true"></message>
+						<message identifier="Inverters_Data_Y.RL_Vel_ms_Wheel" send="true"></message>
+						<message identifier="Inverters_Data_Y.RR_Vel_ms_Wheel" send="true"></message>
+						<message identifier="Inverters_Data_Y.InvertersMinDCBus" send="true"></message>
+						<message identifier="Inverters_Data_Y.Speed" send="true"></message>
+						<message identifier="Inverters_Data_Y.Inv_L_Iq" send="true"></message>
+						<message identifier="Inverters_Data_Y.Inv_R_Iq" send="true"></message>
+						<message identifier="Inverters_Data_Y.Inv_L_Iactual" send="true"></message>
+						<message identifier="Inverters_Data_Y.Inv_R_Iactual" send="true"></message>
+						<message identifier="Inverters_Data_Y.Inv_L_Icommand" send="true"></message>
+						<message identifier="Inverters_Data_Y.Inv_R_Icommand" send="true"></message>
+						<message identifier="Inverters_Data_Y.Inv_L_TempMotor" send="true"></message>
+						<message identifier="Inverters_Data_Y.Inv_R_TempMotor" send="true"></message>
+						<message identifier="Inverters_Data_Y.Inv_R_TempIGBT" send="true"></message>
+						<message identifier="Inverters_Data_Y.Inv_L_TempIGBT" send="true"></message>
+						<message identifier="Inverters_Data_Y.RL_rads_Motor" send="true"></message>
+						<message identifier="Inverters_Data_Y.RR_rads_Motor" send="true"></message>
+					</messageAccess>
+					<constraint>
+						<period value="0.2"/>
+						<offset value="0.0"/>
+						<execution trigger="timer" priority="normal"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the execution process of the Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_Terminate_Inverters_Data">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Inverters_Data_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_Terminate_Inverters_Data">
+				<name>irt_Terminate_Inverters_Data</name>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="irt_Terminate_Inverters_Data" kind="mlsl:process" type="termination"/>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<constraint>
+						<execution trigger="termination"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the termination process of the INTECRIO Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+	</interface>
+</module>

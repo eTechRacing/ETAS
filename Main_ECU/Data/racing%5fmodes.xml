@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE YBOModule SYSTEM ".\dtd\ybomodule.dtd" [ <?RequiredDTDVersion "4.7.1"?>
+
+<!NOTATION _OSrvLink SYSTEM "_OSrvLink" >
+<!ENTITY _1843 SYSTEM "OSrv://ObjectHandle#1843" NDATA _OIDLink >
+<!ENTITY _3840 SYSTEM "OSrv://ObjectHandle#3840" NDATA _OIDLink >
+<!ENTITY _3826 SYSTEM "OSrv://ObjectHandle#3826" NDATA _OIDLink >
+<!ENTITY _3833 SYSTEM "OSrv://ObjectHandle#3833" NDATA _OIDLink >
+<!ENTITY _3594 SYSTEM "OSrv://ObjectHandle#3594" NDATA _OIDLink >
+<!ENTITY _3847 SYSTEM "OSrv://ObjectHandle#3847" NDATA _OIDLink >
+<!ENTITY _3588 SYSTEM "OSrv://ObjectHandle#3588" NDATA _OIDLink >
+<!ENTITY _3854 SYSTEM "OSrv://ObjectHandle#3854" NDATA _OIDLink >
+<!ENTITY _1272 SYSTEM "OSrv://ObjectHandle#1272" NDATA _OIDLink >
+<!ENTITY _1273 SYSTEM "OSrv://ObjectHandle#1273" NDATA _OIDLink >
+<!ENTITY _1274 SYSTEM "OSrv://ObjectHandle#1274" NDATA _OIDLink >
+<!ENTITY _1275 SYSTEM "OSrv://ObjectHandle#1275" NDATA _OIDLink >
+<!ENTITY _1276 SYSTEM "OSrv://ObjectHandle#1276" NDATA _OIDLink >
+<!ENTITY _1277 SYSTEM "OSrv://ObjectHandle#1277" NDATA _OIDLink >
+]><YBOModule
+	Name="Racing_5FModes"
+	ScoopIXSource="c:\users\joser\onedrive\documentos\github\etas\build\racing_modes_irt_rtw\racing_modes.six"
+	FileDateTime="133583485450107929"
+	ModelingTool="MATLAB"
+	Kind="SOFTWARE"
+	VisibleName="Racing_Modes"
+	ReferencedModuleListValid="TRUE"><_System><_AdminInfo/><_LinkTarget><_LinkTarget
+	Name="SoftwareSystem"
+	Index="1843"
+	Type="YBOSoftwareSystem"><_LinkTarget
+	Name="Connection40"
+	Index="3840"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection36"
+	Index="3826"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection38"
+	Index="3833"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection20"
+	Index="3594"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection42"
+	Index="3847"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection14"
+	Index="3588"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection44"
+	Index="3854"
+	Type="YBOConnection"/></_LinkTarget><_LinkTarget
+	Name="Racing_Modes"
+	Index="1272"
+	Type="YBOModule"><_LinkTarget
+	Name="Racing_Modes_U.RacingMode"
+	Index="1273"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Racing_Modes_U.CustomMode_Data"
+	Index="1274"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Racing_Modes_U.CustomMode_Identifier"
+	Index="1275"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Racing_Modes_Y.VDC_Max_Tyre_Slip"
+	Index="1276"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Racing_Modes_Y.Workshop_Mode_Enable"
+	Index="1277"
+	Type="YBOSWPort"/></_LinkTarget></_LinkTarget></_System><YBOModule.Ports><YBOPortList><YBOSWPort
+	Name="Racing_5FModes.Racing_5FModes_5FU_5C.RacingMode"
+	Size="UINT8"
+	PortType="UDISCRETE"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	UpperBound="255."
+	VisibleName="RacingMode"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_3840"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Racing_5FModes.Racing_5FModes_5FU_5C.CustomMode_5FData"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="CustomMode_Data"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_3826"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Racing_5FModes.Racing_5FModes_5FU_5C.CustomMode_5FIdentifier"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="CustomMode_Identifier"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_3833"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Racing_5FModes.Racing_5FModes_5FY_5C.VDC_5FMax_5FTyre_5FSlip"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="VDC_Max_Tyre_Slip"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_3594"/><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_3847"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Racing_5FModes.Racing_5FModes_5FY_5C.Workshop_5FMode_5FEnable"
+	Size="UINT8"
+	PortType="BOOLEAN"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	UpperBound="1."
+	VisibleName="Workshop_Mode_Enable"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_3588"/><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_3854"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort></YBOPortList></YBOModule.Ports><YBOModule.Processes><YBOProcessList><YBOProcess
+	Name="Racing_5FModes.irt_5FStart_5FRacing_5FModes"
+	Kind="INITIALIZATION"
+	Priority="0.5"
+	VisibleName="irt_Start_Racing_Modes"><YBOProcess.Actions><YBOActionList><YBOAction
+	Name="Racing_5FModes.irt_5FStart_5FRacing_5FModes.Action"
+	Kind="PROCESS"/></YBOActionList></YBOProcess.Actions><YBOProcess.CrossbarHooks><YBOCrossbarHookList><YBOCrossbarHook
+	Name="Racing_5FModes.irt_5FStart_5FRacing_5FModes.irt_5FStart_5FRacing_5FModes_5FSourceCopy"
+	Kind="SOURCE"
+	VisibleName="irt_Start_Racing_Modes_SourceCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="Racing_5FModes.irt_5FStart_5FRacing_5FModes.irt_5FStart_5FRacing_5FModes_5FSourceCopy.Action"
+	Hidden="TRUE"
+	Kind="SOURCE_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList/></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
+	Name="Racing_5FModes.irt_5FStart_5FRacing_5FModes.irt_5FStart_5FRacing_5FModes_5FSinkCopy"
+	Kind="SINK"
+	VisibleName="irt_Start_Racing_Modes_SinkCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="Racing_5FModes.irt_5FStart_5FRacing_5FModes.irt_5FStart_5FRacing_5FModes_5FSinkCopy.Action"
+	Hidden="TRUE"
+	Kind="SINK_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList/></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess><YBOProcess
+	Name="Racing_5FModes.irt_5FOneStep_5FRacing_5FModes"
+	Kind="TIMER"
+	Period="0.2000000000000000111"
+	Priority="0.5"
+	VisibleName="irt_OneStep_Racing_Modes"><YBOProcess.Actions><YBOActionList><YBOAction
+	Name="Racing_5FModes.irt_5FOneStep_5FRacing_5FModes.Action"
+	Kind="PROCESS"/></YBOActionList></YBOProcess.Actions><YBOProcess.CrossbarHooks><YBOCrossbarHookList><YBOCrossbarHook
+	Name="Racing_5FModes.irt_5FOneStep_5FRacing_5FModes.irt_5FOneStep_5FRacing_5FModes_5FSourceCopy"
+	Kind="SOURCE"
+	VisibleName="irt_OneStep_Racing_Modes_SourceCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="Racing_5FModes.irt_5FOneStep_5FRacing_5FModes.irt_5FOneStep_5FRacing_5FModes_5FSourceCopy.Action"
+	Hidden="TRUE"
+	Kind="SOURCE_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1273"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1274"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1275"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
+	Name="Racing_5FModes.irt_5FOneStep_5FRacing_5FModes.irt_5FOneStep_5FRacing_5FModes_5FSinkCopy"
+	Kind="SINK"
+	VisibleName="irt_OneStep_Racing_Modes_SinkCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="Racing_5FModes.irt_5FOneStep_5FRacing_5FModes.irt_5FOneStep_5FRacing_5FModes_5FSinkCopy.Action"
+	Hidden="TRUE"
+	Kind="SINK_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1276"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1277"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess><YBOProcess
+	Name="Racing_5FModes.irt_5FTerminate_5FRacing_5FModes"
+	Kind="TERMINATION"
+	Priority="0.5"
+	VisibleName="irt_Terminate_Racing_Modes"><YBOProcess.Actions><YBOActionList><YBOAction
+	Name="Racing_5FModes.irt_5FTerminate_5FRacing_5FModes.Action"
+	Kind="PROCESS"/></YBOActionList></YBOProcess.Actions><YBOProcess.CrossbarHooks><YBOCrossbarHookList><YBOCrossbarHook
+	Name="Racing_5FModes.irt_5FTerminate_5FRacing_5FModes.irt_5FTerminate_5FRacing_5FModes_5FSourceCopy"
+	Kind="SOURCE"
+	VisibleName="irt_Terminate_Racing_Modes_SourceCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="Racing_5FModes.irt_5FTerminate_5FRacing_5FModes.irt_5FTerminate_5FRacing_5FModes_5FSourceCopy.Action"
+	Hidden="TRUE"
+	Kind="SOURCE_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList/></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
+	Name="Racing_5FModes.irt_5FTerminate_5FRacing_5FModes.irt_5FTerminate_5FRacing_5FModes_5FSinkCopy"
+	Kind="SINK"
+	VisibleName="irt_Terminate_Racing_Modes_SinkCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="Racing_5FModes.irt_5FTerminate_5FRacing_5FModes.irt_5FTerminate_5FRacing_5FModes_5FSinkCopy.Action"
+	Hidden="TRUE"
+	Kind="SINK_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList/></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess></YBOProcessList></YBOModule.Processes><YBOModule.ArXMLSources><YBOArXMLSourceList/></YBOModule.ArXMLSources><YBOModule.ArCSources><YBOArCSourceList/></YBOModule.ArCSources><YBOModule.ReferencedModules><YBOModuleRefList/></YBOModule.ReferencedModules></YBOModule>
