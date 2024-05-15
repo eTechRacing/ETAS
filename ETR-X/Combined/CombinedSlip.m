@@ -41,6 +41,7 @@ LHX=1; %Scale factor of Fx horizontal shift; valor inventat
 LXA=1; %Scale factor of alpha influence on Fx; valor inventat
 LYK=1;
 LVYK=1;
+LMUY=1;
 
 %%
 
@@ -137,28 +138,35 @@ slip = 0:0.01:1.0; %vehicle slip ratio
 %-------------------------------------------------------------------------
 
 %Combined slip for FX
-SHalfa= RHX1;
-alfaS= alfaF+SHalfa;
-BXalfa= (RBX1+RBX3*CAM^2)*cos(arctan(RBX2*k))*LXalfa;
+SHXalfa= RHX1;
+alfaS= VS+SHXalfa;%VS=alfaF=alfaM Magic Formula Paper
+BXalfa= (RBX1+RBX3*CAM^2)*cos(atan(RBX2*slip))*LXA; %kslip= k Magic Formula Paper
 CXalfa= RCX1;
 EXA= REX1+REX2*DFZ;
-GXalfa= (cos(CXalfa*arctan(BXalfa*alfaS-EXA(BXalfa*alfaS-arctan(BXalfa*alfaS)))))/(cos(CXalfa*arctan(BXalfa*SHalfa-EXalfa(BXalfa-SHalfa-arctan(BXalfa*SHXalfa)))));
+GXalfa= (cos(CXalfa.*atan(BXalfa.*alfaS-EXA*(BXalfa.*alfaS-atan(BXalfa.*alfaS)))))/(cos(CXalfa.*atan(BXalfa.*SHXalfa-EXA*(BXalfa*SHXalfa-atan(BXalfa*SHXalfa)))));
 
 %Combined Slip for FY
+%Turn slip
+DAMP0=0;
+DAMP2=1;
+DAMP3=1;
+DAMP4=1;
 %weighting function
-SHYK= RHY1+RHY2*DFZ;
-EYK= REY1+REY2*DFZ;
+SHYK= RHY1+RHY2.*DFZ;
+EYK= REY1+REY2.*DFZ;
 CYK=RCY1;
-BYK= (RBY1+RBY4*CAM^2)*cos(arctan(RBY2*(alfa-RBY3)))^LYK;
-KS=K+SHYK;
-GYK= (cos(CYK*arctan(BYK*KS-EYK(BYK*KS-arctan(BYK*KS)))))/(cos(CYK*arctan(BYK*SHYK-EYK*(BYK*SHYK-arctan(BYK*SHYK)))));
-%braling induced plysteer
-DVYK= MUY*FZ*(RVY1+RVY2*DFZ+RVY3)*cos(arctan(RVY4*alfaF))*DAMP2;
-SVYK= DVYK*sin(RVY5*arctan(RVY6*KS))*LVYK;
+BYK= (RBY1+RBY4.*CAM^2).*cos(atan(RBY2.*(VS-RBY3))).^LYK;%VS=alfaF=?alfa
+KS=slip+SHYK;%slip=K
+GYK= (cos(CYK.*atan(BYK.*KS-EYK.*(BYK.*KS-atan(BYK.*KS)))))./(cos(CYK.*atan(BYK.*SHYK-EYK.*(BYK.*SHYK-atan(BYK.*SHYK)))));
+%braking induced plysteer
+MUY=PDY1*exp(PDY2*DFZ)*(1+PPY3*DPI+PPY4*DPI^2)*LMUY*(1-PDY3*CAM)
+DVYK= MUY*FZ*(RVY1+RVY2*DFZ+RVY3)*cos(atan(RVY4*VS))*DAMP2;%VS=alfaF
+SVYK= DVYK*sin(RVY5*atan(RVY6*KS))*LVYK;
 
 FY= GXalfa*FYP+SVYK;
 
 %--------------------------------------------------------------------------
+%{
 %Downforce
 df=2.3*((V/3.6)^2)
 dfR=(df*copx)/l %Down Force front
@@ -204,7 +212,7 @@ for i = 1:length(slip)
 
 for k=1:10 %Addition of weighttransfer
 
-
+%}
 
 
 
