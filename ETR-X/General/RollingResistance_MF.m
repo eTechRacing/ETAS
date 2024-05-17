@@ -1,4 +1,5 @@
 clear all, close all, clc
+
 %Longitudinal Coefficients
 PCX1= 1.5000;
 PDX1=1.9513;
@@ -75,7 +76,7 @@ h = 0.3; % cog height m
 l = 1.53; % wheel base m
 cogx= 0.8; % Front axle -> Mass center distance in m
 R = 0.223969; %efective rolling radius in m
-R0= 18*0.0245; %unloaded radius in m
+R0= (18*0.0245)/2; %unloaded radius in m
 CAMdeg = 1; %inclination angle en graus
 CAM = CAMdeg*pi/180; %Camber in radians
 VREF= 40/3.6; %en m/s
@@ -119,3 +120,5 @@ for i = 1:length(slip)
         My(i,j)=-R0.*FZ.*LMY.*(QSY1+QSY2.*(Fx(i,j)/FZ)+QSY3.*abs(V(i,j)/VREF)+QSY4.*(V(i,j)/VREF).^4);
     end
 end
+
+plot(VV,My)
