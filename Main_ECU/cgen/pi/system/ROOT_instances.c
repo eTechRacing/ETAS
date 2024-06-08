@@ -16,11 +16,9 @@
 #include "./Ellipse_instances.h"
 #include "./Inverters_Action_instances.h"
 #include "./Inverters_Data_instances.h"
-#include "./Racing_Modes_instances.h"
 #include "./Sensors_instances.h"
-#include "./SoC_instances.h"
 #include "./Synchronism_instances.h"
-#include "./VDC_instances.h"
+#include "./VDCv2_instances.h"
 /* Data structure for keeping the INTECRIO version (defines must be set) */
 #ifdef INTECRIO_VERSION_NUMBER
 static const uint32 intecrioVersionNumber = INTECRIO_VERSION_NUMBER;
@@ -59,16 +57,14 @@ static void initClass_INTECRIOTop_ROOT(struct INTECRIOTop_ROOT_Class *self)
     self->RTWTop_Ellipse_Ptr = (struct RTWTop_Ellipse_Obj*)initModel_RTWTop_Ellipse();
     self->RTWTop_Inverters_Action_Ptr = (struct RTWTop_Inverters_Action_Obj*)initModel_RTWTop_Inverters_Action();
     self->RTWTop_Inverters_Data_Ptr = (struct RTWTop_Inverters_Data_Obj*)initModel_RTWTop_Inverters_Data();
-    self->RTWTop_Racing_Modes_Ptr = (struct RTWTop_Racing_Modes_Obj*)initModel_RTWTop_Racing_Modes();
     self->RTWTop_Sensors_Ptr = (struct RTWTop_Sensors_Obj*)initModel_RTWTop_Sensors();
-    self->RTWTop_SoC_Ptr = (struct RTWTop_SoC_Obj*)initModel_RTWTop_SoC();
     self->RTWTop_Synchronism_Ptr = (struct RTWTop_Synchronism_Obj*)initModel_RTWTop_Synchronism();
-    self->RTWTop_VDC_Ptr = (struct RTWTop_VDC_Obj*)initModel_RTWTop_VDC();
+    self->RTWTop_VDCv2_Ptr = (struct RTWTop_VDCv2_Obj*)initModel_RTWTop_VDCv2();
     return;
 }
 /* Definition of the class header */
 static ASDClassHeader INTECRIOTop_ROOT_ClassHeader =
-    {0, 0, 0, 10, (MethodList *)0, (MethodList *)0};
+    {0, 0, 0, 8, (MethodList *)0, (MethodList *)0};
 /* Definition and initialization of the class object */
 static struct INTECRIOTop_ROOT_Class INTECRIOTop_ROOT_ClassObj = {{1, {&INTECRIOTop_ROOT_ClassHeader}, {0}}};
 /* Object instantiation */
@@ -99,11 +95,9 @@ void os_setDeltaT (void)
     setDeltaT_Ellipse();
     setDeltaT_Inverters_Action();
     setDeltaT_Inverters_Data();
-    setDeltaT_Racing_Modes();
     setDeltaT_Sensors();
-    setDeltaT_SoC();
     setDeltaT_Synchronism();
-    setDeltaT_VDC();
+    setDeltaT_VDCv2();
 }
 /* Accessor for staticDT */
 uint32 getDeltaT (void)

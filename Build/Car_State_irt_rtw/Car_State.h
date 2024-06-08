@@ -12,9 +12,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 13.0
+ * Model version              : 13.4
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Apr 23 14:17:45 2024
+ * C source code generated on : Sat Jun  8 13:03:47 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -865,7 +865,7 @@ typedef struct {
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  real_T A;                            /* '<S8>/Data Store Memory' */
+  real_T A;                            /* '<S29>/Data Store Memory' */
   uint16_T temporalCounter_i1;         /* '<Root>/Car State Manager' */
   uint8_T is_active_c1_Car_State;      /* '<Root>/Car State Manager' */
   uint8_T is_c1_Car_State;             /* '<Root>/Car State Manager' */
@@ -875,7 +875,6 @@ typedef struct {
 typedef struct {
   real_T AIRs_State;                   /* '<Root>/AIRs_State' */
   real_T PrechargeRequest;             /* '<Root>/PrechargeRequest' */
-  real_T Torque_LockON;                /* '<Root>/Torque_LockON' */
   boolean_T EnableDrive_Order;         /* '<Root>/EnableDrive_Order' */
   real_T BrakePedal_Value;             /* '<Root>/BrakePedal_Value' */
   real_T Critical_CAN_Disconnection;   /* '<Root>/Critical_CAN_Disconnection' */
@@ -891,8 +890,7 @@ typedef struct {
   real_T TorqueEnable;                 /* '<Root>/TorqueEnable' */
   real_T AIRs_Request;                 /* '<Root>/AIRs_Request' */
   real_T errors;                       /* '<Root>/errors' */
-  real_T CurrentPathDisconnectionFlag;
-                                     /* '<Root>/CurrentPathDisconnectionFlag' */
+  real_T Relay_Error;                  /* '<Root>/Relay_Error' */
   real_T InvertersAction;              /* '<Root>/InvertersAction' */
   boolean_T Car_OK;                    /* '<Root>/Car_OK' */
   real_T PrechargeAssert;              /* '<Root>/PrechargeAssert' */
@@ -1077,10 +1075,13 @@ extern RT_MODEL_Car_State_T *const Car_State_M;
  * '<S25>'  : 'Car_State/CarOK Checks/Compare To Zero2'
  * '<S26>'  : 'Car_State/CurrentPathDisconnection Detection/DocBlock'
  * '<S27>'  : 'Car_State/CurrentPathDisconnection Detection/Failure'
- * '<S28>'  : 'Car_State/CurrentPathDisconnection Detection/OK or latch'
- * '<S29>'  : 'Car_State/CurrentPathDisconnection Detection/OK or latch/Latched Error'
- * '<S30>'  : 'Car_State/CurrentPathDisconnection Detection/OK or latch/OK'
- * '<S31>'  : 'Car_State/PrechargeAssert Conditions/FALSE'
- * '<S32>'  : 'Car_State/PrechargeAssert Conditions/TRUE'
+ * '<S28>'  : 'Car_State/CurrentPathDisconnection Detection/OK'
+ * '<S29>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem'
+ * '<S30>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/Error counter'
+ * '<S31>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/OK'
+ * '<S32>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/Signal_Failure'
+ * '<S33>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/Signal_OK'
+ * '<S34>'  : 'Car_State/PrechargeAssert Conditions/FALSE'
+ * '<S35>'  : 'Car_State/PrechargeAssert Conditions/TRUE'
  */
 #endif                                 /* RTW_HEADER_Car_State_h_ */

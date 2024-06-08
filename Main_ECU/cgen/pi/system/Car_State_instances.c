@@ -49,15 +49,14 @@ void initClass_RTWTop_Car_State(struct RTWTop_Car_State_Class *self)
     self->RTWWrapper_Car_State_U_InvertersSubscribed_Ptr = initInstance_scalarWrapper((void*)&Car_State_U.InvertersSubscribed, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Car_State_U_PrechargeRequest_Ptr = initInstance_scalarWrapper((void*)&Car_State_U.PrechargeRequest, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Car_State_U_Shutdown_PackageIntck_Ptr = initInstance_scalarWrapper((void*)&Car_State_U.Shutdown_PackageIntck, sizeof(char), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Car_State_U_Torque_LockON_Ptr = initInstance_scalarWrapper((void*)&Car_State_U.Torque_LockON, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Car_State_Y_AIRs_Request_Ptr = initInstance_scalarWrapper((void*)&Car_State_Y.AIRs_Request, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Car_State_Y_Car_OK_Ptr = initInstance_scalarWrapper((void*)&Car_State_Y.Car_OK, sizeof(char), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Car_State_Y_Car_State_f_Ptr = initInstance_scalarWrapper((void*)&Car_State_Y.Car_State_f, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Car_State_Y_CurrentPathDisconnectionFlag_Ptr = initInstance_scalarWrapper((void*)&Car_State_Y.CurrentPathDisconnectionFlag, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Car_State_Y_InvertersAction_Ptr = initInstance_scalarWrapper((void*)&Car_State_Y.InvertersAction, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Car_State_Y_PrechargeAssert_Ptr = initInstance_scalarWrapper((void*)&Car_State_Y.PrechargeAssert, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Car_State_Y_Precharge_Percentage_Ptr = initInstance_scalarWrapper((void*)&Car_State_Y.Precharge_Percentage, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Car_State_Y_Precharge_Voltage_Ptr = initInstance_scalarWrapper((void*)&Car_State_Y.Precharge_Voltage, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Car_State_Y_Relay_Error_Ptr = initInstance_scalarWrapper((void*)&Car_State_Y.Relay_Error, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Car_State_Y_TorqueEnable_Ptr = initInstance_scalarWrapper((void*)&Car_State_Y.TorqueEnable, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Car_State_Y_errors_Ptr = initInstance_scalarWrapper((void*)&Car_State_Y.errors, sizeof(double), (uint32)ASD_VARIABLE);
     return;
@@ -80,10 +79,9 @@ static MethodList RTWTop_Car_State_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_Car_State_ClassHeader =
-    {0, 1, 0, 22 + 0, (MethodList *)0, (MethodList *)&RTWTop_Car_State_ClassMethodList};
+    {0, 1, 0, 21 + 0, (MethodList *)0, (MethodList *)&RTWTop_Car_State_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_Car_State_Class RTWTop_Car_State_ClassObj = {{1, {&RTWTop_Car_State_ClassHeader}, {0}}
-    ,NULL
     ,NULL
     ,NULL
     ,NULL

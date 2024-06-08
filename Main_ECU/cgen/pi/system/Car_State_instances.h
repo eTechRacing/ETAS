@@ -35,15 +35,14 @@ struct RTWTop_Car_State_Class
     scalarWrapper_Obj *RTWWrapper_Car_State_U_InvertersSubscribed_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_U_PrechargeRequest_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_U_Shutdown_PackageIntck_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Car_State_U_Torque_LockON_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_Y_AIRs_Request_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_Y_Car_OK_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_Y_Car_State_f_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Car_State_Y_CurrentPathDisconnectionFlag_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_Y_InvertersAction_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_Y_PrechargeAssert_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_Y_Precharge_Percentage_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_Y_Precharge_Voltage_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Car_State_Y_Relay_Error_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_Y_TorqueEnable_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_Y_errors_Ptr;
 };

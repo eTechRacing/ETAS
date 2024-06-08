@@ -29,11 +29,9 @@ struct INTECRIOTop_ROOT_Class
     struct RTWTop_Ellipse_Obj *RTWTop_Ellipse_Ptr;
     struct RTWTop_Inverters_Action_Obj *RTWTop_Inverters_Action_Ptr;
     struct RTWTop_Inverters_Data_Obj *RTWTop_Inverters_Data_Ptr;
-    struct RTWTop_Racing_Modes_Obj *RTWTop_Racing_Modes_Ptr;
     struct RTWTop_Sensors_Obj *RTWTop_Sensors_Ptr;
-    struct RTWTop_SoC_Obj *RTWTop_SoC_Ptr;
     struct RTWTop_Synchronism_Obj *RTWTop_Synchronism_Ptr;
-    struct RTWTop_VDC_Obj *RTWTop_VDC_Ptr;
+    struct RTWTop_VDCv2_Obj *RTWTop_VDCv2_Ptr;
 };
 /* Definition of the class object structure */
 struct INTECRIOTop_ROOT_Obj

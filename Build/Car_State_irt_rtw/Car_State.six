@@ -22,9 +22,9 @@
 	<moduleInfo identifier="Car_State">
 		<name>Car_State</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Car_State.slx&quot;"/>
-		<version major="13" minor="0"/>
+		<version major="13" minor="4"/>
 		<dateTime kind="created" year="2021" month="2" day="18" hour="9" minute="1" second="3"/>
-		<dateTime kind="lastModified" year="2024" month="4" day="22" hour="17" minute="9" second="14"/>
+		<dateTime kind="lastModified" year="2024" month="5" day="12" hour="1" minute="2" second="9"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="4" day="23" hour="14" minute="17" second="45"/>
+		<dateTime kind="created" year="2024" month="6" day="8" hour="13" minute="3" second="47"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -212,12 +212,6 @@
 						<documentation>&lt;Root&gt;/PrechargeRequest</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Torque_LockON">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Torque_LockON</documentation>
-					</annotation>
-				</structMember>
 				<structMember identifier="EnableDrive_Order">
 					<type><typeRef name="boolean_T"/></type>
 					<annotation>
@@ -291,10 +285,10 @@
 						<documentation>&lt;Root&gt;/errors</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="CurrentPathDisconnectionFlag">
+				<structMember identifier="Relay_Error">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/CurrentPathDisconnectionFlag</documentation>
+						<documentation>&lt;Root&gt;/Relay_Error</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="InvertersAction">
@@ -465,7 +459,8 @@
 				<modelLink href="Car_State/Opaque"/>
 				<modelLocation>
 					<pathNode name="Car_State" kind="mlsl:model"/>
-					<pathNode name="CurrentPathDisconnection Detection" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="CurrentPathDisconnection Detection" kind="mlsl:subsystem"/>
+					<pathNode name="Subsystem" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Data Store Memory" kind="mlsl:block"/>
 					<pathNode name="A" kind="mlsl:signal"/>
 				</modelLocation>
@@ -532,37 +527,6 @@
 				<modelLocation>
 					<pathNode name="Car_State" kind="mlsl:model"/>
 					<pathNode name="PrechargeRequest" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Car_State_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Car_State_U.Torque_LockON">
-				<definitionLocation>
-					<baseRef identifier="Car_State_U"/>
-					<memberRef identifier="Torque_LockON"/>
-				</definitionLocation>
-				<fileOrigin name="Car_State.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Car_State.Torque_LockON">
-				<name>Torque_LockON</name>
-				<modelLink href="Car_State/Torque_LockON"/>
-				<modelLocation>
-					<pathNode name="Car_State" kind="mlsl:model"/>
-					<pathNode name="Torque_LockON" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -923,19 +887,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Car_State_Y.CurrentPathDisconnectionFlag">
+			<dataCInterface identifier="Car_State_Y.Relay_Error">
 				<definitionLocation>
 					<baseRef identifier="Car_State_Y"/>
-					<memberRef identifier="CurrentPathDisconnectionFlag"/>
+					<memberRef identifier="Relay_Error"/>
 				</definitionLocation>
 				<fileOrigin name="Car_State.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Car_State.CurrentPathDisconnectionFlag">
-				<name>CurrentPathDisconnectionFlag</name>
-				<modelLink href="Car_State/CurrentPathDisconnectionFlag"/>
+			<modelOrigin identifier="Car_State.Relay_Error">
+				<name>Relay_Error</name>
+				<modelLink href="Car_State/Relay_Error"/>
 				<modelLocation>
 					<pathNode name="Car_State" kind="mlsl:model"/>
-					<pathNode name="CurrentPathDisconnectionFlag" kind="mlsl:block" type="Outport"/>
+					<pathNode name="Relay_Error" kind="mlsl:block" type="Outport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection out="true"/>
@@ -1161,7 +1125,6 @@
 					<messageAccess>
 						<message identifier="Car_State_U.AIRs_State" send="false"></message>
 						<message identifier="Car_State_U.PrechargeRequest" send="false"></message>
-						<message identifier="Car_State_U.Torque_LockON" send="false"></message>
 						<message identifier="Car_State_U.EnableDrive_Order" send="false"></message>
 						<message identifier="Car_State_U.BrakePedal_Value" send="false"></message>
 						<message identifier="Car_State_U.Critical_CAN_Disconnection" send="false"></message>
@@ -1173,7 +1136,7 @@
 						<message identifier="Car_State_Y.TorqueEnable" send="true"></message>
 						<message identifier="Car_State_Y.AIRs_Request" send="true"></message>
 						<message identifier="Car_State_Y.errors" send="true"></message>
-						<message identifier="Car_State_Y.CurrentPathDisconnectionFlag" send="true"></message>
+						<message identifier="Car_State_Y.Relay_Error" send="true"></message>
 						<message identifier="Car_State_Y.InvertersAction" send="true"></message>
 						<message identifier="Car_State_Y.Car_OK" send="true"></message>
 						<message identifier="Car_State_Y.PrechargeAssert" send="true"></message>

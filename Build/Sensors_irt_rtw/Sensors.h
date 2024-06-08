@@ -12,9 +12,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 13.0
+ * Model version              : 13.2
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Apr 23 14:21:37 2024
+ * C source code generated on : Sat Jun  8 13:06:01 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -860,20 +860,20 @@
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  real_T Previous_IN;                  /* '<S12>/Data Store Memory' */
-  real_T Previous_OUT;                 /* '<S12>/Data Store Memory1' */
+  real_T Previous_IN;                  /* '<S9>/Data Store Memory' */
+  real_T Previous_OUT;                 /* '<S9>/Data Store Memory1' */
 } DW_Sensors_T;
 
 /* Invariant block signals (default storage) */
 typedef struct {
-  const real_T Sum1;                   /* '<S3>/Sum1' */
-  const real_T Sum1_p;                 /* '<S1>/Sum1' */
+  const real_T Sum1;                   /* '<S1>/Sum1' */
   const real_T Sum1_f;                 /* '<S2>/Sum1' */
-  const real_T Subtract;               /* '<S6>/Subtract' */
-  const real_T Subtract_a;             /* '<S7>/Subtract' */
-  const real_T Subtract_e;             /* '<S8>/Subtract' */
-  const real_T Subtract_n;             /* '<S9>/Subtract' */
-  const real_T Subtract_p;             /* '<S12>/Subtract' */
+  const real_T Sum1_c;                 /* '<S3>/Sum1' */
+  const real_T Subtract;               /* '<S5>/Subtract' */
+  const real_T Subtract_a;             /* '<S6>/Subtract' */
+  const real_T Subtract_e;             /* '<S7>/Subtract' */
+  const real_T Subtract_n;             /* '<S8>/Subtract' */
+  const real_T Subtract_p;             /* '<S9>/Subtract' */
 } ConstB_Sensors_T;
 
 /* External inputs (root inport signals with default storage) */
@@ -890,7 +890,6 @@ typedef struct {
 
 /* External outputs (root outports fed by signals with default storage) */
 typedef struct {
-  real_T BrakeLight_Control;           /* '<Root>/BrakeLight_Control' */
   real_T APPS1_Value;                  /* '<Root>/APPS1_Value' */
   real_T APPS2_Value;                  /* '<Root>/APPS2_Value' */
   real_T BrakePedal_Value;             /* '<Root>/BrakePedal_Value' */
@@ -1052,14 +1051,11 @@ extern RT_MODEL_Sensors_T *const Sensors_M;
  * '<S1>'   : 'Sensors/APPS1 Data Conv'
  * '<S2>'   : 'Sensors/APPS2 Data Conv '
  * '<S3>'   : 'Sensors/Brake Pedal Data Conv'
- * '<S4>'   : 'Sensors/Brake_Light'
- * '<S5>'   : 'Sensors/Steering Data Conv'
- * '<S6>'   : 'Sensors/Suspension_FL Data Conv'
- * '<S7>'   : 'Sensors/Suspension_FR Data Conv'
- * '<S8>'   : 'Sensors/Suspension_RL Data Conv'
- * '<S9>'   : 'Sensors/Suspension_RR Data Conv'
- * '<S10>'  : 'Sensors/Brake_Light/Brake_Light_OFF'
- * '<S11>'  : 'Sensors/Brake_Light/Brake_Light_ON'
- * '<S12>'  : 'Sensors/Steering Data Conv/Low Pass'
+ * '<S4>'   : 'Sensors/Steering Data Conv'
+ * '<S5>'   : 'Sensors/Suspension_FL Data Conv'
+ * '<S6>'   : 'Sensors/Suspension_FR Data Conv'
+ * '<S7>'   : 'Sensors/Suspension_RL Data Conv'
+ * '<S8>'   : 'Sensors/Suspension_RR Data Conv'
+ * '<S9>'   : 'Sensors/Steering Data Conv/Low Pass'
  */
 #endif                                 /* RTW_HEADER_Sensors_h_ */
