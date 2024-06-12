@@ -132,7 +132,23 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Sensors.Brake_Pedal_Data_Conv.Sum1.Sum1 
+            DISPLAY_IDENTIFIER Sensors.APPS1_Data_Conv.Sum1.Sum1 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     Sensors_ConstB.Sum1_c 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Sensors_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Sensors.Brake_Pedal_Data_Conv.Sum1.Sum1_c 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -149,22 +165,6 @@ ASAP2_VERSION
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Sensors.APPS2_Data_Conv.Sum1.Sum1_f 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     Sensors_ConstB.Sum1_p 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Sensors_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Sensors.APPS1_Data_Conv.Sum1.Sum1_p 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -357,22 +357,6 @@ ASAP2_VERSION
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Sensors.APPS2_Value 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     Sensors_Y.BrakeLight_Control 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Sensors_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Sensors.BrakeLight_Control 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 

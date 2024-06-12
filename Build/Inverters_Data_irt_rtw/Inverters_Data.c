@@ -7,9 +7,9 @@
  *
  * Code generation for model "Inverters_Data".
  *
- * Model version              : 13.0
+ * Model version              : 13.5
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Apr 23 14:21:11 2024
+ * C source code generated on : Sat Jun  8 13:05:42 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -43,17 +43,17 @@ static void Inverters_Data_output(void)
   real_T rtb_RPMtorads;
   real_T rtb_RPMtorads_n;
 
-  /* Sum: '<S14>/Add1' incorporates:
-   *  Constant: '<S14>/A1'
-   *  Constant: '<S14>/B1'
-   *  Constant: '<S14>/C1'
-   *  Constant: '<S14>/Constant1'
+  /* Sum: '<S5>/Add1' incorporates:
+   *  Constant: '<S5>/A1'
+   *  Constant: '<S5>/B1'
+   *  Constant: '<S5>/C1'
+   *  Constant: '<S5>/Constant1'
    *  Inport: '<Root>/Inv_L_RegID_M74_Inv_L_TempIGBT'
-   *  Math: '<S14>/Math Function2'
-   *  Math: '<S14>/Math Function3'
-   *  Product: '<S14>/Product3'
-   *  Product: '<S14>/Product4'
-   *  Product: '<S14>/Product5'
+   *  Math: '<S5>/Math Function2'
+   *  Math: '<S5>/Math Function3'
+   *  Product: '<S5>/Product3'
+   *  Product: '<S5>/Product4'
+   *  Product: '<S5>/Product5'
    */
   rtb_Abs1 = ((Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT *
                Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT * -6.6188E-6 +
@@ -61,17 +61,17 @@ static void Inverters_Data_output(void)
                * 9.69483E-11) + Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT *
               0.158535) - 1260.62;
 
-  /* Sum: '<S15>/Add1' incorporates:
-   *  Constant: '<S15>/A1'
-   *  Constant: '<S15>/B1'
-   *  Constant: '<S15>/C1'
-   *  Constant: '<S15>/Constant1'
+  /* Sum: '<S6>/Add1' incorporates:
+   *  Constant: '<S6>/A1'
+   *  Constant: '<S6>/B1'
+   *  Constant: '<S6>/C1'
+   *  Constant: '<S6>/Constant1'
    *  Inport: '<Root>/Inv_R_RegID_M74_Inv_R_TempIGBT'
-   *  Math: '<S15>/Math Function2'
-   *  Math: '<S15>/Math Function3'
-   *  Product: '<S15>/Product3'
-   *  Product: '<S15>/Product4'
-   *  Product: '<S15>/Product5'
+   *  Math: '<S6>/Math Function2'
+   *  Math: '<S6>/Math Function3'
+   *  Product: '<S6>/Product3'
+   *  Product: '<S6>/Product4'
+   *  Product: '<S6>/Product5'
    */
   rtb_RPMtorads_n = ((Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT *
                       Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT *
@@ -92,59 +92,41 @@ static void Inverters_Data_output(void)
   /* Outport: '<Root>/Inv_L_TempIGBT' */
   Inverters_Data_Y.Inv_L_TempIGBT = rtb_Abs1;
 
-  /* Sum: '<S16>/Add1' incorporates:
-   *  Constant: '<S16>/C1'
-   *  Inport: '<Root>/Inv_L_RegID_M73_Inv_L_TempMotor'
-   *  Product: '<S16>/Product5'
-   */
-  rtb_RPMtorads_n = Inverters_Data_U.Inv_L_RegID_M73_Inv_L_TempMotor * 0.03282 -
-    114.92892;
-
-  /* Sum: '<S17>/Add1' incorporates:
-   *  Constant: '<S17>/C1'
-   *  Inport: '<Root>/Inv_R_RegID_M73_Inv_R_TempMotor'
-   *  Product: '<S17>/Product5'
-   */
-  rtb_Abs1 = Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor * 0.03282 -
-    114.92892;
-
   /* Outport: '<Root>/Max_Temp_Motors' incorporates:
+   *  Inport: '<Root>/Inv_L_RegID_M73_Inv_L_TempMotor'
+   *  Inport: '<Root>/Inv_R_RegID_M73_Inv_R_TempMotor'
    *  MinMax: '<Root>/Max1'
    */
-  Inverters_Data_Y.Max_Temp_Motors = fmax(rtb_RPMtorads_n, rtb_Abs1);
+  Inverters_Data_Y.Max_Temp_Motors = fmax
+    (Inverters_Data_U.Inv_L_RegID_M73_Inv_L_TempMotor,
+     Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor);
 
-  /* Outport: '<Root>/Inv_L_TempMotor' */
-  Inverters_Data_Y.Inv_L_TempMotor = rtb_RPMtorads_n;
-
-  /* Outport: '<Root>/Inv_R_TempMotor' */
-  Inverters_Data_Y.Inv_R_TempMotor = rtb_Abs1;
-
-  /* Gain: '<S12>/RPM to rad//s' incorporates:
+  /* Gain: '<S4>/RPM to rad//s' incorporates:
    *  Inport: '<Root>/Inv_L_RegID_M48_Inv_L_Speed'
    */
   rtb_RPMtorads_n = 0.10471975511965977 *
     Inverters_Data_U.Inv_L_RegID_M48_Inv_L_Speed;
 
-  /* Product: '<S12>/Divide' incorporates:
+  /* Product: '<S4>/Divide' incorporates:
    *  Constant: '<Root>/Gear_Ratio'
    *  Constant: '<Root>/Wheel_Radius [m]'
-   *  Product: '<S12>/Divide1'
+   *  Product: '<S4>/Divide1'
    */
   rtb_Abs1 = rtb_RPMtorads_n / 11.3257 * 0.2285;
 
   /* Outport: '<Root>/RL_Vel_ms_Wheel' */
   Inverters_Data_Y.RL_Vel_ms_Wheel = rtb_Abs1;
 
-  /* Gain: '<S11>/RPM to rad//s' incorporates:
+  /* Gain: '<S3>/RPM to rad//s' incorporates:
    *  Inport: '<Root>/Inv_R_RegID_M48_Inv_R_Speed'
    */
   rtb_RPMtorads = 0.10471975511965977 *
     Inverters_Data_U.Inv_R_RegID_M48_Inv_R_Speed;
 
-  /* Product: '<S11>/Divide' incorporates:
+  /* Product: '<S3>/Divide' incorporates:
    *  Constant: '<Root>/Gear_Ratio'
    *  Constant: '<Root>/Wheel_Radius [m]'
-   *  Product: '<S11>/Divide1'
+   *  Product: '<S3>/Divide1'
    */
   rtb_Abs = rtb_RPMtorads / 11.3257 * 0.2285;
 
@@ -175,48 +157,6 @@ static void Inverters_Data_output(void)
   Inverters_Data_Y.InvertersMinDCBus = fmin
     (Inverters_Data_U.Inv_L_RegID_M235_Inv_L_DCBus,
      Inverters_Data_U.Inv_R_RegID_M235_Inv_R_DCBus);
-
-  /* Outport: '<Root>/Inv_L_Iq' incorporates:
-   *  Gain: '<S6>/conversion ratio'
-   *  Inport: '<Root>/Inv_L_RegID_M39_Inv_L_Iq'
-   */
-  Inverters_Data_Y.Inv_L_Iq = 0.37383177570093457 *
-    Inverters_Data_U.Inv_L_RegID_M39_Inv_L_Iq;
-
-  /* Outport: '<Root>/Inv_R_Iq' incorporates:
-   *  Gain: '<S7>/conversion ratio'
-   *  Inport: '<Root>/Inv_R_RegID_M39_Inv_R_Iq'
-   */
-  Inverters_Data_Y.Inv_R_Iq = 0.37383177570093457 *
-    Inverters_Data_U.Inv_R_RegID_M39_Inv_R_Iq;
-
-  /* Outport: '<Root>/Inv_L_Iactual' incorporates:
-   *  Gain: '<S9>/conversion ratio1'
-   *  Inport: '<Root>/Inv_L_RegID_M32_Inv_L_Iactual'
-   */
-  Inverters_Data_Y.Inv_L_Iactual = 0.37383177570093457 *
-    Inverters_Data_U.Inv_L_RegID_M32_Inv_L_Iactual;
-
-  /* Outport: '<Root>/Inv_R_Iactual' incorporates:
-   *  Gain: '<S5>/conversion ratio'
-   *  Inport: '<Root>/Inv_R_RegID_M32_Inv_R_Iactual'
-   */
-  Inverters_Data_Y.Inv_R_Iactual = 0.37383177570093457 *
-    Inverters_Data_U.Inv_R_RegID_M32_Inv_R_Iactual;
-
-  /* Outport: '<Root>/Inv_L_Icommand' incorporates:
-   *  Gain: '<S3>/conversion ratio'
-   *  Inport: '<Root>/Inv_L_RegID_M38_Inv_L_Icommand'
-   */
-  Inverters_Data_Y.Inv_L_Icommand = 0.37383177570093457 *
-    Inverters_Data_U.Inv_L_RegID_M38_Inv_L_Icommand;
-
-  /* Outport: '<Root>/Inv_R_Icommand' incorporates:
-   *  Gain: '<S4>/conversion ratio'
-   *  Inport: '<Root>/Inv_R_RegID_M38_Inv_R_Icommand'
-   */
-  Inverters_Data_Y.Inv_R_Icommand = 0.37383177570093457 *
-    Inverters_Data_U.Inv_R_RegID_M38_Inv_R_Icommand;
 }
 
 /* Model update function */
@@ -369,11 +309,11 @@ RT_MODEL_Inverters_Data_T *Inverters_Data(void)
 
   /* Initialize Sizes */
   Inverters_Data_M->Sizes.numContStates = (0);/* Number of continuous states */
-  Inverters_Data_M->Sizes.numY = (18); /* Number of model outputs */
-  Inverters_Data_M->Sizes.numU = (14); /* Number of model inputs */
+  Inverters_Data_M->Sizes.numY = (10); /* Number of model outputs */
+  Inverters_Data_M->Sizes.numU = (8);  /* Number of model inputs */
   Inverters_Data_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Inverters_Data_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  Inverters_Data_M->Sizes.numBlocks = (71);/* Number of blocks */
+  Inverters_Data_M->Sizes.numBlocks = (49);/* Number of blocks */
   Inverters_Data_M->Sizes.numBlockIO = (0);/* Number of block outputs */
   return Inverters_Data_M;
 }

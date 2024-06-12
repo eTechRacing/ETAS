@@ -22,9 +22,9 @@
 	<moduleInfo identifier="Disconnections">
 		<name>Disconnections</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Disconnections.slx&quot;"/>
-		<version major="13" minor="1"/>
+		<version major="13" minor="3"/>
 		<dateTime kind="created" year="2021" month="2" day="17" hour="16" minute="42" second="47"/>
-		<dateTime kind="lastModified" year="2024" month="4" day="23" hour="15" minute="49" second="3"/>
+		<dateTime kind="lastModified" year="2024" month="5" day="27" hour="17" minute="20" second="53"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="4" day="23" hour="15" minute="53" second="54"/>
+		<dateTime kind="created" year="2024" month="6" day="8" hour="13" minute="4" second="30"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -135,17 +135,9 @@
 		<!-- Model specific source files -->
 		<file name="Disconnections_types.h" kind="header"/>
 		<file name="Disconnections.h" kind="header"/>
-		<!-- used through rtwShared.lib: rtwtypes.h -->
-		<!-- used through rtwShared.lib: builtin_typeid_types.h -->
-		<!-- used through rtwShared.lib: multiword_types.h -->
-		<!-- used through rtwShared.lib: zero_crossing_types.h -->
 		<file name="Disconnections.c" kind="body"/>
 		<file name="Disconnections_private.h" kind="header"/>
 		<file name="rtmodel.h" kind="header"/>
-		<!-- used through rtwShared.lib: rtGetInf.h -->
-		<!-- used through rtwShared.lib: rtGetInf.c -->
-		<!-- used through rtwShared.lib: rtGetNaN.h -->
-		<!-- used through rtwShared.lib: rtGetNaN.c -->
 		<file name="Disconnections_main.c" kind="body"/>
 		<file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body"/>
 		<!-- Target specific libraries -->
@@ -160,9 +152,6 @@
 		<pathBase path="{{codeDir}}"/>
 		<fileOrigin name="Disconnections.c"/>
 		<fileOrigin name="rt_nonfinite.c"/>
-		<fileOrigin name="rt_defines.c"/>
-		<fileOrigin name="rtGetInf.c"/>
-		<fileOrigin name="rtGetNaN.c"/>
 		<fileOrigin name="Disconnections_main.c"/>
 		<headerFile name="Disconnections.h"/>
 		<headerFile name="Disconnections_private.h"/>

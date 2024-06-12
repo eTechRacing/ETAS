@@ -30,8 +30,8 @@ struct RTWTop_Sensors_Class
     scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Subtract_n_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Subtract_p_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Sum1_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Sum1_c_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Sum1_f_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Sum1_p_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_DW_Previous_IN_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_DW_Previous_OUT_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_U_APPS1_Bits_Ptr;
@@ -44,7 +44,6 @@ struct RTWTop_Sensors_Class
     scalarWrapper_Obj *RTWWrapper_Sensors_U_Susp_R_R_Bits_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_Y_APPS1_Value_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_Y_APPS2_Value_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Sensors_Y_BrakeLight_Control_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_Y_BrakePedal_Value_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_Y_SUSP_F_L_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_Y_SUSP_F_R_Ptr;

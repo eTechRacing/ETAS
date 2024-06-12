@@ -12,9 +12,9 @@
  *
  * Code generation for model "Inverters_Data".
  *
- * Model version              : 13.0
+ * Model version              : 13.5
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Apr 23 14:21:11 2024
+ * C source code generated on : Sat Jun  8 13:05:42 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -869,17 +869,7 @@ typedef struct {
                                    /* '<Root>/Inv_L_RegID_M74_Inv_L_TempIGBT' */
   real_T Inv_L_RegID_M235_Inv_L_DCBus;
                                      /* '<Root>/Inv_L_RegID_M235_Inv_L_DCBus' */
-  real_T Inv_R_RegID_M32_Inv_R_Iactual;
-                                    /* '<Root>/Inv_R_RegID_M32_Inv_R_Iactual' */
-  real_T Inv_R_RegID_M38_Inv_R_Icommand;
-                                   /* '<Root>/Inv_R_RegID_M38_Inv_R_Icommand' */
-  real_T Inv_R_RegID_M39_Inv_R_Iq;     /* '<Root>/Inv_R_RegID_M39_Inv_R_Iq' */
-  real_T Inv_L_RegID_M32_Inv_L_Iactual;
-                                    /* '<Root>/Inv_L_RegID_M32_Inv_L_Iactual' */
-  real_T Inv_L_RegID_M38_Inv_L_Icommand;
-                                   /* '<Root>/Inv_L_RegID_M38_Inv_L_Icommand' */
   real_T Inv_R_RegID_M48_Inv_R_Speed; /* '<Root>/Inv_R_RegID_M48_Inv_R_Speed' */
-  real_T Inv_L_RegID_M39_Inv_L_Iq;     /* '<Root>/Inv_L_RegID_M39_Inv_L_Iq' */
   real_T Inv_R_RegID_M73_Inv_R_TempMotor;
                                   /* '<Root>/Inv_R_RegID_M73_Inv_R_TempMotor' */
   real_T Inv_R_RegID_M74_Inv_R_TempIGBT;
@@ -896,14 +886,6 @@ typedef struct {
   real_T RR_Vel_ms_Wheel;              /* '<Root>/RR_Vel_ms_Wheel' */
   real_T InvertersMinDCBus;            /* '<Root>/InvertersMinDCBus' */
   real_T Speed;                        /* '<Root>/Speed' */
-  real_T Inv_L_Iq;                     /* '<Root>/Inv_L_Iq' */
-  real_T Inv_R_Iq;                     /* '<Root>/Inv_R_Iq' */
-  real_T Inv_L_Iactual;                /* '<Root>/Inv_L_Iactual' */
-  real_T Inv_R_Iactual;                /* '<Root>/Inv_R_Iactual' */
-  real_T Inv_L_Icommand;               /* '<Root>/Inv_L_Icommand' */
-  real_T Inv_R_Icommand;               /* '<Root>/Inv_R_Icommand' */
-  real_T Inv_L_TempMotor;              /* '<Root>/Inv_L_TempMotor' */
-  real_T Inv_R_TempMotor;              /* '<Root>/Inv_R_TempMotor' */
   real_T Inv_R_TempIGBT;               /* '<Root>/Inv_R_TempIGBT' */
   real_T Inv_L_TempIGBT;               /* '<Root>/Inv_L_TempIGBT' */
   real_T RL_rads_Motor;                /* '<Root>/RL_rads_Motor' */
@@ -1051,21 +1033,10 @@ extern RT_MODEL_Inverters_Data_T *const Inverters_Data_M;
  *
  * '<Root>' : 'Inverters_Data'
  * '<S1>'   : 'Inverters_Data/Average'
- * '<S2>'   : 'Inverters_Data/IL'
- * '<S3>'   : 'Inverters_Data/IL 1'
- * '<S4>'   : 'Inverters_Data/IL 2'
- * '<S5>'   : 'Inverters_Data/IL 3'
- * '<S6>'   : 'Inverters_Data/IL 4'
- * '<S7>'   : 'Inverters_Data/IL 5'
- * '<S8>'   : 'Inverters_Data/IL1'
- * '<S9>'   : 'Inverters_Data/IL2'
- * '<S10>'  : 'Inverters_Data/Subsystem'
- * '<S11>'  : 'Inverters_Data/Subsystem1'
- * '<S12>'  : 'Inverters_Data/Subsystem2'
- * '<S13>'  : 'Inverters_Data/Subsystem3'
- * '<S14>'  : 'Inverters_Data/Subsystem4'
- * '<S15>'  : 'Inverters_Data/Subsystem5'
- * '<S16>'  : 'Inverters_Data/Subsystem6'
- * '<S17>'  : 'Inverters_Data/Subsystem7'
+ * '<S2>'   : 'Inverters_Data/DocBlock'
+ * '<S3>'   : 'Inverters_Data/Subsystem1'
+ * '<S4>'   : 'Inverters_Data/Subsystem2'
+ * '<S5>'   : 'Inverters_Data/Subsystem4'
+ * '<S6>'   : 'Inverters_Data/Subsystem5'
  */
 #endif                                 /* RTW_HEADER_Inverters_Data_h_ */
