@@ -190,7 +190,7 @@ for i = 1:length(SI);
             %MF61Y:
             Gxalpha=1; %combined slip weiht function
             Svyk=0; %combined slip braking included
-            FyFL(i,j)=-Gxalpha*FypFL(i,j)+Svyk;
+            FyFL(i,j)=-Gxalpha*FypFL(i,j)+Svyk; %From Magic Formula paper: Fy is perpendicular to wheel plane (not slip angle deviation)
             
             
             %Front Right wheel
@@ -216,7 +216,7 @@ for i = 1:length(SI);
             %MF61Y:
             Gxalpha=1;%conbined slip weiht function
             Svyk=0;%conbined slip braking included
-            FyFR(i,j)=Gxalpha*FypFR(i,j)+Svyk;
+            FyFR(i,j)=Gxalpha*FypFR(i,j)+Svyk; %From Magic Formula paper: Fy is perpendicular to wheel plane (not slip angle deviation)
             
             
             %Rear Left wheel
@@ -242,7 +242,7 @@ for i = 1:length(SI);
             %MF61Y:
             Gxalpha=1;%conbined slip weiht function
             Svyk=0;%conbined slip braking included
-            FyRL(i,j)=-Gxalpha*FypRL(i,j)+Svyk;
+            FyRL(i,j)=-Gxalpha*FypRL(i,j)+Svyk; %From Magic Formula paper: Fy is perpendicular to wheel plane (not slip angle deviation)
             
             
             %Rear Right wheel
@@ -268,7 +268,7 @@ for i = 1:length(SI);
             %MF61Y:
             Gxalpha=1;%conbined slip weight function
             Svyk=0;%conbined slip braking included
-            FyRR(i,j)=Gxalpha*FypRR(i,j)+Svyk;
+            FyRR(i,j)=Gxalpha*FypRR(i,j)+Svyk; %From Magic Formula paper: Fy is perpendicular to wheel plane (not slip angle deviation)
             
             
             Izz(i,j)=(a/l)*(FzFL(i,j)+FzFR(i,j))*a^2+(b/l)*(FzRR(i,j)+FzRL(i,j))*b^2;
