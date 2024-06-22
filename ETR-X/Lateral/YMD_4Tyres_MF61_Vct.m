@@ -1,7 +1,7 @@
 clear all
 clc
 
-g=9.81; %m/s^2
+g=9.81; % m/s^2
 
 l = 1.53; %wheel base
 a = 0.8; %Distance Front axis - COG 
