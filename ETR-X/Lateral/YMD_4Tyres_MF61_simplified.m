@@ -108,33 +108,34 @@ Wr=g*weight*a/l
 
 for i = 1:length(SI);
     for j = 1:length(VS);
-        Vy(j)=(V/3.6).*VS(j); 
+        Vx(j)=(V/3.6)*cos(VS(j));
+        Vy(j)=(Vx(j))*VS(j); 
         w(i,j)=0;
         Ay(i,j)=0;
         for k=1:10     
             
-            alphaFL(i,j)=((tan(VS(j))*(V/3.6))+(w(i,j)*a))./((V/3.6)-w(i,j)*Tf/2)-SI(i); %slip angle front left en rad
+            alphaFL(i,j)=((tan(VS(j))*(Vx(j)))+(w(i,j)*a))./((Vx(j))-w(i,j)*Tf/2)-SI(i); %slip angle front left en rad
             if alphaFL(i,j)>sliplim;
                 alphaFL(i,j)=sliplim;
             elseif alphaFL(i,j)<-sliplim;
                 alphaFL(i,j)=-sliplim;
             end
             
-            alphaFR(i,j)=((tan(VS(j))*(V/3.6))+(w(i,j)*a))./((V/3.6)+w(i,j)*Tf/2)-SI(i); %slip angle front right en rad
+            alphaFR(i,j)=((tan(VS(j))*(Vx(j)))+(w(i,j)*a))./((Vx(j))+w(i,j)*Tf/2)-SI(i); %slip angle front right en rad
             if alphaFR(i,j)>sliplim;
                 alphaFR(i,j)=sliplim;
             elseif alphaFR(i,j)<-sliplim;
                 alphaFR(i,j)=-sliplim;
             end
             
-            alphaRL(i,j)=((tan(VS(j))*(V/3.6))-(w(i,j)*b))./((V/3.6)-w(i,j)*Tr/2); %slip angle rear left en rad           
+            alphaRL(i,j)=((tan(VS(j))*(Vx(j)))-(w(i,j)*b))./((Vx(j))-w(i,j)*Tr/2); %slip angle rear left en rad           
             if alphaRL(i,j)>sliplim;
                 alphaRL(i,j)=sliplim;
             elseif alphaRL(i,j)<-sliplim;
                 alphaRL(i,j)=-sliplim;
             end
             
-            alphaRR(i,j)=((tan(VS(j))*(V/3.6))-(w(i,j)*b))./((V/3.6)+w(i,j)*Tr/2); %slip angle rear right en rad
+            alphaRR(i,j)=((tan(VS(j))*(Vx(j)))-(w(i,j)*b))./((Vx(j))+w(i,j)*Tr/2); %slip angle rear right en rad
             if alphaRR(i,j)>sliplim;
                 alphaRR(i,j)=sliplim;
             elseif alphaRR(i,j)<-sliplim;
@@ -272,11 +273,10 @@ for i = 1:length(SI);
             
             
             Izz(i,j)=(a/l)*(FzFL(i,j)+FzFR(i,j))*a^2+(b/l)*(FzRR(i,j)+FzRL(i,j))*b^2;
-            Ay(i,j)=(FyFL(i,j)*(cos(SI(i)))+FyFR(i,j)*(cos(SI(i)))+(FyRR(i,j)+FyRL(i,j)))/(weight*g); %Acceleracio lateral o centripeta en g
-            %Ay(i,j)=(FyFL(i,j)*(cos(SI(i)-alphaFL(i,j)))+FyFR(i,j)*(cos(SI(i)-alphaFR(i,j)))+(FyRR(i,j)+FyRL(i,j)))/(weight*g); %Acceleracio lateral o centripeta
-            YawMoment(i,j)=(FyFL(i,j).*cos(SI(i))+FyFR(i,j).*cos(SI(i)))*a-(FyRR(i,j)+FyRL(i,j))*b+MZ(alphaFL(i,j))+MZ(alphaFR(i,j))+MZ(alphaRL(i,j))+MZ(alphaRR(i,j));
-            %YawMoment(i,j)=(FyFL(i,j).*cos(SI(i)-alphaFL(i,j))+FyFR(i,j).*cos(SI(i)-alphaFL(i,j)))*a-(FyRR(i,j)+FyRL(i,j))*b-MZ(alphaFL(i,j))-MZ(alphaFR(i,j))-MZ(alphaRL(i,j))-MZ(alphaRR(i,j));
-            YawAccel(i,j)=YawMoment(i,j)./Izz(i,j)*180/pi;
+            %Ay(i,j)=(FyFL(i,j)*(cos(SI(i)))+FyFR(i,j)*(cos(SI(i)))+(FyRR(i,j)+FyRL(i,j)))/(weight*g); %Acceleracio lateral o centripeta en g
+            Ay(i,j)=(FyFL(i,j)*(sin(SI(i)+VS(j)))+FyFR(i,j)*(sin(SI(i)+VS(j)))+(FyRR(i,j)+FyRL(i,j)))/(weight*g); %Acceleracio lateral o centripeta en g
+            %YawMoment(i,j)=(FyFL(i,j).*cos(SI(i))+FyFR(i,j).*cos(SI(i)))*a-(FyRR(i,j)+FyRL(i,j))*b+MZ(alphaFL(i,j))+MZ(alphaFR(i,j))+MZ(alphaRL(i,j))+MZ(alphaRR(i,j));
+            YawMoment(i,j)=(FyFL(i,j).*sin(SI(i)+VS(j))+FyFR(i,j).*sin(SI(i)+VS(j)))*a-(FyRR(i,j)+FyRL(i,j))*b-MZ(alphaFL(i,j))-MZ(alphaFR(i,j))-MZ(alphaRL(i,j))-MZ(alphaRR(i,j));
             w(i,j)=Ay(i,j)*g/(V/3.6);
             %R=Ay(i,j)./(w^2);
         end
