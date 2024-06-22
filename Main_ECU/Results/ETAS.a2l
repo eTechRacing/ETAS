@@ -108,10 +108,10 @@
         /end MOD_COMMON
         /begin IF_DATA E_TARGET
             /begin SOURCE 
-                /* Raster identifier    */ "Timer_Inv"
+                /* Raster identifier    */ "Sync_25ms"
                 /* Raster time unit     */ 0 /* ms */
-                /* Raster period        */ 3000 
-                /* Raster number        */ QP_BLOB 32 
+                /* Raster period        */ 10000 
+                /* Raster number        */ QP_BLOB 28 
             /end SOURCE
             /begin SOURCE 
                 /* Raster identifier    */ "SWT_CAN1_AP_BMS_AIRs_State"
@@ -276,31 +276,31 @@
                 /* Raster number        */ QP_BLOB 27 
             /end SOURCE
             /begin SOURCE 
-                /* Raster identifier    */ "Sync_25ms"
-                /* Raster time unit     */ 0 /* ms */
-                /* Raster period        */ 25000 
-                /* Raster number        */ QP_BLOB 28 
-            /end SOURCE
-            /begin SOURCE 
                 /* Raster identifier    */ "Timer_1000ms"
                 /* Raster time unit     */ 0 /* ms */
-                /* Raster period        */ 1000000 
+                /* Raster period        */ 10000 
                 /* Raster number        */ QP_BLOB 29 
             /end SOURCE
             /begin SOURCE 
                 /* Raster identifier    */ "Timer_100ms"
                 /* Raster time unit     */ 0 /* ms */
-                /* Raster period        */ 100000 
+                /* Raster period        */ 10000 
                 /* Raster number        */ QP_BLOB 30 
             /end SOURCE
             /begin SOURCE 
                 /* Raster identifier    */ "Timer_25ms"
                 /* Raster time unit     */ 0 /* ms */
-                /* Raster period        */ 25000 
+                /* Raster period        */ 10000 
                 /* Raster number        */ QP_BLOB 31 
             /end SOURCE
+            /begin SOURCE 
+                /* Raster identifier    */ "Timer_Inv"
+                /* Raster time unit     */ 0 /* ms */
+                /* Raster period        */ 10000 
+                /* Raster number        */ QP_BLOB 32 
+            /end SOURCE
             /begin TP_BLOB
-                /* Program identifier   */ 3705700418
+                /* Program identifier   */ 4048306794
                 /* HW target identifier */ 0x6
                 /* Skip flag            */ 0
                 /* Skip to link         */ 2
@@ -1805,7 +1805,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Action.InvertersAction 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 3 1001 21 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 3 1001 21 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -1820,7 +1820,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Action.current_L 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 3 1001 22 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 3 1001 22 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -1835,7 +1835,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Action.current_R 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 3 1001 23 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 3 1001 23 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -1850,7 +1850,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Action.Inverter_L_RegID 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 3 1001 24 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 3 1001 24 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -1865,7 +1865,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Action.Inverter_L_b15tob8 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 3 1001 25 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 3 1001 25 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -1880,7 +1880,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Action.Inverter_L_b7tob0 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 3 1001 26 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 3 1001 26 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -1895,7 +1895,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Action.Inverter_R_RegID 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 3 1001 27 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 3 1001 27 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -1910,7 +1910,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Action.Inverter_R_b15tob8 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 3 1001 28 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 3 1001 28 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -1925,7 +1925,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Action.Inverter_R_b7tob0 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 3 1001 29 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 3 1001 29 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -1940,7 +1940,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Action.InvertersSubscribed 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 3 1001 30 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 3 1001 30 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -1955,7 +1955,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_L_RegID_M235_Inv_L_DCBus 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 0 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 0 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -1970,7 +1970,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_L_RegID_M48_Inv_L_Speed 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 1 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 1 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -1985,7 +1985,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_L_RegID_M73_Inv_L_TempMotor 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 2 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 2 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2000,7 +2000,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_L_RegID_M74_Inv_L_TempIGBT 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 3 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 3 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2015,7 +2015,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_R_RegID_M235_Inv_R_DCBus 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 4 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 4 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2030,7 +2030,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_R_RegID_M48_Inv_R_Speed 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 5 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 5 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2045,7 +2045,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_R_RegID_M73_Inv_R_TempMotor 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 6 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 6 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2060,7 +2060,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_R_RegID_M74_Inv_R_TempIGBT 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 7 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 7 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2075,7 +2075,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_L_TempIGBT 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 8 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 8 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2090,7 +2090,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_R_TempIGBT 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 9 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 9 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2105,7 +2105,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.InvertersMinDCBus 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 10 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 10 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2120,7 +2120,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Max_Temp_IGBT 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 11 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 11 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2135,7 +2135,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Max_Temp_Motors 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 12 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 12 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2150,7 +2150,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.RL_Vel_ms_Wheel 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 13 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 13 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2165,7 +2165,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.RL_rads_Motor 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 14 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 14 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2180,7 +2180,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.RR_Vel_ms_Wheel 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 15 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 15 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2195,7 +2195,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.RR_rads_Motor 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 16 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 16 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2210,7 +2210,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Speed 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 17 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 17 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2649,916 +2649,916 @@
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_B.Merge 
+            /* Name                */     VDCv2mk2.VDCv2mk2_B.Merge 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.ENDURANCE.Merge.Merge 
+            DISPLAY_IDENTIFIER VDCv2mk2.ENDURANCE.Merge.Merge 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 0 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_B.Merge1 
+            /* Name                */     VDCv2mk2.VDCv2mk2_B.Merge1 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.Merge1.Merge1 
+            DISPLAY_IDENTIFIER VDCv2mk2.Merge1.Merge1 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 1 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_B.Merge1_f 
+            /* Name                */     VDCv2mk2.VDCv2mk2_B.Merge1_f 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.ENDURANCE.Merge1.Merge1_f 
+            DISPLAY_IDENTIFIER VDCv2mk2.ENDURANCE.Merge1.Merge1_f 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 2 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_B.Merge2 
+            /* Name                */     VDCv2mk2.VDCv2mk2_B.Merge2 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.Merge2.Merge2 
+            DISPLAY_IDENTIFIER VDCv2mk2.Merge2.Merge2 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 3 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_B.Merge3 
+            /* Name                */     VDCv2mk2.VDCv2mk2_B.Merge3 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.Merge3.Merge3 
+            DISPLAY_IDENTIFIER VDCv2mk2.Merge3.Merge3 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 4 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_B.sf_RigidAxlewithTC2024.Motor_Torque_RL 
+            /* Name                */     VDCv2mk2.VDCv2mk2_B.sf_RigidAxlewithTC2024.Motor_Torque_RL 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.SKIDPAD.TC_TV.Rigid_Axle_with_TC_2024.Motor_Torque_RL 
+            DISPLAY_IDENTIFIER VDCv2mk2.SKIDPAD.TC_TV.Rigid_Axle_with_TC_2024.Motor_Torque_RL 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 5 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_B.sf_RigidAxlewithTC2024.Motor_Torque_RR 
+            /* Name                */     VDCv2mk2.VDCv2mk2_B.sf_RigidAxlewithTC2024.Motor_Torque_RR 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.SKIDPAD.TC_TV.Rigid_Axle_with_TC_2024.Motor_Torque_RR 
+            DISPLAY_IDENTIFIER VDCv2mk2.SKIDPAD.TC_TV.Rigid_Axle_with_TC_2024.Motor_Torque_RR 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 6 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_B.sf_RigidAxlewithTC2024_o.Motor_Torque_RL 
+            /* Name                */     VDCv2mk2.VDCv2mk2_B.sf_RigidAxlewithTC2024_o.Motor_Torque_RL 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.AUTOX1.TC_TV.Rigid_Axle_with_TC_2024.Motor_Torque_RL 
+            DISPLAY_IDENTIFIER VDCv2mk2.AUTOX1.TC_TV.Rigid_Axle_with_TC_2024.Motor_Torque_RL 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 7 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_B.sf_RigidAxlewithTC2024_o.Motor_Torque_RR 
+            /* Name                */     VDCv2mk2.VDCv2mk2_B.sf_RigidAxlewithTC2024_o.Motor_Torque_RR 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.AUTOX1.TC_TV.Rigid_Axle_with_TC_2024.Motor_Torque_RR 
+            DISPLAY_IDENTIFIER VDCv2mk2.AUTOX1.TC_TV.Rigid_Axle_with_TC_2024.Motor_Torque_RR 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 8 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_B.sf_TC2024.Motor_Torque_RL 
+            /* Name                */     VDCv2mk2.VDCv2mk2_B.sf_TC2024.Motor_Torque_RL 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.ENDURANCE.TC_TV.TC_2024.Motor_Torque_RL 
+            DISPLAY_IDENTIFIER VDCv2mk2.ENDURANCE.TC_TV.TC_2024.Motor_Torque_RL 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 9 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_B.sf_TC2024.Motor_Torque_RR 
+            /* Name                */     VDCv2mk2.VDCv2mk2_B.sf_TC2024.Motor_Torque_RR 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.ENDURANCE.TC_TV.TC_2024.Motor_Torque_RR 
+            DISPLAY_IDENTIFIER VDCv2mk2.ENDURANCE.TC_TV.TC_2024.Motor_Torque_RR 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 10 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_B.sf_Torquedemandedbythedriver_a.Throttle_Torque 
+            /* Name                */     VDCv2mk2.VDCv2mk2_B.sf_Torquedemandedbythedriver_a.Throttle_Torque 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.AUTOX1.Torque_demanded_by_the_driver.Throttle_Torque 
+            DISPLAY_IDENTIFIER VDCv2mk2.AUTOX1.Torque_demanded_by_the_driver.Throttle_Torque 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 11 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_B.sf_Torquedemandedbythedriver_k.Throttle_Torque 
+            /* Name                */     VDCv2mk2.VDCv2mk2_B.sf_Torquedemandedbythedriver_k.Throttle_Torque 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.ACCELERATION.Torque_demanded_by_the_driver.Throttle_Torque 
+            DISPLAY_IDENTIFIER VDCv2mk2.ACCELERATION.Torque_demanded_by_the_driver.Throttle_Torque 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 12 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_B.sf_Torquedemandedbythedriver_m.Throttle_Torque 
+            /* Name                */     VDCv2mk2.VDCv2mk2_B.sf_Torquedemandedbythedriver_m.Throttle_Torque 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.SKIDPAD.Torque_demanded_by_the_driver.Throttle_Torque 
+            DISPLAY_IDENTIFIER VDCv2mk2.SKIDPAD.Torque_demanded_by_the_driver.Throttle_Torque 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 13 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_B.state 
+            /* Name                */     VDCv2mk2.VDCv2mk2_B.state 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.ENDURANCE.Torque.state.state 
+            DISPLAY_IDENTIFIER VDCv2mk2.ENDURANCE.Torque.state.state 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 14 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_DW.A 
+            /* Name                */     VDCv2mk2.VDCv2mk2_DW.A 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.Accumulator_Power.PowerLimitDetection.Data_Store_Memory10.A 
+            DISPLAY_IDENTIFIER VDCv2mk2.Accumulator_Power.PowerLimitDetection.Data_Store_Memory10.A 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 15 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_DW.ERROR_Counter 
+            /* Name                */     VDCv2mk2.VDCv2mk2_DW.ERROR_Counter 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.SAFETY_BLOCK.APPS_IMPLAUSIBILITY.Data_Store_Memory1.ERROR_Counter 
+            DISPLAY_IDENTIFIER VDCv2mk2.SAFETY_BLOCK.APPS_IMPLAUSIBILITY.Data_Store_Memory1.ERROR_Counter 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 16 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.APPS1_Value 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.APPS1_Value 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.APPS1_Value 
+            DISPLAY_IDENTIFIER VDCv2mk2.APPS1_Value 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 17 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.APPS2_Value 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.APPS2_Value 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.APPS2_Value 
+            DISPLAY_IDENTIFIER VDCv2mk2.APPS2_Value 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 18 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.Accumulator_Current 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.Accumulator_Current 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.Accumulator_Current 
+            DISPLAY_IDENTIFIER VDCv2mk2.Accumulator_Current 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 19 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.Accumulator_Voltage 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.Accumulator_Voltage 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.Accumulator_Voltage 
+            DISPLAY_IDENTIFIER VDCv2mk2.Accumulator_Voltage 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 20 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.BrakePedal_Value 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.BrakePedal_Value 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.BrakePedal_Value 
+            DISPLAY_IDENTIFIER VDCv2mk2.BrakePedal_Value 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 21 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.Car_State 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.Car_State 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.Car_State 
+            DISPLAY_IDENTIFIER VDCv2mk2.Car_State 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 22 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.CriticalDisconnection 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.CriticalDisconnection 
             /* Long identifier     */     "" 
             /* Data type           */     UBYTE 
-            /* Conversion method   */     VDCv2_CM_boolean 
+            /* Conversion method   */     VDCv2mk2_CM_boolean 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     0 
             /* Upper limit         */     1 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.CriticalDisconnection 
+            DISPLAY_IDENTIFIER VDCv2mk2.CriticalDisconnection 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 23 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.Disconnection_Mode 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.Disconnection_Mode 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.Disconnection_Mode 
+            DISPLAY_IDENTIFIER VDCv2mk2.Disconnection_Mode 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 24 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.RL_Vel_ms_Wheel 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.RL_Vel_ms_Wheel 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.RL_Vel_ms_Wheel 
+            DISPLAY_IDENTIFIER VDCv2mk2.RL_Vel_ms_Wheel 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 25 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.RL_rads_Motor 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.RL_rads_Motor 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.RL_rads_Motor 
+            DISPLAY_IDENTIFIER VDCv2mk2.RL_rads_Motor 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 26 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.RR_Vel_ms_Wheel 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.RR_Vel_ms_Wheel 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.RR_Vel_ms_Wheel 
+            DISPLAY_IDENTIFIER VDCv2mk2.RR_Vel_ms_Wheel 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 27 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.RR_rads_Motor 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.RR_rads_Motor 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.RR_rads_Motor 
+            DISPLAY_IDENTIFIER VDCv2mk2.RR_rads_Motor 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 28 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.RacingMode 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.RacingMode 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.RacingMode 
+            DISPLAY_IDENTIFIER VDCv2mk2.RacingMode 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 29 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.Shutdown_PackageIntck 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.Shutdown_PackageIntck 
             /* Long identifier     */     "" 
             /* Data type           */     UBYTE 
-            /* Conversion method   */     VDCv2_CM_boolean 
+            /* Conversion method   */     VDCv2mk2_CM_boolean 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     0 
             /* Upper limit         */     1 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.Shutdown_PackageIntck 
+            DISPLAY_IDENTIFIER VDCv2mk2.Shutdown_PackageIntck 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 30 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.SoC_High 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.SoC_High 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.SoC_High 
+            DISPLAY_IDENTIFIER VDCv2mk2.SoC_High 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 31 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.SteeringSensor_Value 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.SteeringSensor_Value 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.SteeringSensor_Value 
+            DISPLAY_IDENTIFIER VDCv2mk2.SteeringSensor_Value 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 32 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.Susp_F_L 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.Susp_F_L 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.Susp_F_L 
+            DISPLAY_IDENTIFIER VDCv2mk2.Susp_F_L 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 33 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.Susp_F_R 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.Susp_F_R 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.Susp_F_R 
+            DISPLAY_IDENTIFIER VDCv2mk2.Susp_F_R 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 34 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.Susp_R_L 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.Susp_R_L 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.Susp_R_L 
+            DISPLAY_IDENTIFIER VDCv2mk2.Susp_R_L 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 35 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.Susp_R_R 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.Susp_R_R 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.Susp_R_R 
+            DISPLAY_IDENTIFIER VDCv2mk2.Susp_R_R 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 36 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.TorqueEnable 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.TorqueEnable 
             /* Long identifier     */     "" 
             /* Data type           */     UBYTE 
-            /* Conversion method   */     VDCv2_CM_boolean 
+            /* Conversion method   */     VDCv2mk2_CM_boolean 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     0 
             /* Upper limit         */     1 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.TorqueEnable 
+            DISPLAY_IDENTIFIER VDCv2mk2.TorqueEnable 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 37 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.el_ACCEL_X 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.el_ACCEL_X 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.el_ACCEL_X 
+            DISPLAY_IDENTIFIER VDCv2mk2.el_ACCEL_X 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 38 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.el_ACCEL_Y 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.el_ACCEL_Y 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.el_ACCEL_Y 
+            DISPLAY_IDENTIFIER VDCv2mk2.el_ACCEL_Y 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 39 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.el_ACCEL_Z 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.el_ACCEL_Z 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.el_ACCEL_Z 
+            DISPLAY_IDENTIFIER VDCv2mk2.el_ACCEL_Z 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 40 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.el_GYRO_X 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.el_GYRO_X 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.el_GYRO_X 
+            DISPLAY_IDENTIFIER VDCv2mk2.el_GYRO_X 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 41 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.el_GYRO_Y 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.el_GYRO_Y 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.el_GYRO_Y 
+            DISPLAY_IDENTIFIER VDCv2mk2.el_GYRO_Y 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 42 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.el_GYRO_Z 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.el_GYRO_Z 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.el_GYRO_Z 
+            DISPLAY_IDENTIFIER VDCv2mk2.el_GYRO_Z 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 43 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.el_PITCH 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.el_PITCH 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.el_PITCH 
+            DISPLAY_IDENTIFIER VDCv2mk2.el_PITCH 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 44 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.el_ROLL 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.el_ROLL 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.el_ROLL 
+            DISPLAY_IDENTIFIER VDCv2mk2.el_ROLL 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 45 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.el_SlipAngle 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.el_SlipAngle 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.el_SlipAngle 
+            DISPLAY_IDENTIFIER VDCv2mk2.el_SlipAngle 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 46 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.el_Vel_X 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.el_Vel_X 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.el_Vel_X 
+            DISPLAY_IDENTIFIER VDCv2mk2.el_Vel_X 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 47 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.el_Vel_Y 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.el_Vel_Y 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.el_Vel_Y 
+            DISPLAY_IDENTIFIER VDCv2mk2.el_Vel_Y 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 48 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.el_Vel_Z 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.el_Vel_Z 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.el_Vel_Z 
+            DISPLAY_IDENTIFIER VDCv2mk2.el_Vel_Z 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 49 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_U.el_YAW 
+            /* Name                */     VDCv2mk2.VDCv2mk2_U.el_YAW 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.el_YAW 
+            DISPLAY_IDENTIFIER VDCv2mk2.el_YAW 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 50 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_Y.APPS_Implausibility 
+            /* Name                */     VDCv2mk2.VDCv2mk2_Y.APPS_Implausibility 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.APPS_Implausibility 
+            DISPLAY_IDENTIFIER VDCv2mk2.APPS_Implausibility 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 51 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_Y.BrakeLight_Control 
+            /* Name                */     VDCv2mk2.VDCv2mk2_Y.BrakeLight_Control 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.BrakeLight_Control 
+            DISPLAY_IDENTIFIER VDCv2mk2.BrakeLight_Control 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 52 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_Y.Power 
+            /* Name                */     VDCv2mk2.VDCv2mk2_Y.Power 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.Power 
+            DISPLAY_IDENTIFIER VDCv2mk2.Power 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 53 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_Y.PowerLimitReached 
+            /* Name                */     VDCv2mk2.VDCv2mk2_Y.PowerLimitReached 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.PowerLimitReached 
+            DISPLAY_IDENTIFIER VDCv2mk2.PowerLimitReached 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 54 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_Y.PowerMean500ms 
+            /* Name                */     VDCv2mk2.VDCv2mk2_Y.PowerMean500ms 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.PowerMean500ms 
+            DISPLAY_IDENTIFIER VDCv2mk2.PowerMean500ms 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 55 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_Y.TV_Mode 
+            /* Name                */     VDCv2mk2.VDCv2mk2_Y.TV_Mode 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.TV_Mode 
+            DISPLAY_IDENTIFIER VDCv2mk2.TV_Mode 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 56 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_Y.Torque_L_out 
+            /* Name                */     VDCv2mk2.VDCv2mk2_Y.Torque_L_out 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.Torque_L_out 
+            DISPLAY_IDENTIFIER VDCv2mk2.Torque_L_out 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 57 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_Y.Torque_OK 
+            /* Name                */     VDCv2mk2.VDCv2mk2_Y.Torque_OK 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.Torque_OK 
+            DISPLAY_IDENTIFIER VDCv2mk2.Torque_OK 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 58 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_Y.Torque_R_out 
+            /* Name                */     VDCv2mk2.VDCv2mk2_Y.Torque_R_out 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.Torque_R_out 
+            DISPLAY_IDENTIFIER VDCv2mk2.Torque_R_out 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 59 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     VDCv2.VDCv2_Y.VDC_Max_Tyre_Slip 
+            /* Name                */     VDCv2mk2.VDCv2mk2_Y.VDC_Max_Tyre_Slip 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDCv2_CM_double 
+            /* Conversion method   */     VDCv2mk2_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDCv2.VDC_Max_Tyre_Slip 
+            DISPLAY_IDENTIFIER VDCv2mk2.VDC_Max_Tyre_Slip 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 60 DEFAULT_RASTERS 31
             /end IF_DATA
@@ -5199,7 +5199,7 @@
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RL_Vel_ms_Wheel 
+            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U20 
@@ -6205,7 +6205,7 @@
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
-            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RL_Vel_ms_Wheel_calibrate 
+            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel_calibrate 
             /* Long identifier     */     "" 
             /* Characteristic type */     VALUE 
             /* Memory address      */     0x0 
@@ -6476,7 +6476,7 @@
             COEFFS 0.0 1.0 0.0 0.0 0.0 1.0
         /end COMPU_METHOD
         /begin COMPU_METHOD 
-            /* Name                */     VDCv2_CM_double 
+            /* Name                */     VDCv2mk2_CM_double 
             /* Long identifier     */     "Q = V" 
             RAT_FUNC
             "%9.6"
@@ -6484,7 +6484,7 @@
             COEFFS 0.0 1.0 0.0 0.0 0.0 1.0
         /end COMPU_METHOD
         /begin COMPU_METHOD 
-            /* Name                */     VDCv2_CM_boolean 
+            /* Name                */     VDCv2mk2_CM_boolean 
             /* Long identifier     */     "Q = V" 
             RAT_FUNC
             "%9.6"
@@ -7217,203 +7217,203 @@
                 Synchronism.Synchronism_Y.Sync_CAN2
             /end REF_MEASUREMENT
         /end GROUP
-        /begin GROUP VDCv2
+        /begin GROUP VDCv2mk2
             ""
             ROOT
             /begin REF_MEASUREMENT
-                VDCv2.VDCv2_B.Merge
-                VDCv2.VDCv2_B.Merge1
-                VDCv2.VDCv2_B.Merge1_f
-                VDCv2.VDCv2_B.Merge2
-                VDCv2.VDCv2_B.Merge3
-                VDCv2.VDCv2_B.sf_RigidAxlewithTC2024.Motor_Torque_RL
-                VDCv2.VDCv2_B.sf_RigidAxlewithTC2024.Motor_Torque_RR
-                VDCv2.VDCv2_B.sf_RigidAxlewithTC2024_o.Motor_Torque_RL
-                VDCv2.VDCv2_B.sf_RigidAxlewithTC2024_o.Motor_Torque_RR
-                VDCv2.VDCv2_B.sf_TC2024.Motor_Torque_RL
-                VDCv2.VDCv2_B.sf_TC2024.Motor_Torque_RR
-                VDCv2.VDCv2_B.sf_Torquedemandedbythedriver_a.Throttle_Torque
-                VDCv2.VDCv2_B.sf_Torquedemandedbythedriver_k.Throttle_Torque
-                VDCv2.VDCv2_B.sf_Torquedemandedbythedriver_m.Throttle_Torque
-                VDCv2.VDCv2_B.state
-                VDCv2.VDCv2_DW.A
-                VDCv2.VDCv2_DW.ERROR_Counter
-                VDCv2.VDCv2_U.APPS1_Value
-                VDCv2.VDCv2_U.APPS2_Value
-                VDCv2.VDCv2_U.Accumulator_Current
-                VDCv2.VDCv2_U.Accumulator_Voltage
-                VDCv2.VDCv2_U.BrakePedal_Value
-                VDCv2.VDCv2_U.Car_State
-                VDCv2.VDCv2_U.CriticalDisconnection
-                VDCv2.VDCv2_U.Disconnection_Mode
-                VDCv2.VDCv2_U.RL_Vel_ms_Wheel
-                VDCv2.VDCv2_U.RL_rads_Motor
-                VDCv2.VDCv2_U.RR_Vel_ms_Wheel
-                VDCv2.VDCv2_U.RR_rads_Motor
-                VDCv2.VDCv2_U.RacingMode
-                VDCv2.VDCv2_U.Shutdown_PackageIntck
-                VDCv2.VDCv2_U.SoC_High
-                VDCv2.VDCv2_U.SteeringSensor_Value
-                VDCv2.VDCv2_U.Susp_F_L
-                VDCv2.VDCv2_U.Susp_F_R
-                VDCv2.VDCv2_U.Susp_R_L
-                VDCv2.VDCv2_U.Susp_R_R
-                VDCv2.VDCv2_U.TorqueEnable
-                VDCv2.VDCv2_U.el_ACCEL_X
-                VDCv2.VDCv2_U.el_ACCEL_Y
-                VDCv2.VDCv2_U.el_ACCEL_Z
-                VDCv2.VDCv2_U.el_GYRO_X
-                VDCv2.VDCv2_U.el_GYRO_Y
-                VDCv2.VDCv2_U.el_GYRO_Z
-                VDCv2.VDCv2_U.el_PITCH
-                VDCv2.VDCv2_U.el_ROLL
-                VDCv2.VDCv2_U.el_SlipAngle
-                VDCv2.VDCv2_U.el_Vel_X
-                VDCv2.VDCv2_U.el_Vel_Y
-                VDCv2.VDCv2_U.el_Vel_Z
-                VDCv2.VDCv2_U.el_YAW
-                VDCv2.VDCv2_Y.APPS_Implausibility
-                VDCv2.VDCv2_Y.BrakeLight_Control
-                VDCv2.VDCv2_Y.Power
-                VDCv2.VDCv2_Y.PowerLimitReached
-                VDCv2.VDCv2_Y.PowerMean500ms
-                VDCv2.VDCv2_Y.TV_Mode
-                VDCv2.VDCv2_Y.Torque_L_out
-                VDCv2.VDCv2_Y.Torque_OK
-                VDCv2.VDCv2_Y.Torque_R_out
-                VDCv2.VDCv2_Y.VDC_Max_Tyre_Slip
+                VDCv2mk2.VDCv2mk2_B.Merge
+                VDCv2mk2.VDCv2mk2_B.Merge1
+                VDCv2mk2.VDCv2mk2_B.Merge1_f
+                VDCv2mk2.VDCv2mk2_B.Merge2
+                VDCv2mk2.VDCv2mk2_B.Merge3
+                VDCv2mk2.VDCv2mk2_B.sf_RigidAxlewithTC2024.Motor_Torque_RL
+                VDCv2mk2.VDCv2mk2_B.sf_RigidAxlewithTC2024.Motor_Torque_RR
+                VDCv2mk2.VDCv2mk2_B.sf_RigidAxlewithTC2024_o.Motor_Torque_RL
+                VDCv2mk2.VDCv2mk2_B.sf_RigidAxlewithTC2024_o.Motor_Torque_RR
+                VDCv2mk2.VDCv2mk2_B.sf_TC2024.Motor_Torque_RL
+                VDCv2mk2.VDCv2mk2_B.sf_TC2024.Motor_Torque_RR
+                VDCv2mk2.VDCv2mk2_B.sf_Torquedemandedbythedriver_a.Throttle_Torque
+                VDCv2mk2.VDCv2mk2_B.sf_Torquedemandedbythedriver_k.Throttle_Torque
+                VDCv2mk2.VDCv2mk2_B.sf_Torquedemandedbythedriver_m.Throttle_Torque
+                VDCv2mk2.VDCv2mk2_B.state
+                VDCv2mk2.VDCv2mk2_DW.A
+                VDCv2mk2.VDCv2mk2_DW.ERROR_Counter
+                VDCv2mk2.VDCv2mk2_U.APPS1_Value
+                VDCv2mk2.VDCv2mk2_U.APPS2_Value
+                VDCv2mk2.VDCv2mk2_U.Accumulator_Current
+                VDCv2mk2.VDCv2mk2_U.Accumulator_Voltage
+                VDCv2mk2.VDCv2mk2_U.BrakePedal_Value
+                VDCv2mk2.VDCv2mk2_U.Car_State
+                VDCv2mk2.VDCv2mk2_U.CriticalDisconnection
+                VDCv2mk2.VDCv2mk2_U.Disconnection_Mode
+                VDCv2mk2.VDCv2mk2_U.RL_Vel_ms_Wheel
+                VDCv2mk2.VDCv2mk2_U.RL_rads_Motor
+                VDCv2mk2.VDCv2mk2_U.RR_Vel_ms_Wheel
+                VDCv2mk2.VDCv2mk2_U.RR_rads_Motor
+                VDCv2mk2.VDCv2mk2_U.RacingMode
+                VDCv2mk2.VDCv2mk2_U.Shutdown_PackageIntck
+                VDCv2mk2.VDCv2mk2_U.SoC_High
+                VDCv2mk2.VDCv2mk2_U.SteeringSensor_Value
+                VDCv2mk2.VDCv2mk2_U.Susp_F_L
+                VDCv2mk2.VDCv2mk2_U.Susp_F_R
+                VDCv2mk2.VDCv2mk2_U.Susp_R_L
+                VDCv2mk2.VDCv2mk2_U.Susp_R_R
+                VDCv2mk2.VDCv2mk2_U.TorqueEnable
+                VDCv2mk2.VDCv2mk2_U.el_ACCEL_X
+                VDCv2mk2.VDCv2mk2_U.el_ACCEL_Y
+                VDCv2mk2.VDCv2mk2_U.el_ACCEL_Z
+                VDCv2mk2.VDCv2mk2_U.el_GYRO_X
+                VDCv2mk2.VDCv2mk2_U.el_GYRO_Y
+                VDCv2mk2.VDCv2mk2_U.el_GYRO_Z
+                VDCv2mk2.VDCv2mk2_U.el_PITCH
+                VDCv2mk2.VDCv2mk2_U.el_ROLL
+                VDCv2mk2.VDCv2mk2_U.el_SlipAngle
+                VDCv2mk2.VDCv2mk2_U.el_Vel_X
+                VDCv2mk2.VDCv2mk2_U.el_Vel_Y
+                VDCv2mk2.VDCv2mk2_U.el_Vel_Z
+                VDCv2mk2.VDCv2mk2_U.el_YAW
+                VDCv2mk2.VDCv2mk2_Y.APPS_Implausibility
+                VDCv2mk2.VDCv2mk2_Y.BrakeLight_Control
+                VDCv2mk2.VDCv2mk2_Y.Power
+                VDCv2mk2.VDCv2mk2_Y.PowerLimitReached
+                VDCv2mk2.VDCv2mk2_Y.PowerMean500ms
+                VDCv2mk2.VDCv2mk2_Y.TV_Mode
+                VDCv2mk2.VDCv2mk2_Y.Torque_L_out
+                VDCv2mk2.VDCv2mk2_Y.Torque_OK
+                VDCv2mk2.VDCv2mk2_Y.Torque_R_out
+                VDCv2mk2.VDCv2mk2_Y.VDC_Max_Tyre_Slip
             /end REF_MEASUREMENT
             /begin SUB_GROUP
-                VDCv2.VDCv2_B
-                VDCv2.VDCv2_B.sf_RigidAxlewithTC2024
-                VDCv2.VDCv2_B.sf_RigidAxlewithTC2024_o
-                VDCv2.VDCv2_B.sf_TC2024
-                VDCv2.VDCv2_B.sf_Torquedemandedbythedriver_a
-                VDCv2.VDCv2_B.sf_Torquedemandedbythedriver_k
-                VDCv2.VDCv2_B.sf_Torquedemandedbythedriver_m
-                VDCv2.VDCv2_DW
-                VDCv2.VDCv2_U
-                VDCv2.VDCv2_Y
+                VDCv2mk2.VDCv2mk2_B
+                VDCv2mk2.VDCv2mk2_B.sf_RigidAxlewithTC2024
+                VDCv2mk2.VDCv2mk2_B.sf_RigidAxlewithTC2024_o
+                VDCv2mk2.VDCv2mk2_B.sf_TC2024
+                VDCv2mk2.VDCv2mk2_B.sf_Torquedemandedbythedriver_a
+                VDCv2mk2.VDCv2mk2_B.sf_Torquedemandedbythedriver_k
+                VDCv2mk2.VDCv2mk2_B.sf_Torquedemandedbythedriver_m
+                VDCv2mk2.VDCv2mk2_DW
+                VDCv2mk2.VDCv2mk2_U
+                VDCv2mk2.VDCv2mk2_Y
             /end SUB_GROUP
         /end GROUP
-        /begin GROUP VDCv2.VDCv2_B
+        /begin GROUP VDCv2mk2.VDCv2mk2_B
             ""
             /begin REF_MEASUREMENT
-                VDCv2.VDCv2_B.Merge
-                VDCv2.VDCv2_B.Merge1
-                VDCv2.VDCv2_B.Merge1_f
-                VDCv2.VDCv2_B.Merge2
-                VDCv2.VDCv2_B.Merge3
-                VDCv2.VDCv2_B.sf_RigidAxlewithTC2024.Motor_Torque_RL
-                VDCv2.VDCv2_B.sf_RigidAxlewithTC2024.Motor_Torque_RR
-                VDCv2.VDCv2_B.sf_RigidAxlewithTC2024_o.Motor_Torque_RL
-                VDCv2.VDCv2_B.sf_RigidAxlewithTC2024_o.Motor_Torque_RR
-                VDCv2.VDCv2_B.sf_TC2024.Motor_Torque_RL
-                VDCv2.VDCv2_B.sf_TC2024.Motor_Torque_RR
-                VDCv2.VDCv2_B.sf_Torquedemandedbythedriver_a.Throttle_Torque
-                VDCv2.VDCv2_B.sf_Torquedemandedbythedriver_k.Throttle_Torque
-                VDCv2.VDCv2_B.sf_Torquedemandedbythedriver_m.Throttle_Torque
-                VDCv2.VDCv2_B.state
+                VDCv2mk2.VDCv2mk2_B.Merge
+                VDCv2mk2.VDCv2mk2_B.Merge1
+                VDCv2mk2.VDCv2mk2_B.Merge1_f
+                VDCv2mk2.VDCv2mk2_B.Merge2
+                VDCv2mk2.VDCv2mk2_B.Merge3
+                VDCv2mk2.VDCv2mk2_B.sf_RigidAxlewithTC2024.Motor_Torque_RL
+                VDCv2mk2.VDCv2mk2_B.sf_RigidAxlewithTC2024.Motor_Torque_RR
+                VDCv2mk2.VDCv2mk2_B.sf_RigidAxlewithTC2024_o.Motor_Torque_RL
+                VDCv2mk2.VDCv2mk2_B.sf_RigidAxlewithTC2024_o.Motor_Torque_RR
+                VDCv2mk2.VDCv2mk2_B.sf_TC2024.Motor_Torque_RL
+                VDCv2mk2.VDCv2mk2_B.sf_TC2024.Motor_Torque_RR
+                VDCv2mk2.VDCv2mk2_B.sf_Torquedemandedbythedriver_a.Throttle_Torque
+                VDCv2mk2.VDCv2mk2_B.sf_Torquedemandedbythedriver_k.Throttle_Torque
+                VDCv2mk2.VDCv2mk2_B.sf_Torquedemandedbythedriver_m.Throttle_Torque
+                VDCv2mk2.VDCv2mk2_B.state
             /end REF_MEASUREMENT
         /end GROUP
-        /begin GROUP VDCv2.VDCv2_B.sf_RigidAxlewithTC2024
+        /begin GROUP VDCv2mk2.VDCv2mk2_B.sf_RigidAxlewithTC2024
             ""
             /begin REF_MEASUREMENT
-                VDCv2.VDCv2_B.sf_RigidAxlewithTC2024.Motor_Torque_RL
-                VDCv2.VDCv2_B.sf_RigidAxlewithTC2024.Motor_Torque_RR
+                VDCv2mk2.VDCv2mk2_B.sf_RigidAxlewithTC2024.Motor_Torque_RL
+                VDCv2mk2.VDCv2mk2_B.sf_RigidAxlewithTC2024.Motor_Torque_RR
             /end REF_MEASUREMENT
         /end GROUP
-        /begin GROUP VDCv2.VDCv2_B.sf_RigidAxlewithTC2024_o
+        /begin GROUP VDCv2mk2.VDCv2mk2_B.sf_RigidAxlewithTC2024_o
             ""
             /begin REF_MEASUREMENT
-                VDCv2.VDCv2_B.sf_RigidAxlewithTC2024_o.Motor_Torque_RL
-                VDCv2.VDCv2_B.sf_RigidAxlewithTC2024_o.Motor_Torque_RR
+                VDCv2mk2.VDCv2mk2_B.sf_RigidAxlewithTC2024_o.Motor_Torque_RL
+                VDCv2mk2.VDCv2mk2_B.sf_RigidAxlewithTC2024_o.Motor_Torque_RR
             /end REF_MEASUREMENT
         /end GROUP
-        /begin GROUP VDCv2.VDCv2_B.sf_TC2024
+        /begin GROUP VDCv2mk2.VDCv2mk2_B.sf_TC2024
             ""
             /begin REF_MEASUREMENT
-                VDCv2.VDCv2_B.sf_TC2024.Motor_Torque_RL
-                VDCv2.VDCv2_B.sf_TC2024.Motor_Torque_RR
+                VDCv2mk2.VDCv2mk2_B.sf_TC2024.Motor_Torque_RL
+                VDCv2mk2.VDCv2mk2_B.sf_TC2024.Motor_Torque_RR
             /end REF_MEASUREMENT
         /end GROUP
-        /begin GROUP VDCv2.VDCv2_B.sf_Torquedemandedbythedriver_a
+        /begin GROUP VDCv2mk2.VDCv2mk2_B.sf_Torquedemandedbythedriver_a
             ""
             /begin REF_MEASUREMENT
-                VDCv2.VDCv2_B.sf_Torquedemandedbythedriver_a.Throttle_Torque
+                VDCv2mk2.VDCv2mk2_B.sf_Torquedemandedbythedriver_a.Throttle_Torque
             /end REF_MEASUREMENT
         /end GROUP
-        /begin GROUP VDCv2.VDCv2_B.sf_Torquedemandedbythedriver_k
+        /begin GROUP VDCv2mk2.VDCv2mk2_B.sf_Torquedemandedbythedriver_k
             ""
             /begin REF_MEASUREMENT
-                VDCv2.VDCv2_B.sf_Torquedemandedbythedriver_k.Throttle_Torque
+                VDCv2mk2.VDCv2mk2_B.sf_Torquedemandedbythedriver_k.Throttle_Torque
             /end REF_MEASUREMENT
         /end GROUP
-        /begin GROUP VDCv2.VDCv2_B.sf_Torquedemandedbythedriver_m
+        /begin GROUP VDCv2mk2.VDCv2mk2_B.sf_Torquedemandedbythedriver_m
             ""
             /begin REF_MEASUREMENT
-                VDCv2.VDCv2_B.sf_Torquedemandedbythedriver_m.Throttle_Torque
+                VDCv2mk2.VDCv2mk2_B.sf_Torquedemandedbythedriver_m.Throttle_Torque
             /end REF_MEASUREMENT
         /end GROUP
-        /begin GROUP VDCv2.VDCv2_DW
+        /begin GROUP VDCv2mk2.VDCv2mk2_DW
             ""
             /begin REF_MEASUREMENT
-                VDCv2.VDCv2_DW.A
-                VDCv2.VDCv2_DW.ERROR_Counter
+                VDCv2mk2.VDCv2mk2_DW.A
+                VDCv2mk2.VDCv2mk2_DW.ERROR_Counter
             /end REF_MEASUREMENT
         /end GROUP
-        /begin GROUP VDCv2.VDCv2_U
+        /begin GROUP VDCv2mk2.VDCv2mk2_U
             ""
             /begin REF_MEASUREMENT
-                VDCv2.VDCv2_U.APPS1_Value
-                VDCv2.VDCv2_U.APPS2_Value
-                VDCv2.VDCv2_U.Accumulator_Current
-                VDCv2.VDCv2_U.Accumulator_Voltage
-                VDCv2.VDCv2_U.BrakePedal_Value
-                VDCv2.VDCv2_U.Car_State
-                VDCv2.VDCv2_U.CriticalDisconnection
-                VDCv2.VDCv2_U.Disconnection_Mode
-                VDCv2.VDCv2_U.RL_Vel_ms_Wheel
-                VDCv2.VDCv2_U.RL_rads_Motor
-                VDCv2.VDCv2_U.RR_Vel_ms_Wheel
-                VDCv2.VDCv2_U.RR_rads_Motor
-                VDCv2.VDCv2_U.RacingMode
-                VDCv2.VDCv2_U.Shutdown_PackageIntck
-                VDCv2.VDCv2_U.SoC_High
-                VDCv2.VDCv2_U.SteeringSensor_Value
-                VDCv2.VDCv2_U.Susp_F_L
-                VDCv2.VDCv2_U.Susp_F_R
-                VDCv2.VDCv2_U.Susp_R_L
-                VDCv2.VDCv2_U.Susp_R_R
-                VDCv2.VDCv2_U.TorqueEnable
-                VDCv2.VDCv2_U.el_ACCEL_X
-                VDCv2.VDCv2_U.el_ACCEL_Y
-                VDCv2.VDCv2_U.el_ACCEL_Z
-                VDCv2.VDCv2_U.el_GYRO_X
-                VDCv2.VDCv2_U.el_GYRO_Y
-                VDCv2.VDCv2_U.el_GYRO_Z
-                VDCv2.VDCv2_U.el_PITCH
-                VDCv2.VDCv2_U.el_ROLL
-                VDCv2.VDCv2_U.el_SlipAngle
-                VDCv2.VDCv2_U.el_Vel_X
-                VDCv2.VDCv2_U.el_Vel_Y
-                VDCv2.VDCv2_U.el_Vel_Z
-                VDCv2.VDCv2_U.el_YAW
+                VDCv2mk2.VDCv2mk2_U.APPS1_Value
+                VDCv2mk2.VDCv2mk2_U.APPS2_Value
+                VDCv2mk2.VDCv2mk2_U.Accumulator_Current
+                VDCv2mk2.VDCv2mk2_U.Accumulator_Voltage
+                VDCv2mk2.VDCv2mk2_U.BrakePedal_Value
+                VDCv2mk2.VDCv2mk2_U.Car_State
+                VDCv2mk2.VDCv2mk2_U.CriticalDisconnection
+                VDCv2mk2.VDCv2mk2_U.Disconnection_Mode
+                VDCv2mk2.VDCv2mk2_U.RL_Vel_ms_Wheel
+                VDCv2mk2.VDCv2mk2_U.RL_rads_Motor
+                VDCv2mk2.VDCv2mk2_U.RR_Vel_ms_Wheel
+                VDCv2mk2.VDCv2mk2_U.RR_rads_Motor
+                VDCv2mk2.VDCv2mk2_U.RacingMode
+                VDCv2mk2.VDCv2mk2_U.Shutdown_PackageIntck
+                VDCv2mk2.VDCv2mk2_U.SoC_High
+                VDCv2mk2.VDCv2mk2_U.SteeringSensor_Value
+                VDCv2mk2.VDCv2mk2_U.Susp_F_L
+                VDCv2mk2.VDCv2mk2_U.Susp_F_R
+                VDCv2mk2.VDCv2mk2_U.Susp_R_L
+                VDCv2mk2.VDCv2mk2_U.Susp_R_R
+                VDCv2mk2.VDCv2mk2_U.TorqueEnable
+                VDCv2mk2.VDCv2mk2_U.el_ACCEL_X
+                VDCv2mk2.VDCv2mk2_U.el_ACCEL_Y
+                VDCv2mk2.VDCv2mk2_U.el_ACCEL_Z
+                VDCv2mk2.VDCv2mk2_U.el_GYRO_X
+                VDCv2mk2.VDCv2mk2_U.el_GYRO_Y
+                VDCv2mk2.VDCv2mk2_U.el_GYRO_Z
+                VDCv2mk2.VDCv2mk2_U.el_PITCH
+                VDCv2mk2.VDCv2mk2_U.el_ROLL
+                VDCv2mk2.VDCv2mk2_U.el_SlipAngle
+                VDCv2mk2.VDCv2mk2_U.el_Vel_X
+                VDCv2mk2.VDCv2mk2_U.el_Vel_Y
+                VDCv2mk2.VDCv2mk2_U.el_Vel_Z
+                VDCv2mk2.VDCv2mk2_U.el_YAW
             /end REF_MEASUREMENT
         /end GROUP
-        /begin GROUP VDCv2.VDCv2_Y
+        /begin GROUP VDCv2mk2.VDCv2mk2_Y
             ""
             /begin REF_MEASUREMENT
-                VDCv2.VDCv2_Y.APPS_Implausibility
-                VDCv2.VDCv2_Y.BrakeLight_Control
-                VDCv2.VDCv2_Y.Power
-                VDCv2.VDCv2_Y.PowerLimitReached
-                VDCv2.VDCv2_Y.PowerMean500ms
-                VDCv2.VDCv2_Y.TV_Mode
-                VDCv2.VDCv2_Y.Torque_L_out
-                VDCv2.VDCv2_Y.Torque_OK
-                VDCv2.VDCv2_Y.Torque_R_out
-                VDCv2.VDCv2_Y.VDC_Max_Tyre_Slip
+                VDCv2mk2.VDCv2mk2_Y.APPS_Implausibility
+                VDCv2mk2.VDCv2mk2_Y.BrakeLight_Control
+                VDCv2mk2.VDCv2mk2_Y.Power
+                VDCv2mk2.VDCv2mk2_Y.PowerLimitReached
+                VDCv2mk2.VDCv2mk2_Y.PowerMean500ms
+                VDCv2mk2.VDCv2mk2_Y.TV_Mode
+                VDCv2mk2.VDCv2mk2_Y.Torque_L_out
+                VDCv2mk2.VDCv2mk2_Y.Torque_OK
+                VDCv2mk2.VDCv2mk2_Y.Torque_R_out
+                VDCv2mk2.VDCv2mk2_Y.VDC_Max_Tyre_Slip
             /end REF_MEASUREMENT
         /end GROUP
         /begin GROUP ETCSignals
@@ -7529,7 +7529,7 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_SlipAngle
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_AngleTrack
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT
-                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RL_Vel_ms_Wheel
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_R
@@ -7598,7 +7598,7 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS1_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ETAS_BrakeLight.BrakeLight_Control_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT_calibrate
-                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RL_Vel_ms_Wheel_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_R_calibrate
@@ -7778,7 +7778,7 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_SlipAngle
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_AngleTrack
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT
-                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RL_Vel_ms_Wheel
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_R
@@ -7847,7 +7847,7 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS1_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ETAS_BrakeLight.BrakeLight_Control_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT_calibrate
-                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RL_Vel_ms_Wheel_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_R_calibrate
@@ -7972,7 +7972,7 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_SlipAngle
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_AngleTrack
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT
-                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RL_Vel_ms_Wheel
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_R
@@ -8041,7 +8041,7 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS1_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ETAS_BrakeLight.BrakeLight_Control_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT_calibrate
-                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RL_Vel_ms_Wheel_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_R_calibrate
@@ -8508,7 +8508,7 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_SlipAngle
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_AngleTrack
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT
-                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RL_Vel_ms_Wheel
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_R
@@ -8552,7 +8552,7 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS1_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ETAS_BrakeLight.BrakeLight_Control_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT_calibrate
-                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RL_Vel_ms_Wheel_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_R_calibrate
@@ -8627,7 +8627,7 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_SlipAngle
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_AngleTrack
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT
-                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RL_Vel_ms_Wheel
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_R
@@ -8671,7 +8671,7 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS1_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ETAS_BrakeLight.BrakeLight_Control_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT_calibrate
-                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RL_Vel_ms_Wheel_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_R_calibrate
@@ -8819,11 +8819,11 @@
             ""
             /begin REF_MEASUREMENT
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT
-                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RL_Vel_ms_Wheel
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel
             /end REF_MEASUREMENT
             /begin REF_CHARACTERISTIC
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT_calibrate
-                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RL_Vel_ms_Wheel_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel_calibrate
             /end REF_CHARACTERISTIC
         /end GROUP
         /begin GROUP ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data

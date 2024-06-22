@@ -14,12 +14,18 @@ extern void crossbarHook_31_5(void);
 extern void irt_OneStep_Ellipse(void);
 extern void crossbarHook_31_6(void);
 extern void crossbarHook_31_7(void);
-extern void irt_OneStep_Sensors(void);
+extern void irt_OneStep_Inverters_Action(void);
 extern void crossbarHook_31_8(void);
 extern void crossbarHook_31_9(void);
-extern void irt_OneStep_VDCv2(void);
+extern void irt_OneStep_Inverters_Data(void);
 extern void crossbarHook_31_10(void);
 extern void crossbarHook_31_11(void);
+extern void irt_OneStep_Sensors(void);
+extern void crossbarHook_31_12(void);
+extern void crossbarHook_31_13(void);
+extern void irt_OneStep_VDCv2mk2(void);
+extern void crossbarHook_31_14(void);
+extern void crossbarHook_31_15(void);
 extern void rtioHook_31_0(void);
 
 
@@ -51,12 +57,18 @@ TASK(Timer_25ms)
 	irt_OneStep_Ellipse();
 	crossbarHook_31_6();
 	crossbarHook_31_7();
-	irt_OneStep_Sensors();
+	irt_OneStep_Inverters_Action();
 	crossbarHook_31_8();
 	crossbarHook_31_9();
-	irt_OneStep_VDCv2();
+	irt_OneStep_Inverters_Data();
 	crossbarHook_31_10();
 	crossbarHook_31_11();
+	irt_OneStep_Sensors();
+	crossbarHook_31_12();
+	crossbarHook_31_13();
+	irt_OneStep_VDCv2mk2();
+	crossbarHook_31_14();
+	crossbarHook_31_15();
 	rtioHook_31_0();
 	
 #ifdef XCP_SLAVE

@@ -1619,7 +1619,7 @@ const char rtioRequestMessages[] =
 	0, 0, 0, 0,	 /* ERR */
 	/* Data of message 118 */
 	0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 
-	5, 109, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 
+	5, 109, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 
 	0, 1, 0, 0, 0, 0, 0, 0, 0, 116, 0, 0, 0,
 
 	/* Header of message 119 */
@@ -1795,7 +1795,7 @@ const char rtioRequestMessages[] =
 	0, 0, 0, 0,	 /* ERR */
 	/* Data of message 134 */
 	1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 
-	5, 109, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 
+	5, 109, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 
 	0, 1, 0, 0, 0, 0, 0, 0, 0, 132, 0, 0, 0,
 
 	/* Header of message 135 */
@@ -2413,7 +2413,7 @@ const char rtioRequestMessages[] =
 	0, 0, 0, 0,	 /* ERR */
 	/* Data of message 188 */
 	12, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 
-	5, 109, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 30, 0, 0, 
+	5, 109, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 
 	0, 1, 0, 0, 0, 0, 0, 0, 0, 186, 0, 0, 0,
 
 	/* Header of message 189 */
@@ -2459,7 +2459,7 @@ const char rtioRequestMessages[] =
 	0, 0, 0, 0,	 /* ERR */
 	/* Data of message 192 */
 	13, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 
-	5, 109, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 30, 0, 0, 
+	5, 109, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 
 	0, 1, 0, 0, 0, 0, 0, 0, 0, 190, 0, 0, 0,
 
 	/* Header of message 193 */
@@ -2505,7 +2505,7 @@ const char rtioRequestMessages[] =
 	0, 0, 0, 0,	 /* ERR */
 	/* Data of message 196 */
 	14, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 
-	5, 109, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 
+	5, 109, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 
 	0, 1, 0, 0, 0, 0, 0, 0, 0, 194, 0, 0, 0,
 
 	/* Header of message 197 */
@@ -2579,7 +2579,7 @@ const char rtioRequestMessages[] =
 	0, 0, 0, 0,	 /* ERR */
 	/* Data of message 202 */
 	15, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 
-	5, 109, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 
+	5, 109, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 
 	0, 1, 0, 0, 0, 0, 0, 0, 0, 200, 0, 0, 0,
 
 	/* Header of message 203 */
@@ -2882,7 +2882,7 @@ const char rtioRequestMessages[] =
 };
 
 const T_L1Record l1RtioRequestRecord =
-{	2919UL, /* configuration identifier */
+{	2937UL, /* configuration identifier */
 	230,   /* number of messages */
 	&rtioRequestMessages[0]
 };
