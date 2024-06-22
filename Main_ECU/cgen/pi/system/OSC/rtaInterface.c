@@ -17,7 +17,7 @@ AppModeType TimersAppMode = Timers;
 
 uint32 etasGetCounterPeriodUs(void)
 {
-	return 10000;	
+	return 500;	
 }
 
 
