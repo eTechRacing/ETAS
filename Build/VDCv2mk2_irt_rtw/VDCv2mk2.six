@@ -22,15 +22,15 @@
 	<moduleInfo identifier="VDCv2mk2">
 		<name>VDCv2mk2</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}VDCv2mk2.slx&quot;"/>
-		<version major="4" minor="98"/>
+		<version major="4" minor="118"/>
 		<dateTime kind="created" year="2024" month="3" day="15" hour="15" minute="34" second="18"/>
-		<dateTime kind="lastModified" year="2024" month="6" day="13" hour="0" minute="1" second="24"/>
+		<dateTime kind="lastModified" year="2024" month="6" day="25" hour="9" minute="56" second="3"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
 			<application domain="softwareDevelopment" addressesAvailable="false" nestedDataStructuresAvailable="true"/>
 		</suitability>
-		<user lastName="ogaip" role="modifier"/>
+		<user lastName="joser" role="modifier"/>
 		<creators>
 			<user lastName="no" role="creator"/>
 			<tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="6" day="22" hour="15" minute="14" second="32"/>
+		<dateTime kind="created" year="2024" month="6" day="25" hour="9" minute="58" second="37"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -137,8 +137,7 @@
 		<file name="VDCv2mk2.c" kind="body"/>
 		<file name="VDCv2mk2_private.h" kind="header"/>
 		<file name="VDCv2mk2.h" kind="header"/>
-		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\slprj\irt\_sharedutils\look1_binlxpw.c -->
-		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\slprj\irt\_sharedutils\look1_binlxpw.h -->
+		<!-- used through rtwShared.lib: const_params.c -->
 		<file name="rtmodel.h" kind="header"/>
 		<file name="VDCv2mk2_main.c" kind="body"/>
 		<file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body"/>
@@ -153,6 +152,7 @@
 		<modelLinkBase href="mlsl:///{{modelDir}}VDCv2mk2.slx?"/>
 		<pathBase path="{{codeDir}}"/>
 		<fileOrigin name="VDCv2mk2.c"/>
+		<fileOrigin name="const_params.c"/>
 		<fileOrigin name="rt_nonfinite.c"/>
 		<fileOrigin name="VDCv2mk2_main.c"/>
 		<headerFile name="VDCv2mk2.h"/>
@@ -237,6 +237,12 @@
 						<documentation>&lt;S41&gt;/ SFunction </documentation>
 					</annotation>
 				</structMember>
+				<structMember identifier="regen_en">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S40&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
 				<structMember identifier="sf_TC2024">
 					<type><typeRef name="B_RigidAxlewithTC2024_VDCv2mk_T"/></type>
 					<annotation>
@@ -247,12 +253,6 @@
 					<type><typeRef name="B_Torquedemandedbythedriver_V_T"/></type>
 					<annotation>
 						<documentation>&lt;S2&gt;/Torque demanded by the driver</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="sf_RigidAxlewithTC2024_o">
-					<type><typeRef name="B_RigidAxlewithTC2024_VDCv2mk_T"/></type>
-					<annotation>
-						<documentation>&lt;S17&gt;/Rigid Axle with TC 2024 </documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="sf_Torquedemandedbythedriver_k">
@@ -554,6 +554,12 @@
 						<documentation>&lt;Root&gt;/BrakeLight_Control</documentation>
 					</annotation>
 				</structMember>
+				<structMember identifier="Regenerative_Enable">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Regenerative_Enable</documentation>
+					</annotation>
+				</structMember>
 			</structDef>
 			<typeDef name="ExtY_VDCv2mk2_T">
 				<struct/><typeRef name="ExtY_VDCv2mk2_T_tag"/>
@@ -567,16 +573,16 @@
 						<documentation>State information for 'dsmMem'.</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="A">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>State information for 'dsmMem'.</documentation>
-					</annotation>
-				</structMember>
 				<structMember identifier="correction">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>State information for 'DWORK1'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="A">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'dsmMem'.</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="correction">
@@ -957,78 +963,6 @@
 					<pathNode name="AUTOX1" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Torque demanded by the driver" kind="mlsl:block"/>
 					<pathNode name="Throttle_Torque" kind="mlsl:signal"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="private">
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDCv2mk2_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDCv2mk2_B.sf_RigidAxlewithTC2024_o.Motor_Torque_RR">
-				<definitionLocation>
-					<baseRef identifier="VDCv2mk2_B"/>
-					<memberRef identifier="sf_RigidAxlewithTC2024_o"/>
-					<memberRef identifier="Motor_Torque_RR"/>
-				</definitionLocation>
-				<fileOrigin name="VDCv2mk2.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDCv2mk2.SKIDPAD.TC_TV.Rigid_Axle_with_TC_2024_n.Motor_Torque_RR">
-				<name>Motor_Torque_RR</name>
-				<modelLink href="VDCv2mk2/SKIDPAD/TC+TV/Rigid Axle with TC 2024\n"/>
-				<modelLocation>
-					<pathNode name="VDCv2mk2" kind="mlsl:model" type="atomic"/>
-					<pathNode name="AUTOX1" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="TC+TV" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Rigid Axle with TC 2024" kind="mlsl:block"/>
-					<pathNode name="Motor_Torque_RR" kind="mlsl:signal"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="private">
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDCv2mk2_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDCv2mk2_B.sf_RigidAxlewithTC2024_o.Motor_Torque_RL">
-				<definitionLocation>
-					<baseRef identifier="VDCv2mk2_B"/>
-					<memberRef identifier="sf_RigidAxlewithTC2024_o"/>
-					<memberRef identifier="Motor_Torque_RL"/>
-				</definitionLocation>
-				<fileOrigin name="VDCv2mk2.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDCv2mk2.SKIDPAD.TC_TV.Rigid_Axle_with_TC_2024_n.Motor_Torque_RL">
-				<name>Motor_Torque_RL</name>
-				<modelLink href="VDCv2mk2/SKIDPAD/TC+TV/Rigid Axle with TC 2024\n"/>
-				<modelLocation>
-					<pathNode name="VDCv2mk2" kind="mlsl:model" type="atomic"/>
-					<pathNode name="AUTOX1" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="TC+TV" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Rigid Axle with TC 2024" kind="mlsl:block"/>
-					<pathNode name="Motor_Torque_RL" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
@@ -2628,6 +2562,37 @@
 				</address>
 			</usage>
 		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDCv2mk2_Y.Regenerative_Enable">
+				<definitionLocation>
+					<baseRef identifier="VDCv2mk2_Y"/>
+					<memberRef identifier="Regenerative_Enable"/>
+				</definitionLocation>
+				<fileOrigin name="VDCv2mk2.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDCv2mk2.Regenerative_Enable">
+				<name>Regenerative_Enable</name>
+				<modelLink href="VDCv2mk2/Regenerative_Enable"/>
+				<modelLocation>
+					<pathNode name="VDCv2mk2" kind="mlsl:model"/>
+					<pathNode name="Regenerative_Enable" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDCv2mk2_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
 		<functionElement interfaceKind="export">
 			<functionCInterface identifier="irt_Start_VDCv2mk2">
 				<signature>
@@ -2722,6 +2687,7 @@
 						<message identifier="VDCv2mk2_Y.Torque_OK" send="true"></message>
 						<message identifier="VDCv2mk2_Y.TV_Mode" send="true"></message>
 						<message identifier="VDCv2mk2_Y.BrakeLight_Control" send="true"></message>
+						<message identifier="VDCv2mk2_Y.Regenerative_Enable" send="true"></message>
 						<message identifier="VDCv2mk2_Y.VDC_Max_Tyre_Slip" send="true"></message>
 					</messageAccess>
 					<constraint>

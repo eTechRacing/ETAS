@@ -31,8 +31,6 @@ struct RTWTop_VDCv2mk2_Class
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_B_Merge3_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_B_sf_RigidAxlewithTC2024_Motor_Torque_RL_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_B_sf_RigidAxlewithTC2024_Motor_Torque_RR_Ptr;
-    scalarWrapper_Obj *RTWWrapper_VDCv2mk2_B_sf_RigidAxlewithTC2024_o_Motor_Torque_RL_Ptr;
-    scalarWrapper_Obj *RTWWrapper_VDCv2mk2_B_sf_RigidAxlewithTC2024_o_Motor_Torque_RR_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_B_sf_TC2024_Motor_Torque_RL_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_B_sf_TC2024_Motor_Torque_RR_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_B_sf_Torquedemandedbythedriver_a_Throttle_Torque_Ptr;
@@ -80,6 +78,7 @@ struct RTWTop_VDCv2mk2_Class
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_Y_Power_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_Y_PowerLimitReached_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_Y_PowerMean500ms_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDCv2mk2_Y_Regenerative_Enable_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_Y_TV_Mode_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_Y_Torque_L_out_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_Y_Torque_OK_Ptr;

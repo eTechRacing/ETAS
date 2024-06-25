@@ -12,9 +12,9 @@
  *
  * Code generation for model "VDCv2mk2".
  *
- * Model version              : 4.98
+ * Model version              : 4.118
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jun 22 15:14:32 2024
+ * C source code generated on : Tue Jun 25 09:58:37 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -890,7 +890,6 @@ typedef struct {
   B_RigidAxlewithTC2024_VDCv2mk_T sf_TC2024;/* '<S31>/TC 2024' */
   B_Torquedemandedbythedriver_V_T sf_Torquedemandedbythedriver_a;
                                       /* '<S2>/Torque demanded by the driver' */
-  B_RigidAxlewithTC2024_VDCv2mk_T sf_RigidAxlewithTC2024_o;/* '<S17>/Rigid Axle with TC 2024 ' */
   B_Torquedemandedbythedriver_V_T sf_Torquedemandedbythedriver_k;
                                       /* '<S1>/Torque demanded by the driver' */
   B_Torquedemandedbythedriver_V_T sf_Torquedemandedbythedriver_m;
@@ -901,11 +900,11 @@ typedef struct {
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   real_T ERROR_Counter;                /* '<S44>/Data Store Memory1' */
+  real_T correction;                   /* '<S17>/Rigid Axle with TC 2024 ' */
   real_T A;                            /* '<S23>/Data Store Memory10' */
   DW_RIGIDAXLEWITHTC_VDCv2mk2_T RIGIDAXLEWITHTC_j;/* '<S5>/RIGIDAXLE WITH TC' */
   DW_RigidAxlewithTC2024_VDCv2m_T sf_TC2024;/* '<S31>/TC 2024' */
   DW_RIGIDAXLEWITHTC_VDCv2mk2_T RIGIDAXLEWITHTC_i;/* '<S2>/RIGIDAXLE WITH TC' */
-  DW_RigidAxlewithTC2024_VDCv2m_T sf_RigidAxlewithTC2024_o;/* '<S17>/Rigid Axle with TC 2024 ' */
   DW_RIGIDAXLEWITHTC_VDCv2mk2_T RIGIDAXLEWITHTC;/* '<S1>/RIGIDAXLE WITH TC' */
   DW_RigidAxlewithTC2024_VDCv2m_T sf_RigidAxlewithTC2024;/* '<S52>/Rigid Axle with TC 2024 ' */
 } DW_VDCv2mk2_T;
@@ -960,6 +959,7 @@ typedef struct {
   real_T VDC_Max_Tyre_Slip;            /* '<Root>/VDC_Max_Tyre_Slip' */
   real_T TV_Mode;                      /* '<Root>/TV_Mode' */
   real_T BrakeLight_Control;           /* '<Root>/BrakeLight_Control' */
+  real_T Regenerative_Enable;          /* '<Root>/Regenerative_Enable' */
 } ExtY_VDCv2mk2_T;
 
 /* Backward compatible GRT Identifiers */
