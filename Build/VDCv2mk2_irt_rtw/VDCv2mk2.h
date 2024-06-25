@@ -12,9 +12,9 @@
  *
  * Code generation for model "VDCv2mk2".
  *
- * Model version              : 4.118
+ * Model version              : 4.130
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Jun 25 09:58:37 2024
+ * C source code generated on : Tue Jun 25 11:08:18 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -858,17 +858,6 @@
 /* Definition for use in the target main file */
 #define VDCv2mk2_rtModel               RT_MODEL_VDCv2mk2_T
 
-/* Block signals for system '<S52>/Rigid Axle with TC 2024 ' */
-typedef struct {
-  real_T Motor_Torque_RR;              /* '<S52>/Rigid Axle with TC 2024 ' */
-  real_T Motor_Torque_RL;              /* '<S52>/Rigid Axle with TC 2024 ' */
-} B_RigidAxlewithTC2024_VDCv2mk_T;
-
-/* Block states (default storage) for system '<S52>/Rigid Axle with TC 2024 ' */
-typedef struct {
-  real_T correction;                   /* '<S52>/Rigid Axle with TC 2024 ' */
-} DW_RigidAxlewithTC2024_VDCv2m_T;
-
 /* Block signals for system '<S7>/Torque demanded by the driver' */
 typedef struct {
   real_T Throttle_Torque;             /* '<S7>/Torque demanded by the driver' */
@@ -887,26 +876,24 @@ typedef struct {
   real_T Merge;                        /* '<S5>/Merge' */
   real_T Merge1_f;                     /* '<S5>/Merge1' */
   real_T state;                        /* '<S32>/state' */
-  B_RigidAxlewithTC2024_VDCv2mk_T sf_TC2024;/* '<S31>/TC 2024' */
   B_Torquedemandedbythedriver_V_T sf_Torquedemandedbythedriver_a;
                                       /* '<S2>/Torque demanded by the driver' */
   B_Torquedemandedbythedriver_V_T sf_Torquedemandedbythedriver_k;
                                       /* '<S1>/Torque demanded by the driver' */
   B_Torquedemandedbythedriver_V_T sf_Torquedemandedbythedriver_m;
                                       /* '<S7>/Torque demanded by the driver' */
-  B_RigidAxlewithTC2024_VDCv2mk_T sf_RigidAxlewithTC2024;/* '<S52>/Rigid Axle with TC 2024 ' */
 } B_VDCv2mk2_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   real_T ERROR_Counter;                /* '<S44>/Data Store Memory1' */
-  real_T correction;                   /* '<S17>/Rigid Axle with TC 2024 ' */
+  real_T correction;                   /* '<S30>/Rigid Axle with TC 2024 ' */
+  real_T correction_e;                 /* '<S31>/TC 2024' */
+  real_T correction_i;                 /* '<S17>/Rigid Axle with TC 2024 ' */
+  real_T correction_h;                 /* '<S52>/Rigid Axle with TC 2024 ' */
   real_T A;                            /* '<S23>/Data Store Memory10' */
-  DW_RIGIDAXLEWITHTC_VDCv2mk2_T RIGIDAXLEWITHTC_j;/* '<S5>/RIGIDAXLE WITH TC' */
-  DW_RigidAxlewithTC2024_VDCv2m_T sf_TC2024;/* '<S31>/TC 2024' */
   DW_RIGIDAXLEWITHTC_VDCv2mk2_T RIGIDAXLEWITHTC_i;/* '<S2>/RIGIDAXLE WITH TC' */
   DW_RIGIDAXLEWITHTC_VDCv2mk2_T RIGIDAXLEWITHTC;/* '<S1>/RIGIDAXLE WITH TC' */
-  DW_RigidAxlewithTC2024_VDCv2m_T sf_RigidAxlewithTC2024;/* '<S52>/Rigid Axle with TC 2024 ' */
 } DW_VDCv2mk2_T;
 
 /* External inputs (root inport signals with default storage) */

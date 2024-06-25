@@ -7,9 +7,9 @@
  *
  * Code generation for model "VDCv2mk2".
  *
- * Model version              : 4.118
+ * Model version              : 4.130
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Jun 25 09:58:37 2024
+ * C source code generated on : Tue Jun 25 11:08:18 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -38,13 +38,6 @@ extern const real_T rtCP_pooled_t8tfN5Vo0MrJ[157];
                                                                   */
 
 extern void VDCv2mk2_LimitReached(real_T *rty_Out);
-extern void VDCv2m_RigidAxlewithTC2024_Init(DW_RigidAxlewithTC2024_VDCv2m_T
-  *localDW);
-extern void VDCv2mk2_RigidAxlewithTC2024(real_T rtu_MAX_SLR, real_T
-  rtu_Throttle_Torque_R, real_T rtu_Throttle_Torque_L, real_T rtu_el_Vel_X,
-  real_T rtu_Vel_ms_wheel_RR, real_T rtu_Vel_ms_wheel_RL,
-  B_RigidAxlewithTC2024_VDCv2mk_T *localB, DW_RigidAxlewithTC2024_VDCv2m_T
-  *localDW);
 extern void VDCv2mk2_RIGIDAXLE(real_T rtu_Throttle_TorqueNm, real_T
   *rty_Tq_RR_FM4Nm0inf, real_T *rty_Tq_RL_FM4Nm0inf, real_T *rty_tv_mode);
 extern void VDCv2_Torquedemandedbythedriver(real_T rtu_AP, real_T
