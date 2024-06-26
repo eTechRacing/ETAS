@@ -22,15 +22,15 @@
 	<moduleInfo identifier="VDCv2mk2">
 		<name>VDCv2mk2</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}VDCv2mk2.slx&quot;"/>
-		<version major="4" minor="130"/>
+		<version major="4" minor="133"/>
 		<dateTime kind="created" year="2024" month="3" day="15" hour="15" minute="34" second="18"/>
-		<dateTime kind="lastModified" year="2024" month="6" day="25" hour="11" minute="5" second="6"/>
+		<dateTime kind="lastModified" year="2024" month="6" day="26" hour="11" minute="57" second="23"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
 			<application domain="softwareDevelopment" addressesAvailable="false" nestedDataStructuresAvailable="true"/>
 		</suitability>
-		<user lastName="no" role="modifier"/>
+		<user lastName="joser" role="modifier"/>
 		<creators>
 			<user lastName="no" role="creator"/>
 			<tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="6" day="25" hour="11" minute="8" second="18"/>
+		<dateTime kind="created" year="2024" month="6" day="26" hour="11" minute="59" second="0"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -166,7 +166,7 @@
 				<structMember identifier="Throttle_Torque">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;S54&gt;/ SFunction </documentation>
+						<documentation>&lt;S55&gt;/ SFunction </documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -174,24 +174,30 @@
 				<struct/><typeRef name="_B_Torquedemandedbythedriver_V_T"/>
 				<fileOrigin name="VDCv2mk2.h"/>
 				<annotation>
-					<documentation>Type of block signal data structure for system '&lt;S7&gt;/Torque demanded by the driver'.</documentation>
+					<documentation>Type of block signal data structure for system '&lt;S8&gt;/Torque demanded by the driver'.</documentation>
 				</annotation>
 			</typeDef>
 			<structDef name="_B_VDCv2mk2_T">
 				<fileOrigin name="VDCv2mk2.h"/>
-				<structMember identifier="Merge1">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Opaque</documentation>
-					</annotation>
-				</structMember>
 				<structMember identifier="Merge2">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Opaque</documentation>
 					</annotation>
 				</structMember>
+				<structMember identifier="Merge1">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
 				<structMember identifier="Merge3">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Merge4">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Opaque</documentation>
@@ -209,16 +215,28 @@
 						<documentation>&lt;Root&gt;/Opaque</documentation>
 					</annotation>
 				</structMember>
+				<structMember identifier="Merge2_l">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Merge3_n">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
 				<structMember identifier="state">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;S41&gt;/ SFunction </documentation>
+						<documentation>&lt;S42&gt;/ SFunction </documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="regen_en">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;S40&gt;/ SFunction </documentation>
+						<documentation>&lt;S41&gt;/ SFunction </documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="sf_Torquedemandedbythedriver_a">
@@ -236,7 +254,7 @@
 				<structMember identifier="sf_Torquedemandedbythedriver_m">
 					<type><typeRef name="B_Torquedemandedbythedriver_V_T"/></type>
 					<annotation>
-						<documentation>&lt;S7&gt;/Torque demanded by the driver</documentation>
+						<documentation>&lt;S8&gt;/Torque demanded by the driver</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -526,6 +544,12 @@
 						<documentation>&lt;Root&gt;/Regenerative_Enable</documentation>
 					</annotation>
 				</structMember>
+				<structMember identifier="Throttle_Torque">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Throttle_Torque</documentation>
+					</annotation>
+				</structMember>
 			</structDef>
 			<typeDef name="ExtY_VDCv2mk2_T">
 				<struct/><typeRef name="ExtY_VDCv2mk2_T_tag"/>
@@ -639,39 +663,6 @@
 		<!-- Imported extern parameters following -->
 		<!-- Global BlockIO (rtB) signals following -->
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDCv2mk2_B.Merge1">
-				<definitionLocation>
-					<baseRef identifier="VDCv2mk2_B"/>
-					<memberRef identifier="Merge1"/>
-				</definitionLocation>
-				<fileOrigin name="VDCv2mk2.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDCv2mk2.Opaque.Merge1">
-				<name>Merge1</name>
-				<modelLink href="VDCv2mk2/Opaque"/>
-				<modelLocation>
-					<pathNode name="VDCv2mk2" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Merge1" kind="mlsl:block"/>
-					<pathNode name="Merge1" kind="mlsl:signal"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="private">
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDCv2mk2_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
 			<dataCInterface identifier="VDCv2mk2_B.Merge2">
 				<definitionLocation>
 					<baseRef identifier="VDCv2mk2_B"/>
@@ -705,6 +696,39 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDCv2mk2_B.Merge1">
+				<definitionLocation>
+					<baseRef identifier="VDCv2mk2_B"/>
+					<memberRef identifier="Merge1"/>
+				</definitionLocation>
+				<fileOrigin name="VDCv2mk2.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDCv2mk2.Opaque.Merge1">
+				<name>Merge1</name>
+				<modelLink href="VDCv2mk2/Opaque"/>
+				<modelLocation>
+					<pathNode name="VDCv2mk2" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Merge1" kind="mlsl:block"/>
+					<pathNode name="Merge1" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDCv2mk2_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
 			<dataCInterface identifier="VDCv2mk2_B.Merge3">
 				<definitionLocation>
 					<baseRef identifier="VDCv2mk2_B"/>
@@ -719,6 +743,39 @@
 					<pathNode name="VDCv2mk2" kind="mlsl:model" type="atomic"/>
 					<pathNode name="Merge3" kind="mlsl:block"/>
 					<pathNode name="Merge3" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDCv2mk2_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDCv2mk2_B.Merge4">
+				<definitionLocation>
+					<baseRef identifier="VDCv2mk2_B"/>
+					<memberRef identifier="Merge4"/>
+				</definitionLocation>
+				<fileOrigin name="VDCv2mk2.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDCv2mk2.Opaque.Merge4">
+				<name>Merge4</name>
+				<modelLink href="VDCv2mk2/Opaque"/>
+				<modelLocation>
+					<pathNode name="VDCv2mk2" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Merge4" kind="mlsl:block"/>
+					<pathNode name="Merge4" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
@@ -787,6 +844,74 @@
 					<pathNode name="ENDURANCE" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Merge1" kind="mlsl:block"/>
 					<pathNode name="Merge1_f" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDCv2mk2_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDCv2mk2_B.Merge2_l">
+				<definitionLocation>
+					<baseRef identifier="VDCv2mk2_B"/>
+					<memberRef identifier="Merge2_l"/>
+				</definitionLocation>
+				<fileOrigin name="VDCv2mk2.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDCv2mk2.Opaque.Merge2_l">
+				<name>Merge2_l</name>
+				<modelLink href="VDCv2mk2/Opaque"/>
+				<modelLocation>
+					<pathNode name="VDCv2mk2" kind="mlsl:model" type="atomic"/>
+					<pathNode name="ENDURANCE" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Merge2" kind="mlsl:block"/>
+					<pathNode name="Merge2_l" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDCv2mk2_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDCv2mk2_B.Merge3_n">
+				<definitionLocation>
+					<baseRef identifier="VDCv2mk2_B"/>
+					<memberRef identifier="Merge3_n"/>
+				</definitionLocation>
+				<fileOrigin name="VDCv2mk2.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDCv2mk2.Opaque.Merge3_n">
+				<name>Merge3_n</name>
+				<modelLink href="VDCv2mk2/Opaque"/>
+				<modelLocation>
+					<pathNode name="VDCv2mk2" kind="mlsl:model" type="atomic"/>
+					<pathNode name="ENDURANCE" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Merge3" kind="mlsl:block"/>
+					<pathNode name="Merge3_n" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
@@ -2415,6 +2540,37 @@
 				</address>
 			</usage>
 		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDCv2mk2_Y.Throttle_Torque">
+				<definitionLocation>
+					<baseRef identifier="VDCv2mk2_Y"/>
+					<memberRef identifier="Throttle_Torque"/>
+				</definitionLocation>
+				<fileOrigin name="VDCv2mk2.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDCv2mk2.Throttle_Torque">
+				<name>Throttle_Torque</name>
+				<modelLink href="VDCv2mk2/Throttle_Torque"/>
+				<modelLocation>
+					<pathNode name="VDCv2mk2" kind="mlsl:model"/>
+					<pathNode name="Throttle_Torque" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDCv2mk2_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
 		<functionElement interfaceKind="export">
 			<functionCInterface identifier="irt_Start_VDCv2mk2">
 				<signature>
@@ -2510,6 +2666,7 @@
 						<message identifier="VDCv2mk2_Y.TV_Mode" send="true"></message>
 						<message identifier="VDCv2mk2_Y.BrakeLight_Control" send="true"></message>
 						<message identifier="VDCv2mk2_Y.Regenerative_Enable" send="true"></message>
+						<message identifier="VDCv2mk2_Y.Throttle_Torque" send="true"></message>
 						<message identifier="VDCv2mk2_Y.VDC_Max_Tyre_Slip" send="true"></message>
 					</messageAccess>
 					<constraint>

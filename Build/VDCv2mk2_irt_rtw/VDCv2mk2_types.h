@@ -7,9 +7,9 @@
  *
  * Code generation for model "VDCv2mk2".
  *
- * Model version              : 4.130
+ * Model version              : 4.133
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Jun 25 11:08:18 2024
+ * C source code generated on : Wed Jun 26 11:59:00 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

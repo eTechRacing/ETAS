@@ -42,7 +42,10 @@ void initClass_RTWTop_VDCv2mk2(struct RTWTop_VDCv2mk2_Class *self)
     self->RTWWrapper_VDCv2mk2_B_Merge1_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_B.Merge1, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDCv2mk2_B_Merge1_f_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_B.Merge1_f, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDCv2mk2_B_Merge2_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_B.Merge2, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDCv2mk2_B_Merge2_l_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_B.Merge2_l, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDCv2mk2_B_Merge3_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_B.Merge3, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDCv2mk2_B_Merge3_n_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_B.Merge3_n, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDCv2mk2_B_Merge4_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_B.Merge4, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDCv2mk2_B_sf_Torquedemandedbythedriver_a_Throttle_Torque_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_B.sf_Torquedemandedbythedriver_a.Throttle_Torque, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDCv2mk2_B_sf_Torquedemandedbythedriver_k_Throttle_Torque_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_B.sf_Torquedemandedbythedriver_k.Throttle_Torque, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDCv2mk2_B_sf_Torquedemandedbythedriver_m_Throttle_Torque_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_B.sf_Torquedemandedbythedriver_m.Throttle_Torque, sizeof(double), (uint32)ASD_VARIABLE);
@@ -90,6 +93,7 @@ void initClass_RTWTop_VDCv2mk2(struct RTWTop_VDCv2mk2_Class *self)
     self->RTWWrapper_VDCv2mk2_Y_PowerMean500ms_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_Y.PowerMean500ms, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDCv2mk2_Y_Regenerative_Enable_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_Y.Regenerative_Enable, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDCv2mk2_Y_TV_Mode_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_Y.TV_Mode, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDCv2mk2_Y_Throttle_Torque_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_Y.Throttle_Torque, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDCv2mk2_Y_Torque_L_out_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_Y.Torque_L_out, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDCv2mk2_Y_Torque_OK_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_Y.Torque_OK, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDCv2mk2_Y_Torque_R_out_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_Y.Torque_R_out, sizeof(double), (uint32)ASD_VARIABLE);
@@ -114,9 +118,13 @@ static MethodList RTWTop_VDCv2mk2_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_VDCv2mk2_ClassHeader =
-    {0, 1, 0, 56 + 0, (MethodList *)0, (MethodList *)&RTWTop_VDCv2mk2_ClassMethodList};
+    {0, 1, 0, 60 + 0, (MethodList *)0, (MethodList *)&RTWTop_VDCv2mk2_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_VDCv2mk2_Class RTWTop_VDCv2mk2_ClassObj = {{1, {&RTWTop_VDCv2mk2_ClassHeader}, {0}}
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
     ,NULL
     ,NULL
     ,NULL

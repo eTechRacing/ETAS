@@ -90,6 +90,7 @@
 <!ENTITY _729 SYSTEM "OSrv://ObjectHandle#729" NDATA _OIDLink >
 <!ENTITY _730 SYSTEM "OSrv://ObjectHandle#730" NDATA _OIDLink >
 <!ENTITY _731 SYSTEM "OSrv://ObjectHandle#731" NDATA _OIDLink >
+<!ENTITY _4645 SYSTEM "OSrv://ObjectHandle#4645" NDATA _OIDLink >
 <!ENTITY _732 SYSTEM "OSrv://ObjectHandle#732" NDATA _OIDLink >
 <!ENTITY _733 SYSTEM "OSrv://ObjectHandle#733" NDATA _OIDLink >
 <!ENTITY _742 SYSTEM "OSrv://ObjectHandle#742" NDATA _OIDLink >
@@ -378,6 +379,9 @@
 	Type="YBOConnection"/><_LinkTarget
 	Name="Connection77"
 	Index="731"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection119"
+	Index="4645"
 	Type="YBOConnection"/><_LinkTarget
 	Name="Connection78"
 	Index="732"
@@ -1671,7 +1675,8 @@
 	PortType="UDISCRETE"
 	Direction="IN"
 	UpperBound="255."
-	VisibleName="Throttle_Torque"><YBOHWPort.Connections><YBOConnectionRefList/></YBOHWPort.Connections></YBOHWPort><YBOHWPort
+	VisibleName="Throttle_Torque"><YBOHWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_4645"/></YBOConnectionRefList></YBOHWPort.Connections></YBOHWPort><YBOHWPort
 	Name="ES9001.ES9102.CAN2.CAN2.MEAS_5FETAS_5FVDC_5FTq.Torque_5FR_5Fout"
 	Unit="Nm"
 	Size="REAL64"

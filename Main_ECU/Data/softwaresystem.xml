@@ -241,6 +241,8 @@
 <!ENTITY _709 SYSTEM "OSrv://ObjectHandle#709" NDATA _OIDLink >
 <!ENTITY _1098 SYSTEM "OSrv://ObjectHandle#1098" NDATA _OIDLink >
 <!ENTITY _718 SYSTEM "OSrv://ObjectHandle#718" NDATA _OIDLink >
+<!ENTITY _4073 SYSTEM "OSrv://ObjectHandle#4073" NDATA _OIDLink >
+<!ENTITY _4645 SYSTEM "OSrv://ObjectHandle#4645" NDATA _OIDLink >
 <!ENTITY _524 SYSTEM "OSrv://ObjectHandle#524" NDATA _OIDLink >
 <!ENTITY _594 SYSTEM "OSrv://ObjectHandle#594" NDATA _OIDLink >
 <!ENTITY _653 SYSTEM "OSrv://ObjectHandle#653" NDATA _OIDLink >
@@ -643,6 +645,9 @@
 	Type="YBOConnection"/><_LinkTarget
 	Name="Connection198"
 	Index="1098"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection199"
+	Index="4073"
 	Type="YBOConnection"/></_LinkTarget><_LinkTarget
 	Name="System"
 	Index="686"
@@ -970,6 +975,9 @@
 	Type="YBOConnection"/><_LinkTarget
 	Name="Connection107"
 	Index="718"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection119"
+	Index="4645"
 	Type="YBOConnection"/></_LinkTarget><_LinkTarget
 	Name="Car_State"
 	Index="524"
@@ -1876,7 +1884,14 @@
 	PortInterfaceType="OUT_IN"
 	VisibleName="out"><YBOSAP.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOConnection="_1098"/><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_718"/></YBOConnectionRefList></YBOSAP.Connections></YBOSAP></YBOPortList></YBOSoftwareSystem.Ports><YBOSoftwareSystem.Functions><YBOFunctionRefList/></YBOSoftwareSystem.Functions><YBOSoftwareSystem.Modules><YBOModuleRefList><YBOModuleRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_718"/></YBOConnectionRefList></YBOSAP.Connections></YBOSAP><YBOSAP
+	Name="SoftwareSystem.SAP9"
+	Size="REAL64"
+	Direction="OUT"
+	PortInterfaceType="OUT_IN"
+	VisibleName="out"><YBOSAP.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_4073"/><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_4645"/></YBOConnectionRefList></YBOSAP.Connections></YBOSAP></YBOPortList></YBOSoftwareSystem.Ports><YBOSoftwareSystem.Functions><YBOFunctionRefList/></YBOSoftwareSystem.Functions><YBOSoftwareSystem.Modules><YBOModuleRefList><YBOModuleRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOModule="_524"/><YBOModuleRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOModule="_594"/><YBOModuleRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOModule="_653"/><YBOModuleRefList.EmbeddedLink
@@ -2333,5 +2348,8 @@
 	Flag="DYNAMIC"
 	VisibleName="Connection"/><YBOConnection
 	Name="SoftwareSystem.Connection198"
+	Flag="DYNAMIC"
+	VisibleName="Connection"/><YBOConnection
+	Name="SoftwareSystem.Connection199"
 	Flag="DYNAMIC"
 	VisibleName="Connection"/></YBOConnectionList></YBOSoftwareSystem.Connections></YBOSoftwareSystem>

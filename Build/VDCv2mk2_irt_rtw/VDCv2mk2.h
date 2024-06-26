@@ -12,9 +12,9 @@
  *
  * Code generation for model "VDCv2mk2".
  *
- * Model version              : 4.130
+ * Model version              : 4.133
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Jun 25 11:08:18 2024
+ * C source code generated on : Wed Jun 26 11:59:00 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -858,40 +858,43 @@
 /* Definition for use in the target main file */
 #define VDCv2mk2_rtModel               RT_MODEL_VDCv2mk2_T
 
-/* Block signals for system '<S7>/Torque demanded by the driver' */
+/* Block signals for system '<S8>/Torque demanded by the driver' */
 typedef struct {
-  real_T Throttle_Torque;             /* '<S7>/Torque demanded by the driver' */
+  real_T Throttle_Torque;             /* '<S8>/Torque demanded by the driver' */
 } B_Torquedemandedbythedriver_V_T;
 
 /* Block states (default storage) for system '<S1>/RIGIDAXLE WITH TC' */
 typedef struct {
-  real_T correction;                   /* '<S11>/Rigid Axle with TC 2024 ' */
+  real_T correction;                   /* '<S12>/Rigid Axle with TC 2024 ' */
 } DW_RIGIDAXLEWITHTC_VDCv2mk2_T;
 
 /* Block signals (default storage) */
 typedef struct {
-  real_T Merge1;                       /* '<Root>/Merge1' */
   real_T Merge2;                       /* '<Root>/Merge2' */
+  real_T Merge1;                       /* '<Root>/Merge1' */
   real_T Merge3;                       /* '<Root>/Merge3' */
-  real_T Merge;                        /* '<S5>/Merge' */
-  real_T Merge1_f;                     /* '<S5>/Merge1' */
-  real_T state;                        /* '<S32>/state' */
+  real_T Merge4;                       /* '<Root>/Merge4' */
+  real_T Merge;                        /* '<S6>/Merge' */
+  real_T Merge1_f;                     /* '<S6>/Merge1' */
+  real_T Merge2_l;                     /* '<S6>/Merge2' */
+  real_T Merge3_n;                     /* '<S6>/Merge3' */
+  real_T state;                        /* '<S33>/state' */
   B_Torquedemandedbythedriver_V_T sf_Torquedemandedbythedriver_a;
                                       /* '<S2>/Torque demanded by the driver' */
   B_Torquedemandedbythedriver_V_T sf_Torquedemandedbythedriver_k;
                                       /* '<S1>/Torque demanded by the driver' */
   B_Torquedemandedbythedriver_V_T sf_Torquedemandedbythedriver_m;
-                                      /* '<S7>/Torque demanded by the driver' */
+                                      /* '<S8>/Torque demanded by the driver' */
 } B_VDCv2mk2_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  real_T ERROR_Counter;                /* '<S44>/Data Store Memory1' */
-  real_T correction;                   /* '<S30>/Rigid Axle with TC 2024 ' */
-  real_T correction_e;                 /* '<S31>/TC 2024' */
-  real_T correction_i;                 /* '<S17>/Rigid Axle with TC 2024 ' */
-  real_T correction_h;                 /* '<S52>/Rigid Axle with TC 2024 ' */
-  real_T A;                            /* '<S23>/Data Store Memory10' */
+  real_T ERROR_Counter;                /* '<S45>/Data Store Memory1' */
+  real_T correction;                   /* '<S31>/Rigid Axle with TC 2024 ' */
+  real_T correction_e;                 /* '<S32>/TC 2024' */
+  real_T correction_i;                 /* '<S18>/Rigid Axle with TC 2024 ' */
+  real_T correction_h;                 /* '<S53>/Rigid Axle with TC 2024 ' */
+  real_T A;                            /* '<S24>/Data Store Memory10' */
   DW_RIGIDAXLEWITHTC_VDCv2mk2_T RIGIDAXLEWITHTC_i;/* '<S2>/RIGIDAXLE WITH TC' */
   DW_RIGIDAXLEWITHTC_VDCv2mk2_T RIGIDAXLEWITHTC;/* '<S1>/RIGIDAXLE WITH TC' */
 } DW_VDCv2mk2_T;
@@ -947,6 +950,7 @@ typedef struct {
   real_T TV_Mode;                      /* '<Root>/TV_Mode' */
   real_T BrakeLight_Control;           /* '<Root>/BrakeLight_Control' */
   real_T Regenerative_Enable;          /* '<Root>/Regenerative_Enable' */
+  real_T Throttle_Torque;              /* '<Root>/Throttle_Torque' */
 } ExtY_VDCv2mk2_T;
 
 /* Backward compatible GRT Identifiers */
@@ -1103,62 +1107,63 @@ extern RT_MODEL_VDCv2mk2_T *const VDCv2mk2_M;
  * '<S2>'   : 'VDCv2mk2/AUTOX1'
  * '<S3>'   : 'VDCv2mk2/Accumulator Power'
  * '<S4>'   : 'VDCv2mk2/Brake_Light'
- * '<S5>'   : 'VDCv2mk2/ENDURANCE'
- * '<S6>'   : 'VDCv2mk2/SAFETY BLOCK'
- * '<S7>'   : 'VDCv2mk2/SKIDPAD'
- * '<S8>'   : 'VDCv2mk2/TEST_MODE_IN'
- * '<S9>'   : 'VDCv2mk2/WORKSHOP'
- * '<S10>'  : 'VDCv2mk2/ACCELERATION/RIGIDAXLE'
- * '<S11>'  : 'VDCv2mk2/ACCELERATION/RIGIDAXLE WITH TC'
- * '<S12>'  : 'VDCv2mk2/ACCELERATION/Torque demanded by the driver'
- * '<S13>'  : 'VDCv2mk2/ACCELERATION/RIGIDAXLE/Rigid Axle 2024 '
- * '<S14>'  : 'VDCv2mk2/ACCELERATION/RIGIDAXLE WITH TC/Rigid Axle with TC 2024 '
- * '<S15>'  : 'VDCv2mk2/AUTOX1/RIGIDAXLE'
- * '<S16>'  : 'VDCv2mk2/AUTOX1/RIGIDAXLE WITH TC'
- * '<S17>'  : 'VDCv2mk2/AUTOX1/TC+TV'
- * '<S18>'  : 'VDCv2mk2/AUTOX1/Torque demanded by the driver'
- * '<S19>'  : 'VDCv2mk2/AUTOX1/RIGIDAXLE/Rigid Axle 2024 '
- * '<S20>'  : 'VDCv2mk2/AUTOX1/RIGIDAXLE WITH TC/Rigid Axle with TC 2024 '
- * '<S21>'  : 'VDCv2mk2/AUTOX1/TC+TV/MATLAB Function'
- * '<S22>'  : 'VDCv2mk2/AUTOX1/TC+TV/Rigid Axle with TC 2024 '
- * '<S23>'  : 'VDCv2mk2/Accumulator Power/PowerLimitDetection'
- * '<S24>'  : 'VDCv2mk2/Accumulator Power/W to kW'
- * '<S25>'  : 'VDCv2mk2/Accumulator Power/PowerLimitDetection/LimitReached'
- * '<S26>'  : 'VDCv2mk2/Accumulator Power/PowerLimitDetection/OK_OrLatch'
- * '<S27>'  : 'VDCv2mk2/Accumulator Power/PowerLimitDetection/OK_OrLatch/Latched Error'
- * '<S28>'  : 'VDCv2mk2/Accumulator Power/PowerLimitDetection/OK_OrLatch/OK'
- * '<S29>'  : 'VDCv2mk2/ENDURANCE/RIGIDAXLE'
- * '<S30>'  : 'VDCv2mk2/ENDURANCE/RIGIDAXLE WITH TC'
- * '<S31>'  : 'VDCv2mk2/ENDURANCE/TC+TV'
- * '<S32>'  : 'VDCv2mk2/ENDURANCE/Torque'
- * '<S33>'  : 'VDCv2mk2/ENDURANCE/Velocity cap'
- * '<S34>'  : 'VDCv2mk2/ENDURANCE/RIGIDAXLE/Rigid Axle 2024 '
- * '<S35>'  : 'VDCv2mk2/ENDURANCE/RIGIDAXLE WITH TC/Rigid Axle with TC 2024 '
- * '<S36>'  : 'VDCv2mk2/ENDURANCE/TC+TV/MATLAB Function'
- * '<S37>'  : 'VDCv2mk2/ENDURANCE/TC+TV/TC 2024'
- * '<S38>'  : 'VDCv2mk2/ENDURANCE/Torque/DocBlock'
- * '<S39>'  : 'VDCv2mk2/ENDURANCE/Torque/Torque demanded by the driver'
- * '<S40>'  : 'VDCv2mk2/ENDURANCE/Torque/enable regen'
- * '<S41>'  : 'VDCv2mk2/ENDURANCE/Torque/state'
- * '<S42>'  : 'VDCv2mk2/ENDURANCE/Velocity cap/If Action Subsystem'
- * '<S43>'  : 'VDCv2mk2/ENDURANCE/Velocity cap/If Action Subsystem1'
- * '<S44>'  : 'VDCv2mk2/SAFETY BLOCK/APPS_IMPLAUSIBILITY'
- * '<S45>'  : 'VDCv2mk2/SAFETY BLOCK/Compare To Constant'
- * '<S46>'  : 'VDCv2mk2/SAFETY BLOCK/DocBlock'
- * '<S47>'  : 'VDCv2mk2/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Imp'
- * '<S48>'  : 'VDCv2mk2/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Not Imp'
- * '<S49>'  : 'VDCv2mk2/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Signal_Failure'
- * '<S50>'  : 'VDCv2mk2/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Signal_OK'
- * '<S51>'  : 'VDCv2mk2/SKIDPAD/RIGIDAXLE'
- * '<S52>'  : 'VDCv2mk2/SKIDPAD/TC+TV'
- * '<S53>'  : 'VDCv2mk2/SKIDPAD/TV with TC OFF '
- * '<S54>'  : 'VDCv2mk2/SKIDPAD/Torque demanded by the driver'
- * '<S55>'  : 'VDCv2mk2/SKIDPAD/RIGIDAXLE/Rigid Axle 2024 '
- * '<S56>'  : 'VDCv2mk2/SKIDPAD/TC+TV/MATLAB Function'
- * '<S57>'  : 'VDCv2mk2/SKIDPAD/TC+TV/Rigid Axle with TC 2024 '
- * '<S58>'  : 'VDCv2mk2/SKIDPAD/TV with TC OFF /MATLAB Function'
- * '<S59>'  : 'VDCv2mk2/TEST_MODE_IN/BYPASS'
- * '<S60>'  : 'VDCv2mk2/TEST_MODE_IN/TEST_CONSTANTS'
- * '<S61>'  : 'VDCv2mk2/WORKSHOP/Torque demanded by the driver'
+ * '<S5>'   : 'VDCv2mk2/Brake_Light1'
+ * '<S6>'   : 'VDCv2mk2/ENDURANCE'
+ * '<S7>'   : 'VDCv2mk2/SAFETY BLOCK'
+ * '<S8>'   : 'VDCv2mk2/SKIDPAD'
+ * '<S9>'   : 'VDCv2mk2/TEST_MODE_IN'
+ * '<S10>'  : 'VDCv2mk2/WORKSHOP'
+ * '<S11>'  : 'VDCv2mk2/ACCELERATION/RIGIDAXLE'
+ * '<S12>'  : 'VDCv2mk2/ACCELERATION/RIGIDAXLE WITH TC'
+ * '<S13>'  : 'VDCv2mk2/ACCELERATION/Torque demanded by the driver'
+ * '<S14>'  : 'VDCv2mk2/ACCELERATION/RIGIDAXLE/Rigid Axle 2024 '
+ * '<S15>'  : 'VDCv2mk2/ACCELERATION/RIGIDAXLE WITH TC/Rigid Axle with TC 2024 '
+ * '<S16>'  : 'VDCv2mk2/AUTOX1/RIGIDAXLE'
+ * '<S17>'  : 'VDCv2mk2/AUTOX1/RIGIDAXLE WITH TC'
+ * '<S18>'  : 'VDCv2mk2/AUTOX1/TC+TV'
+ * '<S19>'  : 'VDCv2mk2/AUTOX1/Torque demanded by the driver'
+ * '<S20>'  : 'VDCv2mk2/AUTOX1/RIGIDAXLE/Rigid Axle 2024 '
+ * '<S21>'  : 'VDCv2mk2/AUTOX1/RIGIDAXLE WITH TC/Rigid Axle with TC 2024 '
+ * '<S22>'  : 'VDCv2mk2/AUTOX1/TC+TV/MATLAB Function'
+ * '<S23>'  : 'VDCv2mk2/AUTOX1/TC+TV/Rigid Axle with TC 2024 '
+ * '<S24>'  : 'VDCv2mk2/Accumulator Power/PowerLimitDetection'
+ * '<S25>'  : 'VDCv2mk2/Accumulator Power/W to kW'
+ * '<S26>'  : 'VDCv2mk2/Accumulator Power/PowerLimitDetection/LimitReached'
+ * '<S27>'  : 'VDCv2mk2/Accumulator Power/PowerLimitDetection/OK_OrLatch'
+ * '<S28>'  : 'VDCv2mk2/Accumulator Power/PowerLimitDetection/OK_OrLatch/Latched Error'
+ * '<S29>'  : 'VDCv2mk2/Accumulator Power/PowerLimitDetection/OK_OrLatch/OK'
+ * '<S30>'  : 'VDCv2mk2/ENDURANCE/RIGIDAXLE'
+ * '<S31>'  : 'VDCv2mk2/ENDURANCE/RIGIDAXLE WITH TC'
+ * '<S32>'  : 'VDCv2mk2/ENDURANCE/TC+TV'
+ * '<S33>'  : 'VDCv2mk2/ENDURANCE/Torque'
+ * '<S34>'  : 'VDCv2mk2/ENDURANCE/Velocity cap'
+ * '<S35>'  : 'VDCv2mk2/ENDURANCE/RIGIDAXLE/Rigid Axle 2024 '
+ * '<S36>'  : 'VDCv2mk2/ENDURANCE/RIGIDAXLE WITH TC/Rigid Axle with TC 2024 '
+ * '<S37>'  : 'VDCv2mk2/ENDURANCE/TC+TV/MATLAB Function'
+ * '<S38>'  : 'VDCv2mk2/ENDURANCE/TC+TV/TC 2024'
+ * '<S39>'  : 'VDCv2mk2/ENDURANCE/Torque/DocBlock'
+ * '<S40>'  : 'VDCv2mk2/ENDURANCE/Torque/Torque demanded by the driver'
+ * '<S41>'  : 'VDCv2mk2/ENDURANCE/Torque/enable regen'
+ * '<S42>'  : 'VDCv2mk2/ENDURANCE/Torque/state'
+ * '<S43>'  : 'VDCv2mk2/ENDURANCE/Velocity cap/If Action Subsystem'
+ * '<S44>'  : 'VDCv2mk2/ENDURANCE/Velocity cap/If Action Subsystem1'
+ * '<S45>'  : 'VDCv2mk2/SAFETY BLOCK/APPS_IMPLAUSIBILITY'
+ * '<S46>'  : 'VDCv2mk2/SAFETY BLOCK/Compare To Constant'
+ * '<S47>'  : 'VDCv2mk2/SAFETY BLOCK/DocBlock'
+ * '<S48>'  : 'VDCv2mk2/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Imp'
+ * '<S49>'  : 'VDCv2mk2/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Not Imp'
+ * '<S50>'  : 'VDCv2mk2/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Signal_Failure'
+ * '<S51>'  : 'VDCv2mk2/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Signal_OK'
+ * '<S52>'  : 'VDCv2mk2/SKIDPAD/RIGIDAXLE'
+ * '<S53>'  : 'VDCv2mk2/SKIDPAD/TC+TV'
+ * '<S54>'  : 'VDCv2mk2/SKIDPAD/TV with TC OFF '
+ * '<S55>'  : 'VDCv2mk2/SKIDPAD/Torque demanded by the driver'
+ * '<S56>'  : 'VDCv2mk2/SKIDPAD/RIGIDAXLE/Rigid Axle 2024 '
+ * '<S57>'  : 'VDCv2mk2/SKIDPAD/TC+TV/MATLAB Function'
+ * '<S58>'  : 'VDCv2mk2/SKIDPAD/TC+TV/Rigid Axle with TC 2024 '
+ * '<S59>'  : 'VDCv2mk2/SKIDPAD/TV with TC OFF /MATLAB Function'
+ * '<S60>'  : 'VDCv2mk2/TEST_MODE_IN/BYPASS'
+ * '<S61>'  : 'VDCv2mk2/TEST_MODE_IN/TEST_CONSTANTS'
+ * '<S62>'  : 'VDCv2mk2/WORKSHOP/Torque demanded by the driver'
  */
 #endif                                 /* RTW_HEADER_VDCv2mk2_h_ */

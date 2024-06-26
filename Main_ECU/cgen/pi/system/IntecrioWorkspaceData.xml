@@ -5,8 +5,8 @@
 	<Name value="Main_ECU"/>
 	<Caption value="Main_ECU"/>
 	<DateTimeCreated value="2024-04-20T01:28:13.0Z"/>
-	<DateTimeLastOpened value="2024-06-25T11:44:42.0Z"/>
-	<DateTimeLastSaved value="2024-06-25T11:44:42.0Z"/>
+	<DateTimeLastOpened value="2024-06-26T10:36:56.0Z"/>
+	<DateTimeLastSaved value="2024-06-26T10:36:56.0Z"/>
 	<VersionCreated value="5.0.5.1003"/>
 	<VersionLastSaved value="5.0.5.1003"/>
 	<VersionMinRequired value="5.0.5.1001"/>
@@ -4491,20 +4491,20 @@
 						<Name value="VDCv2mk2"/>
 						<Caption value="VDCv2mk2"/>
 						<ModuleInfo>
-							<UserName value="no"/>
+							<UserName value="joser"/>
 							<Completion value="full"/>
 							<Company value=""/>
 							<UserRole value="modifier"/>
 							<DateTimeCreated value="2024-3-15T15:34:18.0Z"/>
-							<Version value="4.130"/>
+							<Version value="4.133"/>
 							<ModelLink value="mlsl:\\\&quot;C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\VDCv2mk2.slx&quot;"/>
-							<DateTimeModified value="2024-6-25T11:5:6.0Z"/>
+							<DateTimeModified value="2024-6-26T11:57:23.0Z"/>
 							<Description/>
 							<InterfaceFile>
 								<Name value="vdcv2mk2.six"/>
 								<Path value="c:\users\joser\onedrive\documentos\github\etas\build\vdcv2mk2_irt_rtw\vdcv2mk2.six"/>
 								<Kind value="SCOOP-IX"/>
-								<DateTime value="2024-06-25T11:09:25.0Z"/>
+								<DateTime value="2024-06-26T12:00:16.0Z"/>
 							</InterfaceFile>
 							<Suitabilities>
 								<Suitability>
@@ -4633,7 +4633,7 @@
 							</File>
 						</FileContainer>
 						<Interface>
-							<Ports portCount="45">
+							<Ports portCount="46">
 								<Port id="Handle_1819_VDCv2mk2.VDCv2mk2_U\.el_ACCEL_X">
 									<ID value="VDCv2mk2.VDCv2mk2_U\.el_ACCEL_X"/>
 									<ShortId value="VDCv2mk2_U.el_ACCEL_X"/>
@@ -5804,6 +5804,32 @@
 										<Kind value="Linear"/>
 									</QuantizationFormula>
 								</Port>
+								<Port id="Handle_4066_VDCv2mk2.VDCv2mk2_Y\.Throttle_Torque">
+									<ID value="VDCv2mk2.VDCv2mk2_Y\.Throttle_Torque"/>
+									<ShortId value="VDCv2mk2_Y.Throttle_Torque"/>
+									<Name value="VDCv2mk2.Throttle_Torque"/>
+									<Caption value="Throttle_Torque"/>
+									<Direction value="Out"/>
+									<Type value="continuous"/>
+									<Size value="real64"/>
+									<Unit value=""/>
+									<LowerBound value="-1.7E+308"/>
+									<UpperBound value="1.7E+308"/>
+									<Saturated value="true"/>
+									<RepresentationFormat value="Implemented"/>
+									<InitValue value="0"/>
+									<Kind value="ModulePort"/>
+									<Connected value="true"/>
+									<QuantizationFormula id="Handle_4066_VDCv2mk2.VDCv2mk2_Y\.Throttle_Torque">
+										<ID value="VDCv2mk2.VDCv2mk2_Y\.Throttle_Torque"/>
+										<ShortId value="VDCv2mk2_Y.Throttle_Torque"/>
+										<Name value="Throttle_Torque"/>
+										<Caption value="Throttle_Torque"/>
+										<ParamM value="1"/>
+										<ParamT value="0"/>
+										<Kind value="Linear"/>
+									</QuantizationFormula>
+								</Port>
 							</Ports>
 							<Processes>
 								<Process id="Handle_1256_VDCv2mk2.irt_Start_VDCv2mk2">
@@ -5895,6 +5921,7 @@
 										<MessageReference targetRef="Handle_1861_VDCv2mk2.VDCv2mk2_Y\.TV_Mode"/>
 										<MessageReference targetRef="Handle_1862_VDCv2mk2.VDCv2mk2_Y\.BrakeLight_Control"/>
 										<MessageReference targetRef="Handle_1863_VDCv2mk2.VDCv2mk2_Y\.Regenerative_Enable"/>
+										<MessageReference targetRef="Handle_4066_VDCv2mk2.VDCv2mk2_Y\.Throttle_Torque"/>
 									</MessageReferences>
 								</Process>
 								<Process id="Handle_1262_VDCv2mk2.irt_Terminate_VDCv2mk2">
@@ -5945,7 +5972,7 @@
 					<SoftwareMetaInfo functionCount="0" moduleCount="8"/>
 					<Kind value="Software"/>
 					<Interface>
-						<Ports portCount="129">
+						<Ports portCount="130">
 							<Port id="Handle_1101_SoftwareSystem.SAP">
 								<ID value="SoftwareSystem.SAP"/>
 								<ShortId value="SAP"/>
@@ -9300,9 +9327,35 @@
 									<Kind value="Linear"/>
 								</QuantizationFormula>
 							</Port>
+							<Port id="Handle_4068_SoftwareSystem.SAP9">
+								<ID value="SoftwareSystem.SAP9"/>
+								<ShortId value="SAP9"/>
+								<Name value="out"/>
+								<Caption value="VDCv2mk2.Throttle_Torque"/>
+								<Direction value="Out"/>
+								<Type value="continuous"/>
+								<Size value="real64"/>
+								<Unit value=""/>
+								<LowerBound value="-1.7E+308"/>
+								<UpperBound value="1.7E+308"/>
+								<Saturated value="true"/>
+								<RepresentationFormat value="Implemented"/>
+								<InitValue value="0"/>
+								<Kind value="FunctionPort"/>
+								<Connected value="true"/>
+								<QuantizationFormula id="Handle_4066_VDCv2mk2.VDCv2mk2_Y\.Throttle_Torque">
+									<ID value="VDCv2mk2.VDCv2mk2_Y\.Throttle_Torque"/>
+									<ShortId value="VDCv2mk2_Y.Throttle_Torque"/>
+									<Name value="Throttle_Torque"/>
+									<Caption value="Throttle_Torque"/>
+									<ParamM value="1"/>
+									<ParamT value="0"/>
+									<Kind value="Linear"/>
+								</QuantizationFormula>
+							</Port>
 						</Ports>
 					</Interface>
-					<Connections connectionCount="150">
+					<Connections connectionCount="151">
 						<Connection id="Handle_505_SoftwareSystem.Connection">
 							<ID value="SoftwareSystem.Connection"/>
 							<ShortId value="Connection"/>
@@ -11553,6 +11606,21 @@
 								<Name value="VDCv2mk2.Regenerative_Enable"/>
 							</SinkPortRef>
 						</Connection>
+						<Connection id="Handle_4073_SoftwareSystem.Connection199">
+							<ID value="SoftwareSystem.Connection199"/>
+							<ShortId value="Connection199"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_4066_VDCv2mk2.VDCv2mk2_Y\.Throttle_Torque">
+								<Name value="Throttle_Torque"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_4068_SoftwareSystem.SAP9">
+								<Name value="VDCv2mk2.Throttle_Torque"/>
+							</SinkPortRef>
+						</Connection>
 					</Connections>
 					<EmbeddedComponents>
 						<Functions>
@@ -11582,7 +11650,7 @@
 					<Caption value="ETAS"/>
 					<Kind value="StandardSystem"/>
 					<SystemMetaInfo>
-						<ProgramIdentifier value="0xaff8c133"/>
+						<ProgramIdentifier value="0x5ab05f6d"/>
 					</SystemMetaInfo>
 					<Hardware id="Handle_1268_System.YBOMappedECU" refId="">
 						<ID value="System.YBOMappedECU"/>
@@ -17515,7 +17583,7 @@
 																		<ShortId value="Throttle_Torque"/>
 																		<Name value="CAN2.CAN2.MEAS_ETAS_VDC_Tq.Throttle_Torque"/>
 																		<Caption value="Throttle_Torque"/>
-																		<Connected value="false"/>
+																		<Connected value="true"/>
 																		<Type value="udiscrete"/>
 																		<Unit value="Nm"/>
 																		<RepresentationFormat value="Physical"/>
@@ -19470,7 +19538,7 @@
 																	<ShortId value="Throttle_Torque"/>
 																	<Name value="CAN2.CAN2.MEAS_ETAS_VDC_Tq.Throttle_Torque"/>
 																	<Caption value="Throttle_Torque"/>
-																	<Connected value="false"/>
+																	<Connected value="true"/>
 																	<Type value="udiscrete"/>
 																	<Unit value="Nm"/>
 																	<RepresentationFormat value="Physical"/>
@@ -19881,7 +19949,7 @@
 						<Ports portCount="0">
 						</Ports>
 					</Interface>
-					<Connections connectionCount="108">
+					<Connections connectionCount="109">
 						<Connection id="Handle_690_System.Connection">
 							<ID value="System.Connection"/>
 							<ShortId value="Connection"/>
@@ -21500,6 +21568,21 @@
 							</SourcePortRef>
 							<SinkPortRef refId="Handle_1215_SoftwareSystem.SAP171">
 								<Name value="VDCv2mk2.el_YAW"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_4645_System.Connection119">
+							<ID value="System.Connection119"/>
+							<ShortId value="Connection119"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_4068_SoftwareSystem.SAP9">
+								<Name value="VDCv2mk2.Throttle_Torque"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_316_ES9001.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Throttle_Torque">
+								<Name value="Throttle_Torque"/>
 							</SinkPortRef>
 						</Connection>
 					</Connections>
