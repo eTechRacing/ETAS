@@ -110,32 +110,32 @@ for i = 1:length(SI);
     for j = 1:length(VS);
         Vx(j)=(V/3.6)*cos(VS(j));
         Vy(j)=(Vx(j))*VS(j); 
-        w(i,j)=0;
+        w(i,j)=0; 
         Ay(i,j)=0;
         for k=1:10     
             
-            alphaFL(i,j)=((tan(VS(j))*(Vx(j)))+(w(i,j)*a))./((Vx(j))-w(i,j)*Tf/2)-SI(i); %slip angle front left en rad
+            alphaFL(i,j)=(((VS(j)*(Vx(j)))+(w(i,j)*a))./((Vx(j))-w(i,j)*Tf/2)-SI(i)); %slip angle front left en rad
             if alphaFL(i,j)>sliplim;
                 alphaFL(i,j)=sliplim;
             elseif alphaFL(i,j)<-sliplim;
                 alphaFL(i,j)=-sliplim;
             end
             
-            alphaFR(i,j)=((tan(VS(j))*(Vx(j)))+(w(i,j)*a))./((Vx(j))+w(i,j)*Tf/2)-SI(i); %slip angle front right en rad
+            alphaFR(i,j)=(((VS(j)*(Vx(j)))+(w(i,j)*a))./((Vx(j))+w(i,j)*Tf/2)-SI(i)); %slip angle front right en rad
             if alphaFR(i,j)>sliplim;
                 alphaFR(i,j)=sliplim;
             elseif alphaFR(i,j)<-sliplim;
                 alphaFR(i,j)=-sliplim;
             end
             
-            alphaRL(i,j)=((tan(VS(j))*(Vx(j)))-(w(i,j)*b))./((Vx(j))-w(i,j)*Tr/2); %slip angle rear left en rad           
+            alphaRL(i,j)=((VS(j)*(Vx(j)))-(w(i,j)*b))./((Vx(j))-w(i,j)*Tr/2); %slip angle rear left en rad           
             if alphaRL(i,j)>sliplim;
                 alphaRL(i,j)=sliplim;
             elseif alphaRL(i,j)<-sliplim;
                 alphaRL(i,j)=-sliplim;
             end
             
-            alphaRR(i,j)=((tan(VS(j))*(Vx(j)))-(w(i,j)*b))./((Vx(j))+w(i,j)*Tr/2); %slip angle rear right en rad
+            alphaRR(i,j)=((VS(j)*(Vx(j)))-(w(i,j)*b))./((Vx(j))+w(i,j)*Tr/2); %slip angle rear right en rad
             if alphaRR(i,j)>sliplim;
                 alphaRR(i,j)=sliplim;
             elseif alphaRR(i,j)<-sliplim;
