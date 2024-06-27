@@ -22,9 +22,9 @@
 	<moduleInfo identifier="VDCv2mk2">
 		<name>VDCv2mk2</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}VDCv2mk2.slx&quot;"/>
-		<version major="4" minor="133"/>
+		<version major="4" minor="159"/>
 		<dateTime kind="created" year="2024" month="3" day="15" hour="15" minute="34" second="18"/>
-		<dateTime kind="lastModified" year="2024" month="6" day="26" hour="11" minute="57" second="23"/>
+		<dateTime kind="lastModified" year="2024" month="6" day="27" hour="11" minute="13" second="38"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="6" day="26" hour="11" minute="59" second="0"/>
+		<dateTime kind="created" year="2024" month="6" day="27" hour="11" minute="15" second="4"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -161,6 +161,28 @@
 		<!-- "import" MATLAB/Simulink base type and complex struct definitions via external entity -->
 		&baseTypes-mlsl;
 		<definitions>
+			<structDef name="_B_MATLABFunction_VDCv2mk2_T">
+				<fileOrigin name="VDCv2mk2.h"/>
+				<structMember identifier="Torque_R_Nm">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S57&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Torque_L_Nm">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S57&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="B_MATLABFunction_VDCv2mk2_T">
+				<struct/><typeRef name="_B_MATLABFunction_VDCv2mk2_T"/>
+				<fileOrigin name="VDCv2mk2.h"/>
+				<annotation>
+					<documentation>Type of block signal data structure for system '&lt;S53&gt;/MATLAB Function'.</documentation>
+				</annotation>
+			</typeDef>
 			<structDef name="_B_Torquedemandedbythedriver_V_T">
 				<fileOrigin name="VDCv2mk2.h"/>
 				<structMember identifier="Throttle_Torque">
@@ -174,7 +196,7 @@
 				<struct/><typeRef name="_B_Torquedemandedbythedriver_V_T"/>
 				<fileOrigin name="VDCv2mk2.h"/>
 				<annotation>
-					<documentation>Type of block signal data structure for system '&lt;S8&gt;/Torque demanded by the driver'.</documentation>
+					<documentation>Type of block signal data structure for system '&lt;S7&gt;/Torque demanded by the driver'.</documentation>
 				</annotation>
 			</typeDef>
 			<structDef name="_B_VDCv2mk2_T">
@@ -254,7 +276,19 @@
 				<structMember identifier="sf_Torquedemandedbythedriver_m">
 					<type><typeRef name="B_Torquedemandedbythedriver_V_T"/></type>
 					<annotation>
-						<documentation>&lt;S8&gt;/Torque demanded by the driver</documentation>
+						<documentation>&lt;S7&gt;/Torque demanded by the driver</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="sf_MATLABFunction_a">
+					<type><typeRef name="B_MATLABFunction_VDCv2mk2_T"/></type>
+					<annotation>
+						<documentation>&lt;S54&gt;/MATLAB Function</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="sf_MATLABFunction">
+					<type><typeRef name="B_MATLABFunction_VDCv2mk2_T"/></type>
+					<annotation>
+						<documentation>&lt;S53&gt;/MATLAB Function</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -1052,6 +1086,150 @@
 					<pathNode name="SKIDPAD" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Torque demanded by the driver" kind="mlsl:block"/>
 					<pathNode name="Throttle_Torque" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDCv2mk2_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDCv2mk2_B.sf_MATLABFunction_a.Torque_R_Nm">
+				<definitionLocation>
+					<baseRef identifier="VDCv2mk2_B"/>
+					<memberRef identifier="sf_MATLABFunction_a"/>
+					<memberRef identifier="Torque_R_Nm"/>
+				</definitionLocation>
+				<fileOrigin name="VDCv2mk2.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDCv2mk2.SKIDPAD.TC_TV.MATLAB_Function.Torque_R_Nm">
+				<name>Torque_R_Nm</name>
+				<modelLink href="VDCv2mk2/SKIDPAD/TC+TV/MATLAB Function"/>
+				<modelLocation>
+					<pathNode name="VDCv2mk2" kind="mlsl:model" type="atomic"/>
+					<pathNode name="SKIDPAD" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="TV with TC OFF" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="MATLAB Function" kind="mlsl:block"/>
+					<pathNode name="Torque_R_Nm" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDCv2mk2_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDCv2mk2_B.sf_MATLABFunction_a.Torque_L_Nm">
+				<definitionLocation>
+					<baseRef identifier="VDCv2mk2_B"/>
+					<memberRef identifier="sf_MATLABFunction_a"/>
+					<memberRef identifier="Torque_L_Nm"/>
+				</definitionLocation>
+				<fileOrigin name="VDCv2mk2.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDCv2mk2.SKIDPAD.TC_TV.MATLAB_Function.Torque_L_Nm">
+				<name>Torque_L_Nm</name>
+				<modelLink href="VDCv2mk2/SKIDPAD/TC+TV/MATLAB Function"/>
+				<modelLocation>
+					<pathNode name="VDCv2mk2" kind="mlsl:model" type="atomic"/>
+					<pathNode name="SKIDPAD" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="TV with TC OFF" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="MATLAB Function" kind="mlsl:block"/>
+					<pathNode name="Torque_L_Nm" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDCv2mk2_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDCv2mk2_B.sf_MATLABFunction.Torque_R_Nm">
+				<definitionLocation>
+					<baseRef identifier="VDCv2mk2_B"/>
+					<memberRef identifier="sf_MATLABFunction"/>
+					<memberRef identifier="Torque_R_Nm"/>
+				</definitionLocation>
+				<fileOrigin name="VDCv2mk2.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDCv2mk2.SKIDPAD.TC_TV.MATLAB_Function.Torque_R_Nm">
+				<name>Torque_R_Nm</name>
+				<modelLink href="VDCv2mk2/SKIDPAD/TC+TV/MATLAB Function"/>
+				<modelLocation>
+					<pathNode name="VDCv2mk2" kind="mlsl:model" type="atomic"/>
+					<pathNode name="SKIDPAD" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="TC+TV" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="MATLAB Function" kind="mlsl:block"/>
+					<pathNode name="Torque_R_Nm" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDCv2mk2_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDCv2mk2_B.sf_MATLABFunction.Torque_L_Nm">
+				<definitionLocation>
+					<baseRef identifier="VDCv2mk2_B"/>
+					<memberRef identifier="sf_MATLABFunction"/>
+					<memberRef identifier="Torque_L_Nm"/>
+				</definitionLocation>
+				<fileOrigin name="VDCv2mk2.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDCv2mk2.SKIDPAD.TC_TV.MATLAB_Function.Torque_L_Nm">
+				<name>Torque_L_Nm</name>
+				<modelLink href="VDCv2mk2/SKIDPAD/TC+TV/MATLAB Function"/>
+				<modelLocation>
+					<pathNode name="VDCv2mk2" kind="mlsl:model" type="atomic"/>
+					<pathNode name="SKIDPAD" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="TC+TV" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="MATLAB Function" kind="mlsl:block"/>
+					<pathNode name="Torque_L_Nm" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>

@@ -7,9 +7,9 @@
  *
  * Code generation for model "VDCv2mk2".
  *
- * Model version              : 4.133
+ * Model version              : 4.159
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Wed Jun 26 11:59:00 2024
+ * C source code generated on : Thu Jun 27 11:15:04 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -38,6 +38,9 @@ extern const real_T rtCP_pooled_t8tfN5Vo0MrJ[157];
                                                                   */
 
 extern void VDCv2mk2_LimitReached(real_T *rty_Out);
+extern void VDCv2mk2_MATLABFunction(real_T rtu_steering_max_angle, real_T
+  rtu_steering, real_T rtu_steering_deadzone, real_T rtu_Throttle_Torque,
+  B_MATLABFunction_VDCv2mk2_T *localB);
 extern void VDCv2mk2_RIGIDAXLE(real_T rtu_Throttle_TorqueNm, real_T
   *rty_Tq_RR_FM4Nm0inf, real_T *rty_Tq_RL_FM4Nm0inf, real_T *rty_tv_mode);
 extern void VDCv2_Torquedemandedbythedriver(real_T rtu_AP, real_T

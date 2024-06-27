@@ -32,6 +32,10 @@ struct RTWTop_VDCv2mk2_Class
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_B_Merge3_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_B_Merge3_n_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_B_Merge4_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDCv2mk2_B_sf_MATLABFunction_Torque_L_Nm_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDCv2mk2_B_sf_MATLABFunction_Torque_R_Nm_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDCv2mk2_B_sf_MATLABFunction_a_Torque_L_Nm_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDCv2mk2_B_sf_MATLABFunction_a_Torque_R_Nm_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_B_sf_Torquedemandedbythedriver_a_Throttle_Torque_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_B_sf_Torquedemandedbythedriver_k_Throttle_Torque_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_B_sf_Torquedemandedbythedriver_m_Throttle_Torque_Ptr;

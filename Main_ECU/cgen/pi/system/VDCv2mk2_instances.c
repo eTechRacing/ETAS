@@ -46,6 +46,10 @@ void initClass_RTWTop_VDCv2mk2(struct RTWTop_VDCv2mk2_Class *self)
     self->RTWWrapper_VDCv2mk2_B_Merge3_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_B.Merge3, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDCv2mk2_B_Merge3_n_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_B.Merge3_n, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDCv2mk2_B_Merge4_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_B.Merge4, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDCv2mk2_B_sf_MATLABFunction_Torque_L_Nm_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_B.sf_MATLABFunction.Torque_L_Nm, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDCv2mk2_B_sf_MATLABFunction_Torque_R_Nm_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_B.sf_MATLABFunction.Torque_R_Nm, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDCv2mk2_B_sf_MATLABFunction_a_Torque_L_Nm_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_B.sf_MATLABFunction_a.Torque_L_Nm, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDCv2mk2_B_sf_MATLABFunction_a_Torque_R_Nm_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_B.sf_MATLABFunction_a.Torque_R_Nm, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDCv2mk2_B_sf_Torquedemandedbythedriver_a_Throttle_Torque_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_B.sf_Torquedemandedbythedriver_a.Throttle_Torque, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDCv2mk2_B_sf_Torquedemandedbythedriver_k_Throttle_Torque_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_B.sf_Torquedemandedbythedriver_k.Throttle_Torque, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDCv2mk2_B_sf_Torquedemandedbythedriver_m_Throttle_Torque_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_B.sf_Torquedemandedbythedriver_m.Throttle_Torque, sizeof(double), (uint32)ASD_VARIABLE);
@@ -118,9 +122,13 @@ static MethodList RTWTop_VDCv2mk2_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_VDCv2mk2_ClassHeader =
-    {0, 1, 0, 60 + 0, (MethodList *)0, (MethodList *)&RTWTop_VDCv2mk2_ClassMethodList};
+    {0, 1, 0, 64 + 0, (MethodList *)0, (MethodList *)&RTWTop_VDCv2mk2_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_VDCv2mk2_Class RTWTop_VDCv2mk2_ClassObj = {{1, {&RTWTop_VDCv2mk2_ClassHeader}, {0}}
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
     ,NULL
     ,NULL
     ,NULL

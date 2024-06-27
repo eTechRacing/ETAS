@@ -12,9 +12,9 @@
  *
  * Code generation for model "VDCv2mk2".
  *
- * Model version              : 4.133
+ * Model version              : 4.159
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Wed Jun 26 11:59:00 2024
+ * C source code generated on : Thu Jun 27 11:15:04 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -858,9 +858,15 @@
 /* Definition for use in the target main file */
 #define VDCv2mk2_rtModel               RT_MODEL_VDCv2mk2_T
 
-/* Block signals for system '<S8>/Torque demanded by the driver' */
+/* Block signals for system '<S53>/MATLAB Function' */
 typedef struct {
-  real_T Throttle_Torque;             /* '<S8>/Torque demanded by the driver' */
+  real_T Torque_R_Nm;                  /* '<S53>/MATLAB Function' */
+  real_T Torque_L_Nm;                  /* '<S53>/MATLAB Function' */
+} B_MATLABFunction_VDCv2mk2_T;
+
+/* Block signals for system '<S7>/Torque demanded by the driver' */
+typedef struct {
+  real_T Throttle_Torque;             /* '<S7>/Torque demanded by the driver' */
 } B_Torquedemandedbythedriver_V_T;
 
 /* Block states (default storage) for system '<S1>/RIGIDAXLE WITH TC' */
@@ -874,17 +880,19 @@ typedef struct {
   real_T Merge1;                       /* '<Root>/Merge1' */
   real_T Merge3;                       /* '<Root>/Merge3' */
   real_T Merge4;                       /* '<Root>/Merge4' */
-  real_T Merge;                        /* '<S6>/Merge' */
-  real_T Merge1_f;                     /* '<S6>/Merge1' */
-  real_T Merge2_l;                     /* '<S6>/Merge2' */
-  real_T Merge3_n;                     /* '<S6>/Merge3' */
+  real_T Merge;                        /* '<S5>/Merge' */
+  real_T Merge1_f;                     /* '<S5>/Merge1' */
+  real_T Merge2_l;                     /* '<S5>/Merge2' */
+  real_T Merge3_n;                     /* '<S5>/Merge3' */
   real_T state;                        /* '<S33>/state' */
   B_Torquedemandedbythedriver_V_T sf_Torquedemandedbythedriver_a;
                                       /* '<S2>/Torque demanded by the driver' */
   B_Torquedemandedbythedriver_V_T sf_Torquedemandedbythedriver_k;
                                       /* '<S1>/Torque demanded by the driver' */
   B_Torquedemandedbythedriver_V_T sf_Torquedemandedbythedriver_m;
-                                      /* '<S8>/Torque demanded by the driver' */
+                                      /* '<S7>/Torque demanded by the driver' */
+  B_MATLABFunction_VDCv2mk2_T sf_MATLABFunction_a;/* '<S54>/MATLAB Function' */
+  B_MATLABFunction_VDCv2mk2_T sf_MATLABFunction;/* '<S53>/MATLAB Function' */
 } B_VDCv2mk2_T;
 
 /* Block states (default storage) for system '<Root>' */
@@ -1107,10 +1115,10 @@ extern RT_MODEL_VDCv2mk2_T *const VDCv2mk2_M;
  * '<S2>'   : 'VDCv2mk2/AUTOX1'
  * '<S3>'   : 'VDCv2mk2/Accumulator Power'
  * '<S4>'   : 'VDCv2mk2/Brake_Light'
- * '<S5>'   : 'VDCv2mk2/Brake_Light1'
- * '<S6>'   : 'VDCv2mk2/ENDURANCE'
- * '<S7>'   : 'VDCv2mk2/SAFETY BLOCK'
- * '<S8>'   : 'VDCv2mk2/SKIDPAD'
+ * '<S5>'   : 'VDCv2mk2/ENDURANCE'
+ * '<S6>'   : 'VDCv2mk2/SAFETY BLOCK'
+ * '<S7>'   : 'VDCv2mk2/SKIDPAD'
+ * '<S8>'   : 'VDCv2mk2/Safety'
  * '<S9>'   : 'VDCv2mk2/TEST_MODE_IN'
  * '<S10>'  : 'VDCv2mk2/WORKSHOP'
  * '<S11>'  : 'VDCv2mk2/ACCELERATION/RIGIDAXLE'
