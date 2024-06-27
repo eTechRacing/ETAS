@@ -7,9 +7,9 @@
  *
  * Code generation for model "VDCv2mk2".
  *
- * Model version              : 4.159
+ * Model version              : 4.160
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Thu Jun 27 11:15:04 2024
+ * C source code generated on : Thu Jun 27 11:53:03 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -862,7 +862,7 @@ static void VDCv2mk2_output(void)
     rtb_max_regen_torque_RL = 0.0;
     regen_en = 0;
     if ((VDCv2mk2_U.SoC_High < 98.0) && (fmin(VDCv2mk2_U.RR_rads_Motor,
-          VDCv2mk2_U.RL_rads_Motor) > 6.0)) {
+          VDCv2mk2_U.RL_rads_Motor) > 33.0)) {
       regen_en = 1;
     }
 
