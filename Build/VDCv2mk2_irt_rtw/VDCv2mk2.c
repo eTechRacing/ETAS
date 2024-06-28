@@ -7,9 +7,9 @@
  *
  * Code generation for model "VDCv2mk2".
  *
- * Model version              : 4.160
+ * Model version              : 4.161
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Thu Jun 27 11:53:03 2024
+ * C source code generated on : Fri Jun 28 12:51:54 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1192,37 +1192,37 @@ static void VDCv2mk2_output(void)
         VDCv2mk2_U.RL_rads_Motor) < 152788.74536821953)) {
     /* Saturate: '<Root>/Saturation' */
     if (VDCv2mk2_B.Merge2 > 27.0) {
-      /* Outport: '<Root>/Torque_R_out' */
-      VDCv2mk2_Y.Torque_R_out = 27.0;
+      /* Outport: '<Root>/Torque_R' */
+      VDCv2mk2_Y.Torque_R = 27.0;
     } else if (VDCv2mk2_B.Merge2 < -27.0) {
-      /* Outport: '<Root>/Torque_R_out' */
-      VDCv2mk2_Y.Torque_R_out = -27.0;
+      /* Outport: '<Root>/Torque_R' */
+      VDCv2mk2_Y.Torque_R = -27.0;
     } else {
-      /* Outport: '<Root>/Torque_R_out' */
-      VDCv2mk2_Y.Torque_R_out = VDCv2mk2_B.Merge2;
+      /* Outport: '<Root>/Torque_R' */
+      VDCv2mk2_Y.Torque_R = VDCv2mk2_B.Merge2;
     }
 
     /* End of Saturate: '<Root>/Saturation' */
 
     /* Saturate: '<Root>/Saturation1' */
     if (VDCv2mk2_B.Merge1 > 27.0) {
-      /* Outport: '<Root>/Torque_L_out' */
-      VDCv2mk2_Y.Torque_L_out = 27.0;
+      /* Outport: '<Root>/Torque_L' */
+      VDCv2mk2_Y.Torque_L = 27.0;
     } else if (VDCv2mk2_B.Merge1 < -27.0) {
-      /* Outport: '<Root>/Torque_L_out' */
-      VDCv2mk2_Y.Torque_L_out = -27.0;
+      /* Outport: '<Root>/Torque_L' */
+      VDCv2mk2_Y.Torque_L = -27.0;
     } else {
-      /* Outport: '<Root>/Torque_L_out' */
-      VDCv2mk2_Y.Torque_L_out = VDCv2mk2_B.Merge1;
+      /* Outport: '<Root>/Torque_L' */
+      VDCv2mk2_Y.Torque_L = VDCv2mk2_B.Merge1;
     }
 
     /* End of Saturate: '<Root>/Saturation1' */
   } else {
-    /* Outport: '<Root>/Torque_R_out' */
-    VDCv2mk2_Y.Torque_R_out = 0.0;
+    /* Outport: '<Root>/Torque_R' */
+    VDCv2mk2_Y.Torque_R = 0.0;
 
-    /* Outport: '<Root>/Torque_L_out' */
-    VDCv2mk2_Y.Torque_L_out = 0.0;
+    /* Outport: '<Root>/Torque_L' */
+    VDCv2mk2_Y.Torque_L = 0.0;
   }
 
   /* End of MATLAB Function: '<Root>/Safety' */

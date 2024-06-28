@@ -699,10 +699,10 @@ LOAD C:\ETAS\Compiler\INTECRIO5.0\QNXCompiler-V6.5\target\qnx6\ppcbe-spe\lib\gcc
                 0x4804aaac                osek_task_e_Timer_1000ms
  .text          0x4804ab00       0x54 OSC/TaskISRArchive.a(Timer_100ms.o)
                 0x4804ab00                osek_task_e_Timer_100ms
- .text          0x4804ab54       0xa8 OSC/TaskISRArchive.a(Timer_25ms.o)
+ .text          0x4804ab54       0x90 OSC/TaskISRArchive.a(Timer_25ms.o)
                 0x4804ab54                osek_task_e_Timer_25ms
- .text          0x4804abfc       0x54 OSC/TaskISRArchive.a(Timer_Inv.o)
-                0x4804abfc                osek_task_e_Timer_Inv
+ .text          0x4804abe4       0x6c OSC/TaskISRArchive.a(Timer_Inv.o)
+                0x4804abe4                osek_task_e_Timer_Inv
  .text          0x4804ac50       0x50 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_SDC.o)
                 0x4804ac50                osek_task_e_SWT_CAN1_AP_BMS_SDC
  .text          0x4804aca0       0x50 OSC/TaskISRArchive.a(SWT_CAN1_AP_CurrentSensor.o)
@@ -831,12 +831,12 @@ LOAD C:\ETAS\Compiler\INTECRIO5.0\QNXCompiler-V6.5\target\qnx6\ppcbe-spe\lib\gcc
                 0x4804c8c0                crossbarHook_2_0
                 0x4804c730                crossbarHook_12_0
                 0x4804ca70                crossbarHook_36_7
+                0x4804c140                crossbarHook_32_2
                 0x4804c93c                crossbarHook_36_14
                 0x4804c3e8                crossbarHook_29_1
                 0x4804c500                crossbarHook_26_0
                 0x4804c668                crossbarHook_17_0
                 0x4804c7f8                crossbarHook_7_0
-                0x4804c168                crossbarHook_31_13
                 0x4804cc28                crossbarHook_35_13
                 0x4804ccd8                crossbarHook_35_9
                 0x4804c848                crossbarHook_5_0
@@ -850,9 +850,9 @@ LOAD C:\ETAS\Compiler\INTECRIO5.0\QNXCompiler-V6.5\target\qnx6\ppcbe-spe\lib\gcc
                 0x4804caf4                crossbarHook_36_4
                 0x4804ca44                crossbarHook_36_8
                 0x4804c460                crossbarHook_28_2
+                0x4804c118                crossbarHook_32_3
                 0x4804c968                crossbarHook_36_13
                 0x4804c550                crossbarHook_24_0
-                0x4804c190                crossbarHook_31_12
                 0x4804c6b8                crossbarHook_15_0
                 0x4804c208                crossbarHook_31_9
                 0x4804cd04                crossbarHook_35_8
@@ -874,7 +874,8 @@ LOAD C:\ETAS\Compiler\INTECRIO5.0\QNXCompiler-V6.5\target\qnx6\ppcbe-spe\lib\gcc
                 0x4804cac8                crossbarHook_36_5
                 0x4804ca18                crossbarHook_36_9
                 0x4804c488                crossbarHook_28_1
-                0x4804c0f0                crossbarHook_32_0
+                0x4804c0f0                crossbarHook_32_4
+                0x4804c190                crossbarHook_32_0
                 0x4804c780                crossbarHook_10_0
                 0x4804c994                crossbarHook_36_12
                 0x4804c7d0                crossbarHook_8_0
@@ -891,14 +892,13 @@ LOAD C:\ETAS\Compiler\INTECRIO5.0\QNXCompiler-V6.5\target\qnx6\ppcbe-spe\lib\gcc
                 0x4804c370                crossbarHook_31_0
                 0x4804c9c0                crossbarHook_36_11
                 0x4804ca9c                crossbarHook_36_6
-                0x4804c0c8                crossbarHook_32_1
+                0x4804c0c8                crossbarHook_32_5
+                0x4804c168                crossbarHook_32_1
                 0x4804c4b0                crossbarHook_28_0
                 0x4804c618                crossbarHook_19_0
                 0x4804c910                crossbarHook_36_15
-                0x4804c118                crossbarHook_31_15
                 0x4804c398                crossbarHook_30_1
                 0x4804c410                crossbarHook_29_0
-                0x4804c140                crossbarHook_31_14
                 0x4804c1e0                crossbarHook_31_10
                 0x4804cc54                crossbarHook_35_12
                 0x4804cd5c                crossbarHook_35_6
@@ -2009,7 +2009,7 @@ LOAD C:\ETAS\Compiler\INTECRIO5.0\QNXCompiler-V6.5\target\qnx6\ppcbe-spe\lib\gcc
                 0x4808af98                PROVIDE (_etext, .)
                 0x4808af98                PROVIDE (etext, .)
 
-.rodata         0x4808af98    0x128bc
+.rodata         0x4808af98    0x129d4
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.cst8   0x4808af98       0x18 ROOT_instances.o
  .rodata.str1.4
@@ -2129,300 +2129,300 @@ LOAD C:\ETAS\Compiler\INTECRIO5.0\QNXCompiler-V6.5\target\qnx6\ppcbe-spe\lib\gcc
  .rodata.str1.4
                 0x4808c14c      0x36e OSC/osc_dyn.o
  *fill*         0x4808c4ba        0x2 00
- .rodata        0x4808c4bc     0x4f80 ETC/RtioL1RecordTable.o
-                0x48091430                l1RtioRequestRecord
+ .rodata        0x4808c4bc     0x5098 ETC/RtioL1RecordTable.o
+                0x48091548                l1RtioRequestRecord
                 0x4808c4bc                rtioRequestMessages
- .rodata        0x4809143c     0x354c CBC/CrossbarL1RecordTable.o
-                0x4809497c                l1CrossbarRequestRecord
-                0x4809143c                crossbarRequestMessages
- .rodata.cst8   0x48094988       0x10 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_fixunsdfdi.o)
+ .rodata        0x48091554     0x354c CBC/CrossbarL1RecordTable.o
+                0x48094a94                l1CrossbarRequestRecord
+                0x48091554                crossbarRequestMessages
+ .rodata.cst8   0x48094aa0       0x10 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_fixunsdfdi.o)
  .rodata.cst8   0x00000000        0x8 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_floatundidf.o)
- .rodata        0x48094998      0x1cb C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(i_rtautil.o)
- *fill*         0x48094b63        0x1 00
- .rodata.cst4   0x48094b64        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(i_rtautil.o)
- .rodata.cst8   0x48094b68        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(i_rtautil.o)
+ .rodata        0x48094ab0      0x1cb C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(i_rtautil.o)
+ *fill*         0x48094c7b        0x1 00
+ .rodata.cst4   0x48094c7c        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(i_rtautil.o)
+ .rodata.cst8   0x48094c80        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(i_rtautil.o)
  .rodata.str1.4
-                0x48094b70      0xc00 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(i_rtautil.o)
+                0x48094c88      0xc00 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(i_rtautil.o)
                                 0xc0c (size before relaxing)
- .rodata        0x48095770       0xa4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_driverThreads.o)
+ .rodata        0x48095888       0xa4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_driverThreads.o)
  .rodata.str1.4
-                0x48095814      0x11b C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_driverThreads.o)
+                0x4809592c      0x11b C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_driverThreads.o)
                                 0x123 (size before relaxing)
- *fill*         0x4809592f        0x1 00
+ *fill*         0x48095a47        0x1 00
  .rodata.str1.4
-                0x48095930      0x1dc C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_idle.o)
- .rodata        0x48095b0c       0xb7 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_l1com.o)
- *fill*         0x48095bc3        0x1 00
+                0x48095a48      0x1dc C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_idle.o)
+ .rodata        0x48095c24       0xb7 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_l1com.o)
+ *fill*         0x48095cdb        0x1 00
  .rodata.str1.4
-                0x48095bc4      0x8fe C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_l1com.o)
+                0x48095cdc      0x8fe C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_l1com.o)
                                 0x912 (size before relaxing)
- *fill*         0x480964c2        0x2 00
- .rodata        0x480964c4       0x4c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_main.o)
+ *fill*         0x480965da        0x2 00
+ .rodata        0x480965dc       0x4c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_main.o)
  .rodata.str1.4
-                0x48096510      0x469 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_main.o)
+                0x48096628      0x469 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_main.o)
                                 0x479 (size before relaxing)
- *fill*         0x48096979        0x3 00
- .rodata        0x4809697c       0x18 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_mlog.o)
+ *fill*         0x48096a91        0x3 00
+ .rodata        0x48096a94       0x18 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_mlog.o)
  .rodata.str1.4
-                0x48096994      0x2ab C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_mlog.o)
+                0x48096aac      0x2ab C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_mlog.o)
                                 0x2eb (size before relaxing)
- *fill*         0x48096c3f        0x1 00
- .rodata        0x48096c40       0x4a C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_qnxtargetutil.o)
- *fill*         0x48096c8a        0x2 00
+ *fill*         0x48096d57        0x1 00
+ .rodata        0x48096d58       0x4a C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_qnxtargetutil.o)
+ *fill*         0x48096da2        0x2 00
  .rodata.str1.4
-                0x48096c8c      0x374 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_qnxtargetutil.o)
+                0x48096da4      0x374 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_qnxtargetutil.o)
                                 0x390 (size before relaxing)
- .rodata.cst8   0x48097000        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_targetutil.o)
+ .rodata.cst8   0x48097118        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_targetutil.o)
                                  0x20 (size before relaxing)
  .rodata.str1.4
-                0x48097008       0x68 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_targetutil.o)
+                0x48097120       0x68 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_targetutil.o)
                                  0x7a (size before relaxing)
  .rodata.str1.4
-                0x48097070       0x86 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_watchdog.o)
- *fill*         0x480970f6        0x2 00
- .rodata        0x480970f8       0x48 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(p_chario.o)
+                0x48097188       0x86 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_watchdog.o)
+ *fill*         0x4809720e        0x2 00
+ .rodata        0x48097210       0x48 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(p_chario.o)
  .rodata.str1.4
-                0x48097140      0x11f C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(p_chario.o)
+                0x48097258      0x11f C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(p_chario.o)
                                 0x12f (size before relaxing)
- *fill*         0x4809725f        0x1 00
+ *fill*         0x48097377        0x1 00
  .rodata.str1.4
-                0x48097260       0x66 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_hwTimeSync.o)
+                0x48097378       0x66 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_hwTimeSync.o)
  .rodata.cst8   0x00000000       0x10 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_dacqui.o)
- *fill*         0x480972c6        0x2 00
+ *fill*         0x480973de        0x2 00
  .rodata.str1.4
-                0x480972c8       0x51 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_dacqui.o)
+                0x480973e0       0x51 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_dacqui.o)
  .rodata.cst8   0x00000000       0x10 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_primit.o)
- *fill*         0x48097319        0x3 00
+ *fill*         0x48097431        0x3 00
  .rodata.str1.4
-                0x4809731c       0x9c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_primit.o)
+                0x48097434       0x9c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_primit.o)
                                  0x9d (size before relaxing)
- .rodata        0x480973b8       0x50 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_targma.o)
+ .rodata        0x480974d0       0x50 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_targma.o)
  .rodata.cst8   0x00000000       0x10 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_targma.o)
  .rodata.str1.4
-                0x48097408      0x75d C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_targma.o)
+                0x48097520      0x75d C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_targma.o)
                                 0x769 (size before relaxing)
- *fill*         0x48097b65        0x3 00
- .rodata        0x48097b68      0x18c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_cpyfnc.o)
- *fill*         0x48097cf4        0x4 00
- .rodata.cst8   0x48097cf8       0x48 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_cpyfnc.o)
+ *fill*         0x48097c7d        0x3 00
+ .rodata        0x48097c80      0x18c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_cpyfnc.o)
+ *fill*         0x48097e0c        0x4 00
+ .rodata.cst8   0x48097e10       0x48 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_cpyfnc.o)
                                  0x58 (size before relaxing)
  .rodata.cst8   0x00000000       0x18 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_mapfnc.o)
  .rodata.str1.4
-                0x48097d40       0x75 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_osman.o)
- *fill*         0x48097db5        0x3 00
- .rodata        0x48097db8      0x120 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_rtioma.o)
- .rodata.cst8   0x48097ed8        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_rtioma.o)
+                0x48097e58       0x75 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_osman.o)
+ *fill*         0x48097ecd        0x3 00
+ .rodata        0x48097ed0      0x120 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_rtioma.o)
+ .rodata.cst8   0x48097ff0        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_rtioma.o)
                                  0x20 (size before relaxing)
  .rodata.str1.4
-                0x48097ee0      0xdbd C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_rtioma.o)
+                0x48097ff8      0xdbd C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_rtioma.o)
                                 0xdf1 (size before relaxing)
- *fill*         0x48098c9d        0x3 00
+ *fill*         0x48098db5        0x3 00
  .rodata.str1.4
-                0x48098ca0      0x54a C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_croman.o)
+                0x48098db8      0x54a C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_croman.o)
                                 0x56e (size before relaxing)
- *fill*         0x480991ea        0x2 00
+ *fill*         0x48099302        0x2 00
  .rodata.str1.4
-                0x480991ec       0x87 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_crosll.o)
- *fill*         0x48099273        0x1 00
+                0x48099304       0x87 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_crosll.o)
+ *fill*         0x4809938b        0x1 00
  .rodata.str1.4
-                0x48099274      0x710 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_nvram.o)
+                0x4809938c      0x710 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_nvram.o)
  .rodata.str1.4
-                0x48099984      0x109 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_objlis.o)
+                0x48099a9c      0x109 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_objlis.o)
                                 0x10d (size before relaxing)
- *fill*         0x48099a8d        0x3 00
- .rodata        0x48099a90       0x58 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_rtcros.o)
+ *fill*         0x48099ba5        0x3 00
+ .rodata        0x48099ba8       0x58 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_rtcros.o)
  .rodata.str1.4
-                0x48099ae8      0x285 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_rtcros.o)
- *fill*         0x48099d6d        0x3 00
- .rodata.cst8   0x48099d70        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_sgman.o)
+                0x48099c00      0x285 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_rtcros.o)
+ *fill*         0x48099e85        0x3 00
+ .rodata.cst8   0x48099e88        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_sgman.o)
                                  0x20 (size before relaxing)
  .rodata.str1.4
                 0x00000000        0x1 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_sgman.o)
  .rodata.cst8   0x00000000        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(y_primit.o)
- .rodata        0x48099d78        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a1b_dacq.o)
- .rodata.cst8   0x48099d80       0x10 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a1b_dacq.o)
+ .rodata        0x48099e90        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a1b_dacq.o)
+ .rodata.cst8   0x48099e98       0x10 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a1b_dacq.o)
                                  0x28 (size before relaxing)
  .rodata.str1.4
-                0x48099d90       0xcd C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a1b_dacq.o)
- *fill*         0x48099e5d        0x3 00
- .rodata        0x48099e60       0x28 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_sglow.o)
- .rodata.cst8   0x48099e88        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_sglow.o)
+                0x48099ea8       0xcd C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a1b_dacq.o)
+ *fill*         0x48099f75        0x3 00
+ .rodata        0x48099f78       0x28 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_sglow.o)
+ .rodata.cst8   0x48099fa0        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_sglow.o)
                                  0x30 (size before relaxing)
  .rodata.str1.4
-                0x48099e90      0x9ae C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(comm_err.o)
+                0x48099fa8      0x9ae C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(comm_err.o)
                                 0x9b2 (size before relaxing)
- *fill*         0x4809a83e        0x2 00
- .rodata        0x4809a840       0x42 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(p_rtio_s.o)
- *fill*         0x4809a882        0x2 00
+ *fill*         0x4809a956        0x2 00
+ .rodata        0x4809a958       0x42 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(p_rtio_s.o)
+ *fill*         0x4809a99a        0x2 00
  .rodata.str1.4
-                0x4809a884      0x328 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(p_rtio_s.o)
+                0x4809a99c      0x328 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(p_rtio_s.o)
                                 0x32c (size before relaxing)
- .rodata        0x4809abac        0xc C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(rtio_err.o)
+ .rodata        0x4809acc4        0xc C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(rtio_err.o)
  .rodata.str1.4
-                0x4809abb8      0x1b9 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(rtio_err.o)
+                0x4809acd0      0x1b9 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(rtio_err.o)
                                 0x1cd (size before relaxing)
- *fill*         0x4809ad71        0x3 00
- .rodata        0x4809ad74       0x3b C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(fhc_emu.o)
- *fill*         0x4809adaf        0x1 00
+ *fill*         0x4809ae89        0x3 00
+ .rodata        0x4809ae8c       0x3b C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(fhc_emu.o)
+ *fill*         0x4809aec7        0x1 00
  .rodata.str1.4
-                0x4809adb0      0x195 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(fhc_emu.o)
+                0x4809aec8      0x195 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(fhc_emu.o)
                                 0x1a5 (size before relaxing)
- *fill*         0x4809af45        0x3 00
+ *fill*         0x4809b05d        0x3 00
  .rodata.str1.4
-                0x4809af48      0x1b8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostarget.o)
+                0x4809b060      0x1b8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostarget.o)
  .rodata.str1.4
-                0x4809b100       0x29 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libcommon.a(p_protl1.o)
+                0x4809b218       0x29 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libcommon.a(p_protl1.o)
                                  0x37 (size before relaxing)
- *fill*         0x4809b129        0x3 00
+ *fill*         0x4809b241        0x3 00
  .rodata.str1.4
-                0x4809b12c      0x14d Car_State1/Car_State1.a(Car_State_main.o)
+                0x4809b244      0x14d Car_State1/Car_State1.a(Car_State_main.o)
  .rodata.cst8   0x00000000       0x10 Car_State1/Car_State1.a(rt_sim.o)
- *fill*         0x4809b279        0x3 00
+ *fill*         0x4809b391        0x3 00
  .rodata.str1.4
-                0x4809b27c       0x71 Car_State1/Car_State1.a(rt_sim.o)
- *fill*         0x4809b2ed        0x3 00
+                0x4809b394       0x71 Car_State1/Car_State1.a(rt_sim.o)
+ *fill*         0x4809b405        0x3 00
  .rodata.str1.4
-                0x4809b2f0       0x3e Disconnections1/Disconnections1.a(Disconnections_main.o)
+                0x4809b408       0x3e Disconnections1/Disconnections1.a(Disconnections_main.o)
                                 0x156 (size before relaxing)
  .rodata.cst8   0x00000000       0x10 Disconnections1/Disconnections1.a(rt_sim.o)
  .rodata.str1.4
                 0x00000000       0x71 Disconnections1/Disconnections1.a(rt_sim.o)
- *fill*         0x4809b32e        0x2 00
+ *fill*         0x4809b446        0x2 00
  .rodata.str1.4
-                0x4809b330       0x2f Ellipse1/Ellipse1.a(Ellipse_main.o)
+                0x4809b448       0x2f Ellipse1/Ellipse1.a(Ellipse_main.o)
                                 0x147 (size before relaxing)
  .rodata.cst8   0x00000000       0x10 Ellipse1/Ellipse1.a(rt_sim.o)
  .rodata.str1.4
                 0x00000000       0x71 Ellipse1/Ellipse1.a(rt_sim.o)
- *fill*         0x4809b35f        0x1 00
+ *fill*         0x4809b477        0x1 00
  .rodata.str1.4
-                0x4809b360       0x44 Inverters_Action1/Inverters_Action1.a(Inverters_Action_main.o)
+                0x4809b478       0x44 Inverters_Action1/Inverters_Action1.a(Inverters_Action_main.o)
                                 0x15c (size before relaxing)
  .rodata.cst8   0x00000000       0x10 Inverters_Action1/Inverters_Action1.a(rt_sim.o)
  .rodata.str1.4
                 0x00000000       0x71 Inverters_Action1/Inverters_Action1.a(rt_sim.o)
  .rodata.str1.4
-                0x4809b3a4       0x3e Inverters_Data1/Inverters_Data1.a(Inverters_Data_main.o)
+                0x4809b4bc       0x3e Inverters_Data1/Inverters_Data1.a(Inverters_Data_main.o)
                                 0x156 (size before relaxing)
  .rodata.cst8   0x00000000       0x10 Inverters_Data1/Inverters_Data1.a(rt_sim.o)
  .rodata.str1.4
                 0x00000000       0x71 Inverters_Data1/Inverters_Data1.a(rt_sim.o)
- *fill*         0x4809b3e2        0x2 00
+ *fill*         0x4809b4fa        0x2 00
  .rodata.str1.4
-                0x4809b3e4       0x2f Sensors1/Sensors1.a(Sensors_main.o)
+                0x4809b4fc       0x2f Sensors1/Sensors1.a(Sensors_main.o)
                                 0x147 (size before relaxing)
  .rodata.cst8   0x00000000       0x10 Sensors1/Sensors1.a(rt_sim.o)
  .rodata.str1.4
                 0x00000000       0x71 Sensors1/Sensors1.a(rt_sim.o)
- *fill*         0x4809b413        0x1 00
+ *fill*         0x4809b52b        0x1 00
  .rodata.str1.4
-                0x4809b414       0x37 Synchronism1/Synchronism1.a(Synchronism_main.o)
+                0x4809b52c       0x37 Synchronism1/Synchronism1.a(Synchronism_main.o)
                                 0x14f (size before relaxing)
  .rodata.cst8   0x00000000       0x10 Synchronism1/Synchronism1.a(rt_sim.o)
  .rodata.str1.4
                 0x00000000       0x71 Synchronism1/Synchronism1.a(rt_sim.o)
- *fill*         0x4809b44b        0x1 00
+ *fill*         0x4809b563        0x1 00
  .rodata.str1.4
-                0x4809b44c       0x34 VDCv2mk21/VDCv2mk21.a(VDCv2mk2_main.o)
+                0x4809b564       0x34 VDCv2mk21/VDCv2mk21.a(VDCv2mk2_main.o)
                                 0x14c (size before relaxing)
  .rodata.cst8   0x00000000       0x10 VDCv2mk21/VDCv2mk21.a(rt_sim.o)
  .rodata.str1.4
                 0x00000000       0x71 VDCv2mk21/VDCv2mk21.a(rt_sim.o)
  .rodata.str1.4
-                0x4809b480       0x3e C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCan.o)
- *fill*         0x4809b4be        0x2 00
- .rodata        0x4809b4c0       0x24 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanCanio.o)
+                0x4809b598       0x3e C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCan.o)
+ *fill*         0x4809b5d6        0x2 00
+ .rodata        0x4809b5d8       0x24 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanCanio.o)
  .rodata.str1.4
-                0x4809b4e4       0x89 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanCanio.o)
- *fill*         0x4809b56d        0x3 00
+                0x4809b5fc       0x89 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanCanio.o)
+ *fill*         0x4809b685        0x3 00
  .rodata.str1.4
-                0x4809b570      0xee1 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanErr.o)
+                0x4809b688      0xee1 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanErr.o)
                                 0xee5 (size before relaxing)
- *fill*         0x4809c451        0x3 00
+ *fill*         0x4809c569        0x3 00
  .rodata.str1.4
-                0x4809c454       0x18 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanHalBuf.o)
+                0x4809c56c       0x18 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanHalBuf.o)
  .rodata.cst8   0x00000000        0x8 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_floatdidf.o)
- .rodata        0x4809c46c      0x282 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_dataset.o)
- *fill*         0x4809c6ee        0x2 00
+ .rodata        0x4809c584      0x282 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_dataset.o)
+ *fill*         0x4809c806        0x2 00
  .rodata.str1.4
-                0x4809c6f0     0x1164 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_dataset.o)
+                0x4809c808     0x1164 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_dataset.o)
                                0x11a1 (size before relaxing)
 
-.os_pird        0x4809d854        0x0
- .os_pird       0x4809d854        0x0 OSC/osgen.o
+.os_pird        0x4809d96c        0x0
+ .os_pird       0x4809d96c        0x0 OSC/osgen.o
 
-.os_pnird       0x4809d854       0x54
- .os_pnird      0x4809d854       0x54 OSC/osgen.o
-                0x4809d854                OS_L000C
-                0x4809d8a8                OS_L0014
+.os_pnird       0x4809d96c       0x54
+ .os_pnird      0x4809d96c       0x54 OSC/osgen.o
+                0x4809d96c                OS_L000C
+                0x4809d9c0                OS_L0014
 
-.os_pid         0x4809d8a8      0x928
- .os_pid        0x4809d8a8      0x928 OSC/osgen.o
-                0x4809dbf4                OS_L0042
-                0x4809d8a8                os_oim
-                0x4809e1d0                OS_L0017
-                0x4809dcc4                OS_L0046
-                0x4809e004                OS_L0059
-                0x4809e038                OS_L005A
-                0x4809e1d0                OS_L001B
-                0x4809da20                OS_L0039
-                0x4809d950                OS_L0035
-                0x4809de64                OS_L004E
-                0x4809e1d0                OS_L0012
-                0x4809dd94                OS_L004A
-                0x4809e108                OS_L0016
-                0x4809daf0                OS_L003D
-                0x4809dbc0                OS_L0041
-                0x4809dc90                OS_L0045
-                0x4809d8b4                OS_L0000
-                0x4809df00                OS_L0051
-                0x4809e158                osek_bcc1_ts
-                0x4809d91c                OS_L0034
-                0x4809dd60                OS_L0049
-                0x4809e130                OS_L001E
-                0x4809dfd0                OS_L0058
-                0x4809d8b4                OS_L001A
-                0x4809df9c                OS_L0054
-                0x4809d9ec                OS_L0038
-                0x4809de30                OS_L004D
-                0x4809e0d4                OS_L005D
-                0x4809d8a8                OS_L0011
-                0x4809d8b4                OS_L0015
-                0x4809e180                osek_cc2_ts
-                0x4809dabc                OS_L003C
-                0x4809db8c                OS_L0040
-                0x4809e1a8                osek_ecc_ts
-                0x4809dc5c                OS_L0044
-                0x4809decc                OS_L0050
-                0x4809d8ac                os_ES900_s_5_01
-                0x4809d8b0                OS_L0019
-                0x4809d8e8                OS_L0033
-                0x4809dd2c                OS_L0048
-                0x4809e108                OS_L001D
-                0x4809df68                OS_L0053
-                0x4809d9b8                OS_L0037
-                0x4809ddfc                OS_L004C
-                0x4809e0a0                OS_L005C
-                0x4809db58                OS_L003F
-                0x4809da88                OS_L003B
-                0x4809dc28                OS_L0043
-                0x4809e1d0                OS_L0018
-                0x4809d8b0                OS_L002D
-                0x4809dcf8                OS_L0047
-                0x4809e1d0                OS_L001C
-                0x4809df34                OS_L0052
-                0x4809de98                OS_L004F
-                0x4809d984                OS_L0036
-                0x4809ddc8                OS_L004B
-                0x4809e06c                OS_L005B
-                0x4809db24                OS_L003E
-                0x4809da54                OS_L003A
+.os_pid         0x4809d9c0      0x928
+ .os_pid        0x4809d9c0      0x928 OSC/osgen.o
+                0x4809dd0c                OS_L0042
+                0x4809d9c0                os_oim
+                0x4809e2e8                OS_L0017
+                0x4809dddc                OS_L0046
+                0x4809e11c                OS_L0059
+                0x4809e150                OS_L005A
+                0x4809e2e8                OS_L001B
+                0x4809db38                OS_L0039
+                0x4809da68                OS_L0035
+                0x4809df7c                OS_L004E
+                0x4809e2e8                OS_L0012
+                0x4809deac                OS_L004A
+                0x4809e220                OS_L0016
+                0x4809dc08                OS_L003D
+                0x4809dcd8                OS_L0041
+                0x4809dda8                OS_L0045
+                0x4809d9cc                OS_L0000
+                0x4809e018                OS_L0051
+                0x4809e270                osek_bcc1_ts
+                0x4809da34                OS_L0034
+                0x4809de78                OS_L0049
+                0x4809e248                OS_L001E
+                0x4809e0e8                OS_L0058
+                0x4809d9cc                OS_L001A
+                0x4809e0b4                OS_L0054
+                0x4809db04                OS_L0038
+                0x4809df48                OS_L004D
+                0x4809e1ec                OS_L005D
+                0x4809d9c0                OS_L0011
+                0x4809d9cc                OS_L0015
+                0x4809e298                osek_cc2_ts
+                0x4809dbd4                OS_L003C
+                0x4809dca4                OS_L0040
+                0x4809e2c0                osek_ecc_ts
+                0x4809dd74                OS_L0044
+                0x4809dfe4                OS_L0050
+                0x4809d9c4                os_ES900_s_5_01
+                0x4809d9c8                OS_L0019
+                0x4809da00                OS_L0033
+                0x4809de44                OS_L0048
+                0x4809e220                OS_L001D
+                0x4809e080                OS_L0053
+                0x4809dad0                OS_L0037
+                0x4809df14                OS_L004C
+                0x4809e1b8                OS_L005C
+                0x4809dc70                OS_L003F
+                0x4809dba0                OS_L003B
+                0x4809dd40                OS_L0043
+                0x4809e2e8                OS_L0018
+                0x4809d9c8                OS_L002D
+                0x4809de10                OS_L0047
+                0x4809e2e8                OS_L001C
+                0x4809e04c                OS_L0052
+                0x4809dfb0                OS_L004F
+                0x4809da9c                OS_L0036
+                0x4809dee0                OS_L004B
+                0x4809e184                OS_L005B
+                0x4809dc3c                OS_L003E
+                0x4809db6c                OS_L003A
 
 .rodata1
  *(.rodata1)
 
-.sdata2         0x4809e1d0        0x0
-                0x480a61d0                PROVIDE (_SDA2_BASE_, 0x8000)
+.sdata2         0x4809e2e8        0x0
+                0x480a62e8                PROVIDE (_SDA2_BASE_, 0x8000)
  *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
 
 .sbss2
@@ -2431,20 +2431,20 @@ LOAD C:\ETAS\Compiler\INTECRIO5.0\QNXCompiler-V6.5\target\qnx6\ppcbe-spe\lib\gcc
 .eh_frame_hdr
  *(.eh_frame_hdr)
 
-.eh_frame       0x4809e1d0       0x54
+.eh_frame       0x4809e2e8       0x54
  *(.eh_frame)
- .eh_frame      0x4809e1d0        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtbegin.o
- .eh_frame      0x4809e1d0       0x28 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_fixunsdfdi.o)
- .eh_frame      0x4809e1f8       0x14 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_floatundidf.o)
+ .eh_frame      0x4809e2e8        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtbegin.o
+ .eh_frame      0x4809e2e8       0x28 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_fixunsdfdi.o)
+ .eh_frame      0x4809e310       0x14 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_floatundidf.o)
                                  0x28 (size before relaxing)
- .eh_frame      0x4809e20c        0x4 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtend.o
- .eh_frame      0x4809e210       0x14 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_floatdidf.o)
+ .eh_frame      0x4809e324        0x4 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtend.o
+ .eh_frame      0x4809e328       0x14 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_floatdidf.o)
                                  0x28 (size before relaxing)
 
 .gcc_except_table
  *(.gcc_except_table .gcc_except_table.*)
-                0x4809e224                . = (ALIGN (0x1000) - ((0x1000 - .) & 0xfff))
-                0x4809f224                . = (0x1000 DATA_SEGMENT_ALIGN 0x1000)
+                0x4809e33c                . = (ALIGN (0x1000) - ((0x1000 - .) & 0xfff))
+                0x4809f33c                . = (0x1000 DATA_SEGMENT_ALIGN 0x1000)
 
 .eh_frame
  *(.eh_frame)
@@ -2459,46 +2459,46 @@ LOAD C:\ETAS\Compiler\INTECRIO5.0\QNXCompiler-V6.5\target\qnx6\ppcbe-spe\lib\gcc
  *(.tbss .tbss.* .gnu.linkonce.tb.*)
  *(.tcommon)
 
-.preinit_array  0x4809f224        0x0
-                0x4809f224                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x4809f33c        0x0
+                0x4809f33c                PROVIDE (__preinit_array_start, .)
  *(.preinit_array)
-                0x4809f224                PROVIDE (__preinit_array_end, .)
+                0x4809f33c                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x4809f224        0x0
-                0x4809f224                PROVIDE (__init_array_start, .)
+.init_array     0x4809f33c        0x0
+                0x4809f33c                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array)
-                0x4809f224                PROVIDE (__init_array_end, .)
+                0x4809f33c                PROVIDE (__init_array_end, .)
 
-.fini_array     0x4809f224        0x0
-                0x4809f224                PROVIDE (__fini_array_start, .)
+.fini_array     0x4809f33c        0x0
+                0x4809f33c                PROVIDE (__fini_array_start, .)
  *(.fini_array)
  *(SORT(.fini_array.*))
-                0x4809f224                PROVIDE (__fini_array_end, .)
+                0x4809f33c                PROVIDE (__fini_array_end, .)
 
-.ctors          0x4809f224        0x8
+.ctors          0x4809f33c        0x8
  *crtbegin.o(.ctors)
- .ctors         0x4809f224        0x4 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtbegin.o
+ .ctors         0x4809f33c        0x4 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtbegin.o
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
  *(SORT(.ctors.*))
  *(.ctors)
- .ctors         0x4809f228        0x4 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtend.o
+ .ctors         0x4809f340        0x4 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtend.o
 
-.dtors          0x4809f22c        0x8
+.dtors          0x4809f344        0x8
  *crtbegin.o(.dtors)
- .dtors         0x4809f22c        0x4 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtbegin.o
+ .dtors         0x4809f344        0x4 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtbegin.o
  *crtbegin?.o(.dtors)
  *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
  *(SORT(.dtors.*))
  *(.dtors)
- .dtors         0x4809f230        0x4 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtend.o
-                0x4809f230                __DTOR_END__
+ .dtors         0x4809f348        0x4 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtend.o
+                0x4809f348                __DTOR_END__
 
-.jcr            0x4809f234        0x4
+.jcr            0x4809f34c        0x4
  *(.jcr)
- .jcr           0x4809f234        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtbegin.o
- .jcr           0x4809f234        0x4 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtend.o
+ .jcr           0x4809f34c        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtbegin.o
+ .jcr           0x4809f34c        0x4 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtend.o
 
 .data.rel.ro
  *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
@@ -2513,1036 +2513,1036 @@ LOAD C:\ETAS\Compiler\INTECRIO5.0\QNXCompiler-V6.5\target\qnx6\ppcbe-spe\lib\gcc
 .got2
  *(.got2)
 
-.dynamic        0x4809f238      0x138
+.dynamic        0x4809f350      0x138
  *(.dynamic)
- .dynamic       0x4809f238      0x138 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crt1.o
-                0x4809f238                _DYNAMIC
+ .dynamic       0x4809f350      0x138 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crt1.o
+                0x4809f350                _DYNAMIC
 
 .got
  *(.got)
-                0x4809f370                . = (. DATA_SEGMENT_RELRO_END 0x0)
+                0x4809f488                . = (. DATA_SEGMENT_RELRO_END 0x0)
 
 .plt
  *(.plt)
 
-.data           0x4809f370     0x24cc
+.data           0x4809f488     0x24cc
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x4809f370        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crt1.o
- .data          0x4809f370        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crti.o
- .data          0x4809f370        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtbegin.o
- .data.rel      0x4809f370        0x4 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtbegin.o
-                0x4809f370                __dso_handle
- .data          0x4809f374       0x40 ROOT_instances.o
-                0x4809f374                modelIdentificationString
- .data          0x4809f3b4        0x4 _INT_pid.pi.o
-                0x4809f3b4                programIdentifier
- .data          0x4809f3b8        0x0 userFuncProcessCanPayload.o
- .data          0x4809f3b8        0x0 userFuncProcessFlexRayPayload.o
- .data          0x4809f3b8        0x0 OSC/i_rtawrapper.o
- .data          0x4809f3b8       0x74 Car_State0/Car_State_instances.o
-                0x4809f3b8                RTWTop_Car_State_ClassObj
- .data          0x4809f42c        0x0 Car_State1/Car_State1.a(Car_State.o)
- .data          0x4809f42c       0xdc Disconnections0/Disconnections_instances.o
-                0x4809f42c                RTWTop_Disconnections_ClassObj
- .data          0x4809f508        0x0 Disconnections1/Disconnections1.a(Disconnections.o)
- .data          0x4809f508       0x48 Ellipse0/Ellipse_instances.o
-                0x4809f508                RTWTop_Ellipse_ClassObj
- .data          0x4809f550        0x0 Ellipse1/Ellipse1.a(Ellipse.o)
- .data          0x4809f550       0x9c Inverters_Action0/Inverters_Action_instances.o
-                0x4809f550                RTWTop_Inverters_Action_ClassObj
- .data          0x4809f5ec        0x0 Inverters_Action1/Inverters_Action1.a(Inverters_Action.o)
- *fill*         0x4809f5ec        0x4 00
- .data          0x4809f5f0       0x30 Inverters_Action1/Inverters_Action1.a(Inverters_Action_data.o)
-                0x4809f5f0                Inverters_Action_ConstB
- .data          0x4809f620       0x68 Inverters_Data0/Inverters_Data_instances.o
-                0x4809f620                RTWTop_Inverters_Data_ClassObj
- .data          0x4809f688        0x0 Inverters_Data1/Inverters_Data1.a(Inverters_Data.o)
- .data          0x4809f688       0x88 Sensors0/Sensors_instances.o
-                0x4809f688                RTWTop_Sensors_ClassObj
- .data          0x4809f710        0x0 Sensors1/Sensors1.a(Sensors.o)
- .data          0x4809f710       0x40 Sensors1/Sensors1.a(Sensors_data.o)
-                0x4809f710                Sensors_ConstB
- .data          0x4809f750       0x2c Synchronism0/Synchronism_instances.o
-                0x4809f750                RTWTop_Synchronism_ClassObj
- .data          0x4809f77c        0x0 Synchronism1/Synchronism1.a(Synchronism.o)
- .data          0x4809f77c      0x120 VDCv2mk20/VDCv2mk2_instances.o
-                0x4809f77c                RTWTop_VDCv2mk2_ClassObj
- .data          0x4809f89c        0x0 VDCv2mk21/VDCv2mk21.a(VDCv2mk2.o)
- .data          0x4809f89c        0x0 matlabsharedR2023b/matlabsharedR2023b.a(rt_nonfinite.o)
- .data          0x4809f89c        0x0 matlabsharedR2023b/matlabsharedR2023b.a(const_params.o)
- .data          0x4809f89c        0x0 matlabsharedR2023b/matlabsharedR2023b.a(look1_binlxpw.o)
- .data          0x4809f89c        0x0 matlabsharedR2023b/matlabsharedR2023b.a(rt_powd_snf.o)
- .data          0x4809f89c        0x0 matlabsharedR2023b/matlabsharedR2023b.a(rtgetinf.o)
- .data          0x4809f89c        0x0 matlabsharedR2023b/matlabsharedR2023b.a(rtgetnan.o)
- .data          0x4809f89c        0x4 OSC/osekdefs.o
-                0x4809f89c                os_fp_sp
- .data          0x4809f8a0        0x0 OSC/osgen.o
- .data          0x4809f8a0       0x30 OSC/TaskISRArchive.a(etasConfigTask.o)
-                0x4809f8a0                etasConfigTaskMon
- .data          0x4809f8d0       0x30 OSC/TaskISRArchive.a(Sync_25ms.o)
-                0x4809f8d0                Sync_25msMon
- .data          0x4809f900       0x30 OSC/TaskISRArchive.a(Timer_1000ms.o)
-                0x4809f900                Timer_1000msMon
- .data          0x4809f930       0x30 OSC/TaskISRArchive.a(Timer_100ms.o)
-                0x4809f930                Timer_100msMon
- .data          0x4809f960       0x30 OSC/TaskISRArchive.a(Timer_25ms.o)
-                0x4809f960                Timer_25msMon
- .data          0x4809f990       0x30 OSC/TaskISRArchive.a(Timer_Inv.o)
-                0x4809f990                Timer_InvMon
- .data          0x4809f9c0       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_SDC.o)
-                0x4809f9c0                SWT_CAN1_AP_BMS_SDCMon
- .data          0x4809f9f0       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_CurrentSensor.o)
-                0x4809f9f0                SWT_CAN1_AP_CurrentSensorMon
- .data          0x4809fa20       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_Voltages.o)
-                0x4809fa20                SWT_CAN1_AP_BMS_VoltagesMon
- .data          0x4809fa50       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_ChargerParameters.o)
-                0x4809fa50                SWT_CAN1_AP_BMS_ChargerParametersMon
- .data          0x4809fa80       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_Temperatures.o)
-                0x4809fa80                SWT_CAN1_AP_BMS_TemperaturesMon
- .data          0x4809fab0       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_Inverter_R_Tx.o)
-                0x4809fab0                SWT_CAN1_AP_Inverter_R_TxMon
- .data          0x4809fae0       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_Inverter_L_Tx.o)
-                0x4809fae0                SWT_CAN1_AP_Inverter_L_TxMon
- .data          0x4809fb10       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_DASH_Mode.o)
-                0x4809fb10                SWT_CAN1_AP_DASH_ModeMon
- .data          0x4809fb40       0x30 OSC/TaskISRArchive.a(SWT_CAN1_NM_BMS_Keep_Alive.o)
-                0x4809fb40                SWT_CAN1_NM_BMS_Keep_AliveMon
- .data          0x4809fb70       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_AIRs_State.o)
-                0x4809fb70                SWT_CAN1_AP_BMS_AIRs_StateMon
- .data          0x4809fba0       0x30 OSC/TaskISRArchive.a(SWT_CAN1_NM_DASH_Keep_Alive.o)
-                0x4809fba0                SWT_CAN1_NM_DASH_Keep_AliveMon
- .data          0x4809fbd0       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_DASH_PrechargeRequest.o)
-                0x4809fbd0                SWT_CAN1_AP_DASH_PrechargeRequestMon
- .data          0x4809fc00       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_DASH_EnableDrive.o)
-                0x4809fc00                SWT_CAN1_AP_DASH_EnableDriveMon
- .data          0x4809fc30       0x30 OSC/TaskISRArchive.a(SWT_CAN2_MEAS_RECU_SDC.o)
-                0x4809fc30                SWT_CAN2_MEAS_RECU_SDCMon
- .data          0x4809fc60       0x30 OSC/TaskISRArchive.a(SWT_CAN2_MEAS_FECU_SDC.o)
-                0x4809fc60                SWT_CAN2_MEAS_FECU_SDCMon
- .data          0x4809fc90       0x30 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_EKF_POS.o)
-                0x4809fc90                SWT_CAN2_AP_ELLIPSE_EKF_POSMon
- .data          0x4809fcc0       0x30 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_IMU_ACCEL.o)
-                0x4809fcc0                SWT_CAN2_AP_ELLIPSE_IMU_ACCELMon
- .data          0x4809fcf0       0x30 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_EKF_EULER.o)
-                0x4809fcf0                SWT_CAN2_AP_ELLIPSE_EKF_EULERMon
- .data          0x4809fd20       0x30 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_EKF_VEL.o)
-                0x4809fd20                SWT_CAN2_AP_ELLIPSE_EKF_VELMon
- .data          0x4809fd50       0x30 OSC/TaskISRArchive.a(SWT_CAN2_NM_ELLIPSE_Status.o)
-                0x4809fd50                SWT_CAN2_NM_ELLIPSE_StatusMon
- .data          0x4809fd80       0x30 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_IMU_GYRO.o)
-                0x4809fd80                SWT_CAN2_AP_ELLIPSE_IMU_GYROMon
- .data          0x4809fdb0       0x30 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_SLIP_CURV.o)
-                0x4809fdb0                SWT_CAN2_AP_ELLIPSE_SLIP_CURVMon
- .data          0x4809fde0       0x30 OSC/TaskISRArchive.a(SWT_CAN2_AP_RECU_Data.o)
-                0x4809fde0                SWT_CAN2_AP_RECU_DataMon
- .data          0x4809fe10       0x30 OSC/TaskISRArchive.a(SWT_CAN2_NM_FECU_Keep_Alive.o)
-                0x4809fe10                SWT_CAN2_NM_FECU_Keep_AliveMon
- .data          0x4809fe40       0x30 OSC/TaskISRArchive.a(SWT_CAN2_NM_RECU_Keep_Alive.o)
-                0x4809fe40                SWT_CAN2_NM_RECU_Keep_AliveMon
- .data          0x4809fe70       0x30 OSC/TaskISRArchive.a(SWT_CAN2_AP_FECU_Data2.o)
-                0x4809fe70                SWT_CAN2_AP_FECU_Data2Mon
- .data          0x4809fea0       0x30 OSC/TaskISRArchive.a(SWT_CAN2_AP_FECU_Data1.o)
-                0x4809fea0                SWT_CAN2_AP_FECU_Data1Mon
- .data          0x4809fed0       0x30 OSC/TaskISRArchive.a(ISR_CAN1.o)
-                0x4809fed0                ISR_CAN1Mon
- .data          0x4809ff00       0x30 OSC/TaskISRArchive.a(ISR_CAN2.o)
-                0x4809ff00                ISR_CAN2Mon
- .data          0x4809ff30       0x30 OSC/etasActivateTaskIsr.o
-                0x4809ff30                etasActivateTaskIsrMon
- .data          0x4809ff60       0x30 OSC/etasL1Isr.o
-                0x4809ff60                etasL1IsrMon
- .data          0x4809ff90       0x30 OSC/etasL1Task.o
-                0x4809ff90                etasL1TaskMon
- .data          0x4809ffc0       0x30 OSC/etasTimerIsr.o
-                0x4809ffc0                etasTimerIsrMon
- .data          0x4809fff0       0x30 OSC/etasStopOsIsr.o
-                0x4809fff0                etasStopOsIsrMon
- .data          0x480a0020        0x0 OSC/DriverThreads.o
- .data          0x480a0020        0x0 OSC/ISRFunctions.o
- .data          0x480a0020      0x1c0 OSC/osc_dyn.o
-                0x480a0044                taskTableEntries
-                0x480a01d0                taskTable
-                0x480a01d8                osAdmin
-                0x480a0020                appModeEntries
-                0x480a0038                appModeTable
- .data          0x480a01e0        0xc OSC/rtaInterface.o
-                0x480a01e4                etasInactiveAppMode
-                0x480a01e8                TimersAppMode
-                0x480a01e0                etasStartupAppMode
- .data          0x480a01ec       0x94 OSC/ETCHooks.o
-                0x480a01ec                rtioTaskTable
- .data          0x480a0280       0x94 OSC/XbarHooks.o
-                0x480a0280                crossbarTaskTable
- .data          0x480a0314        0x8 ETC/FormulaTable.o
-                0x480a0314                rtioFormulaTable
- .data          0x480a031c       0x38 ETC/DriverTable.o
-                0x480a031c                rtioDriverTable
- .data          0x480a0354       0x8c ETC/MappingFunctionTable.o
-                0x480a0354                rtioMapFuncTable
- .data          0x480a03e0        0x0 ETC/RtioL1RecordTable.o
- .data          0x480a03e0        0x0 ETC/XCPTransportLayerFunctionsTable.o
- .data          0x480a03e0        0x0 ETC/ChecksumAlgoTables.o
- .data          0x480a03e0       0x38 CBC/CopyFunctionTable.o
-                0x480a03e0                crossbarCopyFuncTable
- .data          0x480a0418        0x0 CBC/CrossbarL1RecordTable.o
- .data          0x480a0418        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_fixunsdfdi.o)
- .data          0x480a0418        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_floatundidf.o)
- .data          0x480a0418        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtend.o
- .data          0x480a0418        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crtn.o
- .data          0x480a0418        0xc C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(i_rtautil.o)
- .data          0x480a0424        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_driverThreads.o)
- .data          0x480a0424        0x3 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_idle.o)
- *fill*         0x480a0427        0x1 00
- .data          0x480a0428       0x28 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_l1com.o)
- .data          0x480a0450        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_main.o)
- .data          0x480a0450        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_mlog.o)
- .data          0x480a0458        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_qnxtargetutil.o)
- .data          0x480a0460        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_targetutil.o)
- .data          0x480a0460        0x9 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_watchdog.o)
- .data          0x480a0469        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(p_chario.o)
- *fill*         0x480a0469        0x3 00
- .data          0x480a046c        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_hwTimeSync.o)
- .data          0x480a0470        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_led.o)
- .data          0x480a0470      0x110 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_dacqui.o)
-                0x480a04d8                oidListDataAcquisition
-                0x480a0514                dacq_c
-                0x480a0488                dacqLog_c
-                0x480a0498                loggingGroup
-                0x480a04c0                debugAcqui
-                0x480a04e8                dataAcquisitionObjects
-                0x480a04f4                dacqMethods
- .data          0x480a0580        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_l1pro.o)
- .data          0x480a0580      0x464 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_primit.o)
-                0x480a06f4                Vec_sint16_ClassObj
-                0x480a0604                Mat_sint16_ClassObj
-                0x480a0814                sint16_ClassObj
-                0x480a082c                uint8_ClassObj
-                0x480a05d4                Mat_sint32_ClassObj
-                0x480a070c                Vec_uint8_ClassObj
-                0x480a07fc                uint16_ClassObj
-                0x480a085c                real32_ClassObj
-                0x480a0634                Mat_sint8_ClassObj
-                0x480a0844                sint8_ClassObj
-                0x480a076c                qreal64_ClassObj
-                0x480a067c                Vec_qreal64_ClassObj
-                0x480a0754                Vec_real64_ClassObj
-                0x480a05bc                Mat_uint32_ClassObj
-                0x480a061c                Mat_uint8_ClassObj
-                0x480a0784                bool_ClassObj
-                0x480a064c                Mat_real32_ClassObj
-                0x480a079c                uint32_ClassObj
-                0x480a07c0                CharTable2_ClassObj
-                0x480a05a4                Mat_bool_ClassObj
-                0x480a07cc                GroupCharTable1_ClassObj
-                0x480a0724                Vec_sint8_ClassObj
-                0x480a0694                Vec_bool_ClassObj
-                0x480a06dc                Vec_uint16_ClassObj
-                0x480a07d8                CharTable1_ClassObj
-                0x480a073c                Vec_real32_ClassObj
-                0x480a058c                Mat_qreal64_ClassObj
-                0x480a05ec                Mat_uint16_ClassObj
-                0x480a07b4                GroupCharTable2_ClassObj
-                0x480a07e4                sint32_ClassObj
-                0x480a0874                real64_ClassObj
-                0x480a0580                quantInfo_ClassObj
-                0x480a0664                Mat_real64_ClassObj
-                0x480a06ac                Vec_uint32_ClassObj
-                0x480a06c4                Vec_sint32_ClassObj
- .data          0x480a09e4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_sysver.o)
- .data          0x480a09e4      0x504 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_targma.o)
-                0x480a0e40                debugSim
-                0x480a09f8                simMan_c
-                0x480a0e58                simManMethods
-                0x480a09e4                activeSimObjects
-                0x480a0e28                userDebugString
-                0x480a0e10                userErrorString
- .data          0x480a0ee8        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_cpyfnc.o)
- .data          0x480a0ee8        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_mapfnc.o)
- .data          0x480a0ee8       0x50 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_osman.o)
-                0x480a0f04                osManMethods
-                0x480a0ee8                osMan_c
- .data          0x480a0f38       0xc8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_rtioma.o)
-                0x480a0f3c                rtioManMethods
-                0x480a0fe4                rtioMan_c
- .data          0x480a1000        0x1 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_salone.o)
- *fill*         0x480a1001        0x3 00
- .data          0x480a1004       0x78 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_croman.o)
-                0x480a1060                crossbarMan_c
-                0x480a1008                crossbarManMethods
- .data          0x480a107c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_crosll.o)
- .data          0x480a107c       0x60 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_nvram.o)
-                0x480a10c0                nvramMan_c
-                0x480a108c                nvramManMethods
- .data          0x480a10dc        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_objlis.o)
- .data          0x480a10dc       0x14 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_rtcros.o)
- .data          0x480a10f0       0x70 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_sgman.o)
-                0x480a10fc                stimuliGenManMethods
-                0x480a10f0                sg_ClassObj
-                0x480a1144                stimuliGenMan_c
- .data          0x480a1160      0x19c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(y_primit.o)
-                0x480a1190                matrixWrapper_typeSize_4_ClassObj
-                0x480a1250                scalarWrapper_typeSize_4_ClassObj
-                0x480a1178                matrixWrapper_typeSize_2_ClassObj
-                0x480a1208                vectorWrapper_typeSize_8_ClassObj
-                0x480a1220                scalarWrapper_typeSize_1_ClassObj
-                0x480a11f0                vectorWrapper_typeSize_4_ClassObj
-                0x480a11c0                vectorWrapper_typeSize_1_ClassObj
-                0x480a11a8                matrixWrapper_typeSize_8_ClassObj
-                0x480a1238                scalarWrapper_typeSize_2_ClassObj
-                0x480a11d8                vectorWrapper_typeSize_2_ClassObj
-                0x480a1268                scalarWrapper_typeSize_8_ClassObj
-                0x480a1160                matrixWrapper_typeSize_1_ClassObj
- .data          0x480a12fc       0x6c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a1b_dacq.o)
-                0x480a1320                a1bDacqMethods
-                0x480a12fc                a1bDacq_c
- .data          0x480a1368        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_contai.o)
- .data          0x480a1368       0x14 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_transf.o)
-                0x480a1368                crossbarTransferFuncTable
- .data          0x480a137c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_sglow.o)
- .data          0x480a137c      0x10c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(comm_err.o)
-                0x480a145c                etasBoardNames
-                0x480a137c                commErrMessages
- .data          0x480a1488        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(p_rtio.o)
- .data          0x480a1488        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(p_rtio_s.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(rtio_err.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(fhc_emu.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostarget.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osfptgt.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osiwrap1.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxdspnf.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osysd1hf.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osysdfhf.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osysdfhi.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostgid.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostschf.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osieai.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osidai.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osisoi.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osirai.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osisai.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxperr2.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxglobs.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osostart.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ososhuth.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osttermh.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostactsf.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostactnf.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osatickn.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osacallb.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxdpsho.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osiwrap.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxjmp.o)
- .data          0x480a148c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ososhutn.o)
- .data          0x480a148c       0x18 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libcommon.a(p_execl1.o)
-                0x480a1498                superObjectMethodList
-                0x480a148c                superClassMethodList
- .data          0x480a14a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libcommon.a(p_protl1.o)
- .data          0x480a14a4       0x44 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libcommon.a(p_stdeb.o)
-                0x480a14c8                debug_c
- .data          0x480a14e8        0x0 Car_State1/Car_State1.a(Car_State_main.o)
- .data          0x480a14e8        0x0 Car_State1/Car_State1.a(rt_sim.o)
- .data          0x480a14e8        0x0 Disconnections1/Disconnections1.a(Disconnections_main.o)
- .data          0x480a14e8        0x0 Disconnections1/Disconnections1.a(rt_sim.o)
- .data          0x480a14e8        0x0 Ellipse1/Ellipse1.a(Ellipse_main.o)
- .data          0x480a14e8        0x0 Ellipse1/Ellipse1.a(rt_sim.o)
- .data          0x480a14e8        0x0 Inverters_Action1/Inverters_Action1.a(Inverters_Action_main.o)
- .data          0x480a14e8        0x0 Inverters_Action1/Inverters_Action1.a(rt_sim.o)
- .data          0x480a14e8        0x0 Inverters_Data1/Inverters_Data1.a(Inverters_Data_main.o)
- .data          0x480a14e8        0x0 Inverters_Data1/Inverters_Data1.a(rt_sim.o)
- .data          0x480a14e8        0x0 Sensors1/Sensors1.a(Sensors_main.o)
- .data          0x480a14e8        0x0 Sensors1/Sensors1.a(rt_sim.o)
- .data          0x480a14e8        0x0 Synchronism1/Synchronism1.a(Synchronism_main.o)
- .data          0x480a14e8        0x0 Synchronism1/Synchronism1.a(rt_sim.o)
- .data          0x480a14e8        0x0 VDCv2mk21/VDCv2mk21.a(VDCv2mk2_main.o)
- .data          0x480a14e8        0x0 VDCv2mk21/VDCv2mk21.a(rt_sim.o)
- .data          0x480a14e8        0x0 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCan.o)
- .data          0x480a14e8        0x0 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanCanio.o)
- .data          0x480a14e8      0x124 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanErr.o)
-                0x480a14e8                es9xxCanErrMessages
- .data          0x480a160c        0x0 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanHalBuf.o)
- .data          0x480a160c        0x0 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanHalIfi.o)
- .data          0x480a160c        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_floatdidf.o)
- .data          0x480a160c      0x220 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_dataset.o)
- .data          0x480a182c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(crc32.o)
-                0x480a183c                . = (. + 0x10)
- *fill*         0x480a182c       0x10 00
+ .data          0x4809f488        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crt1.o
+ .data          0x4809f488        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crti.o
+ .data          0x4809f488        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtbegin.o
+ .data.rel      0x4809f488        0x4 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtbegin.o
+                0x4809f488                __dso_handle
+ .data          0x4809f48c       0x40 ROOT_instances.o
+                0x4809f48c                modelIdentificationString
+ .data          0x4809f4cc        0x4 _INT_pid.pi.o
+                0x4809f4cc                programIdentifier
+ .data          0x4809f4d0        0x0 userFuncProcessCanPayload.o
+ .data          0x4809f4d0        0x0 userFuncProcessFlexRayPayload.o
+ .data          0x4809f4d0        0x0 OSC/i_rtawrapper.o
+ .data          0x4809f4d0       0x74 Car_State0/Car_State_instances.o
+                0x4809f4d0                RTWTop_Car_State_ClassObj
+ .data          0x4809f544        0x0 Car_State1/Car_State1.a(Car_State.o)
+ .data          0x4809f544       0xdc Disconnections0/Disconnections_instances.o
+                0x4809f544                RTWTop_Disconnections_ClassObj
+ .data          0x4809f620        0x0 Disconnections1/Disconnections1.a(Disconnections.o)
+ .data          0x4809f620       0x48 Ellipse0/Ellipse_instances.o
+                0x4809f620                RTWTop_Ellipse_ClassObj
+ .data          0x4809f668        0x0 Ellipse1/Ellipse1.a(Ellipse.o)
+ .data          0x4809f668       0x9c Inverters_Action0/Inverters_Action_instances.o
+                0x4809f668                RTWTop_Inverters_Action_ClassObj
+ .data          0x4809f704        0x0 Inverters_Action1/Inverters_Action1.a(Inverters_Action.o)
+ *fill*         0x4809f704        0x4 00
+ .data          0x4809f708       0x30 Inverters_Action1/Inverters_Action1.a(Inverters_Action_data.o)
+                0x4809f708                Inverters_Action_ConstB
+ .data          0x4809f738       0x68 Inverters_Data0/Inverters_Data_instances.o
+                0x4809f738                RTWTop_Inverters_Data_ClassObj
+ .data          0x4809f7a0        0x0 Inverters_Data1/Inverters_Data1.a(Inverters_Data.o)
+ .data          0x4809f7a0       0x88 Sensors0/Sensors_instances.o
+                0x4809f7a0                RTWTop_Sensors_ClassObj
+ .data          0x4809f828        0x0 Sensors1/Sensors1.a(Sensors.o)
+ .data          0x4809f828       0x40 Sensors1/Sensors1.a(Sensors_data.o)
+                0x4809f828                Sensors_ConstB
+ .data          0x4809f868       0x2c Synchronism0/Synchronism_instances.o
+                0x4809f868                RTWTop_Synchronism_ClassObj
+ .data          0x4809f894        0x0 Synchronism1/Synchronism1.a(Synchronism.o)
+ .data          0x4809f894      0x120 VDCv2mk20/VDCv2mk2_instances.o
+                0x4809f894                RTWTop_VDCv2mk2_ClassObj
+ .data          0x4809f9b4        0x0 VDCv2mk21/VDCv2mk21.a(VDCv2mk2.o)
+ .data          0x4809f9b4        0x0 matlabsharedR2023b/matlabsharedR2023b.a(rt_nonfinite.o)
+ .data          0x4809f9b4        0x0 matlabsharedR2023b/matlabsharedR2023b.a(const_params.o)
+ .data          0x4809f9b4        0x0 matlabsharedR2023b/matlabsharedR2023b.a(look1_binlxpw.o)
+ .data          0x4809f9b4        0x0 matlabsharedR2023b/matlabsharedR2023b.a(rt_powd_snf.o)
+ .data          0x4809f9b4        0x0 matlabsharedR2023b/matlabsharedR2023b.a(rtgetinf.o)
+ .data          0x4809f9b4        0x0 matlabsharedR2023b/matlabsharedR2023b.a(rtgetnan.o)
+ .data          0x4809f9b4        0x4 OSC/osekdefs.o
+                0x4809f9b4                os_fp_sp
+ .data          0x4809f9b8        0x0 OSC/osgen.o
+ .data          0x4809f9b8       0x30 OSC/TaskISRArchive.a(etasConfigTask.o)
+                0x4809f9b8                etasConfigTaskMon
+ .data          0x4809f9e8       0x30 OSC/TaskISRArchive.a(Sync_25ms.o)
+                0x4809f9e8                Sync_25msMon
+ .data          0x4809fa18       0x30 OSC/TaskISRArchive.a(Timer_1000ms.o)
+                0x4809fa18                Timer_1000msMon
+ .data          0x4809fa48       0x30 OSC/TaskISRArchive.a(Timer_100ms.o)
+                0x4809fa48                Timer_100msMon
+ .data          0x4809fa78       0x30 OSC/TaskISRArchive.a(Timer_25ms.o)
+                0x4809fa78                Timer_25msMon
+ .data          0x4809faa8       0x30 OSC/TaskISRArchive.a(Timer_Inv.o)
+                0x4809faa8                Timer_InvMon
+ .data          0x4809fad8       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_SDC.o)
+                0x4809fad8                SWT_CAN1_AP_BMS_SDCMon
+ .data          0x4809fb08       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_CurrentSensor.o)
+                0x4809fb08                SWT_CAN1_AP_CurrentSensorMon
+ .data          0x4809fb38       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_Voltages.o)
+                0x4809fb38                SWT_CAN1_AP_BMS_VoltagesMon
+ .data          0x4809fb68       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_ChargerParameters.o)
+                0x4809fb68                SWT_CAN1_AP_BMS_ChargerParametersMon
+ .data          0x4809fb98       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_Temperatures.o)
+                0x4809fb98                SWT_CAN1_AP_BMS_TemperaturesMon
+ .data          0x4809fbc8       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_Inverter_R_Tx.o)
+                0x4809fbc8                SWT_CAN1_AP_Inverter_R_TxMon
+ .data          0x4809fbf8       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_Inverter_L_Tx.o)
+                0x4809fbf8                SWT_CAN1_AP_Inverter_L_TxMon
+ .data          0x4809fc28       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_DASH_Mode.o)
+                0x4809fc28                SWT_CAN1_AP_DASH_ModeMon
+ .data          0x4809fc58       0x30 OSC/TaskISRArchive.a(SWT_CAN1_NM_BMS_Keep_Alive.o)
+                0x4809fc58                SWT_CAN1_NM_BMS_Keep_AliveMon
+ .data          0x4809fc88       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_AIRs_State.o)
+                0x4809fc88                SWT_CAN1_AP_BMS_AIRs_StateMon
+ .data          0x4809fcb8       0x30 OSC/TaskISRArchive.a(SWT_CAN1_NM_DASH_Keep_Alive.o)
+                0x4809fcb8                SWT_CAN1_NM_DASH_Keep_AliveMon
+ .data          0x4809fce8       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_DASH_PrechargeRequest.o)
+                0x4809fce8                SWT_CAN1_AP_DASH_PrechargeRequestMon
+ .data          0x4809fd18       0x30 OSC/TaskISRArchive.a(SWT_CAN1_AP_DASH_EnableDrive.o)
+                0x4809fd18                SWT_CAN1_AP_DASH_EnableDriveMon
+ .data          0x4809fd48       0x30 OSC/TaskISRArchive.a(SWT_CAN2_MEAS_RECU_SDC.o)
+                0x4809fd48                SWT_CAN2_MEAS_RECU_SDCMon
+ .data          0x4809fd78       0x30 OSC/TaskISRArchive.a(SWT_CAN2_MEAS_FECU_SDC.o)
+                0x4809fd78                SWT_CAN2_MEAS_FECU_SDCMon
+ .data          0x4809fda8       0x30 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_EKF_POS.o)
+                0x4809fda8                SWT_CAN2_AP_ELLIPSE_EKF_POSMon
+ .data          0x4809fdd8       0x30 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_IMU_ACCEL.o)
+                0x4809fdd8                SWT_CAN2_AP_ELLIPSE_IMU_ACCELMon
+ .data          0x4809fe08       0x30 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_EKF_EULER.o)
+                0x4809fe08                SWT_CAN2_AP_ELLIPSE_EKF_EULERMon
+ .data          0x4809fe38       0x30 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_EKF_VEL.o)
+                0x4809fe38                SWT_CAN2_AP_ELLIPSE_EKF_VELMon
+ .data          0x4809fe68       0x30 OSC/TaskISRArchive.a(SWT_CAN2_NM_ELLIPSE_Status.o)
+                0x4809fe68                SWT_CAN2_NM_ELLIPSE_StatusMon
+ .data          0x4809fe98       0x30 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_IMU_GYRO.o)
+                0x4809fe98                SWT_CAN2_AP_ELLIPSE_IMU_GYROMon
+ .data          0x4809fec8       0x30 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_SLIP_CURV.o)
+                0x4809fec8                SWT_CAN2_AP_ELLIPSE_SLIP_CURVMon
+ .data          0x4809fef8       0x30 OSC/TaskISRArchive.a(SWT_CAN2_AP_RECU_Data.o)
+                0x4809fef8                SWT_CAN2_AP_RECU_DataMon
+ .data          0x4809ff28       0x30 OSC/TaskISRArchive.a(SWT_CAN2_NM_FECU_Keep_Alive.o)
+                0x4809ff28                SWT_CAN2_NM_FECU_Keep_AliveMon
+ .data          0x4809ff58       0x30 OSC/TaskISRArchive.a(SWT_CAN2_NM_RECU_Keep_Alive.o)
+                0x4809ff58                SWT_CAN2_NM_RECU_Keep_AliveMon
+ .data          0x4809ff88       0x30 OSC/TaskISRArchive.a(SWT_CAN2_AP_FECU_Data2.o)
+                0x4809ff88                SWT_CAN2_AP_FECU_Data2Mon
+ .data          0x4809ffb8       0x30 OSC/TaskISRArchive.a(SWT_CAN2_AP_FECU_Data1.o)
+                0x4809ffb8                SWT_CAN2_AP_FECU_Data1Mon
+ .data          0x4809ffe8       0x30 OSC/TaskISRArchive.a(ISR_CAN1.o)
+                0x4809ffe8                ISR_CAN1Mon
+ .data          0x480a0018       0x30 OSC/TaskISRArchive.a(ISR_CAN2.o)
+                0x480a0018                ISR_CAN2Mon
+ .data          0x480a0048       0x30 OSC/etasActivateTaskIsr.o
+                0x480a0048                etasActivateTaskIsrMon
+ .data          0x480a0078       0x30 OSC/etasL1Isr.o
+                0x480a0078                etasL1IsrMon
+ .data          0x480a00a8       0x30 OSC/etasL1Task.o
+                0x480a00a8                etasL1TaskMon
+ .data          0x480a00d8       0x30 OSC/etasTimerIsr.o
+                0x480a00d8                etasTimerIsrMon
+ .data          0x480a0108       0x30 OSC/etasStopOsIsr.o
+                0x480a0108                etasStopOsIsrMon
+ .data          0x480a0138        0x0 OSC/DriverThreads.o
+ .data          0x480a0138        0x0 OSC/ISRFunctions.o
+ .data          0x480a0138      0x1c0 OSC/osc_dyn.o
+                0x480a015c                taskTableEntries
+                0x480a02e8                taskTable
+                0x480a02f0                osAdmin
+                0x480a0138                appModeEntries
+                0x480a0150                appModeTable
+ .data          0x480a02f8        0xc OSC/rtaInterface.o
+                0x480a02fc                etasInactiveAppMode
+                0x480a0300                TimersAppMode
+                0x480a02f8                etasStartupAppMode
+ .data          0x480a0304       0x94 OSC/ETCHooks.o
+                0x480a0304                rtioTaskTable
+ .data          0x480a0398       0x94 OSC/XbarHooks.o
+                0x480a0398                crossbarTaskTable
+ .data          0x480a042c        0x8 ETC/FormulaTable.o
+                0x480a042c                rtioFormulaTable
+ .data          0x480a0434       0x38 ETC/DriverTable.o
+                0x480a0434                rtioDriverTable
+ .data          0x480a046c       0x8c ETC/MappingFunctionTable.o
+                0x480a046c                rtioMapFuncTable
+ .data          0x480a04f8        0x0 ETC/RtioL1RecordTable.o
+ .data          0x480a04f8        0x0 ETC/XCPTransportLayerFunctionsTable.o
+ .data          0x480a04f8        0x0 ETC/ChecksumAlgoTables.o
+ .data          0x480a04f8       0x38 CBC/CopyFunctionTable.o
+                0x480a04f8                crossbarCopyFuncTable
+ .data          0x480a0530        0x0 CBC/CrossbarL1RecordTable.o
+ .data          0x480a0530        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_fixunsdfdi.o)
+ .data          0x480a0530        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_floatundidf.o)
+ .data          0x480a0530        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtend.o
+ .data          0x480a0530        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crtn.o
+ .data          0x480a0530        0xc C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(i_rtautil.o)
+ .data          0x480a053c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_driverThreads.o)
+ .data          0x480a053c        0x3 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_idle.o)
+ *fill*         0x480a053f        0x1 00
+ .data          0x480a0540       0x28 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_l1com.o)
+ .data          0x480a0568        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_main.o)
+ .data          0x480a0568        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_mlog.o)
+ .data          0x480a0570        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_qnxtargetutil.o)
+ .data          0x480a0578        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_targetutil.o)
+ .data          0x480a0578        0x9 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_watchdog.o)
+ .data          0x480a0581        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(p_chario.o)
+ *fill*         0x480a0581        0x3 00
+ .data          0x480a0584        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_hwTimeSync.o)
+ .data          0x480a0588        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_led.o)
+ .data          0x480a0588      0x110 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_dacqui.o)
+                0x480a05f0                oidListDataAcquisition
+                0x480a062c                dacq_c
+                0x480a05a0                dacqLog_c
+                0x480a05b0                loggingGroup
+                0x480a05d8                debugAcqui
+                0x480a0600                dataAcquisitionObjects
+                0x480a060c                dacqMethods
+ .data          0x480a0698        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_l1pro.o)
+ .data          0x480a0698      0x464 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_primit.o)
+                0x480a080c                Vec_sint16_ClassObj
+                0x480a071c                Mat_sint16_ClassObj
+                0x480a092c                sint16_ClassObj
+                0x480a0944                uint8_ClassObj
+                0x480a06ec                Mat_sint32_ClassObj
+                0x480a0824                Vec_uint8_ClassObj
+                0x480a0914                uint16_ClassObj
+                0x480a0974                real32_ClassObj
+                0x480a074c                Mat_sint8_ClassObj
+                0x480a095c                sint8_ClassObj
+                0x480a0884                qreal64_ClassObj
+                0x480a0794                Vec_qreal64_ClassObj
+                0x480a086c                Vec_real64_ClassObj
+                0x480a06d4                Mat_uint32_ClassObj
+                0x480a0734                Mat_uint8_ClassObj
+                0x480a089c                bool_ClassObj
+                0x480a0764                Mat_real32_ClassObj
+                0x480a08b4                uint32_ClassObj
+                0x480a08d8                CharTable2_ClassObj
+                0x480a06bc                Mat_bool_ClassObj
+                0x480a08e4                GroupCharTable1_ClassObj
+                0x480a083c                Vec_sint8_ClassObj
+                0x480a07ac                Vec_bool_ClassObj
+                0x480a07f4                Vec_uint16_ClassObj
+                0x480a08f0                CharTable1_ClassObj
+                0x480a0854                Vec_real32_ClassObj
+                0x480a06a4                Mat_qreal64_ClassObj
+                0x480a0704                Mat_uint16_ClassObj
+                0x480a08cc                GroupCharTable2_ClassObj
+                0x480a08fc                sint32_ClassObj
+                0x480a098c                real64_ClassObj
+                0x480a0698                quantInfo_ClassObj
+                0x480a077c                Mat_real64_ClassObj
+                0x480a07c4                Vec_uint32_ClassObj
+                0x480a07dc                Vec_sint32_ClassObj
+ .data          0x480a0afc        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_sysver.o)
+ .data          0x480a0afc      0x504 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_targma.o)
+                0x480a0f58                debugSim
+                0x480a0b10                simMan_c
+                0x480a0f70                simManMethods
+                0x480a0afc                activeSimObjects
+                0x480a0f40                userDebugString
+                0x480a0f28                userErrorString
+ .data          0x480a1000        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_cpyfnc.o)
+ .data          0x480a1000        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_mapfnc.o)
+ .data          0x480a1000       0x50 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_osman.o)
+                0x480a101c                osManMethods
+                0x480a1000                osMan_c
+ .data          0x480a1050       0xc8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_rtioma.o)
+                0x480a1054                rtioManMethods
+                0x480a10fc                rtioMan_c
+ .data          0x480a1118        0x1 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_salone.o)
+ *fill*         0x480a1119        0x3 00
+ .data          0x480a111c       0x78 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_croman.o)
+                0x480a1178                crossbarMan_c
+                0x480a1120                crossbarManMethods
+ .data          0x480a1194        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_crosll.o)
+ .data          0x480a1194       0x60 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_nvram.o)
+                0x480a11d8                nvramMan_c
+                0x480a11a4                nvramManMethods
+ .data          0x480a11f4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_objlis.o)
+ .data          0x480a11f4       0x14 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_rtcros.o)
+ .data          0x480a1208       0x70 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_sgman.o)
+                0x480a1214                stimuliGenManMethods
+                0x480a1208                sg_ClassObj
+                0x480a125c                stimuliGenMan_c
+ .data          0x480a1278      0x19c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(y_primit.o)
+                0x480a12a8                matrixWrapper_typeSize_4_ClassObj
+                0x480a1368                scalarWrapper_typeSize_4_ClassObj
+                0x480a1290                matrixWrapper_typeSize_2_ClassObj
+                0x480a1320                vectorWrapper_typeSize_8_ClassObj
+                0x480a1338                scalarWrapper_typeSize_1_ClassObj
+                0x480a1308                vectorWrapper_typeSize_4_ClassObj
+                0x480a12d8                vectorWrapper_typeSize_1_ClassObj
+                0x480a12c0                matrixWrapper_typeSize_8_ClassObj
+                0x480a1350                scalarWrapper_typeSize_2_ClassObj
+                0x480a12f0                vectorWrapper_typeSize_2_ClassObj
+                0x480a1380                scalarWrapper_typeSize_8_ClassObj
+                0x480a1278                matrixWrapper_typeSize_1_ClassObj
+ .data          0x480a1414       0x6c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a1b_dacq.o)
+                0x480a1438                a1bDacqMethods
+                0x480a1414                a1bDacq_c
+ .data          0x480a1480        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_contai.o)
+ .data          0x480a1480       0x14 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_transf.o)
+                0x480a1480                crossbarTransferFuncTable
+ .data          0x480a1494        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_sglow.o)
+ .data          0x480a1494      0x10c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(comm_err.o)
+                0x480a1574                etasBoardNames
+                0x480a1494                commErrMessages
+ .data          0x480a15a0        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(p_rtio.o)
+ .data          0x480a15a0        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(p_rtio_s.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(rtio_err.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(fhc_emu.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostarget.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osfptgt.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osiwrap1.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxdspnf.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osysd1hf.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osysdfhf.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osysdfhi.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostgid.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostschf.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osieai.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osidai.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osisoi.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osirai.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osisai.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxperr2.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxglobs.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osostart.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ososhuth.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osttermh.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostactsf.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostactnf.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osatickn.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osacallb.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxdpsho.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osiwrap.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxjmp.o)
+ .data          0x480a15a4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ososhutn.o)
+ .data          0x480a15a4       0x18 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libcommon.a(p_execl1.o)
+                0x480a15b0                superObjectMethodList
+                0x480a15a4                superClassMethodList
+ .data          0x480a15bc        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libcommon.a(p_protl1.o)
+ .data          0x480a15bc       0x44 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libcommon.a(p_stdeb.o)
+                0x480a15e0                debug_c
+ .data          0x480a1600        0x0 Car_State1/Car_State1.a(Car_State_main.o)
+ .data          0x480a1600        0x0 Car_State1/Car_State1.a(rt_sim.o)
+ .data          0x480a1600        0x0 Disconnections1/Disconnections1.a(Disconnections_main.o)
+ .data          0x480a1600        0x0 Disconnections1/Disconnections1.a(rt_sim.o)
+ .data          0x480a1600        0x0 Ellipse1/Ellipse1.a(Ellipse_main.o)
+ .data          0x480a1600        0x0 Ellipse1/Ellipse1.a(rt_sim.o)
+ .data          0x480a1600        0x0 Inverters_Action1/Inverters_Action1.a(Inverters_Action_main.o)
+ .data          0x480a1600        0x0 Inverters_Action1/Inverters_Action1.a(rt_sim.o)
+ .data          0x480a1600        0x0 Inverters_Data1/Inverters_Data1.a(Inverters_Data_main.o)
+ .data          0x480a1600        0x0 Inverters_Data1/Inverters_Data1.a(rt_sim.o)
+ .data          0x480a1600        0x0 Sensors1/Sensors1.a(Sensors_main.o)
+ .data          0x480a1600        0x0 Sensors1/Sensors1.a(rt_sim.o)
+ .data          0x480a1600        0x0 Synchronism1/Synchronism1.a(Synchronism_main.o)
+ .data          0x480a1600        0x0 Synchronism1/Synchronism1.a(rt_sim.o)
+ .data          0x480a1600        0x0 VDCv2mk21/VDCv2mk21.a(VDCv2mk2_main.o)
+ .data          0x480a1600        0x0 VDCv2mk21/VDCv2mk21.a(rt_sim.o)
+ .data          0x480a1600        0x0 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCan.o)
+ .data          0x480a1600        0x0 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanCanio.o)
+ .data          0x480a1600      0x124 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanErr.o)
+                0x480a1600                es9xxCanErrMessages
+ .data          0x480a1724        0x0 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanHalBuf.o)
+ .data          0x480a1724        0x0 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanHalIfi.o)
+ .data          0x480a1724        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_floatdidf.o)
+ .data          0x480a1724      0x220 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_dataset.o)
+ .data          0x480a1944        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(crc32.o)
+                0x480a1954                . = (. + 0x10)
+ *fill*         0x480a1944       0x10 00
 
-.os_pir         0x480a183c        0x0
- .os_pir        0x480a183c        0x0 OSC/osgen.o
+.os_pir         0x480a1954        0x0
+ .os_pir        0x480a1954        0x0 OSC/osgen.o
 
-.os_pur         0x480a183c        0x0
- .os_pur        0x480a183c        0x0 OSC/osgen.o
+.os_pur         0x480a1954        0x0
+ .os_pur        0x480a1954        0x0 OSC/osgen.o
 
-.os_pnir        0x480a183c       0x54
- .os_pnir       0x480a183c       0x54 OSC/osgen.o
-                0x480a183c                OS_L0001
-                0x480a1868                OS_L0004
-                0x480a1890                OS_L000B
-                0x480a1864                OS_L0002
-                0x480a183c                OS_L000A
+.os_pnir        0x480a1954       0x54
+ .os_pnir       0x480a1954       0x54 OSC/osgen.o
+                0x480a1954                OS_L0001
+                0x480a1980                OS_L0004
+                0x480a19a8                OS_L000B
+                0x480a197c                OS_L0002
+                0x480a1954                OS_L000A
 
-.os_intvec      0x480a1890       0x64
- .os_intvec     0x480a1890       0x64 OSC/osgen.o
-                0x480a1894                os_int_id
-                0x480a1890                os_sivt_count
-                0x480a18ac                os_sivt
+.os_intvec      0x480a19a8       0x64
+ .os_intvec     0x480a19a8       0x64 OSC/osgen.o
+                0x480a19ac                os_int_id
+                0x480a19a8                os_sivt_count
+                0x480a19c4                os_sivt
 
 .data1
  *(.data1)
 
-.got            0x480a18f4       0x44
+.got            0x480a1a0c       0x44
  *(.got)
- .got           0x480a18f4       0x44 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crt1.o
-                0x480a192c                _GLOBAL_OFFSET_TABLE_
+ .got           0x480a1a0c       0x44 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crt1.o
+                0x480a1a44                _GLOBAL_OFFSET_TABLE_
 
-.sdata          0x480a1938       0x18
-                0x480a9938                PROVIDE (_SDA_BASE_, 0x8000)
+.sdata          0x480a1a50       0x18
+                0x480a9a50                PROVIDE (_SDA_BASE_, 0x8000)
  *(.sdata .sdata.* .gnu.linkonce.s.*)
- .sdata         0x480a1938        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_main.o)
-                0x480a193c                etasvermagic_PLEASE_DEFINE_MACRO_PROGRAM_VERSION
-                0x480a1938                etasversion_PLEASE_DEFINE_MACRO_PROGRAM_VERSION
- .sdata         0x480a1940        0x9 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxglobs.o)
-                0x480a1940                os_oilcfg_rev
-                0x480a1948                os_target_rev
-                0x480a1944                os_rtkcfg_rev
- *fill*         0x480a1949        0x3 00
- .sdata         0x480a194c        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libcommon.a(p_stdeb.o)
-                0x480a194c                debugMethods
-                0x480a1950                _edata = .
-                0x480a1950                PROVIDE (edata, .)
-                0x480a1950                __bss_start = .
+ .sdata         0x480a1a50        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_main.o)
+                0x480a1a54                etasvermagic_PLEASE_DEFINE_MACRO_PROGRAM_VERSION
+                0x480a1a50                etasversion_PLEASE_DEFINE_MACRO_PROGRAM_VERSION
+ .sdata         0x480a1a58        0x9 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxglobs.o)
+                0x480a1a58                os_oilcfg_rev
+                0x480a1a60                os_target_rev
+                0x480a1a5c                os_rtkcfg_rev
+ *fill*         0x480a1a61        0x3 00
+ .sdata         0x480a1a64        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libcommon.a(p_stdeb.o)
+                0x480a1a64                debugMethods
+                0x480a1a68                _edata = .
+                0x480a1a68                PROVIDE (edata, .)
+                0x480a1a68                __bss_start = .
 
-.sbss           0x480a1950      0x148
-                0x480a1950                PROVIDE (__sbss_start, .)
-                0x480a1950                PROVIDE (___sbss_start, .)
+.sbss           0x480a1a68      0x148
+                0x480a1a68                PROVIDE (__sbss_start, .)
+                0x480a1a68                PROVIDE (___sbss_start, .)
  *(.dynsbss)
  .dynsbss       0x00000000        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crt1.o
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
  .sbss          0x00000000        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crt1.o
- .sbss          0x480a1950        0x8 Car_State1/Car_State1.a(Car_State.o)
-                0x480a1950                Car_State_B
- .sbss          0x480a1958        0xc Inverters_Action1/Inverters_Action1.a(Inverters_Action.o)
-                0x480a1958                Inverters_Action_B
-                0x480a195d                Inverters_Action_Y
- *fill*         0x480a1964        0x4 00
- .sbss          0x480a1968        0x8 Synchronism1/Synchronism1.a(Synchronism.o)
-                0x480a1968                Synchronism_DW
- .sbss          0x480a1970       0x2c matlabsharedR2023b/matlabsharedR2023b.a(rt_nonfinite.o)
-                0x480a1970                rtInfF
-                0x480a1978                rtNaN
-                0x480a1980                rtNaNF
-                0x480a1988                rtMinusInf
-                0x480a1990                rtInf
-                0x480a1998                rtMinusInfF
- .sbss          0x480a199c        0x4 OSC/osekdefs.o
-                0x480a199c                os_serviceId
- .sbss          0x480a19a0       0x80 OSC/DriverThreads.o
-                0x480a19a0                ptrthread6Dtm
-                0x480a19a4                ptrthread17Dtm
-                0x480a19a8                ptrthread12Dtm
-                0x480a19ac                ptrthread24Dtm
-                0x480a19b0                ptrthread19Dtm
-                0x480a19b4                ptrthread4Dtm
-                0x480a19b8                ptrthread10Dtm
-                0x480a19bc                ptrthreadEtasL1TaskDtm
-                0x480a19c0                ptrthread9Dtm
-                0x480a19c4                ptrthread15Dtm
-                0x480a19c8                ptrthread7Dtm
-                0x480a19cc                ptrthread1Dtm
-                0x480a19d0                ptrthread13Dtm
-                0x480a19d4                ptrthread22Dtm
-                0x480a19d8                ptrthread20Dtm
-                0x480a19dc                ptrthread18Dtm
-                0x480a19e0                ptrthreadEtasConfigTaskDtm
-                0x480a19e4                ptrthread27Dtm
-                0x480a19e8                ptrthread25Dtm
-                0x480a19ec                ptrthread11Dtm
-                0x480a19f0                ptrthread3Dtm
-                0x480a19f4                ptrthread5Dtm
-                0x480a19f8                ptrthreadEtasIsrDtm
-                0x480a19fc                ptrthread8Dtm
-                0x480a1a00                ptrthread0Dtm
-                0x480a1a04                ptrthread2Dtm
-                0x480a1a08                ptrthread28Dtm
-                0x480a1a0c                ptrthread16Dtm
-                0x480a1a10                ptrthread23Dtm
-                0x480a1a14                ptrthread14Dtm
-                0x480a1a18                ptrthread21Dtm
-                0x480a1a1c                ptrthread26Dtm
- .sbss          0x480a1a20        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(i_rtautil.o)
-                0x480a1a24                os_atomic_count
-                0x480a1a20                os_dT
- .sbss          0x480a1a28        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_idle.o)
-                0x480a1a28                etasIdleCycleCnt
- .sbss          0x480a1a2c        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_l1com.o)
-                0x480a1a30                etasResMgrIdT
-                0x480a1a2c                gotL1
- .sbss          0x480a1a34        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_main.o)
-                0x480a1a38                rtaOsekThreadPrio
-                0x480a1a34                etascopyright_PLEASE_DEFINE_MACRO_PROGRAM_VERSION
- .sbss          0x480a1a3c        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_targetutil.o)
-                0x480a1a3c                ccsr_base
- .sbss          0x480a1a40        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_dacqui.o)
-                0x480a1a44                logGroupEnable
-                0x480a1a40                isUserDefinedTime
- .sbss          0x480a1a48        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_osman.o)
-                0x480a1a48                onLineSimulation
- .sbss          0x480a1a4c        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_rtioma.o)
-                0x480a1a4c                extendedRtioMapFuncTable
- .sbss          0x480a1a50        0x1 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(p_rtio.o)
-                0x480a1a50                rtioErrFlg
- *fill*         0x480a1a51        0x3 00
- .sbss          0x480a1a54       0x20 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostarget.o)
-                0x480a1a54                os_stack_base
-                0x480a1a58                os_highest_sigmask
-                0x480a1a60                os_os_sigmask
-                0x480a1a68                os_user_sigmask
-                0x480a1a70                os_current_ipl
- .sbss          0x480a1a74        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osidai.o)
-                0x480a1a74                osek_all_prev
- .sbss          0x480a1a78        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osisoi.o)
-                0x480a1a7c                osek_suspend_prev
-                0x480a1a78                osek_suspend_nesting
- .sbss          0x480a1a80        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osisai.o)
-                0x480a1a84                osek_suspend_all_prev
-                0x480a1a80                osek_suspend_all_nesting
- .sbss          0x480a1a88       0x10 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxglobs.o)
-                0x480a1a90                osek_cur_mode
-                0x480a1a88                osek_in_error_hook
-                0x480a1a8c                osOptions
-                0x480a1a94                osek_running_task
+ .sbss          0x480a1a68        0x8 Car_State1/Car_State1.a(Car_State.o)
+                0x480a1a68                Car_State_B
+ .sbss          0x480a1a70        0xc Inverters_Action1/Inverters_Action1.a(Inverters_Action.o)
+                0x480a1a70                Inverters_Action_B
+                0x480a1a75                Inverters_Action_Y
+ *fill*         0x480a1a7c        0x4 00
+ .sbss          0x480a1a80        0x8 Synchronism1/Synchronism1.a(Synchronism.o)
+                0x480a1a80                Synchronism_DW
+ .sbss          0x480a1a88       0x2c matlabsharedR2023b/matlabsharedR2023b.a(rt_nonfinite.o)
+                0x480a1a88                rtInfF
+                0x480a1a90                rtNaN
+                0x480a1a98                rtNaNF
+                0x480a1aa0                rtMinusInf
+                0x480a1aa8                rtInf
+                0x480a1ab0                rtMinusInfF
+ .sbss          0x480a1ab4        0x4 OSC/osekdefs.o
+                0x480a1ab4                os_serviceId
+ .sbss          0x480a1ab8       0x80 OSC/DriverThreads.o
+                0x480a1ab8                ptrthread6Dtm
+                0x480a1abc                ptrthread17Dtm
+                0x480a1ac0                ptrthread12Dtm
+                0x480a1ac4                ptrthread24Dtm
+                0x480a1ac8                ptrthread19Dtm
+                0x480a1acc                ptrthread4Dtm
+                0x480a1ad0                ptrthread10Dtm
+                0x480a1ad4                ptrthreadEtasL1TaskDtm
+                0x480a1ad8                ptrthread9Dtm
+                0x480a1adc                ptrthread15Dtm
+                0x480a1ae0                ptrthread7Dtm
+                0x480a1ae4                ptrthread1Dtm
+                0x480a1ae8                ptrthread13Dtm
+                0x480a1aec                ptrthread22Dtm
+                0x480a1af0                ptrthread20Dtm
+                0x480a1af4                ptrthread18Dtm
+                0x480a1af8                ptrthreadEtasConfigTaskDtm
+                0x480a1afc                ptrthread27Dtm
+                0x480a1b00                ptrthread25Dtm
+                0x480a1b04                ptrthread11Dtm
+                0x480a1b08                ptrthread3Dtm
+                0x480a1b0c                ptrthread5Dtm
+                0x480a1b10                ptrthreadEtasIsrDtm
+                0x480a1b14                ptrthread8Dtm
+                0x480a1b18                ptrthread0Dtm
+                0x480a1b1c                ptrthread2Dtm
+                0x480a1b20                ptrthread28Dtm
+                0x480a1b24                ptrthread16Dtm
+                0x480a1b28                ptrthread23Dtm
+                0x480a1b2c                ptrthread14Dtm
+                0x480a1b30                ptrthread21Dtm
+                0x480a1b34                ptrthread26Dtm
+ .sbss          0x480a1b38        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(i_rtautil.o)
+                0x480a1b3c                os_atomic_count
+                0x480a1b38                os_dT
+ .sbss          0x480a1b40        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_idle.o)
+                0x480a1b40                etasIdleCycleCnt
+ .sbss          0x480a1b44        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_l1com.o)
+                0x480a1b48                etasResMgrIdT
+                0x480a1b44                gotL1
+ .sbss          0x480a1b4c        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_main.o)
+                0x480a1b50                rtaOsekThreadPrio
+                0x480a1b4c                etascopyright_PLEASE_DEFINE_MACRO_PROGRAM_VERSION
+ .sbss          0x480a1b54        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_targetutil.o)
+                0x480a1b54                ccsr_base
+ .sbss          0x480a1b58        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_dacqui.o)
+                0x480a1b5c                logGroupEnable
+                0x480a1b58                isUserDefinedTime
+ .sbss          0x480a1b60        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_osman.o)
+                0x480a1b60                onLineSimulation
+ .sbss          0x480a1b64        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_rtioma.o)
+                0x480a1b64                extendedRtioMapFuncTable
+ .sbss          0x480a1b68        0x1 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(p_rtio.o)
+                0x480a1b68                rtioErrFlg
+ *fill*         0x480a1b69        0x3 00
+ .sbss          0x480a1b6c       0x20 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostarget.o)
+                0x480a1b6c                os_stack_base
+                0x480a1b70                os_highest_sigmask
+                0x480a1b78                os_os_sigmask
+                0x480a1b80                os_user_sigmask
+                0x480a1b88                os_current_ipl
+ .sbss          0x480a1b8c        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osidai.o)
+                0x480a1b8c                osek_all_prev
+ .sbss          0x480a1b90        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osisoi.o)
+                0x480a1b94                osek_suspend_prev
+                0x480a1b90                osek_suspend_nesting
+ .sbss          0x480a1b98        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osisai.o)
+                0x480a1b9c                osek_suspend_all_prev
+                0x480a1b98                osek_suspend_all_nesting
+ .sbss          0x480a1ba0       0x10 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxglobs.o)
+                0x480a1ba8                osek_cur_mode
+                0x480a1ba0                osek_in_error_hook
+                0x480a1ba4                osOptions
+                0x480a1bac                osek_running_task
  *(.scommon)
-                0x480a1a98                PROVIDE (__sbss_end, .)
-                0x480a1a98                PROVIDE (___sbss_end, .)
+                0x480a1bb0                PROVIDE (__sbss_end, .)
+                0x480a1bb0                PROVIDE (___sbss_end, .)
 
-.plt            0x480a1a98      0x984
+.plt            0x480a1bb0      0x984
  *(.plt)
- .plt           0x480a1a98      0x984 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crt1.o
-                0x480a1ae0                MsgWrite
-                0x480a1ae8                _setjmp
-                0x480a1af0                sendto@@libsocket.so.2
-                0x480a1af8                pthread_mutex_trylock
-                0x480a1b00                __register_frame_info
-                0x480a1b08                etasLogCoreFeedRecordToBackends
-                0x480a1b10                pthread_attr_setschedparam
-                0x480a1b18                sqrt
-                0x480a1b20                tempMgrGetAlarmState
-                0x480a1b28                dispatch_context_free
-                0x480a1b30                __sigjmp_prolog
-                0x480a1b38                clock_nanosleep
-                0x480a1b40                etasMapCCSR85xx
-                0x480a1b48                pthread_attr_setinheritsched
-                0x480a1b50                cJSON_Parse
-                0x480a1b58                clock_gettime
-                0x480a1b60                open
-                0x480a1b68                pthread_attr_setdetachstate
-                0x480a1b70                getenv
-                0x480a1b78                fwrite
-                0x480a1b80                system
-                0x480a1b88                floor
-                0x480a1b90                cmsHighSpeedSendAlloc
-                0x480a1b98                memcpy
-                0x480a1ba0                sigfillset
-                0x480a1ba8                sleep
-                0x480a1bb0                realloc
-                0x480a1bb8                hwInfoGetBoardId
-                0x480a1bc0                SignalProcmask
-                0x480a1bc8                sigdelset
-                0x480a1bd0                pthread_mutex_init
-                0x480a1bd8                vfprintf
-                0x480a1be0                etasShmemUnmap
-                0x480a1be8                resmgr_attach
-                0x480a1bf0                tmpnam
-                0x480a1bf8                MsgRead
-                0x480a1c00                pthread_attr_init
-                0x480a1c08                strcat
-                0x480a1c10                feof
-                0x480a1c18                trunc
-                0x480a1c20                etasLogInit
-                0x480a1c28                remove
-                0x480a1c30                __fixdfdi
-                0x480a1c38                setenv
-                0x480a1c40                __cxa_finalize
-                0x480a1c48                sched_get_priority_max
-                0x480a1c50                __udivdi3
-                0x480a1c58                malloc
-                0x480a1c60                _init_array
-                0x480a1c68                __get_errno_ptr
-                0x480a1c70                strncmp
-                0x480a1c78                dispatch_block
-                0x480a1c80                dlsym
-                0x480a1c88                strlen
-                0x480a1c90                devctl
-                0x480a1c98                pthread_mutex_lock
-                0x480a1ca0                pause
-                0x480a1ca8                pthread_sigmask
-                0x480a1cb0                sched_get_priority_min
-                0x480a1cb8                delay
-                0x480a1cc0                lseek
-                0x480a1cc8                InterruptDetach
-                0x480a1cd0                snprintf
-                0x480a1cd8                iofunc_attr_lock
-                0x480a1ce0                cmsReceiveMessage
-                0x480a1ce8                atomic_clr_value
-                0x480a1cf0                read
-                0x480a1cf8                tripleBufInit
-                0x480a1d00                atexit
-                0x480a1d08                fmin
-                0x480a1d10                MsgReceive
-                0x480a1d18                mmap_device_memory
-                0x480a1d20                getpid
-                0x480a1d28                etasParseOptions
-                0x480a1d30                InterruptUnmask
-                0x480a1d38                sigprocmask
-                0x480a1d40                vetasDebugLog
-                0x480a1d48                userWdConnect
-                0x480a1d50                mmap
-                0x480a1d58                fclose
-                0x480a1d60                cJSON_GetErrorPtr
-                0x480a1d68                send@@libsocket.so.2
-                0x480a1d70                SignalKill
-                0x480a1d78                etasLogCreateDebugChannel
-                0x480a1d80                bsearch
-                0x480a1d88                strncat
-                0x480a1d90                fopen
-                0x480a1d98                resmgr_msgread
-                0x480a1da0                chmod
-                0x480a1da8                ThreadCtl
-                0x480a1db0                etasLogBackendSetMinSev
-                0x480a1db8                dispatch_create
-                0x480a1dc0                fileno
-                0x480a1dc8                pthread_create
-                0x480a1dd0                write
-                0x480a1dd8                cmsReceiveMessageEx
-                0x480a1de0                _init_libc
-                0x480a1de8                pthread_cond_signal
-                0x480a1df0                SignalAction
-                0x480a1df8                close
-                0x480a1e00                cmsSendMessageEx
-                0x480a1e08                dispatch_handler
-                0x480a1e10                dispatch_context_alloc
-                0x480a1e18                atomic_set_value
-                0x480a1e20                cmsStartAcquisition
-                0x480a1e28                fgets
-                0x480a1e30                sigaction
-                0x480a1e38                iofunc_attr_unlock
-                0x480a1e40                pthread_self
-                0x480a1e48                sscanf
-                0x480a1e50                msync
-                0x480a1e58                strncpy
-                0x480a1e60                pthread_cond_timedwait
-                0x480a1e68                iofunc_devctl_default
-                0x480a1e70                tempMgrDeregisterEvent
-                0x480a1e78                etasShmemMap
-                0x480a1e80                etasSetLed
-                0x480a1e88                cmsStopAcquisition
-                0x480a1e90                sigaddset
-                0x480a1e98                pthread_cond_init
-                0x480a1ea0                cJSON_Delete
-                0x480a1ea8                MsgReply
-                0x480a1eb0                pthread_attr_setschedpolicy
-                0x480a1eb8                MsgSend
-                0x480a1ec0                unsetenv
-                0x480a1ec8                unlink
-                0x480a1ed0                fflush
-                0x480a1ed8                memset
-                0x480a1ee0                es910GetPcbCode
-                0x480a1ee8                _Sin
-                0x480a1ef0                recvfrom@@libsocket.so.2
-                0x480a1ef8                qsort
-                0x480a1f00                perror
-                0x480a1f08                munmap
-                0x480a1f10                ftruncate
-                0x480a1f18                fmax
-                0x480a1f20                fprintf
-                0x480a1f28                sigtimedwait
-                0x480a1f30                fmod
-                0x480a1f38                memcmp
-                0x480a1f40                vsnprintf
-                0x480a1f48                sigemptyset
-                0x480a1f50                SchedCtl
-                0x480a1f58                _fini_array
-                0x480a1f60                iofunc_attr_init
-                0x480a1f68                iofunc_func_init
-                0x480a1f70                etasLogBackendActivate
-                0x480a1f78                pthread_exit
-                0x480a1f80                _preinit_array
-                0x480a1f88                cmsCloseSession
-                0x480a1f90                pthread_cancel
-                0x480a1f98                siglongjmp
-                0x480a1fa0                cmsRegisterCanRcvId
-                0x480a1fa8                __signalstub
-                0x480a1fb0                rand
-                0x480a1fb8                pthread_setname_np
-                0x480a1fc0                pthread_setschedparam
-                0x480a1fc8                nsec2timespec
-                0x480a1fd0                MsgError
-                0x480a1fd8                pthread_getschedparam
-                0x480a1fe0                exit
-                0x480a1fe8                pthread_mutex_unlock
-                0x480a1ff0                cmsOpenSessionEx
-                0x480a1ff8                mallinfo
-                0x480a2000                hwInfoGetPcbRevision
-                0x480a2008                pow
-                0x480a2010                strstr
-                0x480a2018                fstat
-                0x480a2020                strcmp
-                0x480a2028                getopt
-                0x480a2030                cJSON_GetObjectItem
-                0x480a2038                tempMgrRegisterEvent
-                0x480a2040                etasLogSetDebugChannelSeverityFilter
-                0x480a2048                free
-                0x480a2050                etasLogSetDestination
-                0x480a2058                atoi
-                0x480a2060                errLog
-                0x480a2068                hwInfoGetSerialNumber
-                0x480a2070                fsync
-                0x480a2078                userWdDisconnect
-                0x480a2080                vslogf
-                0x480a2088                strerror
-                0x480a2090                thread_pool_create
-                0x480a2098                srand
-                0x480a20a0                userWdService
-                0x480a20a8                pthread_cond_wait
-                0x480a20b0                cmsErrorState
-                0x480a20b8                strdup
-                0x480a20c0                dispatch_unblock
-                0x480a20c8                es910GetCoreClockFreq
-                0x480a20d0                cmsSendMessage
-                0x480a20d8                cmsAllocBuffer
-                0x480a20e0                recv@@libsocket.so.2
-                0x480a20e8                strcpy
-                0x480a20f0                InterruptAttachEvent
-                0x480a20f8                __deregister_frame_info
-                0x480a2100                thread_pool_start
+ .plt           0x480a1bb0      0x984 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crt1.o
+                0x480a1bf8                MsgWrite
+                0x480a1c00                _setjmp
+                0x480a1c08                sendto@@libsocket.so.2
+                0x480a1c10                pthread_mutex_trylock
+                0x480a1c18                __register_frame_info
+                0x480a1c20                etasLogCoreFeedRecordToBackends
+                0x480a1c28                pthread_attr_setschedparam
+                0x480a1c30                sqrt
+                0x480a1c38                tempMgrGetAlarmState
+                0x480a1c40                dispatch_context_free
+                0x480a1c48                __sigjmp_prolog
+                0x480a1c50                clock_nanosleep
+                0x480a1c58                etasMapCCSR85xx
+                0x480a1c60                pthread_attr_setinheritsched
+                0x480a1c68                cJSON_Parse
+                0x480a1c70                clock_gettime
+                0x480a1c78                open
+                0x480a1c80                pthread_attr_setdetachstate
+                0x480a1c88                getenv
+                0x480a1c90                fwrite
+                0x480a1c98                system
+                0x480a1ca0                floor
+                0x480a1ca8                cmsHighSpeedSendAlloc
+                0x480a1cb0                memcpy
+                0x480a1cb8                sigfillset
+                0x480a1cc0                sleep
+                0x480a1cc8                realloc
+                0x480a1cd0                hwInfoGetBoardId
+                0x480a1cd8                SignalProcmask
+                0x480a1ce0                sigdelset
+                0x480a1ce8                pthread_mutex_init
+                0x480a1cf0                vfprintf
+                0x480a1cf8                etasShmemUnmap
+                0x480a1d00                resmgr_attach
+                0x480a1d08                tmpnam
+                0x480a1d10                MsgRead
+                0x480a1d18                pthread_attr_init
+                0x480a1d20                strcat
+                0x480a1d28                feof
+                0x480a1d30                trunc
+                0x480a1d38                etasLogInit
+                0x480a1d40                remove
+                0x480a1d48                __fixdfdi
+                0x480a1d50                setenv
+                0x480a1d58                __cxa_finalize
+                0x480a1d60                sched_get_priority_max
+                0x480a1d68                __udivdi3
+                0x480a1d70                malloc
+                0x480a1d78                _init_array
+                0x480a1d80                __get_errno_ptr
+                0x480a1d88                strncmp
+                0x480a1d90                dispatch_block
+                0x480a1d98                dlsym
+                0x480a1da0                strlen
+                0x480a1da8                devctl
+                0x480a1db0                pthread_mutex_lock
+                0x480a1db8                pause
+                0x480a1dc0                pthread_sigmask
+                0x480a1dc8                sched_get_priority_min
+                0x480a1dd0                delay
+                0x480a1dd8                lseek
+                0x480a1de0                InterruptDetach
+                0x480a1de8                snprintf
+                0x480a1df0                iofunc_attr_lock
+                0x480a1df8                cmsReceiveMessage
+                0x480a1e00                atomic_clr_value
+                0x480a1e08                read
+                0x480a1e10                tripleBufInit
+                0x480a1e18                atexit
+                0x480a1e20                fmin
+                0x480a1e28                MsgReceive
+                0x480a1e30                mmap_device_memory
+                0x480a1e38                getpid
+                0x480a1e40                etasParseOptions
+                0x480a1e48                InterruptUnmask
+                0x480a1e50                sigprocmask
+                0x480a1e58                vetasDebugLog
+                0x480a1e60                userWdConnect
+                0x480a1e68                mmap
+                0x480a1e70                fclose
+                0x480a1e78                cJSON_GetErrorPtr
+                0x480a1e80                send@@libsocket.so.2
+                0x480a1e88                SignalKill
+                0x480a1e90                etasLogCreateDebugChannel
+                0x480a1e98                bsearch
+                0x480a1ea0                strncat
+                0x480a1ea8                fopen
+                0x480a1eb0                resmgr_msgread
+                0x480a1eb8                chmod
+                0x480a1ec0                ThreadCtl
+                0x480a1ec8                etasLogBackendSetMinSev
+                0x480a1ed0                dispatch_create
+                0x480a1ed8                fileno
+                0x480a1ee0                pthread_create
+                0x480a1ee8                write
+                0x480a1ef0                cmsReceiveMessageEx
+                0x480a1ef8                _init_libc
+                0x480a1f00                pthread_cond_signal
+                0x480a1f08                SignalAction
+                0x480a1f10                close
+                0x480a1f18                cmsSendMessageEx
+                0x480a1f20                dispatch_handler
+                0x480a1f28                dispatch_context_alloc
+                0x480a1f30                atomic_set_value
+                0x480a1f38                cmsStartAcquisition
+                0x480a1f40                fgets
+                0x480a1f48                sigaction
+                0x480a1f50                iofunc_attr_unlock
+                0x480a1f58                pthread_self
+                0x480a1f60                sscanf
+                0x480a1f68                msync
+                0x480a1f70                strncpy
+                0x480a1f78                pthread_cond_timedwait
+                0x480a1f80                iofunc_devctl_default
+                0x480a1f88                tempMgrDeregisterEvent
+                0x480a1f90                etasShmemMap
+                0x480a1f98                etasSetLed
+                0x480a1fa0                cmsStopAcquisition
+                0x480a1fa8                sigaddset
+                0x480a1fb0                pthread_cond_init
+                0x480a1fb8                cJSON_Delete
+                0x480a1fc0                MsgReply
+                0x480a1fc8                pthread_attr_setschedpolicy
+                0x480a1fd0                MsgSend
+                0x480a1fd8                unsetenv
+                0x480a1fe0                unlink
+                0x480a1fe8                fflush
+                0x480a1ff0                memset
+                0x480a1ff8                es910GetPcbCode
+                0x480a2000                _Sin
+                0x480a2008                recvfrom@@libsocket.so.2
+                0x480a2010                qsort
+                0x480a2018                perror
+                0x480a2020                munmap
+                0x480a2028                ftruncate
+                0x480a2030                fmax
+                0x480a2038                fprintf
+                0x480a2040                sigtimedwait
+                0x480a2048                fmod
+                0x480a2050                memcmp
+                0x480a2058                vsnprintf
+                0x480a2060                sigemptyset
+                0x480a2068                SchedCtl
+                0x480a2070                _fini_array
+                0x480a2078                iofunc_attr_init
+                0x480a2080                iofunc_func_init
+                0x480a2088                etasLogBackendActivate
+                0x480a2090                pthread_exit
+                0x480a2098                _preinit_array
+                0x480a20a0                cmsCloseSession
+                0x480a20a8                pthread_cancel
+                0x480a20b0                siglongjmp
+                0x480a20b8                cmsRegisterCanRcvId
+                0x480a20c0                __signalstub
+                0x480a20c8                rand
+                0x480a20d0                pthread_setname_np
+                0x480a20d8                pthread_setschedparam
+                0x480a20e0                nsec2timespec
+                0x480a20e8                MsgError
+                0x480a20f0                pthread_getschedparam
+                0x480a20f8                exit
+                0x480a2100                pthread_mutex_unlock
+                0x480a2108                cmsOpenSessionEx
+                0x480a2110                mallinfo
+                0x480a2118                hwInfoGetPcbRevision
+                0x480a2120                pow
+                0x480a2128                strstr
+                0x480a2130                fstat
+                0x480a2138                strcmp
+                0x480a2140                getopt
+                0x480a2148                cJSON_GetObjectItem
+                0x480a2150                tempMgrRegisterEvent
+                0x480a2158                etasLogSetDebugChannelSeverityFilter
+                0x480a2160                free
+                0x480a2168                etasLogSetDestination
+                0x480a2170                atoi
+                0x480a2178                errLog
+                0x480a2180                hwInfoGetSerialNumber
+                0x480a2188                fsync
+                0x480a2190                userWdDisconnect
+                0x480a2198                vslogf
+                0x480a21a0                strerror
+                0x480a21a8                thread_pool_create
+                0x480a21b0                srand
+                0x480a21b8                userWdService
+                0x480a21c0                pthread_cond_wait
+                0x480a21c8                cmsErrorState
+                0x480a21d0                strdup
+                0x480a21d8                dispatch_unblock
+                0x480a21e0                es910GetCoreClockFreq
+                0x480a21e8                cmsSendMessage
+                0x480a21f0                cmsAllocBuffer
+                0x480a21f8                recv@@libsocket.so.2
+                0x480a2200                strcpy
+                0x480a2208                InterruptAttachEvent
+                0x480a2210                __deregister_frame_info
+                0x480a2218                thread_pool_start
 
-.bss            0x480a2420    0x28624
+.bss            0x480a2538    0x28624
  *(.dynbss)
- .dynbss        0x480a2420      0x100 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crt1.o
-                0x480a2420                errno
-                0x480a2424                _Stdout
-                0x480a2478                _Dbl
-                0x480a24c0                __cpu_flags
-                0x480a24c4                _Stderr
-                0x480a2514                optv
-                0x480a2518                _syspage_ptr
-                0x480a251c                optarg
+ .dynbss        0x480a2538      0x100 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crt1.o
+                0x480a2538                errno
+                0x480a253c                _Stdout
+                0x480a2590                _Dbl
+                0x480a25d8                __cpu_flags
+                0x480a25dc                _Stderr
+                0x480a262c                optv
+                0x480a2630                _syspage_ptr
+                0x480a2634                optarg
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x480a2520        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crt1.o
- .bss           0x480a2520        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crti.o
- .bss           0x480a2520       0x20 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtbegin.o
- .bss           0x480a2540        0x8 ROOT_instances.o
- .bss           0x480a2548        0x0 _INT_pid.pi.o
- .bss           0x480a2548        0x0 userFuncProcessCanPayload.o
- .bss           0x480a2548        0x0 userFuncProcessFlexRayPayload.o
- .bss           0x480a2548        0x0 OSC/i_rtawrapper.o
- .bss           0x480a2548        0x0 Car_State0/Car_State_instances.o
- .bss           0x480a2548      0x290 Car_State1/Car_State1.a(Car_State.o)
- .bss           0x480a27d8        0x0 Disconnections0/Disconnections_instances.o
- .bss           0x480a27d8      0x290 Disconnections1/Disconnections1.a(Disconnections.o)
- .bss           0x480a2a68        0x0 Ellipse0/Ellipse_instances.o
- .bss           0x480a2a68      0x290 Ellipse1/Ellipse1.a(Ellipse.o)
- .bss           0x480a2cf8        0x0 Inverters_Action0/Inverters_Action_instances.o
- .bss           0x480a2cf8      0x290 Inverters_Action1/Inverters_Action1.a(Inverters_Action.o)
- .bss           0x480a2f88        0x0 Inverters_Action1/Inverters_Action1.a(Inverters_Action_data.o)
- .bss           0x480a2f88        0x0 Inverters_Data0/Inverters_Data_instances.o
- .bss           0x480a2f88      0x290 Inverters_Data1/Inverters_Data1.a(Inverters_Data.o)
- .bss           0x480a3218        0x0 Sensors0/Sensors_instances.o
- .bss           0x480a3218      0x290 Sensors1/Sensors1.a(Sensors.o)
- .bss           0x480a34a8        0x0 Sensors1/Sensors1.a(Sensors_data.o)
- .bss           0x480a34a8        0x0 Synchronism0/Synchronism_instances.o
- .bss           0x480a34a8      0x290 Synchronism1/Synchronism1.a(Synchronism.o)
- .bss           0x480a3738        0x0 VDCv2mk20/VDCv2mk2_instances.o
- .bss           0x480a3738      0x290 VDCv2mk21/VDCv2mk21.a(VDCv2mk2.o)
- .bss           0x480a39c8        0x0 matlabsharedR2023b/matlabsharedR2023b.a(rt_nonfinite.o)
- .bss           0x480a39c8        0x0 matlabsharedR2023b/matlabsharedR2023b.a(const_params.o)
- .bss           0x480a39c8        0x0 matlabsharedR2023b/matlabsharedR2023b.a(look1_binlxpw.o)
- .bss           0x480a39c8        0x0 matlabsharedR2023b/matlabsharedR2023b.a(rt_powd_snf.o)
- .bss           0x480a39c8        0x0 matlabsharedR2023b/matlabsharedR2023b.a(rtgetinf.o)
- .bss           0x480a39c8        0x0 matlabsharedR2023b/matlabsharedR2023b.a(rtgetnan.o)
- .bss           0x480a39c8      0x14c OSC/osekdefs.o
- .bss           0x480a3b14        0x0 OSC/osgen.o
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(etasConfigTask.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(Sync_25ms.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(Timer_1000ms.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(Timer_100ms.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(Timer_25ms.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(Timer_Inv.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_SDC.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_CurrentSensor.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_Voltages.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_ChargerParameters.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_Temperatures.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_Inverter_R_Tx.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_Inverter_L_Tx.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_DASH_Mode.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN1_NM_BMS_Keep_Alive.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_AIRs_State.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN1_NM_DASH_Keep_Alive.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_DASH_PrechargeRequest.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_DASH_EnableDrive.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN2_MEAS_RECU_SDC.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN2_MEAS_FECU_SDC.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_EKF_POS.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_IMU_ACCEL.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_EKF_EULER.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_EKF_VEL.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN2_NM_ELLIPSE_Status.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_IMU_GYRO.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_SLIP_CURV.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN2_AP_RECU_Data.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN2_NM_FECU_Keep_Alive.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN2_NM_RECU_Keep_Alive.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN2_AP_FECU_Data2.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(SWT_CAN2_AP_FECU_Data1.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(ISR_CAN1.o)
- .bss           0x480a3b14        0x0 OSC/TaskISRArchive.a(ISR_CAN2.o)
- .bss           0x480a3b14        0x0 OSC/etasActivateTaskIsr.o
- .bss           0x480a3b14        0x0 OSC/etasL1Isr.o
- .bss           0x480a3b14        0x0 OSC/etasL1Task.o
- .bss           0x480a3b14        0x0 OSC/etasTimerIsr.o
- .bss           0x480a3b14        0x0 OSC/etasStopOsIsr.o
- .bss           0x480a3b14        0x0 OSC/DriverThreads.o
- .bss           0x480a3b14        0x0 OSC/ISRFunctions.o
-                0x480a3b14                rtioIsrFuncTable
- .bss           0x480a3b14       0x8c OSC/osc_dyn.o
-                0x480a3b14                sgTaskTable
- .bss           0x480a3ba0        0x0 OSC/rtaInterface.o
- .bss           0x480a3ba0       0x94 OSC/ETCHooks.o
-                0x480a3bb4                rtioHookTable5
-                0x480a3bc4                rtioHookTable9
-                0x480a3ba4                rtioHookTable1
-                0x480a3bd4                rtioHookTable13
-                0x480a3be4                rtioHookTable17
-                0x480a3bf0                rtioHookTable20
-                0x480a3c00                rtioHookTable24
-                0x480a3c10                rtioHookTable28
-                0x480a3c28                rtioHookTable34
-                0x480a3ba0                rtioHookTable0
-                0x480a3bb0                rtioHookTable4
-                0x480a3bc0                rtioHookTable8
-                0x480a3be0                rtioHookTable16
-                0x480a3bd0                rtioHookTable12
-                0x480a3c0c                rtioHookTable27
-                0x480a3bfc                rtioHookTable23
-                0x480a3c24                rtioHookTable33
-                0x480a3bac                rtioHookTable3
-                0x480a3bbc                rtioHookTable7
-                0x480a3bcc                rtioHookTable11
-                0x480a3bdc                rtioHookTable15
-                0x480a3bec                rtioHookTable19
-                0x480a3bf8                rtioHookTable22
-                0x480a3c08                rtioHookTable26
-                0x480a3c1c                rtioHookTable31
-                0x480a3c20                rtioHookTable32
-                0x480a3c30                rtioHookTable36
-                0x480a3bb8                rtioHookTable6
-                0x480a3ba8                rtioHookTable2
-                0x480a3bc8                rtioHookTable10
-                0x480a3bd8                rtioHookTable14
-                0x480a3be8                rtioHookTable18
-                0x480a3bf4                rtioHookTable21
-                0x480a3c04                rtioHookTable25
-                0x480a3c14                rtioHookTable29
-                0x480a3c18                rtioHookTable30
-                0x480a3c2c                rtioHookTable35
- .bss           0x480a3c34      0x15c OSC/XbarHooks.o
-                0x480a3d08                crossbarHookTable33
-                0x480a3c3c                crossbarHookTable3
-                0x480a3c88                crossbarHookTable22
-                0x480a3c98                crossbarHookTable26
-                0x480a3c64                crossbarHookTable13
-                0x480a3c74                crossbarHookTable17
-                0x480a3c4c                crossbarHookTable7
-                0x480a3c40                crossbarHookTable4
-                0x480a3d0c                crossbarHookTable34
-                0x480a3cb8                crossbarHookTable30
-                0x480a3c9c                crossbarHookTable27
-                0x480a3c8c                crossbarHookTable23
-                0x480a3c78                crossbarHookTable18
-                0x480a3c68                crossbarHookTable14
-                0x480a3c58                crossbarHookTable10
-                0x480a3c50                crossbarHookTable8
-                0x480a3cc0                crossbarHookTable31
-                0x480a3d10                crossbarHookTable35
-                0x480a3c34                crossbarHookTable1
-                0x480a3c90                crossbarHookTable24
-                0x480a3c44                crossbarHookTable5
-                0x480a3ca0                crossbarHookTable28
-                0x480a3c80                crossbarHookTable20
-                0x480a3c6c                crossbarHookTable15
-                0x480a3c7c                crossbarHookTable19
-                0x480a3c5c                crossbarHookTable11
-                0x480a3c54                crossbarHookTable9
-                0x480a3d50                crossbarHookTable36
-                0x480a3d00                crossbarHookTable32
-                0x480a3c94                crossbarHookTable25
-                0x480a3c38                crossbarHookTable2
-                0x480a3cb0                crossbarHookTable29
-                0x480a3c84                crossbarHookTable21
-                0x480a3c48                crossbarHookTable6
-                0x480a3c70                crossbarHookTable16
-                0x480a3c60                crossbarHookTable12
- .bss           0x480a3d90        0x0 ETC/FormulaTable.o
- .bss           0x480a3d90        0x0 ETC/DriverTable.o
- .bss           0x480a3d90        0x0 ETC/MappingFunctionTable.o
- .bss           0x480a3d90        0x0 ETC/RtioL1RecordTable.o
- .bss           0x480a3d90       0x44 ETC/XCPTransportLayerFunctionsTable.o
-                0x480a3d90                transportLayerFunctionsTable
- .bss           0x480a3dd4        0x8 ETC/ChecksumAlgoTables.o
-                0x480a3dd8                rtioRxChecksumAlgoTable
-                0x480a3dd4                rtioTxChecksumAlgoTable
- .bss           0x480a3ddc        0x0 CBC/CopyFunctionTable.o
- .bss           0x480a3ddc        0x0 CBC/CrossbarL1RecordTable.o
- .bss           0x480a3ddc        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_fixunsdfdi.o)
- .bss           0x480a3ddc        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_floatundidf.o)
- .bss           0x480a3ddc        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtend.o
- .bss           0x480a3ddc        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crtn.o
- *fill*         0x480a3ddc        0x4 00
- .bss           0x480a3de0      0x1bc C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(i_rtautil.o)
- .bss           0x480a3f9c        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_driverThreads.o)
- *fill*         0x480a3fa4        0x4 00
- .bss           0x480a3fa8       0x8c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_idle.o)
- *fill*         0x480a4034        0x4 00
- .bss           0x480a4038      0x100 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_l1com.o)
- .bss           0x480a4138        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_main.o)
- .bss           0x480a4138       0x10 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_mlog.o)
- .bss           0x480a4148      0x108 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_qnxtargetutil.o)
- .bss           0x480a4250        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_targetutil.o)
- .bss           0x480a4254       0x48 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_watchdog.o)
- .bss           0x480a429c        0xc C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(p_chario.o)
- .bss           0x480a42a8       0x30 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_hwTimeSync.o)
- .bss           0x480a42d8        0x2 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_led.o)
- *fill*         0x480a42da        0x2 00
- .bss           0x480a42dc     0x2b4c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_dacqui.o)
- .bss           0x480a6e28        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_l1pro.o)
- .bss           0x480a6e28        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_primit.o)
- .bss           0x480a6e28        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_sysver.o)
- .bss           0x480a6e28     0x9054 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_targma.o)
- .bss           0x480afe7c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_cpyfnc.o)
- .bss           0x480afe7c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_mapfnc.o)
- .bss           0x480afe7c      0x408 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_osman.o)
- .bss           0x480b0284      0x33c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_rtioma.o)
- .bss           0x480b05c0     0x8008 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_salone.o)
- .bss           0x480b85c8        0xc C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_croman.o)
- .bss           0x480b85d4        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_crosll.o)
- *fill*         0x480b85d4        0x4 00
- .bss           0x480b85d8    0x100cf C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_nvram.o)
- *fill*         0x480c86a7        0x1 00
- .bss           0x480c86a8      0x100 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_objlis.o)
- .bss           0x480c87a8       0x20 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_rtcros.o)
- .bss           0x480c87c8       0x54 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_sgman.o)
- .bss           0x480c881c        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(y_primit.o)
- .bss           0x480c881c      0x404 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a1b_dacq.o)
-                0x480c881c                a1bDacqGroups
- .bss           0x480c8c20        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_contai.o)
- .bss           0x480c8c20        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_transf.o)
- .bss           0x480c8c20        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_sglow.o)
- .bss           0x480c8c20        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(comm_err.o)
- .bss           0x480c8c20        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(p_rtio.o)
- .bss           0x480c8c24      0x50c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(p_rtio_s.o)
- .bss           0x480c9130      0x528 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(rtio_err.o)
- .bss           0x480c9658        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(fhc_emu.o)
- .bss           0x480c9658       0x10 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostarget.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osfptgt.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osiwrap1.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxdspnf.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osysd1hf.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osysdfhf.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osysdfhi.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostgid.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostschf.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osieai.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osidai.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osisoi.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osirai.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osisai.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxperr2.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxglobs.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osostart.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ososhuth.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osttermh.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostactsf.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostactnf.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osatickn.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osacallb.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxdpsho.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osiwrap.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxjmp.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ososhutn.o)
- .bss           0x480c9668        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libcommon.a(p_execl1.o)
- .bss           0x480c9668        0x2 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libcommon.a(p_protl1.o)
- .bss           0x480c966a        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libcommon.a(p_stdeb.o)
- *fill*         0x480c966a        0x2 00
- .bss           0x480c966c       0x18 Car_State1/Car_State1.a(Car_State_main.o)
- .bss           0x480c9684        0x0 Car_State1/Car_State1.a(rt_sim.o)
- .bss           0x480c9684       0x18 Disconnections1/Disconnections1.a(Disconnections_main.o)
- .bss           0x480c969c        0x0 Disconnections1/Disconnections1.a(rt_sim.o)
- .bss           0x480c969c       0x18 Ellipse1/Ellipse1.a(Ellipse_main.o)
- .bss           0x480c96b4        0x0 Ellipse1/Ellipse1.a(rt_sim.o)
- .bss           0x480c96b4       0x18 Inverters_Action1/Inverters_Action1.a(Inverters_Action_main.o)
- .bss           0x480c96cc        0x0 Inverters_Action1/Inverters_Action1.a(rt_sim.o)
- .bss           0x480c96cc       0x18 Inverters_Data1/Inverters_Data1.a(Inverters_Data_main.o)
- .bss           0x480c96e4        0x0 Inverters_Data1/Inverters_Data1.a(rt_sim.o)
- .bss           0x480c96e4       0x18 Sensors1/Sensors1.a(Sensors_main.o)
- .bss           0x480c96fc        0x0 Sensors1/Sensors1.a(rt_sim.o)
- .bss           0x480c96fc       0x18 Synchronism1/Synchronism1.a(Synchronism_main.o)
- .bss           0x480c9714        0x0 Synchronism1/Synchronism1.a(rt_sim.o)
- .bss           0x480c9714       0x18 VDCv2mk21/VDCv2mk21.a(VDCv2mk2_main.o)
- .bss           0x480c972c        0x0 VDCv2mk21/VDCv2mk21.a(rt_sim.o)
- .bss           0x480c972c        0x0 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCan.o)
- .bss           0x480c972c        0x0 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanCanio.o)
- .bss           0x480c972c        0x0 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanErr.o)
- .bss           0x480c972c      0x40c C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanHalBuf.o)
- .bss           0x480c9b38       0x30 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanHalIfi.o)
- .bss           0x480c9b68        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_floatdidf.o)
- .bss           0x480c9b68      0x36c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_dataset.o)
-                0x480c9b8c                variableObjList
-                0x480c9b74                parameterObjList
- .bss           0x480c9ed4      0x404 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(crc32.o)
+ .bss           0x480a2638        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crt1.o
+ .bss           0x480a2638        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crti.o
+ .bss           0x480a2638       0x20 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtbegin.o
+ .bss           0x480a2658        0x8 ROOT_instances.o
+ .bss           0x480a2660        0x0 _INT_pid.pi.o
+ .bss           0x480a2660        0x0 userFuncProcessCanPayload.o
+ .bss           0x480a2660        0x0 userFuncProcessFlexRayPayload.o
+ .bss           0x480a2660        0x0 OSC/i_rtawrapper.o
+ .bss           0x480a2660        0x0 Car_State0/Car_State_instances.o
+ .bss           0x480a2660      0x290 Car_State1/Car_State1.a(Car_State.o)
+ .bss           0x480a28f0        0x0 Disconnections0/Disconnections_instances.o
+ .bss           0x480a28f0      0x290 Disconnections1/Disconnections1.a(Disconnections.o)
+ .bss           0x480a2b80        0x0 Ellipse0/Ellipse_instances.o
+ .bss           0x480a2b80      0x290 Ellipse1/Ellipse1.a(Ellipse.o)
+ .bss           0x480a2e10        0x0 Inverters_Action0/Inverters_Action_instances.o
+ .bss           0x480a2e10      0x290 Inverters_Action1/Inverters_Action1.a(Inverters_Action.o)
+ .bss           0x480a30a0        0x0 Inverters_Action1/Inverters_Action1.a(Inverters_Action_data.o)
+ .bss           0x480a30a0        0x0 Inverters_Data0/Inverters_Data_instances.o
+ .bss           0x480a30a0      0x290 Inverters_Data1/Inverters_Data1.a(Inverters_Data.o)
+ .bss           0x480a3330        0x0 Sensors0/Sensors_instances.o
+ .bss           0x480a3330      0x290 Sensors1/Sensors1.a(Sensors.o)
+ .bss           0x480a35c0        0x0 Sensors1/Sensors1.a(Sensors_data.o)
+ .bss           0x480a35c0        0x0 Synchronism0/Synchronism_instances.o
+ .bss           0x480a35c0      0x290 Synchronism1/Synchronism1.a(Synchronism.o)
+ .bss           0x480a3850        0x0 VDCv2mk20/VDCv2mk2_instances.o
+ .bss           0x480a3850      0x290 VDCv2mk21/VDCv2mk21.a(VDCv2mk2.o)
+ .bss           0x480a3ae0        0x0 matlabsharedR2023b/matlabsharedR2023b.a(rt_nonfinite.o)
+ .bss           0x480a3ae0        0x0 matlabsharedR2023b/matlabsharedR2023b.a(const_params.o)
+ .bss           0x480a3ae0        0x0 matlabsharedR2023b/matlabsharedR2023b.a(look1_binlxpw.o)
+ .bss           0x480a3ae0        0x0 matlabsharedR2023b/matlabsharedR2023b.a(rt_powd_snf.o)
+ .bss           0x480a3ae0        0x0 matlabsharedR2023b/matlabsharedR2023b.a(rtgetinf.o)
+ .bss           0x480a3ae0        0x0 matlabsharedR2023b/matlabsharedR2023b.a(rtgetnan.o)
+ .bss           0x480a3ae0      0x14c OSC/osekdefs.o
+ .bss           0x480a3c2c        0x0 OSC/osgen.o
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(etasConfigTask.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(Sync_25ms.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(Timer_1000ms.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(Timer_100ms.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(Timer_25ms.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(Timer_Inv.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_SDC.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_CurrentSensor.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_Voltages.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_ChargerParameters.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_Temperatures.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_Inverter_R_Tx.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_Inverter_L_Tx.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_DASH_Mode.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN1_NM_BMS_Keep_Alive.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_BMS_AIRs_State.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN1_NM_DASH_Keep_Alive.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_DASH_PrechargeRequest.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN1_AP_DASH_EnableDrive.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN2_MEAS_RECU_SDC.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN2_MEAS_FECU_SDC.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_EKF_POS.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_IMU_ACCEL.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_EKF_EULER.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_EKF_VEL.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN2_NM_ELLIPSE_Status.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_IMU_GYRO.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN2_AP_ELLIPSE_SLIP_CURV.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN2_AP_RECU_Data.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN2_NM_FECU_Keep_Alive.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN2_NM_RECU_Keep_Alive.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN2_AP_FECU_Data2.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(SWT_CAN2_AP_FECU_Data1.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(ISR_CAN1.o)
+ .bss           0x480a3c2c        0x0 OSC/TaskISRArchive.a(ISR_CAN2.o)
+ .bss           0x480a3c2c        0x0 OSC/etasActivateTaskIsr.o
+ .bss           0x480a3c2c        0x0 OSC/etasL1Isr.o
+ .bss           0x480a3c2c        0x0 OSC/etasL1Task.o
+ .bss           0x480a3c2c        0x0 OSC/etasTimerIsr.o
+ .bss           0x480a3c2c        0x0 OSC/etasStopOsIsr.o
+ .bss           0x480a3c2c        0x0 OSC/DriverThreads.o
+ .bss           0x480a3c2c        0x0 OSC/ISRFunctions.o
+                0x480a3c2c                rtioIsrFuncTable
+ .bss           0x480a3c2c       0x8c OSC/osc_dyn.o
+                0x480a3c2c                sgTaskTable
+ .bss           0x480a3cb8        0x0 OSC/rtaInterface.o
+ .bss           0x480a3cb8       0x94 OSC/ETCHooks.o
+                0x480a3ccc                rtioHookTable5
+                0x480a3cdc                rtioHookTable9
+                0x480a3cbc                rtioHookTable1
+                0x480a3cec                rtioHookTable13
+                0x480a3cfc                rtioHookTable17
+                0x480a3d08                rtioHookTable20
+                0x480a3d18                rtioHookTable24
+                0x480a3d28                rtioHookTable28
+                0x480a3d40                rtioHookTable34
+                0x480a3cb8                rtioHookTable0
+                0x480a3cc8                rtioHookTable4
+                0x480a3cd8                rtioHookTable8
+                0x480a3cf8                rtioHookTable16
+                0x480a3ce8                rtioHookTable12
+                0x480a3d24                rtioHookTable27
+                0x480a3d14                rtioHookTable23
+                0x480a3d3c                rtioHookTable33
+                0x480a3cc4                rtioHookTable3
+                0x480a3cd4                rtioHookTable7
+                0x480a3ce4                rtioHookTable11
+                0x480a3cf4                rtioHookTable15
+                0x480a3d04                rtioHookTable19
+                0x480a3d10                rtioHookTable22
+                0x480a3d20                rtioHookTable26
+                0x480a3d34                rtioHookTable31
+                0x480a3d38                rtioHookTable32
+                0x480a3d48                rtioHookTable36
+                0x480a3cd0                rtioHookTable6
+                0x480a3cc0                rtioHookTable2
+                0x480a3ce0                rtioHookTable10
+                0x480a3cf0                rtioHookTable14
+                0x480a3d00                rtioHookTable18
+                0x480a3d0c                rtioHookTable21
+                0x480a3d1c                rtioHookTable25
+                0x480a3d2c                rtioHookTable29
+                0x480a3d30                rtioHookTable30
+                0x480a3d44                rtioHookTable35
+ .bss           0x480a3d4c      0x15c OSC/XbarHooks.o
+                0x480a3e20                crossbarHookTable33
+                0x480a3d54                crossbarHookTable3
+                0x480a3da0                crossbarHookTable22
+                0x480a3db0                crossbarHookTable26
+                0x480a3d7c                crossbarHookTable13
+                0x480a3d8c                crossbarHookTable17
+                0x480a3d64                crossbarHookTable7
+                0x480a3d58                crossbarHookTable4
+                0x480a3e24                crossbarHookTable34
+                0x480a3dd0                crossbarHookTable30
+                0x480a3db4                crossbarHookTable27
+                0x480a3da4                crossbarHookTable23
+                0x480a3d90                crossbarHookTable18
+                0x480a3d80                crossbarHookTable14
+                0x480a3d70                crossbarHookTable10
+                0x480a3d68                crossbarHookTable8
+                0x480a3dd8                crossbarHookTable31
+                0x480a3e28                crossbarHookTable35
+                0x480a3d4c                crossbarHookTable1
+                0x480a3da8                crossbarHookTable24
+                0x480a3d5c                crossbarHookTable5
+                0x480a3db8                crossbarHookTable28
+                0x480a3d98                crossbarHookTable20
+                0x480a3d84                crossbarHookTable15
+                0x480a3d94                crossbarHookTable19
+                0x480a3d74                crossbarHookTable11
+                0x480a3d6c                crossbarHookTable9
+                0x480a3e68                crossbarHookTable36
+                0x480a3e08                crossbarHookTable32
+                0x480a3dac                crossbarHookTable25
+                0x480a3d50                crossbarHookTable2
+                0x480a3dc8                crossbarHookTable29
+                0x480a3d9c                crossbarHookTable21
+                0x480a3d60                crossbarHookTable6
+                0x480a3d88                crossbarHookTable16
+                0x480a3d78                crossbarHookTable12
+ .bss           0x480a3ea8        0x0 ETC/FormulaTable.o
+ .bss           0x480a3ea8        0x0 ETC/DriverTable.o
+ .bss           0x480a3ea8        0x0 ETC/MappingFunctionTable.o
+ .bss           0x480a3ea8        0x0 ETC/RtioL1RecordTable.o
+ .bss           0x480a3ea8       0x44 ETC/XCPTransportLayerFunctionsTable.o
+                0x480a3ea8                transportLayerFunctionsTable
+ .bss           0x480a3eec        0x8 ETC/ChecksumAlgoTables.o
+                0x480a3ef0                rtioRxChecksumAlgoTable
+                0x480a3eec                rtioTxChecksumAlgoTable
+ .bss           0x480a3ef4        0x0 CBC/CopyFunctionTable.o
+ .bss           0x480a3ef4        0x0 CBC/CrossbarL1RecordTable.o
+ .bss           0x480a3ef4        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_fixunsdfdi.o)
+ .bss           0x480a3ef4        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_floatundidf.o)
+ .bss           0x480a3ef4        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/crtend.o
+ .bss           0x480a3ef4        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\target\qnx6/ppcbe-spe/lib/crtn.o
+ *fill*         0x480a3ef4        0x4 00
+ .bss           0x480a3ef8      0x1bc C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(i_rtautil.o)
+ .bss           0x480a40b4        0x8 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_driverThreads.o)
+ *fill*         0x480a40bc        0x4 00
+ .bss           0x480a40c0       0x8c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_idle.o)
+ *fill*         0x480a414c        0x4 00
+ .bss           0x480a4150      0x100 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_l1com.o)
+ .bss           0x480a4250        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_main.o)
+ .bss           0x480a4250       0x10 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_mlog.o)
+ .bss           0x480a4260      0x108 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_qnxtargetutil.o)
+ .bss           0x480a4368        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_targetutil.o)
+ .bss           0x480a436c       0x48 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_watchdog.o)
+ .bss           0x480a43b4        0xc C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(p_chario.o)
+ .bss           0x480a43c0       0x30 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_hwTimeSync.o)
+ .bss           0x480a43f0        0x2 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_led.o)
+ *fill*         0x480a43f2        0x2 00
+ .bss           0x480a43f4     0x2b4c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_dacqui.o)
+ .bss           0x480a6f40        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_l1pro.o)
+ .bss           0x480a6f40        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_primit.o)
+ .bss           0x480a6f40        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_sysver.o)
+ .bss           0x480a6f40     0x9054 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_targma.o)
+ .bss           0x480aff94        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_cpyfnc.o)
+ .bss           0x480aff94        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_mapfnc.o)
+ .bss           0x480aff94      0x408 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_osman.o)
+ .bss           0x480b039c      0x33c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_rtioma.o)
+ .bss           0x480b06d8     0x8008 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_salone.o)
+ .bss           0x480b86e0        0xc C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_croman.o)
+ .bss           0x480b86ec        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_crosll.o)
+ *fill*         0x480b86ec        0x4 00
+ .bss           0x480b86f0    0x100cf C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_nvram.o)
+ *fill*         0x480c87bf        0x1 00
+ .bss           0x480c87c0      0x100 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_objlis.o)
+ .bss           0x480c88c0       0x20 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_rtcros.o)
+ .bss           0x480c88e0       0x54 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_sgman.o)
+ .bss           0x480c8934        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(y_primit.o)
+ .bss           0x480c8934      0x404 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a1b_dacq.o)
+                0x480c8934                a1bDacqGroups
+ .bss           0x480c8d38        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_contai.o)
+ .bss           0x480c8d38        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(i_transf.o)
+ .bss           0x480c8d38        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(t_sglow.o)
+ .bss           0x480c8d38        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(comm_err.o)
+ .bss           0x480c8d38        0x4 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(p_rtio.o)
+ .bss           0x480c8d3c      0x50c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(p_rtio_s.o)
+ .bss           0x480c9248      0x528 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(rtio_err.o)
+ .bss           0x480c9770        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\es910\librtio_gnu.a(fhc_emu.o)
+ .bss           0x480c9770       0x10 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostarget.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osfptgt.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osiwrap1.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxdspnf.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osysd1hf.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osysdfhf.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osysdfhi.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostgid.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostschf.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osieai.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osidai.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osisoi.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osirai.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osisai.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxperr2.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxglobs.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osostart.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ososhuth.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osttermh.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostactsf.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostactnf.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osatickn.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osacallb.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxdpsho.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osiwrap.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(osxjmp.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ososhutn.o)
+ .bss           0x480c9780        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libcommon.a(p_execl1.o)
+ .bss           0x480c9780        0x2 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libcommon.a(p_protl1.o)
+ .bss           0x480c9782        0x0 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libcommon.a(p_stdeb.o)
+ *fill*         0x480c9782        0x2 00
+ .bss           0x480c9784       0x18 Car_State1/Car_State1.a(Car_State_main.o)
+ .bss           0x480c979c        0x0 Car_State1/Car_State1.a(rt_sim.o)
+ .bss           0x480c979c       0x18 Disconnections1/Disconnections1.a(Disconnections_main.o)
+ .bss           0x480c97b4        0x0 Disconnections1/Disconnections1.a(rt_sim.o)
+ .bss           0x480c97b4       0x18 Ellipse1/Ellipse1.a(Ellipse_main.o)
+ .bss           0x480c97cc        0x0 Ellipse1/Ellipse1.a(rt_sim.o)
+ .bss           0x480c97cc       0x18 Inverters_Action1/Inverters_Action1.a(Inverters_Action_main.o)
+ .bss           0x480c97e4        0x0 Inverters_Action1/Inverters_Action1.a(rt_sim.o)
+ .bss           0x480c97e4       0x18 Inverters_Data1/Inverters_Data1.a(Inverters_Data_main.o)
+ .bss           0x480c97fc        0x0 Inverters_Data1/Inverters_Data1.a(rt_sim.o)
+ .bss           0x480c97fc       0x18 Sensors1/Sensors1.a(Sensors_main.o)
+ .bss           0x480c9814        0x0 Sensors1/Sensors1.a(rt_sim.o)
+ .bss           0x480c9814       0x18 Synchronism1/Synchronism1.a(Synchronism_main.o)
+ .bss           0x480c982c        0x0 Synchronism1/Synchronism1.a(rt_sim.o)
+ .bss           0x480c982c       0x18 VDCv2mk21/VDCv2mk21.a(VDCv2mk2_main.o)
+ .bss           0x480c9844        0x0 VDCv2mk21/VDCv2mk21.a(rt_sim.o)
+ .bss           0x480c9844        0x0 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCan.o)
+ .bss           0x480c9844        0x0 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanCanio.o)
+ .bss           0x480c9844        0x0 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanErr.o)
+ .bss           0x480c9844      0x40c C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanHalBuf.o)
+ .bss           0x480c9c50       0x30 C:/Program Files (x86)/ETAS/INTECRIO5.0/Target/ETarget/rtio/es9xxcan/ES910/es9xxCan_gnu.lib(es9xxCanHalIfi.o)
+ .bss           0x480c9c80        0x0 C:/ETAS/Compiler/INTECRIO5.0/QNXCompiler-V6.5\host\win32\x86/usr/lib/gcc/powerpc-unknown-nto-qnx6.5.0/4.4.2/spe/libgcc.a(_floatdidf.o)
+ .bss           0x480c9c80      0x36c C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libes910.a(t_dataset.o)
+                0x480c9ca4                variableObjList
+                0x480c9c8c                parameterObjList
+ .bss           0x480c9fec      0x404 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(crc32.o)
  *(COMMON)
- COMMON         0x480ca2d8       0xa8 Car_State1/Car_State1.a(Car_State.o)
-                0x480ca2d8                Car_State_DW
-                0x480ca2e8                Car_State_Y
-                0x480ca338                Car_State_U
- COMMON         0x480ca380      0x140 Disconnections1/Disconnections1.a(Disconnections.o)
-                0x480ca380                Disconnections_DW
-                0x480ca3e0                Disconnections_Y
-                0x480ca430                Disconnections_U
-                0x480ca498                Disconnections_B
- COMMON         0x480ca4c0       0x50 Ellipse1/Ellipse1.a(Ellipse.o)
-                0x480ca4c0                Ellipse_Y
-                0x480ca4e8                Ellipse_U
- COMMON         0x480ca510       0x48 Inverters_Action1/Inverters_Action1.a(Inverters_Action.o)
-                0x480ca510                Inverters_Action_DW
-                0x480ca540                Inverters_Action_U
- COMMON         0x480ca558       0x90 Inverters_Data1/Inverters_Data1.a(Inverters_Data.o)
-                0x480ca558                Inverters_Data_Y
-                0x480ca5a8                Inverters_Data_U
- COMMON         0x480ca5e8       0x90 Sensors1/Sensors1.a(Sensors.o)
-                0x480ca5e8                Sensors_DW
-                0x480ca5f8                Sensors_Y
-                0x480ca638                Sensors_U
- COMMON         0x480ca678       0x10 Synchronism1/Synchronism1.a(Synchronism.o)
-                0x480ca678                Synchronism_Y
- COMMON         0x480ca688      0x228 VDCv2mk21/VDCv2mk21.a(VDCv2mk2.o)
-                0x480ca688                VDCv2mk2_DW
-                0x480ca6c8                VDCv2mk2_U
-                0x480ca7d0                VDCv2mk2_Y
-                0x480ca830                VDCv2mk2_B
- COMMON         0x480ca8b0        0xc OSC/osekdefs.o
-                0x480ca8b0                os_serviceArgs
- COMMON         0x480ca8bc      0x100 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_primit.o)
-                0x480ca8bc                userS
- COMMON         0x480ca9bc       0x88 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostarget.o)
-                0x480ca9bc                os_sigmasks
-                0x480caa44                . = ALIGN ((. != 0x0)?0x4:0x1)
-                0x480caa44                . = ALIGN (0x4)
-                0x480caa44                . = ALIGN (0x4)
-                0x480caa44                __end = .
-                0x480caa44                _end = .
-                0x480caa44                PROVIDE (end, .)
-                0x480caa44                . = DATA_SEGMENT_END (.)
+ COMMON         0x480ca3f0       0xa8 Car_State1/Car_State1.a(Car_State.o)
+                0x480ca3f0                Car_State_DW
+                0x480ca400                Car_State_Y
+                0x480ca450                Car_State_U
+ COMMON         0x480ca498      0x140 Disconnections1/Disconnections1.a(Disconnections.o)
+                0x480ca498                Disconnections_DW
+                0x480ca4f8                Disconnections_Y
+                0x480ca548                Disconnections_U
+                0x480ca5b0                Disconnections_B
+ COMMON         0x480ca5d8       0x50 Ellipse1/Ellipse1.a(Ellipse.o)
+                0x480ca5d8                Ellipse_Y
+                0x480ca600                Ellipse_U
+ COMMON         0x480ca628       0x48 Inverters_Action1/Inverters_Action1.a(Inverters_Action.o)
+                0x480ca628                Inverters_Action_DW
+                0x480ca658                Inverters_Action_U
+ COMMON         0x480ca670       0x90 Inverters_Data1/Inverters_Data1.a(Inverters_Data.o)
+                0x480ca670                Inverters_Data_Y
+                0x480ca6c0                Inverters_Data_U
+ COMMON         0x480ca700       0x90 Sensors1/Sensors1.a(Sensors.o)
+                0x480ca700                Sensors_DW
+                0x480ca710                Sensors_Y
+                0x480ca750                Sensors_U
+ COMMON         0x480ca790       0x10 Synchronism1/Synchronism1.a(Synchronism.o)
+                0x480ca790                Synchronism_Y
+ COMMON         0x480ca7a0      0x228 VDCv2mk21/VDCv2mk21.a(VDCv2mk2.o)
+                0x480ca7a0                VDCv2mk2_DW
+                0x480ca7e0                VDCv2mk2_U
+                0x480ca8e8                VDCv2mk2_Y
+                0x480ca948                VDCv2mk2_B
+ COMMON         0x480ca9c8        0xc OSC/osekdefs.o
+                0x480ca9c8                os_serviceArgs
+ COMMON         0x480ca9d4      0x100 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\libtarget.a(a_primit.o)
+                0x480ca9d4                userS
+ COMMON         0x480caad4       0x88 C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\librtk_s.a(ostarget.o)
+                0x480caad4                os_sigmasks
+                0x480cab5c                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x480cab5c                . = ALIGN (0x4)
+                0x480cab5c                . = ALIGN (0x4)
+                0x480cab5c                __end = .
+                0x480cab5c                _end = .
+                0x480cab5c                PROVIDE (end, .)
+                0x480cab5c                . = DATA_SEGMENT_END (.)
 
 .stab
  *(.stab)

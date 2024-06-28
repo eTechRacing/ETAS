@@ -22,9 +22,9 @@
 	<moduleInfo identifier="VDCv2mk2">
 		<name>VDCv2mk2</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}VDCv2mk2.slx&quot;"/>
-		<version major="4" minor="160"/>
+		<version major="4" minor="161"/>
 		<dateTime kind="created" year="2024" month="3" day="15" hour="15" minute="34" second="18"/>
-		<dateTime kind="lastModified" year="2024" month="6" day="27" hour="11" minute="52" second="51"/>
+		<dateTime kind="lastModified" year="2024" month="6" day="28" hour="10" minute="17" second="20"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="6" day="27" hour="11" minute="53" second="3"/>
+		<dateTime kind="created" year="2024" month="6" day="28" hour="12" minute="51" second="54"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -530,16 +530,16 @@
 						<documentation>&lt;Root&gt;/PowerMean500ms</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Torque_R_out">
+				<structMember identifier="Torque_R">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/Torque_R_out</documentation>
+						<documentation>&lt;Root&gt;/Torque_R</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Torque_L_out">
+				<structMember identifier="Torque_L">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/Torque_L_out</documentation>
+						<documentation>&lt;Root&gt;/Torque_L</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="APPS_Implausibility">
@@ -2471,19 +2471,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDCv2mk2_Y.Torque_R_out">
+			<dataCInterface identifier="VDCv2mk2_Y.Torque_R">
 				<definitionLocation>
 					<baseRef identifier="VDCv2mk2_Y"/>
-					<memberRef identifier="Torque_R_out"/>
+					<memberRef identifier="Torque_R"/>
 				</definitionLocation>
 				<fileOrigin name="VDCv2mk2.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="VDCv2mk2.Torque_R_out">
-				<name>Torque_R_out</name>
-				<modelLink href="VDCv2mk2/Torque_R_out"/>
+			<modelOrigin identifier="VDCv2mk2.Torque_R">
+				<name>Torque_R</name>
+				<modelLink href="VDCv2mk2/Torque_R"/>
 				<modelLocation>
 					<pathNode name="VDCv2mk2" kind="mlsl:model"/>
-					<pathNode name="Torque_R_out" kind="mlsl:block" type="Outport"/>
+					<pathNode name="Torque_R" kind="mlsl:block" type="Outport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection out="true"/>
@@ -2502,19 +2502,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDCv2mk2_Y.Torque_L_out">
+			<dataCInterface identifier="VDCv2mk2_Y.Torque_L">
 				<definitionLocation>
 					<baseRef identifier="VDCv2mk2_Y"/>
-					<memberRef identifier="Torque_L_out"/>
+					<memberRef identifier="Torque_L"/>
 				</definitionLocation>
 				<fileOrigin name="VDCv2mk2.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="VDCv2mk2.Torque_L_out">
-				<name>Torque_L_out</name>
-				<modelLink href="VDCv2mk2/Torque_L_out"/>
+			<modelOrigin identifier="VDCv2mk2.Torque_L">
+				<name>Torque_L</name>
+				<modelLink href="VDCv2mk2/Torque_L"/>
 				<modelLocation>
 					<pathNode name="VDCv2mk2" kind="mlsl:model"/>
-					<pathNode name="Torque_L_out" kind="mlsl:block" type="Outport"/>
+					<pathNode name="Torque_L" kind="mlsl:block" type="Outport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection out="true"/>
@@ -2837,8 +2837,8 @@
 						<message identifier="VDCv2mk2_Y.Power" send="true"></message>
 						<message identifier="VDCv2mk2_Y.PowerLimitReached" send="true"></message>
 						<message identifier="VDCv2mk2_Y.PowerMean500ms" send="true"></message>
-						<message identifier="VDCv2mk2_Y.Torque_R_out" send="true"></message>
-						<message identifier="VDCv2mk2_Y.Torque_L_out" send="true"></message>
+						<message identifier="VDCv2mk2_Y.Torque_R" send="true"></message>
+						<message identifier="VDCv2mk2_Y.Torque_L" send="true"></message>
 						<message identifier="VDCv2mk2_Y.APPS_Implausibility" send="true"></message>
 						<message identifier="VDCv2mk2_Y.Torque_OK" send="true"></message>
 						<message identifier="VDCv2mk2_Y.TV_Mode" send="true"></message>

@@ -5,6 +5,12 @@
 
 extern void crossbarHook_32_0(void);
 extern void crossbarHook_32_1(void);
+extern void irt_OneStep_Inverters_Action(void);
+extern void crossbarHook_32_2(void);
+extern void crossbarHook_32_3(void);
+extern void irt_OneStep_Inverters_Data(void);
+extern void crossbarHook_32_4(void);
+extern void crossbarHook_32_5(void);
 extern void rtioHook_32_0(void);
 
 
@@ -27,6 +33,12 @@ TASK(Timer_Inv)
 #endif
 	crossbarHook_32_0();
 	crossbarHook_32_1();
+	irt_OneStep_Inverters_Action();
+	crossbarHook_32_2();
+	crossbarHook_32_3();
+	irt_OneStep_Inverters_Data();
+	crossbarHook_32_4();
+	crossbarHook_32_5();
 	rtioHook_32_0();
 	
 #ifdef XCP_SLAVE

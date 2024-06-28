@@ -98,10 +98,10 @@ crossbarHookTableEntry crossbarHookTable29[2] = {NULL, NULL};
 crossbarHookTableEntry crossbarHookTable30[2] = {NULL, NULL};
 
 /* crossbar hook in task 31 Timer_25ms */
-crossbarHookTableEntry crossbarHookTable31[16] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
+crossbarHookTableEntry crossbarHookTable31[12] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
 
 /* crossbar hook in task 32 Timer_Inv */
-crossbarHookTableEntry crossbarHookTable32[2] = {NULL, NULL};
+crossbarHookTableEntry crossbarHookTable32[6] = {NULL, NULL, NULL, NULL, NULL, NULL};
 
 /* crossbar hook in task 33 ISR_CAN1 */
 crossbarHookTableEntry crossbarHookTable33[1] = {NULL};
@@ -441,30 +441,6 @@ void crossbarHook_31_11(void)
 	return;
 }
 
-void crossbarHook_31_12(void)
-{
-	crossbarHook(31,12);
-	return;
-}
-
-void crossbarHook_31_13(void)
-{
-	crossbarHook(31,13);
-	return;
-}
-
-void crossbarHook_31_14(void)
-{
-	crossbarHook(31,14);
-	return;
-}
-
-void crossbarHook_31_15(void)
-{
-	crossbarHook(31,15);
-	return;
-}
-
 void crossbarHook_32_0(void)
 {
 	crossbarHook(32,0);
@@ -474,6 +450,30 @@ void crossbarHook_32_0(void)
 void crossbarHook_32_1(void)
 {
 	crossbarHook(32,1);
+	return;
+}
+
+void crossbarHook_32_2(void)
+{
+	crossbarHook(32,2);
+	return;
+}
+
+void crossbarHook_32_3(void)
+{
+	crossbarHook(32,3);
+	return;
+}
+
+void crossbarHook_32_4(void)
+{
+	crossbarHook(32,4);
+	return;
+}
+
+void crossbarHook_32_5(void)
+{
+	crossbarHook(32,5);
 	return;
 }
 

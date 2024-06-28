@@ -84,9 +84,9 @@ struct RTWTop_VDCv2mk2_Class
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_Y_Regenerative_Enable_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_Y_TV_Mode_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_Y_Throttle_Torque_Ptr;
-    scalarWrapper_Obj *RTWWrapper_VDCv2mk2_Y_Torque_L_out_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDCv2mk2_Y_Torque_L_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_Y_Torque_OK_Ptr;
-    scalarWrapper_Obj *RTWWrapper_VDCv2mk2_Y_Torque_R_out_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDCv2mk2_Y_Torque_R_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDCv2mk2_Y_VDC_Max_Tyre_Slip_Ptr;
 };
 /* Definition of the class object structure */

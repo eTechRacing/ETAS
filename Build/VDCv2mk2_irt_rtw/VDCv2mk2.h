@@ -3,11 +3,6 @@
 #include "VDCv2mk2_irtmacros.h"
 /* PATCH END */
 
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "VDCv2mk2_irtmacros.h"
-/* PATCH END */
-
 /*
  * VDCv2mk2.h
  *
@@ -17,9 +12,9 @@
  *
  * Code generation for model "VDCv2mk2".
  *
- * Model version              : 4.160
+ * Model version              : 4.161
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Thu Jun 27 11:53:03 2024
+ * C source code generated on : Fri Jun 28 12:51:54 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -955,8 +950,8 @@ typedef struct {
   real_T Power;                        /* '<Root>/Power' */
   real_T PowerLimitReached;            /* '<Root>/PowerLimitReached' */
   real_T PowerMean500ms;               /* '<Root>/PowerMean500ms' */
-  real_T Torque_R_out;                 /* '<Root>/Torque_R_out' */
-  real_T Torque_L_out;                 /* '<Root>/Torque_L_out' */
+  real_T Torque_R;                     /* '<Root>/Torque_R' */
+  real_T Torque_L;                     /* '<Root>/Torque_L' */
   real_T APPS_Implausibility;          /* '<Root>/APPS_Implausibility' */
   real_T Torque_OK;                    /* '<Root>/Torque_OK' */
   real_T VDC_Max_Tyre_Slip;            /* '<Root>/VDC_Max_Tyre_Slip' */

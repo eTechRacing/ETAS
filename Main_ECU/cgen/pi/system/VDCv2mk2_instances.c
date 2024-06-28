@@ -98,9 +98,9 @@ void initClass_RTWTop_VDCv2mk2(struct RTWTop_VDCv2mk2_Class *self)
     self->RTWWrapper_VDCv2mk2_Y_Regenerative_Enable_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_Y.Regenerative_Enable, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDCv2mk2_Y_TV_Mode_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_Y.TV_Mode, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDCv2mk2_Y_Throttle_Torque_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_Y.Throttle_Torque, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_VDCv2mk2_Y_Torque_L_out_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_Y.Torque_L_out, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDCv2mk2_Y_Torque_L_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_Y.Torque_L, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDCv2mk2_Y_Torque_OK_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_Y.Torque_OK, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_VDCv2mk2_Y_Torque_R_out_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_Y.Torque_R_out, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDCv2mk2_Y_Torque_R_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_Y.Torque_R, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDCv2mk2_Y_VDC_Max_Tyre_Slip_Ptr = initInstance_scalarWrapper((void*)&VDCv2mk2_Y.VDC_Max_Tyre_Slip, sizeof(double), (uint32)ASD_VARIABLE);
     return;
 }
