@@ -12,9 +12,9 @@
  *
  * Code generation for model "Inverters_Data".
  *
- * Model version              : 13.5
+ * Model version              : 13.7
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jun 22 15:13:36 2024
+ * C source code generated on : Sat Jun 29 16:57:25 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -890,6 +890,8 @@ typedef struct {
   real_T Inv_L_TempIGBT;               /* '<Root>/Inv_L_TempIGBT' */
   real_T RL_rads_Motor;                /* '<Root>/RL_rads_Motor' */
   real_T RR_rads_Motor;                /* '<Root>/RR_rads_Motor' */
+  real_T Inv_L_TempMotor;              /* '<Root>/Inv_L_TempMotor' */
+  real_T Inv_R_TempMotor;              /* '<Root>/Inv_R_TempMotor' */
 } ExtY_Inverters_Data_T;
 
 /* Backward compatible GRT Identifiers */

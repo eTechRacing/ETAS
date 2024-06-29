@@ -144,7 +144,9 @@
 0x0000; debug_info: MEASUREMENT element found: 'Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'Inverters_Data_Y.Inv_L_TempIGBT', adding definition.
+0x0000; debug_info: MEASUREMENT element found: 'Inverters_Data_Y.Inv_L_TempMotor', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'Inverters_Data_Y.Inv_R_TempIGBT', adding definition.
+0x0000; debug_info: MEASUREMENT element found: 'Inverters_Data_Y.Inv_R_TempMotor', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'Inverters_Data_Y.InvertersMinDCBus', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'Inverters_Data_Y.Max_Temp_IGBT', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'Inverters_Data_Y.Max_Temp_Motors', adding definition.
@@ -256,6 +258,21 @@
 0x0000; debug_info: MEASUREMENT element found: 'VDCv2mk2_Y.Torque_OK', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'VDCv2mk2_Y.Torque_R', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'VDCv2mk2_Y.VDC_Max_Tyre_Slip', adding definition.
+0x0000; verbose_info: Parsing ASAM MCD-2MC file 'Power_Control.a2l'.
+0x0000; debug_info: MODULE element found: 'Power_Control', adding definition.
+0x0000; debug_info: MEASUREMENT element found: 'Power_Control_B.sf_InverterL_Temp_Limitation.Current_out', adding definition.
+0x0000; debug_info: COMPU_METHOD element found: 'Power_Control_CM_double', adding definition.
+0x0000; debug_info: MEASUREMENT element found: 'Power_Control_B.sf_InverterR_Temp_Limitation.Current_out', adding definition.
+0x0000; debug_info: MEASUREMENT element found: 'Power_Control_B.sf_MotorL_Temp_Limitation.Current_out', adding definition.
+0x0000; debug_info: MEASUREMENT element found: 'Power_Control_B.sf_MotorR_Temp_Limitation.Current_out', adding definition.
+0x0000; debug_info: MEASUREMENT element found: 'Power_Control_U.Inv_L_TempIGBT', adding definition.
+0x0000; debug_info: MEASUREMENT element found: 'Power_Control_U.Inv_L_TempMotor', adding definition.
+0x0000; debug_info: MEASUREMENT element found: 'Power_Control_U.Inv_R_TempIGBT', adding definition.
+0x0000; debug_info: MEASUREMENT element found: 'Power_Control_U.Inv_R_TempMotor', adding definition.
+0x0000; debug_info: MEASUREMENT element found: 'Power_Control_U.Torque_L', adding definition.
+0x0000; debug_info: MEASUREMENT element found: 'Power_Control_U.Torque_R', adding definition.
+0x0000; debug_info: MEASUREMENT element found: 'Power_Control_Y.current_L', adding definition.
+0x0000; debug_info: MEASUREMENT element found: 'Power_Control_Y.current_R', adding definition.
 0x0000; verbose_info: Parsing ASAM MCD-2MC file 'ETC/Signals.a2l'.
 0x0000; debug_info: MODULE element found: 'ETCSignals', adding definition.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN1.Presence.PresenceGroup.PresenceFlag', adding definition.
@@ -474,56 +491,60 @@
 0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_SlipAngle': '1001-1-1001-117'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_AngleTrack', adding definition.
 0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_AngleTrack': '1001-1-1001-118'.
+0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor', adding definition.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor': '1001-1-1001-120'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R': '1001-1-1001-120'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R': '1001-1-1001-121'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT': '1001-1-1001-121'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT': '1001-1-1001-122'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel': '1001-1-1001-122'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel': '1001-1-1001-123'.
+0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor', adding definition.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor': '1001-1-1001-125'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L': '1001-1-1001-124'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L': '1001-1-1001-126'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT': '1001-1-1001-125'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT': '1001-1-1001-127'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel': '1001-1-1001-126'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel': '1001-1-1001-128'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_R', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_R': '1001-1-1001-128'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_R': '1001-1-1001-130'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_L', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_L': '1001-1-1001-129'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_L': '1001-1-1001-131'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_R', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_R': '1001-1-1001-130'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_R': '1001-1-1001-132'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_L', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_L': '1001-1-1001-131'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_L': '1001-1-1001-133'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Throttle_Torque', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Throttle_Torque': '1001-1-1001-133'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Throttle_Torque': '1001-1-1001-135'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_R', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_R': '1001-1-1001-134'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_R': '1001-1-1001-136'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_L', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_L': '1001-1-1001-135'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_L': '1001-1-1001-137'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.AP_RECU_Data.Susp_R_R_Bits', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_RECU_Data.Susp_R_R_Bits': '1001-1-1001-136'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_RECU_Data.Susp_R_R_Bits': '1001-1-1001-138'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.AP_RECU_Data.Susp_R_L_Bits', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_RECU_Data.Susp_R_L_Bits': '1001-1-1001-137'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_RECU_Data.Susp_R_L_Bits': '1001-1-1001-139'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.NM_FECU_Keep_Alive.Front_Alive', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.NM_FECU_Keep_Alive.Front_Alive': '1001-1-1001-138'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.NM_FECU_Keep_Alive.Front_Alive': '1001-1-1001-140'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.NM_RECU_Keep_Alive.Rear_Alive', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.NM_RECU_Keep_Alive.Rear_Alive': '1001-1-1001-139'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.NM_RECU_Keep_Alive.Rear_Alive': '1001-1-1001-141'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.AP_FECU_Data2.Pitot_Bits', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_FECU_Data2.Pitot_Bits': '1001-1-1001-140'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_FECU_Data2.Pitot_Bits': '1001-1-1001-142'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.AP_FECU_Data2.Susp_F_R_Bits', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_FECU_Data2.Susp_F_R_Bits': '1001-1-1001-141'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_FECU_Data2.Susp_F_R_Bits': '1001-1-1001-143'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.AP_FECU_Data2.Susp_F_L_Bits', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_FECU_Data2.Susp_F_L_Bits': '1001-1-1001-142'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_FECU_Data2.Susp_F_L_Bits': '1001-1-1001-144'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.AP_FECU_Data1.SteeringSensor_Bits', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_FECU_Data1.SteeringSensor_Bits': '1001-1-1001-143'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_FECU_Data1.SteeringSensor_Bits': '1001-1-1001-145'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.AP_FECU_Data1.BrakePedal_Bits', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_FECU_Data1.BrakePedal_Bits': '1001-1-1001-144'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_FECU_Data1.BrakePedal_Bits': '1001-1-1001-146'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.AP_FECU_Data1.APPS2_Bits', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_FECU_Data1.APPS2_Bits': '1001-1-1001-145'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_FECU_Data1.APPS2_Bits': '1001-1-1001-147'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.AP_FECU_Data1.APPS1_Bits', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_FECU_Data1.APPS1_Bits': '1001-1-1001-146'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_FECU_Data1.APPS1_Bits': '1001-1-1001-148'.
 0x0000; debug_info: MEASUREMENT element found: 'ES910.ES910.CAN2.CAN2.AP_ETAS_Synchronism.Sync_CAN2', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_ETAS_Synchronism.Sync_CAN2': '1001-1-1001-148'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_ETAS_Synchronism.Sync_CAN2': '1001-1-1001-150'.
 0x0000; debug_info: CHARACTERISTIC element found: 'ES910.ES910.CAN1.CAN1.AP_ETAS_DashData.SoC_Avg_calibrate', adding definition.
 0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN1.CAN1.AP_ETAS_DashData.SoC_Avg_calibrate': '1001-1-1001-37'.
 0x0000; debug_info: CHARACTERISTIC element found: 'ES910.ES910.CAN1.CAN1.AP_ETAS_DashData.Speed_calibrate', adding definition.
@@ -612,34 +633,38 @@
 0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS1_Value_calibrate': '1001-1-1001-89'.
 0x0000; debug_info: CHARACTERISTIC element found: 'ES910.ES910.CAN2.CAN2.AP_ETAS_BrakeLight.BrakeLight_Control_calibrate', adding definition.
 0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_ETAS_BrakeLight.BrakeLight_Control_calibrate': '1001-1-1001-91'.
+0x0000; debug_info: CHARACTERISTIC element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor_calibrate', adding definition.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor_calibrate': '1001-1-1001-120'.
 0x0000; debug_info: CHARACTERISTIC element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R_calibrate', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R_calibrate': '1001-1-1001-120'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R_calibrate': '1001-1-1001-121'.
 0x0000; debug_info: CHARACTERISTIC element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT_calibrate', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT_calibrate': '1001-1-1001-121'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT_calibrate': '1001-1-1001-122'.
 0x0000; debug_info: CHARACTERISTIC element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel_calibrate', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel_calibrate': '1001-1-1001-122'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel_calibrate': '1001-1-1001-123'.
+0x0000; debug_info: CHARACTERISTIC element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor_calibrate', adding definition.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor_calibrate': '1001-1-1001-125'.
 0x0000; debug_info: CHARACTERISTIC element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L_calibrate', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L_calibrate': '1001-1-1001-124'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L_calibrate': '1001-1-1001-126'.
 0x0000; debug_info: CHARACTERISTIC element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT_calibrate', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT_calibrate': '1001-1-1001-125'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT_calibrate': '1001-1-1001-127'.
 0x0000; debug_info: CHARACTERISTIC element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel_calibrate', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel_calibrate': '1001-1-1001-126'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel_calibrate': '1001-1-1001-128'.
 0x0000; debug_info: CHARACTERISTIC element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_R_calibrate', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_R_calibrate': '1001-1-1001-128'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_R_calibrate': '1001-1-1001-130'.
 0x0000; debug_info: CHARACTERISTIC element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_L_calibrate', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_L_calibrate': '1001-1-1001-129'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_L_calibrate': '1001-1-1001-131'.
 0x0000; debug_info: CHARACTERISTIC element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_R_calibrate', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_R_calibrate': '1001-1-1001-130'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_R_calibrate': '1001-1-1001-132'.
 0x0000; debug_info: CHARACTERISTIC element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_L_calibrate', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_L_calibrate': '1001-1-1001-131'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_L_calibrate': '1001-1-1001-133'.
 0x0000; debug_info: CHARACTERISTIC element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Throttle_Torque_calibrate', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Throttle_Torque_calibrate': '1001-1-1001-133'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Throttle_Torque_calibrate': '1001-1-1001-135'.
 0x0000; debug_info: CHARACTERISTIC element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_R_calibrate', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_R_calibrate': '1001-1-1001-134'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_R_calibrate': '1001-1-1001-136'.
 0x0000; debug_info: CHARACTERISTIC element found: 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_L_calibrate', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_L_calibrate': '1001-1-1001-135'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_L_calibrate': '1001-1-1001-137'.
 0x0000; debug_info: CHARACTERISTIC element found: 'ES910.ES910.CAN2.CAN2.AP_ETAS_Synchronism.Sync_CAN2_calibrate', adding definition.
-0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_ETAS_Synchronism.Sync_CAN2_calibrate': '1001-1-1001-148'.
+0x0000; debug_info: Setting pseudo address for node 'ES910.ES910.CAN2.CAN2.AP_ETAS_Synchronism.Sync_CAN2_calibrate': '1001-1-1001-150'.
 0x0000; debug_info: COMPU_METHOD element found: 'LINEAR_FUNCTION_M1_T0_U1', adding definition.
 0x0000; debug_info: COMPU_METHOD element found: 'LINEAR_FUNCTION_M1_T0_U2', adding definition.
 0x0000; debug_info: COMPU_METHOD element found: 'LINEAR_FUNCTION_M1_T0_U3', adding definition.
@@ -674,6 +699,7 @@
 0x0000; debug_info: Setting pseudo address for node 'Sensors': '1001-0-1001-5'.
 0x0000; debug_info: Setting pseudo address for node 'Synchronism': '1001-0-1001-6'.
 0x0000; debug_info: Setting pseudo address for node 'VDCv2mk2': '1001-0-1001-7'.
+0x0000; debug_info: Setting pseudo address for node 'Power_Control': '1001-0-1001-8'.
 0x0000; verbose_info: Parsing address list file 'Car_State_instances.lst'.
 0x0000; verbose_info: Parsing address list file 'Disconnections_instances.lst'.
 0x0000; verbose_info: Parsing address list file 'Ellipse_instances.lst'.
@@ -682,6 +708,7 @@
 0x0000; verbose_info: Parsing address list file 'Sensors_instances.lst'.
 0x0000; verbose_info: Parsing address list file 'Synchronism_instances.lst'.
 0x0000; verbose_info: Parsing address list file 'VDCv2mk2_instances.lst'.
+0x0000; verbose_info: Parsing address list file 'Power_Control_instances.lst'.
 0x0000; verbose_info: Importing workspace data xml file.
 0x0000; verbose_info: Parsing SCOOP-IX files.
 0x0000; verbose_info: Parsing and processing SCOOP-IX file 'c:\users\joser\onedrive\documentos\github\etas\build\car_state_irt_rtw\car_state.six'.
@@ -708,6 +735,9 @@
 0x0000; verbose_info: Parsing and processing SCOOP-IX file 'c:\users\joser\onedrive\documentos\github\etas\build\vdcv2mk2_irt_rtw\vdcv2mk2.six'.
 0x0000; verbose_info: Importing module information of module 'VDCv2mk2'.
 0x0000; verbose_info: Importing module interface information of 'VDCv2mk2'.
+0x0000; verbose_info: Parsing and processing SCOOP-IX file 'c:\users\joser\onedrive\documentos\github\etas\build\power_control_irt_rtw\power_control.six'.
+0x0000; verbose_info: Importing module information of module 'Power_Control'.
+0x0000; verbose_info: Importing module interface information of 'Power_Control'.
 0x0000; verbose_info: Processing the created ASAM MCD-2MC project.
 0x0000; verbose_info: Global number hierarchy levels used: '0'.
 0x0000; verbose_info: Coder ('RTW') specific number hierarchy levels for CHARACTERISTICS used: '0'.
@@ -947,7 +977,9 @@
 0x0000; debug_info: Prefixing label 'Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor' to 'Inverters_Data.Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor' according to settings.
 0x0000; debug_info: Prefixing label 'Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT' to 'Inverters_Data.Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT' according to settings.
 0x0000; debug_info: Prefixing label 'Inverters_Data_Y.Inv_L_TempIGBT' to 'Inverters_Data.Inverters_Data_Y.Inv_L_TempIGBT' according to settings.
+0x0000; debug_info: Prefixing label 'Inverters_Data_Y.Inv_L_TempMotor' to 'Inverters_Data.Inverters_Data_Y.Inv_L_TempMotor' according to settings.
 0x0000; debug_info: Prefixing label 'Inverters_Data_Y.Inv_R_TempIGBT' to 'Inverters_Data.Inverters_Data_Y.Inv_R_TempIGBT' according to settings.
+0x0000; debug_info: Prefixing label 'Inverters_Data_Y.Inv_R_TempMotor' to 'Inverters_Data.Inverters_Data_Y.Inv_R_TempMotor' according to settings.
 0x0000; debug_info: Prefixing label 'Inverters_Data_Y.InvertersMinDCBus' to 'Inverters_Data.Inverters_Data_Y.InvertersMinDCBus' according to settings.
 0x0000; debug_info: Prefixing label 'Inverters_Data_Y.Max_Temp_IGBT' to 'Inverters_Data.Inverters_Data_Y.Max_Temp_IGBT' according to settings.
 0x0000; debug_info: Prefixing label 'Inverters_Data_Y.Max_Temp_Motors' to 'Inverters_Data.Inverters_Data_Y.Max_Temp_Motors' according to settings.
@@ -965,7 +997,9 @@
 0x0000; debug_info: Updating element name from 'Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor' to 'Inverters_Data.Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor'.
 0x0000; debug_info: Updating element name from 'Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT' to 'Inverters_Data.Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT'.
 0x0000; debug_info: Updating element name from 'Inverters_Data_Y.Inv_L_TempIGBT' to 'Inverters_Data.Inverters_Data_Y.Inv_L_TempIGBT'.
+0x0000; debug_info: Updating element name from 'Inverters_Data_Y.Inv_L_TempMotor' to 'Inverters_Data.Inverters_Data_Y.Inv_L_TempMotor'.
 0x0000; debug_info: Updating element name from 'Inverters_Data_Y.Inv_R_TempIGBT' to 'Inverters_Data.Inverters_Data_Y.Inv_R_TempIGBT'.
+0x0000; debug_info: Updating element name from 'Inverters_Data_Y.Inv_R_TempMotor' to 'Inverters_Data.Inverters_Data_Y.Inv_R_TempMotor'.
 0x0000; debug_info: Updating element name from 'Inverters_Data_Y.InvertersMinDCBus' to 'Inverters_Data.Inverters_Data_Y.InvertersMinDCBus'.
 0x0000; debug_info: Updating element name from 'Inverters_Data_Y.Max_Temp_IGBT' to 'Inverters_Data.Inverters_Data_Y.Max_Temp_IGBT'.
 0x0000; debug_info: Updating element name from 'Inverters_Data_Y.Max_Temp_Motors' to 'Inverters_Data.Inverters_Data_Y.Max_Temp_Motors'.
@@ -1166,6 +1200,32 @@
 0x0000; debug_info: Updating element name from 'VDCv2mk2_Y.Torque_OK' to 'VDCv2mk2.VDCv2mk2_Y.Torque_OK'.
 0x0000; debug_info: Updating element name from 'VDCv2mk2_Y.Torque_R' to 'VDCv2mk2.VDCv2mk2_Y.Torque_R'.
 0x0000; debug_info: Updating element name from 'VDCv2mk2_Y.VDC_Max_Tyre_Slip' to 'VDCv2mk2.VDCv2mk2_Y.VDC_Max_Tyre_Slip'.
+0x0000; verbose_info: Coder ('RTW') specific number hierarchy levels for CHARACTERISTICS used: '0'.
+0x0000; verbose_info: Coder ('RTW') specific number hierarchy levels for MEASUREMENTS used: '0'.
+0x0000; debug_info: Prefixing label 'Power_Control_B.sf_InverterL_Temp_Limitation.Current_out' to 'Power_Control.Power_Control_B.sf_InverterL_Temp_Limitation.Current_out' according to settings.
+0x0000; debug_info: Prefixing label 'Power_Control_B.sf_InverterR_Temp_Limitation.Current_out' to 'Power_Control.Power_Control_B.sf_InverterR_Temp_Limitation.Current_out' according to settings.
+0x0000; debug_info: Prefixing label 'Power_Control_B.sf_MotorL_Temp_Limitation.Current_out' to 'Power_Control.Power_Control_B.sf_MotorL_Temp_Limitation.Current_out' according to settings.
+0x0000; debug_info: Prefixing label 'Power_Control_B.sf_MotorR_Temp_Limitation.Current_out' to 'Power_Control.Power_Control_B.sf_MotorR_Temp_Limitation.Current_out' according to settings.
+0x0000; debug_info: Prefixing label 'Power_Control_U.Inv_L_TempIGBT' to 'Power_Control.Power_Control_U.Inv_L_TempIGBT' according to settings.
+0x0000; debug_info: Prefixing label 'Power_Control_U.Inv_L_TempMotor' to 'Power_Control.Power_Control_U.Inv_L_TempMotor' according to settings.
+0x0000; debug_info: Prefixing label 'Power_Control_U.Inv_R_TempIGBT' to 'Power_Control.Power_Control_U.Inv_R_TempIGBT' according to settings.
+0x0000; debug_info: Prefixing label 'Power_Control_U.Inv_R_TempMotor' to 'Power_Control.Power_Control_U.Inv_R_TempMotor' according to settings.
+0x0000; debug_info: Prefixing label 'Power_Control_U.Torque_L' to 'Power_Control.Power_Control_U.Torque_L' according to settings.
+0x0000; debug_info: Prefixing label 'Power_Control_U.Torque_R' to 'Power_Control.Power_Control_U.Torque_R' according to settings.
+0x0000; debug_info: Prefixing label 'Power_Control_Y.current_L' to 'Power_Control.Power_Control_Y.current_L' according to settings.
+0x0000; debug_info: Prefixing label 'Power_Control_Y.current_R' to 'Power_Control.Power_Control_Y.current_R' according to settings.
+0x0000; debug_info: Updating element name from 'Power_Control_B.sf_InverterL_Temp_Limitation.Current_out' to 'Power_Control.Power_Control_B.sf_InverterL_Temp_Limitation.Current_out'.
+0x0000; debug_info: Updating element name from 'Power_Control_B.sf_InverterR_Temp_Limitation.Current_out' to 'Power_Control.Power_Control_B.sf_InverterR_Temp_Limitation.Current_out'.
+0x0000; debug_info: Updating element name from 'Power_Control_B.sf_MotorL_Temp_Limitation.Current_out' to 'Power_Control.Power_Control_B.sf_MotorL_Temp_Limitation.Current_out'.
+0x0000; debug_info: Updating element name from 'Power_Control_B.sf_MotorR_Temp_Limitation.Current_out' to 'Power_Control.Power_Control_B.sf_MotorR_Temp_Limitation.Current_out'.
+0x0000; debug_info: Updating element name from 'Power_Control_U.Inv_L_TempIGBT' to 'Power_Control.Power_Control_U.Inv_L_TempIGBT'.
+0x0000; debug_info: Updating element name from 'Power_Control_U.Inv_L_TempMotor' to 'Power_Control.Power_Control_U.Inv_L_TempMotor'.
+0x0000; debug_info: Updating element name from 'Power_Control_U.Inv_R_TempIGBT' to 'Power_Control.Power_Control_U.Inv_R_TempIGBT'.
+0x0000; debug_info: Updating element name from 'Power_Control_U.Inv_R_TempMotor' to 'Power_Control.Power_Control_U.Inv_R_TempMotor'.
+0x0000; debug_info: Updating element name from 'Power_Control_U.Torque_L' to 'Power_Control.Power_Control_U.Torque_L'.
+0x0000; debug_info: Updating element name from 'Power_Control_U.Torque_R' to 'Power_Control.Power_Control_U.Torque_R'.
+0x0000; debug_info: Updating element name from 'Power_Control_Y.current_L' to 'Power_Control.Power_Control_Y.current_L'.
+0x0000; debug_info: Updating element name from 'Power_Control_Y.current_R' to 'Power_Control.Power_Control_Y.current_R'.
 0x0000; verbose_info: Coder ('INTECRIO') specific number hierarchy levels for CHARACTERISTICS used: '0'.
 0x0000; verbose_info: Coder ('INTECRIO') specific number hierarchy levels for MEASUREMENTS used: '0'.
 0x0000; debug_info: Prefixing label 'ES910.ES910.CAN1.Presence.PresenceGroup.PresenceFlag' to 'ETCSignals.ES910.ES910.CAN1.Presence.PresenceGroup.PresenceFlag' according to settings.
@@ -1276,9 +1336,11 @@
 0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_CurvatureRadius' to 'ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_CurvatureRadius' according to settings.
 0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_SlipAngle' to 'ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_SlipAngle' according to settings.
 0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_AngleTrack' to 'ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_AngleTrack' according to settings.
+0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor' according to settings.
 0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R' according to settings.
 0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT' according to settings.
 0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel' according to settings.
+0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor' according to settings.
 0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L' according to settings.
 0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT' according to settings.
 0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel' according to settings.
@@ -1345,9 +1407,11 @@
 0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value_calibrate' according to settings.
 0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS1_Value_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS1_Value_calibrate' according to settings.
 0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.AP_ETAS_BrakeLight.BrakeLight_Control_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.AP_ETAS_BrakeLight.BrakeLight_Control_calibrate' according to settings.
+0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor_calibrate' according to settings.
 0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R_calibrate' according to settings.
 0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT_calibrate' according to settings.
 0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel_calibrate' according to settings.
+0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor_calibrate' according to settings.
 0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L_calibrate' according to settings.
 0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT_calibrate' according to settings.
 0x0000; debug_info: Prefixing label 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel_calibrate' according to settings.
@@ -1467,9 +1531,11 @@
 0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_CurvatureRadius' to 'ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_CurvatureRadius'.
 0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_SlipAngle' to 'ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_SlipAngle'.
 0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_AngleTrack' to 'ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_AngleTrack'.
+0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor'.
 0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R'.
 0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT'.
 0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel'.
+0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor'.
 0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L'.
 0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT'.
 0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel'.
@@ -1536,9 +1602,11 @@
 0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value_calibrate'.
 0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS1_Value_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS1_Value_calibrate'.
 0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.AP_ETAS_BrakeLight.BrakeLight_Control_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.AP_ETAS_BrakeLight.BrakeLight_Control_calibrate'.
+0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor_calibrate'.
 0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R_calibrate'.
 0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT_calibrate'.
 0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel_calibrate'.
+0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor_calibrate'.
 0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L_calibrate'.
 0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT_calibrate'.
 0x0000; debug_info: Updating element name from 'ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel_calibrate' to 'ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel_calibrate'.
@@ -1599,6 +1667,14 @@
 0x0000; debug_info: Adding new GROUP element 'VDCv2mk2.VDCv2mk2_DW' to output project.
 0x0000; debug_info: Adding new GROUP element 'VDCv2mk2.VDCv2mk2_U' to output project.
 0x0000; debug_info: Adding new GROUP element 'VDCv2mk2.VDCv2mk2_Y' to output project.
+0x0000; debug_info: Adding new GROUP element 'Power_Control' to output project.
+0x0000; debug_info: Adding new GROUP element 'Power_Control.Power_Control_B' to output project.
+0x0000; debug_info: Adding new GROUP element 'Power_Control.Power_Control_B.sf_InverterL_Temp_Limitation' to output project.
+0x0000; debug_info: Adding new GROUP element 'Power_Control.Power_Control_B.sf_InverterR_Temp_Limitation' to output project.
+0x0000; debug_info: Adding new GROUP element 'Power_Control.Power_Control_B.sf_MotorL_Temp_Limitation' to output project.
+0x0000; debug_info: Adding new GROUP element 'Power_Control.Power_Control_B.sf_MotorR_Temp_Limitation' to output project.
+0x0000; debug_info: Adding new GROUP element 'Power_Control.Power_Control_U' to output project.
+0x0000; debug_info: Adding new GROUP element 'Power_Control.Power_Control_Y' to output project.
 0x0000; debug_info: Adding new GROUP element 'ETCSignals' to output project.
 0x0000; debug_info: Adding new GROUP element 'ETCSignals.ES910' to output project.
 0x0000; debug_info: Adding new GROUP element 'ETCSignals.ES910.ES910' to output project.

@@ -19,6 +19,7 @@
 #include "./Sensors_instances.h"
 #include "./Synchronism_instances.h"
 #include "./VDCv2mk2_instances.h"
+#include "./Power_Control_instances.h"
 /* Data structure for keeping the INTECRIO version (defines must be set) */
 #ifdef INTECRIO_VERSION_NUMBER
 static const uint32 intecrioVersionNumber = INTECRIO_VERSION_NUMBER;
@@ -60,11 +61,12 @@ static void initClass_INTECRIOTop_ROOT(struct INTECRIOTop_ROOT_Class *self)
     self->RTWTop_Sensors_Ptr = (struct RTWTop_Sensors_Obj*)initModel_RTWTop_Sensors();
     self->RTWTop_Synchronism_Ptr = (struct RTWTop_Synchronism_Obj*)initModel_RTWTop_Synchronism();
     self->RTWTop_VDCv2mk2_Ptr = (struct RTWTop_VDCv2mk2_Obj*)initModel_RTWTop_VDCv2mk2();
+    self->RTWTop_Power_Control_Ptr = (struct RTWTop_Power_Control_Obj*)initModel_RTWTop_Power_Control();
     return;
 }
 /* Definition of the class header */
 static ASDClassHeader INTECRIOTop_ROOT_ClassHeader =
-    {0, 0, 0, 8, (MethodList *)0, (MethodList *)0};
+    {0, 0, 0, 9, (MethodList *)0, (MethodList *)0};
 /* Definition and initialization of the class object */
 static struct INTECRIOTop_ROOT_Class INTECRIOTop_ROOT_ClassObj = {{1, {&INTECRIOTop_ROOT_ClassHeader}, {0}}};
 /* Object instantiation */
@@ -98,6 +100,7 @@ void os_setDeltaT (void)
     setDeltaT_Sensors();
     setDeltaT_Synchronism();
     setDeltaT_VDCv2mk2();
+    setDeltaT_Power_Control();
 }
 /* Accessor for staticDT */
 uint32 getDeltaT (void)

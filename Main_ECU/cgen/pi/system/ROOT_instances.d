@@ -60,4 +60,5 @@ ROOT_instances.o: \
  c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./Inverters_Data_instances.h \
  c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./Sensors_instances.h \
  c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./Synchronism_instances.h \
- c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./VDCv2mk2_instances.h
+ c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./VDCv2mk2_instances.h \
+ c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./Power_Control_instances.h

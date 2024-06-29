@@ -45,7 +45,9 @@ void initClass_RTWTop_Inverters_Data(struct RTWTop_Inverters_Data_Class *self)
     self->RTWWrapper_Inverters_Data_U_Inv_R_RegID_M73_Inv_R_TempMotor_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_U_Inv_R_RegID_M74_Inv_R_TempIGBT_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_Y_Inv_L_TempIGBT_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_Y.Inv_L_TempIGBT, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Inverters_Data_Y_Inv_L_TempMotor_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_Y.Inv_L_TempMotor, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_Y_Inv_R_TempIGBT_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_Y.Inv_R_TempIGBT, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Inverters_Data_Y_Inv_R_TempMotor_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_Y.Inv_R_TempMotor, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_Y_InvertersMinDCBus_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_Y.InvertersMinDCBus, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_Y_Max_Temp_IGBT_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_Y.Max_Temp_IGBT, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_Y_Max_Temp_Motors_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_Y.Max_Temp_Motors, sizeof(double), (uint32)ASD_VARIABLE);
@@ -74,9 +76,11 @@ static MethodList RTWTop_Inverters_Data_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_Inverters_Data_ClassHeader =
-    {0, 1, 0, 18 + 0, (MethodList *)0, (MethodList *)&RTWTop_Inverters_Data_ClassMethodList};
+    {0, 1, 0, 20 + 0, (MethodList *)0, (MethodList *)&RTWTop_Inverters_Data_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_Inverters_Data_Class RTWTop_Inverters_Data_ClassObj = {{1, {&RTWTop_Inverters_Data_ClassHeader}, {0}}
+    ,NULL
+    ,NULL
     ,NULL
     ,NULL
     ,NULL

@@ -98,7 +98,7 @@ crossbarHookTableEntry crossbarHookTable29[2] = {NULL, NULL};
 crossbarHookTableEntry crossbarHookTable30[2] = {NULL, NULL};
 
 /* crossbar hook in task 31 Timer_25ms */
-crossbarHookTableEntry crossbarHookTable31[12] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
+crossbarHookTableEntry crossbarHookTable31[14] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
 
 /* crossbar hook in task 32 Timer_Inv */
 crossbarHookTableEntry crossbarHookTable32[6] = {NULL, NULL, NULL, NULL, NULL, NULL};
@@ -110,10 +110,10 @@ crossbarHookTableEntry crossbarHookTable33[1] = {NULL};
 crossbarHookTableEntry crossbarHookTable34[1] = {NULL};
 
 /* crossbar hook in task 35 Init */
-crossbarHookTableEntry crossbarHookTable35[16] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
+crossbarHookTableEntry crossbarHookTable35[18] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
 
 /* crossbar hook in task 36 Exit */
-crossbarHookTableEntry crossbarHookTable36[16] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
+crossbarHookTableEntry crossbarHookTable36[18] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
 
 
 /* crossbar task table */
@@ -441,6 +441,18 @@ void crossbarHook_31_11(void)
 	return;
 }
 
+void crossbarHook_31_12(void)
+{
+	crossbarHook(31,12);
+	return;
+}
+
+void crossbarHook_31_13(void)
+{
+	crossbarHook(31,13);
+	return;
+}
+
 void crossbarHook_32_0(void)
 {
 	crossbarHook(32,0);
@@ -601,6 +613,20 @@ void crossbarHook_35_15(void)
 	return;
 }
 
+void crossbarHook_35_16(void)
+{
+	crossbarHook(35,16);
+	INIT_EXIT_FW_HOOK
+	return;
+}
+
+void crossbarHook_35_17(void)
+{
+	crossbarHook(35,17);
+	INIT_EXIT_FW_HOOK
+	return;
+}
+
 void crossbarHook_36_0(void)
 {
 	crossbarHook(36,0);
@@ -709,6 +735,20 @@ void crossbarHook_36_14(void)
 void crossbarHook_36_15(void)
 {
 	crossbarHook(36,15);
+	INIT_EXIT_FW_HOOK
+	return;
+}
+
+void crossbarHook_36_16(void)
+{
+	crossbarHook(36,16);
+	INIT_EXIT_FW_HOOK
+	return;
+}
+
+void crossbarHook_36_17(void)
+{
+	crossbarHook(36,17);
 	INIT_EXIT_FW_HOOK
 	return;
 }

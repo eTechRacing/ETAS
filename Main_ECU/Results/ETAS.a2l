@@ -300,7 +300,7 @@
                 /* Raster number        */ QP_BLOB 31 
             /end SOURCE
             /begin TP_BLOB
-                /* Program identifier   */ 2385934377
+                /* Program identifier   */ 3194287493
                 /* HW target identifier */ 0x6
                 /* Skip flag            */ 0
                 /* Skip to link         */ 2
@@ -2079,6 +2079,21 @@
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
+            /* Name                */     Inverters_Data.Inverters_Data_Y.Inv_L_TempMotor 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Inverters_Data_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Inverters_Data.Inv_L_TempMotor 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 9 DEFAULT_RASTERS 32
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
             /* Name                */     Inverters_Data.Inverters_Data_Y.Inv_R_TempIGBT 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
@@ -2090,7 +2105,22 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_R_TempIGBT 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 9 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 10 DEFAULT_RASTERS 32
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     Inverters_Data.Inverters_Data_Y.Inv_R_TempMotor 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Inverters_Data_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Inverters_Data.Inv_R_TempMotor 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 11 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2105,7 +2135,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.InvertersMinDCBus 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 10 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 12 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2120,7 +2150,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Max_Temp_IGBT 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 11 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 13 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2135,7 +2165,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Max_Temp_Motors 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 12 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 14 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2150,7 +2180,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.RL_Vel_ms_Wheel 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 13 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 15 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2165,7 +2195,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.RL_rads_Motor 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 14 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 16 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2180,7 +2210,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.RR_Vel_ms_Wheel 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 15 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 17 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2195,7 +2225,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.RR_rads_Motor 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 16 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 18 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2210,7 +2240,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Speed 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 17 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 19 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -3606,6 +3636,186 @@
             DISPLAY_IDENTIFIER VDCv2mk2.VDC_Max_Tyre_Slip 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 7 1001 63 DEFAULT_RASTERS 31
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     Power_Control.Power_Control_B.sf_InverterL_Temp_Limitation.Current_out 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Power_Control_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Power_Control.InverterL_Temp_Limitation.Current_out 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 8 1001 0 
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     Power_Control.Power_Control_B.sf_InverterR_Temp_Limitation.Current_out 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Power_Control_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Power_Control.InverterR_Temp_Limitation.Current_out 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 8 1001 1 
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     Power_Control.Power_Control_B.sf_MotorL_Temp_Limitation.Current_out 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Power_Control_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Power_Control.MotorL_Temp_Limitation.Current_out 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 8 1001 2 
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     Power_Control.Power_Control_B.sf_MotorR_Temp_Limitation.Current_out 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Power_Control_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Power_Control.MotorR_Temp_Limitation.Current_out 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 8 1001 3 
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     Power_Control.Power_Control_U.Inv_L_TempIGBT 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Power_Control_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Power_Control.Inv_L_TempIGBT 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 8 1001 4 DEFAULT_RASTERS 31
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     Power_Control.Power_Control_U.Inv_L_TempMotor 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Power_Control_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Power_Control.Inv_L_TempMotor 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 8 1001 5 DEFAULT_RASTERS 31
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     Power_Control.Power_Control_U.Inv_R_TempIGBT 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Power_Control_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Power_Control.Inv_R_TempIGBT 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 8 1001 6 DEFAULT_RASTERS 31
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     Power_Control.Power_Control_U.Inv_R_TempMotor 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Power_Control_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Power_Control.Inv_R_TempMotor 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 8 1001 7 DEFAULT_RASTERS 31
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     Power_Control.Power_Control_U.Torque_L 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Power_Control_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Power_Control.Torque_L 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 8 1001 8 DEFAULT_RASTERS 31
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     Power_Control.Power_Control_U.Torque_R 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Power_Control_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Power_Control.Torque_R 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 8 1001 9 DEFAULT_RASTERS 31
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     Power_Control.Power_Control_Y.current_L 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Power_Control_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Power_Control.current_L 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 8 1001 10 DEFAULT_RASTERS 31
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     Power_Control.Power_Control_Y.current_R 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Power_Control_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Power_Control.current_R 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 8 1001 11 DEFAULT_RASTERS 31
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5229,6 +5439,21 @@
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
+            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U5 
+            /* Resolution          */     1 
+            /* Accuracy            */     100 
+            /* Lower limit         */     -327.68 
+            /* Upper limit         */     327.67 
+            ECU_ADDRESS 0x0 
+             
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 120 
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
             /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
@@ -5240,7 +5465,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 120 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 121 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5255,7 +5480,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 121 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 122 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5265,12 +5490,27 @@
             /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U20 
             /* Resolution          */     1 
             /* Accuracy            */     100 
-            /* Lower limit         */     0 
-            /* Upper limit         */     655.35 
+            /* Lower limit         */     -327.68 
+            /* Upper limit         */     327.67 
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 122 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 123 
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U5 
+            /* Resolution          */     1 
+            /* Accuracy            */     100 
+            /* Lower limit         */     -327.68 
+            /* Upper limit         */     327.67 
+            ECU_ADDRESS 0x0 
+             
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 125 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5285,7 +5525,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 124 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 126 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5300,7 +5540,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 125 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 127 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5310,12 +5550,12 @@
             /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U20 
             /* Resolution          */     1 
             /* Accuracy            */     100 
-            /* Lower limit         */     0 
-            /* Upper limit         */     655.35 
+            /* Lower limit         */     -327.68 
+            /* Upper limit         */     327.67 
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 126 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 128 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5330,7 +5570,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 128 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 130 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5345,7 +5585,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 129 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 131 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5360,7 +5600,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 130 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 132 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5375,7 +5615,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 131 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 133 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5390,7 +5630,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 133 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 135 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5405,7 +5645,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 134 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 136 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5420,7 +5660,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 135 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 137 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5435,7 +5675,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 136 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 138 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5450,7 +5690,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 137 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 139 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5465,7 +5705,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 138 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 140 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5480,7 +5720,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 139 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 141 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5495,7 +5735,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 140 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 142 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5510,7 +5750,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 141 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 143 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5525,7 +5765,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 142 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 144 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5540,7 +5780,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 143 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 145 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5555,7 +5795,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 144 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 146 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5570,7 +5810,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 145 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 147 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5585,7 +5825,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 146 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 148 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5600,7 +5840,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 148 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 150 
             /end IF_DATA
         /end MEASUREMENT
 
@@ -6265,6 +6505,21 @@
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
+            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor_calibrate 
+            /* Long identifier     */     "" 
+            /* Characteristic type */     VALUE 
+            /* Memory address      */     0x0 
+            /* Record layout       */     STANDARD_VALUE_R64 
+            /* Maxdiff             */     0.0 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U5 
+            /* Lower limit         */     -327.68 
+            /* Upper limit         */     327.67 
+            MAX_REFRESH 6 1
+            /begin IF_DATA E_TARGET
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 120 
+            /end IF_DATA
+        /end CHARACTERISTIC
+        /begin CHARACTERISTIC 
             /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R_calibrate 
             /* Long identifier     */     "" 
             /* Characteristic type */     VALUE 
@@ -6276,7 +6531,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 120 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 121 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6291,7 +6546,7 @@
             /* Upper limit         */     227 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 121 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 122 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6302,11 +6557,26 @@
             /* Record layout       */     STANDARD_VALUE_R64 
             /* Maxdiff             */     0.0 
             /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U20 
-            /* Lower limit         */     0 
-            /* Upper limit         */     655.35 
+            /* Lower limit         */     -327.68 
+            /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 122 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 123 
+            /end IF_DATA
+        /end CHARACTERISTIC
+        /begin CHARACTERISTIC 
+            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor_calibrate 
+            /* Long identifier     */     "" 
+            /* Characteristic type */     VALUE 
+            /* Memory address      */     0x0 
+            /* Record layout       */     STANDARD_VALUE_R64 
+            /* Maxdiff             */     0.0 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U5 
+            /* Lower limit         */     -327.68 
+            /* Upper limit         */     327.67 
+            MAX_REFRESH 6 1
+            /begin IF_DATA E_TARGET
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 125 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6321,7 +6591,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 124 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 126 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6336,7 +6606,7 @@
             /* Upper limit         */     227 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 125 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 127 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6347,11 +6617,11 @@
             /* Record layout       */     STANDARD_VALUE_R64 
             /* Maxdiff             */     0.0 
             /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U20 
-            /* Lower limit         */     0 
-            /* Upper limit         */     655.35 
+            /* Lower limit         */     -327.68 
+            /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 126 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 128 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6366,7 +6636,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 128 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 130 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6381,7 +6651,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 129 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 131 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6396,7 +6666,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 130 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 132 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6411,7 +6681,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 131 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 133 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6426,7 +6696,7 @@
             /* Upper limit         */     655.35 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 133 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 135 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6441,7 +6711,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 134 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 136 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6456,7 +6726,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 135 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 137 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6471,7 +6741,7 @@
             /* Upper limit         */     255 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 148 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 150 
             /end IF_DATA
         /end CHARACTERISTIC
 
@@ -6590,6 +6860,14 @@
         /end COMPU_METHOD
         /begin COMPU_METHOD 
             /* Name                */     VDCv2mk2_CM_boolean 
+            /* Long identifier     */     "Q = V" 
+            RAT_FUNC
+            "%9.6"
+            "NO_PHYSICAL_QTY"
+            COEFFS 0.0 1.0 0.0 0.0 0.0 1.0
+        /end COMPU_METHOD
+        /begin COMPU_METHOD 
+            /* Name                */     Power_Control_CM_double 
             /* Long identifier     */     "Q = V" 
             RAT_FUNC
             "%9.6"
@@ -7169,7 +7447,9 @@
                 Inverters_Data.Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor
                 Inverters_Data.Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT
                 Inverters_Data.Inverters_Data_Y.Inv_L_TempIGBT
+                Inverters_Data.Inverters_Data_Y.Inv_L_TempMotor
                 Inverters_Data.Inverters_Data_Y.Inv_R_TempIGBT
+                Inverters_Data.Inverters_Data_Y.Inv_R_TempMotor
                 Inverters_Data.Inverters_Data_Y.InvertersMinDCBus
                 Inverters_Data.Inverters_Data_Y.Max_Temp_IGBT
                 Inverters_Data.Inverters_Data_Y.Max_Temp_Motors
@@ -7201,7 +7481,9 @@
             ""
             /begin REF_MEASUREMENT
                 Inverters_Data.Inverters_Data_Y.Inv_L_TempIGBT
+                Inverters_Data.Inverters_Data_Y.Inv_L_TempMotor
                 Inverters_Data.Inverters_Data_Y.Inv_R_TempIGBT
+                Inverters_Data.Inverters_Data_Y.Inv_R_TempMotor
                 Inverters_Data.Inverters_Data_Y.InvertersMinDCBus
                 Inverters_Data.Inverters_Data_Y.Max_Temp_IGBT
                 Inverters_Data.Inverters_Data_Y.Max_Temp_Motors
@@ -7519,6 +7801,84 @@
                 VDCv2mk2.VDCv2mk2_Y.VDC_Max_Tyre_Slip
             /end REF_MEASUREMENT
         /end GROUP
+        /begin GROUP Power_Control
+            ""
+            ROOT
+            /begin REF_MEASUREMENT
+                Power_Control.Power_Control_B.sf_InverterL_Temp_Limitation.Current_out
+                Power_Control.Power_Control_B.sf_InverterR_Temp_Limitation.Current_out
+                Power_Control.Power_Control_B.sf_MotorL_Temp_Limitation.Current_out
+                Power_Control.Power_Control_B.sf_MotorR_Temp_Limitation.Current_out
+                Power_Control.Power_Control_U.Inv_L_TempIGBT
+                Power_Control.Power_Control_U.Inv_L_TempMotor
+                Power_Control.Power_Control_U.Inv_R_TempIGBT
+                Power_Control.Power_Control_U.Inv_R_TempMotor
+                Power_Control.Power_Control_U.Torque_L
+                Power_Control.Power_Control_U.Torque_R
+                Power_Control.Power_Control_Y.current_L
+                Power_Control.Power_Control_Y.current_R
+            /end REF_MEASUREMENT
+            /begin SUB_GROUP
+                Power_Control.Power_Control_B
+                Power_Control.Power_Control_B.sf_InverterL_Temp_Limitation
+                Power_Control.Power_Control_B.sf_InverterR_Temp_Limitation
+                Power_Control.Power_Control_B.sf_MotorL_Temp_Limitation
+                Power_Control.Power_Control_B.sf_MotorR_Temp_Limitation
+                Power_Control.Power_Control_U
+                Power_Control.Power_Control_Y
+            /end SUB_GROUP
+        /end GROUP
+        /begin GROUP Power_Control.Power_Control_B
+            ""
+            /begin REF_MEASUREMENT
+                Power_Control.Power_Control_B.sf_InverterL_Temp_Limitation.Current_out
+                Power_Control.Power_Control_B.sf_InverterR_Temp_Limitation.Current_out
+                Power_Control.Power_Control_B.sf_MotorL_Temp_Limitation.Current_out
+                Power_Control.Power_Control_B.sf_MotorR_Temp_Limitation.Current_out
+            /end REF_MEASUREMENT
+        /end GROUP
+        /begin GROUP Power_Control.Power_Control_B.sf_InverterL_Temp_Limitation
+            ""
+            /begin REF_MEASUREMENT
+                Power_Control.Power_Control_B.sf_InverterL_Temp_Limitation.Current_out
+            /end REF_MEASUREMENT
+        /end GROUP
+        /begin GROUP Power_Control.Power_Control_B.sf_InverterR_Temp_Limitation
+            ""
+            /begin REF_MEASUREMENT
+                Power_Control.Power_Control_B.sf_InverterR_Temp_Limitation.Current_out
+            /end REF_MEASUREMENT
+        /end GROUP
+        /begin GROUP Power_Control.Power_Control_B.sf_MotorL_Temp_Limitation
+            ""
+            /begin REF_MEASUREMENT
+                Power_Control.Power_Control_B.sf_MotorL_Temp_Limitation.Current_out
+            /end REF_MEASUREMENT
+        /end GROUP
+        /begin GROUP Power_Control.Power_Control_B.sf_MotorR_Temp_Limitation
+            ""
+            /begin REF_MEASUREMENT
+                Power_Control.Power_Control_B.sf_MotorR_Temp_Limitation.Current_out
+            /end REF_MEASUREMENT
+        /end GROUP
+        /begin GROUP Power_Control.Power_Control_U
+            ""
+            /begin REF_MEASUREMENT
+                Power_Control.Power_Control_U.Inv_L_TempIGBT
+                Power_Control.Power_Control_U.Inv_L_TempMotor
+                Power_Control.Power_Control_U.Inv_R_TempIGBT
+                Power_Control.Power_Control_U.Inv_R_TempMotor
+                Power_Control.Power_Control_U.Torque_L
+                Power_Control.Power_Control_U.Torque_R
+            /end REF_MEASUREMENT
+        /end GROUP
+        /begin GROUP Power_Control.Power_Control_Y
+            ""
+            /begin REF_MEASUREMENT
+                Power_Control.Power_Control_Y.current_L
+                Power_Control.Power_Control_Y.current_R
+            /end REF_MEASUREMENT
+        /end GROUP
         /begin GROUP ETCSignals
             ""
             ROOT
@@ -7631,9 +7991,11 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_CurvatureRadius
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_SlipAngle
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_AngleTrack
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel
@@ -7702,9 +8064,11 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS1_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ETAS_BrakeLight.BrakeLight_Control_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel_calibrate
@@ -7884,9 +8248,11 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_CurvatureRadius
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_SlipAngle
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_AngleTrack
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel
@@ -7955,9 +8321,11 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS1_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ETAS_BrakeLight.BrakeLight_Control_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel_calibrate
@@ -8082,9 +8450,11 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_CurvatureRadius
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_SlipAngle
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_AngleTrack
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel
@@ -8153,9 +8523,11 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS1_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ETAS_BrakeLight.BrakeLight_Control_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel_calibrate
@@ -8622,9 +8994,11 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_CurvatureRadius
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_SlipAngle
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_AngleTrack
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel
@@ -8668,9 +9042,11 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS1_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ETAS_BrakeLight.BrakeLight_Control_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel_calibrate
@@ -8745,9 +9121,11 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_CurvatureRadius
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_SlipAngle
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_SLIP_CURV.el_AngleTrack
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel
@@ -8791,9 +9169,11 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS1_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.AP_ETAS_BrakeLight.BrakeLight_Control_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel_calibrate
@@ -8941,11 +9321,13 @@
         /begin GROUP ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data
             ""
             /begin REF_MEASUREMENT
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel
             /end REF_MEASUREMENT
             /begin REF_CHARACTERISTIC
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel_calibrate
@@ -8954,11 +9336,13 @@
         /begin GROUP ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data
             ""
             /begin REF_MEASUREMENT
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel
             /end REF_MEASUREMENT
             /begin REF_CHARACTERISTIC
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel_calibrate

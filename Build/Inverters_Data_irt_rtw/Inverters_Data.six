@@ -22,9 +22,9 @@
 	<moduleInfo identifier="Inverters_Data">
 		<name>Inverters_Data</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Inverters_Data.slx&quot;"/>
-		<version major="13" minor="5"/>
+		<version major="13" minor="7"/>
 		<dateTime kind="created" year="2021" month="2" day="22" hour="11" minute="1" second="38"/>
-		<dateTime kind="lastModified" year="2024" month="5" day="14" hour="17" minute="24" second="30"/>
+		<dateTime kind="lastModified" year="2024" month="6" day="29" hour="16" minute="57" second="4"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="6" day="22" hour="15" minute="13" second="36"/>
+		<dateTime kind="created" year="2024" month="6" day="29" hour="16" minute="57" second="25"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -135,8 +135,6 @@
 		<!-- Model specific source files -->
 		<file name="Inverters_Data_types.h" kind="header"/>
 		<file name="Inverters_Data.h" kind="header"/>
-		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\slprj\irt\_sharedutils\rt_powd_snf.c -->
-		<!-- used through rtwShared.lib: C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\slprj\irt\_sharedutils\rt_powd_snf.h -->
 		<file name="Inverters_Data.c" kind="body"/>
 		<file name="Inverters_Data_private.h" kind="header"/>
 		<file name="rtmodel.h" kind="header"/>
@@ -276,6 +274,18 @@
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/RR_rads_Motor</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_L_TempMotor">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_L_TempMotor</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_R_TempMotor">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_R_TempMotor</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -875,6 +885,68 @@
 				</address>
 			</usage>
 		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_Y.Inv_L_TempMotor">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_Y"/>
+					<memberRef identifier="Inv_L_TempMotor"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_L_TempMotor">
+				<name>Inv_L_TempMotor</name>
+				<modelLink href="Inverters_Data/Inv_L_TempMotor"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_L_TempMotor" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_Y.Inv_R_TempMotor">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_Y"/>
+					<memberRef identifier="Inv_R_TempMotor"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Inv_R_TempMotor">
+				<name>Inv_R_TempMotor</name>
+				<modelLink href="Inverters_Data/Inv_R_TempMotor"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Inv_R_TempMotor" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
 		<functionElement interfaceKind="export">
 			<functionCInterface identifier="irt_Start_Inverters_Data">
 				<signature>
@@ -944,6 +1016,8 @@
 						<message identifier="Inverters_Data_Y.Inv_L_TempIGBT" send="true"></message>
 						<message identifier="Inverters_Data_Y.RL_rads_Motor" send="true"></message>
 						<message identifier="Inverters_Data_Y.RR_rads_Motor" send="true"></message>
+						<message identifier="Inverters_Data_Y.Inv_L_TempMotor" send="true"></message>
+						<message identifier="Inverters_Data_Y.Inv_R_TempMotor" send="true"></message>
 					</messageAccess>
 					<constraint>
 						<period value="0.2"/>

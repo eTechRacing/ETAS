@@ -33,7 +33,9 @@ struct RTWTop_Inverters_Data_Class
     scalarWrapper_Obj *RTWWrapper_Inverters_Data_U_Inv_R_RegID_M73_Inv_R_TempMotor_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Data_U_Inv_R_RegID_M74_Inv_R_TempIGBT_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Data_Y_Inv_L_TempIGBT_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Inverters_Data_Y_Inv_L_TempMotor_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Data_Y_Inv_R_TempIGBT_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Inverters_Data_Y_Inv_R_TempMotor_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Data_Y_InvertersMinDCBus_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Data_Y_Max_Temp_IGBT_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Data_Y_Max_Temp_Motors_Ptr;
