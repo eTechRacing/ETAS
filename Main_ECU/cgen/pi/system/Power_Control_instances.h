@@ -28,12 +28,18 @@ struct RTWTop_Power_Control_Class
     scalarWrapper_Obj *RTWWrapper_Power_Control_B_sf_InverterR_Temp_Limitation_Current_out_Ptr;
     scalarWrapper_Obj *RTWWrapper_Power_Control_B_sf_MotorL_Temp_Limitation_Current_out_Ptr;
     scalarWrapper_Obj *RTWWrapper_Power_Control_B_sf_MotorR_Temp_Limitation_Current_out_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Power_Control_DW_A_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Power_Control_U_Accumulator_Current_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Power_Control_U_Accumulator_Voltage_Ptr;
     scalarWrapper_Obj *RTWWrapper_Power_Control_U_Inv_L_TempIGBT_Ptr;
     scalarWrapper_Obj *RTWWrapper_Power_Control_U_Inv_L_TempMotor_Ptr;
     scalarWrapper_Obj *RTWWrapper_Power_Control_U_Inv_R_TempIGBT_Ptr;
     scalarWrapper_Obj *RTWWrapper_Power_Control_U_Inv_R_TempMotor_Ptr;
     scalarWrapper_Obj *RTWWrapper_Power_Control_U_Torque_L_Ptr;
     scalarWrapper_Obj *RTWWrapper_Power_Control_U_Torque_R_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Power_Control_Y_Power_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Power_Control_Y_PowerLimitReached_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Power_Control_Y_PowerMean500ms_Ptr;
     scalarWrapper_Obj *RTWWrapper_Power_Control_Y_current_L_Ptr;
     scalarWrapper_Obj *RTWWrapper_Power_Control_Y_current_R_Ptr;
 };
