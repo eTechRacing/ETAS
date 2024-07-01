@@ -7,9 +7,9 @@
  *
  * Code generation for model "Power_Control".
  *
- * Model version              : 4.19
+ * Model version              : 4.22
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sun Jun 30 00:08:04 2024
+ * C source code generated on : Mon Jul  1 20:57:46 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -27,6 +27,7 @@
 #include "Power_Control.h"
 #include "Power_Control_types.h"
 
+extern void Power_Control_LimitReached(real_T *rty_Out);
 extern void InverterL_Temp_Limitation_Init(DW_InverterL_Temp_Limitation__T
   *localDW);
 extern void Power_InverterL_Temp_Limitation(real_T rtu_Current_in, real_T

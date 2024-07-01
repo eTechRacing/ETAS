@@ -7,9 +7,9 @@
  *
  * Code generation for model "Inverters_Action".
  *
- * Model version              : 13.0
+ * Model version              : 13.1
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jun 22 15:13:09 2024
+ * C source code generated on : Mon Jul  1 20:45:51 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -24,11 +24,11 @@
 ConstB_Inverters_Action_T Inverters_Action_ConstB = {
   /* Start of '<S2>/Torque Command 0' */
   {
-    163.835,                           /* '<S32>/Divide' */
-    0U,                                /* '<S32>/Product' */
-    0U,                                /* '<S39>/Bitwise Operator' */
-    0U,                                /* '<S39>/Shift Arithmetic' */
-    0U                                 /* '<S39>/Bitwise Operator1' */
+    163.835,                           /* '<S31>/Divide' */
+    0U,                                /* '<S31>/Product' */
+    0U,                                /* '<S38>/Bitwise Operator' */
+    0U,                                /* '<S38>/Shift Arithmetic' */
+    0U                                 /* '<S38>/Bitwise Operator1' */
   }
   ,
 
@@ -36,7 +36,7 @@ ConstB_Inverters_Action_T Inverters_Action_ConstB = {
 
   /* Start of '<S2>/Torque Command' */
   {
-    163.835                            /* '<S31>/Divide' */
+    163.835                            /* '<S30>/Divide' */
   }
   ,
 

@@ -12,9 +12,9 @@
  *
  * Code generation for model "Power_Control".
  *
- * Model version              : 4.19
+ * Model version              : 4.22
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sun Jun 30 00:08:04 2024
+ * C source code generated on : Mon Jul  1 20:57:46 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -897,6 +897,7 @@ typedef struct {
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
+  real_T A;                            /* '<S7>/Data Store Memory10' */
   DW_MotorL_Temp_Limitation_Pow_T sf_MotorR_Temp_Limitation;/* '<Root>/MotorR_Temp_Limitation' */
   DW_MotorL_Temp_Limitation_Pow_T sf_MotorL_Temp_Limitation;/* '<Root>/MotorL_Temp_Limitation' */
   DW_InverterL_Temp_Limitation__T sf_InverterR_Temp_Limitation;/* '<Root>/InverterR_Temp_Limitation' */
@@ -911,12 +912,17 @@ typedef struct {
   real_T Inv_R_TempIGBT;               /* '<Root>/Inv_R_TempIGBT' */
   real_T Torque_L;                     /* '<Root>/Torque_L' */
   real_T Torque_R;                     /* '<Root>/Torque_R' */
+  real_T Accumulator_Voltage;          /* '<Root>/Accumulator_Voltage' */
+  real_T Accumulator_Current;          /* '<Root>/Accumulator_Current' */
 } ExtU_Power_Control_T;
 
 /* External outputs (root outports fed by signals with default storage) */
 typedef struct {
   real_T current_L;                    /* '<Root>/current_L' */
   real_T current_R;                    /* '<Root>/current_R' */
+  real_T Power;                        /* '<Root>/Power' */
+  real_T PowerLimitReached;            /* '<Root>/PowerLimitReached' */
+  real_T PowerMean500ms;               /* '<Root>/PowerMean500ms' */
 } ExtY_Power_Control_T;
 
 /* Backward compatible GRT Identifiers */
@@ -1069,10 +1075,17 @@ extern RT_MODEL_Power_Control_T *const Power_Control_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'Power_Control'
- * '<S1>'   : 'Power_Control/DocBlock'
- * '<S2>'   : 'Power_Control/InverterL_Temp_Limitation'
- * '<S3>'   : 'Power_Control/InverterR_Temp_Limitation'
- * '<S4>'   : 'Power_Control/MotorL_Temp_Limitation'
- * '<S5>'   : 'Power_Control/MotorR_Temp_Limitation'
+ * '<S1>'   : 'Power_Control/Accumulator Power'
+ * '<S2>'   : 'Power_Control/DocBlock'
+ * '<S3>'   : 'Power_Control/InverterL_Temp_Limitation'
+ * '<S4>'   : 'Power_Control/InverterR_Temp_Limitation'
+ * '<S5>'   : 'Power_Control/MotorL_Temp_Limitation'
+ * '<S6>'   : 'Power_Control/MotorR_Temp_Limitation'
+ * '<S7>'   : 'Power_Control/Accumulator Power/PowerLimitDetection'
+ * '<S8>'   : 'Power_Control/Accumulator Power/W to kW'
+ * '<S9>'   : 'Power_Control/Accumulator Power/PowerLimitDetection/LimitReached'
+ * '<S10>'  : 'Power_Control/Accumulator Power/PowerLimitDetection/OK_OrLatch'
+ * '<S11>'  : 'Power_Control/Accumulator Power/PowerLimitDetection/OK_OrLatch/Latched Error'
+ * '<S12>'  : 'Power_Control/Accumulator Power/PowerLimitDetection/OK_OrLatch/OK'
  */
 #endif                                 /* RTW_HEADER_Power_Control_h_ */

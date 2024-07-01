@@ -7,9 +7,9 @@
  *
  * Code generation for model "Power_Control".
  *
- * Model version              : 4.19
+ * Model version              : 4.22
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sun Jun 30 00:08:04 2024
+ * C source code generated on : Mon Jul  1 20:57:46 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -39,6 +39,19 @@ ExtY_Power_Control_T Power_Control_Y;
 /* Real-time model */
 static RT_MODEL_Power_Control_T Power_Control_M_;
 RT_MODEL_Power_Control_T *const Power_Control_M = &Power_Control_M_;
+
+/*
+ * Output and update for action system:
+ *    '<S7>/LimitReached'
+ *    '<S10>/Latched Error'
+ */
+void Power_Control_LimitReached(real_T *rty_Out)
+{
+  /* SignalConversion generated from: '<S9>/Out ' incorporates:
+   *  Constant: '<S9>/Constant'
+   */
+  *rty_Out = 1.0;
+}
 
 /*
  * System initialize for atomic system:
@@ -79,7 +92,7 @@ void Power_InverterL_Temp_Limitation(real_T rtu_Current_in, real_T
   } else if (Temp_Change < -rtu_Tolerance) {
     Temp_Change = (1.0 - localDW->AF_Value * Temp_Change / 100.0) *
       rtu_Current_in;
-    localDW->AF_Value -= rtu_Change_Factor * localDW->Times_Incremented;
+    localDW->AF_Value -= rtu_Change_Factor * localDW->Times_Decremented;
     localDW->Times_Incremented = 1.0;
     localDW->Times_Decremented++;
   } else {
@@ -164,7 +177,7 @@ void Power_Co_MotorL_Temp_Limitation(real_T rtu_Current_in, real_T
   } else if (Temp_Change < -rtu_Tolerance) {
     Temp_Change = (1.0 - localDW->AF_Value * Temp_Change / 100.0) *
       rtu_Current_in;
-    localDW->AF_Value -= rtu_Change_Factor * localDW->Times_Incremented;
+    localDW->AF_Value -= rtu_Change_Factor * localDW->Times_Decremented;
     localDW->Times_Incremented = 1.0;
     localDW->Times_Decremented++;
   } else {
@@ -213,6 +226,9 @@ void Power_Co_MotorL_Temp_Limitation(real_T rtu_Current_in, real_T
 /* Model output function */
 static void Power_Control_output(void)
 {
+  real_T rtb_Merge1;
+  real_T rtb_Product;
+
   /* MATLAB Function: '<Root>/InverterL_Temp_Limitation' incorporates:
    *  Constant: '<Root>/Aggresive_Factor'
    *  Constant: '<Root>/Change_Factor'
@@ -221,7 +237,7 @@ static void Power_Control_output(void)
    *  Inport: '<Root>/Inv_L_TempIGBT'
    *  Inport: '<Root>/Torque_L'
    */
-  Power_InverterL_Temp_Limitation(Power_Control_U.Torque_L, 1.4, 58.0, 0.4,
+  Power_InverterL_Temp_Limitation(Power_Control_U.Torque_L, 1.4, 70.0, 0.4,
     Power_Control_U.Inv_L_TempIGBT, 0.9,
     &Power_Control_B.sf_InverterL_Temp_Limitation,
     &Power_Control_DW.sf_InverterL_Temp_Limitation);
@@ -234,7 +250,7 @@ static void Power_Control_output(void)
    *  Inport: '<Root>/Inv_L_TempMotor'
    */
   Power_Co_MotorL_Temp_Limitation
-    (Power_Control_B.sf_InverterL_Temp_Limitation.Current_out, 1.4, 58.0, 0.4,
+    (Power_Control_B.sf_InverterL_Temp_Limitation.Current_out, 1.4, 110.0, 0.4,
      Power_Control_U.Inv_L_TempMotor, 0.9,
      &Power_Control_B.sf_MotorL_Temp_Limitation,
      &Power_Control_DW.sf_MotorL_Temp_Limitation);
@@ -251,7 +267,7 @@ static void Power_Control_output(void)
    *  Inport: '<Root>/Inv_R_TempIGBT'
    *  Inport: '<Root>/Torque_R'
    */
-  Power_InverterL_Temp_Limitation(Power_Control_U.Torque_R, 1.4, 58.0, 0.4,
+  Power_InverterL_Temp_Limitation(Power_Control_U.Torque_R, 1.4, 70.0, 0.4,
     Power_Control_U.Inv_R_TempIGBT, 0.9,
     &Power_Control_B.sf_InverterR_Temp_Limitation,
     &Power_Control_DW.sf_InverterR_Temp_Limitation);
@@ -264,7 +280,7 @@ static void Power_Control_output(void)
    *  Inport: '<Root>/Inv_R_TempMotor'
    */
   Power_Co_MotorL_Temp_Limitation
-    (Power_Control_B.sf_InverterR_Temp_Limitation.Current_out, 1.4, 58.0, 0.4,
+    (Power_Control_B.sf_InverterR_Temp_Limitation.Current_out, 1.4, 110.0, 0.4,
      Power_Control_U.Inv_R_TempMotor, 0.9,
      &Power_Control_B.sf_MotorR_Temp_Limitation,
      &Power_Control_DW.sf_MotorR_Temp_Limitation);
@@ -272,6 +288,77 @@ static void Power_Control_output(void)
   /* Outport: '<Root>/current_R' */
   Power_Control_Y.current_R =
     Power_Control_B.sf_MotorR_Temp_Limitation.Current_out;
+
+  /* Product: '<S1>/Product' incorporates:
+   *  Inport: '<Root>/Accumulator_Current'
+   *  Inport: '<Root>/Accumulator_Voltage'
+   */
+  rtb_Product = Power_Control_U.Accumulator_Voltage *
+    Power_Control_U.Accumulator_Current;
+
+  /* Outport: '<Root>/Power' incorporates:
+   *  Constant: '<S8>/0-100 to 0-2'
+   *  Product: '<S8>/Divide5'
+   */
+  Power_Control_Y.Power = rtb_Product / 1000.0;
+
+  /* Outputs for Atomic SubSystem: '<S1>/PowerLimitDetection' */
+  /* If: '<S7>/If' incorporates:
+   *  DataStoreRead: '<S7>/Data Store Read30'
+   *  If: '<S10>/If'
+   *  SignalConversion generated from: '<S7>/Power'
+   */
+  if (rtb_Product >= 80000.0) {
+    /* Outputs for IfAction SubSystem: '<S7>/LimitReached' incorporates:
+     *  ActionPort: '<S9>/Action Port'
+     */
+    Power_Control_LimitReached(&rtb_Merge1);
+
+    /* End of Outputs for SubSystem: '<S7>/LimitReached' */
+
+    /* Outputs for IfAction SubSystem: '<S7>/OK_OrLatch' incorporates:
+     *  ActionPort: '<S10>/Action Port'
+     */
+  } else if (Power_Control_DW.A > 0.0) {
+    /* Outputs for IfAction SubSystem: '<S10>/Latched Error' incorporates:
+     *  ActionPort: '<S11>/Action Port'
+     */
+    /* If: '<S10>/If' */
+    Power_Control_LimitReached(&rtb_Merge1);
+
+    /* End of Outputs for SubSystem: '<S10>/Latched Error' */
+  } else {
+    /* Outputs for IfAction SubSystem: '<S10>/OK' incorporates:
+     *  ActionPort: '<S12>/Action Port'
+     */
+    /* If: '<S10>/If' incorporates:
+     *  Constant: '<S12>/Constant'
+     *  SignalConversion generated from: '<S12>/Out '
+     */
+    rtb_Merge1 = 0.0;
+
+    /* End of Outputs for SubSystem: '<S10>/OK' */
+
+    /* End of Outputs for SubSystem: '<S7>/OK_OrLatch' */
+  }
+
+  /* End of If: '<S7>/If' */
+
+  /* DataStoreWrite: '<S7>/Data Store Write20' */
+  Power_Control_DW.A = rtb_Merge1;
+
+  /* End of Outputs for SubSystem: '<S1>/PowerLimitDetection' */
+
+  /* Outport: '<Root>/PowerLimitReached' */
+  Power_Control_Y.PowerLimitReached = rtb_Merge1;
+
+  /* Outputs for Atomic SubSystem: '<S1>/PowerLimitDetection' */
+  /* Outport: '<Root>/PowerMean500ms' incorporates:
+   *  SignalConversion generated from: '<S7>/Power'
+   */
+  Power_Control_Y.PowerMean500ms = rtb_Product;
+
+  /* End of Outputs for SubSystem: '<S1>/PowerLimitDetection' */
 }
 
 /* Model update function */
@@ -298,6 +385,12 @@ static void Power_Control_update(void)
 /* Model initialize function */
 static void Power_Control_initialize(void)
 {
+  /* Start for Atomic SubSystem: '<S1>/PowerLimitDetection' */
+  /* Start for DataStoreMemory: '<S7>/Data Store Memory10' */
+  Power_Control_DW.A = 0.0;
+
+  /* End of Start for SubSystem: '<S1>/PowerLimitDetection' */
+
   /* SystemInitialize for MATLAB Function: '<Root>/InverterL_Temp_Limitation' */
   InverterL_Temp_Limitation_Init(&Power_Control_DW.sf_InverterL_Temp_Limitation);
 
@@ -445,11 +538,11 @@ RT_MODEL_Power_Control_T *Power_Control(void)
 
   /* Initialize Sizes */
   Power_Control_M->Sizes.numContStates = (0);/* Number of continuous states */
-  Power_Control_M->Sizes.numY = (2);   /* Number of model outputs */
-  Power_Control_M->Sizes.numU = (6);   /* Number of model inputs */
+  Power_Control_M->Sizes.numY = (5);   /* Number of model outputs */
+  Power_Control_M->Sizes.numU = (8);   /* Number of model inputs */
   Power_Control_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Power_Control_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  Power_Control_M->Sizes.numBlocks = (13);/* Number of blocks */
+  Power_Control_M->Sizes.numBlocks = (36);/* Number of blocks */
   Power_Control_M->Sizes.numBlockIO = (4);/* Number of block outputs */
   return Power_Control_M;
 }

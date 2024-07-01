@@ -7,9 +7,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 13.4
+ * Model version              : 13.5
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jun 22 15:11:19 2024
+ * C source code generated on : Mon Jul  1 20:39:16 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -253,7 +253,7 @@ static void Car_State_output(void)
    *  Inport: '<Root>/EnableDrive_Order'
    *  RelationalOperator: '<S17>/Compare'
    */
-  if (Car_State_U.EnableDrive_Order && (Car_State_U.BrakePedal_Value > 0.6)) {
+  if (Car_State_U.EnableDrive_Order && (Car_State_U.BrakePedal_Value > 0.5)) {
     /* Outputs for IfAction SubSystem: '<S4>/TRUE' incorporates:
      *  ActionPort: '<S19>/Action Port'
      */

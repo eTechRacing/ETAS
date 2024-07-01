@@ -22,9 +22,9 @@
 	<moduleInfo identifier="Power_Control">
 		<name>Power_Control</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Power_Control.slx&quot;"/>
-		<version major="4" minor="19"/>
+		<version major="4" minor="22"/>
 		<dateTime kind="created" year="2024" month="3" day="15" hour="15" minute="34" second="18"/>
-		<dateTime kind="lastModified" year="2024" month="6" day="30" hour="0" minute="7" second="16"/>
+		<dateTime kind="lastModified" year="2024" month="7" day="1" hour="20" minute="54" second="59"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="6" day="30" hour="0" minute="8" second="4"/>
+		<dateTime kind="created" year="2024" month="7" day="1" hour="20" minute="57" second="46"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -164,7 +164,7 @@
 				<structMember identifier="Current_out">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;S2&gt;/ SFunction </documentation>
+						<documentation>&lt;S3&gt;/ SFunction </documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -180,7 +180,7 @@
 				<structMember identifier="Current_out">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;S4&gt;/ SFunction </documentation>
+						<documentation>&lt;S5&gt;/ SFunction </documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -263,6 +263,18 @@
 						<documentation>&lt;Root&gt;/Torque_R</documentation>
 					</annotation>
 				</structMember>
+				<structMember identifier="Accumulator_Voltage">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Accumulator_Voltage</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Accumulator_Current">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Accumulator_Current</documentation>
+					</annotation>
+				</structMember>
 			</structDef>
 			<typeDef name="ExtU_Power_Control_T">
 				<struct/><typeRef name="ExtU_Power_Control_T_tag"/>
@@ -282,6 +294,24 @@
 						<documentation>&lt;Root&gt;/current_R</documentation>
 					</annotation>
 				</structMember>
+				<structMember identifier="Power">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Power</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="PowerLimitReached">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/PowerLimitReached</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="PowerMean500ms">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/PowerMean500ms</documentation>
+					</annotation>
+				</structMember>
 			</structDef>
 			<typeDef name="ExtY_Power_Control_T">
 				<struct/><typeRef name="ExtY_Power_Control_T_tag"/>
@@ -289,6 +319,12 @@
 			</typeDef>
 			<structDef name="_DW_Power_Control_T">
 				<fileOrigin name="Power_Control.h"/>
+				<structMember identifier="A">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'dsmMem'.</documentation>
+					</annotation>
+				</structMember>
 				<structMember identifier="Last_Temp">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
@@ -596,6 +632,41 @@
 		<!-- Global constant BlockIO (rtC) signals following -->
 		<!-- Exported global and imported extern signals following -->
 		<!-- Global IRT DWork port signals following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_DW.A">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_DW"/>
+					<memberRef identifier="A"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.Opaque.A">
+				<name>A</name>
+				<modelLink href="Power_Control/Opaque"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="Accumulator Power" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="PowerLimitDetection" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Data Store Memory10" kind="mlsl:block"/>
+					<pathNode name="A" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
 		<!-- rtU input ports following -->
 		<dataElement interfaceKind="export">
 			<dataCInterface identifier="Power_Control_U.Inv_L_TempMotor">
@@ -783,6 +854,68 @@
 				</address>
 			</usage>
 		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_U.Accumulator_Voltage">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_U"/>
+					<memberRef identifier="Accumulator_Voltage"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.Accumulator_Voltage">
+				<name>Accumulator_Voltage</name>
+				<modelLink href="Power_Control/Accumulator_Voltage"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="Accumulator_Voltage" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_U.Accumulator_Current">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_U"/>
+					<memberRef identifier="Accumulator_Current"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.Accumulator_Current">
+				<name>Accumulator_Current</name>
+				<modelLink href="Power_Control/Accumulator_Current"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="Accumulator_Current" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
 		<!-- rtY output ports following -->
 		<dataElement interfaceKind="export">
 			<dataCInterface identifier="Power_Control_Y.current_L">
@@ -829,6 +962,99 @@
 				<modelLocation>
 					<pathNode name="Power_Control" kind="mlsl:model"/>
 					<pathNode name="current_R" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_Y.Power">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_Y"/>
+					<memberRef identifier="Power"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.Power">
+				<name>Power</name>
+				<modelLink href="Power_Control/Power"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="Power" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_Y.PowerLimitReached">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_Y"/>
+					<memberRef identifier="PowerLimitReached"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.PowerLimitReached">
+				<name>PowerLimitReached</name>
+				<modelLink href="Power_Control/PowerLimitReached"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="PowerLimitReached" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_Y.PowerMean500ms">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_Y"/>
+					<memberRef identifier="PowerMean500ms"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.PowerMean500ms">
+				<name>PowerMean500ms</name>
+				<modelLink href="Power_Control/PowerMean500ms"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="PowerMean500ms" kind="mlsl:block" type="Outport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection out="true"/>
@@ -903,8 +1129,13 @@
 						<message identifier="Power_Control_U.Inv_R_TempIGBT" send="false"></message>
 						<message identifier="Power_Control_U.Torque_L" send="false"></message>
 						<message identifier="Power_Control_U.Torque_R" send="false"></message>
+						<message identifier="Power_Control_U.Accumulator_Voltage" send="false"></message>
+						<message identifier="Power_Control_U.Accumulator_Current" send="false"></message>
 						<message identifier="Power_Control_Y.current_L" send="true"></message>
 						<message identifier="Power_Control_Y.current_R" send="true"></message>
+						<message identifier="Power_Control_Y.Power" send="true"></message>
+						<message identifier="Power_Control_Y.PowerLimitReached" send="true"></message>
+						<message identifier="Power_Control_Y.PowerMean500ms" send="true"></message>
 					</messageAccess>
 					<constraint>
 						<period value="0.0045000000000000005"/>

@@ -5,12 +5,12 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * Code generation for model "VDCv2mk2".
+ * Code generation for model "VDC".
  *
- * Model version              : 4.98
+ * Model version              : 4.162
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jun 22 15:14:32 2024
- * Created for block: VDCv2mk2
+ * C source code generated on : Mon Jul  1 20:50:04 2024
+ * Created for block: VDC
  */
 
 #include "look1_binlxpw.h"
