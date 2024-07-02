@@ -12,7 +12,7 @@ RE_90=RE(1342:2047,1);
 
 %% Plotting
 figure
-plot([RE_68,RE_90],[FZ_68,FZ_90])
+plot([FZ_68,FZ_90],[RE_68,RE_90])
 legend('IA=0deg, FZ=68.039kg','IA=0deg, FZ=90.718kg')
-xlabel('RE (cm)')
-ylabel('FZ (N)')
+xlabel('FZ (N)')
+ylabel('RE (cm)')
