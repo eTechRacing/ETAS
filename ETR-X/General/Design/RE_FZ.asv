@@ -10,6 +10,14 @@ RE_68=RE(2055:2760,1);
 FZ_90=FZ(1342:2047,1);
 RE_90=RE(1342:2047,1);
 
+%% Plotting
+figure
+plot([FZ_68,FZ_90],[RE_68,RE_90])
+hold on
+legend('IA=0deg, FZ=68.039kg','IA=0deg, FZ=90.718kg')
+xlabel('FZ (N)')
+ylabel('RE (cm)')
+
 %% Curvefitter
 %curveFitter([-877.65, -836.9], [19.61, 26.408])
 p1=    0.1668;
@@ -19,18 +27,8 @@ f1=@(x) p1*x + p2;
 p3=    0.2050;
 p4=    155.4253; 
 f2=@(x) p3*x + p4;
-
-%% Plotting
-figure
-plot([FZ_68,FZ_90],[RE_68,RE_90])
-hold on
-fplot(f1)
+fplot(f1,[-1000,-500])
 fplot(f2)
-xlim([-1000,-500])
-ylim([19 27])
-legend('IA=0deg, FZ=68.039kg','IA=0deg, FZ=90.718kg')
-xlabel('FZ (N)')
-ylabel('RE (cm)')
 hold off
 
 

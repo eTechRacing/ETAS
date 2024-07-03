@@ -52,7 +52,6 @@ syms x
 df1=diff(f1,x);
 df2=diff(f2,x);
 %% Plotting
-
 figure
 fplot(df1)
 hold on
