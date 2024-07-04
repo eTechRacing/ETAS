@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="7" day="1" hour="20" minute="57" second="9"/>
+		<dateTime kind="created" year="2024" month="7" day="4" hour="16" minute="49" second="57"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -536,10 +536,10 @@
 						<documentation>&lt;Root&gt;/VDC_Max_Tyre_Slip</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="TV_Mode">
+				<structMember identifier="Sensorics_Mode">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/TV_Mode</documentation>
+						<documentation>&lt;Root&gt;/Sensorics_Mode</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="BrakeLight_Control">
@@ -2437,19 +2437,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_Y.TV_Mode">
+			<dataCInterface identifier="VDC_Y.Sensorics_Mode">
 				<definitionLocation>
 					<baseRef identifier="VDC_Y"/>
-					<memberRef identifier="TV_Mode"/>
+					<memberRef identifier="Sensorics_Mode"/>
 				</definitionLocation>
 				<fileOrigin name="VDC.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="VDC.TV_Mode">
-				<name>TV_Mode</name>
-				<modelLink href="VDC/TV_Mode"/>
+			<modelOrigin identifier="VDC.Sensorics_Mode">
+				<name>Sensorics_Mode</name>
+				<modelLink href="VDC/Sensorics_Mode"/>
 				<modelLocation>
 					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="TV_Mode" kind="mlsl:block" type="Outport"/>
+					<pathNode name="Sensorics_Mode" kind="mlsl:block" type="Outport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection out="true"/>
@@ -2648,7 +2648,7 @@
 						<message identifier="VDC_Y.Torque_L" send="true"></message>
 						<message identifier="VDC_Y.APPS_Implausibility" send="true"></message>
 						<message identifier="VDC_Y.Torque_OK" send="true"></message>
-						<message identifier="VDC_Y.TV_Mode" send="true"></message>
+						<message identifier="VDC_Y.Sensorics_Mode" send="true"></message>
 						<message identifier="VDC_Y.BrakeLight_Control" send="true"></message>
 						<message identifier="VDC_Y.Regenerative_Enable" send="true"></message>
 						<message identifier="VDC_Y.Throttle_Torque" send="true"></message>

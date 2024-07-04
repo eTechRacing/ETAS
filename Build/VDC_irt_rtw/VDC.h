@@ -14,7 +14,7 @@
  *
  * Model version              : 4.163
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Mon Jul  1 20:57:09 2024
+ * C source code generated on : Thu Jul  4 16:49:57 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -950,7 +950,7 @@ typedef struct {
   real_T APPS_Implausibility;          /* '<Root>/APPS_Implausibility' */
   real_T Torque_OK;                    /* '<Root>/Torque_OK' */
   real_T VDC_Max_Tyre_Slip;            /* '<Root>/VDC_Max_Tyre_Slip' */
-  real_T TV_Mode;                      /* '<Root>/TV_Mode' */
+  real_T Sensorics_Mode;               /* '<Root>/Sensorics_Mode' */
   real_T BrakeLight_Control;           /* '<Root>/BrakeLight_Control' */
   real_T Regenerative_Enable;          /* '<Root>/Regenerative_Enable' */
   real_T Throttle_Torque;              /* '<Root>/Throttle_Torque' */

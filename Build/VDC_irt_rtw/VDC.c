@@ -9,7 +9,7 @@
  *
  * Model version              : 4.163
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Mon Jul  1 20:57:09 2024
+ * C source code generated on : Thu Jul  4 16:49:57 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1129,8 +1129,8 @@ static void VDC_output(void)
    */
   VDC_Y.Torque_OK = rtb_LogicalOperator;
 
-  /* Outport: '<Root>/TV_Mode' */
-  VDC_Y.TV_Mode = VDC_B.Merge3;
+  /* Outport: '<Root>/Sensorics_Mode' */
+  VDC_Y.Sensorics_Mode = VDC_B.Merge3;
 
   /* Outport: '<Root>/BrakeLight_Control' incorporates:
    *  Constant: '<Root>/Brake_Light_Threshold'
