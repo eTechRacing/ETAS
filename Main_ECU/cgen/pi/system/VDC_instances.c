@@ -91,7 +91,7 @@ void initClass_RTWTop_VDC(struct RTWTop_VDC_Class *self)
     self->RTWWrapper_VDC_Y_APPS_Implausibility_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.APPS_Implausibility, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_Y_BrakeLight_Control_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.BrakeLight_Control, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_Y_Regenerative_Enable_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.Regenerative_Enable, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_VDC_Y_TV_Mode_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.TV_Mode, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDC_Y_Sensorics_Mode_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.Sensorics_Mode, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_Y_Throttle_Torque_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.Throttle_Torque, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_Y_Torque_L_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.Torque_L, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_Y_Torque_OK_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.Torque_OK, sizeof(double), (uint32)ASD_VARIABLE);

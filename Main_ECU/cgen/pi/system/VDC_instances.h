@@ -77,7 +77,7 @@ struct RTWTop_VDC_Class
     scalarWrapper_Obj *RTWWrapper_VDC_Y_APPS_Implausibility_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_Y_BrakeLight_Control_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_Y_Regenerative_Enable_Ptr;
-    scalarWrapper_Obj *RTWWrapper_VDC_Y_TV_Mode_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDC_Y_Sensorics_Mode_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_Y_Throttle_Torque_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_Y_Torque_L_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_Y_Torque_OK_Ptr;
