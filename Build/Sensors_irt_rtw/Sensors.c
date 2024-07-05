@@ -9,7 +9,7 @@
  *
  * Model version              : 13.2
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Thu Jul  4 18:59:17 2024
+ * C source code generated on : Thu Jul  4 19:19:32 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -58,10 +58,13 @@ static void Sensors_output(void)
   Sensors_Y.APPS2_Value = (Sensors_U.APPS2_Bits - 100.0) / Sensors_ConstB.Sum1_f;
 
   /* Outport: '<Root>/BrakePedal_Value' incorporates:
+   *  Constant: '<S3>/min'
    *  Inport: '<Root>/BrakePedal_Bits'
    *  Product: '<S3>/Divide'
+   *  Sum: '<S3>/Sum'
    */
-  Sensors_Y.BrakePedal_Value = Sensors_U.BrakePedal_Bits / Sensors_ConstB.Sum1_c;
+  Sensors_Y.BrakePedal_Value = (Sensors_U.BrakePedal_Bits - 100.0) /
+    Sensors_ConstB.Sum1_c;
 
   /* Outport: '<Root>/SUSP_F_L' incorporates:
    *  Constant: '<Root>/Zero_Bits_Experimental'
