@@ -2204,7 +2204,7 @@ const char crossbarRequestMessages[] =
 };
 
 const T_L1Record l1CrossbarRequestRecord =
-{	2400679955UL, /* configuration identifier */
+{	1401134066UL, /* configuration identifier */
 	171,   /* number of messages */
 	&crossbarRequestMessages[0]
 };

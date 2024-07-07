@@ -7,9 +7,9 @@
  *
  * Code generation for model "Inverters_Action".
  *
- * Model version              : 13.1
+ * Model version              : 13.2
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Mon Jul  1 20:45:51 2024
+ * C source code generated on : Sun Jul  7 08:02:33 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

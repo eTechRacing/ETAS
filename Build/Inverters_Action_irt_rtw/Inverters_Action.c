@@ -7,9 +7,9 @@
  *
  * Code generation for model "Inverters_Action".
  *
- * Model version              : 13.1
+ * Model version              : 13.2
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Mon Jul  1 20:45:51 2024
+ * C source code generated on : Sun Jul  7 08:02:33 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -200,6 +200,25 @@ void Inverters_Actio_EnumerationDone(boolean_T rtu_SubscribedIn, uint8_T
 
   /* SignalConversion generated from: '<S15>/Subscribed In' */
   *rty_SubscribedOut = rtu_SubscribedIn;
+}
+
+/*
+ * Output and update for action system:
+ *    '<S8>/Unsubscribe'
+ *    '<S32>/Unsubscribe'
+ */
+void Inverters_Action_Unsubscribe(uint8_T *rty_uXFFStopTransmission, boolean_T
+  *rty_u)
+{
+  /* SignalConversion generated from: '<S18>/0XFF Stop Transmission' incorporates:
+   *  Constant: '<S18>/0XFF'
+   */
+  *rty_uXFFStopTransmission = MAX_uint8_T;
+
+  /* SignalConversion generated from: '<S18>/0' incorporates:
+   *  Constant: '<S18>/ '
+   */
+  *rty_u = false;
 }
 
 /*
@@ -436,17 +455,8 @@ static void Inverters_Action_output(void)
       /* Outputs for IfAction SubSystem: '<S32>/Unsubscribe' incorporates:
        *  ActionPort: '<S42>/Action Port'
        */
-      /* Merge: '<S2>/Merge2' incorporates:
-       *  Constant: '<S42>/0XFF'
-       *  SignalConversion generated from: '<S42>/0XFF Stop Transmission'
-       */
-      Inverters_Action_B.Merge2 = MAX_uint8_T;
-
-      /* Merge: '<S32>/subscribed?' incorporates:
-       *  Constant: '<S42>/ '
-       *  SignalConversion generated from: '<S42>/0'
-       */
-      Inverters_Action_B.subscribed = true;
+      Inverters_Action_Unsubscribe(&Inverters_Action_B.Merge2,
+        &Inverters_Action_B.subscribed);
 
       /* End of Outputs for SubSystem: '<S32>/Unsubscribe' */
       break;
@@ -457,9 +467,9 @@ static void Inverters_Action_output(void)
        */
       /* Merge: '<S2>/Merge2' incorporates:
        *  Constant: '<S41>/Time Interval'
-       *  SignalConversion generated from: '<S41>/21ms'
+       *  SignalConversion generated from: '<S41>/ms'
        */
-      Inverters_Action_B.Merge2 = 25U;
+      Inverters_Action_B.Merge2 = 21U;
 
       /* Merge: '<S32>/subscribed?' incorporates:
        *  Constant: '<S41>/ 1'
@@ -597,17 +607,8 @@ static void Inverters_Action_output(void)
       /* Outputs for IfAction SubSystem: '<S8>/Unsubscribe' incorporates:
        *  ActionPort: '<S18>/Action Port'
        */
-      /* Merge: '<S1>/Merge2' incorporates:
-       *  Constant: '<S18>/0XFF'
-       *  SignalConversion generated from: '<S18>/0XFF Stop Transmission'
-       */
-      Inverters_Action_B.Merge2_p = MAX_uint8_T;
-
-      /* Merge: '<S8>/subscribed?' incorporates:
-       *  Constant: '<S18>/ '
-       *  SignalConversion generated from: '<S18>/0'
-       */
-      Inverters_Action_B.subscribed_b = false;
+      Inverters_Action_Unsubscribe(&Inverters_Action_B.Merge2_p,
+        &Inverters_Action_B.subscribed_b);
 
       /* End of Outputs for SubSystem: '<S8>/Unsubscribe' */
       break;
@@ -618,9 +619,9 @@ static void Inverters_Action_output(void)
        */
       /* Merge: '<S1>/Merge2' incorporates:
        *  Constant: '<S17>/Time Interval'
-       *  SignalConversion generated from: '<S17>/21ms'
+       *  SignalConversion generated from: '<S17>/ms'
        */
-      Inverters_Action_B.Merge2_p = 25U;
+      Inverters_Action_B.Merge2_p = 21U;
 
       /* Merge: '<S8>/subscribed?' incorporates:
        *  Constant: '<S17>/ '
@@ -971,7 +972,7 @@ RT_MODEL_Inverters_Action_T *Inverters_Action(void)
   Inverters_Action_M->Sizes.numU = (3);/* Number of model inputs */
   Inverters_Action_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Inverters_Action_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  Inverters_Action_M->Sizes.numBlocks = (182);/* Number of blocks */
+  Inverters_Action_M->Sizes.numBlocks = (178);/* Number of blocks */
   Inverters_Action_M->Sizes.numBlockIO = (5);/* Number of block outputs */
   return Inverters_Action_M;
 }

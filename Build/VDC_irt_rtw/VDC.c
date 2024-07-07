@@ -7,9 +7,9 @@
  *
  * Code generation for model "VDC".
  *
- * Model version              : 4.163
+ * Model version              : 4.167
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Thu Jul  4 16:49:57 2024
+ * C source code generated on : Sun Jul  7 07:49:02 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -298,13 +298,13 @@ static void VDC_output(void)
       rtb_Torque_L_Nm = VDC_U.APPS1_Value;
     }
 
-    rtb_SoCCurrent = rtb_Torque_L_Nm * 5.4;
+    rtb_SoCCurrent = rtb_Torque_L_Nm * 2.0;
 
     /* End of MATLAB Function: '<S9>/Torque demanded by the driver' */
 
     /* Saturate: '<S9>/Saturation' */
-    if (rtb_SoCCurrent > 6.0) {
-      rtb_SoCCurrent = 6.0;
+    if (rtb_SoCCurrent > 2.0) {
+      rtb_SoCCurrent = 2.0;
     } else if (rtb_SoCCurrent < 0.0) {
       rtb_SoCCurrent = 0.0;
     }
@@ -781,8 +781,8 @@ static void VDC_output(void)
     rtb_SoCCurrent = fmin(rtb_max_regen_torque_RL, rtb_max_regen_torque_RR);
 
     /* MATLAB Function: '<S26>/state' incorporates:
-     *  Constant: '<Root>/Constant'
-     *  Constant: '<Root>/Constant1'
+     *  Constant: '<Root>/AP_sat_brake_endurance'
+     *  Constant: '<Root>/AP_sat_mid_endurance'
      *  Inport: '<Root>/APPS1_Value'
      */
     VDC_B.state = 1.0;
@@ -796,8 +796,8 @@ static void VDC_output(void)
     /* End of MATLAB Function: '<S26>/state' */
 
     /* MATLAB Function: '<S26>/Torque demanded by the driver' incorporates:
-     *  Constant: '<Root>/Constant'
-     *  Constant: '<Root>/Constant1'
+     *  Constant: '<Root>/AP_sat_brake_endurance'
+     *  Constant: '<Root>/AP_sat_mid_endurance'
      *  Constant: '<Root>/Max_Motor_Torque_Rear [Nm]'
      *  Inport: '<Root>/APPS1_Value'
      *  Outport: '<Root>/Regenerative_Enable'
