@@ -7,9 +7,9 @@
  *
  * Code generation for model "VDC".
  *
- * Model version              : 4.167
+ * Model version              : 4.168
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sun Jul  7 07:49:02 2024
+ * C source code generated on : Sun Jul  7 08:17:42 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -298,13 +298,13 @@ static void VDC_output(void)
       rtb_Torque_L_Nm = VDC_U.APPS1_Value;
     }
 
-    rtb_SoCCurrent = rtb_Torque_L_Nm * 2.0;
+    rtb_SoCCurrent = rtb_Torque_L_Nm * 3.0;
 
     /* End of MATLAB Function: '<S9>/Torque demanded by the driver' */
 
     /* Saturate: '<S9>/Saturation' */
-    if (rtb_SoCCurrent > 2.0) {
-      rtb_SoCCurrent = 2.0;
+    if (rtb_SoCCurrent > 3.0) {
+      rtb_SoCCurrent = 3.0;
     } else if (rtb_SoCCurrent < 0.0) {
       rtb_SoCCurrent = 0.0;
     }
