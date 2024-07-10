@@ -8,9 +8,9 @@
  *
  * Code generation for model "Power_Control".
  *
- * Model version              : 4.22
+ * Model version              : 4.23
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Mon Jul  1 20:57:46 2024
+ * C source code generated on : Wed Jul 10 23:44:19 2024
  * 
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -884,6 +884,23 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      Torque_to_Current ""
+      /begin SUB_FUNCTION
+        Emy
+        Torky
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       InverterL_Temp_Limitation ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -1055,6 +1072,28 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin IN_MEASUREMENT
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Emy ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Torky ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION

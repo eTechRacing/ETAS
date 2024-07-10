@@ -12,9 +12,9 @@
  *
  * Code generation for model "Power_Control".
  *
- * Model version              : 4.22
+ * Model version              : 4.23
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Mon Jul  1 20:57:46 2024
+ * C source code generated on : Wed Jul 10 23:44:19 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -897,7 +897,7 @@ typedef struct {
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  real_T A;                            /* '<S7>/Data Store Memory10' */
+  real_T A;                            /* '<S8>/Data Store Memory10' */
   DW_MotorL_Temp_Limitation_Pow_T sf_MotorR_Temp_Limitation;/* '<Root>/MotorR_Temp_Limitation' */
   DW_MotorL_Temp_Limitation_Pow_T sf_MotorL_Temp_Limitation;/* '<Root>/MotorL_Temp_Limitation' */
   DW_InverterL_Temp_Limitation__T sf_InverterR_Temp_Limitation;/* '<Root>/InverterR_Temp_Limitation' */
@@ -1081,11 +1081,12 @@ extern RT_MODEL_Power_Control_T *const Power_Control_M;
  * '<S4>'   : 'Power_Control/InverterR_Temp_Limitation'
  * '<S5>'   : 'Power_Control/MotorL_Temp_Limitation'
  * '<S6>'   : 'Power_Control/MotorR_Temp_Limitation'
- * '<S7>'   : 'Power_Control/Accumulator Power/PowerLimitDetection'
- * '<S8>'   : 'Power_Control/Accumulator Power/W to kW'
- * '<S9>'   : 'Power_Control/Accumulator Power/PowerLimitDetection/LimitReached'
- * '<S10>'  : 'Power_Control/Accumulator Power/PowerLimitDetection/OK_OrLatch'
- * '<S11>'  : 'Power_Control/Accumulator Power/PowerLimitDetection/OK_OrLatch/Latched Error'
- * '<S12>'  : 'Power_Control/Accumulator Power/PowerLimitDetection/OK_OrLatch/OK'
+ * '<S7>'   : 'Power_Control/Torque to Current'
+ * '<S8>'   : 'Power_Control/Accumulator Power/PowerLimitDetection'
+ * '<S9>'   : 'Power_Control/Accumulator Power/W to kW'
+ * '<S10>'  : 'Power_Control/Accumulator Power/PowerLimitDetection/LimitReached'
+ * '<S11>'  : 'Power_Control/Accumulator Power/PowerLimitDetection/OK_OrLatch'
+ * '<S12>'  : 'Power_Control/Accumulator Power/PowerLimitDetection/OK_OrLatch/Latched Error'
+ * '<S13>'  : 'Power_Control/Accumulator Power/PowerLimitDetection/OK_OrLatch/OK'
  */
 #endif                                 /* RTW_HEADER_Power_Control_h_ */
