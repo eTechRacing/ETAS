@@ -7,9 +7,9 @@
  *
  * Code generation for model "Inverters_Action".
  *
- * Model version              : 13.2
+ * Model version              : 13.4
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sun Jul  7 08:02:33 2024
+ * C source code generated on : Thu Jul 11 14:56:11 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -24,11 +24,11 @@
 ConstB_Inverters_Action_T Inverters_Action_ConstB = {
   /* Start of '<S2>/Torque Command 0' */
   {
-    163.835,                           /* '<S31>/Divide' */
-    0U,                                /* '<S31>/Product' */
-    0U,                                /* '<S38>/Bitwise Operator' */
-    0U,                                /* '<S38>/Shift Arithmetic' */
-    0U                                 /* '<S38>/Bitwise Operator1' */
+    163.835,                           /* '<S32>/Divide' */
+    0U,                                /* '<S32>/Product' */
+    0U,                                /* '<S40>/Bitwise Operator' */
+    0U,                                /* '<S40>/Shift Arithmetic' */
+    0U                                 /* '<S40>/Bitwise Operator1' */
   }
   ,
 
@@ -36,7 +36,7 @@ ConstB_Inverters_Action_T Inverters_Action_ConstB = {
 
   /* Start of '<S2>/Torque Command' */
   {
-    163.835                            /* '<S30>/Divide' */
+    385.49411764705883                 /* '<S31>/Divide' */
   }
   ,
 
@@ -46,9 +46,9 @@ ConstB_Inverters_Action_T Inverters_Action_ConstB = {
   {
     163.835,                           /* '<S7>/Divide' */
     0U,                                /* '<S7>/Product' */
-    0U,                                /* '<S14>/Bitwise Operator' */
-    0U,                                /* '<S14>/Shift Arithmetic' */
-    0U                                 /* '<S14>/Bitwise Operator1' */
+    0U,                                /* '<S15>/Bitwise Operator' */
+    0U,                                /* '<S15>/Shift Arithmetic' */
+    0U                                 /* '<S15>/Bitwise Operator1' */
   }
   ,
 
@@ -56,7 +56,7 @@ ConstB_Inverters_Action_T Inverters_Action_ConstB = {
 
   /* Start of '<S1>/Torque Command' */
   {
-    163.835                            /* '<S6>/Divide' */
+    385.49411764705883                 /* '<S6>/Divide' */
   }
   /* End of '<S1>/Torque Command' */
 };
