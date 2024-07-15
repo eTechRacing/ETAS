@@ -7,9 +7,9 @@
  *
  * Code generation for model "Disconnections".
  *
- * Model version              : 13.3
+ * Model version              : 13.5
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Jul  2 09:31:28 2024
+ * C source code generated on : Fri Jul 12 19:41:07 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -131,7 +131,7 @@ static void Disconnections_output(void)
   /* If: '<S1>/If' incorporates:
    *  Constant: '<Root>/Periods'
    */
-  if (rtb_Add > 4.0) {
+  if (rtb_Add > 12.0) {
     /* Outputs for IfAction SubSystem: '<S1>/Reset_counter' incorporates:
      *  ActionPort: '<S7>/Action Port'
      */
@@ -174,7 +174,7 @@ static void Disconnections_output(void)
   /* If: '<S25>/If2' incorporates:
    *  Constant: '<S3>/Number_of_periods'
    */
-  if (rtb_Merge1_l > 4800.0) {
+  if (rtb_Merge1_l > 5000.0) {
     /* Outputs for IfAction SubSystem: '<S25>/Signal_Failure' incorporates:
      *  ActionPort: '<S30>/Action Port'
      */
@@ -221,7 +221,7 @@ static void Disconnections_output(void)
   /* If: '<S26>/If1' incorporates:
    *  Constant: '<S3>/Number_of_periods'
    */
-  if (rtb_Merge1_o > 4800.0) {
+  if (rtb_Merge1_o > 5000.0) {
     /* Outputs for IfAction SubSystem: '<S26>/Signal_Failure' incorporates:
      *  ActionPort: '<S34>/Action Port'
      */
@@ -268,7 +268,7 @@ static void Disconnections_output(void)
   /* If: '<S27>/If1' incorporates:
    *  Constant: '<S3>/Number_of_periods'
    */
-  if (rtb_Merge1_p > 4800.0) {
+  if (rtb_Merge1_p > 5000.0) {
     /* Outputs for IfAction SubSystem: '<S27>/Signal_Failure' incorporates:
      *  ActionPort: '<S38>/Action Port'
      */

@@ -12,9 +12,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 13.2
+ * Model version              : 13.3
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Thu Jul  4 19:19:32 2024
+ * C source code generated on : Sat Jul 13 09:06:21 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

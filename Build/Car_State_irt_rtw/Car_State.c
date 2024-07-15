@@ -7,9 +7,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 13.5
+ * Model version              : 13.8
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Fri Jul  5 08:32:30 2024
+ * C source code generated on : Sat Jul 13 09:07:50 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -178,7 +178,7 @@ static void Car_State_output(void)
    *  RelationalOperator: '<S25>/Compare'
    */
   rtb_LogicalOperator1 = (Car_State_U.Shutdown_PackageIntck &&
-    (Car_State_U.Accumulator_Voltage > 250.0) && (Car_State_U.PrechargeRequest ==
+    (Car_State_U.Accumulator_Voltage > 200.0) && (Car_State_U.PrechargeRequest ==
     0.0) && (Car_State_U.Critical_CAN_Disconnection == 0.0));
 
   /* If: '<S3>/If' incorporates:
@@ -253,7 +253,7 @@ static void Car_State_output(void)
    *  Inport: '<Root>/EnableDrive_Order'
    *  RelationalOperator: '<S17>/Compare'
    */
-  if (Car_State_U.EnableDrive_Order && (Car_State_U.BrakePedal_Value > 0.5)) {
+  if (Car_State_U.EnableDrive_Order && (Car_State_U.BrakePedal_Value > 0.2)) {
     /* Outputs for IfAction SubSystem: '<S4>/TRUE' incorporates:
      *  ActionPort: '<S19>/Action Port'
      */
@@ -529,25 +529,14 @@ static void Car_State_output(void)
   /* Outport: '<Root>/PrechargeAssert' */
   Car_State_Y.PrechargeAssert = rtb_Merge1;
 
-  /* Saturate: '<S9>/Saturation' incorporates:
-   *  Inport: '<Root>/Accumulator_Voltage'
-   */
-  if (Car_State_U.Accumulator_Voltage > 600.0) {
-    rtb_Merge = 600.0;
-  } else if (Car_State_U.Accumulator_Voltage < 400.0) {
-    rtb_Merge = 400.0;
-  } else {
-    rtb_Merge = Car_State_U.Accumulator_Voltage;
-  }
-
   /* Outport: '<Root>/Precharge_Percentage' incorporates:
    *  Gain: '<S9>/If DC BUS not bits'
+   *  Inport: '<Root>/Accumulator_Voltage'
    *  Inport: '<Root>/InvertersMinDCBus'
    *  Product: '<S9>/Divide'
-   *  Saturate: '<S9>/Saturation'
    */
   Car_State_Y.Precharge_Percentage = Car_State_U.InvertersMinDCBus / (0.01 *
-    rtb_Merge);
+    Car_State_U.Accumulator_Voltage);
 
   /* Outport: '<Root>/Precharge_Voltage' incorporates:
    *  Inport: '<Root>/InvertersMinDCBus'
@@ -737,7 +726,7 @@ RT_MODEL_Car_State_T *Car_State(void)
   Car_State_M->Sizes.numU = (9);       /* Number of model inputs */
   Car_State_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Car_State_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  Car_State_M->Sizes.numBlocks = (86); /* Number of blocks */
+  Car_State_M->Sizes.numBlocks = (85); /* Number of blocks */
   Car_State_M->Sizes.numBlockIO = (3); /* Number of block outputs */
   return Car_State_M;
 }

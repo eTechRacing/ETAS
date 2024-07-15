@@ -7,9 +7,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 13.2
+ * Model version              : 13.3
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Thu Jul  4 19:19:32 2024
+ * C source code generated on : Sat Jul 13 09:06:21 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -47,7 +47,7 @@ static void Sensors_output(void)
    *  Product: '<S1>/Divide'
    *  Sum: '<S1>/Sum'
    */
-  Sensors_Y.APPS1_Value = (Sensors_U.APPS1_Bits - 100.0) / Sensors_ConstB.Sum1;
+  Sensors_Y.APPS1_Value = (Sensors_U.APPS1_Bits - 200.0) / Sensors_ConstB.Sum1;
 
   /* Outport: '<Root>/APPS2_Value' incorporates:
    *  Constant: '<S2>/min'
@@ -55,7 +55,7 @@ static void Sensors_output(void)
    *  Product: '<S2>/Divide'
    *  Sum: '<S2>/Sum'
    */
-  Sensors_Y.APPS2_Value = (Sensors_U.APPS2_Bits - 100.0) / Sensors_ConstB.Sum1_f;
+  Sensors_Y.APPS2_Value = (Sensors_U.APPS2_Bits - 200.0) / Sensors_ConstB.Sum1_f;
 
   /* Outport: '<Root>/BrakePedal_Value' incorporates:
    *  Constant: '<S3>/min'
@@ -63,7 +63,7 @@ static void Sensors_output(void)
    *  Product: '<S3>/Divide'
    *  Sum: '<S3>/Sum'
    */
-  Sensors_Y.BrakePedal_Value = (Sensors_U.BrakePedal_Bits - 100.0) /
+  Sensors_Y.BrakePedal_Value = (Sensors_U.BrakePedal_Bits - 350.0) /
     Sensors_ConstB.Sum1_c;
 
   /* Outport: '<Root>/SUSP_F_L' incorporates:

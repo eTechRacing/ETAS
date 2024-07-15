@@ -12,9 +12,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 13.5
+ * Model version              : 13.8
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Fri Jul  5 08:32:30 2024
+ * C source code generated on : Sat Jul 13 09:07:50 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
