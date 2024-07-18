@@ -7,9 +7,9 @@
  *
  * Code generation for model "Disconnections".
  *
- * Model version              : 13.8
+ * Model version              : 13.10
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Thu Jul 18 16:05:22 2024
+ * C source code generated on : Thu Jul 18 20:19:19 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -131,7 +131,7 @@ static void Disconnections_output(void)
   /* If: '<S1>/If' incorporates:
    *  Constant: '<Root>/Periods'
    */
-  if (rtb_Add > 4.0) {
+  if (rtb_Add > 8.0) {
     /* Outputs for IfAction SubSystem: '<S1>/Reset_counter' incorporates:
      *  ActionPort: '<S8>/Action Port'
      */
@@ -174,7 +174,7 @@ static void Disconnections_output(void)
   /* If: '<S28>/If2' incorporates:
    *  Constant: '<S4>/Number_of_periods'
    */
-  if (rtb_Merge1 > 5000.0) {
+  if (rtb_Merge1 > 4.0) {
     /* Outputs for IfAction SubSystem: '<S28>/Signal_Failure' incorporates:
      *  ActionPort: '<S33>/Action Port'
      */
@@ -221,7 +221,7 @@ static void Disconnections_output(void)
   /* If: '<S29>/If1' incorporates:
    *  Constant: '<S4>/Number_of_periods'
    */
-  if (rtb_Merge1_k > 5000.0) {
+  if (rtb_Merge1_k > 4.0) {
     /* Outputs for IfAction SubSystem: '<S29>/Signal_Failure' incorporates:
      *  ActionPort: '<S37>/Action Port'
      */
@@ -268,7 +268,7 @@ static void Disconnections_output(void)
   /* If: '<S30>/If1' incorporates:
    *  Constant: '<S4>/Number_of_periods'
    */
-  if (rtb_Merge1_iz > 5000.0) {
+  if (rtb_Merge1_iz > 4.0) {
     /* Outputs for IfAction SubSystem: '<S30>/Signal_Failure' incorporates:
      *  ActionPort: '<S41>/Action Port'
      */
@@ -415,8 +415,7 @@ static void Disconnections_output(void)
   /* End of If: '<Root>/If' */
 
   /* Logic: '<Root>/OR4' */
-  rtb_OR4 = ((Disconnections_B.Merge != 0.0) || (Disconnections_B.Merge_j != 0.0)
-             || (Disconnections_B.Merge_g != 0.0));
+  rtb_OR4 = ((Disconnections_B.Merge != 0.0) || (Disconnections_B.Merge_g != 0.0));
 
   /* Outport: '<Root>/Critical_CAN_Disconnection' */
   Disconnections_Y.Critical_CAN_Disconnection = rtb_OR4;
