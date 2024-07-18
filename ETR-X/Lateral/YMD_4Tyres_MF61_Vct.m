@@ -85,7 +85,6 @@ MZ=@(SA)  a0m + a1m*cos(SA*wm) + b1m*sin(SA*wm) + a2m*cos(2*SA*wm) + b2m*sin(2*S
 %Steering-Camber
 C=@(S)0.0057*S^3+0.0278*S^2+0.0386*S; % S=steering input rad
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Inputs
@@ -109,7 +108,7 @@ Wr=g*weight*a/l
 for i = 1:length(SI);
     for j = 1:length(VS);
         Vx(j)=(V/3.6)*cos(VS(j));
-        Vy(j)=(Vx(j))*VS(j); 
+        %Vy(j)=(Vx(j))*VS(j); 
         w(i,j)=0; 
         Ay(i,j)=0;
         for k=1:10     
@@ -159,9 +158,9 @@ for i = 1:length(SI);
             gammarRR(i,j)=abs((gammaR0-0.36842*rollangle(i,j))*pi/180); %rollangle i camber en rad 
           
             %Camber variation with steering increment 
-            gammasFL(i,j)=gammaF0*pi/180+C(SI(i)); % gammaFL rad
-            gammasFR(i,j)=gammaF0*pi/180+C(SI(i)); %gammaFR rad
-            
+            gammasFL(i,j)=-C(SI(i)); % gammaFL rad
+            gammasFR(i,j)=+C(SI(i)); %gammaFR rad
+
             %Total camber
             gammaFL(i,j)=gammarFL(i,j)+gammasFL(i,j);
             gammaFR(i,j)=gammarFR(i,j)+gammasFR(i,j);
