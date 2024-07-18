@@ -7,9 +7,9 @@
  *
  * Code generation for model "Power_Control".
  *
- * Model version              : 4.29
+ * Model version              : 4.30
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Fri Jul 12 20:09:58 2024
+ * C source code generated on : Thu Jul 18 16:06:54 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -232,14 +232,15 @@ static void Power_Control_output(void)
   /* MATLAB Function: '<Root>/InverterL_Temp_Limitation' incorporates:
    *  Constant: '<Root>/Aggresive_Factor'
    *  Constant: '<Root>/Change_Factor'
-   *  Constant: '<Root>/Constant3'
    *  Constant: '<Root>/Inv_MaxTemp'
    *  Constant: '<Root>/Tolerance_Temp'
    *  Gain: '<S7>/Torky'
+   *  Inport: '<Root>/Inv_L_TempIGBT'
    *  Inport: '<Root>/Torque_L'
    */
   Power_InverterL_Temp_Limitation(3.29 * Power_Control_U.Torque_L, 1.4, 70.0,
-    0.4, 26.0, 0.9, &Power_Control_B.sf_InverterL_Temp_Limitation,
+    0.4, Power_Control_U.Inv_L_TempIGBT, 0.9,
+    &Power_Control_B.sf_InverterL_Temp_Limitation,
     &Power_Control_DW.sf_InverterL_Temp_Limitation);
 
   /* MATLAB Function: '<Root>/MotorL_Temp_Limitation' incorporates:
@@ -261,14 +262,15 @@ static void Power_Control_output(void)
   /* MATLAB Function: '<Root>/InverterR_Temp_Limitation' incorporates:
    *  Constant: '<Root>/Aggresive_Factor'
    *  Constant: '<Root>/Change_Factor'
-   *  Constant: '<Root>/Constant2'
    *  Constant: '<Root>/Inv_MaxTemp'
    *  Constant: '<Root>/Tolerance_Temp'
    *  Gain: '<S7>/Emy'
+   *  Inport: '<Root>/Inv_R_TempIGBT'
    *  Inport: '<Root>/Torque_R'
    */
   Power_InverterL_Temp_Limitation(3.29 * Power_Control_U.Torque_R, 1.4, 70.0,
-    0.4, 26.0, 0.9, &Power_Control_B.sf_InverterR_Temp_Limitation,
+    0.4, Power_Control_U.Inv_R_TempIGBT, 0.9,
+    &Power_Control_B.sf_InverterR_Temp_Limitation,
     &Power_Control_DW.sf_InverterR_Temp_Limitation);
 
   /* MATLAB Function: '<Root>/MotorR_Temp_Limitation' incorporates:
@@ -540,7 +542,7 @@ RT_MODEL_Power_Control_T *Power_Control(void)
   Power_Control_M->Sizes.numU = (8);   /* Number of model inputs */
   Power_Control_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Power_Control_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  Power_Control_M->Sizes.numBlocks = (42);/* Number of blocks */
+  Power_Control_M->Sizes.numBlocks = (40);/* Number of blocks */
   Power_Control_M->Sizes.numBlockIO = (4);/* Number of block outputs */
   return Power_Control_M;
 }

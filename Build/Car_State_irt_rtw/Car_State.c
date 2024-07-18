@@ -7,9 +7,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 13.8
+ * Model version              : 13.10
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jul 13 09:07:50 2024
+ * C source code generated on : Thu Jul 18 15:59:46 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -178,7 +178,7 @@ static void Car_State_output(void)
    *  RelationalOperator: '<S25>/Compare'
    */
   rtb_LogicalOperator1 = (Car_State_U.Shutdown_PackageIntck &&
-    (Car_State_U.Accumulator_Voltage > 200.0) && (Car_State_U.PrechargeRequest ==
+    (Car_State_U.Accumulator_Voltage > 420.0) && (Car_State_U.PrechargeRequest ==
     0.0) && (Car_State_U.Critical_CAN_Disconnection == 0.0));
 
   /* If: '<S3>/If' incorporates:
@@ -253,7 +253,7 @@ static void Car_State_output(void)
    *  Inport: '<Root>/EnableDrive_Order'
    *  RelationalOperator: '<S17>/Compare'
    */
-  if (Car_State_U.EnableDrive_Order && (Car_State_U.BrakePedal_Value > 0.2)) {
+  if (Car_State_U.EnableDrive_Order && (Car_State_U.BrakePedal_Value > 0.5)) {
     /* Outputs for IfAction SubSystem: '<S4>/TRUE' incorporates:
      *  ActionPort: '<S19>/Action Port'
      */
@@ -530,13 +530,13 @@ static void Car_State_output(void)
   Car_State_Y.PrechargeAssert = rtb_Merge1;
 
   /* Outport: '<Root>/Precharge_Percentage' incorporates:
-   *  Gain: '<S9>/If DC BUS not bits'
+   *  Gain: '<S9>/0to100'
    *  Inport: '<Root>/Accumulator_Voltage'
    *  Inport: '<Root>/InvertersMinDCBus'
    *  Product: '<S9>/Divide'
    */
-  Car_State_Y.Precharge_Percentage = Car_State_U.InvertersMinDCBus / (0.01 *
-    Car_State_U.Accumulator_Voltage);
+  Car_State_Y.Precharge_Percentage = Car_State_U.InvertersMinDCBus /
+    Car_State_U.Accumulator_Voltage * 100.0;
 
   /* Outport: '<Root>/Precharge_Voltage' incorporates:
    *  Inport: '<Root>/InvertersMinDCBus'

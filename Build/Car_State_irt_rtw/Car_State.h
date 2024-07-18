@@ -3,6 +3,11 @@
 #include "Car_State_irtmacros.h"
 /* PATCH END */
 
+/* Patched in by the INTECRIO IRT target */
+/* PATCH BEGIN */
+#include "Car_State_irtmacros.h"
+/* PATCH END */
+
 /*
  * Car_State.h
  *
@@ -12,9 +17,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 13.8
+ * Model version              : 13.10
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jul 13 09:07:50 2024
+ * C source code generated on : Thu Jul 18 15:59:46 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

@@ -8,9 +8,9 @@
  *
  * Code generation for model "Disconnections".
  *
- * Model version              : 13.5
+ * Model version              : 13.8
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Fri Jul 12 19:41:07 2024
+ * C source code generated on : Thu Jul 18 16:05:22 2024
  * 
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -853,6 +853,16 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      el_Vel_OK ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       Critical_CAN_Disconnection ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -1073,6 +1083,24 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      Ellipse_Valid ""
+      /begin SUB_FUNCTION
+        Ellipse_Vel_NOT_Valid
+        Ellipse_Vel_Valid
+        If
+        Merge
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       Pedal_Box_Disconnections__Noise_ ""
       /begin SUB_FUNCTION
         DocBlock
@@ -1127,9 +1155,9 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         Others_FM2_
         Others_FM3__
         Rigid_Axle_2024
-        Rigid_Axle_with_TC_1
         Rigid_Axle_with_TC_2024
         Steering_TV_without_TC_2024
+        TV___TC_2024
         If1
         If2
         If3
@@ -1443,6 +1471,57 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      Ellipse_Vel_NOT_Valid ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Ellipse_Vel_Valid ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       DocBlock ""
       /begin SUB_FUNCTION
         EmptySubsystem
@@ -1671,19 +1750,6 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Rigid_Axle_with_TC_1 ""
-      /begin SUB_FUNCTION
-        Constant
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
       Rigid_Axle_with_TC_2024 ""
       /begin SUB_FUNCTION
         Constant
@@ -1698,6 +1764,19 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
     /end FUNCTION
     /begin FUNCTION
       Steering_TV_without_TC_2024 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      TV___TC_2024 ""
       /begin SUB_FUNCTION
         Constant
       /end SUB_FUNCTION
@@ -2201,6 +2280,26 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin IN_MEASUREMENT
         
         
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
         

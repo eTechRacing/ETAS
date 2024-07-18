@@ -8,9 +8,9 @@
  *
  * Code generation for model "Ellipse".
  *
- * Model version              : 13.0
+ * Model version              : 13.13
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Mon Jul  1 20:40:02 2024
+ * C source code generated on : Thu Jul 18 16:05:51 2024
  * 
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -743,7 +743,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      el_AngleTrack ""
+      el_Vel_GPS_Valid ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -753,7 +753,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      el_CurvatureRadius ""
+      el_Vel_EKF_Valid ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -763,7 +763,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      el_AUTO_STATUS ""
+      el_Vel_EKF_X ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -773,7 +773,67 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Lat_EKF ""
+      el_Vel_GPS_N ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      el_Vel_GPS_E ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      el_SolutionMode ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      el_Vel_GPS_D ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      el_Vel_EKF_Y ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      el_Vel_EKF_Z ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      el_VEL ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -783,7 +843,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Long_EKF ""
+      el_Vel_OK ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -793,33 +853,184 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      TrackAngle ""
+      If_Action_Subsystem ""
+      /begin SUB_FUNCTION
+        Constant
+        GPS_VEL
+      /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
+        
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      CurvRadius ""
+      If_Action_Subsystem1 ""
+      /begin SUB_FUNCTION
+        Constant
+        EKF_VEL
+      /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
+        
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Status_Auto ""
+      If_Action_Subsystem2 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Square ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Square1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Sum ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Sqrt ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      GPS_VEL ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      EKF_VEL ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
       /end OUT_MEASUREMENT
     /end FUNCTION
     

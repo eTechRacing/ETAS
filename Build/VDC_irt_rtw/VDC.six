@@ -22,9 +22,9 @@
 	<moduleInfo identifier="VDC">
 		<name>VDC</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}VDC.slx&quot;"/>
-		<version major="4" minor="168"/>
+		<version major="4" minor="171"/>
 		<dateTime kind="created" year="2024" month="3" day="15" hour="15" minute="34" second="18"/>
-		<dateTime kind="lastModified" year="2024" month="7" day="7" hour="8" minute="17" second="14"/>
+		<dateTime kind="lastModified" year="2024" month="7" day="18" hour="15" minute="55" second="45"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="7" day="7" hour="8" minute="17" second="42"/>
+		<dateTime kind="created" year="2024" month="7" day="18" hour="16" minute="7" second="54"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -166,13 +166,13 @@
 				<structMember identifier="Torque_R_Nm">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;S50&gt;/ SFunction </documentation>
+						<documentation>&lt;S51&gt;/ SFunction </documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="Torque_L_Nm">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;S50&gt;/ SFunction </documentation>
+						<documentation>&lt;S51&gt;/ SFunction </documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -180,7 +180,7 @@
 				<struct/><typeRef name="_B_MATLABFunction_VDC_T"/>
 				<fileOrigin name="VDC.h"/>
 				<annotation>
-					<documentation>Type of block signal data structure for system '&lt;S46&gt;/MATLAB Function'.</documentation>
+					<documentation>Type of block signal data structure for system '&lt;S47&gt;/MATLAB Function'.</documentation>
 				</annotation>
 			</typeDef>
 			<structDef name="_B_Torquedemandedbythedriver_V_T">
@@ -188,7 +188,7 @@
 				<structMember identifier="Throttle_Torque">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;S48&gt;/ SFunction </documentation>
+						<documentation>&lt;S49&gt;/ SFunction </documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -196,7 +196,7 @@
 				<struct/><typeRef name="_B_Torquedemandedbythedriver_V_T"/>
 				<fileOrigin name="VDC.h"/>
 				<annotation>
-					<documentation>Type of block signal data structure for system '&lt;S6&gt;/Torque demanded by the driver'.</documentation>
+					<documentation>Type of block signal data structure for system '&lt;S7&gt;/Torque demanded by the driver'.</documentation>
 				</annotation>
 			</typeDef>
 			<structDef name="_B_VDC_T">
@@ -252,13 +252,13 @@
 				<structMember identifier="state">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;S35&gt;/ SFunction </documentation>
+						<documentation>&lt;S36&gt;/ SFunction </documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="regen_en">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;S34&gt;/ SFunction </documentation>
+						<documentation>&lt;S35&gt;/ SFunction </documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="sf_Torquedemandedbythedriver_a">
@@ -276,19 +276,19 @@
 				<structMember identifier="sf_Torquedemandedbythedriver_m">
 					<type><typeRef name="B_Torquedemandedbythedriver_V_T"/></type>
 					<annotation>
-						<documentation>&lt;S6&gt;/Torque demanded by the driver</documentation>
+						<documentation>&lt;S7&gt;/Torque demanded by the driver</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="sf_MATLABFunction_a">
 					<type><typeRef name="B_MATLABFunction_VDC_T"/></type>
 					<annotation>
-						<documentation>&lt;S47&gt;/MATLAB Function</documentation>
+						<documentation>&lt;S48&gt;/MATLAB Function</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="sf_MATLABFunction">
 					<type><typeRef name="B_MATLABFunction_VDC_T"/></type>
 					<annotation>
-						<documentation>&lt;S46&gt;/MATLAB Function</documentation>
+						<documentation>&lt;S47&gt;/MATLAB Function</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -317,24 +317,6 @@
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/el_ACCEL_Z</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="el_Vel_X">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/el_Vel_X</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="el_Vel_Y">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/el_Vel_Y</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="el_Vel_Z">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/el_Vel_Z</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="el_YAW">
@@ -481,12 +463,6 @@
 						<documentation>&lt;Root&gt;/Car_State</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="el_SlipAngle">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/el_SlipAngle</documentation>
-					</annotation>
-				</structMember>
 				<structMember identifier="RacingMode">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
@@ -497,6 +473,12 @@
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/SoC_High</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="el_VEL">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_VEL</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -1351,99 +1333,6 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_U.el_Vel_X">
-				<definitionLocation>
-					<baseRef identifier="VDC_U"/>
-					<memberRef identifier="el_Vel_X"/>
-				</definitionLocation>
-				<fileOrigin name="VDC.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDC.el_Vel_X">
-				<name>el_Vel_X</name>
-				<modelLink href="VDC/el_Vel_X"/>
-				<modelLocation>
-					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="el_Vel_X" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDC_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_U.el_Vel_Y">
-				<definitionLocation>
-					<baseRef identifier="VDC_U"/>
-					<memberRef identifier="el_Vel_Y"/>
-				</definitionLocation>
-				<fileOrigin name="VDC.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDC.el_Vel_Y">
-				<name>el_Vel_Y</name>
-				<modelLink href="VDC/el_Vel_Y"/>
-				<modelLocation>
-					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="el_Vel_Y" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDC_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_U.el_Vel_Z">
-				<definitionLocation>
-					<baseRef identifier="VDC_U"/>
-					<memberRef identifier="el_Vel_Z"/>
-				</definitionLocation>
-				<fileOrigin name="VDC.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDC.el_Vel_Z">
-				<name>el_Vel_Z</name>
-				<modelLink href="VDC/el_Vel_Z"/>
-				<modelLocation>
-					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="el_Vel_Z" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDC_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
 			<dataCInterface identifier="VDC_U.el_YAW">
 				<definitionLocation>
 					<baseRef identifier="VDC_U"/>
@@ -2188,37 +2077,6 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_U.el_SlipAngle">
-				<definitionLocation>
-					<baseRef identifier="VDC_U"/>
-					<memberRef identifier="el_SlipAngle"/>
-				</definitionLocation>
-				<fileOrigin name="VDC.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDC.el_SlipAngle">
-				<name>el_SlipAngle</name>
-				<modelLink href="VDC/el_SlipAngle"/>
-				<modelLocation>
-					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="el_SlipAngle" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDC_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
 			<dataCInterface identifier="VDC_U.RacingMode">
 				<definitionLocation>
 					<baseRef identifier="VDC_U"/>
@@ -2263,6 +2121,37 @@
 				<modelLocation>
 					<pathNode name="VDC" kind="mlsl:model"/>
 					<pathNode name="SoC_High" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_U.el_VEL">
+				<definitionLocation>
+					<baseRef identifier="VDC_U"/>
+					<memberRef identifier="el_VEL"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.el_VEL">
+				<name>el_VEL</name>
+				<modelLink href="VDC/el_VEL"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model"/>
+					<pathNode name="el_VEL" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -2614,9 +2503,6 @@
 						<message identifier="VDC_U.el_ACCEL_X" send="false"></message>
 						<message identifier="VDC_U.el_ACCEL_Y" send="false"></message>
 						<message identifier="VDC_U.el_ACCEL_Z" send="false"></message>
-						<message identifier="VDC_U.el_Vel_X" send="false"></message>
-						<message identifier="VDC_U.el_Vel_Y" send="false"></message>
-						<message identifier="VDC_U.el_Vel_Z" send="false"></message>
 						<message identifier="VDC_U.el_YAW" send="false"></message>
 						<message identifier="VDC_U.el_PITCH" send="false"></message>
 						<message identifier="VDC_U.el_ROLL" send="false"></message>
@@ -2641,9 +2527,9 @@
 						<message identifier="VDC_U.TorqueEnable" send="false"></message>
 						<message identifier="VDC_U.CriticalDisconnection" send="false"></message>
 						<message identifier="VDC_U.Car_State" send="false"></message>
-						<message identifier="VDC_U.el_SlipAngle" send="false"></message>
 						<message identifier="VDC_U.RacingMode" send="false"></message>
 						<message identifier="VDC_U.SoC_High" send="false"></message>
+						<message identifier="VDC_U.el_VEL" send="false"></message>
 						<message identifier="VDC_Y.Torque_R" send="true"></message>
 						<message identifier="VDC_Y.Torque_L" send="true"></message>
 						<message identifier="VDC_Y.APPS_Implausibility" send="true"></message>

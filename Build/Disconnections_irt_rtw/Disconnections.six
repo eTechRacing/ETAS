@@ -22,9 +22,9 @@
 	<moduleInfo identifier="Disconnections">
 		<name>Disconnections</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Disconnections.slx&quot;"/>
-		<version major="13" minor="5"/>
+		<version major="13" minor="8"/>
 		<dateTime kind="created" year="2021" month="2" day="17" hour="16" minute="42" second="47"/>
-		<dateTime kind="lastModified" year="2024" month="7" day="12" hour="19" minute="40" second="54"/>
+		<dateTime kind="lastModified" year="2024" month="7" day="18" hour="16" minute="5" second="12"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="7" day="12" hour="19" minute="41" second="7"/>
+		<dateTime kind="created" year="2024" month="7" day="18" hour="16" minute="5" second="22"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -277,6 +277,12 @@
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Susp_R_R_Bits</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="el_Vel_OK">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_Vel_OK</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -1534,6 +1540,37 @@
 				</address>
 			</usage>
 		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Disconnections_U.el_Vel_OK">
+				<definitionLocation>
+					<baseRef identifier="Disconnections_U"/>
+					<memberRef identifier="el_Vel_OK"/>
+				</definitionLocation>
+				<fileOrigin name="Disconnections.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Disconnections.el_Vel_OK">
+				<name>el_Vel_OK</name>
+				<modelLink href="Disconnections/el_Vel_OK"/>
+				<modelLocation>
+					<pathNode name="Disconnections" kind="mlsl:model"/>
+					<pathNode name="el_Vel_OK" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Disconnections_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
 		<!-- rtY output ports following -->
 		<dataElement interfaceKind="export">
 			<dataCInterface identifier="Disconnections_Y.Critical_CAN_Disconnection">
@@ -2126,6 +2163,7 @@
 						<message identifier="Disconnections_U.Susp_F_R_Bits" send="false"></message>
 						<message identifier="Disconnections_U.Susp_R_L_Bits" send="false"></message>
 						<message identifier="Disconnections_U.Susp_R_R_Bits" send="false"></message>
+						<message identifier="Disconnections_U.el_Vel_OK" send="false"></message>
 						<message identifier="Disconnections_Y.Critical_CAN_Disconnection" send="true"></message>
 						<message identifier="Disconnections_Y.Critical_Signal_Disconnection" send="true"></message>
 						<message identifier="Disconnections_Y.CriticalDisconnection" send="true"></message>

@@ -12,9 +12,9 @@
  *
  * Code generation for model "Disconnections".
  *
- * Model version              : 13.5
+ * Model version              : 13.8
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Fri Jul 12 19:41:07 2024
+ * C source code generated on : Thu Jul 18 16:05:22 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -860,27 +860,27 @@
 
 /* Block signals (default storage) */
 typedef struct {
-  real_T Merge;                        /* '<S11>/Merge' */
-  real_T Merge_j;                      /* '<S12>/Merge' */
-  real_T Merge_g;                      /* '<S9>/Merge' */
-  real_T Merge_d;                      /* '<S13>/Merge' */
-  real_T Merge_m;                      /* '<S10>/Merge' */
+  real_T Merge;                        /* '<S12>/Merge' */
+  real_T Merge_j;                      /* '<S13>/Merge' */
+  real_T Merge_g;                      /* '<S10>/Merge' */
+  real_T Merge_d;                      /* '<S14>/Merge' */
+  real_T Merge_m;                      /* '<S11>/Merge' */
 } B_Disconnections_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   real_T A;                            /* '<S1>/Data Store Memory' */
-  real_T Last_alive;                   /* '<S25>/Data Store Memory' */
-  real_T Tot_Errors;                   /* '<S25>/Data Store Memory1' */
-  real_T Last_alive_e;                 /* '<S26>/Data Store Memory' */
-  real_T Tot_Errors_h;                 /* '<S26>/Data Store Memory1' */
-  real_T Last_alive_o;                 /* '<S27>/Data Store Memory' */
-  real_T Tot_Errors_f;                 /* '<S27>/Data Store Memory1' */
-  real_T Last_alive_g;                 /* '<S11>/Data Store Memory' */
-  real_T Last_alive_p;                 /* '<S12>/Data Store Memory' */
-  real_T Last_alive_n;                 /* '<S9>/Data Store Memory' */
-  real_T Last_alive_pb;                /* '<S13>/Data Store Memory' */
-  real_T Last_alive_n0;                /* '<S10>/Data Store Memory' */
+  real_T Last_alive;                   /* '<S28>/Data Store Memory' */
+  real_T Tot_Errors;                   /* '<S28>/Data Store Memory1' */
+  real_T Last_alive_e;                 /* '<S29>/Data Store Memory' */
+  real_T Tot_Errors_h;                 /* '<S29>/Data Store Memory1' */
+  real_T Last_alive_o;                 /* '<S30>/Data Store Memory' */
+  real_T Tot_Errors_f;                 /* '<S30>/Data Store Memory1' */
+  real_T Last_alive_g;                 /* '<S12>/Data Store Memory' */
+  real_T Last_alive_p;                 /* '<S13>/Data Store Memory' */
+  real_T Last_alive_n;                 /* '<S10>/Data Store Memory' */
+  real_T Last_alive_pb;                /* '<S14>/Data Store Memory' */
+  real_T Last_alive_n0;                /* '<S11>/Data Store Memory' */
 } DW_Disconnections_T;
 
 /* External inputs (root inport signals with default storage) */
@@ -898,6 +898,7 @@ typedef struct {
   real_T Susp_F_R_Bits;                /* '<Root>/Susp_F_R_Bits' */
   real_T Susp_R_L_Bits;                /* '<Root>/Susp_R_L_Bits' */
   real_T Susp_R_R_Bits;                /* '<Root>/Susp_R_R_Bits' */
+  real_T el_Vel_OK;                    /* '<Root>/el_Vel_OK' */
 } ExtU_Disconnections_T;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -1075,54 +1076,57 @@ extern RT_MODEL_Disconnections_T *const Disconnections_M;
  * '<Root>' : 'Disconnections'
  * '<S1>'   : 'Disconnections/Counter'
  * '<S2>'   : 'Disconnections/ECU Disconections'
- * '<S3>'   : 'Disconnections/Pedal Box Disconnections (Noise)'
- * '<S4>'   : 'Disconnections/Signal Disconnections'
- * '<S5>'   : 'Disconnections/Subsystem'
- * '<S6>'   : 'Disconnections/Counter/Counting'
- * '<S7>'   : 'Disconnections/Counter/Reset_counter'
- * '<S8>'   : 'Disconnections/ECU Disconections/DocBlock'
- * '<S9>'   : 'Disconnections/ECU Disconections/LifeCheck_AccFront'
- * '<S10>'  : 'Disconnections/ECU Disconections/LifeCheck_AccRear'
- * '<S11>'  : 'Disconnections/ECU Disconections/LifeCheck_BMS'
- * '<S12>'  : 'Disconnections/ECU Disconections/LifeCheck_Dash'
- * '<S13>'  : 'Disconnections/ECU Disconections/Life_check4'
- * '<S14>'  : 'Disconnections/ECU Disconections/LifeCheck_AccFront/CAN_OK'
- * '<S15>'  : 'Disconnections/ECU Disconections/LifeCheck_AccFront/CAN_failure'
- * '<S16>'  : 'Disconnections/ECU Disconections/LifeCheck_AccRear/CAN_OK'
- * '<S17>'  : 'Disconnections/ECU Disconections/LifeCheck_AccRear/CAN_failure'
- * '<S18>'  : 'Disconnections/ECU Disconections/LifeCheck_BMS/CAN_OK'
- * '<S19>'  : 'Disconnections/ECU Disconections/LifeCheck_BMS/CAN_failure'
- * '<S20>'  : 'Disconnections/ECU Disconections/LifeCheck_Dash/CAN_OK'
- * '<S21>'  : 'Disconnections/ECU Disconections/LifeCheck_Dash/CAN_failure'
- * '<S22>'  : 'Disconnections/ECU Disconections/Life_check4/CAN_OK'
- * '<S23>'  : 'Disconnections/ECU Disconections/Life_check4/CAN_failure'
- * '<S24>'  : 'Disconnections/Pedal Box Disconnections (Noise)/DocBlock'
- * '<S25>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check1'
- * '<S26>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check2'
- * '<S27>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check3'
- * '<S28>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check1/CAN_OK'
- * '<S29>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check1/Error_Counter'
- * '<S30>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check1/Signal_Failure'
- * '<S31>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check1/Signal_OK'
- * '<S32>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check2/CAN_OK'
- * '<S33>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check2/Error_Counter'
- * '<S34>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check2/Signal_Failure'
- * '<S35>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check2/Signal_OK'
- * '<S36>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check3/CAN_OK'
- * '<S37>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check3/Error_Counter'
- * '<S38>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check3/Signal_Failure'
- * '<S39>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check3/Signal_OK'
- * '<S40>'  : 'Disconnections/Signal Disconnections/Compare To Zero'
- * '<S41>'  : 'Disconnections/Signal Disconnections/Compare To Zero1'
- * '<S42>'  : 'Disconnections/Signal Disconnections/Compare To Zero2'
- * '<S43>'  : 'Disconnections/Signal Disconnections/Compare To Zero3'
- * '<S44>'  : 'Disconnections/Signal Disconnections/Compare To Zero4'
- * '<S45>'  : 'Disconnections/Subsystem/DocBlock1'
- * '<S46>'  : 'Disconnections/Subsystem/Others FM2+'
- * '<S47>'  : 'Disconnections/Subsystem/Others FM3+ '
- * '<S48>'  : 'Disconnections/Subsystem/Rigid Axle 2024'
- * '<S49>'  : 'Disconnections/Subsystem/Rigid Axle with TC 1'
- * '<S50>'  : 'Disconnections/Subsystem/Rigid Axle with TC 2024'
- * '<S51>'  : 'Disconnections/Subsystem/Steering TV without TC 2024'
+ * '<S3>'   : 'Disconnections/Ellipse_Valid'
+ * '<S4>'   : 'Disconnections/Pedal Box Disconnections (Noise)'
+ * '<S5>'   : 'Disconnections/Signal Disconnections'
+ * '<S6>'   : 'Disconnections/Subsystem'
+ * '<S7>'   : 'Disconnections/Counter/Counting'
+ * '<S8>'   : 'Disconnections/Counter/Reset_counter'
+ * '<S9>'   : 'Disconnections/ECU Disconections/DocBlock'
+ * '<S10>'  : 'Disconnections/ECU Disconections/LifeCheck_AccFront'
+ * '<S11>'  : 'Disconnections/ECU Disconections/LifeCheck_AccRear'
+ * '<S12>'  : 'Disconnections/ECU Disconections/LifeCheck_BMS'
+ * '<S13>'  : 'Disconnections/ECU Disconections/LifeCheck_Dash'
+ * '<S14>'  : 'Disconnections/ECU Disconections/Life_check4'
+ * '<S15>'  : 'Disconnections/ECU Disconections/LifeCheck_AccFront/CAN_OK'
+ * '<S16>'  : 'Disconnections/ECU Disconections/LifeCheck_AccFront/CAN_failure'
+ * '<S17>'  : 'Disconnections/ECU Disconections/LifeCheck_AccRear/CAN_OK'
+ * '<S18>'  : 'Disconnections/ECU Disconections/LifeCheck_AccRear/CAN_failure'
+ * '<S19>'  : 'Disconnections/ECU Disconections/LifeCheck_BMS/CAN_OK'
+ * '<S20>'  : 'Disconnections/ECU Disconections/LifeCheck_BMS/CAN_failure'
+ * '<S21>'  : 'Disconnections/ECU Disconections/LifeCheck_Dash/CAN_OK'
+ * '<S22>'  : 'Disconnections/ECU Disconections/LifeCheck_Dash/CAN_failure'
+ * '<S23>'  : 'Disconnections/ECU Disconections/Life_check4/CAN_OK'
+ * '<S24>'  : 'Disconnections/ECU Disconections/Life_check4/CAN_failure'
+ * '<S25>'  : 'Disconnections/Ellipse_Valid/Ellipse Vel NOT Valid'
+ * '<S26>'  : 'Disconnections/Ellipse_Valid/Ellipse Vel Valid'
+ * '<S27>'  : 'Disconnections/Pedal Box Disconnections (Noise)/DocBlock'
+ * '<S28>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check1'
+ * '<S29>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check2'
+ * '<S30>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check3'
+ * '<S31>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check1/CAN_OK'
+ * '<S32>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check1/Error_Counter'
+ * '<S33>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check1/Signal_Failure'
+ * '<S34>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check1/Signal_OK'
+ * '<S35>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check2/CAN_OK'
+ * '<S36>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check2/Error_Counter'
+ * '<S37>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check2/Signal_Failure'
+ * '<S38>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check2/Signal_OK'
+ * '<S39>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check3/CAN_OK'
+ * '<S40>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check3/Error_Counter'
+ * '<S41>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check3/Signal_Failure'
+ * '<S42>'  : 'Disconnections/Pedal Box Disconnections (Noise)/Life_check3/Signal_OK'
+ * '<S43>'  : 'Disconnections/Signal Disconnections/Compare To Zero'
+ * '<S44>'  : 'Disconnections/Signal Disconnections/Compare To Zero1'
+ * '<S45>'  : 'Disconnections/Signal Disconnections/Compare To Zero2'
+ * '<S46>'  : 'Disconnections/Signal Disconnections/Compare To Zero3'
+ * '<S47>'  : 'Disconnections/Signal Disconnections/Compare To Zero4'
+ * '<S48>'  : 'Disconnections/Subsystem/DocBlock1'
+ * '<S49>'  : 'Disconnections/Subsystem/Others FM2+'
+ * '<S50>'  : 'Disconnections/Subsystem/Others FM3+ '
+ * '<S51>'  : 'Disconnections/Subsystem/Rigid Axle 2024'
+ * '<S52>'  : 'Disconnections/Subsystem/Rigid Axle with TC 2024'
+ * '<S53>'  : 'Disconnections/Subsystem/Steering TV without TC 2024'
+ * '<S54>'  : 'Disconnections/Subsystem/TV & TC 2024'
  */
 #endif                                 /* RTW_HEADER_Disconnections_h_ */

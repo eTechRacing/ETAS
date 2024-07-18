@@ -7,9 +7,9 @@
  *
  * Code generation for model "Inverters_Data".
  *
- * Model version              : 13.9
+ * Model version              : 13.15
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Fri Jul 12 15:18:16 2024
+ * C source code generated on : Thu Jul 18 16:06:29 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -19,10 +19,11 @@
  */
 
 #include "Inverters_Data.h"
-#include "rt_powd_snf.h"
 #include <math.h>
 #include "rtwtypes.h"
 #include <string.h>
+#include "look1_binlxpw.h"
+#include "Inverters_Data_private.h"
 #include "rt_nonfinite.h"
 
 /* External inputs (root inport signals with default storage) */
@@ -43,43 +44,18 @@ static void Inverters_Data_output(void)
   real_T rtb_RPMtorads;
   real_T rtb_RPMtorads_n;
 
-  /* Sum: '<S5>/Add1' incorporates:
-   *  Constant: '<S5>/A1'
-   *  Constant: '<S5>/B1'
-   *  Constant: '<S5>/C1'
-   *  Constant: '<S5>/Constant1'
+  /* Lookup_n-D: '<S5>/1-D Lookup Table' incorporates:
    *  Inport: '<Root>/Inv_L_RegID_M74_Inv_L_TempIGBT'
-   *  Math: '<S5>/Math Function2'
-   *  Math: '<S5>/Math Function3'
-   *  Product: '<S5>/Product3'
-   *  Product: '<S5>/Product4'
-   *  Product: '<S5>/Product5'
    */
-  rtb_Abs1 = ((Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT *
-               Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT * -6.6188E-6 +
-               rt_powd_snf(Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT, 3.0)
-               * 9.69483E-11) + Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT *
-              0.158535) - 1260.62;
+  rtb_Abs1 = look1_binlxpw(Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT,
+    rtCP_uDLookupTable_bp01Data, rtCP_uDLookupTable_tableData, 99U);
 
-  /* Sum: '<S6>/Add1' incorporates:
-   *  Constant: '<S6>/A1'
-   *  Constant: '<S6>/B1'
-   *  Constant: '<S6>/C1'
-   *  Constant: '<S6>/Constant1'
+  /* Lookup_n-D: '<S6>/1-D Lookup Table' incorporates:
    *  Inport: '<Root>/Inv_R_RegID_M74_Inv_R_TempIGBT'
-   *  Math: '<S6>/Math Function2'
-   *  Math: '<S6>/Math Function3'
-   *  Product: '<S6>/Product3'
-   *  Product: '<S6>/Product4'
-   *  Product: '<S6>/Product5'
    */
-  rtb_RPMtorads_n = ((Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT *
-                      Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT *
-                      -6.6188E-6 + rt_powd_snf
-                      (Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT, 3.0) *
-                      9.69483E-11) +
-                     Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT * 0.158535)
-    - 1260.62;
+  rtb_RPMtorads_n = look1_binlxpw
+    (Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT,
+     rtCP_uDLookupTable_bp01Data_g, rtCP_uDLookupTable_tableData_e, 99U);
 
   /* Outport: '<Root>/Max_Temp_IGBT' incorporates:
    *  MinMax: '<Root>/Max'
@@ -166,7 +142,7 @@ static void Inverters_Data_output(void)
    *  Inport: '<Root>/Inv_R_RegID_M235_Inv_R_DCBus'
    *  MinMax: '<Root>/MinMax'
    */
-  Inverters_Data_Y.InvertersMinDCBus = fmax
+  Inverters_Data_Y.InvertersMinDCBus = fmin
     (Inverters_Data_U.Inv_L_RegID_M235_Inv_L_DCBus,
      Inverters_Data_U.Inv_R_RegID_M235_Inv_R_DCBus);
 }
@@ -325,7 +301,7 @@ RT_MODEL_Inverters_Data_T *Inverters_Data(void)
   Inverters_Data_M->Sizes.numU = (8);  /* Number of model inputs */
   Inverters_Data_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Inverters_Data_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  Inverters_Data_M->Sizes.numBlocks = (51);/* Number of blocks */
+  Inverters_Data_M->Sizes.numBlocks = (31);/* Number of blocks */
   Inverters_Data_M->Sizes.numBlockIO = (0);/* Number of block outputs */
   return Inverters_Data_M;
 }
