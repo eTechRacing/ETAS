@@ -1,4 +1,5 @@
 clear all
+close all
 clc
 
 load("B1654run35.mat")
@@ -14,7 +15,9 @@ hold off
 
 figure()
 hold on
-plot(SR(1342:2047),TSTC(1342:2047),"cyan")
-plot(SR(2048:2769),TSTC(2048:2769),"magenta")
+plot(TSTC(1342:2047),FX(1342:2047)/FZ(1342:2047),"cyan")
+plot(TSTC(2048:2769),FX(2048:2769)/FZ(2048:2769),"magenta")
+ylabel('FX/FZ (N)')
+xlabel('TSTC (Celsius)')
 hold off
 

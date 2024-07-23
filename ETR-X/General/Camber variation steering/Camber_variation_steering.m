@@ -12,6 +12,8 @@ mat= [steering, camber];
 C=@(S) 0.0057*S^3+0.0278*S^2+0.0386*S;
 
 fplot(C,[-pi*8/45,pi*8/45])
+xlabel('Steering angle (radians)')
+ylabel('Camber variation (radians)')
 %{
 Resultats
 Fit Name: untitled fit 1
