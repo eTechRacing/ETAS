@@ -85,7 +85,6 @@ MZ=@(SA)  a0m + a1m*cos(SA*wm) + b1m*sin(SA*wm) + a2m*cos(2*SA*wm) + b2m*sin(2*S
 %Steering-Camber
 C=@(S)0.0057*S^3+0.0278*S^2+0.0386*S; % S=steering input rad
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Inputs
@@ -109,7 +108,7 @@ Wr=g*weight*a/l
 for i = 1:length(SI);
     for j = 1:length(VS);
         Vx(j)=(V/3.6)*cos(VS(j));
-        Vy(j)=(Vx(j))*VS(j); 
+        %Vy(j)=(Vx(j))*VS(j); 
         w(i,j)=0; 
         Ay(i,j)=0;
         for k=1:10     
@@ -159,9 +158,9 @@ for i = 1:length(SI);
             gammarRR(i,j)=abs((gammaR0-0.36842*rollangle(i,j))*pi/180); %rollangle i camber en rad 
           
             %Camber variation with steering increment 
-            gammasFL(i,j)=gammaF0*pi/180+C(SI(i)); % gammaFL rad
-            gammasFR(i,j)=gammaF0*pi/180+C(SI(i)); %gammaFR rad
-            
+            gammasFL(i,j)=-C(SI(i)); % gammaFL rad
+            gammasFR(i,j)=+C(SI(i)); %gammaFR rad
+
             %Total camber
             gammaFL(i,j)=gammarFL(i,j)+gammasFL(i,j);
             gammaFR(i,j)=gammarFR(i,j)+gammasFR(i,j);
@@ -207,7 +206,7 @@ for i = 1:length(SI);
             KyalphaFR(i,j)=PKY1*Fz0*(1+PPY1*dpiFR)*sin(PKY4*atan(FzFR(i,j)/((PKY2+PKY5*gammaFR(i,j)^2)*Fz0*(1+PPY2*dpiFR))))*(1-PKY3*abs(gammaFR(i,j)))*lambdaKyalpha*z3;
             ShygammaFR(i,j)=((Kygamma0FR(i,j)*gammaFR(i,j)-SvygammaFR(i,j))/KyalphaFR(i,j))*z0+z4-1;
             ShyFR(i,j)=Shy0FR(i,j)+ShygammaFR(i,j);
-            alphayFR(i,j)=alphaFR(i,j)+ShyFR(i,j);
+            alphayFR(i,j)=(alphaFR(i,j)+ShyFR(i,j));
             CyFR(i,j)=PCY1*lambdaCy;
             uyFR(i,j)=(PDY1+PDY2*dfzFR(i,j))*(1+PPY3*dpiFR+PPY4*dpiFR^2)*(1-PDY3*gammaFR(i,j)^2)*lambdauy;
             DyFR(i,j)=uyFR(i,j)*FzFR(i,j)*z2;
@@ -259,7 +258,7 @@ for i = 1:length(SI);
             KyalphaRR(i,j)=PKY1*Fz0*(1+PPY1*dpiRR)*sin(PKY4*atan(FzRR(i,j)/((PKY2+PKY5*gammaRR(i,j)^2)*Fz0*(1+PPY2*dpiRR))))*(1-PKY3*abs(gammaRR(i,j)))*lambdaKyalpha*z3;
             ShygammaRR(i,j)=((Kygamma0RR(i,j)*gammaRR(i,j)-SvygammaRR(i,j))/KyalphaRR(i,j))*z0+z4-1;
             ShyRR(i,j)=Shy0RR(i,j)+ShygammaRR(i,j);
-            alphayRR(i,j)=alphaRR(i,j)+ShyRR(i,j);
+            alphayRR(i,j)=(alphaRR(i,j)+ShyRR(i,j));
             CyRR(i,j)=PCY1*lambdaCy;
             uyRR(i,j)=(PDY1+PDY2*dfzRR(i,j))*(1+PPY3*dpiRR+PPY4*dpiRR^2)*(1-PDY3*gammaRR(i,j)^2)*lambdauy;
             DyRR(i,j)=uyRR(i,j)*FzRR(i,j)*z2;
@@ -274,7 +273,7 @@ for i = 1:length(SI);
             
             Izz(i,j)=(a/l)*(FzFL(i,j)+FzFR(i,j))*a^2+(b/l)*(FzRR(i,j)+FzRL(i,j))*b^2;
             %Ay(i,j)=(FyFL(i,j)*(cos(SI(i)))+FyFR(i,j)*(cos(SI(i)))+(FyRR(i,j)+FyRL(i,j)))/(weight*g); %Acceleracio lateral o centripeta en g
-            Ay(i,j)=(FyFL(i,j)*(sin(SI(i)+VS(j)))+FyFR(i,j)*(sin(SI(i)+VS(j)))+(FyRR(i,j)+FyRL(i,j)))/(weight*g); %Acceleracio lateral o centripeta en g
+            Ay(i,j)=(FyFL(i,j)*(cos(SI(i)+VS(j)))+FyFR(i,j)*(cos(SI(i)+VS(j)))+(FyRR(i,j)+FyRL(i,j)))/(weight*g); %Acceleracio lateral o centripeta en g (we are not sure the cosinusare ok, but it works better)
             %YawMoment(i,j)=(FyFL(i,j).*cos(SI(i))+FyFR(i,j).*cos(SI(i)))*a-(FyRR(i,j)+FyRL(i,j))*b+MZ(alphaFL(i,j))+MZ(alphaFR(i,j))+MZ(alphaRL(i,j))+MZ(alphaRR(i,j));
             YawMoment(i,j)=(FyFL(i,j).*sin(SI(i)+VS(j))+FyFR(i,j).*sin(SI(i)+VS(j)))*a-(FyRR(i,j)+FyRL(i,j))*b-MZ(alphaFL(i,j))-MZ(alphaFR(i,j))-MZ(alphaRL(i,j))-MZ(alphaRR(i,j));
             w(i,j)=Ay(i,j)*g/(V/3.6);
