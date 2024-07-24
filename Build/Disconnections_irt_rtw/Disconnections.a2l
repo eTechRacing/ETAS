@@ -8,9 +8,9 @@
  *
  * Code generation for model "Disconnections".
  *
- * Model version              : 13.10
+ * Model version              : 13.24
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Thu Jul 18 20:19:19 2024
+ * C source code generated on : Thu Jul 25 00:21:01 2024
  * 
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1056,6 +1056,29 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      Counter1 ""
+      /begin SUB_FUNCTION
+        Data_Store_Memory
+        Counting
+        Reset_counter
+        Constant
+        Data_Store_Read
+        Data_Store_Write
+        If
+        Merge3
+        Add
+        Scope
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       ECU_Disconections ""
       /begin SUB_FUNCTION
         DocBlock
@@ -1101,35 +1124,17 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Pedal_Box_Disconnections__Noise_ ""
+      Sensor_Disconnections__Noise_ ""
       /begin SUB_FUNCTION
         DocBlock
-        Life_check1
-        Life_check2
-        Life_check3
-        Number_of_periods
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Signal_Disconnections ""
-      /begin SUB_FUNCTION
-        Compare_To_Zero
-        Compare_To_Zero1
-        Compare_To_Zero2
-        Compare_To_Zero3
-        Compare_To_Zero4
+        Life_check_APPS1
+        Life_check_APPS2
+        Life_check_Brake
+        Life_check_Steer
+        Life_check_SuspFL
+        Life_check_SuspFR
+        Life_check_SuspRL
+        Life_check_SuspRR
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -1139,8 +1144,16 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         
         
         
+        
+        
+        
+        
+        
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
+        
+        
         
         
         
@@ -1190,7 +1203,28 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      Periods1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       If ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If1 ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -1247,6 +1281,119 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
         
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Data_Store_Memory ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Counting ""
+      /begin SUB_FUNCTION
+        In1
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Reset_counter ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Data_Store_Read ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Data_Store_Write ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge3 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Add ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Scope ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
@@ -1533,20 +1680,16 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Life_check1 ""
+      Life_check_APPS1 ""
       /begin SUB_FUNCTION
-        Data_Store_Memory
-        Data_Store_Memory1
-        CAN_OK
-        Error_Counter
-        Signal_Failure
-        Signal_OK
-        Data_Store_Read
-        Data_Store_Write
+        If_Action_Subsystem
+        If_Action_Subsystem1
+        If_Action_Subsystem2
+        If_Action_Subsystem3
+        threshold_high
+        threshold_low
         If
-        If2
         Merge
-        Merge1
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -1559,20 +1702,16 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Life_check2 ""
+      Life_check_APPS2 ""
       /begin SUB_FUNCTION
-        Data_Store_Memory
-        Data_Store_Memory1
-        CAN_OK
-        Error_Counter
-        Signal_Failure
-        Signal_OK
-        Data_Store_Read
-        Data_Store_Write
+        If_Action_Subsystem
+        If_Action_Subsystem1
+        If_Action_Subsystem2
+        If_Action_Subsystem3
+        threshold_high
+        threshold_low
         If
-        If1
         Merge
-        Merge1
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -1585,20 +1724,16 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Life_check3 ""
+      Life_check_Brake ""
       /begin SUB_FUNCTION
-        Data_Store_Memory
-        Data_Store_Memory1
-        CAN_OK
-        Error_Counter
-        Signal_Failure
-        Signal_OK
-        Data_Store_Read
-        Data_Store_Write
+        If_Action_Subsystem
+        If_Action_Subsystem1
+        If_Action_Subsystem2
+        If_Action_Subsystem3
+        threshold_high
+        threshold_low
         If
-        If1
         Merge
-        Merge1
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -1611,24 +1746,21 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Number_of_periods ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Compare_To_Zero ""
+      Life_check_Steer ""
       /begin SUB_FUNCTION
-        Constant
-        Compare
+        If_Action_Subsystem
+        If_Action_Subsystem1
+        If_Action_Subsystem2
+        If_Action_Subsystem3
+        threshold_high
+        threshold_low
+        If
+        Merge
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
+        
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
@@ -1636,14 +1768,21 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Compare_To_Zero1 ""
+      Life_check_SuspFL ""
       /begin SUB_FUNCTION
-        Constant
-        Compare
+        If_Action_Subsystem
+        If_Action_Subsystem1
+        If_Action_Subsystem2
+        If_Action_Subsystem3
+        threshold_high
+        threshold_low
+        If
+        Merge
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
+        
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
@@ -1651,14 +1790,21 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Compare_To_Zero2 ""
+      Life_check_SuspFR ""
       /begin SUB_FUNCTION
-        Constant
-        Compare
+        If_Action_Subsystem
+        If_Action_Subsystem1
+        If_Action_Subsystem2
+        If_Action_Subsystem3
+        threshold_high
+        threshold_low
+        If
+        Merge
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
+        
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
@@ -1666,14 +1812,21 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Compare_To_Zero3 ""
+      Life_check_SuspRL ""
       /begin SUB_FUNCTION
-        Constant
-        Compare
+        If_Action_Subsystem
+        If_Action_Subsystem1
+        If_Action_Subsystem2
+        If_Action_Subsystem3
+        threshold_high
+        threshold_low
+        If
+        Merge
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
+        
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
@@ -1681,14 +1834,21 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Compare_To_Zero4 ""
+      Life_check_SuspRR ""
       /begin SUB_FUNCTION
-        Constant
-        Compare
+        If_Action_Subsystem
+        If_Action_Subsystem1
+        If_Action_Subsystem2
+        If_Action_Subsystem3
+        threshold_high
+        threshold_low
+        If
+        Merge
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
+        
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
@@ -1887,6 +2047,27 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin IN_MEASUREMENT
         
         
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      In1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
         
@@ -2316,55 +2497,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Data_Store_Memory ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Data_Store_Memory1 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      CAN_OK ""
-      /begin SUB_FUNCTION
-        Constant
-        Data_Store_Write
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Error_Counter ""
-      /begin SUB_FUNCTION
-        Constant
-        Data_Store_Read1
-        Add
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Signal_Failure ""
+      If_Action_Subsystem ""
       /begin SUB_FUNCTION
         Constant
       /end SUB_FUNCTION
@@ -2377,7 +2510,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Signal_OK ""
+      If_Action_Subsystem1 ""
       /begin SUB_FUNCTION
         Constant
       /end SUB_FUNCTION
@@ -2390,7 +2523,10 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Data_Store_Read ""
+      If_Action_Subsystem2 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -2400,13 +2536,36 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Data_Store_Write ""
+      If_Action_Subsystem3 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
-        
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      threshold_high ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      threshold_low ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
@@ -2416,21 +2575,12 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin IN_MEASUREMENT
         
         
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      If2 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
         
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
+        
         
         
       /end OUT_MEASUREMENT
@@ -2442,16 +2592,6 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin IN_MEASUREMENT
         
         
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Merge1 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
         
         
       /end IN_MEASUREMENT
@@ -2460,55 +2600,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Data_Store_Memory ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Data_Store_Memory1 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      CAN_OK ""
-      /begin SUB_FUNCTION
-        Constant
-        Data_Store_Write
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Error_Counter ""
-      /begin SUB_FUNCTION
-        Constant
-        Data_Store_Read1
-        Add
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Signal_Failure ""
+      If_Action_Subsystem ""
       /begin SUB_FUNCTION
         Constant
       /end SUB_FUNCTION
@@ -2521,7 +2613,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Signal_OK ""
+      If_Action_Subsystem1 ""
       /begin SUB_FUNCTION
         Constant
       /end SUB_FUNCTION
@@ -2534,7 +2626,10 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Data_Store_Read ""
+      If_Action_Subsystem2 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -2544,13 +2639,36 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Data_Store_Write ""
+      If_Action_Subsystem3 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
-        
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      threshold_high ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      threshold_low ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
@@ -2560,21 +2678,12 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin IN_MEASUREMENT
         
         
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      If1 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
         
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
+        
         
         
       /end OUT_MEASUREMENT
@@ -2586,16 +2695,6 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin IN_MEASUREMENT
         
         
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Merge1 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
         
         
       /end IN_MEASUREMENT
@@ -2604,55 +2703,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Data_Store_Memory ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Data_Store_Memory1 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      CAN_OK ""
-      /begin SUB_FUNCTION
-        Constant
-        Data_Store_Write
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Error_Counter ""
-      /begin SUB_FUNCTION
-        Constant
-        Data_Store_Read1
-        Add
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Signal_Failure ""
+      If_Action_Subsystem ""
       /begin SUB_FUNCTION
         Constant
       /end SUB_FUNCTION
@@ -2665,7 +2716,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Signal_OK ""
+      If_Action_Subsystem1 ""
       /begin SUB_FUNCTION
         Constant
       /end SUB_FUNCTION
@@ -2678,7 +2729,10 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Data_Store_Read ""
+      If_Action_Subsystem2 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -2688,13 +2742,36 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Data_Store_Write ""
+      If_Action_Subsystem3 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
-        
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      threshold_high ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      threshold_low ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
@@ -2704,21 +2781,12 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin IN_MEASUREMENT
         
         
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      If1 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
         
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
+        
         
         
       /end OUT_MEASUREMENT
@@ -2730,16 +2798,6 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin IN_MEASUREMENT
         
         
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Merge1 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
         
         
       /end IN_MEASUREMENT
@@ -2748,7 +2806,10 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Constant ""
+      If_Action_Subsystem ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -2758,19 +2819,10 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Compare ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Constant ""
+      If_Action_Subsystem1 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -2780,19 +2832,10 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Compare ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Constant ""
+      If_Action_Subsystem2 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -2802,19 +2845,10 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Compare ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Constant ""
+      If_Action_Subsystem3 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -2824,19 +2858,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Compare ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Constant ""
+      threshold_high ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -2846,10 +2868,451 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Compare ""
+      threshold_low ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem1 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem2 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem3 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      threshold_high ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      threshold_low ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem1 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem2 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem3 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      threshold_high ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      threshold_low ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem1 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem2 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem3 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      threshold_high ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      threshold_low ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem1 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem2 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem3 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      threshold_high ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      threshold_low ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
         
         
       /end IN_MEASUREMENT
@@ -3091,13 +3554,13 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Data_Store_Write ""
+      Constant ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
-        
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
@@ -3111,22 +3574,10 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Data_Store_Read1 ""
+      Constant ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Add ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
         
@@ -3163,13 +3614,13 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Data_Store_Write ""
+      Constant ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
-        
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
@@ -3183,22 +3634,10 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Data_Store_Read1 ""
+      Constant ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Add ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
         
@@ -3235,13 +3674,13 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Data_Store_Write ""
+      Constant ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
-        
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
@@ -3255,7 +3694,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Data_Store_Read1 ""
+      Constant ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -3265,12 +3704,140 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Add ""
+      Constant ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
         
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
         
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
         

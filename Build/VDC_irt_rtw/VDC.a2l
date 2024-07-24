@@ -8,9 +8,9 @@
  *
  * Code generation for model "VDC".
  *
- * Model version              : 4.171
+ * Model version              : 4.174
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Thu Jul 18 16:07:54 2024
+ * C source code generated on : Thu Jul 25 00:23:36 2024
  * 
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1613,7 +1613,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       RIGIDAXLE ""
       /begin SUB_FUNCTION
         Rigid_Axle_2024_
-        Constant
+        RigidAxle
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -1630,7 +1630,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       RIGIDAXLE_WITH_TC ""
       /begin SUB_FUNCTION
         Rigid_Axle_with_TC_2024_
-        Constant
+        RigidAxleTC
         Max
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
@@ -1736,7 +1736,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       RIGIDAXLE ""
       /begin SUB_FUNCTION
         Rigid_Axle_2024_
-        Constant
+        RigidAxle
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -1753,7 +1753,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       RIGIDAXLE_WITH_TC ""
       /begin SUB_FUNCTION
         Rigid_Axle_with_TC_2024_
-        Constant
+        RigidAxleTC
         Max
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
@@ -1776,7 +1776,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin SUB_FUNCTION
         MATLAB_Function
         Rigid_Axle_with_TC_2024_
-        Constant
+        TV_TC
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -1908,7 +1908,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       RIGIDAXLE ""
       /begin SUB_FUNCTION
         Rigid_Axle_2024_
-        Constant
+        RigidAxle
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -1925,7 +1925,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       RIGIDAXLE_WITH_TC ""
       /begin SUB_FUNCTION
         Rigid_Axle_with_TC_2024_
-        Constant
+        RigidAxleTC
         Max
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
@@ -1948,7 +1948,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin SUB_FUNCTION
         MATLAB_Function
         TC_2024
-        Constant1
+        TV_TC
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -2233,7 +2233,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       RIGIDAXLE ""
       /begin SUB_FUNCTION
         Rigid_Axle_2024_
-        Constant
+        RigidAxle
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -2251,7 +2251,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin SUB_FUNCTION
         MATLAB_Function
         Rigid_Axle_with_TC_2024_
-        Constant
+        TV_TC
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -2275,7 +2275,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       TV_with_TC_OFF_ ""
       /begin SUB_FUNCTION
         MATLAB_Function
-        Constant
+        SteeringTV
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -2520,7 +2520,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Constant ""
+      RigidAxle ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -2545,7 +2545,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Constant ""
+      RigidAxleTC ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -2579,7 +2579,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Constant ""
+      RigidAxle ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -2604,7 +2604,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Constant ""
+      RigidAxleTC ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -2658,7 +2658,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Constant ""
+      TV_TC ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -2680,7 +2680,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Constant ""
+      RigidAxle ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -2705,7 +2705,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Constant ""
+      RigidAxleTC ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -2760,7 +2760,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Constant1 ""
+      TV_TC ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -3146,7 +3146,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Constant ""
+      RigidAxle ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -3188,7 +3188,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Constant ""
+      TV_TC ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -3213,7 +3213,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Constant ""
+      SteeringTV ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT

@@ -22,9 +22,9 @@
 	<moduleInfo identifier="Disconnections">
 		<name>Disconnections</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Disconnections.slx&quot;"/>
-		<version major="13" minor="10"/>
+		<version major="13" minor="24"/>
 		<dateTime kind="created" year="2021" month="2" day="17" hour="16" minute="42" second="47"/>
-		<dateTime kind="lastModified" year="2024" month="7" day="18" hour="20" minute="18" second="0"/>
+		<dateTime kind="lastModified" year="2024" month="7" day="24" hour="23" minute="50" second="56"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="7" day="18" hour="20" minute="19" second="19"/>
+		<dateTime kind="created" year="2024" month="7" day="25" hour="0" minute="21" second="1"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -167,7 +167,43 @@
 						<documentation>&lt;Root&gt;/Opaque</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Merge_j">
+				<structMember identifier="Merge_e">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Merge_ed">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Merge_d">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Merge_n">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Merge_k">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Merge_p">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Merge_kw">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Opaque</documentation>
@@ -179,7 +215,19 @@
 						<documentation>&lt;Root&gt;/Opaque</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Merge_d">
+				<structMember identifier="Merge_j">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Merge_go">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Merge_dt">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Opaque</documentation>
@@ -311,31 +359,31 @@
 					</annotation>
 				</structMember>
 				<structMember identifier="Disconnection_SteeringSensor">
-					<type><typeRef name="uint8_T"/></type>
+					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Disconnection_SteeringSensor</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="Disconnection_Susp_F_L">
-					<type><typeRef name="uint8_T"/></type>
+					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Disconnection_Susp_F_L</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="Disconnection_Susp_F_R">
-					<type><typeRef name="uint8_T"/></type>
+					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Disconnection_Susp_F_R</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="Disconnection_Susp_R_L">
-					<type><typeRef name="uint8_T"/></type>
+					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Disconnection_Susp_R_L</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="Disconnection_Susp_R_R">
-					<type><typeRef name="uint8_T"/></type>
+					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Disconnection_Susp_R_R</documentation>
 					</annotation>
@@ -407,43 +455,13 @@
 						<documentation>State information for 'dsmMem'.</documentation>
 					</annotation>
 				</structMember>
+				<structMember identifier="A_o">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'dsmMem'.</documentation>
+					</annotation>
+				</structMember>
 				<structMember identifier="Last_alive">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>State information for 'dsmMem'.</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Tot_Errors">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>State information for 'dsmMem'.</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Last_alive_e">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>State information for 'dsmMem'.</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Tot_Errors_h">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>State information for 'dsmMem'.</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Last_alive_o">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>State information for 'dsmMem'.</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Tot_Errors_f">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>State information for 'dsmMem'.</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Last_alive_g">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>State information for 'dsmMem'.</documentation>
@@ -524,15 +542,6 @@
 					<documentation>Q = V</documentation>
 				</annotation>
 			</conversion>
-			<conversion name="Disconnections_CM_uint8">
-				<rationalFunction>
-					<numerator bx="1.0"/>
-					<denominator f="1.0"/>
-				</rationalFunction>
-				<annotation>
-					<documentation>Q = V</documentation>
-				</annotation>
-			</conversion>
 		</definitions>
 		<!-- rtP parameters following -->
 		<!-- Constant parameters following -->
@@ -552,10 +561,290 @@
 				<modelLink href="Disconnections/Opaque"/>
 				<modelLocation>
 					<pathNode name="Disconnections" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Sensor Disconnections (Noise)" kind="mlsl:subsystem"/>
+					<pathNode name="Life_check_APPS1" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Merge" kind="mlsl:block"/>
+					<pathNode name="Merge" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Disconnections_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Disconnections_B.Merge_e">
+				<definitionLocation>
+					<baseRef identifier="Disconnections_B"/>
+					<memberRef identifier="Merge_e"/>
+				</definitionLocation>
+				<fileOrigin name="Disconnections.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Disconnections.Opaque.Merge_e">
+				<name>Merge_e</name>
+				<modelLink href="Disconnections/Opaque"/>
+				<modelLocation>
+					<pathNode name="Disconnections" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Sensor Disconnections (Noise)" kind="mlsl:subsystem"/>
+					<pathNode name="Life_check_APPS2" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Merge" kind="mlsl:block"/>
+					<pathNode name="Merge_e" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Disconnections_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Disconnections_B.Merge_ed">
+				<definitionLocation>
+					<baseRef identifier="Disconnections_B"/>
+					<memberRef identifier="Merge_ed"/>
+				</definitionLocation>
+				<fileOrigin name="Disconnections.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Disconnections.Opaque.Merge_ed">
+				<name>Merge_ed</name>
+				<modelLink href="Disconnections/Opaque"/>
+				<modelLocation>
+					<pathNode name="Disconnections" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Sensor Disconnections (Noise)" kind="mlsl:subsystem"/>
+					<pathNode name="Life_check_Brake" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Merge" kind="mlsl:block"/>
+					<pathNode name="Merge_ed" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Disconnections_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Disconnections_B.Merge_d">
+				<definitionLocation>
+					<baseRef identifier="Disconnections_B"/>
+					<memberRef identifier="Merge_d"/>
+				</definitionLocation>
+				<fileOrigin name="Disconnections.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Disconnections.Opaque.Merge_d">
+				<name>Merge_d</name>
+				<modelLink href="Disconnections/Opaque"/>
+				<modelLocation>
+					<pathNode name="Disconnections" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Sensor Disconnections (Noise)" kind="mlsl:subsystem"/>
+					<pathNode name="Life_check_Steer" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Merge" kind="mlsl:block"/>
+					<pathNode name="Merge_d" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Disconnections_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Disconnections_B.Merge_n">
+				<definitionLocation>
+					<baseRef identifier="Disconnections_B"/>
+					<memberRef identifier="Merge_n"/>
+				</definitionLocation>
+				<fileOrigin name="Disconnections.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Disconnections.Opaque.Merge_n">
+				<name>Merge_n</name>
+				<modelLink href="Disconnections/Opaque"/>
+				<modelLocation>
+					<pathNode name="Disconnections" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Sensor Disconnections (Noise)" kind="mlsl:subsystem"/>
+					<pathNode name="Life_check_SuspFL" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Merge" kind="mlsl:block"/>
+					<pathNode name="Merge_n" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Disconnections_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Disconnections_B.Merge_k">
+				<definitionLocation>
+					<baseRef identifier="Disconnections_B"/>
+					<memberRef identifier="Merge_k"/>
+				</definitionLocation>
+				<fileOrigin name="Disconnections.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Disconnections.Opaque.Merge_k">
+				<name>Merge_k</name>
+				<modelLink href="Disconnections/Opaque"/>
+				<modelLocation>
+					<pathNode name="Disconnections" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Sensor Disconnections (Noise)" kind="mlsl:subsystem"/>
+					<pathNode name="Life_check_SuspFR" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Merge" kind="mlsl:block"/>
+					<pathNode name="Merge_k" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Disconnections_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Disconnections_B.Merge_p">
+				<definitionLocation>
+					<baseRef identifier="Disconnections_B"/>
+					<memberRef identifier="Merge_p"/>
+				</definitionLocation>
+				<fileOrigin name="Disconnections.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Disconnections.Opaque.Merge_p">
+				<name>Merge_p</name>
+				<modelLink href="Disconnections/Opaque"/>
+				<modelLocation>
+					<pathNode name="Disconnections" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Sensor Disconnections (Noise)" kind="mlsl:subsystem"/>
+					<pathNode name="Life_check_SuspRL" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Merge" kind="mlsl:block"/>
+					<pathNode name="Merge_p" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Disconnections_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Disconnections_B.Merge_kw">
+				<definitionLocation>
+					<baseRef identifier="Disconnections_B"/>
+					<memberRef identifier="Merge_kw"/>
+				</definitionLocation>
+				<fileOrigin name="Disconnections.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Disconnections.Opaque.Merge_kw">
+				<name>Merge_kw</name>
+				<modelLink href="Disconnections/Opaque"/>
+				<modelLocation>
+					<pathNode name="Disconnections" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Sensor Disconnections (Noise)" kind="mlsl:subsystem"/>
+					<pathNode name="Life_check_SuspRR" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Merge" kind="mlsl:block"/>
+					<pathNode name="Merge_kw" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Disconnections_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Disconnections_B.Merge_g">
+				<definitionLocation>
+					<baseRef identifier="Disconnections_B"/>
+					<memberRef identifier="Merge_g"/>
+				</definitionLocation>
+				<fileOrigin name="Disconnections.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Disconnections.Opaque.Merge_g">
+				<name>Merge_g</name>
+				<modelLink href="Disconnections/Opaque"/>
+				<modelLocation>
+					<pathNode name="Disconnections" kind="mlsl:model" type="atomic"/>
 					<pathNode name="ECU Disconections" kind="mlsl:subsystem"/>
 					<pathNode name="LifeCheck_BMS" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Merge" kind="mlsl:block"/>
-					<pathNode name="Merge" kind="mlsl:signal"/>
+					<pathNode name="Merge_g" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
@@ -610,22 +899,22 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Disconnections_B.Merge_g">
+			<dataCInterface identifier="Disconnections_B.Merge_go">
 				<definitionLocation>
 					<baseRef identifier="Disconnections_B"/>
-					<memberRef identifier="Merge_g"/>
+					<memberRef identifier="Merge_go"/>
 				</definitionLocation>
 				<fileOrigin name="Disconnections.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Disconnections.Opaque.Merge_g">
-				<name>Merge_g</name>
+			<modelOrigin identifier="Disconnections.Opaque.Merge_go">
+				<name>Merge_go</name>
 				<modelLink href="Disconnections/Opaque"/>
 				<modelLocation>
 					<pathNode name="Disconnections" kind="mlsl:model" type="atomic"/>
 					<pathNode name="ECU Disconections" kind="mlsl:subsystem"/>
 					<pathNode name="LifeCheck_AccFront" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Merge" kind="mlsl:block"/>
-					<pathNode name="Merge_g" kind="mlsl:signal"/>
+					<pathNode name="Merge_go" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
@@ -645,22 +934,22 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Disconnections_B.Merge_d">
+			<dataCInterface identifier="Disconnections_B.Merge_dt">
 				<definitionLocation>
 					<baseRef identifier="Disconnections_B"/>
-					<memberRef identifier="Merge_d"/>
+					<memberRef identifier="Merge_dt"/>
 				</definitionLocation>
 				<fileOrigin name="Disconnections.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Disconnections.Opaque.Merge_d">
-				<name>Merge_d</name>
+			<modelOrigin identifier="Disconnections.Opaque.Merge_dt">
+				<name>Merge_dt</name>
 				<modelLink href="Disconnections/Opaque"/>
 				<modelLocation>
 					<pathNode name="Disconnections" kind="mlsl:model" type="atomic"/>
 					<pathNode name="ECU Disconections" kind="mlsl:subsystem"/>
 					<pathNode name="Life_check4" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Merge" kind="mlsl:block"/>
-					<pathNode name="Merge_d" kind="mlsl:signal"/>
+					<pathNode name="Merge_dt" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
@@ -752,6 +1041,40 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Disconnections_DW.A_o">
+				<definitionLocation>
+					<baseRef identifier="Disconnections_DW"/>
+					<memberRef identifier="A_o"/>
+				</definitionLocation>
+				<fileOrigin name="Disconnections.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Disconnections.Opaque.A_o">
+				<name>A_o</name>
+				<modelLink href="Disconnections/Opaque"/>
+				<modelLocation>
+					<pathNode name="Disconnections" kind="mlsl:model"/>
+					<pathNode name="Counter1" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Data Store Memory" kind="mlsl:block"/>
+					<pathNode name="A_o" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Disconnections_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
 			<dataCInterface identifier="Disconnections_DW.Last_alive">
 				<definitionLocation>
 					<baseRef identifier="Disconnections_DW"/>
@@ -763,221 +1086,11 @@
 				<name>Last_alive</name>
 				<modelLink href="Disconnections/Opaque"/>
 				<modelLocation>
-					<pathNode name="Disconnections" kind="mlsl:model"/>
-					<pathNode name="Pedal Box Disconnections (Noise)" kind="mlsl:subsystem"/>
-					<pathNode name="Life_check1" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Data Store Memory" kind="mlsl:block"/>
-					<pathNode name="Last_alive" kind="mlsl:signal"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="private">
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Disconnections_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Disconnections_DW.Tot_Errors">
-				<definitionLocation>
-					<baseRef identifier="Disconnections_DW"/>
-					<memberRef identifier="Tot_Errors"/>
-				</definitionLocation>
-				<fileOrigin name="Disconnections.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Disconnections.Opaque.Tot_Errors">
-				<name>Tot_Errors</name>
-				<modelLink href="Disconnections/Opaque"/>
-				<modelLocation>
-					<pathNode name="Disconnections" kind="mlsl:model"/>
-					<pathNode name="Pedal Box Disconnections (Noise)" kind="mlsl:subsystem"/>
-					<pathNode name="Life_check1" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Data Store Memory1" kind="mlsl:block"/>
-					<pathNode name="Tot_Errors" kind="mlsl:signal"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="private">
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Disconnections_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Disconnections_DW.Last_alive_e">
-				<definitionLocation>
-					<baseRef identifier="Disconnections_DW"/>
-					<memberRef identifier="Last_alive_e"/>
-				</definitionLocation>
-				<fileOrigin name="Disconnections.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Disconnections.Opaque.Last_alive_e">
-				<name>Last_alive_e</name>
-				<modelLink href="Disconnections/Opaque"/>
-				<modelLocation>
-					<pathNode name="Disconnections" kind="mlsl:model"/>
-					<pathNode name="Pedal Box Disconnections (Noise)" kind="mlsl:subsystem"/>
-					<pathNode name="Life_check2" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Data Store Memory" kind="mlsl:block"/>
-					<pathNode name="Last_alive_e" kind="mlsl:signal"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="private">
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Disconnections_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Disconnections_DW.Tot_Errors_h">
-				<definitionLocation>
-					<baseRef identifier="Disconnections_DW"/>
-					<memberRef identifier="Tot_Errors_h"/>
-				</definitionLocation>
-				<fileOrigin name="Disconnections.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Disconnections.Opaque.Tot_Errors_h">
-				<name>Tot_Errors_h</name>
-				<modelLink href="Disconnections/Opaque"/>
-				<modelLocation>
-					<pathNode name="Disconnections" kind="mlsl:model"/>
-					<pathNode name="Pedal Box Disconnections (Noise)" kind="mlsl:subsystem"/>
-					<pathNode name="Life_check2" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Data Store Memory1" kind="mlsl:block"/>
-					<pathNode name="Tot_Errors_h" kind="mlsl:signal"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="private">
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Disconnections_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Disconnections_DW.Last_alive_o">
-				<definitionLocation>
-					<baseRef identifier="Disconnections_DW"/>
-					<memberRef identifier="Last_alive_o"/>
-				</definitionLocation>
-				<fileOrigin name="Disconnections.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Disconnections.Opaque.Last_alive_o">
-				<name>Last_alive_o</name>
-				<modelLink href="Disconnections/Opaque"/>
-				<modelLocation>
-					<pathNode name="Disconnections" kind="mlsl:model"/>
-					<pathNode name="Pedal Box Disconnections (Noise)" kind="mlsl:subsystem"/>
-					<pathNode name="Life_check3" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Data Store Memory" kind="mlsl:block"/>
-					<pathNode name="Last_alive_o" kind="mlsl:signal"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="private">
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Disconnections_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Disconnections_DW.Tot_Errors_f">
-				<definitionLocation>
-					<baseRef identifier="Disconnections_DW"/>
-					<memberRef identifier="Tot_Errors_f"/>
-				</definitionLocation>
-				<fileOrigin name="Disconnections.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Disconnections.Opaque.Tot_Errors_f">
-				<name>Tot_Errors_f</name>
-				<modelLink href="Disconnections/Opaque"/>
-				<modelLocation>
-					<pathNode name="Disconnections" kind="mlsl:model"/>
-					<pathNode name="Pedal Box Disconnections (Noise)" kind="mlsl:subsystem"/>
-					<pathNode name="Life_check3" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Data Store Memory1" kind="mlsl:block"/>
-					<pathNode name="Tot_Errors_f" kind="mlsl:signal"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="private">
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Disconnections_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Disconnections_DW.Last_alive_g">
-				<definitionLocation>
-					<baseRef identifier="Disconnections_DW"/>
-					<memberRef identifier="Last_alive_g"/>
-				</definitionLocation>
-				<fileOrigin name="Disconnections.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Disconnections.Opaque.Last_alive_g">
-				<name>Last_alive_g</name>
-				<modelLink href="Disconnections/Opaque"/>
-				<modelLocation>
 					<pathNode name="Disconnections" kind="mlsl:model" type="atomic"/>
 					<pathNode name="ECU Disconections" kind="mlsl:subsystem"/>
 					<pathNode name="LifeCheck_BMS" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Data Store Memory" kind="mlsl:block"/>
-					<pathNode name="Last_alive_g" kind="mlsl:signal"/>
+					<pathNode name="Last_alive" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
@@ -1683,12 +1796,12 @@
 				<modelKind kind="variable" visibility="public">
 					<flowDirection out="true"/>
 				</modelKind>
-				<modelType type="discrete" signedness="unsigned">
-					<valueRange min="0.0" max="255.0"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 			</modelOrigin>
 			<implementation>
-				<conversionRef name="Disconnections_CM_uint8"/>
+				<conversionRef name="Disconnections_CM_double"/>
 			</implementation>
 			<usage measurement="true">
 				<address kind="pseudo">
@@ -1714,12 +1827,12 @@
 				<modelKind kind="variable" visibility="public">
 					<flowDirection out="true"/>
 				</modelKind>
-				<modelType type="discrete" signedness="unsigned">
-					<valueRange min="0.0" max="255.0"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 			</modelOrigin>
 			<implementation>
-				<conversionRef name="Disconnections_CM_uint8"/>
+				<conversionRef name="Disconnections_CM_double"/>
 			</implementation>
 			<usage measurement="true">
 				<address kind="pseudo">
@@ -1745,12 +1858,12 @@
 				<modelKind kind="variable" visibility="public">
 					<flowDirection out="true"/>
 				</modelKind>
-				<modelType type="discrete" signedness="unsigned">
-					<valueRange min="0.0" max="255.0"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 			</modelOrigin>
 			<implementation>
-				<conversionRef name="Disconnections_CM_uint8"/>
+				<conversionRef name="Disconnections_CM_double"/>
 			</implementation>
 			<usage measurement="true">
 				<address kind="pseudo">
@@ -1776,12 +1889,12 @@
 				<modelKind kind="variable" visibility="public">
 					<flowDirection out="true"/>
 				</modelKind>
-				<modelType type="discrete" signedness="unsigned">
-					<valueRange min="0.0" max="255.0"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 			</modelOrigin>
 			<implementation>
-				<conversionRef name="Disconnections_CM_uint8"/>
+				<conversionRef name="Disconnections_CM_double"/>
 			</implementation>
 			<usage measurement="true">
 				<address kind="pseudo">
@@ -1807,12 +1920,12 @@
 				<modelKind kind="variable" visibility="public">
 					<flowDirection out="true"/>
 				</modelKind>
-				<modelType type="discrete" signedness="unsigned">
-					<valueRange min="0.0" max="255.0"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 			</modelOrigin>
 			<implementation>
-				<conversionRef name="Disconnections_CM_uint8"/>
+				<conversionRef name="Disconnections_CM_double"/>
 			</implementation>
 			<usage measurement="true">
 				<address kind="pseudo">

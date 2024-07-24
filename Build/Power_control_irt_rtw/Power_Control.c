@@ -7,9 +7,9 @@
  *
  * Code generation for model "Power_Control".
  *
- * Model version              : 4.30
+ * Model version              : 4.31
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Thu Jul 18 16:06:54 2024
+ * C source code generated on : Thu Jul 25 00:22:23 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -290,11 +290,12 @@ static void Power_Control_output(void)
     Power_Control_B.sf_MotorR_Temp_Limitation.Current_out;
 
   /* Product: '<S1>/Product' incorporates:
+   *  Gain: '<S1>/Gain'
    *  Inport: '<Root>/Accumulator_Current'
    *  Inport: '<Root>/Accumulator_Voltage'
    */
   rtb_Product = Power_Control_U.Accumulator_Voltage *
-    Power_Control_U.Accumulator_Current;
+    -Power_Control_U.Accumulator_Current;
 
   /* Outport: '<Root>/Power' incorporates:
    *  Constant: '<S9>/0-100 to 0-2'
@@ -542,7 +543,7 @@ RT_MODEL_Power_Control_T *Power_Control(void)
   Power_Control_M->Sizes.numU = (8);   /* Number of model inputs */
   Power_Control_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Power_Control_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  Power_Control_M->Sizes.numBlocks = (40);/* Number of blocks */
+  Power_Control_M->Sizes.numBlocks = (41);/* Number of blocks */
   Power_Control_M->Sizes.numBlockIO = (4);/* Number of block outputs */
   return Power_Control_M;
 }
