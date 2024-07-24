@@ -20,6 +20,7 @@
 #undef true
 #include "../a_basdef.h"
 #include "Ellipse_instances.h"
+extern    B_Ellipse_T Ellipse_B;
 extern    ExtU_Ellipse_T Ellipse_U;
 extern    ExtY_Ellipse_T Ellipse_Y;
 /* Initialization of Simulink model */
@@ -36,16 +37,20 @@ struct RTWTop_Ellipse_Obj *initModel_RTWTop_Ellipse(void)
 void initClass_RTWTop_Ellipse(struct RTWTop_Ellipse_Class *self)
 {
     /* Level 1 class variables */
-    self->RTWWrapper_Ellipse_U_el_AUTO_STATUS_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_AUTO_STATUS, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Ellipse_U_el_AngleTrack_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_AngleTrack, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Ellipse_U_el_CurvatureRadius_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_CurvatureRadius, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Ellipse_B_Merge_Ptr = initInstance_scalarWrapper((void*)&Ellipse_B.Merge, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Ellipse_U_el_LATITUDE_EKF_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_LATITUDE_EKF, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Ellipse_U_el_LONGITUDE_EKF_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_LONGITUDE_EKF, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Ellipse_Y_CurvRadius_Ptr = initInstance_scalarWrapper((void*)&Ellipse_Y.CurvRadius, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Ellipse_Y_Lat_EKF_Ptr = initInstance_scalarWrapper((void*)&Ellipse_Y.Lat_EKF, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Ellipse_Y_Long_EKF_Ptr = initInstance_scalarWrapper((void*)&Ellipse_Y.Long_EKF, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Ellipse_Y_Status_Auto_Ptr = initInstance_scalarWrapper((void*)&Ellipse_Y.Status_Auto, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Ellipse_Y_TrackAngle_Ptr = initInstance_scalarWrapper((void*)&Ellipse_Y.TrackAngle, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Ellipse_U_el_SolutionMode_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_SolutionMode, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Ellipse_U_el_Vel_EKF_Valid_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_Vel_EKF_Valid, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Ellipse_U_el_Vel_EKF_X_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_Vel_EKF_X, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Ellipse_U_el_Vel_EKF_Y_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_Vel_EKF_Y, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Ellipse_U_el_Vel_EKF_Z_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_Vel_EKF_Z, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Ellipse_U_el_Vel_GPS_D_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_Vel_GPS_D, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Ellipse_U_el_Vel_GPS_E_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_Vel_GPS_E, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Ellipse_U_el_Vel_GPS_N_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_Vel_GPS_N, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Ellipse_U_el_Vel_GPS_Valid_Ptr = initInstance_scalarWrapper((void*)&Ellipse_U.el_Vel_GPS_Valid, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Ellipse_Y_el_VEL_Ptr = initInstance_scalarWrapper((void*)&Ellipse_Y.el_VEL, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Ellipse_Y_el_Vel_OK_Ptr = initInstance_scalarWrapper((void*)&Ellipse_Y.el_Vel_OK, sizeof(double), (uint32)ASD_VARIABLE);
     return;
 }
 static uint8 * _L1_getPid_Ellipse(ASDObjectPtr self, uint8 *buffer)
@@ -66,9 +71,13 @@ static MethodList RTWTop_Ellipse_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_Ellipse_ClassHeader =
-    {0, 1, 0, 10 + 0, (MethodList *)0, (MethodList *)&RTWTop_Ellipse_ClassMethodList};
+    {0, 1, 0, 14 + 0, (MethodList *)0, (MethodList *)&RTWTop_Ellipse_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_Ellipse_Class RTWTop_Ellipse_ClassObj = {{1, {&RTWTop_Ellipse_ClassHeader}, {0}}
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
     ,NULL
     ,NULL
     ,NULL

@@ -7,7 +7,7 @@ extern void crossbarHook_16_0(void);
 extern void rtioHook_16_0(void);
 
 
-TASK_MONITOR_DEF(SWT_CAN2_AP_ELLIPSE_EKF_VEL, thread19);
+TASK_MONITOR_DEF(SWT_CAN2_AP_ELLIPSE_EKF_VEL, thread20);
 
 TASK(SWT_CAN2_AP_ELLIPSE_EKF_VEL)
 {

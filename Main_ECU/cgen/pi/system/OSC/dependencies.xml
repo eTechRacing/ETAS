@@ -129,6 +129,8 @@
 		</source>
 		<source file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\etasConfigTask.h" lastModified="190ab87e380" checksum="2a5c0f2ec01f1b2acdd1e49abc07cbb5">
 		</source>
+		<source file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\SWT_CAN2_AP_ELLIPSE_VEL_Valid.h" lastModified="190e6eca756" checksum="84213649b033d98a4411ff0ec92831b9">
+		</source>
 		<source file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\ISRFunctions.c" lastModified="190ab87d4dd" checksum="86c710f4ed382bf2c3152a3f8c8cfb2b">
 			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_basdef.h"/>
 			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_limits.h"/>
@@ -187,6 +189,60 @@
 		</source>
 		<source file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\etasConfigTask.c" lastModified="190ab87d4c6" checksum="9e59edfd37dcd1359439f070766fdee1">
 			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\etasConfigTask.h"/>
+			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\osekcomn.h"/>
+			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\oscomn.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\rta_osek\oscore.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\rta_osek\osnamespace.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\ostarget.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\osfptgt.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_basdef.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_limits.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\common\etashead\etas_typ.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\common\protocol\l1\p_sysdef.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_sysver.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_primit.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_charta.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_intpol.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_ctsim.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\ascetse_intpol.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\common\protocol\l1\p_protl1.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_dacqui.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\common\protocol\l1\p_stdeb.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_fast.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\a_tardef.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\a_decl.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\rtio.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\u_boards.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\comm_err.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\dev_addr.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\i_rtautil.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\..\i_osman.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\t_watchdog.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\t_l1com.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\t_targetutil.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\t_qnxtargetutil.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\..\t_nvram.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\t_led.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\ES910\p_rtio_s.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\t_dataset.h"/>
+			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\driverThreads.h"/>
+			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\taskMonitors.h"/>
+			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\rtaInterface.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_contai.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\t_rtcros.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\i_rtioma.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\t_croman.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\t_crotyp.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\t_sglow.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\t_sgman.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\i_mapfnc.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\i_cpyfnc.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\i_salone.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\y_primit.h"/>
+			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\osc_dyn.h"/>
+		</source>
+		<source file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\SWT_CAN2_AP_ELLIPSE_VEL_Valid.c" lastModified="190e6ec8508" checksum="e6910e0190c8b948202fa20ebea40fde">
+			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\SWT_CAN2_AP_ELLIPSE_VEL_Valid.h"/>
 			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\osekcomn.h"/>
 			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\oscomn.h"/>
 			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\rta_osek\oscore.h"/>
@@ -2571,8 +2627,64 @@
 			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\y_primit.h"/>
 			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\osc_dyn.h"/>
 		</source>
+		<source file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\SWT_CAN2_AP_ELLIPSE_GPS_VEL.h" lastModified="190e6eca75f" checksum="77125f2d2adb74ac175bf0146bfe0a92">
+		</source>
 		<source file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\SWT_CAN2_AP_FECU_Data1.c" lastModified="190ab87d4d7" checksum="2d386ad2fb21f0695cb7460e79e8c838">
 			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\SWT_CAN2_AP_FECU_Data1.h"/>
+			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\osekcomn.h"/>
+			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\oscomn.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\rta_osek\oscore.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\rta_osek\osnamespace.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\ostarget.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\rta_osek\osfptgt.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_basdef.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_limits.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\common\etashead\etas_typ.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\common\protocol\l1\p_sysdef.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_sysver.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_primit.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_charta.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_intpol.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_ctsim.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\ascetse_intpol.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\common\protocol\l1\p_protl1.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_dacqui.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\common\protocol\l1\p_stdeb.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_fast.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\a_tardef.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\a_decl.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\rtio.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\u_boards.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\comm_err.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\dev_addr.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\i_rtautil.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\..\i_osman.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\t_watchdog.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\t_l1com.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\t_targetutil.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\t_qnxtargetutil.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\..\t_nvram.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\t_led.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\rtio\global\ES910\p_rtio_s.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\t_dataset.h"/>
+			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\driverThreads.h"/>
+			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\taskMonitors.h"/>
+			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\rtaInterface.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\a_contai.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\t_rtcros.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\i_rtioma.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\t_croman.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\t_crotyp.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\t_sglow.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\t_sgman.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\i_mapfnc.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\i_cpyfnc.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\i_salone.h"/>
+			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910\..\y_primit.h"/>
+			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\osc_dyn.h"/>
+		</source>
+		<source file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\SWT_CAN2_AP_ELLIPSE_GPS_VEL.c" lastModified="190e6ec8500" checksum="9e0eadbf40fc721eb6e27c3bc6d13122">
+			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\SWT_CAN2_AP_ELLIPSE_GPS_VEL.h"/>
 			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\osekcomn.h"/>
 			<include file="c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\OSC\oscomn.h"/>
 			<include file="C:\Program Files (x86)\ETAS\INTECRIO5.0\Target\Etarget\QNX_COMMON\rta_osek\oscore.h"/>

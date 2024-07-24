@@ -5,11 +5,11 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * Code generation for model "SoC".
+ * Code generation for model "Car_State".
  *
- * Model version              : 13.9
+ * Model version              : 13.10
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Thu Jul 25 00:36:46 2024
+ * C source code generated on : Thu Jul 25 00:49:15 2024
  */
 
 #ifndef RTW_HEADER_rt_nonfinite_h_

@@ -5,12 +5,12 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * Code generation for model "VDC".
+ * Code generation for model "Inverters_Data".
  *
- * Model version              : 4.162
+ * Model version              : 13.15
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Mon Jul  1 20:50:04 2024
- * Created for block: VDC
+ * C source code generated on : Thu Jul 25 00:58:43 2024
+ * Created for block: Inverters_Data
  */
 
 #include "look1_binlxpw.h"

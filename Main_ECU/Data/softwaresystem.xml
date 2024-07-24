@@ -233,7 +233,6 @@
 <!ENTITY _2698 SYSTEM "OSrv://ObjectHandle#2698" NDATA _OIDLink >
 <!ENTITY _7184 SYSTEM "OSrv://ObjectHandle#7184" NDATA _OIDLink >
 <!ENTITY _2340 SYSTEM "OSrv://ObjectHandle#2340" NDATA _OIDLink >
-<!ENTITY _7191 SYSTEM "OSrv://ObjectHandle#7191" NDATA _OIDLink >
 <!ENTITY _1156 SYSTEM "OSrv://ObjectHandle#1156" NDATA _OIDLink >
 <!ENTITY _2836 SYSTEM "OSrv://ObjectHandle#2836" NDATA _OIDLink >
 <!ENTITY _1157 SYSTEM "OSrv://ObjectHandle#1157" NDATA _OIDLink >
@@ -252,6 +251,7 @@
 <!ENTITY _2336 SYSTEM "OSrv://ObjectHandle#2336" NDATA _OIDLink >
 <!ENTITY _7241 SYSTEM "OSrv://ObjectHandle#7241" NDATA _OIDLink >
 <!ENTITY _2854 SYSTEM "OSrv://ObjectHandle#2854" NDATA _OIDLink >
+<!ENTITY _4264 SYSTEM "OSrv://ObjectHandle#4264" NDATA _OIDLink >
 <!ENTITY _536 SYSTEM "OSrv://ObjectHandle#536" NDATA _OIDLink >
 <!ENTITY _606 SYSTEM "OSrv://ObjectHandle#606" NDATA _OIDLink >
 <!ENTITY _665 SYSTEM "OSrv://ObjectHandle#665" NDATA _OIDLink >
@@ -635,9 +635,6 @@
 	Name="Connection200"
 	Index="7184"
 	Type="YBOConnection"/><_LinkTarget
-	Name="Connection202"
-	Index="7191"
-	Type="YBOConnection"/><_LinkTarget
 	Name="Connection203"
 	Index="1156"
 	Type="YBOConnection"/><_LinkTarget
@@ -664,6 +661,9 @@
 	Type="YBOConnection"/><_LinkTarget
 	Name="Connection219"
 	Index="7241"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection201"
+	Index="4264"
 	Type="YBOConnection"/></_LinkTarget><_LinkTarget
 	Name="System"
 	Index="698"
@@ -1568,35 +1568,35 @@
 	EmbeddedLink.ofTypeYBOConnection="_662"/><YBOConnectionRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOConnection="_2829"/></YBOConnectionRefList></YBOSAP.Connections></YBOSAP><YBOSAP
 	Name="SoftwareSystem.SAP133"
-	Size="UINT8"
+	Size="REAL64"
 	Direction="OUT"
 	PortInterfaceType="OUT_IN"
 	VisibleName="out"><YBOSAP.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOConnection="_1038"/><YBOConnectionRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOConnection="_2830"/></YBOConnectionRefList></YBOSAP.Connections></YBOSAP><YBOSAP
 	Name="SoftwareSystem.SAP135"
-	Size="UINT8"
+	Size="REAL64"
 	Direction="OUT"
 	PortInterfaceType="OUT_IN"
 	VisibleName="out"><YBOSAP.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOConnection="_1037"/><YBOConnectionRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOConnection="_2828"/></YBOConnectionRefList></YBOSAP.Connections></YBOSAP><YBOSAP
 	Name="SoftwareSystem.SAP137"
-	Size="UINT8"
+	Size="REAL64"
 	Direction="OUT"
 	PortInterfaceType="OUT_IN"
 	VisibleName="out"><YBOSAP.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOConnection="_6941"/><YBOConnectionRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOConnection="_2832"/></YBOConnectionRefList></YBOSAP.Connections></YBOSAP><YBOSAP
 	Name="SoftwareSystem.SAP138"
-	Size="UINT8"
+	Size="REAL64"
 	Direction="OUT"
 	PortInterfaceType="OUT_IN"
 	VisibleName="out"><YBOSAP.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOConnection="_6948"/><YBOConnectionRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOConnection="_2833"/></YBOConnectionRefList></YBOSAP.Connections></YBOSAP><YBOSAP
 	Name="SoftwareSystem.SAP140"
-	Size="UINT8"
+	Size="REAL64"
 	Direction="OUT"
 	PortInterfaceType="OUT_IN"
 	VisibleName="out"><YBOSAP.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
@@ -1882,12 +1882,6 @@
 	VisibleName="in"><YBOSAP.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOConnection="_7184"/><YBOConnectionRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOConnection="_2340"/></YBOConnectionRefList></YBOSAP.Connections></YBOSAP><YBOSAP
-	Name="SoftwareSystem.SAP201"
-	Size="REAL64"
-	Direction="IN"
-	PortInterfaceType="OUT_IN"
-	VisibleName="in"><YBOSAP.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_7191"/></YBOConnectionRefList></YBOSAP.Connections></YBOSAP><YBOSAP
 	Name="SoftwareSystem.SAP203"
 	Size="REAL64"
 	Direction="OUT"
@@ -1950,7 +1944,13 @@
 	PortInterfaceType="OUT_IN"
 	VisibleName="out"><YBOSAP.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOConnection="_7241"/><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_2854"/></YBOConnectionRefList></YBOSAP.Connections></YBOSAP></YBOPortList></YBOSoftwareSystem.Ports><YBOSoftwareSystem.Functions><YBOFunctionRefList/></YBOSoftwareSystem.Functions><YBOSoftwareSystem.Modules><YBOModuleRefList><YBOModuleRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_2854"/></YBOConnectionRefList></YBOSAP.Connections></YBOSAP><YBOSAP
+	Name="SoftwareSystem.SAP9"
+	Size="REAL64"
+	Direction="IN"
+	PortInterfaceType="OUT_IN"
+	VisibleName="in"><YBOSAP.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_4264"/></YBOConnectionRefList></YBOSAP.Connections></YBOSAP></YBOPortList></YBOSoftwareSystem.Ports><YBOSoftwareSystem.Functions><YBOFunctionRefList/></YBOSoftwareSystem.Functions><YBOSoftwareSystem.Modules><YBOModuleRefList><YBOModuleRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOModule="_536"/><YBOModuleRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOModule="_606"/><YBOModuleRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOModule="_665"/><YBOModuleRefList.EmbeddedLink
@@ -2419,9 +2419,6 @@
 	Name="SoftwareSystem.Connection200"
 	Flag="DYNAMIC"
 	VisibleName="Connection"/><YBOConnection
-	Name="SoftwareSystem.Connection202"
-	Flag="DYNAMIC"
-	VisibleName="Connection"/><YBOConnection
 	Name="SoftwareSystem.Connection203"
 	Flag="DYNAMIC"
 	VisibleName="Connection"/><YBOConnection
@@ -2447,5 +2444,8 @@
 	Flag="DYNAMIC"
 	VisibleName="Connection"/><YBOConnection
 	Name="SoftwareSystem.Connection219"
+	Flag="DYNAMIC"
+	VisibleName="Connection"/><YBOConnection
+	Name="SoftwareSystem.Connection201"
 	Flag="DYNAMIC"
 	VisibleName="Connection"/></YBOConnectionList></YBOSoftwareSystem.Connections></YBOSoftwareSystem>

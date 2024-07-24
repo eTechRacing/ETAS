@@ -69,10 +69,7 @@ struct RTWTop_VDC_Class
     scalarWrapper_Obj *RTWWrapper_VDC_U_el_GYRO_Z_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_el_PITCH_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_el_ROLL_Ptr;
-    scalarWrapper_Obj *RTWWrapper_VDC_U_el_SlipAngle_Ptr;
-    scalarWrapper_Obj *RTWWrapper_VDC_U_el_Vel_X_Ptr;
-    scalarWrapper_Obj *RTWWrapper_VDC_U_el_Vel_Y_Ptr;
-    scalarWrapper_Obj *RTWWrapper_VDC_U_el_Vel_Z_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDC_U_el_VEL_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_el_YAW_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_Y_APPS_Implausibility_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_Y_BrakeLight_Control_Ptr;

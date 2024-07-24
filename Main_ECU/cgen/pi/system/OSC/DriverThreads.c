@@ -32,6 +32,7 @@ DRIVER_THREAD_MONITOR_DEF(thread25);
 DRIVER_THREAD_MONITOR_DEF(thread26);
 DRIVER_THREAD_MONITOR_DEF(thread27);
 DRIVER_THREAD_MONITOR_DEF(thread28);
+DRIVER_THREAD_MONITOR_DEF(thread29);
 /* fix dummy thread used for internal ISRs */
 DRIVER_THREAD_MONITOR_DEF(threadEtasIsr);
 
@@ -40,7 +41,7 @@ uint32 etasCreateDriverThreads(int *ptrRtaOsekThreadPrio)
 	/* IMPORTANT: The CREATE_DRIVER_THREAD macro calls must be ordered according
 	 *  to increasing OSEK task priorities (lowest prio thread first) */
 	uint32 retVal = 0;
-	SET_NUMBER_OF_DRIVER_THREADS(29 + 3);
+	SET_NUMBER_OF_DRIVER_THREADS(30 + 3);
 	
 	/* create driver threads */
 	CREATE_DRIVER_THREAD(threadEtasConfigTask);
@@ -74,6 +75,7 @@ uint32 etasCreateDriverThreads(int *ptrRtaOsekThreadPrio)
 	CREATE_DRIVER_THREAD(thread26);
 	CREATE_DRIVER_THREAD(thread27);
 	CREATE_DRIVER_THREAD(thread28);
+	CREATE_DRIVER_THREAD(thread29);
 	/* fix dummy thread used for internal ISRs */
 	CREATE_DRIVER_THREAD(threadEtasIsr);
 	

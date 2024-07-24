@@ -3,11 +3,6 @@
 #include "Ellipse_irtmacros.h"
 /* PATCH END */
 
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "Ellipse_irtmacros.h"
-/* PATCH END */
-
 /*
  * Ellipse.h
  *
@@ -19,7 +14,7 @@
  *
  * Model version              : 13.13
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Thu Jul 18 16:05:51 2024
+ * C source code generated on : Thu Jul 25 00:57:02 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

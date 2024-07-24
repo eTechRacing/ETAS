@@ -83,10 +83,7 @@ void initClass_RTWTop_VDC(struct RTWTop_VDC_Class *self)
     self->RTWWrapper_VDC_U_el_GYRO_Z_Ptr = initInstance_scalarWrapper((void*)&VDC_U.el_GYRO_Z, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_U_el_PITCH_Ptr = initInstance_scalarWrapper((void*)&VDC_U.el_PITCH, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_U_el_ROLL_Ptr = initInstance_scalarWrapper((void*)&VDC_U.el_ROLL, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_VDC_U_el_SlipAngle_Ptr = initInstance_scalarWrapper((void*)&VDC_U.el_SlipAngle, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_VDC_U_el_Vel_X_Ptr = initInstance_scalarWrapper((void*)&VDC_U.el_Vel_X, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_VDC_U_el_Vel_Y_Ptr = initInstance_scalarWrapper((void*)&VDC_U.el_Vel_Y, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_VDC_U_el_Vel_Z_Ptr = initInstance_scalarWrapper((void*)&VDC_U.el_Vel_Z, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDC_U_el_VEL_Ptr = initInstance_scalarWrapper((void*)&VDC_U.el_VEL, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_U_el_YAW_Ptr = initInstance_scalarWrapper((void*)&VDC_U.el_YAW, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_Y_APPS_Implausibility_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.APPS_Implausibility, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_Y_BrakeLight_Control_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.BrakeLight_Control, sizeof(double), (uint32)ASD_VARIABLE);
@@ -117,12 +114,9 @@ static MethodList RTWTop_VDC_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_VDC_ClassHeader =
-    {0, 1, 0, 59 + 0, (MethodList *)0, (MethodList *)&RTWTop_VDC_ClassMethodList};
+    {0, 1, 0, 56 + 0, (MethodList *)0, (MethodList *)&RTWTop_VDC_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_VDC_Class RTWTop_VDC_ClassObj = {{1, {&RTWTop_VDC_ClassHeader}, {0}}
-    ,NULL
-    ,NULL
-    ,NULL
     ,NULL
     ,NULL
     ,NULL

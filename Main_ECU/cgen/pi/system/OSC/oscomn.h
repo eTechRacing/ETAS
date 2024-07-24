@@ -6,7 +6,7 @@
  * Build level is standard
  * Project is 'os_config'
  * Last edited 'unknown'
- * File generated 'Sat Jul 13 11:58:48 2024'
+ * File generated 'Thu Jul 25 00:46:28 2024'
  * Target variant 'ES900'
  */
 #ifndef __OS_COMN_H__
@@ -48,7 +48,7 @@ extern struct os_task OS_L0036;
 extern struct os_task OS_L0037;
 #define osek_task_SWT_CAN2_AP_RECU_Data (&OS_L0037)
 extern struct os_task OS_L0038;
-#define osek_task_SWT_CAN2_AP_ELLIPSE_SLIP_CURV (&OS_L0038)
+#define osek_task_SWT_CAN2_AP_ELLIPSE_VEL_Valid (&OS_L0038)
 extern struct os_task OS_L0039;
 #define osek_task_SWT_CAN2_AP_ELLIPSE_IMU_GYRO (&OS_L0039)
 extern struct os_task OS_L003A;
@@ -66,59 +66,61 @@ extern struct os_task OS_L003F;
 extern struct os_task OS_L0040;
 #define osek_task_SWT_CAN2_MEAS_RECU_SDC (&OS_L0040)
 extern struct os_task OS_L0041;
-#define osek_task_SWT_CAN1_AP_DASH_EnableDrive (&OS_L0041)
+#define osek_task_SWT_CAN2_AP_ELLIPSE_GPS_VEL (&OS_L0041)
 extern struct os_task OS_L0042;
-#define osek_task_SWT_CAN1_AP_DASH_PrechargeRequest (&OS_L0042)
+#define osek_task_SWT_CAN1_AP_DASH_EnableDrive (&OS_L0042)
 extern struct os_task OS_L0043;
-#define osek_task_SWT_CAN1_NM_DASH_Keep_Alive (&OS_L0043)
+#define osek_task_SWT_CAN1_AP_DASH_PrechargeRequest (&OS_L0043)
 extern struct os_task OS_L0044;
-#define osek_task_SWT_CAN1_AP_BMS_AIRs_State (&OS_L0044)
+#define osek_task_SWT_CAN1_NM_DASH_Keep_Alive (&OS_L0044)
 extern struct os_task OS_L0045;
-#define osek_task_SWT_CAN1_NM_BMS_Keep_Alive (&OS_L0045)
+#define osek_task_SWT_CAN1_AP_BMS_AIRs_State (&OS_L0045)
 extern struct os_task OS_L0046;
-#define osek_task_SWT_CAN1_AP_DASH_Mode (&OS_L0046)
+#define osek_task_SWT_CAN1_NM_BMS_Keep_Alive (&OS_L0046)
 extern struct os_task OS_L0047;
-#define osek_task_SWT_CAN1_AP_Inverter_L_Tx (&OS_L0047)
+#define osek_task_SWT_CAN1_AP_DASH_Mode (&OS_L0047)
 extern struct os_task OS_L0048;
-#define osek_task_SWT_CAN1_AP_Inverter_R_Tx (&OS_L0048)
+#define osek_task_SWT_CAN1_AP_Inverter_L_Tx (&OS_L0048)
 extern struct os_task OS_L0049;
-#define osek_task_SWT_CAN1_AP_BMS_Temperatures (&OS_L0049)
+#define osek_task_SWT_CAN1_AP_Inverter_R_Tx (&OS_L0049)
 extern struct os_task OS_L004A;
-#define osek_task_SWT_CAN1_AP_BMS_ChargerParameters (&OS_L004A)
+#define osek_task_SWT_CAN1_AP_BMS_Temperatures (&OS_L004A)
 extern struct os_task OS_L004B;
-#define osek_task_SWT_CAN1_AP_BMS_Voltages (&OS_L004B)
+#define osek_task_SWT_CAN1_AP_BMS_ChargerParameters (&OS_L004B)
 extern struct os_task OS_L004C;
-#define osek_task_SWT_CAN1_AP_CurrentSensor (&OS_L004C)
+#define osek_task_SWT_CAN1_AP_BMS_Voltages (&OS_L004C)
 extern struct os_task OS_L004D;
-#define osek_task_SWT_CAN1_AP_BMS_SDC (&OS_L004D)
+#define osek_task_SWT_CAN1_AP_CurrentSensor (&OS_L004D)
 extern struct os_task OS_L004E;
-#define osek_task_Sync_25ms (&OS_L004E)
+#define osek_task_SWT_CAN1_AP_BMS_SDC (&OS_L004E)
 extern struct os_task OS_L004F;
-#define osek_task_Timer_1000ms (&OS_L004F)
+#define osek_task_Sync_25ms (&OS_L004F)
 extern struct os_task OS_L0050;
-#define osek_task_Timer_100ms (&OS_L0050)
+#define osek_task_Timer_1000ms (&OS_L0050)
 extern struct os_task OS_L0051;
-#define osek_task_Timer_25ms (&OS_L0051)
+#define osek_task_Timer_100ms (&OS_L0051)
 extern struct os_task OS_L0052;
-#define osek_task_Timer_Inv (&OS_L0052)
+#define osek_task_Timer_25ms (&OS_L0052)
 extern struct os_task OS_L0053;
-#define osek_task_etasL1Task (&OS_L0053)
+#define osek_task_Timer_Inv (&OS_L0053)
 extern struct os_task OS_L0054;
-#define osek_task_etasConfigTask (&OS_L0054)
+#define osek_task_etasL1Task (&OS_L0054)
+extern struct os_task OS_L0055;
+#define osek_task_etasConfigTask (&OS_L0055)
 
 /* ISR handles */
-extern struct os_task OS_L0058;
-#define osek_interrupt_etasTimerIsr (&OS_L0058)
 extern struct os_task OS_L0059;
-#define osek_interrupt_etasL1Isr (&OS_L0059)
+#define osek_interrupt_etasTimerIsr (&OS_L0059)
 extern struct os_task OS_L005A;
-#define osek_interrupt_etasStopOsIsr (&OS_L005A)
+#define osek_interrupt_etasL1Isr (&OS_L005A)
 extern struct os_task OS_L005B;
-#define osek_interrupt_etasActivateTaskIsr (&OS_L005B)
+#define osek_interrupt_etasStopOsIsr (&OS_L005B)
 extern struct os_task OS_L005C;
-#define osek_interrupt_ISR_CAN1 (&OS_L005C)
+#define osek_interrupt_etasActivateTaskIsr (&OS_L005C)
 extern struct os_task OS_L005D;
-#define osek_interrupt_ISR_CAN2 (&OS_L005D)
+#define osek_interrupt_ISR_CAN1 (&OS_L005D)
+extern struct os_task OS_L005E;
+#define osek_interrupt_ISR_CAN2 (&OS_L005E)
 
 /* activator handles */
 

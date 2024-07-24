@@ -5,11 +5,11 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * Code generation for model "Inverters_Data".
+ * Code generation for model "VDC".
  *
- * Model version              : 13.15
+ * Model version              : 4.174
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Thu Jul 18 16:06:29 2024
+ * C source code generated on : Thu Jul 25 01:06:32 2024
  */
 #include "rtwtypes.h"
 
