@@ -306,7 +306,7 @@
                 /* Raster number        */ QP_BLOB 32 
             /end SOURCE
             /begin TP_BLOB
-                /* Program identifier   */ 2638884667
+                /* Program identifier   */ 1824492536
                 /* HW target identifier */ 0x6
                 /* Skip flag            */ 0
                 /* Skip to link         */ 2
@@ -4650,7 +4650,7 @@
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning 
+            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.el_Vel_OK 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U2 
@@ -4665,7 +4665,7 @@
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Regenerative_Enable 
+            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U2 
@@ -4680,7 +4680,7 @@
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.CriticalDisconnection 
+            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Regenerative_Enable 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U2 
@@ -4695,7 +4695,7 @@
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Relay_Error 
+            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.CriticalDisconnection 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U2 
@@ -4710,7 +4710,7 @@
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Car_OK 
+            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Relay_Error 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U2 
@@ -4725,6 +4725,21 @@
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
+            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Car_OK 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U2 
+            /* Resolution          */     1 
+            /* Accuracy            */     100 
+            /* Lower limit         */     0 
+            /* Upper limit         */     1 
+            ECU_ADDRESS 0x0 
+             
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 61 
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
             /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Power 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
@@ -4736,7 +4751,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 61 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 62 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -4751,7 +4766,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 62 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 63 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -4766,7 +4781,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 63 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 64 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -4781,7 +4796,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 64 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 65 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -4796,7 +4811,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 65 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 66 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -4811,7 +4826,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 66 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 67 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -4826,7 +4841,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 68 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 69 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -4841,7 +4856,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 69 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 70 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -4856,7 +4871,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 70 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 71 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -4871,7 +4886,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 71 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 72 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -4886,7 +4901,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 72 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 73 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -4901,7 +4916,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 74 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 75 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -4916,7 +4931,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 75 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 76 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -4931,7 +4946,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 76 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 77 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -4946,7 +4961,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 77 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 78 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -4961,7 +4976,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 78 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 79 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -4976,7 +4991,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 79 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 80 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -4991,7 +5006,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 80 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 81 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5006,7 +5021,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 81 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 82 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5021,7 +5036,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 82 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 83 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5036,7 +5051,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 83 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 84 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5051,7 +5066,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 84 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 85 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5066,7 +5081,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 85 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 86 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5081,7 +5096,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 86 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 87 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5096,14 +5111,29 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 87 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 88 
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.el_VEL 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U14 
+            /* Resolution          */     1 
+            /* Accuracy            */     100 
+            /* Lower limit         */     0 
+            /* Upper limit         */     65.535 
+            ECU_ADDRESS 0x0 
+             
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 90 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
             /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.SteeringSensor_Value 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U14 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U15 
             /* Resolution          */     1 
             /* Accuracy            */     100 
             /* Lower limit         */     -128 
@@ -5111,7 +5141,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 89 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 91 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5126,7 +5156,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 90 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 92 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5141,7 +5171,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 91 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 93 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5156,7 +5186,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 92 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 94 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5171,7 +5201,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 94 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 96 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5186,7 +5216,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 95 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 97 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5201,7 +5231,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 96 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 98 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5216,7 +5246,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 97 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 99 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5231,7 +5261,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 98 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 100 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5246,7 +5276,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 99 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 101 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5261,7 +5291,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 100 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 102 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5276,7 +5306,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 101 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 103 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5291,41 +5321,11 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 102 
-            /end IF_DATA
-        /end MEASUREMENT
-        /begin MEASUREMENT 
-            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_EKF_POS.el_LONGITUDE_EKF 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U15 
-            /* Resolution          */     1 
-            /* Accuracy            */     100 
-            /* Lower limit         */     0 
-            /* Upper limit         */     0 
-            ECU_ADDRESS 0x0 
-             
-            /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 103 
-            /end IF_DATA
-        /end MEASUREMENT
-        /begin MEASUREMENT 
-            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_EKF_POS.el_LATITUDE_EKF 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U15 
-            /* Resolution          */     1 
-            /* Accuracy            */     100 
-            /* Lower limit         */     0 
-            /* Upper limit         */     0 
-            ECU_ADDRESS 0x0 
-             
-            /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 104 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_Z 
+            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_EKF_POS.el_LONGITUDE_EKF 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U16 
@@ -5340,7 +5340,7 @@
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_Y 
+            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_EKF_POS.el_LATITUDE_EKF 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U16 
@@ -5355,10 +5355,10 @@
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_X 
+            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_Z 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U16 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U17 
             /* Resolution          */     1 
             /* Accuracy            */     100 
             /* Lower limit         */     0 
@@ -5370,10 +5370,10 @@
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_EKF_EULER.el_YAW 
+            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_Y 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U14 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U17 
             /* Resolution          */     1 
             /* Accuracy            */     100 
             /* Lower limit         */     0 
@@ -5385,10 +5385,10 @@
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_EKF_EULER.el_PITCH 
+            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_X 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U14 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U17 
             /* Resolution          */     1 
             /* Accuracy            */     100 
             /* Lower limit         */     0 
@@ -5400,10 +5400,10 @@
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_EKF_EULER.el_ROLL 
+            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_EKF_EULER.el_YAW 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U14 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U15 
             /* Resolution          */     1 
             /* Accuracy            */     100 
             /* Lower limit         */     0 
@@ -5412,6 +5412,36 @@
              
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 110 
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_EKF_EULER.el_PITCH 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U15 
+            /* Resolution          */     1 
+            /* Accuracy            */     100 
+            /* Lower limit         */     0 
+            /* Upper limit         */     0 
+            ECU_ADDRESS 0x0 
+             
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 111 
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_EKF_EULER.el_ROLL 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U15 
+            /* Resolution          */     1 
+            /* Accuracy            */     100 
+            /* Lower limit         */     0 
+            /* Upper limit         */     0 
+            ECU_ADDRESS 0x0 
+             
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 112 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5426,7 +5456,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 111 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 113 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5441,7 +5471,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 112 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 114 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5456,41 +5486,11 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 113 
-            /end IF_DATA
-        /end MEASUREMENT
-        /begin MEASUREMENT 
-            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.NM_ELLIPSE_Status.Ellipse_Alive 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U17 
-            /* Resolution          */     1 
-            /* Accuracy            */     100 
-            /* Lower limit         */     0 
-            /* Upper limit         */     0 
-            ECU_ADDRESS 0x0 
-             
-            /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 114 
-            /end IF_DATA
-        /end MEASUREMENT
-        /begin MEASUREMENT 
-            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_IMU_GYRO.el_GYRO_Z 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U18 
-            /* Resolution          */     1 
-            /* Accuracy            */     100 
-            /* Lower limit         */     0 
-            /* Upper limit         */     0 
-            ECU_ADDRESS 0x0 
-             
-            /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 115 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_IMU_GYRO.el_GYRO_Y 
+            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.NM_ELLIPSE_Status.Ellipse_Alive 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U18 
@@ -5505,10 +5505,10 @@
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_IMU_GYRO.el_GYRO_X 
+            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_IMU_GYRO.el_GYRO_Z 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U18 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U19 
             /* Resolution          */     1 
             /* Accuracy            */     100 
             /* Lower limit         */     0 
@@ -5517,6 +5517,36 @@
              
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 117 
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_IMU_GYRO.el_GYRO_Y 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U19 
+            /* Resolution          */     1 
+            /* Accuracy            */     100 
+            /* Lower limit         */     0 
+            /* Upper limit         */     0 
+            ECU_ADDRESS 0x0 
+             
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 118 
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.AP_ELLIPSE_IMU_GYRO.el_GYRO_X 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U19 
+            /* Resolution          */     1 
+            /* Accuracy            */     100 
+            /* Lower limit         */     0 
+            /* Upper limit         */     0 
+            ECU_ADDRESS 0x0 
+             
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 119 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5531,7 +5561,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 118 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 120 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5546,7 +5576,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 119 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 121 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5561,7 +5591,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 120 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 122 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5576,7 +5606,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 122 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 124 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5591,7 +5621,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 123 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 125 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5606,14 +5636,14 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 124 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 126 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
             /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U19 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U14 
             /* Resolution          */     1 
             /* Accuracy            */     100 
             /* Lower limit         */     -327.68 
@@ -5621,7 +5651,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 125 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 127 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5636,7 +5666,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 127 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 129 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5651,7 +5681,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 128 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 130 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5666,14 +5696,14 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 129 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 131 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
             /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U19 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U14 
             /* Resolution          */     1 
             /* Accuracy            */     100 
             /* Lower limit         */     -327.68 
@@ -5681,7 +5711,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 130 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 132 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5696,7 +5726,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 132 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 134 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5711,7 +5741,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 133 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 135 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5726,7 +5756,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 134 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 136 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5741,7 +5771,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 135 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 137 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5756,7 +5786,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 137 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 139 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5771,7 +5801,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 138 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 140 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5786,7 +5816,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 139 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 141 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5801,7 +5831,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 140 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 142 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5816,7 +5846,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 141 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 143 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5831,7 +5861,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 142 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 144 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5846,7 +5876,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 143 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 145 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5861,7 +5891,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 144 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 146 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5876,7 +5906,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 145 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 147 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5891,7 +5921,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 146 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 148 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5906,7 +5936,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 147 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 149 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5921,7 +5951,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 148 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 150 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5936,7 +5966,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 149 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 151 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5951,7 +5981,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 150 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 152 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5966,7 +5996,7 @@
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 152 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 154 
             /end IF_DATA
         /end MEASUREMENT
 
@@ -6166,7 +6196,7 @@
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
-            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning_calibrate 
+            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.el_Vel_OK_calibrate 
             /* Long identifier     */     "" 
             /* Characteristic type */     VALUE 
             /* Memory address      */     0x0 
@@ -6181,7 +6211,7 @@
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
-            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Regenerative_Enable_calibrate 
+            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning_calibrate 
             /* Long identifier     */     "" 
             /* Characteristic type */     VALUE 
             /* Memory address      */     0x0 
@@ -6196,7 +6226,7 @@
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
-            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.CriticalDisconnection_calibrate 
+            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Regenerative_Enable_calibrate 
             /* Long identifier     */     "" 
             /* Characteristic type */     VALUE 
             /* Memory address      */     0x0 
@@ -6211,7 +6241,7 @@
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
-            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Relay_Error_calibrate 
+            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.CriticalDisconnection_calibrate 
             /* Long identifier     */     "" 
             /* Characteristic type */     VALUE 
             /* Memory address      */     0x0 
@@ -6226,7 +6256,7 @@
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
-            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Car_OK_calibrate 
+            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Relay_Error_calibrate 
             /* Long identifier     */     "" 
             /* Characteristic type */     VALUE 
             /* Memory address      */     0x0 
@@ -6241,6 +6271,21 @@
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
+            /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Car_OK_calibrate 
+            /* Long identifier     */     "" 
+            /* Characteristic type */     VALUE 
+            /* Memory address      */     0x0 
+            /* Record layout       */     STANDARD_VALUE_R64 
+            /* Maxdiff             */     0.0 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U2 
+            /* Lower limit         */     0 
+            /* Upper limit         */     1 
+            MAX_REFRESH 6 1
+            /begin IF_DATA E_TARGET
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 61 
+            /end IF_DATA
+        /end CHARACTERISTIC
+        /begin CHARACTERISTIC 
             /* Name                */     ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Power_calibrate 
             /* Long identifier     */     "" 
             /* Characteristic type */     VALUE 
@@ -6252,7 +6297,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 61 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 62 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6267,7 +6312,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 62 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 63 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6282,7 +6327,7 @@
             /* Upper limit         */     7 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 63 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 64 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6297,7 +6342,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 64 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 65 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6312,7 +6357,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 65 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 66 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6327,7 +6372,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 66 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 67 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6342,7 +6387,7 @@
             /* Upper limit         */     255 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 68 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 69 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6357,7 +6402,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 74 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 75 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6372,7 +6417,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 75 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 76 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6387,7 +6432,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 76 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 77 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6402,7 +6447,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 77 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 78 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6417,7 +6462,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 78 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 79 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6432,7 +6477,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 79 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 80 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6447,7 +6492,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 80 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 81 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6462,7 +6507,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 81 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 82 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6477,7 +6522,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 82 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 83 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6492,7 +6537,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 83 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 84 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6507,7 +6552,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 84 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 85 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6522,7 +6567,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 85 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 86 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6537,7 +6582,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 86 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 87 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6552,7 +6597,22 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 87 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 88 
+            /end IF_DATA
+        /end CHARACTERISTIC
+        /begin CHARACTERISTIC 
+            /* Name                */     ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.el_VEL_calibrate 
+            /* Long identifier     */     "" 
+            /* Characteristic type */     VALUE 
+            /* Memory address      */     0x0 
+            /* Record layout       */     STANDARD_VALUE_R64 
+            /* Maxdiff             */     0.0 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U14 
+            /* Lower limit         */     0 
+            /* Upper limit         */     65.535 
+            MAX_REFRESH 6 1
+            /begin IF_DATA E_TARGET
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 90 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6562,12 +6622,12 @@
             /* Memory address      */     0x0 
             /* Record layout       */     STANDARD_VALUE_R64 
             /* Maxdiff             */     0.0 
-            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U14 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U15 
             /* Lower limit         */     -128 
             /* Upper limit         */     127 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 89 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 91 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6582,7 +6642,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 90 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 92 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6597,7 +6657,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 91 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 93 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6612,7 +6672,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 92 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 94 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6627,7 +6687,7 @@
             /* Upper limit         */     1 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 94 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 96 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6642,7 +6702,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 122 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 124 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6657,7 +6717,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 123 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 125 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6672,7 +6732,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 124 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 126 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6682,12 +6742,12 @@
             /* Memory address      */     0x0 
             /* Record layout       */     STANDARD_VALUE_R64 
             /* Maxdiff             */     0.0 
-            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U19 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U14 
             /* Lower limit         */     -327.68 
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 125 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 127 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6702,7 +6762,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 127 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 129 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6717,7 +6777,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 128 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 130 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6732,7 +6792,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 129 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 131 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6742,12 +6802,12 @@
             /* Memory address      */     0x0 
             /* Record layout       */     STANDARD_VALUE_R64 
             /* Maxdiff             */     0.0 
-            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U19 
+            /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U14 
             /* Lower limit         */     -327.68 
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 130 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 132 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6762,7 +6822,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 132 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 134 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6777,7 +6837,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 133 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 135 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6792,7 +6852,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 134 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 136 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6807,7 +6867,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 135 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 137 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6822,7 +6882,7 @@
             /* Upper limit         */     655.35 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 137 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 139 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6837,7 +6897,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 138 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 140 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6852,7 +6912,7 @@
             /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 139 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 141 
             /end IF_DATA
         /end CHARACTERISTIC
         /begin CHARACTERISTIC 
@@ -6867,7 +6927,7 @@
             /* Upper limit         */     255 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
-                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 152 
+                DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 154 
             /end IF_DATA
         /end CHARACTERISTIC
 
@@ -7101,7 +7161,7 @@
             /* Long identifier     */     "" 
             RAT_FUNC
             "%8.4"
-            "┬║"
+            "m/s"
             COEFFS 0 1 0 0 0 1
         /end COMPU_METHOD
         /begin COMPU_METHOD 
@@ -7109,7 +7169,7 @@
             /* Long identifier     */     "" 
             RAT_FUNC
             "%8.4"
-            "┬░"
+            "┬║"
             COEFFS 0 1 0 0 0 1
         /end COMPU_METHOD
         /begin COMPU_METHOD 
@@ -7117,7 +7177,7 @@
             /* Long identifier     */     "" 
             RAT_FUNC
             "%8.4"
-            "m.s-2"
+            "┬░"
             COEFFS 0 1 0 0 0 1
         /end COMPU_METHOD
         /begin COMPU_METHOD 
@@ -7125,7 +7185,7 @@
             /* Long identifier     */     "" 
             RAT_FUNC
             "%8.4"
-            "s"
+            "m.s-2"
             COEFFS 0 1 0 0 0 1
         /end COMPU_METHOD
         /begin COMPU_METHOD 
@@ -7133,7 +7193,7 @@
             /* Long identifier     */     "" 
             RAT_FUNC
             "%8.4"
-            "rad.s-1"
+            "s"
             COEFFS 0 1 0 0 0 1
         /end COMPU_METHOD
         /begin COMPU_METHOD 
@@ -7141,7 +7201,7 @@
             /* Long identifier     */     "" 
             RAT_FUNC
             "%8.4"
-            "m/s"
+            "rad.s-1"
             COEFFS 0 1 0 0 0 1
         /end COMPU_METHOD
         /begin COMPU_METHOD 
@@ -8066,6 +8126,7 @@
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_Inverter_L_Rx.Inverter_L_b15tob8
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_CarState.Car_State
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_AIRsRequest.AIRs_Request
+                ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.el_Vel_OK
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Regenerative_Enable
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.CriticalDisconnection
@@ -8096,6 +8157,7 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_BMS
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS2
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS1
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.el_VEL
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.SteeringSensor_Value
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.BrakePedal_Value
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value
@@ -8169,6 +8231,7 @@
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_Inverter_L_Rx.Inverter_L_b15tob8_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_CarState.Car_State_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_AIRsRequest.AIRs_Request_calibrate
+                ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.el_Vel_OK_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Regenerative_Enable_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.CriticalDisconnection_calibrate
@@ -8195,6 +8258,7 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_BMS_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS2_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS1_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.el_VEL_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.SteeringSensor_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.BrakePedal_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value_calibrate
@@ -8326,6 +8390,7 @@
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_Inverter_L_Rx.Inverter_L_b15tob8
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_CarState.Car_State
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_AIRsRequest.AIRs_Request
+                ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.el_Vel_OK
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Regenerative_Enable
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.CriticalDisconnection
@@ -8356,6 +8421,7 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_BMS
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS2
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS1
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.el_VEL
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.SteeringSensor_Value
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.BrakePedal_Value
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value
@@ -8429,6 +8495,7 @@
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_Inverter_L_Rx.Inverter_L_b15tob8_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_CarState.Car_State_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_AIRsRequest.AIRs_Request_calibrate
+                ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.el_Vel_OK_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Regenerative_Enable_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.CriticalDisconnection_calibrate
@@ -8455,6 +8522,7 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_BMS_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS2_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS1_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.el_VEL_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.SteeringSensor_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.BrakePedal_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value_calibrate
@@ -8530,6 +8598,7 @@
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_Inverter_L_Rx.Inverter_L_b15tob8
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_CarState.Car_State
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_AIRsRequest.AIRs_Request
+                ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.el_Vel_OK
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Regenerative_Enable
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.CriticalDisconnection
@@ -8560,6 +8629,7 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_BMS
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS2
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS1
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.el_VEL
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.SteeringSensor_Value
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.BrakePedal_Value
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value
@@ -8633,6 +8703,7 @@
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_Inverter_L_Rx.Inverter_L_b15tob8_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_CarState.Car_State_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_AIRsRequest.AIRs_Request_calibrate
+                ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.el_Vel_OK_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Regenerative_Enable_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.CriticalDisconnection_calibrate
@@ -8659,6 +8730,7 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_BMS_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS2_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS1_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.el_VEL_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.SteeringSensor_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.BrakePedal_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value_calibrate
@@ -8734,6 +8806,7 @@
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_Inverter_L_Rx.Inverter_L_b15tob8
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_CarState.Car_State
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_AIRsRequest.AIRs_Request
+                ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.el_Vel_OK
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Regenerative_Enable
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.CriticalDisconnection
@@ -8761,6 +8834,7 @@
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_Inverter_L_Rx.Inverter_L_b15tob8_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_CarState.Car_State_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_AIRsRequest.AIRs_Request_calibrate
+                ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.el_Vel_OK_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Regenerative_Enable_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.CriticalDisconnection_calibrate
@@ -8838,6 +8912,7 @@
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_Inverter_L_Rx.Inverter_L_b15tob8
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_CarState.Car_State
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_AIRsRequest.AIRs_Request
+                ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.el_Vel_OK
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Regenerative_Enable
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.CriticalDisconnection
@@ -8865,6 +8940,7 @@
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_Inverter_L_Rx.Inverter_L_b15tob8_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_CarState.Car_State_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.AP_ETAS_AIRsRequest.AIRs_Request_calibrate
+                ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.el_Vel_OK_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Regenerative_Enable_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.CriticalDisconnection_calibrate
@@ -9050,6 +9126,7 @@
         /begin GROUP ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars
             ""
             /begin REF_MEASUREMENT
+                ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.el_Vel_OK
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Regenerative_Enable
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.CriticalDisconnection
@@ -9063,6 +9140,7 @@
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.APPS_Implausibility
             /end REF_MEASUREMENT
             /begin REF_CHARACTERISTIC
+                ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.el_Vel_OK_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.Regenerative_Enable_calibrate
                 ETCSignals.ES910.ES910.CAN1.CAN1.MEAS_ETAS_InternalVars.CriticalDisconnection_calibrate
@@ -9106,6 +9184,7 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_BMS
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS2
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS1
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.el_VEL
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.SteeringSensor_Value
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.BrakePedal_Value
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value
@@ -9180,6 +9259,7 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_BMS_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS2_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS1_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.el_VEL_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.SteeringSensor_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.BrakePedal_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value_calibrate
@@ -9235,6 +9315,7 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_BMS
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS2
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS1
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.el_VEL
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.SteeringSensor_Value
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.BrakePedal_Value
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value
@@ -9309,6 +9390,7 @@
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_BMS_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS2_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS1_calibrate
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.el_VEL_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.SteeringSensor_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.BrakePedal_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value_calibrate
@@ -9378,12 +9460,14 @@
         /begin GROUP ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values
             ""
             /begin REF_MEASUREMENT
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.el_VEL
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.SteeringSensor_Value
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.BrakePedal_Value
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS1_Value
             /end REF_MEASUREMENT
             /begin REF_CHARACTERISTIC
+                ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.el_VEL_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.SteeringSensor_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.BrakePedal_Value_calibrate
                 ETCSignals.ES910.ES910.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value_calibrate
