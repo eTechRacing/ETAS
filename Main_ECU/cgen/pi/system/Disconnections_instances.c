@@ -21,6 +21,7 @@
 #include "../a_basdef.h"
 #include "Disconnections_instances.h"
 extern    B_Disconnections_T Disconnections_B;
+extern    ConstB_Disconnections_T Disconnections_ConstB;
 extern    DW_Disconnections_T Disconnections_DW;
 extern    ExtU_Disconnections_T Disconnections_U;
 extern    ExtY_Disconnections_T Disconnections_Y;
@@ -40,17 +41,14 @@ void initClass_RTWTop_Disconnections(struct RTWTop_Disconnections_Class *self)
     /* Level 1 class variables */
     self->RTWWrapper_Disconnections_B_Merge_Ptr = initInstance_scalarWrapper((void*)&Disconnections_B.Merge, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_B_Merge_d_Ptr = initInstance_scalarWrapper((void*)&Disconnections_B.Merge_d, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Disconnections_B_Merge_dt_Ptr = initInstance_scalarWrapper((void*)&Disconnections_B.Merge_dt, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Disconnections_B_Merge_e_Ptr = initInstance_scalarWrapper((void*)&Disconnections_B.Merge_e, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Disconnections_B_Merge_ed_Ptr = initInstance_scalarWrapper((void*)&Disconnections_B.Merge_ed, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_B_Merge_g_Ptr = initInstance_scalarWrapper((void*)&Disconnections_B.Merge_g, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_B_Merge_go_Ptr = initInstance_scalarWrapper((void*)&Disconnections_B.Merge_go, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_B_Merge_j_Ptr = initInstance_scalarWrapper((void*)&Disconnections_B.Merge_j, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_B_Merge_k_Ptr = initInstance_scalarWrapper((void*)&Disconnections_B.Merge_k, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_B_Merge_kw_Ptr = initInstance_scalarWrapper((void*)&Disconnections_B.Merge_kw, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_B_Merge_m_Ptr = initInstance_scalarWrapper((void*)&Disconnections_B.Merge_m, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Disconnections_B_Merge_n_Ptr = initInstance_scalarWrapper((void*)&Disconnections_B.Merge_n, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_B_Merge_p_Ptr = initInstance_scalarWrapper((void*)&Disconnections_B.Merge_p, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Disconnections_ConstB_Constant_Ptr = initInstance_scalarWrapper((void*)&Disconnections_ConstB.Constant, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_DW_A_Ptr = initInstance_scalarWrapper((void*)&Disconnections_DW.A, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_DW_A_o_Ptr = initInstance_scalarWrapper((void*)&Disconnections_DW.A_o, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_DW_Last_alive_Ptr = initInstance_scalarWrapper((void*)&Disconnections_DW.Last_alive, sizeof(double), (uint32)ASD_VARIABLE);
@@ -109,12 +107,9 @@ static MethodList RTWTop_Disconnections_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_Disconnections_ClassHeader =
-    {0, 1, 0, 51 + 0, (MethodList *)0, (MethodList *)&RTWTop_Disconnections_ClassMethodList};
+    {0, 1, 0, 48 + 0, (MethodList *)0, (MethodList *)&RTWTop_Disconnections_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_Disconnections_Class RTWTop_Disconnections_ClassObj = {{1, {&RTWTop_Disconnections_ClassHeader}, {0}}
-    ,NULL
-    ,NULL
-    ,NULL
     ,NULL
     ,NULL
     ,NULL

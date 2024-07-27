@@ -17,13 +17,13 @@
 
 extern AppModeType etasStartupAppMode;
 extern AppModeType etasInactiveAppMode;
-extern AppModeType TimersAppMode;
+extern AppModeType TimerAppMode;
 
 T_appModeTableEntry appModeEntries[] =
 {
     {(AppModeType *)&etasStartupAppMode, "etasStartup"},
     {(AppModeType *)&etasInactiveAppMode, "etasInactive"},
-    {(AppModeType *)&TimersAppMode, "Timers"}
+    {(AppModeType *)&TimerAppMode, "Timer"}
 };
 
 T_appModeTable appModeTable =
@@ -145,7 +145,7 @@ void etasInactiveInitTask(void)
     return;
 }
 
-void TimersInitTask(void)
+void TimerInitTask(void)
 {
 #ifdef USER_APP_MODE_INIT_TASK_START_FW_HOOK
     USER_APP_MODE_INIT_TASK_START_FW_HOOK
@@ -206,8 +206,8 @@ void etasInitTasks(void)
             etasInactiveInitTask();
             break;
 
-        case Timers:
-            TimersInitTask();
+        case Timer:
+            TimerInitTask();
             break;
     }
 
@@ -270,7 +270,7 @@ void etasInactiveExitTask(void)
     return;
 }
 
-void TimersExitTask(void)
+void TimerExitTask(void)
 {
 #ifdef USER_APP_MODE_EXIT_TASK_START_FW_HOOK
     USER_APP_MODE_EXIT_TASK_START_FW_HOOK
@@ -330,8 +330,8 @@ void etasExitTasks(void)
             etasInactiveExitTask();
             break;
 
-        case Timers:
-            TimersExitTask();
+        case Timer:
+            TimerExitTask();
             break;
     }
 

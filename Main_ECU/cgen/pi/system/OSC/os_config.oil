@@ -98,7 +98,7 @@ CPU defaultCPU
 
 	/* user application modes */
 
-	APPMODE Timers {
+	APPMODE Timer {
 		//RTAOILCFG { OS_STOPWATCH_CONVERSION cpu_clock OS_STOPWATCH_CONVERSION_VALID TRUE;  "0.0833333333333333 sys_timebase ticks"; OS_THIS_AMOUNT 1.000000; OS_THIS_UNITS cycles; OS_STOPWATCH_AMOUNT 1.000000; OS_STOPWATCH_UNITS cycles; };
 		//RTAOILCFG { OS_STOPWATCH_CONVERSION real_time OS_STOPWATCH_CONVERSION_VALID TRUE;  "50000000 sys_timebase ticks"; OS_THIS_AMOUNT 1.000000; OS_THIS_UNITS s; OS_STOPWATCH_AMOUNT 50000000.000000; OS_STOPWATCH_UNITS ticks; };
 		//RTAOILCFG { OS_STOPWATCH_CONVERSION ts_etasCounter OS_STOPWATCH_CONVERSION_VALID TRUE; OS_THIS_AMOUNT 1.000000; OS_THIS_UNITS ticks ; OS_STOPWATCH_AMOUNT 50000.000000; OS_STOPWATCH_UNITS ticks; };
@@ -222,7 +222,7 @@ CPU defaultCPU
 			CYCLETIME = 200;
 			APPMODE = etasStartup;
 			APPMODE = etasInactive;
-			APPMODE = Timers;
+			APPMODE = Timer;
 
 		 };
 	};
@@ -545,7 +545,7 @@ CPU defaultCPU
 		AUTOSTART = TRUE {
 			ALARMTIME = 26;
 			CYCLETIME = 50;
-			APPMODE = Timers;
+			APPMODE = Timer;
 		};
 		COUNTER = etasCounter;
 	};
@@ -557,7 +557,7 @@ CPU defaultCPU
 		AUTOSTART = TRUE {
 			ALARMTIME = 1;
 			CYCLETIME = 2000;
-			APPMODE = Timers;
+			APPMODE = Timer;
 		};
 		COUNTER = etasCounter;
 	};
@@ -569,7 +569,7 @@ CPU defaultCPU
 		AUTOSTART = TRUE {
 			ALARMTIME = 1;
 			CYCLETIME = 200;
-			APPMODE = Timers;
+			APPMODE = Timer;
 		};
 		COUNTER = etasCounter;
 	};
@@ -581,7 +581,7 @@ CPU defaultCPU
 		AUTOSTART = TRUE {
 			ALARMTIME = 1;
 			CYCLETIME = 50;
-			APPMODE = Timers;
+			APPMODE = Timer;
 		};
 		COUNTER = etasCounter;
 	};
@@ -593,7 +593,7 @@ CPU defaultCPU
 		AUTOSTART = TRUE {
 			ALARMTIME = 1;
 			CYCLETIME = 6;
-			APPMODE = Timers;
+			APPMODE = Timer;
 		};
 		COUNTER = etasCounter;
 	};

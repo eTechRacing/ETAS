@@ -44,7 +44,7 @@ BUILD_SUCCESS = successful
 
 # make matlab happy
 MODEL                = Disconnections
-MODULES              = rt_logging.c Disconnections_main.c rt_sim.c
+MODULES              = rt_logging.c Disconnections_data.c Disconnections_main.c rt_sim.c
 MAKEFILE             = Disconnections.mk
 MATLAB_ROOT          = C:\Program Files\MATLAB\R2023b
 MATLAB_BIN           = C:\Program Files\MATLAB\R2023b\bin

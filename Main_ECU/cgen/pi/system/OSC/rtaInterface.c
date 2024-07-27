@@ -12,7 +12,7 @@ AppModeType etasStartupAppMode = etasStartup;
 AppModeType etasInactiveAppMode = etasInactive;
 
 /* dynamic part */
-AppModeType TimersAppMode = Timers;
+AppModeType TimerAppMode = Timer;
 			
 
 uint32 etasGetCounterPeriodUs(void)

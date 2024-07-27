@@ -7,9 +7,9 @@
  *
  * Code generation for model "VDC".
  *
- * Model version              : 4.174
+ * Model version              : 4.186
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Thu Jul 25 01:06:32 2024
+ * C source code generated on : Sat Jul 27 11:12:02 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -617,10 +617,10 @@ static void VDC_output(void)
         if (VDC_U.SteeringSensor_Value < -10.0) {
           rtb_SoCCurrent = VDC_B.sf_Torquedemandedbythedriver_a.Throttle_Torque;
           rtb_Torque_L_Nm = VDC_B.sf_Torquedemandedbythedriver_a.Throttle_Torque
-            + rtb_max_regen_torque_RR;
+            - rtb_max_regen_torque_RR;
         } else {
           rtb_SoCCurrent = VDC_B.sf_Torquedemandedbythedriver_a.Throttle_Torque
-            + rtb_max_regen_torque_RR;
+            - rtb_max_regen_torque_RR;
           rtb_Torque_L_Nm = VDC_B.sf_Torquedemandedbythedriver_a.Throttle_Torque;
         }
       }
@@ -852,11 +852,11 @@ static void VDC_output(void)
         }
 
         if (VDC_U.SteeringSensor_Value < -10.0) {
-          rtb_Torque_L_Nm = rtb_SoCCurrent - rtb_max_regen_torque_RR;
-          rtb_Torque_R_Nm = rtb_SoCCurrent;
-        } else {
           rtb_Torque_L_Nm = rtb_SoCCurrent;
           rtb_Torque_R_Nm = rtb_SoCCurrent - rtb_max_regen_torque_RR;
+        } else {
+          rtb_Torque_L_Nm = rtb_SoCCurrent - rtb_max_regen_torque_RR;
+          rtb_Torque_R_Nm = rtb_SoCCurrent;
         }
       }
 
@@ -1008,7 +1008,7 @@ static void VDC_output(void)
     /* If: '<S28>/If' incorporates:
      *  Inport: '<Root>/el_VEL'
      */
-    if (VDC_U.el_VEL > 9.0) {
+    if (VDC_U.el_VEL > 15.0) {
       /* Outputs for IfAction SubSystem: '<S28>/If Action Subsystem' incorporates:
        *  ActionPort: '<S37>/Action Port'
        */

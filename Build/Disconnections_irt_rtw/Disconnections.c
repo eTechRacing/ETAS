@@ -9,7 +9,7 @@
  *
  * Model version              : 13.24
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Thu Jul 25 00:49:41 2024
+ * C source code generated on : Sat Jul 27 11:09:20 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -135,7 +135,7 @@ static void Disconnections_output(void)
 {
   /* local block i/o variables */
   real_T rtb_Merge3;
-  real_T rtb_Merge1;
+  real_T rtb_Add;
   boolean_T rtb_OR3;
   boolean_T rtb_OR4;
 
@@ -166,6 +166,12 @@ static void Disconnections_output(void)
   /* DataStoreWrite: '<S1>/Data Store Write' */
   Disconnections_DW.A = rtb_Merge3;
 
+  /* Sum: '<S2>/Add' incorporates:
+   *  Constant: '<S2>/Constant'
+   *  DataStoreRead: '<S2>/Data Store Read'
+   */
+  rtb_Add = Disconnections_DW.A_o + 1.0;
+
   /* If: '<S2>/If' incorporates:
    *  Constant: '<Root>/Periods1'
    *  Constant: '<S2>/Constant'
@@ -176,14 +182,14 @@ static void Disconnections_output(void)
     /* Outputs for IfAction SubSystem: '<S2>/Reset_counter' incorporates:
      *  ActionPort: '<S10>/Action Port'
      */
-    Disconnections_Reset_counter(&rtb_Merge1);
+    Disconnections_Reset_counter(&rtb_Add);
 
     /* End of Outputs for SubSystem: '<S2>/Reset_counter' */
   } else {
     /* Outputs for IfAction SubSystem: '<S2>/Counting' incorporates:
      *  ActionPort: '<S9>/Action Port'
      */
-    Disconnections_Counting(Disconnections_DW.A_o + 1.0, &rtb_Merge1);
+    Disconnections_Counting(Disconnections_DW.A_o + 1.0, &rtb_Add);
 
     /* End of Outputs for SubSystem: '<S2>/Counting' */
   }
@@ -191,7 +197,7 @@ static void Disconnections_output(void)
   /* End of If: '<S2>/If' */
 
   /* DataStoreWrite: '<S2>/Data Store Write' */
-  Disconnections_DW.A_o = rtb_Merge1;
+  Disconnections_DW.A_o = rtb_Add;
 
   /* If: '<Root>/If' */
   if (rtb_Merge3 == 1.0) {
@@ -278,7 +284,7 @@ static void Disconnections_output(void)
       /* Outputs for IfAction SubSystem: '<S16>/CAN_failure' incorporates:
        *  ActionPort: '<S26>/Action Port'
        */
-      Disconnections_Reset_counter(&Disconnections_B.Merge_dt);
+      Disconnections_Reset_counter(&Disconnections_B.Merge_d);
 
       /* End of Outputs for SubSystem: '<S16>/CAN_failure' */
     } else {
@@ -286,7 +292,7 @@ static void Disconnections_output(void)
        *  ActionPort: '<S25>/Action Port'
        */
       Disconnections_CAN_OK(Disconnections_U.Ellipse_Alive,
-                            &Disconnections_B.Merge_dt,
+                            &Disconnections_B.Merge_d,
                             &Disconnections_DW.Last_alive_pb);
 
       /* End of Outputs for SubSystem: '<S16>/CAN_OK' */
@@ -330,10 +336,31 @@ static void Disconnections_output(void)
   Disconnections_Y.Critical_CAN_Disconnection = rtb_OR4;
 
   /* If: '<Root>/If1' */
-  if (rtb_Merge1 == 1.0) {
+  if (rtb_Add == 1.0) {
     /* Outputs for IfAction SubSystem: '<Root>/Sensor Disconnections (Noise)' incorporates:
      *  ActionPort: '<S5>/Action Port'
      */
+    /* Outport: '<Root>/Disconnection_APPS1' incorporates:
+     *  SignalConversion generated from: '<S5>/APPS1 Disconnection'
+     */
+    Disconnections_Y.Disconnection_APPS1 = Disconnections_ConstB.Constant;
+
+    /* Outport: '<Root>/Disconnection_APPS2' incorporates:
+     *  SignalConversion generated from: '<S5>/APPS2 Disconnection'
+     */
+    Disconnections_Y.Disconnection_APPS2 = Disconnections_ConstB.Constant;
+
+    /* Outport: '<Root>/Disconnection_BrakePedal' incorporates:
+     *  SignalConversion generated from: '<S5>/Brake Disconnection'
+     */
+    Disconnections_Y.Disconnection_BrakePedal = Disconnections_ConstB.Constant;
+
+    /* Outport: '<Root>/Disconnection_SteeringSensor' incorporates:
+     *  SignalConversion generated from: '<S5>/Steering Disconnection'
+     */
+    Disconnections_Y.Disconnection_SteeringSensor =
+      Disconnections_ConstB.Constant;
+
     /* If: '<S30>/If' incorporates:
      *  Constant: '<S30>/threshold high'
      *  Constant: '<S30>/threshold low'
@@ -343,28 +370,28 @@ static void Disconnections_output(void)
       /* Outputs for IfAction SubSystem: '<S30>/If Action Subsystem' incorporates:
        *  ActionPort: '<S38>/Action Port'
        */
-      Disconnection_IfActionSubsystem(&Disconnections_B.Merge);
+      Disconnection_IfActionSubsystem(&rtb_Add);
 
       /* End of Outputs for SubSystem: '<S30>/If Action Subsystem' */
     } else if (Disconnections_U.APPS1_Bits > 1.0) {
       /* Outputs for IfAction SubSystem: '<S30>/If Action Subsystem1' incorporates:
        *  ActionPort: '<S39>/Action Port'
        */
-      Disconnection_IfActionSubsystem(&Disconnections_B.Merge);
+      Disconnection_IfActionSubsystem(&rtb_Add);
 
       /* End of Outputs for SubSystem: '<S30>/If Action Subsystem1' */
     } else if (Disconnections_B.Merge_go == 1.0) {
       /* Outputs for IfAction SubSystem: '<S30>/If Action Subsystem2' incorporates:
        *  ActionPort: '<S40>/Action Port'
        */
-      Disconnection_IfActionSubsystem(&Disconnections_B.Merge);
+      Disconnection_IfActionSubsystem(&rtb_Add);
 
       /* End of Outputs for SubSystem: '<S30>/If Action Subsystem2' */
     } else {
       /* Outputs for IfAction SubSystem: '<S30>/If Action Subsystem3' incorporates:
        *  ActionPort: '<S41>/Action Port'
        */
-      Disconnectio_IfActionSubsystem3(&Disconnections_B.Merge);
+      Disconnectio_IfActionSubsystem3(&rtb_Add);
 
       /* End of Outputs for SubSystem: '<S30>/If Action Subsystem3' */
     }
@@ -380,28 +407,28 @@ static void Disconnections_output(void)
       /* Outputs for IfAction SubSystem: '<S31>/If Action Subsystem' incorporates:
        *  ActionPort: '<S42>/Action Port'
        */
-      Disconnection_IfActionSubsystem(&Disconnections_B.Merge_e);
+      Disconnection_IfActionSubsystem(&rtb_Add);
 
       /* End of Outputs for SubSystem: '<S31>/If Action Subsystem' */
     } else if (Disconnections_U.APPS2_Bits > 1.0) {
       /* Outputs for IfAction SubSystem: '<S31>/If Action Subsystem1' incorporates:
        *  ActionPort: '<S43>/Action Port'
        */
-      Disconnection_IfActionSubsystem(&Disconnections_B.Merge_e);
+      Disconnection_IfActionSubsystem(&rtb_Add);
 
       /* End of Outputs for SubSystem: '<S31>/If Action Subsystem1' */
     } else if (Disconnections_B.Merge_go == 1.0) {
       /* Outputs for IfAction SubSystem: '<S31>/If Action Subsystem2' incorporates:
        *  ActionPort: '<S44>/Action Port'
        */
-      Disconnection_IfActionSubsystem(&Disconnections_B.Merge_e);
+      Disconnection_IfActionSubsystem(&rtb_Add);
 
       /* End of Outputs for SubSystem: '<S31>/If Action Subsystem2' */
     } else {
       /* Outputs for IfAction SubSystem: '<S31>/If Action Subsystem3' incorporates:
        *  ActionPort: '<S45>/Action Port'
        */
-      Disconnectio_IfActionSubsystem3(&Disconnections_B.Merge_e);
+      Disconnectio_IfActionSubsystem3(&rtb_Add);
 
       /* End of Outputs for SubSystem: '<S31>/If Action Subsystem3' */
     }
@@ -417,28 +444,28 @@ static void Disconnections_output(void)
       /* Outputs for IfAction SubSystem: '<S32>/If Action Subsystem' incorporates:
        *  ActionPort: '<S46>/Action Port'
        */
-      Disconnection_IfActionSubsystem(&Disconnections_B.Merge_ed);
+      Disconnection_IfActionSubsystem(&rtb_Add);
 
       /* End of Outputs for SubSystem: '<S32>/If Action Subsystem' */
     } else if (Disconnections_U.BrakePedal_Bits > 4040.0) {
       /* Outputs for IfAction SubSystem: '<S32>/If Action Subsystem1' incorporates:
        *  ActionPort: '<S47>/Action Port'
        */
-      Disconnection_IfActionSubsystem(&Disconnections_B.Merge_ed);
+      Disconnection_IfActionSubsystem(&rtb_Add);
 
       /* End of Outputs for SubSystem: '<S32>/If Action Subsystem1' */
     } else if (Disconnections_B.Merge_go == 1.0) {
       /* Outputs for IfAction SubSystem: '<S32>/If Action Subsystem2' incorporates:
        *  ActionPort: '<S48>/Action Port'
        */
-      Disconnection_IfActionSubsystem(&Disconnections_B.Merge_ed);
+      Disconnection_IfActionSubsystem(&rtb_Add);
 
       /* End of Outputs for SubSystem: '<S32>/If Action Subsystem2' */
     } else {
       /* Outputs for IfAction SubSystem: '<S32>/If Action Subsystem3' incorporates:
        *  ActionPort: '<S49>/Action Port'
        */
-      Disconnectio_IfActionSubsystem3(&Disconnections_B.Merge_ed);
+      Disconnectio_IfActionSubsystem3(&rtb_Add);
 
       /* End of Outputs for SubSystem: '<S32>/If Action Subsystem3' */
     }
@@ -454,28 +481,28 @@ static void Disconnections_output(void)
       /* Outputs for IfAction SubSystem: '<S33>/If Action Subsystem' incorporates:
        *  ActionPort: '<S50>/Action Port'
        */
-      Disconnection_IfActionSubsystem(&Disconnections_B.Merge_d);
+      Disconnection_IfActionSubsystem(&rtb_Add);
 
       /* End of Outputs for SubSystem: '<S33>/If Action Subsystem' */
     } else if (Disconnections_U.SteeringSensor_Bits > 1.0) {
       /* Outputs for IfAction SubSystem: '<S33>/If Action Subsystem1' incorporates:
        *  ActionPort: '<S51>/Action Port'
        */
-      Disconnection_IfActionSubsystem(&Disconnections_B.Merge_d);
+      Disconnection_IfActionSubsystem(&rtb_Add);
 
       /* End of Outputs for SubSystem: '<S33>/If Action Subsystem1' */
     } else if (Disconnections_B.Merge_go == 1.0) {
       /* Outputs for IfAction SubSystem: '<S33>/If Action Subsystem2' incorporates:
        *  ActionPort: '<S52>/Action Port'
        */
-      Disconnection_IfActionSubsystem(&Disconnections_B.Merge_d);
+      Disconnection_IfActionSubsystem(&rtb_Add);
 
       /* End of Outputs for SubSystem: '<S33>/If Action Subsystem2' */
     } else {
       /* Outputs for IfAction SubSystem: '<S33>/If Action Subsystem3' incorporates:
        *  ActionPort: '<S53>/Action Port'
        */
-      Disconnectio_IfActionSubsystem3(&Disconnections_B.Merge_d);
+      Disconnectio_IfActionSubsystem3(&rtb_Add);
 
       /* End of Outputs for SubSystem: '<S33>/If Action Subsystem3' */
     }
@@ -491,28 +518,28 @@ static void Disconnections_output(void)
       /* Outputs for IfAction SubSystem: '<S34>/If Action Subsystem' incorporates:
        *  ActionPort: '<S54>/Action Port'
        */
-      Disconnection_IfActionSubsystem(&Disconnections_B.Merge_n);
+      Disconnection_IfActionSubsystem(&Disconnections_B.Merge);
 
       /* End of Outputs for SubSystem: '<S34>/If Action Subsystem' */
     } else if (Disconnections_U.Susp_F_L_Bits > 1.0) {
       /* Outputs for IfAction SubSystem: '<S34>/If Action Subsystem1' incorporates:
        *  ActionPort: '<S55>/Action Port'
        */
-      Disconnection_IfActionSubsystem(&Disconnections_B.Merge_n);
+      Disconnection_IfActionSubsystem(&Disconnections_B.Merge);
 
       /* End of Outputs for SubSystem: '<S34>/If Action Subsystem1' */
     } else if (Disconnections_B.Merge_go == 1.0) {
       /* Outputs for IfAction SubSystem: '<S34>/If Action Subsystem2' incorporates:
        *  ActionPort: '<S56>/Action Port'
        */
-      Disconnection_IfActionSubsystem(&Disconnections_B.Merge_n);
+      Disconnection_IfActionSubsystem(&Disconnections_B.Merge);
 
       /* End of Outputs for SubSystem: '<S34>/If Action Subsystem2' */
     } else {
       /* Outputs for IfAction SubSystem: '<S34>/If Action Subsystem3' incorporates:
        *  ActionPort: '<S57>/Action Port'
        */
-      Disconnectio_IfActionSubsystem3(&Disconnections_B.Merge_n);
+      Disconnectio_IfActionSubsystem3(&Disconnections_B.Merge);
 
       /* End of Outputs for SubSystem: '<S34>/If Action Subsystem3' */
     }
@@ -634,9 +661,14 @@ static void Disconnections_output(void)
 
   /* End of If: '<Root>/If1' */
 
-  /* Logic: '<Root>/OR3' */
-  rtb_OR3 = ((Disconnections_B.Merge_ed != 0.0) || (Disconnections_B.Merge !=
-              0.0) || (Disconnections_B.Merge_e != 0.0));
+  /* Logic: '<Root>/OR3' incorporates:
+   *  Outport: '<Root>/Disconnection_APPS1'
+   *  Outport: '<Root>/Disconnection_APPS2'
+   *  Outport: '<Root>/Disconnection_BrakePedal'
+   */
+  rtb_OR3 = ((Disconnections_Y.Disconnection_BrakePedal != 0.0) ||
+             (Disconnections_Y.Disconnection_APPS1 != 0.0) ||
+             (Disconnections_Y.Disconnection_APPS2 != 0.0));
 
   /* Outport: '<Root>/Critical_Signal_Disconnection' */
   Disconnections_Y.Critical_Signal_Disconnection = rtb_OR3;
@@ -646,11 +678,8 @@ static void Disconnections_output(void)
    */
   Disconnections_Y.CriticalDisconnection = (rtb_OR4 || rtb_OR3);
 
-  /* Outport: '<Root>/Disconnection_SteeringSensor' */
-  Disconnections_Y.Disconnection_SteeringSensor = Disconnections_B.Merge_d;
-
   /* Outport: '<Root>/Disconnection_Susp_F_L' */
-  Disconnections_Y.Disconnection_Susp_F_L = Disconnections_B.Merge_n;
+  Disconnections_Y.Disconnection_Susp_F_L = Disconnections_B.Merge;
 
   /* Outport: '<Root>/Disconnection_Susp_F_R' */
   Disconnections_Y.Disconnection_Susp_F_R = Disconnections_B.Merge_k;
@@ -672,8 +701,8 @@ static void Disconnections_output(void)
    *  SignalConversion generated from: '<S27>/1'
    *  SignalConversion generated from: '<S28>/0'
    */
-  rtb_Merge1 = ((!(Disconnections_B.Merge_dt == 0.0)) ||
-                (!(Disconnections_U.el_Vel_OK == 1.0)));
+  rtb_Add = ((!(Disconnections_B.Merge_d == 0.0)) ||
+             (!(Disconnections_U.el_Vel_OK == 1.0)));
 
   /* End of Outputs for SubSystem: '<S4>/Ellipse Vel Valid' */
   /* End of Outputs for SubSystem: '<S4>/Ellipse Vel NOT Valid' */
@@ -681,7 +710,7 @@ static void Disconnections_output(void)
   /* Logic: '<Root>/OR2' incorporates:
    *  Logic: '<S6>/Logical Operator1'
    */
-  rtb_OR4 = !(rtb_Merge1 != 0.0);
+  rtb_OR4 = !(rtb_Add != 0.0);
 
   /* If: '<S6>/If1' incorporates:
    *  If: '<S6>/If2'
@@ -689,8 +718,9 @@ static void Disconnections_output(void)
    *  Logic: '<Root>/OR2'
    *  Logic: '<S6>/Logical Operator2'
    *  Logic: '<S6>/Logical Operator3'
+   *  Outport: '<Root>/Disconnection_SteeringSensor'
    */
-  if (rtb_OR4 && (!(Disconnections_B.Merge_d != 0.0))) {
+  if (rtb_OR4 && (!(Disconnections_Y.Disconnection_SteeringSensor != 0.0))) {
     /* Outputs for IfAction SubSystem: '<S6>/TV & TC 2024' incorporates:
      *  ActionPort: '<S76>/Action Port'
      */
@@ -713,7 +743,7 @@ static void Disconnections_output(void)
     Disconnections_Y.Disconnection_Mode = 2.0;
 
     /* End of Outputs for SubSystem: '<S6>/Rigid Axle with TC 2024' */
-  } else if (!(Disconnections_B.Merge_d != 0.0)) {
+  } else if (!(Disconnections_Y.Disconnection_SteeringSensor != 0.0)) {
     /* Outputs for IfAction SubSystem: '<S6>/Steering TV without TC 2024' incorporates:
      *  ActionPort: '<S75>/Action Port'
      */
@@ -741,15 +771,6 @@ static void Disconnections_output(void)
 
   /* End of If: '<S6>/If1' */
 
-  /* Outport: '<Root>/Disconnection_APPS1' */
-  Disconnections_Y.Disconnection_APPS1 = Disconnections_B.Merge;
-
-  /* Outport: '<Root>/Disconnection_APPS2' */
-  Disconnections_Y.Disconnection_APPS2 = Disconnections_B.Merge_e;
-
-  /* Outport: '<Root>/Disconnection_BrakePedal' */
-  Disconnections_Y.Disconnection_BrakePedal = Disconnections_B.Merge_ed;
-
   /* Outport: '<Root>/Disconnection_BMS' */
   Disconnections_Y.Disconnection_BMS = Disconnections_B.Merge_g;
 
@@ -763,7 +784,7 @@ static void Disconnections_output(void)
   Disconnections_Y.Disconnection_Rear = Disconnections_B.Merge_m;
 
   /* Outport: '<Root>/Disconnection_Ellipse' */
-  Disconnections_Y.Disconnection_Ellipse = Disconnections_B.Merge_dt;
+  Disconnections_Y.Disconnection_Ellipse = Disconnections_B.Merge_d;
 }
 
 /* Model update function */
@@ -825,7 +846,7 @@ static void Disconnections_initialize(void)
   Disconnections_B.Merge_go = 0.0;
 
   /* SystemInitialize for Merge: '<S16>/Merge' */
-  Disconnections_B.Merge_dt = 0.0;
+  Disconnections_B.Merge_d = 0.0;
 
   /* SystemInitialize for Merge: '<S13>/Merge' */
   Disconnections_B.Merge_m = 0.0;
@@ -833,20 +854,28 @@ static void Disconnections_initialize(void)
   /* End of SystemInitialize for SubSystem: '<Root>/ECU Disconections' */
 
   /* SystemInitialize for IfAction SubSystem: '<Root>/Sensor Disconnections (Noise)' */
-  /* SystemInitialize for Merge: '<S30>/Merge' */
-  Disconnections_B.Merge = 0.0;
+  /* SystemInitialize for Outport: '<Root>/Disconnection_APPS1' incorporates:
+   *  SignalConversion generated from: '<S5>/APPS1 Disconnection'
+   */
+  Disconnections_Y.Disconnection_APPS1 = Disconnections_ConstB.Constant;
 
-  /* SystemInitialize for Merge: '<S31>/Merge' */
-  Disconnections_B.Merge_e = 0.0;
+  /* SystemInitialize for Outport: '<Root>/Disconnection_APPS2' incorporates:
+   *  SignalConversion generated from: '<S5>/APPS2 Disconnection'
+   */
+  Disconnections_Y.Disconnection_APPS2 = Disconnections_ConstB.Constant;
 
-  /* SystemInitialize for Merge: '<S32>/Merge' */
-  Disconnections_B.Merge_ed = 0.0;
+  /* SystemInitialize for Outport: '<Root>/Disconnection_BrakePedal' incorporates:
+   *  SignalConversion generated from: '<S5>/Brake Disconnection'
+   */
+  Disconnections_Y.Disconnection_BrakePedal = Disconnections_ConstB.Constant;
 
-  /* SystemInitialize for Merge: '<S33>/Merge' */
-  Disconnections_B.Merge_d = 0.0;
+  /* SystemInitialize for Outport: '<Root>/Disconnection_SteeringSensor' incorporates:
+   *  SignalConversion generated from: '<S5>/Steering Disconnection'
+   */
+  Disconnections_Y.Disconnection_SteeringSensor = Disconnections_ConstB.Constant;
 
   /* SystemInitialize for Merge: '<S34>/Merge' */
-  Disconnections_B.Merge_n = 0.0;
+  Disconnections_B.Merge = 0.0;
 
   /* SystemInitialize for Merge: '<S35>/Merge' */
   Disconnections_B.Merge_k = 0.0;
@@ -998,7 +1027,7 @@ RT_MODEL_Disconnections_T *Disconnections(void)
   Disconnections_M->Sizes.numU = (14); /* Number of model inputs */
   Disconnections_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Disconnections_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  Disconnections_M->Sizes.numBlocks = (184);/* Number of blocks */
+  Disconnections_M->Sizes.numBlocks = (189);/* Number of blocks */
   Disconnections_M->Sizes.numBlockIO = (13);/* Number of block outputs */
   return Disconnections_M;
 }

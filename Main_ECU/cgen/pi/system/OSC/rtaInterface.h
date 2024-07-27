@@ -7,7 +7,7 @@
 #define __RTA_INTERFACE_H
 
 /* User application modes only */
-extern AppModeType TimersAppMode;
+extern AppModeType TimerAppMode;
 
 
 #endif /* __RTA_INTERFACE_H */
