@@ -7,9 +7,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 13.4
+ * Model version              : 13.5
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jul 27 11:11:01 2024
+ * C source code generated on : Sun Jul 28 12:20:04 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -47,7 +47,7 @@ static void Sensors_output(void)
    *  Product: '<S1>/Divide'
    *  Sum: '<S1>/Sum'
    */
-  Sensors_Y.APPS1_Value = (Sensors_U.APPS1_Bits - 200.0) / Sensors_ConstB.Sum1;
+  Sensors_Y.APPS1_Value = (Sensors_U.APPS1_Bits - 130.0) / Sensors_ConstB.Sum1;
 
   /* Outport: '<Root>/APPS2_Value' incorporates:
    *  Constant: '<S2>/min'
@@ -74,8 +74,8 @@ static void Sensors_output(void)
    *  Product: '<S5>/Divide'
    *  Sum: '<S5>/Subtract1'
    */
-  Sensors_Y.SUSP_F_L = (Sensors_U.Susp_F_L_Bits - 1.0) / Sensors_ConstB.Subtract
-    * 57.0 * 30.0;
+  Sensors_Y.SUSP_F_L = (Sensors_U.Susp_F_L_Bits - 25.0) /
+    Sensors_ConstB.Subtract * 57.0 * 30.0;
 
   /* Outport: '<Root>/SUSP_F_R' incorporates:
    *  Constant: '<Root>/Zero_Bits_Experimental'
@@ -85,7 +85,7 @@ static void Sensors_output(void)
    *  Product: '<S6>/Divide'
    *  Sum: '<S6>/Subtract1'
    */
-  Sensors_Y.SUSP_F_R = (Sensors_U.Susp_F_R_Bits - 1.0) /
+  Sensors_Y.SUSP_F_R = (Sensors_U.Susp_F_R_Bits - 25.0) /
     Sensors_ConstB.Subtract_a * 57.0 * 30.0;
 
   /* Outport: '<Root>/SUSP_R_L' incorporates:
@@ -96,7 +96,7 @@ static void Sensors_output(void)
    *  Product: '<S7>/Divide'
    *  Sum: '<S7>/Subtract1'
    */
-  Sensors_Y.SUSP_R_L = (Sensors_U.Susp_R_L_Bits - 1.0) /
+  Sensors_Y.SUSP_R_L = (Sensors_U.Susp_R_L_Bits - 25.0) /
     Sensors_ConstB.Subtract_e * 57.0 * 30.0;
 
   /* Outport: '<Root>/SUSP_R_R' incorporates:
@@ -107,7 +107,7 @@ static void Sensors_output(void)
    *  Product: '<S8>/Divide'
    *  Sum: '<S8>/Subtract1'
    */
-  Sensors_Y.SUSP_R_R = (Sensors_U.Susp_R_R_Bits - 1.0) /
+  Sensors_Y.SUSP_R_R = (Sensors_U.Susp_R_R_Bits - 25.0) /
     Sensors_ConstB.Subtract_n * 57.0 * 30.0;
 
   /* Outputs for Atomic SubSystem: '<S4>/Low Pass' */
@@ -133,8 +133,8 @@ static void Sensors_output(void)
    *  Product: '<S4>/Divide'
    *  Sum: '<S4>/Sum'
    */
-  Sensors_DW.Previous_IN = (Sensors_U.SteeringSensor_Bits - 250.0) * 2.0 / 500.0
-    * 115.0;
+  Sensors_DW.Previous_IN = (Sensors_U.SteeringSensor_Bits - 2000.0) * 2.0 /
+    3400.0 * 115.0;
 
   /* Outport: '<Root>/SteeringSensor_Value' incorporates:
    *  Gain: '<S9>/Gain'

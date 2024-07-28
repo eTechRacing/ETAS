@@ -9,7 +9,7 @@
  *
  * Model version              : 13.15
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jul 27 11:10:21 2024
+ * C source code generated on : Sun Jul 28 11:34:23 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -142,7 +142,7 @@ static void Inverters_Data_output(void)
    *  Inport: '<Root>/Inv_R_RegID_M235_Inv_R_DCBus'
    *  MinMax: '<Root>/MinMax'
    */
-  Inverters_Data_Y.InvertersMinDCBus = fmin
+  Inverters_Data_Y.InvertersMinDCBus = fmax
     (Inverters_Data_U.Inv_L_RegID_M235_Inv_L_DCBus,
      Inverters_Data_U.Inv_R_RegID_M235_Inv_R_DCBus);
 }

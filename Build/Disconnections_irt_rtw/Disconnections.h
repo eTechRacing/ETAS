@@ -14,7 +14,7 @@
  *
  * Model version              : 13.24
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jul 27 11:09:20 2024
+ * C source code generated on : Sun Jul 28 12:09:47 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -860,14 +860,18 @@
 
 /* Block signals (default storage) */
 typedef struct {
-  real_T Merge;                        /* '<S34>/Merge' */
+  real_T Merge;                        /* '<S30>/Merge' */
+  real_T Merge_e;                      /* '<S31>/Merge' */
+  real_T Merge_ed;                     /* '<S32>/Merge' */
+  real_T Merge_d;                      /* '<S33>/Merge' */
+  real_T Merge_n;                      /* '<S34>/Merge' */
   real_T Merge_k;                      /* '<S35>/Merge' */
   real_T Merge_p;                      /* '<S36>/Merge' */
   real_T Merge_kw;                     /* '<S37>/Merge' */
   real_T Merge_g;                      /* '<S14>/Merge' */
   real_T Merge_j;                      /* '<S15>/Merge' */
   real_T Merge_go;                     /* '<S12>/Merge' */
-  real_T Merge_d;                      /* '<S16>/Merge' */
+  real_T Merge_dt;                     /* '<S16>/Merge' */
   real_T Merge_m;                      /* '<S13>/Merge' */
 } B_Disconnections_T;
 
@@ -881,11 +885,6 @@ typedef struct {
   real_T Last_alive_pb;                /* '<S16>/Data Store Memory' */
   real_T Last_alive_n0;                /* '<S13>/Data Store Memory' */
 } DW_Disconnections_T;
-
-/* Invariant block signals (default storage) */
-typedef struct {
-  const real_T Constant;               /* '<S5>/Constant' */
-} ConstB_Disconnections_T;
 
 /* External inputs (root inport signals with default storage) */
 typedef struct {
@@ -937,8 +936,6 @@ typedef struct {
 #define ExternalOutputs                ExtY_Disconnections_T
 #define rtDWork                        Disconnections_DW
 #define D_Work                         DW_Disconnections_T
-#define tConstBlockIOType              ConstB_Disconnections_T
-#define rtC                            Disconnections_ConstB
 
 /* Real-time Model Data Structure */
 struct tag_RTM_Disconnections_T {
@@ -1049,7 +1046,6 @@ extern ExtU_Disconnections_T Disconnections_U;
 
 /* External outputs (root outports fed by signals with default storage) */
 extern ExtY_Disconnections_T Disconnections_Y;
-extern ConstB_Disconnections_T Disconnections_ConstB;/* constant block i/o */
 
 /*====================*
  * External functions *

@@ -26,14 +26,17 @@ struct RTWTop_Disconnections_Class
     ASDObjectHeader objectHeader;
     scalarWrapper_Obj *RTWWrapper_Disconnections_B_Merge_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_B_Merge_d_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Disconnections_B_Merge_dt_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Disconnections_B_Merge_e_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Disconnections_B_Merge_ed_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_B_Merge_g_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_B_Merge_go_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_B_Merge_j_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_B_Merge_k_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_B_Merge_kw_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_B_Merge_m_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Disconnections_B_Merge_n_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_B_Merge_p_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Disconnections_ConstB_Constant_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_DW_A_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_DW_A_o_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_DW_Last_alive_Ptr;

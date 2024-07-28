@@ -9,7 +9,7 @@
  *
  * Model version              : 13.10
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jul 27 11:08:28 2024
+ * C source code generated on : Sun Jul 28 11:33:00 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -178,7 +178,7 @@ static void Car_State_output(void)
    *  RelationalOperator: '<S25>/Compare'
    */
   rtb_LogicalOperator1 = (Car_State_U.Shutdown_PackageIntck &&
-    (Car_State_U.Accumulator_Voltage > 420.0) && (Car_State_U.PrechargeRequest ==
+    (Car_State_U.Accumulator_Voltage > 69.0) && (Car_State_U.PrechargeRequest ==
     0.0) && (Car_State_U.Critical_CAN_Disconnection == 0.0));
 
   /* If: '<S3>/If' incorporates:
