@@ -49,6 +49,8 @@ struct RTWTop_Disconnections_Class
     scalarWrapper_Obj *RTWWrapper_Disconnections_U_BMS_Alive_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_U_BrakePedal_Bits_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_U_Dash_Alive_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Disconnections_U_Disconnection_InvL_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Disconnections_U_Disconnection_InvR_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_U_Ellipse_Alive_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_U_Front_Alive_Ptr;
     scalarWrapper_Obj *RTWWrapper_Disconnections_U_Rear_Alive_Ptr;

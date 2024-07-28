@@ -37,6 +37,8 @@
 <!ENTITY _618 SYSTEM "OSrv://ObjectHandle#618" NDATA _OIDLink >
 <!ENTITY _619 SYSTEM "OSrv://ObjectHandle#619" NDATA _OIDLink >
 <!ENTITY _620 SYSTEM "OSrv://ObjectHandle#620" NDATA _OIDLink >
+<!ENTITY _5560 SYSTEM "OSrv://ObjectHandle#5560" NDATA _OIDLink >
+<!ENTITY _5561 SYSTEM "OSrv://ObjectHandle#5561" NDATA _OIDLink >
 <!ENTITY _621 SYSTEM "OSrv://ObjectHandle#621" NDATA _OIDLink >
 <!ENTITY _622 SYSTEM "OSrv://ObjectHandle#622" NDATA _OIDLink >
 <!ENTITY _623 SYSTEM "OSrv://ObjectHandle#623" NDATA _OIDLink >
@@ -52,6 +54,8 @@
 <!ENTITY _633 SYSTEM "OSrv://ObjectHandle#633" NDATA _OIDLink >
 <!ENTITY _634 SYSTEM "OSrv://ObjectHandle#634" NDATA _OIDLink >
 <!ENTITY _635 SYSTEM "OSrv://ObjectHandle#635" NDATA _OIDLink >
+<!ENTITY _5558 SYSTEM "OSrv://ObjectHandle#5558" NDATA _OIDLink >
+<!ENTITY _5559 SYSTEM "OSrv://ObjectHandle#5559" NDATA _OIDLink >
 <!ENTITY _636 SYSTEM "OSrv://ObjectHandle#636" NDATA _OIDLink >
 <!ENTITY _637 SYSTEM "OSrv://ObjectHandle#637" NDATA _OIDLink >
 <!ENTITY _638 SYSTEM "OSrv://ObjectHandle#638" NDATA _OIDLink >
@@ -72,7 +76,7 @@
 ]><YBOModule
 	Name="Disconnections"
 	ScoopIXSource="c:\users\joser\onedrive\documentos\github\etas\build\disconnections_irt_rtw\disconnections.six"
-	FileDateTime="133666350060533078"
+	FileDateTime="133666696196844341"
 	ModelingTool="MATLAB"
 	Kind="SOFTWARE"
 	VisibleName="Disconnections"
@@ -181,6 +185,12 @@
 	Type="YBOConnection"/><_LinkTarget
 	Name="Connection177"
 	Index="620"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection207"
+	Index="5560"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection208"
+	Index="5561"
 	Type="YBOConnection"/></_LinkTarget><_LinkTarget
 	Name="Disconnections"
 	Index="621"
@@ -226,6 +236,12 @@
 	Type="YBOSWPort"/><_LinkTarget
 	Name="Disconnections_U.el_Vel_OK"
 	Index="635"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Disconnections_U.Disconnection_InvL"
+	Index="5558"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Disconnections_U.Disconnection_InvR"
+	Index="5559"
 	Type="YBOSWPort"/><_LinkTarget
 	Name="Disconnections_Y.Critical_CAN_Disconnection"
 	Index="636"
@@ -556,7 +572,23 @@
 	LowerBound="-1.6999999999999999388e+308"
 	UpperBound="1.6999999999999999388e+308"
 	VisibleName="Disconnection_Ellipse"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_620"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort></YBOPortList></YBOModule.Ports><YBOModule.Processes><YBOProcessList><YBOProcess
+	EmbeddedLink.ofTypeYBOConnection="_620"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Disconnections.Disconnections_5FU_5C.Disconnection_5FInvL"
+	Size="UINT8"
+	PortType="BOOLEAN"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	UpperBound="1."
+	VisibleName="Disconnection_InvL"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_5560"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Disconnections.Disconnections_5FU_5C.Disconnection_5FInvR"
+	Size="UINT8"
+	PortType="BOOLEAN"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	UpperBound="1."
+	VisibleName="Disconnection_InvR"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_5561"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort></YBOPortList></YBOModule.Ports><YBOModule.Processes><YBOProcessList><YBOProcess
 	Name="Disconnections.irt_5FStart_5FDisconnections"
 	Kind="INITIALIZATION"
 	Priority="0.5"
@@ -601,7 +633,9 @@
 	EmbeddedLink.ofTypeYBOSWPort="_632"/><YBOSWPortRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOSWPort="_633"/><YBOSWPortRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOSWPort="_634"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_635"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
+	EmbeddedLink.ofTypeYBOSWPort="_635"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_5558"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_5559"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
 	Name="Disconnections.irt_5FOneStep_5FDisconnections.irt_5FOneStep_5FDisconnections_5FSinkCopy"
 	Kind="SINK"
 	VisibleName="irt_OneStep_Disconnections_SinkCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction

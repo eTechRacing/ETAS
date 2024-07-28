@@ -12,9 +12,9 @@
  *
  * Code generation for model "Disconnections".
  *
- * Model version              : 13.24
+ * Model version              : 13.28
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sun Jul 28 12:09:47 2024
+ * C source code generated on : Sun Jul 28 21:44:36 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -902,6 +902,8 @@ typedef struct {
   real_T Susp_R_L_Bits;                /* '<Root>/Susp_R_L_Bits' */
   real_T Susp_R_R_Bits;                /* '<Root>/Susp_R_R_Bits' */
   real_T el_Vel_OK;                    /* '<Root>/el_Vel_OK' */
+  boolean_T Disconnection_InvL;        /* '<Root>/Disconnection_InvL' */
+  boolean_T Disconnection_InvR;        /* '<Root>/Disconnection_InvR' */
 } ExtU_Disconnections_T;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -1147,11 +1149,13 @@ extern RT_MODEL_Disconnections_T *const Disconnections_M;
  * '<S68>'  : 'Disconnections/Sensor Disconnections (Noise)/Life_check_SuspRR/If Action Subsystem2'
  * '<S69>'  : 'Disconnections/Sensor Disconnections (Noise)/Life_check_SuspRR/If Action Subsystem3'
  * '<S70>'  : 'Disconnections/Subsystem/DocBlock1'
- * '<S71>'  : 'Disconnections/Subsystem/Others FM2+'
- * '<S72>'  : 'Disconnections/Subsystem/Others FM3+ '
- * '<S73>'  : 'Disconnections/Subsystem/Rigid Axle 2024'
- * '<S74>'  : 'Disconnections/Subsystem/Rigid Axle with TC 2024'
- * '<S75>'  : 'Disconnections/Subsystem/Steering TV without TC 2024'
- * '<S76>'  : 'Disconnections/Subsystem/TV & TC 2024'
+ * '<S71>'  : 'Disconnections/Subsystem/Other SM'
+ * '<S72>'  : 'Disconnections/Subsystem/Others SM2+'
+ * '<S73>'  : 'Disconnections/Subsystem/Others SM3+ '
+ * '<S74>'  : 'Disconnections/Subsystem/Rigid Axle 2024'
+ * '<S75>'  : 'Disconnections/Subsystem/Rigid Axle One Inverter'
+ * '<S76>'  : 'Disconnections/Subsystem/Rigid Axle with TC 2024'
+ * '<S77>'  : 'Disconnections/Subsystem/Steering TV without TC 2024'
+ * '<S78>'  : 'Disconnections/Subsystem/TV & TC 2024'
  */
 #endif                                 /* RTW_HEADER_Disconnections_h_ */

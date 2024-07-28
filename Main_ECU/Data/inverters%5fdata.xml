@@ -32,6 +32,12 @@
 <!ENTITY _1023 SYSTEM "OSrv://ObjectHandle#1023" NDATA _OIDLink >
 <!ENTITY _1024 SYSTEM "OSrv://ObjectHandle#1024" NDATA _OIDLink >
 <!ENTITY _1025 SYSTEM "OSrv://ObjectHandle#1025" NDATA _OIDLink >
+<!ENTITY _5569 SYSTEM "OSrv://ObjectHandle#5569" NDATA _OIDLink >
+<!ENTITY _5576 SYSTEM "OSrv://ObjectHandle#5576" NDATA _OIDLink >
+<!ENTITY _5560 SYSTEM "OSrv://ObjectHandle#5560" NDATA _OIDLink >
+<!ENTITY _5583 SYSTEM "OSrv://ObjectHandle#5583" NDATA _OIDLink >
+<!ENTITY _5561 SYSTEM "OSrv://ObjectHandle#5561" NDATA _OIDLink >
+<!ENTITY _5590 SYSTEM "OSrv://ObjectHandle#5590" NDATA _OIDLink >
 <!ENTITY _1026 SYSTEM "OSrv://ObjectHandle#1026" NDATA _OIDLink >
 <!ENTITY _1027 SYSTEM "OSrv://ObjectHandle#1027" NDATA _OIDLink >
 <!ENTITY _1028 SYSTEM "OSrv://ObjectHandle#1028" NDATA _OIDLink >
@@ -41,6 +47,8 @@
 <!ENTITY _1032 SYSTEM "OSrv://ObjectHandle#1032" NDATA _OIDLink >
 <!ENTITY _1033 SYSTEM "OSrv://ObjectHandle#1033" NDATA _OIDLink >
 <!ENTITY _1034 SYSTEM "OSrv://ObjectHandle#1034" NDATA _OIDLink >
+<!ENTITY _5530 SYSTEM "OSrv://ObjectHandle#5530" NDATA _OIDLink >
+<!ENTITY _5531 SYSTEM "OSrv://ObjectHandle#5531" NDATA _OIDLink >
 <!ENTITY _1035 SYSTEM "OSrv://ObjectHandle#1035" NDATA _OIDLink >
 <!ENTITY _1036 SYSTEM "OSrv://ObjectHandle#1036" NDATA _OIDLink >
 <!ENTITY _1037 SYSTEM "OSrv://ObjectHandle#1037" NDATA _OIDLink >
@@ -53,10 +61,12 @@
 <!ENTITY _1044 SYSTEM "OSrv://ObjectHandle#1044" NDATA _OIDLink >
 <!ENTITY _1045 SYSTEM "OSrv://ObjectHandle#1045" NDATA _OIDLink >
 <!ENTITY _1046 SYSTEM "OSrv://ObjectHandle#1046" NDATA _OIDLink >
+<!ENTITY _5532 SYSTEM "OSrv://ObjectHandle#5532" NDATA _OIDLink >
+<!ENTITY _5533 SYSTEM "OSrv://ObjectHandle#5533" NDATA _OIDLink >
 ]><YBOModule
 	Name="Inverters_5FData"
 	ScoopIXSource="c:\users\joser\onedrive\documentos\github\etas\build\inverters_data_irt_rtw\inverters_data.six"
-	FileDateTime="133666329204921233"
+	FileDateTime="133666696484974567"
 	ModelingTool="MATLAB"
 	Kind="SOFTWARE"
 	VisibleName="Inverters_Data"
@@ -150,6 +160,24 @@
 	Type="YBOConnection"/><_LinkTarget
 	Name="Connection106"
 	Index="1025"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection209"
+	Index="5569"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection211"
+	Index="5576"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection207"
+	Index="5560"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection213"
+	Index="5583"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection208"
+	Index="5561"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection215"
+	Index="5590"
 	Type="YBOConnection"/></_LinkTarget><_LinkTarget
 	Name="Inverters_Data"
 	Index="1026"
@@ -177,6 +205,12 @@
 	Type="YBOSWPort"/><_LinkTarget
 	Name="Inverters_Data_U.Inv_R_RegID_M235_Inv_R_DCBus"
 	Index="1034"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_U.Inv_L_RegID"
+	Index="5530"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_U.Inv_R_RegID"
+	Index="5531"
 	Type="YBOSWPort"/><_LinkTarget
 	Name="Inverters_Data_Y.Max_Temp_IGBT"
 	Index="1035"
@@ -213,6 +247,12 @@
 	Type="YBOSWPort"/><_LinkTarget
 	Name="Inverters_Data_Y.Inv_R_TempMotor"
 	Index="1046"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.Disconnection_InvL"
+	Index="5532"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Inverters_Data_Y.Disconnection_InvR"
+	Index="5533"
 	Type="YBOSWPort"/></_LinkTarget></_LinkTarget></_System><YBOModule.Ports><YBOPortList><YBOSWPort
 	Name="Inverters_5FData.Inverters_5FData_5FU_5C.Inv_5FL_5FRegID_5FM48_5FInv_5FL_5FSpeed"
 	Size="REAL64"
@@ -402,7 +442,45 @@
 	UpperBound="1.6999999999999999388e+308"
 	VisibleName="Inv_R_TempMotor"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOConnection="_1024"/><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_1025"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort></YBOPortList></YBOModule.Ports><YBOModule.Processes><YBOProcessList><YBOProcess
+	EmbeddedLink.ofTypeYBOConnection="_1025"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FU_5C.Inv_5FL_5FRegID"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_L_RegID"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_5569"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FU_5C.Inv_5FR_5FRegID"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Inv_R_RegID"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_5576"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.Disconnection_5FInvL"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Disconnection_InvL"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_5560"/><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_5583"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Inverters_5FData.Inverters_5FData_5FY_5C.Disconnection_5FInvR"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Disconnection_InvR"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_5561"/><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_5590"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort></YBOPortList></YBOModule.Ports><YBOModule.Processes><YBOProcessList><YBOProcess
 	Name="Inverters_5FData.irt_5FStart_5FInverters_5FData"
 	Kind="INITIALIZATION"
 	Priority="0.5"
@@ -441,7 +519,9 @@
 	EmbeddedLink.ofTypeYBOSWPort="_1031"/><YBOSWPortRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOSWPort="_1032"/><YBOSWPortRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOSWPort="_1033"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_1034"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
+	EmbeddedLink.ofTypeYBOSWPort="_1034"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_5530"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_5531"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
 	Name="Inverters_5FData.irt_5FOneStep_5FInverters_5FData.irt_5FOneStep_5FInverters_5FData_5FSinkCopy"
 	Kind="SINK"
 	VisibleName="irt_OneStep_Inverters_Data_SinkCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
@@ -459,7 +539,9 @@
 	EmbeddedLink.ofTypeYBOSWPort="_1043"/><YBOSWPortRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOSWPort="_1044"/><YBOSWPortRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOSWPort="_1045"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_1046"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess><YBOProcess
+	EmbeddedLink.ofTypeYBOSWPort="_1046"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_5532"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_5533"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess><YBOProcess
 	Name="Inverters_5FData.irt_5FTerminate_5FInverters_5FData"
 	Kind="TERMINATION"
 	Priority="0.5"

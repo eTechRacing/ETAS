@@ -22,9 +22,9 @@
 	<moduleInfo identifier="Disconnections">
 		<name>Disconnections</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Disconnections.slx&quot;"/>
-		<version major="13" minor="24"/>
+		<version major="13" minor="28"/>
 		<dateTime kind="created" year="2021" month="2" day="17" hour="16" minute="42" second="47"/>
-		<dateTime kind="lastModified" year="2024" month="7" day="24" hour="23" minute="50" second="56"/>
+		<dateTime kind="lastModified" year="2024" month="7" day="28" hour="21" minute="40" second="41"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="7" day="28" hour="12" minute="9" second="47"/>
+		<dateTime kind="created" year="2024" month="7" day="28" hour="21" minute="44" second="36"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -331,6 +331,18 @@
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/el_Vel_OK</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Disconnection_InvL">
+					<type><typeRef name="boolean_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Disconnection_InvL</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Disconnection_InvR">
+					<type><typeRef name="boolean_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Disconnection_InvR</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -1684,6 +1696,68 @@
 				</address>
 			</usage>
 		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Disconnections_U.Disconnection_InvL">
+				<definitionLocation>
+					<baseRef identifier="Disconnections_U"/>
+					<memberRef identifier="Disconnection_InvL"/>
+				</definitionLocation>
+				<fileOrigin name="Disconnections.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Disconnections.Disconnection_InvL">
+				<name>Disconnection_InvL</name>
+				<modelLink href="Disconnections/Disconnection_InvL"/>
+				<modelLocation>
+					<pathNode name="Disconnections" kind="mlsl:model"/>
+					<pathNode name="Disconnection_InvL" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="Boolean">
+					<valueRange min="0.0" max="1.0"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Disconnections_CM_boolean"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Disconnections_U.Disconnection_InvR">
+				<definitionLocation>
+					<baseRef identifier="Disconnections_U"/>
+					<memberRef identifier="Disconnection_InvR"/>
+				</definitionLocation>
+				<fileOrigin name="Disconnections.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Disconnections.Disconnection_InvR">
+				<name>Disconnection_InvR</name>
+				<modelLink href="Disconnections/Disconnection_InvR"/>
+				<modelLocation>
+					<pathNode name="Disconnections" kind="mlsl:model"/>
+					<pathNode name="Disconnection_InvR" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="Boolean">
+					<valueRange min="0.0" max="1.0"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Disconnections_CM_boolean"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
 		<!-- rtY output ports following -->
 		<dataElement interfaceKind="export">
 			<dataCInterface identifier="Disconnections_Y.Critical_CAN_Disconnection">
@@ -2277,6 +2351,8 @@
 						<message identifier="Disconnections_U.Susp_R_L_Bits" send="false"></message>
 						<message identifier="Disconnections_U.Susp_R_R_Bits" send="false"></message>
 						<message identifier="Disconnections_U.el_Vel_OK" send="false"></message>
+						<message identifier="Disconnections_U.Disconnection_InvL" send="false"></message>
+						<message identifier="Disconnections_U.Disconnection_InvR" send="false"></message>
 						<message identifier="Disconnections_Y.Critical_CAN_Disconnection" send="true"></message>
 						<message identifier="Disconnections_Y.Critical_Signal_Disconnection" send="true"></message>
 						<message identifier="Disconnections_Y.CriticalDisconnection" send="true"></message>

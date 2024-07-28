@@ -63,6 +63,8 @@ void initClass_RTWTop_Disconnections(struct RTWTop_Disconnections_Class *self)
     self->RTWWrapper_Disconnections_U_BMS_Alive_Ptr = initInstance_scalarWrapper((void*)&Disconnections_U.BMS_Alive, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_U_BrakePedal_Bits_Ptr = initInstance_scalarWrapper((void*)&Disconnections_U.BrakePedal_Bits, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_U_Dash_Alive_Ptr = initInstance_scalarWrapper((void*)&Disconnections_U.Dash_Alive, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Disconnections_U_Disconnection_InvL_Ptr = initInstance_scalarWrapper((void*)&Disconnections_U.Disconnection_InvL, sizeof(char), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Disconnections_U_Disconnection_InvR_Ptr = initInstance_scalarWrapper((void*)&Disconnections_U.Disconnection_InvR, sizeof(char), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_U_Ellipse_Alive_Ptr = initInstance_scalarWrapper((void*)&Disconnections_U.Ellipse_Alive, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_U_Front_Alive_Ptr = initInstance_scalarWrapper((void*)&Disconnections_U.Front_Alive, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Disconnections_U_Rear_Alive_Ptr = initInstance_scalarWrapper((void*)&Disconnections_U.Rear_Alive, sizeof(double), (uint32)ASD_VARIABLE);
@@ -109,9 +111,11 @@ static MethodList RTWTop_Disconnections_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_Disconnections_ClassHeader =
-    {0, 1, 0, 51 + 0, (MethodList *)0, (MethodList *)&RTWTop_Disconnections_ClassMethodList};
+    {0, 1, 0, 53 + 0, (MethodList *)0, (MethodList *)&RTWTop_Disconnections_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_Disconnections_Class RTWTop_Disconnections_ClassObj = {{1, {&RTWTop_Disconnections_ClassHeader}, {0}}
+    ,NULL
+    ,NULL
     ,NULL
     ,NULL
     ,NULL

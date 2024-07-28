@@ -443,6 +443,47 @@ ASAP2_VERSION
         /end MEASUREMENT
  
         /begin MEASUREMENT 
+            /* Name                */     Disconnections_U.Disconnection_InvL 
+            /* Long identifier     */     "" 
+            /* Data type           */     UBYTE 
+            /* Conversion method   */     Disconnections_CM_boolean 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     0 
+            /* Upper limit         */     1 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Disconnections.Disconnection_InvL 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+        /begin COMPU_METHOD 
+            /* Name                */     Disconnections_CM_boolean 
+            /* Long identifier     */     "Q = V" 
+            /* ConversionType      */     RAT_FUNC 
+            /* Format              */     "%9.6" 
+            /* Unit                */     "NO_PHYSICAL_QTY" 
+            COEFFS            0.0 1.0 0.0 0.0 0.0 1.0  
+        /end COMPU_METHOD 
+
+ 
+        /begin MEASUREMENT 
+            /* Name                */     Disconnections_U.Disconnection_InvR 
+            /* Long identifier     */     "" 
+            /* Data type           */     UBYTE 
+            /* Conversion method   */     Disconnections_CM_boolean 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     0 
+            /* Upper limit         */     1 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Disconnections.Disconnection_InvR 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
             /* Name                */     Disconnections_U.Ellipse_Alive 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
@@ -601,15 +642,6 @@ ASAP2_VERSION
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
         /end MEASUREMENT
-        /begin COMPU_METHOD 
-            /* Name                */     Disconnections_CM_boolean 
-            /* Long identifier     */     "Q = V" 
-            /* ConversionType      */     RAT_FUNC 
-            /* Format              */     "%9.6" 
-            /* Unit                */     "NO_PHYSICAL_QTY" 
-            COEFFS            0.0 1.0 0.0 0.0 0.0 1.0  
-        /end COMPU_METHOD 
-
  
         /begin MEASUREMENT 
             /* Name                */     Disconnections_Y.Critical_CAN_Disconnection 
