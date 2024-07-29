@@ -38,7 +38,9 @@ void initClass_RTWTop_Inverters_Data(struct RTWTop_Inverters_Data_Class *self)
 {
     /* Level 1 class variables */
     self->RTWWrapper_Inverters_Data_DW_Last_alive_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_DW.Last_alive, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Inverters_Data_DW_Last_alive_n_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_DW.Last_alive_n, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Inverters_Data_DW_Last_alive_h_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_DW.Last_alive_h, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Inverters_Data_DW_Tot_Errors_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_DW.Tot_Errors, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Inverters_Data_DW_Tot_Errors_c_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_DW.Tot_Errors_c, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_U_Inv_L_RegID_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_U.Inv_L_RegID, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_U_Inv_L_RegID_M235_Inv_L_DCBus_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_U.Inv_L_RegID_M235_Inv_L_DCBus, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_U_Inv_L_RegID_M48_Inv_L_Speed_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_U.Inv_L_RegID_M48_Inv_L_Speed, sizeof(double), (uint32)ASD_VARIABLE);
@@ -83,9 +85,11 @@ static MethodList RTWTop_Inverters_Data_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_Inverters_Data_ClassHeader =
-    {0, 1, 0, 26 + 0, (MethodList *)0, (MethodList *)&RTWTop_Inverters_Data_ClassMethodList};
+    {0, 1, 0, 28 + 0, (MethodList *)0, (MethodList *)&RTWTop_Inverters_Data_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_Inverters_Data_Class RTWTop_Inverters_Data_ClassObj = {{1, {&RTWTop_Inverters_Data_ClassHeader}, {0}}
+    ,NULL
+    ,NULL
     ,NULL
     ,NULL
     ,NULL

@@ -12,9 +12,9 @@
  *
  * Code generation for model "Inverters_Data".
  *
- * Model version              : 13.19
+ * Model version              : 13.21
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sun Jul 28 21:47:15 2024
+ * C source code generated on : Mon Jul 29 16:11:39 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -861,7 +861,9 @@
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   real_T Last_alive;                   /* '<S3>/Data Store Memory' */
-  real_T Last_alive_n;                 /* '<S4>/Data Store Memory' */
+  real_T Tot_Errors;                   /* '<S3>/Data Store Memory1' */
+  real_T Last_alive_h;                 /* '<S4>/Data Store Memory' */
+  real_T Tot_Errors_c;                 /* '<S4>/Data Store Memory1' */
 } DW_Inverters_Data_T;
 
 /* External inputs (root inport signals with default storage) */
@@ -1053,13 +1055,19 @@ extern RT_MODEL_Inverters_Data_T *const Inverters_Data_M;
  * '<S4>'   : 'Inverters_Data/Life_check_InverterR'
  * '<S5>'   : 'Inverters_Data/Subsystem1'
  * '<S6>'   : 'Inverters_Data/Subsystem2'
- * '<S7>'   : 'Inverters_Data/Subsystem4'
- * '<S8>'   : 'Inverters_Data/Subsystem5'
- * '<S9>'   : 'Inverters_Data/Life_check_InverterL/CAN_OK'
- * '<S10>'  : 'Inverters_Data/Life_check_InverterL/DocBlock'
- * '<S11>'  : 'Inverters_Data/Life_check_InverterL/Error'
- * '<S12>'  : 'Inverters_Data/Life_check_InverterR/CAN_OK'
- * '<S13>'  : 'Inverters_Data/Life_check_InverterR/DocBlock'
- * '<S14>'  : 'Inverters_Data/Life_check_InverterR/Error'
+ * '<S7>'   : 'Inverters_Data/Subsystem3'
+ * '<S8>'   : 'Inverters_Data/Subsystem4'
+ * '<S9>'   : 'Inverters_Data/Subsystem5'
+ * '<S10>'  : 'Inverters_Data/Subsystem6'
+ * '<S11>'  : 'Inverters_Data/Life_check_InverterL/CAN_OK'
+ * '<S12>'  : 'Inverters_Data/Life_check_InverterL/DocBlock'
+ * '<S13>'  : 'Inverters_Data/Life_check_InverterL/Error_Counter'
+ * '<S14>'  : 'Inverters_Data/Life_check_InverterL/Signal_Failure'
+ * '<S15>'  : 'Inverters_Data/Life_check_InverterL/Signal_OK'
+ * '<S16>'  : 'Inverters_Data/Life_check_InverterR/CAN_OK'
+ * '<S17>'  : 'Inverters_Data/Life_check_InverterR/DocBlock'
+ * '<S18>'  : 'Inverters_Data/Life_check_InverterR/Error_Counter'
+ * '<S19>'  : 'Inverters_Data/Life_check_InverterR/Signal_Failure'
+ * '<S20>'  : 'Inverters_Data/Life_check_InverterR/Signal_OK'
  */
 #endif                                 /* RTW_HEADER_Inverters_Data_h_ */

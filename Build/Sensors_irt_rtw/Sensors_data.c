@@ -7,9 +7,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 13.5
+ * Model version              : 13.7
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sun Jul 28 12:20:04 2024
+ * C source code generated on : Mon Jul 29 14:12:38 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -29,5 +29,5 @@ ConstB_Sensors_T Sensors_ConstB = {
   3925.0,                              /* '<S6>/Subtract' */
   3975.0,                              /* '<S7>/Subtract' */
   3975.0,                              /* '<S8>/Subtract' */
-  -0.094999999999999973                /* '<S9>/Subtract' */
+  -0.094999999999999973                /* '<S13>/Subtract' */
 };

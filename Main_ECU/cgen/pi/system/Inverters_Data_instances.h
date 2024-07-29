@@ -25,7 +25,9 @@ struct RTWTop_Inverters_Data_Class
 {
     ASDObjectHeader objectHeader;
     scalarWrapper_Obj *RTWWrapper_Inverters_Data_DW_Last_alive_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Inverters_Data_DW_Last_alive_n_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Inverters_Data_DW_Last_alive_h_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Inverters_Data_DW_Tot_Errors_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Inverters_Data_DW_Tot_Errors_c_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Data_U_Inv_L_RegID_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Data_U_Inv_L_RegID_M235_Inv_L_DCBus_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Data_U_Inv_L_RegID_M48_Inv_L_Speed_Ptr;

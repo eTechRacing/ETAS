@@ -7,9 +7,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 13.5
+ * Model version              : 13.7
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sun Jul 28 12:20:04 2024
+ * C source code generated on : Mon Jul 29 14:12:38 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -20,6 +20,7 @@
 
 #include "Sensors.h"
 #include "rtwtypes.h"
+#include "Sensors_private.h"
 #include <string.h>
 #include "rt_nonfinite.h"
 
@@ -36,26 +37,92 @@ ExtY_Sensors_T Sensors_Y;
 static RT_MODEL_Sensors_T Sensors_M_;
 RT_MODEL_Sensors_T *const Sensors_M = &Sensors_M_;
 
+/*
+ * Output and update for action system:
+ *    '<S1>/If Action Subsystem'
+ *    '<S2>/If Action Subsystem'
+ */
+void Sensors_IfActionSubsystem(real_T *rty_u)
+{
+  /* SignalConversion generated from: '<S9>/0' incorporates:
+   *  Constant: '<S9>/cte'
+   */
+  *rty_u = 0.0;
+}
+
+/*
+ * Output and update for action system:
+ *    '<S1>/If Action Subsystem1'
+ *    '<S2>/If Action Subsystem1'
+ */
+void Sensors_IfActionSubsystem1(real_T rtu_Value_in, real_T *rty_Value_out)
+{
+  /* SignalConversion generated from: '<S10>/Value_in' */
+  *rty_Value_out = rtu_Value_in;
+}
+
 /* Model output function */
 static void Sensors_output(void)
 {
   real_T rtb_Subtract1_lm;
 
-  /* Outport: '<Root>/APPS1_Value' incorporates:
-   *  Constant: '<S1>/min'
-   *  Inport: '<Root>/APPS1_Bits'
-   *  Product: '<S1>/Divide'
-   *  Sum: '<S1>/Sum'
+  /* If: '<S1>/If' incorporates:
+   *  Inport: '<Root>/Disconnection_APPS1'
    */
-  Sensors_Y.APPS1_Value = (Sensors_U.APPS1_Bits - 130.0) / Sensors_ConstB.Sum1;
+  if (Sensors_U.Disconnection_APPS1 == 1.0) {
+    /* Outputs for IfAction SubSystem: '<S1>/If Action Subsystem' incorporates:
+     *  ActionPort: '<S9>/Action Port'
+     */
+    /* Outport: '<Root>/APPS1_Value' */
+    Sensors_IfActionSubsystem(&Sensors_Y.APPS1_Value);
 
-  /* Outport: '<Root>/APPS2_Value' incorporates:
-   *  Constant: '<S2>/min'
-   *  Inport: '<Root>/APPS2_Bits'
-   *  Product: '<S2>/Divide'
-   *  Sum: '<S2>/Sum'
+    /* End of Outputs for SubSystem: '<S1>/If Action Subsystem' */
+  } else {
+    /* Outputs for IfAction SubSystem: '<S1>/If Action Subsystem1' incorporates:
+     *  ActionPort: '<S10>/Action Port'
+     */
+    /* Outport: '<Root>/APPS1_Value' incorporates:
+     *  Constant: '<S1>/min'
+     *  Inport: '<Root>/APPS1_Bits'
+     *  Product: '<S1>/Divide'
+     *  Sum: '<S1>/Sum'
+     */
+    Sensors_IfActionSubsystem1((Sensors_U.APPS1_Bits - 130.0) /
+      Sensors_ConstB.Sum1, &Sensors_Y.APPS1_Value);
+
+    /* End of Outputs for SubSystem: '<S1>/If Action Subsystem1' */
+  }
+
+  /* End of If: '<S1>/If' */
+
+  /* If: '<S2>/If' incorporates:
+   *  Inport: '<Root>/Disconnection_APPS2'
    */
-  Sensors_Y.APPS2_Value = (Sensors_U.APPS2_Bits - 200.0) / Sensors_ConstB.Sum1_f;
+  if (Sensors_U.Disconnection_APPS2 == 1.0) {
+    /* Outputs for IfAction SubSystem: '<S2>/If Action Subsystem' incorporates:
+     *  ActionPort: '<S11>/Action Port'
+     */
+    /* Outport: '<Root>/APPS2_Value' */
+    Sensors_IfActionSubsystem(&Sensors_Y.APPS2_Value);
+
+    /* End of Outputs for SubSystem: '<S2>/If Action Subsystem' */
+  } else {
+    /* Outputs for IfAction SubSystem: '<S2>/If Action Subsystem1' incorporates:
+     *  ActionPort: '<S12>/Action Port'
+     */
+    /* Outport: '<Root>/APPS2_Value' incorporates:
+     *  Constant: '<S2>/min'
+     *  Inport: '<Root>/APPS2_Bits'
+     *  Product: '<S2>/Divide'
+     *  Sum: '<S2>/Sum'
+     */
+    Sensors_IfActionSubsystem1((Sensors_U.APPS2_Bits - 200.0) /
+      Sensors_ConstB.Sum1_d, &Sensors_Y.APPS2_Value);
+
+    /* End of Outputs for SubSystem: '<S2>/If Action Subsystem1' */
+  }
+
+  /* End of If: '<S2>/If' */
 
   /* Outport: '<Root>/BrakePedal_Value' incorporates:
    *  Constant: '<S3>/min'
@@ -111,20 +178,20 @@ static void Sensors_output(void)
     Sensors_ConstB.Subtract_n * 57.0 * 30.0;
 
   /* Outputs for Atomic SubSystem: '<S4>/Low Pass' */
-  /* Sum: '<S9>/Subtract1' incorporates:
-   *  Constant: '<S9>/exp(-tcycle//tau)1'
-   *  DataStoreRead: '<S9>/Data Store Read'
-   *  DataStoreRead: '<S9>/Data Store Read1'
-   *  Product: '<S9>/Product'
-   *  Product: '<S9>/Product1'
+  /* Sum: '<S13>/Subtract1' incorporates:
+   *  Constant: '<S13>/exp(-tcycle//tau)1'
+   *  DataStoreRead: '<S13>/Data Store Read'
+   *  DataStoreRead: '<S13>/Data Store Read1'
+   *  Product: '<S13>/Product'
+   *  Product: '<S13>/Product1'
    */
   rtb_Subtract1_lm = Sensors_DW.Previous_IN * Sensors_ConstB.Subtract_p + 0.905 *
     Sensors_DW.Previous_OUT;
 
-  /* DataStoreWrite: '<S9>/Data Store Write1' */
+  /* DataStoreWrite: '<S13>/Data Store Write1' */
   Sensors_DW.Previous_OUT = rtb_Subtract1_lm;
 
-  /* DataStoreWrite: '<S9>/Data Store Write' incorporates:
+  /* DataStoreWrite: '<S13>/Data Store Write' incorporates:
    *  Constant: '<S4>/half range'
    *  Constant: '<S4>/range'
    *  Constant: '<S4>/zero'
@@ -137,7 +204,7 @@ static void Sensors_output(void)
     3400.0 * 115.0;
 
   /* Outport: '<Root>/SteeringSensor_Value' incorporates:
-   *  Gain: '<S9>/Gain'
+   *  Gain: '<S13>/Gain'
    */
   Sensors_Y.SteeringSensor_Value = -rtb_Subtract1_lm;
 
@@ -169,10 +236,10 @@ static void Sensors_update(void)
 static void Sensors_initialize(void)
 {
   /* Start for Atomic SubSystem: '<S4>/Low Pass' */
-  /* Start for DataStoreMemory: '<S9>/Data Store Memory' */
+  /* Start for DataStoreMemory: '<S13>/Data Store Memory' */
   Sensors_DW.Previous_IN = 0.0;
 
-  /* Start for DataStoreMemory: '<S9>/Data Store Memory1' */
+  /* Start for DataStoreMemory: '<S13>/Data Store Memory1' */
   Sensors_DW.Previous_OUT = 0.0;
 
   /* End of Start for SubSystem: '<S4>/Low Pass' */
@@ -306,10 +373,10 @@ RT_MODEL_Sensors_T *Sensors(void)
   /* Initialize Sizes */
   Sensors_M->Sizes.numContStates = (0);/* Number of continuous states */
   Sensors_M->Sizes.numY = (8);         /* Number of model outputs */
-  Sensors_M->Sizes.numU = (8);         /* Number of model inputs */
+  Sensors_M->Sizes.numU = (10);        /* Number of model inputs */
   Sensors_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Sensors_M->Sizes.numSampTimes = (1); /* Number of sample times */
-  Sensors_M->Sizes.numBlocks = (68);   /* Number of blocks */
+  Sensors_M->Sizes.numBlocks = (79);   /* Number of blocks */
   Sensors_M->Sizes.numBlockIO = (0);   /* Number of block outputs */
   return Sensors_M;
 }

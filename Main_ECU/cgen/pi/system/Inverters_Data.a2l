@@ -59,7 +59,7 @@ ASAP2_VERSION
 
  
         /begin MEASUREMENT 
-            /* Name                */     Inverters_Data_DW.Last_alive_n 
+            /* Name                */     Inverters_Data_DW.Last_alive_h 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     Inverters_Data_CM_double 
@@ -68,7 +68,39 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Data.Life_check_InverterR.Data_Store_Memory.Last_alive_n 
+            DISPLAY_IDENTIFIER Inverters_Data.Life_check_InverterR.Data_Store_Memory.Last_alive_h 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     Inverters_Data_DW.Tot_Errors 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Inverters_Data_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Inverters_Data.Life_check_InverterL.Data_Store_Memory1.Tot_Errors 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     Inverters_Data_DW.Tot_Errors_c 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Inverters_Data_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Inverters_Data.Life_check_InverterR.Data_Store_Memory1.Tot_Errors_c 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 

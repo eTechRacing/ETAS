@@ -43,6 +43,7 @@ Sensors_instances.o: \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\_sharedutils/rt_nonfinite.h \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\_sharedutils/zero_crossing_types.h \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw/Sensors_private.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw/Sensors.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../a_basdef.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../a_limits.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\common/etashead/etas_typ.h \

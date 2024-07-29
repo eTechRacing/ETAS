@@ -306,7 +306,7 @@
                 /* Raster number        */ QP_BLOB 32 
             /end SOURCE
             /begin TP_BLOB
-                /* Program identifier   */ 2275728904
+                /* Program identifier   */ 3304419080
                 /* HW target identifier */ 0x6
                 /* Skip flag            */ 0
                 /* Skip to link         */ 2
@@ -2115,7 +2115,7 @@
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     Inverters_Data.Inverters_Data_DW.Last_alive_n 
+            /* Name                */     Inverters_Data.Inverters_Data_DW.Last_alive_h 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     Inverters_Data_CM_double 
@@ -2124,9 +2124,39 @@
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Data.Life_check_InverterR.Data_Store_Memory.Last_alive_n 
+            DISPLAY_IDENTIFIER Inverters_Data.Life_check_InverterR.Data_Store_Memory.Last_alive_h 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 1 
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     Inverters_Data.Inverters_Data_DW.Tot_Errors 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Inverters_Data_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Inverters_Data.Life_check_InverterL.Data_Store_Memory1.Tot_Errors 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 2 
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     Inverters_Data.Inverters_Data_DW.Tot_Errors_c 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Inverters_Data_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Inverters_Data.Life_check_InverterR.Data_Store_Memory1.Tot_Errors_c 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 3 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2141,7 +2171,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_L_RegID 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 2 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 4 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2156,7 +2186,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_L_RegID_M235_Inv_L_DCBus 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 3 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 5 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2171,7 +2201,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_L_RegID_M48_Inv_L_Speed 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 4 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 6 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2186,7 +2216,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_L_RegID_M73_Inv_L_TempMotor 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 5 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 7 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2201,7 +2231,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_L_RegID_M74_Inv_L_TempIGBT 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 6 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 8 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2216,7 +2246,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_R_RegID 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 7 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 9 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2231,7 +2261,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_R_RegID_M235_Inv_R_DCBus 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 8 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 10 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2246,7 +2276,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_R_RegID_M48_Inv_R_Speed 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 9 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 11 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2261,7 +2291,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_R_RegID_M73_Inv_R_TempMotor 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 10 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 12 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2276,7 +2306,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_R_RegID_M74_Inv_R_TempIGBT 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 11 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 13 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2291,7 +2321,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Disconnection_InvL 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 12 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 14 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2306,7 +2336,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Disconnection_InvR 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 13 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 15 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2321,7 +2351,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_L_TempIGBT 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 14 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 16 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2336,7 +2366,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_L_TempMotor 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 15 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 17 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2351,7 +2381,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_R_TempIGBT 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 16 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 18 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2366,7 +2396,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Inv_R_TempMotor 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 17 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 19 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2381,7 +2411,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.InvertersMinDCBus 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 18 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 20 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2396,7 +2426,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Max_Temp_IGBT 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 19 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 21 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2411,7 +2441,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Max_Temp_Motors 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 20 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 22 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2426,7 +2456,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.RL_Vel_ms_Wheel 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 21 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 23 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2441,7 +2471,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.RL_rads_Motor 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 22 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 24 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2456,7 +2486,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.RR_Vel_ms_Wheel 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 23 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 25 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2471,7 +2501,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.RR_rads_Motor 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 24 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 26 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2486,7 +2516,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Data.Speed 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 25 DEFAULT_RASTERS 33
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 4 1001 27 DEFAULT_RASTERS 33
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2865,7 +2895,7 @@
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     Sensors.Sensors_ConstB.Sum1_f 
+            /* Name                */     Sensors.Sensors_ConstB.Sum1_d 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     Sensors_CM_double 
@@ -2874,7 +2904,7 @@
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Sensors.APPS2_Data_Conv.Sum1.Sum1_f 
+            DISPLAY_IDENTIFIER Sensors.APPS1_Data_Conv1.Sum1.Sum1_d 
             /begin IF_DATA E_TARGET 
                 KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 7 
             /end IF_DATA
@@ -2955,6 +2985,36 @@
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
+            /* Name                */     Sensors.Sensors_U.Disconnection_APPS1 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Sensors_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Sensors.Disconnection_APPS1 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 13 DEFAULT_RASTERS 32
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     Sensors.Sensors_U.Disconnection_APPS2 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Sensors_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Sensors.Disconnection_APPS2 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 14 DEFAULT_RASTERS 32
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
             /* Name                */     Sensors.Sensors_U.SteeringSensor_Bits 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
@@ -2966,7 +3026,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Sensors.SteeringSensor_Bits 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 13 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 15 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2981,7 +3041,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Sensors.Susp_F_L_Bits 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 14 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 16 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -2996,7 +3056,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Sensors.Susp_F_R_Bits 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 15 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 17 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -3011,7 +3071,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Sensors.Susp_R_L_Bits 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 16 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 18 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -3026,7 +3086,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Sensors.Susp_R_R_Bits 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 17 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 19 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -3041,7 +3101,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Sensors.APPS1_Value 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 18 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 20 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -3056,7 +3116,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Sensors.APPS2_Value 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 19 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 21 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -3071,7 +3131,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Sensors.BrakePedal_Value 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 20 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 22 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -3086,7 +3146,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Sensors.SUSP_F_L 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 21 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 23 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -3101,7 +3161,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Sensors.SUSP_F_R 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 22 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 24 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -3116,7 +3176,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Sensors.SUSP_R_L 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 23 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 25 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -3131,7 +3191,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Sensors.SUSP_R_R 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 24 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 26 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -3146,7 +3206,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Sensors.SteeringSensor_Value 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 25 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 6 1001 27 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -5751,8 +5811,8 @@
             /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U5 
             /* Resolution          */     1 
             /* Accuracy            */     100 
-            /* Lower limit         */     0 
-            /* Upper limit         */     65535 
+            /* Lower limit         */     -327.68 
+            /* Upper limit         */     327.67 
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
@@ -5811,8 +5871,8 @@
             /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U5 
             /* Resolution          */     1 
             /* Accuracy            */     100 
-            /* Lower limit         */     0 
-            /* Upper limit         */     65535 
+            /* Lower limit         */     -327.68 
+            /* Upper limit         */     327.67 
             ECU_ADDRESS 0x0 
              
             /begin IF_DATA E_TARGET 
@@ -6878,8 +6938,8 @@
             /* Record layout       */     STANDARD_VALUE_R64 
             /* Maxdiff             */     0.0 
             /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U5 
-            /* Lower limit         */     0 
-            /* Upper limit         */     65535 
+            /* Lower limit         */     -327.68 
+            /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
                 DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 126 
@@ -6938,8 +6998,8 @@
             /* Record layout       */     STANDARD_VALUE_R64 
             /* Maxdiff             */     0.0 
             /* Conversion method   */     LINEAR_FUNCTION_M1_T0_U5 
-            /* Lower limit         */     0 
-            /* Upper limit         */     65535 
+            /* Lower limit         */     -327.68 
+            /* Upper limit         */     327.67 
             MAX_REFRESH 6 1
             /begin IF_DATA E_TARGET
                 DP_BLOB 0xFFFFFFFF 0xFFFFFFFF 2 1001 1 1001 131 
@@ -7815,7 +7875,9 @@
             ROOT
             /begin REF_MEASUREMENT
                 Inverters_Data.Inverters_Data_DW.Last_alive
-                Inverters_Data.Inverters_Data_DW.Last_alive_n
+                Inverters_Data.Inverters_Data_DW.Last_alive_h
+                Inverters_Data.Inverters_Data_DW.Tot_Errors
+                Inverters_Data.Inverters_Data_DW.Tot_Errors_c
                 Inverters_Data.Inverters_Data_U.Inv_L_RegID
                 Inverters_Data.Inverters_Data_U.Inv_L_RegID_M235_Inv_L_DCBus
                 Inverters_Data.Inverters_Data_U.Inv_L_RegID_M48_Inv_L_Speed
@@ -7851,7 +7913,9 @@
             ""
             /begin REF_MEASUREMENT
                 Inverters_Data.Inverters_Data_DW.Last_alive
-                Inverters_Data.Inverters_Data_DW.Last_alive_n
+                Inverters_Data.Inverters_Data_DW.Last_alive_h
+                Inverters_Data.Inverters_Data_DW.Tot_Errors
+                Inverters_Data.Inverters_Data_DW.Tot_Errors_c
             /end REF_MEASUREMENT
         /end GROUP
         /begin GROUP Inverters_Data.Inverters_Data_U
@@ -7995,12 +8059,14 @@
                 Sensors.Sensors_ConstB.Subtract_p
                 Sensors.Sensors_ConstB.Sum1
                 Sensors.Sensors_ConstB.Sum1_c
-                Sensors.Sensors_ConstB.Sum1_f
+                Sensors.Sensors_ConstB.Sum1_d
                 Sensors.Sensors_DW.Previous_IN
                 Sensors.Sensors_DW.Previous_OUT
                 Sensors.Sensors_U.APPS1_Bits
                 Sensors.Sensors_U.APPS2_Bits
                 Sensors.Sensors_U.BrakePedal_Bits
+                Sensors.Sensors_U.Disconnection_APPS1
+                Sensors.Sensors_U.Disconnection_APPS2
                 Sensors.Sensors_U.SteeringSensor_Bits
                 Sensors.Sensors_U.Susp_F_L_Bits
                 Sensors.Sensors_U.Susp_F_R_Bits
@@ -8032,7 +8098,7 @@
                 Sensors.Sensors_ConstB.Subtract_p
                 Sensors.Sensors_ConstB.Sum1
                 Sensors.Sensors_ConstB.Sum1_c
-                Sensors.Sensors_ConstB.Sum1_f
+                Sensors.Sensors_ConstB.Sum1_d
             /end REF_MEASUREMENT
         /end GROUP
         /begin GROUP Sensors.Sensors_DW
@@ -8048,6 +8114,8 @@
                 Sensors.Sensors_U.APPS1_Bits
                 Sensors.Sensors_U.APPS2_Bits
                 Sensors.Sensors_U.BrakePedal_Bits
+                Sensors.Sensors_U.Disconnection_APPS1
+                Sensors.Sensors_U.Disconnection_APPS2
                 Sensors.Sensors_U.SteeringSensor_Bits
                 Sensors.Sensors_U.Susp_F_L_Bits
                 Sensors.Sensors_U.Susp_F_R_Bits

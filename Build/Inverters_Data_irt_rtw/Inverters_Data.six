@@ -22,9 +22,9 @@
 	<moduleInfo identifier="Inverters_Data">
 		<name>Inverters_Data</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Inverters_Data.slx&quot;"/>
-		<version major="13" minor="19"/>
+		<version major="13" minor="21"/>
 		<dateTime kind="created" year="2021" month="2" day="22" hour="11" minute="1" second="38"/>
-		<dateTime kind="lastModified" year="2024" month="7" day="28" hour="21" minute="40" second="44"/>
+		<dateTime kind="lastModified" year="2024" month="7" day="29" hour="16" minute="4" second="25"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="7" day="28" hour="21" minute="47" second="15"/>
+		<dateTime kind="created" year="2024" month="7" day="29" hour="16" minute="11" second="39"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -327,7 +327,19 @@
 						<documentation>State information for 'dsmMem'.</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Last_alive_n">
+				<structMember identifier="Tot_Errors">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'dsmMem'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Last_alive_h">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'dsmMem'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Tot_Errors_c">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>State information for 'dsmMem'.</documentation>
@@ -412,21 +424,89 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Data_DW.Last_alive_n">
+			<dataCInterface identifier="Inverters_Data_DW.Tot_Errors">
 				<definitionLocation>
 					<baseRef identifier="Inverters_Data_DW"/>
-					<memberRef identifier="Last_alive_n"/>
+					<memberRef identifier="Tot_Errors"/>
 				</definitionLocation>
 				<fileOrigin name="Inverters_Data.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Inverters_Data.Opaque.Last_alive_n">
-				<name>Last_alive_n</name>
+			<modelOrigin identifier="Inverters_Data.Opaque.Tot_Errors">
+				<name>Tot_Errors</name>
+				<modelLink href="Inverters_Data/Opaque"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Life_check_InverterL" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Data Store Memory1" kind="mlsl:block"/>
+					<pathNode name="Tot_Errors" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_DW.Last_alive_h">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_DW"/>
+					<memberRef identifier="Last_alive_h"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Opaque.Last_alive_h">
+				<name>Last_alive_h</name>
 				<modelLink href="Inverters_Data/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Data" kind="mlsl:model"/>
 					<pathNode name="Life_check_InverterR" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Data Store Memory" kind="mlsl:block"/>
-					<pathNode name="Last_alive_n" kind="mlsl:signal"/>
+					<pathNode name="Last_alive_h" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Inverters_Data_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Inverters_Data_DW.Tot_Errors_c">
+				<definitionLocation>
+					<baseRef identifier="Inverters_Data_DW"/>
+					<memberRef identifier="Tot_Errors_c"/>
+				</definitionLocation>
+				<fileOrigin name="Inverters_Data.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Inverters_Data.Opaque.Tot_Errors_c">
+				<name>Tot_Errors_c</name>
+				<modelLink href="Inverters_Data/Opaque"/>
+				<modelLocation>
+					<pathNode name="Inverters_Data" kind="mlsl:model"/>
+					<pathNode name="Life_check_InverterR" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Data Store Memory1" kind="mlsl:block"/>
+					<pathNode name="Tot_Errors_c" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>

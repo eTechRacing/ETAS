@@ -7,9 +7,9 @@
  *
  * Code generation for model "Inverters_Data".
  *
- * Model version              : 13.19
+ * Model version              : 13.21
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sun Jul 28 21:47:15 2024
+ * C source code generated on : Mon Jul 29 16:11:39 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -41,15 +41,15 @@ RT_MODEL_Inverters_Data_T *const Inverters_Data_M = &Inverters_Data_M_;
 
 /*
  * Output and update for action system:
- *    '<S3>/Error'
- *    '<S4>/Error'
+ *    '<S3>/Error_Counter'
+ *    '<S4>/Error_Counter'
  */
-void Inverters_Data_Error(real_T *rty_Out1)
+void Inverters_Data_Error_Counter(real_T *rty_Out1, const real_T *rtd_Tot_Errors)
 {
-  /* SignalConversion generated from: '<S11>/Out1' incorporates:
-   *  Constant: '<S11>/Constant'
+  /* Sum: '<S13>/Add' incorporates:
+   *  Constant: '<S13>/Constant'
    */
-  *rty_Out1 = 1.0;
+  *rty_Out1 = *rtd_Tot_Errors + 1.0;
 }
 
 /*
@@ -60,11 +60,37 @@ void Inverters_Data_Error(real_T *rty_Out1)
 void Inverters_Data_CAN_OK(real_T rtu_RegID, real_T *rty_u, real_T
   *rtd_Last_alive)
 {
-  /* DataStoreWrite: '<S9>/Data Store Write' */
+  /* DataStoreWrite: '<S11>/Data Store Write' */
   *rtd_Last_alive = rtu_RegID;
 
-  /* SignalConversion generated from: '<S9>/0' incorporates:
-   *  Constant: '<S9>/Constant'
+  /* SignalConversion generated from: '<S11>/0' incorporates:
+   *  Constant: '<S11>/Constant'
+   */
+  *rty_u = 0.0;
+}
+
+/*
+ * Output and update for action system:
+ *    '<S3>/Signal_Failure'
+ *    '<S4>/Signal_Failure'
+ */
+void Inverters_Data_Signal_Failure(real_T *rty_u)
+{
+  /* SignalConversion generated from: '<S14>/1' incorporates:
+   *  Constant: '<S14>/Constant'
+   */
+  *rty_u = 1.0;
+}
+
+/*
+ * Output and update for action system:
+ *    '<S3>/Signal_OK'
+ *    '<S4>/Signal_OK'
+ */
+void Inverters_Data_Signal_OK(real_T *rty_u)
+{
+  /* SignalConversion generated from: '<S15>/0' incorporates:
+   *  Constant: '<S15>/Constant'
    */
   *rty_u = 0.0;
 }
@@ -72,18 +98,114 @@ void Inverters_Data_CAN_OK(real_T rtu_RegID, real_T *rty_u, real_T
 /* Model output function */
 static void Inverters_Data_output(void)
 {
+  real_T rtb_Abs;
   real_T rtb_Abs1;
-  real_T rtb_Merge;
+  real_T rtb_Merge1;
+  real_T rtb_Merge1_b;
   real_T rtb_RPMtorads;
   real_T rtb_RPMtorads_n;
 
-  /* Lookup_n-D: '<S7>/1-D Lookup Table' incorporates:
+  /* If: '<S3>/If' incorporates:
+   *  DataStoreRead: '<S3>/Data Store Read'
+   *  Inport: '<Root>/Inv_L_RegID'
+   */
+  if (Inverters_Data_U.Inv_L_RegID == Inverters_Data_DW.Last_alive) {
+    /* Outputs for IfAction SubSystem: '<S3>/Error_Counter' incorporates:
+     *  ActionPort: '<S13>/Action Port'
+     */
+    Inverters_Data_Error_Counter(&rtb_Merge1, &Inverters_Data_DW.Tot_Errors);
+
+    /* End of Outputs for SubSystem: '<S3>/Error_Counter' */
+  } else {
+    /* Outputs for IfAction SubSystem: '<S3>/CAN_OK' incorporates:
+     *  ActionPort: '<S11>/Action Port'
+     */
+    Inverters_Data_CAN_OK(Inverters_Data_U.Inv_L_RegID, &rtb_Merge1,
+                          &Inverters_Data_DW.Last_alive);
+
+    /* End of Outputs for SubSystem: '<S3>/CAN_OK' */
+  }
+
+  /* End of If: '<S3>/If' */
+
+  /* DataStoreWrite: '<S3>/Data Store Write' */
+  Inverters_Data_DW.Tot_Errors = rtb_Merge1;
+
+  /* If: '<S3>/If1' incorporates:
+   *  Constant: '<Root>/Number_of_periods'
+   */
+  if (rtb_Merge1 > 12.0) {
+    /* Outputs for IfAction SubSystem: '<S3>/Signal_Failure' incorporates:
+     *  ActionPort: '<S14>/Action Port'
+     */
+    Inverters_Data_Signal_Failure(&rtb_Merge1);
+
+    /* End of Outputs for SubSystem: '<S3>/Signal_Failure' */
+  } else {
+    /* Outputs for IfAction SubSystem: '<S3>/Signal_OK' incorporates:
+     *  ActionPort: '<S15>/Action Port'
+     */
+    Inverters_Data_Signal_OK(&rtb_Merge1);
+
+    /* End of Outputs for SubSystem: '<S3>/Signal_OK' */
+  }
+
+  /* End of If: '<S3>/If1' */
+
+  /* If: '<S4>/If' incorporates:
+   *  DataStoreRead: '<S4>/Data Store Read'
+   *  Inport: '<Root>/Inv_R_RegID'
+   */
+  if (Inverters_Data_U.Inv_R_RegID == Inverters_Data_DW.Last_alive_h) {
+    /* Outputs for IfAction SubSystem: '<S4>/Error_Counter' incorporates:
+     *  ActionPort: '<S18>/Action Port'
+     */
+    Inverters_Data_Error_Counter(&rtb_Merge1_b, &Inverters_Data_DW.Tot_Errors_c);
+
+    /* End of Outputs for SubSystem: '<S4>/Error_Counter' */
+  } else {
+    /* Outputs for IfAction SubSystem: '<S4>/CAN_OK' incorporates:
+     *  ActionPort: '<S16>/Action Port'
+     */
+    Inverters_Data_CAN_OK(Inverters_Data_U.Inv_R_RegID, &rtb_Merge1_b,
+                          &Inverters_Data_DW.Last_alive_h);
+
+    /* End of Outputs for SubSystem: '<S4>/CAN_OK' */
+  }
+
+  /* End of If: '<S4>/If' */
+
+  /* DataStoreWrite: '<S4>/Data Store Write' */
+  Inverters_Data_DW.Tot_Errors_c = rtb_Merge1_b;
+
+  /* If: '<S4>/If1' incorporates:
+   *  Constant: '<Root>/Number_of_periods'
+   */
+  if (rtb_Merge1_b > 12.0) {
+    /* Outputs for IfAction SubSystem: '<S4>/Signal_Failure' incorporates:
+     *  ActionPort: '<S19>/Action Port'
+     */
+    Inverters_Data_Signal_Failure(&rtb_Merge1_b);
+
+    /* End of Outputs for SubSystem: '<S4>/Signal_Failure' */
+  } else {
+    /* Outputs for IfAction SubSystem: '<S4>/Signal_OK' incorporates:
+     *  ActionPort: '<S20>/Action Port'
+     */
+    Inverters_Data_Signal_OK(&rtb_Merge1_b);
+
+    /* End of Outputs for SubSystem: '<S4>/Signal_OK' */
+  }
+
+  /* End of If: '<S4>/If1' */
+
+  /* Lookup_n-D: '<S8>/1-D Lookup Table' incorporates:
    *  Inport: '<Root>/Inv_L_RegID_M74_Inv_L_TempIGBT'
    */
   rtb_Abs1 = look1_binlxpw(Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT,
     rtCP_uDLookupTable_bp01Data, rtCP_uDLookupTable_tableData, 99U);
 
-  /* Lookup_n-D: '<S8>/1-D Lookup Table' incorporates:
+  /* Lookup_n-D: '<S9>/1-D Lookup Table' incorporates:
    *  Inport: '<Root>/Inv_R_RegID_M74_Inv_R_TempIGBT'
    */
   rtb_RPMtorads_n = look1_binlxpw
@@ -101,26 +223,29 @@ static void Inverters_Data_output(void)
   /* Outport: '<Root>/Inv_L_TempIGBT' */
   Inverters_Data_Y.Inv_L_TempIGBT = rtb_Abs1;
 
-  /* Outport: '<Root>/Max_Temp_Motors' incorporates:
+  /* Lookup_n-D: '<S7>/1-D Lookup Table' incorporates:
    *  Inport: '<Root>/Inv_L_RegID_M73_Inv_L_TempMotor'
+   */
+  rtb_RPMtorads_n = look1_binlxpw
+    (Inverters_Data_U.Inv_L_RegID_M73_Inv_L_TempMotor,
+     rtCP_uDLookupTable_bp01Data_d, rtCP_uDLookupTable_tableData_p, 53U);
+
+  /* Lookup_n-D: '<S10>/1-D Lookup Table' incorporates:
    *  Inport: '<Root>/Inv_R_RegID_M73_Inv_R_TempMotor'
+   */
+  rtb_Abs1 = look1_binlxpw(Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor,
+    rtCP_uDLookupTable_bp01Data_o, rtCP_uDLookupTable_tableData_a, 53U);
+
+  /* Outport: '<Root>/Max_Temp_Motors' incorporates:
    *  MinMax: '<Root>/Max1'
    */
-  Inverters_Data_Y.Max_Temp_Motors = fmax
-    (Inverters_Data_U.Inv_L_RegID_M73_Inv_L_TempMotor,
-     Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor);
+  Inverters_Data_Y.Max_Temp_Motors = fmax(rtb_RPMtorads_n, rtb_Abs1);
 
-  /* Outport: '<Root>/Inv_L_TempMotor' incorporates:
-   *  Inport: '<Root>/Inv_L_RegID_M73_Inv_L_TempMotor'
-   */
-  Inverters_Data_Y.Inv_L_TempMotor =
-    Inverters_Data_U.Inv_L_RegID_M73_Inv_L_TempMotor;
+  /* Outport: '<Root>/Inv_L_TempMotor' */
+  Inverters_Data_Y.Inv_L_TempMotor = rtb_RPMtorads_n;
 
-  /* Outport: '<Root>/Inv_R_TempMotor' incorporates:
-   *  Inport: '<Root>/Inv_R_RegID_M73_Inv_R_TempMotor'
-   */
-  Inverters_Data_Y.Inv_R_TempMotor =
-    Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor;
+  /* Outport: '<Root>/Inv_R_TempMotor' */
+  Inverters_Data_Y.Inv_R_TempMotor = rtb_Abs1;
 
   /* Gain: '<S6>/RPM to rad//s' incorporates:
    *  Inport: '<Root>/Inv_L_RegID_M48_Inv_L_Speed'
@@ -149,23 +274,20 @@ static void Inverters_Data_output(void)
    *  Constant: '<Root>/Wheel_Radius [m]'
    *  Product: '<S5>/Divide1'
    */
-  rtb_Merge = rtb_RPMtorads / 11.3257 * 0.2285;
+  rtb_Abs = rtb_RPMtorads / 11.3257 * 0.2285;
 
   /* Outport: '<Root>/RR_Vel_ms_Wheel' */
-  Inverters_Data_Y.RR_Vel_ms_Wheel = rtb_Merge;
-
-  /* Abs: '<S1>/Abs' incorporates:
-   *  Gain: '<S1>/Gain2'
-   */
-  rtb_Merge = fabs(3.6 * rtb_Merge);
+  Inverters_Data_Y.RR_Vel_ms_Wheel = rtb_Abs;
 
   /* Outport: '<Root>/Speed' incorporates:
+   *  Abs: '<S1>/Abs'
    *  Abs: '<S1>/Abs1'
    *  Gain: '<S1>/Gain'
    *  Gain: '<S1>/Gain1'
+   *  Gain: '<S1>/Gain2'
    *  Sum: '<S1>/Sum'
    */
-  Inverters_Data_Y.Speed = (fabs(3.6 * rtb_Abs1) + rtb_Merge) * 0.5;
+  Inverters_Data_Y.Speed = (fabs(3.6 * rtb_Abs1) + fabs(3.6 * rtb_Abs)) * 0.5;
 
   /* Outport: '<Root>/RL_rads_Motor' */
   Inverters_Data_Y.RL_rads_Motor = rtb_RPMtorads_n;
@@ -182,57 +304,11 @@ static void Inverters_Data_output(void)
     (Inverters_Data_U.Inv_L_RegID_M235_Inv_L_DCBus,
      Inverters_Data_U.Inv_R_RegID_M235_Inv_R_DCBus);
 
-  /* If: '<S3>/If' incorporates:
-   *  DataStoreRead: '<S3>/Data Store Read'
-   *  Inport: '<Root>/Inv_L_RegID'
-   */
-  if (Inverters_Data_U.Inv_L_RegID == Inverters_Data_DW.Last_alive) {
-    /* Outputs for IfAction SubSystem: '<S3>/Error' incorporates:
-     *  ActionPort: '<S11>/Action Port'
-     */
-    Inverters_Data_Error(&rtb_Merge);
-
-    /* End of Outputs for SubSystem: '<S3>/Error' */
-  } else {
-    /* Outputs for IfAction SubSystem: '<S3>/CAN_OK' incorporates:
-     *  ActionPort: '<S9>/Action Port'
-     */
-    Inverters_Data_CAN_OK(Inverters_Data_U.Inv_L_RegID, &rtb_Merge,
-                          &Inverters_Data_DW.Last_alive);
-
-    /* End of Outputs for SubSystem: '<S3>/CAN_OK' */
-  }
-
-  /* End of If: '<S3>/If' */
-
   /* Outport: '<Root>/Disconnection_InvL' */
-  Inverters_Data_Y.Disconnection_InvL = rtb_Merge;
-
-  /* If: '<S4>/If' incorporates:
-   *  DataStoreRead: '<S4>/Data Store Read'
-   *  Inport: '<Root>/Inv_R_RegID'
-   */
-  if (Inverters_Data_U.Inv_R_RegID == Inverters_Data_DW.Last_alive_n) {
-    /* Outputs for IfAction SubSystem: '<S4>/Error' incorporates:
-     *  ActionPort: '<S14>/Action Port'
-     */
-    Inverters_Data_Error(&rtb_Merge);
-
-    /* End of Outputs for SubSystem: '<S4>/Error' */
-  } else {
-    /* Outputs for IfAction SubSystem: '<S4>/CAN_OK' incorporates:
-     *  ActionPort: '<S12>/Action Port'
-     */
-    Inverters_Data_CAN_OK(Inverters_Data_U.Inv_R_RegID, &rtb_Merge,
-                          &Inverters_Data_DW.Last_alive_n);
-
-    /* End of Outputs for SubSystem: '<S4>/CAN_OK' */
-  }
-
-  /* End of If: '<S4>/If' */
+  Inverters_Data_Y.Disconnection_InvL = rtb_Merge1;
 
   /* Outport: '<Root>/Disconnection_InvR' */
-  Inverters_Data_Y.Disconnection_InvR = rtb_Merge;
+  Inverters_Data_Y.Disconnection_InvR = rtb_Merge1_b;
 }
 
 /* Model update function */
@@ -262,8 +338,14 @@ static void Inverters_Data_initialize(void)
   /* Start for DataStoreMemory: '<S3>/Data Store Memory' */
   Inverters_Data_DW.Last_alive = 0.0;
 
+  /* Start for DataStoreMemory: '<S3>/Data Store Memory1' */
+  Inverters_Data_DW.Tot_Errors = 0.0;
+
   /* Start for DataStoreMemory: '<S4>/Data Store Memory' */
-  Inverters_Data_DW.Last_alive_n = 0.0;
+  Inverters_Data_DW.Last_alive_h = 0.0;
+
+  /* Start for DataStoreMemory: '<S4>/Data Store Memory1' */
+  Inverters_Data_DW.Tot_Errors_c = 0.0;
 }
 
 /* Model terminate function */
@@ -399,7 +481,7 @@ RT_MODEL_Inverters_Data_T *Inverters_Data(void)
   Inverters_Data_M->Sizes.numU = (10); /* Number of model inputs */
   Inverters_Data_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Inverters_Data_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  Inverters_Data_M->Sizes.numBlocks = (50);/* Number of blocks */
+  Inverters_Data_M->Sizes.numBlocks = (70);/* Number of blocks */
   Inverters_Data_M->Sizes.numBlockIO = (0);/* Number of block outputs */
   return Inverters_Data_M;
 }
