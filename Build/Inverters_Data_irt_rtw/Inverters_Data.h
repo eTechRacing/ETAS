@@ -12,9 +12,9 @@
  *
  * Code generation for model "Inverters_Data".
  *
- * Model version              : 13.15
+ * Model version              : 13.22
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jul 27 11:10:21 2024
+ * C source code generated on : Tue Jul 30 12:13:10 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -858,6 +858,14 @@
 /* Definition for use in the target main file */
 #define Inverters_Data_rtModel         RT_MODEL_Inverters_Data_T
 
+/* Block states (default storage) for system '<Root>' */
+typedef struct {
+  real_T Last_alive;                   /* '<S3>/Data Store Memory' */
+  real_T Tot_Errors;                   /* '<S3>/Data Store Memory1' */
+  real_T Last_alive_h;                 /* '<S4>/Data Store Memory' */
+  real_T Tot_Errors_c;                 /* '<S4>/Data Store Memory1' */
+} DW_Inverters_Data_T;
+
 /* External inputs (root inport signals with default storage) */
 typedef struct {
   real_T Inv_L_RegID_M48_Inv_L_Speed; /* '<Root>/Inv_L_RegID_M48_Inv_L_Speed' */
@@ -874,6 +882,8 @@ typedef struct {
                                    /* '<Root>/Inv_R_RegID_M74_Inv_R_TempIGBT' */
   real_T Inv_R_RegID_M235_Inv_R_DCBus;
                                      /* '<Root>/Inv_R_RegID_M235_Inv_R_DCBus' */
+  real_T Inv_L_RegID;                  /* '<Root>/Inv_L_RegID' */
+  real_T Inv_R_RegID;                  /* '<Root>/Inv_R_RegID' */
 } ExtU_Inverters_Data_T;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -890,6 +900,8 @@ typedef struct {
   real_T RR_rads_Motor;                /* '<Root>/RR_rads_Motor' */
   real_T Inv_L_TempMotor;              /* '<Root>/Inv_L_TempMotor' */
   real_T Inv_R_TempMotor;              /* '<Root>/Inv_R_TempMotor' */
+  real_T Disconnection_InvL;           /* '<Root>/Disconnection_InvL' */
+  real_T Disconnection_InvR;           /* '<Root>/Disconnection_InvR' */
 } ExtY_Inverters_Data_T;
 
 /* Backward compatible GRT Identifiers */
@@ -897,6 +909,8 @@ typedef struct {
 #define ExternalInputs                 ExtU_Inverters_Data_T
 #define rtY                            Inverters_Data_Y
 #define ExternalOutputs                ExtY_Inverters_Data_T
+#define rtDWork                        Inverters_Data_DW
+#define D_Work                         DW_Inverters_Data_T
 
 /* Real-time Model Data Structure */
 struct tag_RTM_Inverters_Data_T {
@@ -996,6 +1010,9 @@ struct tag_RTM_Inverters_Data_T {
   } Timing;
 };
 
+/* Block states (default storage) */
+extern DW_Inverters_Data_T Inverters_Data_DW;
+
 /* External inputs (root inport signals with default storage) */
 extern ExtU_Inverters_Data_T Inverters_Data_U;
 
@@ -1034,9 +1051,23 @@ extern RT_MODEL_Inverters_Data_T *const Inverters_Data_M;
  * '<Root>' : 'Inverters_Data'
  * '<S1>'   : 'Inverters_Data/Average'
  * '<S2>'   : 'Inverters_Data/DocBlock'
- * '<S3>'   : 'Inverters_Data/Subsystem1'
- * '<S4>'   : 'Inverters_Data/Subsystem2'
- * '<S5>'   : 'Inverters_Data/Subsystem4'
- * '<S6>'   : 'Inverters_Data/Subsystem5'
+ * '<S3>'   : 'Inverters_Data/Life_check_InverterL'
+ * '<S4>'   : 'Inverters_Data/Life_check_InverterR'
+ * '<S5>'   : 'Inverters_Data/Subsystem1'
+ * '<S6>'   : 'Inverters_Data/Subsystem2'
+ * '<S7>'   : 'Inverters_Data/Subsystem3'
+ * '<S8>'   : 'Inverters_Data/Subsystem4'
+ * '<S9>'   : 'Inverters_Data/Subsystem5'
+ * '<S10>'  : 'Inverters_Data/Subsystem6'
+ * '<S11>'  : 'Inverters_Data/Life_check_InverterL/CAN_OK'
+ * '<S12>'  : 'Inverters_Data/Life_check_InverterL/DocBlock'
+ * '<S13>'  : 'Inverters_Data/Life_check_InverterL/Error_Counter'
+ * '<S14>'  : 'Inverters_Data/Life_check_InverterL/Signal_Failure'
+ * '<S15>'  : 'Inverters_Data/Life_check_InverterL/Signal_OK'
+ * '<S16>'  : 'Inverters_Data/Life_check_InverterR/CAN_OK'
+ * '<S17>'  : 'Inverters_Data/Life_check_InverterR/DocBlock'
+ * '<S18>'  : 'Inverters_Data/Life_check_InverterR/Error_Counter'
+ * '<S19>'  : 'Inverters_Data/Life_check_InverterR/Signal_Failure'
+ * '<S20>'  : 'Inverters_Data/Life_check_InverterR/Signal_OK'
  */
 #endif                                 /* RTW_HEADER_Inverters_Data_h_ */

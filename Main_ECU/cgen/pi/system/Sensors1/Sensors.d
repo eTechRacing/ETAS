@@ -41,4 +41,6 @@ Sensors.o: \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\/Sensors_types.h \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\_sharedutils/rt_defines.h \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\_sharedutils/rt_nonfinite.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\_sharedutils/zero_crossing_types.h
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\external\_sharedutils/zero_crossing_types.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\/Sensors_private.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\/Sensors.h

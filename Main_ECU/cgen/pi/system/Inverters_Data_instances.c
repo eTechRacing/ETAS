@@ -20,6 +20,7 @@
 #undef true
 #include "../a_basdef.h"
 #include "Inverters_Data_instances.h"
+extern    DW_Inverters_Data_T Inverters_Data_DW;
 extern    ExtU_Inverters_Data_T Inverters_Data_U;
 extern    ExtY_Inverters_Data_T Inverters_Data_Y;
 /* Initialization of Simulink model */
@@ -36,14 +37,22 @@ struct RTWTop_Inverters_Data_Obj *initModel_RTWTop_Inverters_Data(void)
 void initClass_RTWTop_Inverters_Data(struct RTWTop_Inverters_Data_Class *self)
 {
     /* Level 1 class variables */
+    self->RTWWrapper_Inverters_Data_DW_Last_alive_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_DW.Last_alive, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Inverters_Data_DW_Last_alive_h_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_DW.Last_alive_h, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Inverters_Data_DW_Tot_Errors_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_DW.Tot_Errors, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Inverters_Data_DW_Tot_Errors_c_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_DW.Tot_Errors_c, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Inverters_Data_U_Inv_L_RegID_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_U.Inv_L_RegID, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_U_Inv_L_RegID_M235_Inv_L_DCBus_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_U.Inv_L_RegID_M235_Inv_L_DCBus, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_U_Inv_L_RegID_M48_Inv_L_Speed_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_U.Inv_L_RegID_M48_Inv_L_Speed, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_U_Inv_L_RegID_M73_Inv_L_TempMotor_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_U.Inv_L_RegID_M73_Inv_L_TempMotor, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_U_Inv_L_RegID_M74_Inv_L_TempIGBT_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_U.Inv_L_RegID_M74_Inv_L_TempIGBT, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Inverters_Data_U_Inv_R_RegID_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_U.Inv_R_RegID, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_U_Inv_R_RegID_M235_Inv_R_DCBus_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_U.Inv_R_RegID_M235_Inv_R_DCBus, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_U_Inv_R_RegID_M48_Inv_R_Speed_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_U.Inv_R_RegID_M48_Inv_R_Speed, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_U_Inv_R_RegID_M73_Inv_R_TempMotor_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_U.Inv_R_RegID_M73_Inv_R_TempMotor, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_U_Inv_R_RegID_M74_Inv_R_TempIGBT_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_U.Inv_R_RegID_M74_Inv_R_TempIGBT, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Inverters_Data_Y_Disconnection_InvL_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_Y.Disconnection_InvL, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Inverters_Data_Y_Disconnection_InvR_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_Y.Disconnection_InvR, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_Y_Inv_L_TempIGBT_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_Y.Inv_L_TempIGBT, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_Y_Inv_L_TempMotor_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_Y.Inv_L_TempMotor, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Data_Y_Inv_R_TempIGBT_Ptr = initInstance_scalarWrapper((void*)&Inverters_Data_Y.Inv_R_TempIGBT, sizeof(double), (uint32)ASD_VARIABLE);
@@ -76,9 +85,17 @@ static MethodList RTWTop_Inverters_Data_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_Inverters_Data_ClassHeader =
-    {0, 1, 0, 20 + 0, (MethodList *)0, (MethodList *)&RTWTop_Inverters_Data_ClassMethodList};
+    {0, 1, 0, 28 + 0, (MethodList *)0, (MethodList *)&RTWTop_Inverters_Data_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_Inverters_Data_Class RTWTop_Inverters_Data_ClassObj = {{1, {&RTWTop_Inverters_Data_ClassHeader}, {0}}
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
     ,NULL
     ,NULL
     ,NULL

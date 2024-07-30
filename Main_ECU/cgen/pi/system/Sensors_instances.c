@@ -45,12 +45,14 @@ void initClass_RTWTop_Sensors(struct RTWTop_Sensors_Class *self)
     self->RTWWrapper_Sensors_ConstB_Subtract_p_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Subtract_p, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_ConstB_Sum1_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Sum1, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_ConstB_Sum1_c_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Sum1_c, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Sensors_ConstB_Sum1_f_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Sum1_f, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Sensors_ConstB_Sum1_d_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Sum1_d, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_DW_Previous_IN_Ptr = initInstance_scalarWrapper((void*)&Sensors_DW.Previous_IN, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_DW_Previous_OUT_Ptr = initInstance_scalarWrapper((void*)&Sensors_DW.Previous_OUT, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_U_APPS1_Bits_Ptr = initInstance_scalarWrapper((void*)&Sensors_U.APPS1_Bits, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_U_APPS2_Bits_Ptr = initInstance_scalarWrapper((void*)&Sensors_U.APPS2_Bits, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_U_BrakePedal_Bits_Ptr = initInstance_scalarWrapper((void*)&Sensors_U.BrakePedal_Bits, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Sensors_U_Disconnection_APPS1_Ptr = initInstance_scalarWrapper((void*)&Sensors_U.Disconnection_APPS1, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Sensors_U_Disconnection_APPS2_Ptr = initInstance_scalarWrapper((void*)&Sensors_U.Disconnection_APPS2, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_U_SteeringSensor_Bits_Ptr = initInstance_scalarWrapper((void*)&Sensors_U.SteeringSensor_Bits, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_U_Susp_F_L_Bits_Ptr = initInstance_scalarWrapper((void*)&Sensors_U.Susp_F_L_Bits, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_U_Susp_F_R_Bits_Ptr = initInstance_scalarWrapper((void*)&Sensors_U.Susp_F_R_Bits, sizeof(double), (uint32)ASD_VARIABLE);
@@ -84,9 +86,11 @@ static MethodList RTWTop_Sensors_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_Sensors_ClassHeader =
-    {0, 1, 0, 26 + 0, (MethodList *)0, (MethodList *)&RTWTop_Sensors_ClassMethodList};
+    {0, 1, 0, 28 + 0, (MethodList *)0, (MethodList *)&RTWTop_Sensors_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_Sensors_Class RTWTop_Sensors_ClassObj = {{1, {&RTWTop_Sensors_ClassHeader}, {0}}
+    ,NULL
+    ,NULL
     ,NULL
     ,NULL
     ,NULL

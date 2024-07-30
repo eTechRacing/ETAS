@@ -22,9 +22,9 @@
 	<moduleInfo identifier="Sensors">
 		<name>Sensors</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Sensors.slx&quot;"/>
-		<version major="13" minor="4"/>
+		<version major="13" minor="7"/>
 		<dateTime kind="created" year="2021" month="2" day="17" hour="15" minute="47" second="20"/>
-		<dateTime kind="lastModified" year="2024" month="7" day="18" hour="15" minute="57" second="47"/>
+		<dateTime kind="lastModified" year="2024" month="7" day="29" hour="15" minute="29" second="5"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="7" day="27" hour="11" minute="11" second="1"/>
+		<dateTime kind="created" year="2024" month="7" day="29" hour="16" minute="54" second="53"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -169,7 +169,7 @@
 						<documentation>&lt;Root&gt;/Opaque</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Sum1_f">
+				<structMember identifier="Sum1_d">
 					<type><const/><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Opaque</documentation>
@@ -267,6 +267,18 @@
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/SteeringSensor_Bits</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Disconnection_APPS1">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Disconnection_APPS1</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Disconnection_APPS2">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Disconnection_APPS2</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -427,21 +439,21 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Sensors_ConstB.Sum1_f">
+			<dataCInterface identifier="Sensors_ConstB.Sum1_d">
 				<definitionLocation>
 					<baseRef identifier="Sensors_ConstB"/>
-					<memberRef identifier="Sum1_f"/>
+					<memberRef identifier="Sum1_d"/>
 				</definitionLocation>
 				<fileOrigin name="Sensors.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Sensors.Opaque.Sum1_f">
-				<name>Sum1_f</name>
+			<modelOrigin identifier="Sensors.Opaque.Sum1_d">
+				<name>Sum1_d</name>
 				<modelLink href="Sensors/Opaque"/>
 				<modelLocation>
 					<pathNode name="Sensors" kind="mlsl:model"/>
-					<pathNode name="APPS2 Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="APPS1 Data Conv1" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Sum1" kind="mlsl:block"/>
-					<pathNode name="Sum1_f" kind="mlsl:signal"/>
+					<pathNode name="Sum1_d" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
@@ -986,6 +998,68 @@
 				</address>
 			</usage>
 		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_U.Disconnection_APPS1">
+				<definitionLocation>
+					<baseRef identifier="Sensors_U"/>
+					<memberRef identifier="Disconnection_APPS1"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Disconnection_APPS1">
+				<name>Disconnection_APPS1</name>
+				<modelLink href="Sensors/Disconnection_APPS1"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="Disconnection_APPS1" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_U.Disconnection_APPS2">
+				<definitionLocation>
+					<baseRef identifier="Sensors_U"/>
+					<memberRef identifier="Disconnection_APPS2"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Disconnection_APPS2">
+				<name>Disconnection_APPS2</name>
+				<modelLink href="Sensors/Disconnection_APPS2"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="Disconnection_APPS2" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
 		<!-- rtY output ports following -->
 		<dataElement interfaceKind="export">
 			<dataCInterface identifier="Sensors_Y.APPS1_Value">
@@ -1294,6 +1368,8 @@
 						<message identifier="Sensors_U.Susp_R_L_Bits" send="false"></message>
 						<message identifier="Sensors_U.Susp_R_R_Bits" send="false"></message>
 						<message identifier="Sensors_U.SteeringSensor_Bits" send="false"></message>
+						<message identifier="Sensors_U.Disconnection_APPS1" send="false"></message>
+						<message identifier="Sensors_U.Disconnection_APPS2" send="false"></message>
 						<message identifier="Sensors_Y.APPS1_Value" send="true"></message>
 						<message identifier="Sensors_Y.APPS2_Value" send="true"></message>
 						<message identifier="Sensors_Y.BrakePedal_Value" send="true"></message>

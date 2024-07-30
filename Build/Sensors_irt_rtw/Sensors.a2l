@@ -8,9 +8,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 13.4
+ * Model version              : 13.7
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jul 27 11:11:01 2024
+ * C source code generated on : Mon Jul 29 16:54:53 2024
  * 
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -803,6 +803,26 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      Disconnection_APPS1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Disconnection_APPS2 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       APPS1_Value ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -885,8 +905,12 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
     /begin FUNCTION
       APPS1_Data_Conv ""
       /begin SUB_FUNCTION
+        If_Action_Subsystem
+        If_Action_Subsystem1
         max
         min
+        If
+        Merge
         Divide
         Sum
         Sum1
@@ -894,6 +918,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
+        
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
@@ -901,10 +926,14 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      APPS2_Data_Conv_ ""
+      APPS1_Data_Conv1 ""
       /begin SUB_FUNCTION
+        If_Action_Subsystem
+        If_Action_Subsystem1
         max
         min
+        If
+        Merge
         Divide
         Sum
         Sum1
@@ -912,6 +941,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
+        
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
@@ -945,6 +975,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         zero
         Gain
         Divide
+        Saturation
         Sum
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
@@ -1047,6 +1078,33 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      If_Action_Subsystem ""
+      /begin SUB_FUNCTION
+        cte
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem1 ""
+      /begin SUB_FUNCTION
+        Value_in
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       max ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -1061,6 +1119,30 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
         
@@ -1103,6 +1185,33 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      If_Action_Subsystem ""
+      /begin SUB_FUNCTION
+        cte
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem1 ""
+      /begin SUB_FUNCTION
+        Value_in
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       max ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -1117,6 +1226,30 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
         
@@ -1295,6 +1428,17 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      Saturation ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       Sum ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -1572,6 +1716,48 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
         
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      cte ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Value_in ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      cte ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Value_in ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT

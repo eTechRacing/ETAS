@@ -12,9 +12,9 @@
  *
  * Code generation for model "Disconnections".
  *
- * Model version              : 13.24
+ * Model version              : 13.29
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jul 27 11:09:20 2024
+ * C source code generated on : Mon Jul 29 16:12:05 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -860,14 +860,18 @@
 
 /* Block signals (default storage) */
 typedef struct {
-  real_T Merge;                        /* '<S34>/Merge' */
+  real_T Merge;                        /* '<S30>/Merge' */
+  real_T Merge_e;                      /* '<S31>/Merge' */
+  real_T Merge_ed;                     /* '<S32>/Merge' */
+  real_T Merge_d;                      /* '<S33>/Merge' */
+  real_T Merge_n;                      /* '<S34>/Merge' */
   real_T Merge_k;                      /* '<S35>/Merge' */
   real_T Merge_p;                      /* '<S36>/Merge' */
   real_T Merge_kw;                     /* '<S37>/Merge' */
   real_T Merge_g;                      /* '<S14>/Merge' */
   real_T Merge_j;                      /* '<S15>/Merge' */
   real_T Merge_go;                     /* '<S12>/Merge' */
-  real_T Merge_d;                      /* '<S16>/Merge' */
+  real_T Merge_dt;                     /* '<S16>/Merge' */
   real_T Merge_m;                      /* '<S13>/Merge' */
 } B_Disconnections_T;
 
@@ -881,11 +885,6 @@ typedef struct {
   real_T Last_alive_pb;                /* '<S16>/Data Store Memory' */
   real_T Last_alive_n0;                /* '<S13>/Data Store Memory' */
 } DW_Disconnections_T;
-
-/* Invariant block signals (default storage) */
-typedef struct {
-  const real_T Constant;               /* '<S5>/Constant' */
-} ConstB_Disconnections_T;
 
 /* External inputs (root inport signals with default storage) */
 typedef struct {
@@ -903,6 +902,8 @@ typedef struct {
   real_T Susp_R_L_Bits;                /* '<Root>/Susp_R_L_Bits' */
   real_T Susp_R_R_Bits;                /* '<Root>/Susp_R_R_Bits' */
   real_T el_Vel_OK;                    /* '<Root>/el_Vel_OK' */
+  boolean_T Disconnection_InvL;        /* '<Root>/Disconnection_InvL' */
+  boolean_T Disconnection_InvR;        /* '<Root>/Disconnection_InvR' */
 } ExtU_Disconnections_T;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -937,8 +938,6 @@ typedef struct {
 #define ExternalOutputs                ExtY_Disconnections_T
 #define rtDWork                        Disconnections_DW
 #define D_Work                         DW_Disconnections_T
-#define tConstBlockIOType              ConstB_Disconnections_T
-#define rtC                            Disconnections_ConstB
 
 /* Real-time Model Data Structure */
 struct tag_RTM_Disconnections_T {
@@ -1049,7 +1048,6 @@ extern ExtU_Disconnections_T Disconnections_U;
 
 /* External outputs (root outports fed by signals with default storage) */
 extern ExtY_Disconnections_T Disconnections_Y;
-extern ConstB_Disconnections_T Disconnections_ConstB;/* constant block i/o */
 
 /*====================*
  * External functions *
@@ -1151,11 +1149,13 @@ extern RT_MODEL_Disconnections_T *const Disconnections_M;
  * '<S68>'  : 'Disconnections/Sensor Disconnections (Noise)/Life_check_SuspRR/If Action Subsystem2'
  * '<S69>'  : 'Disconnections/Sensor Disconnections (Noise)/Life_check_SuspRR/If Action Subsystem3'
  * '<S70>'  : 'Disconnections/Subsystem/DocBlock1'
- * '<S71>'  : 'Disconnections/Subsystem/Others FM2+'
- * '<S72>'  : 'Disconnections/Subsystem/Others FM3+ '
- * '<S73>'  : 'Disconnections/Subsystem/Rigid Axle 2024'
- * '<S74>'  : 'Disconnections/Subsystem/Rigid Axle with TC 2024'
- * '<S75>'  : 'Disconnections/Subsystem/Steering TV without TC 2024'
- * '<S76>'  : 'Disconnections/Subsystem/TV & TC 2024'
+ * '<S71>'  : 'Disconnections/Subsystem/Other SM'
+ * '<S72>'  : 'Disconnections/Subsystem/Others SM2+'
+ * '<S73>'  : 'Disconnections/Subsystem/Others SM3+ '
+ * '<S74>'  : 'Disconnections/Subsystem/Rigid Axle 2024'
+ * '<S75>'  : 'Disconnections/Subsystem/Rigid Axle One Inverter'
+ * '<S76>'  : 'Disconnections/Subsystem/Rigid Axle with TC 2024'
+ * '<S77>'  : 'Disconnections/Subsystem/Steering TV without TC 2024'
+ * '<S78>'  : 'Disconnections/Subsystem/TV & TC 2024'
  */
 #endif                                 /* RTW_HEADER_Disconnections_h_ */

@@ -12,9 +12,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 13.4
+ * Model version              : 13.7
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jul 27 11:11:01 2024
+ * C source code generated on : Mon Jul 29 16:54:53 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -860,20 +860,20 @@
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  real_T Previous_IN;                  /* '<S9>/Data Store Memory' */
-  real_T Previous_OUT;                 /* '<S9>/Data Store Memory1' */
+  real_T Previous_IN;                  /* '<S13>/Data Store Memory' */
+  real_T Previous_OUT;                 /* '<S13>/Data Store Memory1' */
 } DW_Sensors_T;
 
 /* Invariant block signals (default storage) */
 typedef struct {
   const real_T Sum1;                   /* '<S1>/Sum1' */
-  const real_T Sum1_f;                 /* '<S2>/Sum1' */
+  const real_T Sum1_d;                 /* '<S2>/Sum1' */
   const real_T Sum1_c;                 /* '<S3>/Sum1' */
   const real_T Subtract;               /* '<S5>/Subtract' */
   const real_T Subtract_a;             /* '<S6>/Subtract' */
   const real_T Subtract_e;             /* '<S7>/Subtract' */
   const real_T Subtract_n;             /* '<S8>/Subtract' */
-  const real_T Subtract_p;             /* '<S9>/Subtract' */
+  const real_T Subtract_p;             /* '<S13>/Subtract' */
 } ConstB_Sensors_T;
 
 /* External inputs (root inport signals with default storage) */
@@ -886,6 +886,8 @@ typedef struct {
   real_T Susp_R_L_Bits;                /* '<Root>/Susp_R_L_Bits' */
   real_T Susp_R_R_Bits;                /* '<Root>/Susp_R_R_Bits' */
   real_T SteeringSensor_Bits;          /* '<Root>/SteeringSensor_Bits' */
+  real_T Disconnection_APPS1;          /* '<Root>/Disconnection_APPS1' */
+  real_T Disconnection_APPS2;          /* '<Root>/Disconnection_APPS2' */
 } ExtU_Sensors_T;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -1049,13 +1051,17 @@ extern RT_MODEL_Sensors_T *const Sensors_M;
  *
  * '<Root>' : 'Sensors'
  * '<S1>'   : 'Sensors/APPS1 Data Conv'
- * '<S2>'   : 'Sensors/APPS2 Data Conv '
+ * '<S2>'   : 'Sensors/APPS1 Data Conv1'
  * '<S3>'   : 'Sensors/Brake Pedal Data Conv'
  * '<S4>'   : 'Sensors/Steering Data Conv'
  * '<S5>'   : 'Sensors/Suspension_FL Data Conv'
  * '<S6>'   : 'Sensors/Suspension_FR Data Conv'
  * '<S7>'   : 'Sensors/Suspension_RL Data Conv'
  * '<S8>'   : 'Sensors/Suspension_RR Data Conv'
- * '<S9>'   : 'Sensors/Steering Data Conv/Low Pass'
+ * '<S9>'   : 'Sensors/APPS1 Data Conv/If Action Subsystem'
+ * '<S10>'  : 'Sensors/APPS1 Data Conv/If Action Subsystem1'
+ * '<S11>'  : 'Sensors/APPS1 Data Conv1/If Action Subsystem'
+ * '<S12>'  : 'Sensors/APPS1 Data Conv1/If Action Subsystem1'
+ * '<S13>'  : 'Sensors/Steering Data Conv/Low Pass'
  */
 #endif                                 /* RTW_HEADER_Sensors_h_ */

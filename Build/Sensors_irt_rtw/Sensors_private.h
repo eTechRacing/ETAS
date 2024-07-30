@@ -7,9 +7,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 13.4
+ * Model version              : 13.7
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jul 27 11:11:01 2024
+ * C source code generated on : Mon Jul 29 16:54:53 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -25,4 +25,10 @@
 #include "multiword_types.h"
 #include "zero_crossing_types.h"
 #include "Sensors_types.h"
+#include "Sensors.h"
+
+extern void Sensors_IfActionSubsystem(real_T *rty_u);
+extern void Sensors_IfActionSubsystem1(real_T rtu_Value_in, real_T
+  *rty_Value_out);
+
 #endif                                 /* RTW_HEADER_Sensors_private_h_ */

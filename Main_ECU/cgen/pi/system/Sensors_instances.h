@@ -31,12 +31,14 @@ struct RTWTop_Sensors_Class
     scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Subtract_p_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Sum1_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Sum1_c_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Sum1_f_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Sum1_d_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_DW_Previous_IN_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_DW_Previous_OUT_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_U_APPS1_Bits_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_U_APPS2_Bits_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_U_BrakePedal_Bits_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Sensors_U_Disconnection_APPS1_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Sensors_U_Disconnection_APPS2_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_U_SteeringSensor_Bits_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_U_Susp_F_L_Bits_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_U_Susp_F_R_Bits_Ptr;

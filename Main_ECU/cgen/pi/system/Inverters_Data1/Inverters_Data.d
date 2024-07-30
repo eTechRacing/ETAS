@@ -42,5 +42,6 @@ Inverters_Data.o: \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Inverters_Data_irt_rtw\external\_sharedutils/rt_defines.h \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Inverters_Data_irt_rtw\external\_sharedutils/rt_nonfinite.h \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Inverters_Data_irt_rtw\external\_sharedutils/zero_crossing_types.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Inverters_Data_irt_rtw\external\_sharedutils/look1_binlxpw.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Inverters_Data_irt_rtw\/Inverters_Data_private.h
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Inverters_Data_irt_rtw\/Inverters_Data_private.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Inverters_Data_irt_rtw\/Inverters_Data.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Inverters_Data_irt_rtw\external\_sharedutils/look1_binlxpw.h
