@@ -7,9 +7,9 @@
  *
  * Code generation for model "Inverters_Data".
  *
- * Model version              : 13.21
+ * Model version              : 13.22
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Mon Jul 29 16:11:39 2024
+ * C source code generated on : Tue Jul 30 12:13:10 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -134,7 +134,7 @@ static void Inverters_Data_output(void)
   /* If: '<S3>/If1' incorporates:
    *  Constant: '<Root>/Number_of_periods'
    */
-  if (rtb_Merge1 > 12.0) {
+  if (rtb_Merge1 > 50.0) {
     /* Outputs for IfAction SubSystem: '<S3>/Signal_Failure' incorporates:
      *  ActionPort: '<S14>/Action Port'
      */
@@ -181,7 +181,7 @@ static void Inverters_Data_output(void)
   /* If: '<S4>/If1' incorporates:
    *  Constant: '<Root>/Number_of_periods'
    */
-  if (rtb_Merge1_b > 12.0) {
+  if (rtb_Merge1_b > 50.0) {
     /* Outputs for IfAction SubSystem: '<S4>/Signal_Failure' incorporates:
      *  ActionPort: '<S19>/Action Port'
      */

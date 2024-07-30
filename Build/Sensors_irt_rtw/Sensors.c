@@ -9,7 +9,7 @@
  *
  * Model version              : 13.7
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Mon Jul 29 14:12:38 2024
+ * C source code generated on : Mon Jul 29 16:54:53 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -64,7 +64,7 @@ void Sensors_IfActionSubsystem1(real_T rtu_Value_in, real_T *rty_Value_out)
 /* Model output function */
 static void Sensors_output(void)
 {
-  real_T rtb_Subtract1_lm;
+  real_T rtb_Saturation;
 
   /* If: '<S1>/If' incorporates:
    *  Inport: '<Root>/Disconnection_APPS1'
@@ -185,11 +185,11 @@ static void Sensors_output(void)
    *  Product: '<S13>/Product'
    *  Product: '<S13>/Product1'
    */
-  rtb_Subtract1_lm = Sensors_DW.Previous_IN * Sensors_ConstB.Subtract_p + 0.905 *
+  rtb_Saturation = Sensors_DW.Previous_IN * Sensors_ConstB.Subtract_p + 0.905 *
     Sensors_DW.Previous_OUT;
 
   /* DataStoreWrite: '<S13>/Data Store Write1' */
-  Sensors_DW.Previous_OUT = rtb_Subtract1_lm;
+  Sensors_DW.Previous_OUT = rtb_Saturation;
 
   /* DataStoreWrite: '<S13>/Data Store Write' incorporates:
    *  Constant: '<S4>/half range'
@@ -203,11 +203,21 @@ static void Sensors_output(void)
   Sensors_DW.Previous_IN = (Sensors_U.SteeringSensor_Bits - 2000.0) * 2.0 /
     3400.0 * 115.0;
 
-  /* Outport: '<Root>/SteeringSensor_Value' incorporates:
+  /* Saturate: '<S4>/Saturation' incorporates:
    *  Gain: '<S13>/Gain'
    */
-  Sensors_Y.SteeringSensor_Value = -rtb_Subtract1_lm;
+  if (-rtb_Saturation > 125.0) {
+    /* Outport: '<Root>/SteeringSensor_Value' */
+    Sensors_Y.SteeringSensor_Value = 125.0;
+  } else if (-rtb_Saturation < -125.0) {
+    /* Outport: '<Root>/SteeringSensor_Value' */
+    Sensors_Y.SteeringSensor_Value = -125.0;
+  } else {
+    /* Outport: '<Root>/SteeringSensor_Value' */
+    Sensors_Y.SteeringSensor_Value = -rtb_Saturation;
+  }
 
+  /* End of Saturate: '<S4>/Saturation' */
   /* End of Outputs for SubSystem: '<S4>/Low Pass' */
 }
 
@@ -376,7 +386,7 @@ RT_MODEL_Sensors_T *Sensors(void)
   Sensors_M->Sizes.numU = (10);        /* Number of model inputs */
   Sensors_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Sensors_M->Sizes.numSampTimes = (1); /* Number of sample times */
-  Sensors_M->Sizes.numBlocks = (79);   /* Number of blocks */
+  Sensors_M->Sizes.numBlocks = (80);   /* Number of blocks */
   Sensors_M->Sizes.numBlockIO = (0);   /* Number of block outputs */
   return Sensors_M;
 }
