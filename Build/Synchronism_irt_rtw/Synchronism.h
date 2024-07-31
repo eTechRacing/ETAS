@@ -3,6 +3,11 @@
 #include "Synchronism_irtmacros.h"
 /* PATCH END */
 
+/* Patched in by the INTECRIO IRT target */
+/* PATCH BEGIN */
+#include "Synchronism_irtmacros.h"
+/* PATCH END */
+
 /*
  * Synchronism.h
  *

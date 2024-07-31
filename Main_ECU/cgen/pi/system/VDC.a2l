@@ -34,31 +34,6 @@ ASAP2_VERSION
 
  
         /begin MEASUREMENT 
-            /* Name                */     VDC_B.Merge 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDC_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDC.ENDURANCE.Merge.Merge 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
-        /begin COMPU_METHOD 
-            /* Name                */     VDC_CM_double 
-            /* Long identifier     */     "Q = V" 
-            /* ConversionType      */     RAT_FUNC 
-            /* Format              */     "%9.6" 
-            /* Unit                */     "NO_PHYSICAL_QTY" 
-            COEFFS            0.0 1.0 0.0 0.0 0.0 1.0  
-        /end COMPU_METHOD 
-
- 
-        /begin MEASUREMENT 
             /* Name                */     VDC_B.Merge1 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
@@ -73,22 +48,15 @@ ASAP2_VERSION
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
         /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     VDC_B.Merge1_f 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDC_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDC.ENDURANCE.Merge1.Merge1_f 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
+        /begin COMPU_METHOD 
+            /* Name                */     VDC_CM_double 
+            /* Long identifier     */     "Q = V" 
+            /* ConversionType      */     RAT_FUNC 
+            /* Format              */     "%9.6" 
+            /* Unit                */     "NO_PHYSICAL_QTY" 
+            COEFFS            0.0 1.0 0.0 0.0 0.0 1.0  
+        /end COMPU_METHOD 
+
  
         /begin MEASUREMENT 
             /* Name                */     VDC_B.Merge2 
@@ -107,22 +75,6 @@ ASAP2_VERSION
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     VDC_B.Merge2_l 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDC_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDC.ENDURANCE.Merge2.Merge2_l 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
             /* Name                */     VDC_B.Merge3 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
@@ -133,22 +85,6 @@ ASAP2_VERSION
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER VDC.Merge3.Merge3 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     VDC_B.Merge3_n 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDC_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDC.ENDURANCE.Merge3.Merge3_n 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -526,22 +462,6 @@ ASAP2_VERSION
             /* Upper limit         */     1 
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER VDC.Shutdown_PackageIntck 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     VDC_U.SoC_High 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDC_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDC.SoC_High 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 

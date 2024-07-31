@@ -1,0 +1,290 @@
+<?DTDVersion "4.7.3.1"?>
+<?CompatibleDTDVersion "3.2.0"?>
+<?CompatibleDTDVersion "2.3"?>
+<?CompatibleDTDVersion "2.2"?>
+<?CompatibleDTDVersion "2.1"?>
+<?CompatibleDTDVersion "2.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!ENTITY % ESLINBaseNodeMain SYSTEM "ESLINBaseNodeMain.dtd">
+%ESLINBaseNodeMain;
+
+<!NOTATION ofTypeESLINNodeMain SYSTEM "ESLINNodeMain">
+<!NOTATION ofTypeESLINNodeLINController SYSTEM "ESLINNodeLINController">
+<!NOTATION ofTypeESLINNodeDevice SYSTEM "ESLINNodeDevice">
+
+
+
+<?SuperClass ESLINNodeMain->ESLINBaseNodeMain ?>
+<?SuperClass ESLINNodeMain->ES900Component ?>
+<?SuperClass ESLINNodeLINController->ESLINBaseNodeController ?>
+<?SuperClass ESLINNodeDevice->ESLINBaseNodeDevice ?>
+
+
+<!-- node main -->
+<!ELEMENT ESLINNodeMain (ESLINNodeMain.Parameters, ESLINNodeMain.L1Generation, ESLINNodeMain.SubNodes,  _System)>
+<!ATTLIST ESLINNodeMain
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBOBoard ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOCPUBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ESLINNodeMain.Parameters (ESLINNodeMainParameters)>
+<!ELEMENT ESLINNodeMain.L1Generation (ESLINNodeMainL1GenerationBlock)>
+<!ELEMENT ESLINNodeMain.SubNodes (ESLINNodeMainSubNodeList)>
+
+<!ELEMENT ESLINNodeMainL1GenerationBlock (ESLINNodeMainL1GenerationBlock.NotRunning, ESLINNodeMainL1GenerationBlock.Reconnect, ESLINNodeMainL1GenerationBlock.WriteToStream)>
+<!ATTLIST ESLINNodeMainL1GenerationBlock
+    L1TreeIndex CDATA "-1"
+
+    ConfigROID CDATA "-1"
+>
+
+<!ELEMENT ESLINNodeMainL1GenerationBlock.NotRunning (ESLINNodeMainL1GenerationNotRunning)>
+<!ELEMENT ESLINNodeMainL1GenerationBlock.Reconnect (ESLINNodeMainL1GenerationReconnect)>
+<!ELEMENT ESLINNodeMainL1GenerationBlock.WriteToStream (ESLINNodeMainL1GenerationWriteToStream)>
+
+<!ELEMENT ESLINNodeMainL1GenerationNotRunning EMPTY>
+<!ELEMENT ESLINNodeMainL1GenerationReconnect EMPTY>
+<!ELEMENT ESLINNodeMainL1GenerationWriteToStream EMPTY>
+
+
+<!ELEMENT ESLINNodeMainParameters (ESLINNodeMainParameters.Name, ESLINNodeMainParameters.Enabled)>
+
+<!ELEMENT ESLINNodeMainParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeMainParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeMainSubNodeList (ESLINNodeLINController)*>
+
+<!-- node controller-->
+
+<!ELEMENT ESLINNodeLINController (ESLINNodeLINController.Parameters, ESLINNodeLINController.L1Generation, ESLINNodeLINController.SubNodes)>
+<!ATTLIST ESLINNodeLINController
+    Name ID #REQUIRED
+>
+
+
+<!ELEMENT ESLINNodeLINController.Parameters (ESLINNodeLINControllerParameters)>
+<!ELEMENT ESLINNodeLINController.L1Generation (ESLINNodeLINControllerL1GenerationBlock)>
+<!ELEMENT ESLINNodeLINController.SubNodes (ESLINNodeLINControllerSubNodeList)>
+
+<!ELEMENT ESLINNodeLINControllerL1GenerationBlock (ESLINNodeLINControllerL1GenerationBlock.UnionCase, ESLINNodeLINControllerL1GenerationBlock.Reconnect)>
+<!ATTLIST ESLINNodeLINControllerL1GenerationBlock
+    L1TreeIndex CDATA "-1"
+
+>
+
+<!ELEMENT ESLINNodeLINControllerL1GenerationBlock.UnionCase (ESLINNodeLINControllerL1GenerationUnionCase)>
+<!ELEMENT ESLINNodeLINControllerL1GenerationBlock.Reconnect (ESLINNodeLINControllerL1GenerationReconnect)>
+
+<!ELEMENT ESLINNodeLINControllerL1GenerationUnionCase EMPTY>
+<!ELEMENT ESLINNodeLINControllerL1GenerationReconnect EMPTY>
+
+<!ELEMENT ESLINNodeLINControllerParameters (ESLINNodeLINControllerParameters.Enabled,
+                                            ESLINNodeLINControllerParameters.Name,
+                                            ESLINNodeLINControllerParameters.LDFFile,
+                                            ESLINNodeLINControllerParameters.LDFFileVersion,
+                                            ESLINNodeLINControllerParameters.ModuleType,
+                                            ESLINNodeLINControllerParameters.ModuleTypeInstance,
+                                            ESLINNodeLINControllerParameters.Port,
+                                            ESLINNodeLINControllerParameters.BaudRate,
+                                            ESLINNodeLINControllerParameters.SpecialBaudRate)>
+
+<!ELEMENT ESLINNodeLINControllerParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ESLINNodeLINControllerParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeLINControllerParameters.LDFFile (ESParameterString)>
+<!ELEMENT ESLINNodeLINControllerParameters.LDFFileVersion (ESParameterEnum)>
+<!ATTLIST ESLINNodeLINControllerParameters.LDFFileVersion
+    EnumText1      CDATA "-"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "1.3"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "2.0"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "2.1"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "2.2"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeLINControllerParameters.ModuleType (ESParameterDynamicEnum)>
+
+<!ELEMENT ESLINNodeLINControllerParameters.ModuleTypeInstance (ESParameterUInt)>
+
+<!ELEMENT ESLINNodeLINControllerParameters.Port (ESParameterDynamicEnum)>
+
+<!ELEMENT ESLINNodeLINControllerParameters.BaudRate (ESParameterEnum)>
+<!ATTLIST ESLINNodeLINControllerParameters.BaudRate
+    EnumText1      CDATA "19200"
+    EnumL1Value1     CDATA "19200"
+    EnumAvailable1 CDATA "1"
+
+     EnumText2      CDATA "10400"
+    EnumL1Value2     CDATA "10400"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "9600"
+    EnumL1Value3     CDATA "9600"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "2400"
+    EnumL1Value4     CDATA "2400"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "special settings"
+    EnumL1Value5     CDATA "-1"
+    EnumAvailable5 CDATA "1"
+
+    EnumText6      CDATA "automatic"
+    EnumL1Value6     CDATA "-10"
+    EnumAvailable6 CDATA "0"
+>
+
+<!ELEMENT ESLINNodeLINControllerParameters.SpecialBaudRate (ESParameterUInt)>
+
+<!ELEMENT ESLINNodeLINControllerSubNodeList (ESLINNodeDevice )*>
+
+
+<!-- node device-->
+
+<!-- The attribute IRQSource is a leftover and is no longer used. It has been replaced by the parameter IRQSource. The code of the attribute is deleted.  -->
+<!ELEMENT ESLINNodeDevice (ESLINNodeDevice.Parameters, ESLINNodeDevice.L1Generation, ESLINNodeDevice.SubNodes, ESLINNodeDevice.SignalPool)>
+<!ATTLIST ESLINNodeDevice
+    Name ID #REQUIRED
+
+    GlobalObject.ofTypeYBODevice ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOBoard ENTITY #REQUIRED
+
+    IRQSource CDATA ""
+>
+
+<!ELEMENT ESLINNodeDevice.Parameters (ESLINNodeDeviceParameters)>
+<!ELEMENT ESLINNodeDevice.L1Generation (ESLINNodeDeviceL1GenerationBlock)>
+<!ELEMENT ESLINNodeDevice.SubNodes (ESLINNodeDeviceSubNodeList)>
+<!ELEMENT ESLINNodeDevice.SignalPool (ESLINPoolSignal)>
+
+
+<!ELEMENT ESLINNodeDeviceL1GenerationBlock (ESLINNodeDeviceL1GenerationBlock.UnionCaseMaster, ESLINNodeDeviceL1GenerationBlock.UnionCaseSlave, ESLINNodeDeviceL1GenerationBlock.Reconnect)>
+<!ATTLIST ESLINNodeDeviceL1GenerationBlock
+    L1TreeIndex CDATA "-1"
+
+    APIROIDArray1 CDATA "-1"
+    APIROIDArray2 CDATA "-1"
+    APIROIDArray3 CDATA "-1"
+    APIROIDArray4 CDATA "-1"
+    APIROIDArray5 CDATA "-1"
+    APIROIDArray6 CDATA "-1"
+
+    IRQTriggeredSignalGroups CDATA "0"
+    L1RelevantSignalGroups CDATA "0"
+>
+
+<!ELEMENT ESLINNodeDeviceL1GenerationBlock.UnionCaseMaster (ESLINNodeDeviceL1GenerationUnionCaseMaster)>
+<!ELEMENT ESLINNodeDeviceL1GenerationBlock.UnionCaseSlave (ESLINNodeDeviceL1GenerationUnionCaseSlave)>
+<!ELEMENT ESLINNodeDeviceL1GenerationBlock.Reconnect (ESLINNodeDeviceL1GenerationReconnect)>
+
+<!ELEMENT ESLINNodeDeviceL1GenerationUnionCaseMaster EMPTY>
+<!ELEMENT ESLINNodeDeviceL1GenerationUnionCaseSlave EMPTY>
+<!ELEMENT ESLINNodeDeviceL1GenerationReconnect EMPTY>
+
+
+<!ELEMENT ESLINNodeDeviceParameters (ESLINNodeDeviceParameters.Name,
+    ESLINNodeDeviceParameters.Enabled,
+    ESLINNodeDeviceParameters.ProtocolVersionDevice,
+    ESLINNodeDeviceParameters.TimeBase,
+    ESLINNodeDeviceParameters.ConfiguredNAD,
+    ESLINNodeDeviceParameters.InitialNAD,
+    ESLINNodeDeviceParameters.SupplierID,
+    ESLINNodeDeviceParameters.FunctionID,
+    ESLINNodeDeviceParameters.VariantID,
+    ESLINNodeDeviceParameters.SerialNumber,
+    ESLINNodeDeviceParameters.NodeType,
+    ESLINNodeDeviceParameters.DeviceInstance,
+    ESLINNodeDeviceParameters.ISR,
+    ESLINNodeDeviceParameters.IRQSource)>
+
+<!ELEMENT ESLINNodeDeviceParameters.NodeType (ESParameterEnum)>
+<!ATTLIST ESLINNodeDeviceParameters.NodeType
+    EnumText1      CDATA "Master Node"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Slave Node"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeDeviceParameters.DeviceInstance (ESParameterEnum)>
+<!ATTLIST ESLINNodeDeviceParameters.DeviceInstance
+    EnumText1      CDATA "Master Device: Instance 0"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "Slave Device: Instance 0"
+    EnumL1Value2     CDATA "0"
+    EnumAvailable2 CDATA "1"
+
+    EnumText2      CDATA "Slave Device: Instance 1"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "0"
+
+    EnumText2      CDATA "Slave Device: Instance 2"
+    EnumL1Value2     CDATA "2"
+    EnumAvailable2 CDATA "0"
+
+    EnumText2      CDATA "Slave Device: Instance 3"
+    EnumL1Value2     CDATA "3"
+    EnumAvailable2 CDATA "0"
+>
+<!--ESLINNodeDeviceParameters.SupportedSIDs-->
+
+
+<!ELEMENT ESLINNodeDeviceParameters.SerialNumber (ESParameterUInt)>
+
+<!ELEMENT ESLINNodeDeviceParameters.Name (ESParameterName)>
+<!ELEMENT ESLINNodeDeviceParameters.Enabled (ESParameterBoolean)>
+
+<!ELEMENT ESLINNodeDeviceParameters.ProtocolVersionDevice (ESParameterEnum)>
+<!ATTLIST ESLINNodeDeviceParameters.ProtocolVersionDevice
+    EnumText1      CDATA "1.3"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "2.0"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "2.1"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "2.2"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+>
+
+<!ELEMENT ESLINNodeDeviceParameters.TimeBase (ESParameterFloat)>
+<!ELEMENT ESLINNodeDeviceParameters.ConfiguredNAD (ESParameterUInt)>
+<!ELEMENT ESLINNodeDeviceParameters.InitialNAD (ESParameterUInt)>
+<!ELEMENT ESLINNodeDeviceParameters.SupplierID (ESParameterUInt)>
+<!ELEMENT ESLINNodeDeviceParameters.FunctionID (ESParameterUInt)>
+<!ELEMENT ESLINNodeDeviceParameters.VariantID (ESParameterUInt)>
+<!ELEMENT ESLINNodeDeviceParameters.ISR (ESParameterString)>
+<!ELEMENT ESLINNodeDeviceParameters.IRQSource (ESParameterString)>
+
+<!ELEMENT ESLINNodeDeviceSubNodeList (ESLINNodeScheduleTables | ESLINNodeStatus | ESLINNodeFramePool | ESLINNodeDiagnosticFramePool)*>

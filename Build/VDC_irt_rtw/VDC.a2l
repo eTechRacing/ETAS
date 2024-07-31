@@ -8,9 +8,9 @@
  *
  * Code generation for model "VDC".
  *
- * Model version              : 4.186
+ * Model version              : 4.199
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jul 27 11:12:02 2024
+ * C source code generated on : Wed Jul 31 13:41:53 2024
  * 
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1003,16 +1003,6 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      SoC_High ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
       el_VEL ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -1191,10 +1181,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         RIGIDAXLE_WITH_TC
         TC_TV
         Torque
-        Velocity_cap
         If
-        Merge
-        Merge1
         Merge2
         Merge3
         Merge4
@@ -1204,7 +1191,6 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
-        
         
         
         
@@ -1924,6 +1910,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
     /begin FUNCTION
       RIGIDAXLE_WITH_TC ""
       /begin SUB_FUNCTION
+        Velocity_cap
         Rigid_Axle_with_TC_2024_
         RigidAxleTC
         Max
@@ -1946,6 +1933,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
     /begin FUNCTION
       TC_TV ""
       /begin SUB_FUNCTION
+        Velocity_cap
         MATLAB_Function
         TC_2024
         TV_TC
@@ -1976,7 +1964,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         Torque_demanded_by_the_driver
         enable_regen
         state
-        _8__SoC
+        Constant
         SoC____Current
         Min
         Min1
@@ -1991,31 +1979,9 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         
         
         
-        
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
         
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Velocity_cap ""
-      /begin SUB_FUNCTION
-        If_Action_Subsystem
-        If_Action_Subsystem1
-        If
-        Merge
-        Merge1
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
         
         
       /end OUT_MEASUREMENT
@@ -2034,34 +2000,11 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Merge ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Merge1 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
       Merge2 ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
+        
         
         
       /end IN_MEASUREMENT
@@ -2074,6 +2017,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
+        
         
         
       /end IN_MEASUREMENT
@@ -2690,6 +2634,27 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      Velocity_cap ""
+      /begin SUB_FUNCTION
+        If_Action_Subsystem
+        If_Action_Subsystem1
+        If
+        Merge
+        Merge1
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       Rigid_Axle_with_TC_2024_ ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -2723,6 +2688,27 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Velocity_cap ""
+      /begin SUB_FUNCTION
+        If_Action_Subsystem
+        If_Action_Subsystem1
+        If
+        Merge
+        Merge1
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
         
       /end OUT_MEASUREMENT
     /end FUNCTION
@@ -2808,8 +2794,6 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         
         
         
-        
-        
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
         
@@ -2831,7 +2815,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      _8__SoC ""
+      Constant ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -2845,10 +2829,8 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
-        
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
-        
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
@@ -2865,76 +2847,6 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
     /end FUNCTION
     /begin FUNCTION
       Min1 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      If_Action_Subsystem ""
-      /begin SUB_FUNCTION
-        Gain
-        Gain1
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      If_Action_Subsystem1 ""
-      /begin SUB_FUNCTION
-        Tq_RL
-        Tq_RR
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      If ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Merge ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Merge1 ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -3307,6 +3219,146 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      If_Action_Subsystem ""
+      /begin SUB_FUNCTION
+        Gain
+        Gain1
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem1 ""
+      /begin SUB_FUNCTION
+        Tq_RL
+        Tq_RR
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem ""
+      /begin SUB_FUNCTION
+        Gain
+        Gain1
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem1 ""
+      /begin SUB_FUNCTION
+        Tq_RL
+        Tq_RR
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       EmptySubsystem ""
       /begin SUB_FUNCTION
       /end SUB_FUNCTION
@@ -3315,50 +3367,6 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin IN_MEASUREMENT
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Gain ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Gain1 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Tq_RL ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Tq_RR ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
@@ -3418,6 +3426,94 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Gain ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Gain1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Tq_RL ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Tq_RR ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Gain ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Gain1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Tq_RL ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Tq_RR ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
         

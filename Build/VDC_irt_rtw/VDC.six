@@ -22,15 +22,15 @@
 	<moduleInfo identifier="VDC">
 		<name>VDC</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}VDC.slx&quot;"/>
-		<version major="4" minor="186"/>
+		<version major="4" minor="199"/>
 		<dateTime kind="created" year="2024" month="3" day="15" hour="15" minute="34" second="18"/>
-		<dateTime kind="lastModified" year="2024" month="7" day="27" hour="10" minute="11" second="31"/>
+		<dateTime kind="lastModified" year="2024" month="7" day="31" hour="13" minute="30" second="46"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
 			<application domain="softwareDevelopment" addressesAvailable="false" nestedDataStructuresAvailable="true"/>
 		</suitability>
-		<user lastName="no" role="modifier"/>
+		<user lastName="joser" role="modifier"/>
 		<creators>
 			<user lastName="no" role="creator"/>
 			<tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="7" day="27" hour="11" minute="12" second="2"/>
+		<dateTime kind="created" year="2024" month="7" day="31" hour="13" minute="41" second="53"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -164,13 +164,13 @@
 				<structMember identifier="Torque_R_Nm">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;S51&gt;/ SFunction </documentation>
+						<documentation>&lt;S54&gt;/ SFunction </documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="Torque_L_Nm">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;S51&gt;/ SFunction </documentation>
+						<documentation>&lt;S54&gt;/ SFunction </documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -178,7 +178,7 @@
 				<struct/><typeRef name="_B_MATLABFunction_VDC_T"/>
 				<fileOrigin name="VDC.h"/>
 				<annotation>
-					<documentation>Type of block signal data structure for system '&lt;S47&gt;/MATLAB Function'.</documentation>
+					<documentation>Type of block signal data structure for system '&lt;S50&gt;/MATLAB Function'.</documentation>
 				</annotation>
 			</typeDef>
 			<structDef name="_B_Torquedemandedbythedriver_V_T">
@@ -186,7 +186,7 @@
 				<structMember identifier="Throttle_Torque">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;S49&gt;/ SFunction </documentation>
+						<documentation>&lt;S52&gt;/ SFunction </documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -223,40 +223,16 @@
 						<documentation>&lt;Root&gt;/Opaque</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Merge">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Opaque</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Merge1_f">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Opaque</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Merge2_l">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Opaque</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Merge3_n">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Opaque</documentation>
-					</annotation>
-				</structMember>
 				<structMember identifier="state">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;S36&gt;/ SFunction </documentation>
+						<documentation>&lt;S41&gt;/ SFunction </documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="regen_en">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;S35&gt;/ SFunction </documentation>
+						<documentation>&lt;S40&gt;/ SFunction </documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="sf_Torquedemandedbythedriver_a">
@@ -280,13 +256,13 @@
 				<structMember identifier="sf_MATLABFunction_a">
 					<type><typeRef name="B_MATLABFunction_VDC_T"/></type>
 					<annotation>
-						<documentation>&lt;S48&gt;/MATLAB Function</documentation>
+						<documentation>&lt;S51&gt;/MATLAB Function</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="sf_MATLABFunction">
 					<type><typeRef name="B_MATLABFunction_VDC_T"/></type>
 					<annotation>
-						<documentation>&lt;S47&gt;/MATLAB Function</documentation>
+						<documentation>&lt;S50&gt;/MATLAB Function</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -465,12 +441,6 @@
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/RacingMode</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="SoC_High">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/SoC_High</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="el_VEL">
@@ -760,142 +730,6 @@
 					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
 					<pathNode name="Merge4" kind="mlsl:block"/>
 					<pathNode name="Merge4" kind="mlsl:signal"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="private">
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDC_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_B.Merge">
-				<definitionLocation>
-					<baseRef identifier="VDC_B"/>
-					<memberRef identifier="Merge"/>
-				</definitionLocation>
-				<fileOrigin name="VDC.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDC.Opaque.Merge">
-				<name>Merge</name>
-				<modelLink href="VDC/Opaque"/>
-				<modelLocation>
-					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
-					<pathNode name="ENDURANCE" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Merge" kind="mlsl:block"/>
-					<pathNode name="Merge" kind="mlsl:signal"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="private">
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDC_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_B.Merge1_f">
-				<definitionLocation>
-					<baseRef identifier="VDC_B"/>
-					<memberRef identifier="Merge1_f"/>
-				</definitionLocation>
-				<fileOrigin name="VDC.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDC.Opaque.Merge1_f">
-				<name>Merge1_f</name>
-				<modelLink href="VDC/Opaque"/>
-				<modelLocation>
-					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
-					<pathNode name="ENDURANCE" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Merge1" kind="mlsl:block"/>
-					<pathNode name="Merge1_f" kind="mlsl:signal"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="private">
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDC_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_B.Merge2_l">
-				<definitionLocation>
-					<baseRef identifier="VDC_B"/>
-					<memberRef identifier="Merge2_l"/>
-				</definitionLocation>
-				<fileOrigin name="VDC.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDC.Opaque.Merge2_l">
-				<name>Merge2_l</name>
-				<modelLink href="VDC/Opaque"/>
-				<modelLocation>
-					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
-					<pathNode name="ENDURANCE" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Merge2" kind="mlsl:block"/>
-					<pathNode name="Merge2_l" kind="mlsl:signal"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="private">
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDC_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_B.Merge3_n">
-				<definitionLocation>
-					<baseRef identifier="VDC_B"/>
-					<memberRef identifier="Merge3_n"/>
-				</definitionLocation>
-				<fileOrigin name="VDC.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDC.Opaque.Merge3_n">
-				<name>Merge3_n</name>
-				<modelLink href="VDC/Opaque"/>
-				<modelLocation>
-					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
-					<pathNode name="ENDURANCE" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Merge3" kind="mlsl:block"/>
-					<pathNode name="Merge3_n" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
@@ -2106,37 +1940,6 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_U.SoC_High">
-				<definitionLocation>
-					<baseRef identifier="VDC_U"/>
-					<memberRef identifier="SoC_High"/>
-				</definitionLocation>
-				<fileOrigin name="VDC.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDC.SoC_High">
-				<name>SoC_High</name>
-				<modelLink href="VDC/SoC_High"/>
-				<modelLocation>
-					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="SoC_High" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDC_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
 			<dataCInterface identifier="VDC_U.el_VEL">
 				<definitionLocation>
 					<baseRef identifier="VDC_U"/>
@@ -2526,7 +2329,6 @@
 						<message identifier="VDC_U.CriticalDisconnection" send="false"></message>
 						<message identifier="VDC_U.Car_State" send="false"></message>
 						<message identifier="VDC_U.RacingMode" send="false"></message>
-						<message identifier="VDC_U.SoC_High" send="false"></message>
 						<message identifier="VDC_U.el_VEL" send="false"></message>
 						<message identifier="VDC_Y.Torque_R" send="true"></message>
 						<message identifier="VDC_Y.Torque_L" send="true"></message>

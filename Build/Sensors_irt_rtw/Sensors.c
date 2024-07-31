@@ -7,9 +7,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 13.7
+ * Model version              : 13.9
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Mon Jul 29 16:54:53 2024
+ * C source code generated on : Tue Jul 30 15:04:34 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -67,71 +67,105 @@ static void Sensors_output(void)
   real_T rtb_Saturation;
 
   /* If: '<S1>/If' incorporates:
+   *  Constant: '<S1>/min'
+   *  Inport: '<Root>/APPS1_Bits'
    *  Inport: '<Root>/Disconnection_APPS1'
+   *  Product: '<S1>/Divide'
+   *  Sum: '<S1>/Sum'
    */
   if (Sensors_U.Disconnection_APPS1 == 1.0) {
     /* Outputs for IfAction SubSystem: '<S1>/If Action Subsystem' incorporates:
      *  ActionPort: '<S9>/Action Port'
      */
-    /* Outport: '<Root>/APPS1_Value' */
-    Sensors_IfActionSubsystem(&Sensors_Y.APPS1_Value);
+    Sensors_IfActionSubsystem(&rtb_Saturation);
 
     /* End of Outputs for SubSystem: '<S1>/If Action Subsystem' */
   } else {
     /* Outputs for IfAction SubSystem: '<S1>/If Action Subsystem1' incorporates:
      *  ActionPort: '<S10>/Action Port'
      */
-    /* Outport: '<Root>/APPS1_Value' incorporates:
-     *  Constant: '<S1>/min'
-     *  Inport: '<Root>/APPS1_Bits'
-     *  Product: '<S1>/Divide'
-     *  Sum: '<S1>/Sum'
-     */
     Sensors_IfActionSubsystem1((Sensors_U.APPS1_Bits - 130.0) /
-      Sensors_ConstB.Sum1, &Sensors_Y.APPS1_Value);
+      Sensors_ConstB.Sum1, &rtb_Saturation);
 
     /* End of Outputs for SubSystem: '<S1>/If Action Subsystem1' */
   }
 
   /* End of If: '<S1>/If' */
 
+  /* Saturate: '<S1>/Saturation' */
+  if (rtb_Saturation > 1.0) {
+    /* Outport: '<Root>/APPS1_Value' */
+    Sensors_Y.APPS1_Value = 1.0;
+  } else if (rtb_Saturation < 0.0) {
+    /* Outport: '<Root>/APPS1_Value' */
+    Sensors_Y.APPS1_Value = 0.0;
+  } else {
+    /* Outport: '<Root>/APPS1_Value' */
+    Sensors_Y.APPS1_Value = rtb_Saturation;
+  }
+
+  /* End of Saturate: '<S1>/Saturation' */
+
   /* If: '<S2>/If' incorporates:
+   *  Constant: '<S2>/min'
+   *  Inport: '<Root>/APPS2_Bits'
    *  Inport: '<Root>/Disconnection_APPS2'
+   *  Product: '<S2>/Divide'
+   *  Sum: '<S2>/Sum'
    */
   if (Sensors_U.Disconnection_APPS2 == 1.0) {
     /* Outputs for IfAction SubSystem: '<S2>/If Action Subsystem' incorporates:
      *  ActionPort: '<S11>/Action Port'
      */
-    /* Outport: '<Root>/APPS2_Value' */
-    Sensors_IfActionSubsystem(&Sensors_Y.APPS2_Value);
+    Sensors_IfActionSubsystem(&rtb_Saturation);
 
     /* End of Outputs for SubSystem: '<S2>/If Action Subsystem' */
   } else {
     /* Outputs for IfAction SubSystem: '<S2>/If Action Subsystem1' incorporates:
      *  ActionPort: '<S12>/Action Port'
      */
-    /* Outport: '<Root>/APPS2_Value' incorporates:
-     *  Constant: '<S2>/min'
-     *  Inport: '<Root>/APPS2_Bits'
-     *  Product: '<S2>/Divide'
-     *  Sum: '<S2>/Sum'
-     */
     Sensors_IfActionSubsystem1((Sensors_U.APPS2_Bits - 200.0) /
-      Sensors_ConstB.Sum1_d, &Sensors_Y.APPS2_Value);
+      Sensors_ConstB.Sum1_d, &rtb_Saturation);
 
     /* End of Outputs for SubSystem: '<S2>/If Action Subsystem1' */
   }
 
   /* End of If: '<S2>/If' */
 
-  /* Outport: '<Root>/BrakePedal_Value' incorporates:
+  /* Saturate: '<S2>/Saturation' */
+  if (rtb_Saturation > 1.0) {
+    /* Outport: '<Root>/APPS2_Value' */
+    Sensors_Y.APPS2_Value = 1.0;
+  } else if (rtb_Saturation < 0.0) {
+    /* Outport: '<Root>/APPS2_Value' */
+    Sensors_Y.APPS2_Value = 0.0;
+  } else {
+    /* Outport: '<Root>/APPS2_Value' */
+    Sensors_Y.APPS2_Value = rtb_Saturation;
+  }
+
+  /* End of Saturate: '<S2>/Saturation' */
+
+  /* Product: '<S3>/Divide' incorporates:
    *  Constant: '<S3>/min'
    *  Inport: '<Root>/BrakePedal_Bits'
-   *  Product: '<S3>/Divide'
    *  Sum: '<S3>/Sum'
    */
-  Sensors_Y.BrakePedal_Value = (Sensors_U.BrakePedal_Bits - 350.0) /
-    Sensors_ConstB.Sum1_c;
+  rtb_Saturation = (Sensors_U.BrakePedal_Bits - 350.0) / Sensors_ConstB.Sum1_c;
+
+  /* Saturate: '<S3>/Saturation' */
+  if (rtb_Saturation > 1.0) {
+    /* Outport: '<Root>/BrakePedal_Value' */
+    Sensors_Y.BrakePedal_Value = 1.0;
+  } else if (rtb_Saturation < 0.0) {
+    /* Outport: '<Root>/BrakePedal_Value' */
+    Sensors_Y.BrakePedal_Value = 0.0;
+  } else {
+    /* Outport: '<Root>/BrakePedal_Value' */
+    Sensors_Y.BrakePedal_Value = rtb_Saturation;
+  }
+
+  /* End of Saturate: '<S3>/Saturation' */
 
   /* Outport: '<Root>/SUSP_F_L' incorporates:
    *  Constant: '<Root>/Zero_Bits_Experimental'
@@ -386,7 +420,7 @@ RT_MODEL_Sensors_T *Sensors(void)
   Sensors_M->Sizes.numU = (10);        /* Number of model inputs */
   Sensors_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Sensors_M->Sizes.numSampTimes = (1); /* Number of sample times */
-  Sensors_M->Sizes.numBlocks = (80);   /* Number of blocks */
+  Sensors_M->Sizes.numBlocks = (83);   /* Number of blocks */
   Sensors_M->Sizes.numBlockIO = (0);   /* Number of block outputs */
   return Sensors_M;
 }

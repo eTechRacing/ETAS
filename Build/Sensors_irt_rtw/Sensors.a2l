@@ -8,9 +8,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 13.7
+ * Model version              : 13.9
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Mon Jul 29 16:54:53 2024
+ * C source code generated on : Tue Jul 30 15:04:34 2024
  * 
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -912,6 +912,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         If
         Merge
         Divide
+        Saturation
         Sum
         Sum1
       /end SUB_FUNCTION
@@ -935,6 +936,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         If
         Merge
         Divide
+        Saturation
         Sum
         Sum1
       /end SUB_FUNCTION
@@ -954,6 +956,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         max
         min
         Divide
+        Saturation
         Sum
         Sum1
       /end SUB_FUNCTION
@@ -1161,6 +1164,17 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      Saturation ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       Sum ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -1268,6 +1282,17 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      Saturation ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       Sum ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -1317,6 +1342,17 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
         
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Saturation ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT

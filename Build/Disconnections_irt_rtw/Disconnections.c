@@ -9,7 +9,7 @@
  *
  * Model version              : 13.29
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Mon Jul 29 16:12:05 2024
+ * C source code generated on : Wed Jul 31 13:39:45 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -162,7 +162,7 @@ static void Disconnections_output(void)
   /* If: '<S1>/If' incorporates:
    *  Constant: '<Root>/Periods'
    */
-  if (rtb_Add > 8.0) {
+  if (rtb_Add > 4.0) {
     /* Outputs for IfAction SubSystem: '<S1>/Reset_counter' incorporates:
      *  ActionPort: '<S8>/Action Port'
      */

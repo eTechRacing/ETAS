@@ -24,13 +24,9 @@ void setDeltaT_VDC(void);
 struct RTWTop_VDC_Class
 {
     ASDObjectHeader objectHeader;
-    scalarWrapper_Obj *RTWWrapper_VDC_B_Merge_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_B_Merge1_Ptr;
-    scalarWrapper_Obj *RTWWrapper_VDC_B_Merge1_f_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_B_Merge2_Ptr;
-    scalarWrapper_Obj *RTWWrapper_VDC_B_Merge2_l_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_B_Merge3_Ptr;
-    scalarWrapper_Obj *RTWWrapper_VDC_B_Merge3_n_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_B_Merge4_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_B_sf_MATLABFunction_Torque_L_Nm_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_B_sf_MATLABFunction_Torque_R_Nm_Ptr;
@@ -54,7 +50,6 @@ struct RTWTop_VDC_Class
     scalarWrapper_Obj *RTWWrapper_VDC_U_RR_rads_Motor_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_RacingMode_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_Shutdown_PackageIntck_Ptr;
-    scalarWrapper_Obj *RTWWrapper_VDC_U_SoC_High_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_SteeringSensor_Value_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_Susp_F_L_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_U_Susp_F_R_Ptr;

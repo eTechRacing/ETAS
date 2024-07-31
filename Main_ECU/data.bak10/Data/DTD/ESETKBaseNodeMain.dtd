@@ -1,0 +1,75 @@
+<?DTDVersion "4.3.0"?>
+<?CompatibleDTDVersion "3.1.0"?>
+<?CompatibleDTDVersion "3.0.1"?>
+<?CompatibleDTDVersion "3.0.0"?>
+<?CompatibleDTDVersion "2.0.4"?>
+<?CompatibleDTDVersion "2.0.3"?>
+<?CompatibleDTDVersion "2.0.2"?>
+<?CompatibleDTDVersion "2.0.1"?>
+<?CompatibleDTDVersion "2.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!ENTITY % ESETKFoundationNodeMainBase SYSTEM "ESETKFoundationNodeMainBase.DTD">
+%ESETKFoundationNodeMainBase;
+
+
+<!NOTATION ofTypeESETKBaseNodeETKBypass SYSTEM "ESETKBaseNodeETKBypass">
+<!NOTATION ofTypeESETKBaseNodeETKController SYSTEM "ESETKBaseNodeETKController">
+<!NOTATION ofTypeESETKBaseNodeMain SYSTEM "ESETKBaseNodeMain">
+
+<?SuperClass ESETKBaseNodeETKBypass->ESETKFoundationNodeETKBypassBase ?>
+<?SuperClass ESETKBaseNodeETKController->ESETKFoundationNodeETKControllerBase ?>
+<?SuperClass ESETKBaseNodeMain->ESETKFoundationNodeMainBase ?>
+
+<!-- node main -->
+
+<!ELEMENT ESETKBaseNodeMain (ESETKBaseNodeMain.Parameters, ESETKBaseNodeMain.L1Generation, ESETKBaseNodeMain.SubNodes, _System)>
+<!ATTLIST ESETKBaseNodeMain
+    Name ID #REQUIRED
+    
+    GlobalObject.ofTypeYBOBoard ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOCPUBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ESETKBaseNodeMain.Parameters (ESETKBaseNodeMainParameters)>
+<!ELEMENT ESETKBaseNodeMain.L1Generation (ESETKBaseNodeMainL1Generation)>
+<!ELEMENT ESETKBaseNodeMain.SubNodes (ESETKBaseNodeMainSubNodeList)>
+
+<!ELEMENT ESETKBaseNodeMainSubNodeList (ESETKBaseNodeETKController)*>
+
+<!-- node controller -->
+
+<!ELEMENT ESETKBaseNodeETKController (ESETKBaseNodeETKController.Parameters, ESETKBaseNodeETKController.L1Generation, ESETKBaseNodeETKController.SubNodes)>
+<!ATTLIST ESETKBaseNodeETKController
+    Name ID #REQUIRED
+    
+    ParsedA2LFile.ofTypeA2LFile ENTITY #REQUIRED
+
+>
+
+<!ELEMENT ESETKBaseNodeETKController.Parameters (ESETKBaseNodeETKControllerParameters)>
+<!ELEMENT ESETKBaseNodeETKController.L1Generation (ESETKBaseNodeETKControllerL1Generation)>
+<!ELEMENT ESETKBaseNodeETKController.SubNodes (ESETKBaseNodeETKControllerSubNodeList)>
+
+<!ELEMENT ESETKBaseNodeETKControllerSubNodeList (ESETKBaseNodeETKBypass)*>
+
+<!-- node bypass/device -->
+
+<!ELEMENT ESETKBaseNodeETKBypass (ESETKBaseNodeETKBypass.Parameters, ESETKBaseNodeETKBypass.L1Generation, ESETKBaseNodeETKBypass.SubNodes, ESETKBaseNodeETKBypass.SBBSubNodes, ESETKBaseNodeETKBypass.SBBHookedSubNodes)>
+<!ATTLIST ESETKBaseNodeETKBypass
+    Name ID #REQUIRED
+    
+    GlobalObject.ofTypeYBODevice ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOBoard ENTITY #REQUIRED
+>
+
+<!ELEMENT ESETKBaseNodeETKBypass.Parameters (ESETKBaseNodeETKBypassParameters)>
+<!ELEMENT ESETKBaseNodeETKBypass.L1Generation (ESETKBaseNodeETKBypassL1Generation)>
+<!ELEMENT ESETKBaseNodeETKBypass.SubNodes (ESETKBaseNodeETKBypassSubNodeList)>
+<!ELEMENT ESETKBaseNodeETKBypass.SBBSubNodes (ESETKFoundationNodeETKBypassSBBSubNodeList)>
+<!ELEMENT ESETKBaseNodeETKBypass.SBBHookedSubNodes (ESETKFoundationNodeETKBypassSBBHookedSubNodeList)>

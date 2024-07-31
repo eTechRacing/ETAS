@@ -38,13 +38,9 @@ struct RTWTop_VDC_Obj *initModel_RTWTop_VDC(void)
 void initClass_RTWTop_VDC(struct RTWTop_VDC_Class *self)
 {
     /* Level 1 class variables */
-    self->RTWWrapper_VDC_B_Merge_Ptr = initInstance_scalarWrapper((void*)&VDC_B.Merge, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_B_Merge1_Ptr = initInstance_scalarWrapper((void*)&VDC_B.Merge1, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_VDC_B_Merge1_f_Ptr = initInstance_scalarWrapper((void*)&VDC_B.Merge1_f, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_B_Merge2_Ptr = initInstance_scalarWrapper((void*)&VDC_B.Merge2, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_VDC_B_Merge2_l_Ptr = initInstance_scalarWrapper((void*)&VDC_B.Merge2_l, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_B_Merge3_Ptr = initInstance_scalarWrapper((void*)&VDC_B.Merge3, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_VDC_B_Merge3_n_Ptr = initInstance_scalarWrapper((void*)&VDC_B.Merge3_n, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_B_Merge4_Ptr = initInstance_scalarWrapper((void*)&VDC_B.Merge4, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_B_sf_MATLABFunction_Torque_L_Nm_Ptr = initInstance_scalarWrapper((void*)&VDC_B.sf_MATLABFunction.Torque_L_Nm, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_B_sf_MATLABFunction_Torque_R_Nm_Ptr = initInstance_scalarWrapper((void*)&VDC_B.sf_MATLABFunction.Torque_R_Nm, sizeof(double), (uint32)ASD_VARIABLE);
@@ -68,7 +64,6 @@ void initClass_RTWTop_VDC(struct RTWTop_VDC_Class *self)
     self->RTWWrapper_VDC_U_RR_rads_Motor_Ptr = initInstance_scalarWrapper((void*)&VDC_U.RR_rads_Motor, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_U_RacingMode_Ptr = initInstance_scalarWrapper((void*)&VDC_U.RacingMode, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_U_Shutdown_PackageIntck_Ptr = initInstance_scalarWrapper((void*)&VDC_U.Shutdown_PackageIntck, sizeof(char), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_VDC_U_SoC_High_Ptr = initInstance_scalarWrapper((void*)&VDC_U.SoC_High, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_U_SteeringSensor_Value_Ptr = initInstance_scalarWrapper((void*)&VDC_U.SteeringSensor_Value, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_U_Susp_F_L_Ptr = initInstance_scalarWrapper((void*)&VDC_U.Susp_F_L, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_U_Susp_F_R_Ptr = initInstance_scalarWrapper((void*)&VDC_U.Susp_F_R, sizeof(double), (uint32)ASD_VARIABLE);
@@ -114,14 +109,9 @@ static MethodList RTWTop_VDC_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_VDC_ClassHeader =
-    {0, 1, 0, 56 + 0, (MethodList *)0, (MethodList *)&RTWTop_VDC_ClassMethodList};
+    {0, 1, 0, 51 + 0, (MethodList *)0, (MethodList *)&RTWTop_VDC_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_VDC_Class RTWTop_VDC_ClassObj = {{1, {&RTWTop_VDC_ClassHeader}, {0}}
-    ,NULL
-    ,NULL
-    ,NULL
-    ,NULL
-    ,NULL
     ,NULL
     ,NULL
     ,NULL

@@ -3,6 +3,11 @@
 #include "Car_State_irtmacros.h"
 /* PATCH END */
 
+/* Patched in by the INTECRIO IRT target */
+/* PATCH BEGIN */
+#include "Car_State_irtmacros.h"
+/* PATCH END */
+
 /*
  * Car_State.h
  *
