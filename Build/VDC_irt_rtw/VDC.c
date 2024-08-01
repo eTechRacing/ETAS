@@ -9,7 +9,7 @@
  *
  * Model version              : 4.199
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Wed Jul 31 13:41:53 2024
+ * C source code generated on : Thu Aug  1 14:15:28 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -805,18 +805,16 @@ static void VDC_output(void)
      *  Inport: '<Root>/APPS1_Value'
      */
     VDC_B.state = 1.0;
-    if (VDC_U.APPS1_Value < 0.45) {
+    if (VDC_U.APPS1_Value < 0.0) {
       VDC_B.state = 0.0;
-    } else if (((!(VDC_U.APPS1_Value >= 0.45)) || (!(VDC_U.APPS1_Value <= 0.55)))
-               && (VDC_U.APPS1_Value > 0.55)) {
+    } else if (((!(VDC_U.APPS1_Value >= 0.0)) || (!(VDC_U.APPS1_Value <= 0.0))) &&
+               (VDC_U.APPS1_Value > 0.0)) {
       VDC_B.state = 2.0;
     }
 
     /* End of MATLAB Function: '<S27>/state' */
 
     /* MATLAB Function: '<S27>/Torque demanded by the driver' incorporates:
-     *  Constant: '<Root>/AP_sat_brake_endurance'
-     *  Constant: '<Root>/AP_sat_mid_endurance'
      *  Constant: '<Root>/Max_Motor_Torque_Rear [Nm]'
      *  Inport: '<Root>/APPS1_Value'
      *  Outport: '<Root>/Regenerative_Enable'
@@ -824,7 +822,8 @@ static void VDC_output(void)
     rtb_max_regen_torque_RL = 0.0;
     rtb_tq_RL = 0.0;
     if ((VDC_B.state == 0.0) && (VDC_Y.Regenerative_Enable == 1.0)) {
-      rtb_max_regen_torque_RL = rtb_max_regen_torque_RR / 0.45 *
+      rtb_max_regen_torque_RL = (rtb_max_regen_torque_RR > 0.0 ? (rtInf) :
+        rtb_max_regen_torque_RR < 0.0 ? (rtMinusInf) : (rtNaN)) *
         VDC_U.APPS1_Value - rtb_max_regen_torque_RR;
       rtb_tq_RL = rtb_max_regen_torque_RL;
     }
@@ -835,8 +834,7 @@ static void VDC_output(void)
     }
 
     if (VDC_B.state == 2.0) {
-      rtb_max_regen_torque_RL = (VDC_U.APPS1_Value - 0.55) / 0.44999999999999996
-        * 27.0;
+      rtb_max_regen_torque_RL = 27.0 * VDC_U.APPS1_Value;
       rtb_tq_RL = rtb_max_regen_torque_RL;
     }
 
