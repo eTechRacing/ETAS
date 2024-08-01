@@ -7,9 +7,9 @@
  *
  * Code generation for model "Disconnections".
  *
- * Model version              : 13.29
+ * Model version              : 13.31
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Wed Jul 31 13:39:45 2024
+ * C source code generated on : Thu Aug  1 12:51:13 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -362,14 +362,14 @@ static void Disconnections_output(void)
      *  Constant: '<S30>/threshold low'
      *  Inport: '<Root>/APPS1_Bits'
      */
-    if (Disconnections_U.APPS1_Bits < 8.0) {
+    if (Disconnections_U.APPS1_Bits < 12.0) {
       /* Outputs for IfAction SubSystem: '<S30>/If Action Subsystem' incorporates:
        *  ActionPort: '<S38>/Action Port'
        */
       Disconnection_IfActionSubsystem(&Disconnections_B.Merge);
 
       /* End of Outputs for SubSystem: '<S30>/If Action Subsystem' */
-    } else if (Disconnections_U.APPS1_Bits > 4030.0) {
+    } else if (Disconnections_U.APPS1_Bits > 4015.0) {
       /* Outputs for IfAction SubSystem: '<S30>/If Action Subsystem1' incorporates:
        *  ActionPort: '<S39>/Action Port'
        */
@@ -399,14 +399,14 @@ static void Disconnections_output(void)
      *  Constant: '<S31>/threshold low'
      *  Inport: '<Root>/APPS2_Bits'
      */
-    if (Disconnections_U.APPS2_Bits < 10.0) {
+    if (Disconnections_U.APPS2_Bits < 12.0) {
       /* Outputs for IfAction SubSystem: '<S31>/If Action Subsystem' incorporates:
        *  ActionPort: '<S42>/Action Port'
        */
       Disconnection_IfActionSubsystem(&Disconnections_B.Merge_e);
 
       /* End of Outputs for SubSystem: '<S31>/If Action Subsystem' */
-    } else if (Disconnections_U.APPS2_Bits > 3680.0) {
+    } else if (Disconnections_U.APPS2_Bits > 4015.0) {
       /* Outputs for IfAction SubSystem: '<S31>/If Action Subsystem1' incorporates:
        *  ActionPort: '<S43>/Action Port'
        */
@@ -480,7 +480,7 @@ static void Disconnections_output(void)
       Disconnection_IfActionSubsystem(&Disconnections_B.Merge_d);
 
       /* End of Outputs for SubSystem: '<S33>/If Action Subsystem' */
-    } else if (Disconnections_U.SteeringSensor_Bits > 4050.0) {
+    } else if (Disconnections_U.SteeringSensor_Bits > 4030.0) {
       /* Outputs for IfAction SubSystem: '<S33>/If Action Subsystem1' incorporates:
        *  ActionPort: '<S51>/Action Port'
        */

@@ -7,9 +7,9 @@
  *
  * Code generation for model "Power_Control".
  *
- * Model version              : 4.32
+ * Model version              : 4.34
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Mon Jul 29 17:00:45 2024
+ * C source code generated on : Thu Aug  1 13:09:29 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
