@@ -14,7 +14,7 @@ FY_90=FY(1278:2555,1);
 % PLotting
 figure
 plot([SA_68,SA_90],[FY_68,FY_90])
-legend('IA=0deg, FZ=22.680kg','IA=0deg, FZ=68.039kg','IA=0deg, FZ=90.718kg','IA=0deg, FZ=113.380kg')
+legend('IA=0deg, FZ=68.039kg','IA=0deg, FZ=90.718kg')
 xlabel('SA (deg)')
 ylabel('FY (N)')
 title('SA vs FY')
