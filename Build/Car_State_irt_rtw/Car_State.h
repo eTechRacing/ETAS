@@ -17,9 +17,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 13.10
+ * Model version              : 13.11
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sun Jul 28 11:33:00 2024
+ * C source code generated on : Fri Aug  2 09:05:46 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -866,11 +866,12 @@
 /* Block signals (default storage) */
 typedef struct {
   real_T Merge;                        /* '<S5>/Merge' */
+  real_T InvertersAction;              /* '<Root>/Car State Manager' */
 } B_Car_State_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  real_T A;                            /* '<S29>/Data Store Memory' */
+  real_T A;                            /* '<S30>/Data Store Memory' */
   uint16_T temporalCounter_i1;         /* '<Root>/Car State Manager' */
   uint8_T is_active_c1_Car_State;      /* '<Root>/Car State Manager' */
   uint8_T is_c1_Car_State;             /* '<Root>/Car State Manager' */
@@ -887,11 +888,11 @@ typedef struct {
   boolean_T Shutdown_PackageIntck;     /* '<Root>/Shutdown_PackageIntck' */
   real_T Accumulator_Voltage;          /* '<Root>/Accumulator_Voltage' */
   real_T InvertersMinDCBus;            /* '<Root>/InvertersMinDCBus' */
+  real_T APPS1_Value;                  /* '<Root>/APPS1_Value' */
 } ExtU_Car_State_T;
 
 /* External outputs (root outports fed by signals with default storage) */
 typedef struct {
-  real_T Car_State_f;                  /* '<Root>/Car_State' */
   real_T TorqueEnable;                 /* '<Root>/TorqueEnable' */
   real_T AIRs_Request;                 /* '<Root>/AIRs_Request' */
   real_T errors;                       /* '<Root>/errors' */
@@ -901,6 +902,7 @@ typedef struct {
   real_T PrechargeAssert;              /* '<Root>/PrechargeAssert' */
   real_T Precharge_Percentage;         /* '<Root>/Precharge_Percentage' */
   real_T Precharge_Voltage;            /* '<Root>/Precharge_Voltage' */
+  real_T Car_State_b;                  /* '<Root>/Car_State' */
 } ExtY_Car_State_T;
 
 /* Backward compatible GRT Identifiers */
@@ -1061,32 +1063,37 @@ extern RT_MODEL_Car_State_T *const Car_State_M;
  * '<S6>'   : 'Car_State/Car State Manager'
  * '<S7>'   : 'Car_State/CarOK Checks'
  * '<S8>'   : 'Car_State/CurrentPathDisconnection Detection'
- * '<S9>'   : 'Car_State/Precharge Info'
- * '<S10>'  : 'Car_State/PrechargeAssert Conditions'
- * '<S11>'  : 'Car_State/AIRS_Closed/FALSE'
- * '<S12>'  : 'Car_State/AIRS_Closed/TRUE'
- * '<S13>'  : 'Car_State/AIRS_Opened/FALSE'
- * '<S14>'  : 'Car_State/AIRS_Opened/TRUE'
- * '<S15>'  : 'Car_State/AIRS_Precharge/FALSE'
- * '<S16>'  : 'Car_State/AIRS_Precharge/TRUE'
- * '<S17>'  : 'Car_State/AIRS_Precharge1/Compare To Constant'
- * '<S18>'  : 'Car_State/AIRS_Precharge1/FALSE'
- * '<S19>'  : 'Car_State/AIRS_Precharge1/TRUE'
- * '<S20>'  : 'Car_State/AIRS_Request/Obrir AIRs'
- * '<S21>'  : 'Car_State/AIRS_Request/Precharge'
- * '<S22>'  : 'Car_State/AIRS_Request/Tancar Airs'
- * '<S23>'  : 'Car_State/CarOK Checks/Compare To Constant'
- * '<S24>'  : 'Car_State/CarOK Checks/Compare To Zero1'
- * '<S25>'  : 'Car_State/CarOK Checks/Compare To Zero2'
- * '<S26>'  : 'Car_State/CurrentPathDisconnection Detection/DocBlock'
- * '<S27>'  : 'Car_State/CurrentPathDisconnection Detection/Failure'
- * '<S28>'  : 'Car_State/CurrentPathDisconnection Detection/OK'
- * '<S29>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem'
- * '<S30>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/Error counter'
- * '<S31>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/OK'
- * '<S32>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/Signal_Failure'
- * '<S33>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/Signal_OK'
- * '<S34>'  : 'Car_State/PrechargeAssert Conditions/FALSE'
- * '<S35>'  : 'Car_State/PrechargeAssert Conditions/TRUE'
+ * '<S9>'   : 'Car_State/Inv_Action'
+ * '<S10>'  : 'Car_State/Precharge Info'
+ * '<S11>'  : 'Car_State/PrechargeAssert Conditions'
+ * '<S12>'  : 'Car_State/AIRS_Closed/FALSE'
+ * '<S13>'  : 'Car_State/AIRS_Closed/TRUE'
+ * '<S14>'  : 'Car_State/AIRS_Opened/FALSE'
+ * '<S15>'  : 'Car_State/AIRS_Opened/TRUE'
+ * '<S16>'  : 'Car_State/AIRS_Precharge/FALSE'
+ * '<S17>'  : 'Car_State/AIRS_Precharge/TRUE'
+ * '<S18>'  : 'Car_State/AIRS_Precharge1/Compare To Constant'
+ * '<S19>'  : 'Car_State/AIRS_Precharge1/FALSE'
+ * '<S20>'  : 'Car_State/AIRS_Precharge1/TRUE'
+ * '<S21>'  : 'Car_State/AIRS_Request/Obrir AIRs'
+ * '<S22>'  : 'Car_State/AIRS_Request/Precharge'
+ * '<S23>'  : 'Car_State/AIRS_Request/Tancar Airs'
+ * '<S24>'  : 'Car_State/CarOK Checks/Compare To Constant'
+ * '<S25>'  : 'Car_State/CarOK Checks/Compare To Zero1'
+ * '<S26>'  : 'Car_State/CarOK Checks/Compare To Zero2'
+ * '<S27>'  : 'Car_State/CurrentPathDisconnection Detection/DocBlock'
+ * '<S28>'  : 'Car_State/CurrentPathDisconnection Detection/Failure'
+ * '<S29>'  : 'Car_State/CurrentPathDisconnection Detection/OK'
+ * '<S30>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem'
+ * '<S31>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/Error counter'
+ * '<S32>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/OK'
+ * '<S33>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/Signal_Failure'
+ * '<S34>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/Signal_OK'
+ * '<S35>'  : 'Car_State/Inv_Action/EnableInv'
+ * '<S36>'  : 'Car_State/Inv_Action/EnableInv1'
+ * '<S37>'  : 'Car_State/Inv_Action/NoRTD'
+ * '<S38>'  : 'Car_State/Inv_Action/TqEnable'
+ * '<S39>'  : 'Car_State/PrechargeAssert Conditions/FALSE'
+ * '<S40>'  : 'Car_State/PrechargeAssert Conditions/TRUE'
  */
 #endif                                 /* RTW_HEADER_Car_State_h_ */

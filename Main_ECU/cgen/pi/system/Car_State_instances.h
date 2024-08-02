@@ -24,9 +24,11 @@ void setDeltaT_Car_State(void);
 struct RTWTop_Car_State_Class
 {
     ASDObjectHeader objectHeader;
+    scalarWrapper_Obj *RTWWrapper_Car_State_B_InvertersAction_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_B_Merge_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_DW_A_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_U_AIRs_State_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Car_State_U_APPS1_Value_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_U_Accumulator_Voltage_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_U_BrakePedal_Value_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_U_Critical_CAN_Disconnection_Ptr;
@@ -37,7 +39,7 @@ struct RTWTop_Car_State_Class
     scalarWrapper_Obj *RTWWrapper_Car_State_U_Shutdown_PackageIntck_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_Y_AIRs_Request_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_Y_Car_OK_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Car_State_Y_Car_State_f_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Car_State_Y_Car_State_b_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_Y_InvertersAction_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_Y_PrechargeAssert_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_Y_Precharge_Percentage_Ptr;

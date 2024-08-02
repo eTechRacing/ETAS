@@ -3,6 +3,16 @@
 #include "VDC_irtmacros.h"
 /* PATCH END */
 
+/* Patched in by the INTECRIO IRT target */
+/* PATCH BEGIN */
+#include "VDC_irtmacros.h"
+/* PATCH END */
+
+/* Patched in by the INTECRIO IRT target */
+/* PATCH BEGIN */
+#include "VDC_irtmacros.h"
+/* PATCH END */
+
 /*
  * VDC.h
  *
@@ -12,9 +22,9 @@
  *
  * Code generation for model "VDC".
  *
- * Model version              : 4.199
+ * Model version              : 4.200
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Thu Aug  1 14:15:28 2024
+ * C source code generated on : Fri Aug  2 08:57:35 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -34,12 +44,10 @@
 #endif                                 /* VDC_COMMON_INCLUDES_ */
 
 #include "VDC_types.h"
-#include "rt_nonfinite.h"
-#include "rtGetInf.h"
-#include "rtGetNaN.h"
 #include "rt_defines.h"
 #include <string.h>
 #include <stddef.h>
+#include "rt_nonfinite.h"
 #include "zero_crossing_types.h"
 
 /* Macros for accessing real-time model data structure */

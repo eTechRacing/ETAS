@@ -3,11 +3,11 @@
 
 <!NOTATION _OSrvLink SYSTEM "_OSrvLink" >
 <!ENTITY _533 SYSTEM "OSrv://ObjectHandle#533" NDATA _OIDLink >
+<!ENTITY _1190 SYSTEM "OSrv://ObjectHandle#1190" NDATA _OIDLink >
 <!ENTITY _1191 SYSTEM "OSrv://ObjectHandle#1191" NDATA _OIDLink >
-<!ENTITY _1192 SYSTEM "OSrv://ObjectHandle#1192" NDATA _OIDLink >
-<!ENTITY _1215 SYSTEM "OSrv://ObjectHandle#1215" NDATA _OIDLink >
-<!ENTITY _1353 SYSTEM "OSrv://ObjectHandle#1353" NDATA _OIDLink >
-<!ENTITY _1354 SYSTEM "OSrv://ObjectHandle#1354" NDATA _OIDLink >
+<!ENTITY _1213 SYSTEM "OSrv://ObjectHandle#1213" NDATA _OIDLink >
+<!ENTITY _1349 SYSTEM "OSrv://ObjectHandle#1349" NDATA _OIDLink >
+<!ENTITY _1350 SYSTEM "OSrv://ObjectHandle#1350" NDATA _OIDLink >
 ]><YBOModule
 	Name="Synchronism"
 	ScoopIXSource="c:\users\joser\onedrive\documentos\github\etas\build\synchronism_irt_rtw\synchronism.six"
@@ -20,19 +20,19 @@
 	Index="533"
 	Type="YBOSoftwareSystem"><_LinkTarget
 	Name="Connection31"
-	Index="1191"
+	Index="1190"
 	Type="YBOConnection"/><_LinkTarget
 	Name="Connection33"
-	Index="1192"
+	Index="1191"
 	Type="YBOConnection"/></_LinkTarget><_LinkTarget
 	Name="Synchronism"
-	Index="1215"
+	Index="1213"
 	Type="YBOModule"><_LinkTarget
 	Name="Synchronism_Y.Sync_CAN1"
-	Index="1353"
+	Index="1349"
 	Type="YBOSWPort"/><_LinkTarget
 	Name="Synchronism_Y.Sync_CAN2"
-	Index="1354"
+	Index="1350"
 	Type="YBOSWPort"/></_LinkTarget></_LinkTarget></_System><YBOModule.Ports><YBOPortList><YBOSWPort
 	Name="Synchronism.Synchronism_5FY_5C.Sync_5FCAN1"
 	Size="REAL64"
@@ -42,7 +42,7 @@
 	LowerBound="-1.6999999999999999388e+308"
 	UpperBound="1.6999999999999999388e+308"
 	VisibleName="Sync_CAN1"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_1191"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	EmbeddedLink.ofTypeYBOConnection="_1190"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
 	Name="Synchronism.Synchronism_5FY_5C.Sync_5FCAN2"
 	Size="REAL64"
 	PortType="CONTINUOUS"
@@ -51,7 +51,7 @@
 	LowerBound="-1.6999999999999999388e+308"
 	UpperBound="1.6999999999999999388e+308"
 	VisibleName="Sync_CAN2"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_1192"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort></YBOPortList></YBOModule.Ports><YBOModule.Processes><YBOProcessList><YBOProcess
+	EmbeddedLink.ofTypeYBOConnection="_1191"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort></YBOPortList></YBOModule.Ports><YBOModule.Processes><YBOProcessList><YBOProcess
 	Name="Synchronism.irt_5FStart_5FSynchronism"
 	Kind="INITIALIZATION"
 	Priority="0.5"
@@ -89,8 +89,8 @@
 	Name="Synchronism.irt_5FOneStep_5FSynchronism.irt_5FOneStep_5FSynchronism_5FSinkCopy.Action"
 	Hidden="TRUE"
 	Kind="SINK_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_1353"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_1354"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess><YBOProcess
+	EmbeddedLink.ofTypeYBOSWPort="_1349"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1350"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess><YBOProcess
 	Name="Synchronism.irt_5FTerminate_5FSynchronism"
 	Kind="TERMINATION"
 	Priority="0.5"

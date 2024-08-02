@@ -306,7 +306,7 @@
                 /* Raster number        */ QP_BLOB 32 
             /end SOURCE
             /begin TP_BLOB
-                /* Program identifier   */ 2099777536
+                /* Program identifier   */ 1450595007
                 /* HW target identifier */ 0x6
                 /* Skip flag            */ 0
                 /* Skip to link         */ 2
@@ -314,6 +314,21 @@
             /end TP_BLOB
         /end IF_DATA
 
+        /begin MEASUREMENT 
+            /* Name                */     Car_State.Car_State_B.InvertersAction 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Car_State_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Car_State.Car_State_Manager.InvertersAction 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 0 
+            /end IF_DATA
+        /end MEASUREMENT
         /begin MEASUREMENT 
             /* Name                */     Car_State.Car_State_B.Merge 
             /* Long identifier     */     "" 
@@ -326,7 +341,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.AIRS_Request.Merge.Merge 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 0 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 1 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -341,7 +356,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.CurrentPathDisconnection_Detection.Subsystem.Data_Store_Memory.A 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 1 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 2 
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -356,7 +371,22 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.AIRs_State 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 2 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 3 DEFAULT_RASTERS 32
+            /end IF_DATA
+        /end MEASUREMENT
+        /begin MEASUREMENT 
+            /* Name                */     Car_State.Car_State_U.APPS1_Value 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Car_State_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Car_State.APPS1_Value 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 4 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -371,7 +401,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.Accumulator_Voltage 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 3 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 5 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -386,7 +416,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.BrakePedal_Value 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 4 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 6 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -401,7 +431,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.Critical_CAN_Disconnection 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 5 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 7 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -416,7 +446,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.EnableDrive_Order 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 6 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 8 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -431,7 +461,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.InvertersMinDCBus 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 7 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 9 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -446,7 +476,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.InvertersSubscribed 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 8 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 10 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -461,7 +491,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.PrechargeRequest 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 9 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 11 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -476,7 +506,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.Shutdown_PackageIntck 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 10 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 12 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -491,7 +521,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.AIRs_Request 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 11 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 13 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -506,11 +536,11 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.Car_OK 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 12 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 14 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
-            /* Name                */     Car_State.Car_State_Y.Car_State_f 
+            /* Name                */     Car_State.Car_State_Y.Car_State_b 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     Car_State_CM_double 
@@ -521,7 +551,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.Car_State 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 13 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 15 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -536,7 +566,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.InvertersAction 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 14 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 16 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -551,7 +581,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.PrechargeAssert 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 15 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 17 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -566,7 +596,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.Precharge_Percentage 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 16 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 18 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -581,7 +611,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.Precharge_Voltage 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 17 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 19 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -596,7 +626,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.Relay_Error 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 18 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 20 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -611,7 +641,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.TorqueEnable 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 19 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 21 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -626,7 +656,7 @@
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.errors 
             /begin IF_DATA E_TARGET 
-                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 20 DEFAULT_RASTERS 32
+                KP_BLOB 0xFFFFFFFF 0xFFFFFFFF 3 1001 0 1001 0 1001 22 DEFAULT_RASTERS 32
             /end IF_DATA
         /end MEASUREMENT
         /begin MEASUREMENT 
@@ -7397,9 +7427,11 @@
             ""
             ROOT
             /begin REF_MEASUREMENT
+                Car_State.Car_State_B.InvertersAction
                 Car_State.Car_State_B.Merge
                 Car_State.Car_State_DW.A
                 Car_State.Car_State_U.AIRs_State
+                Car_State.Car_State_U.APPS1_Value
                 Car_State.Car_State_U.Accumulator_Voltage
                 Car_State.Car_State_U.BrakePedal_Value
                 Car_State.Car_State_U.Critical_CAN_Disconnection
@@ -7410,7 +7442,7 @@
                 Car_State.Car_State_U.Shutdown_PackageIntck
                 Car_State.Car_State_Y.AIRs_Request
                 Car_State.Car_State_Y.Car_OK
-                Car_State.Car_State_Y.Car_State_f
+                Car_State.Car_State_Y.Car_State_b
                 Car_State.Car_State_Y.InvertersAction
                 Car_State.Car_State_Y.PrechargeAssert
                 Car_State.Car_State_Y.Precharge_Percentage
@@ -7429,6 +7461,7 @@
         /begin GROUP Car_State.Car_State_B
             ""
             /begin REF_MEASUREMENT
+                Car_State.Car_State_B.InvertersAction
                 Car_State.Car_State_B.Merge
             /end REF_MEASUREMENT
         /end GROUP
@@ -7442,6 +7475,7 @@
             ""
             /begin REF_MEASUREMENT
                 Car_State.Car_State_U.AIRs_State
+                Car_State.Car_State_U.APPS1_Value
                 Car_State.Car_State_U.Accumulator_Voltage
                 Car_State.Car_State_U.BrakePedal_Value
                 Car_State.Car_State_U.Critical_CAN_Disconnection
@@ -7457,7 +7491,7 @@
             /begin REF_MEASUREMENT
                 Car_State.Car_State_Y.AIRs_Request
                 Car_State.Car_State_Y.Car_OK
-                Car_State.Car_State_Y.Car_State_f
+                Car_State.Car_State_Y.Car_State_b
                 Car_State.Car_State_Y.InvertersAction
                 Car_State.Car_State_Y.PrechargeAssert
                 Car_State.Car_State_Y.Precharge_Percentage
