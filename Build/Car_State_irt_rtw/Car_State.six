@@ -1,4 +1,4 @@
-<?xml version="1.0"  encoding="iso-8859-1"?>
+<?xml version="1.0"?>
 <!DOCTYPE module [
     <!ENTITY szlig "&#223;">
     <!ENTITY copy "&#169;">
@@ -11,1311 +11,1245 @@
     <strong>Copyright &copy; 2014 ETAS GmbH</strong>, Borsigstra&szlig;e 14, D-70469 Stuttgart. <em>All rights reserved.</em>
 </p>
 -->
-<module
-    xmlns="http://www.etas.com/scoop-ix/1.5"
-    xmlns:ix="http://www.etas.com/scoop-ix/1.5"
-    xmlns:mlsl="http://www.etas.com/scoop-ix/1.5/modelDomain/matlab-simulink"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.etas.com/scoop-ix/1.5
-        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/schemas/scoop-ix-domain-mlsl.xsd"
-    xmlns:html="http://www.w3.org/1999/xhtml"
-    >
-
-    <directoryLocations scheme="MATLAB 23.2">
-        <directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\blocks\..\\" />
-        <directory identifier="toolDir" path=".\" />
-        <directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\" />
-        <directory identifier="codeDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Car_State_irt_rtw\" />
-    </directoryLocations>
-
-    <moduleInfo identifier="Car_State">
-        <name>Car_State</name>
-        <modelLink href="mlsl:///&quot;{{modelDir}}Car_State.slx&quot;" />
-        <version major="13" minor="11" />
-        <dateTime kind="created" year="2021" month="2" day="18" hour="9" minute="1" second="3" />
-        <dateTime kind="lastModified" year="2024" month="8" day="2" hour="8" minute="32" second="6" />
-        <completion degree="full" />
-        <suitability>
-            <application domain="rapidPrototyping" addressesAvailable="true"
-                nestedDataStructuresAvailable="true" />
-            <application domain="softwareDevelopment" addressesAvailable="false"
-                nestedDataStructuresAvailable="true" />
-        </suitability>
-        <user lastName="joser" role="modifier" />
-        <creators>
-            <user lastName="cspt" role="creator" />
-            <tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
-                <version major="23" minor="2" year="2023" month="8" day="1" info="R2023b" />
-            </tool>
-            <tool kind="modeler" vendor="The Mathworks, Inc." name="Simulink">
-                <version major="23" minor="2" year="2023" month="8" day="1" info="R2023b" />
-            </tool>
-            <tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
-            </tool>
-            <tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
-                <version major="23" minor="2" year="2023" month="8" day="1" info="R2023b" />
-                <mode name="target" value="INTECRIO Real-Time Target" />
-                <configuration>
-                    <option identifier="InlineParameters">1</option>
-                    <option identifier="InlineInvariantSignals">0</option>
-                    <option identifier="Solver">FixedStepDiscrete</option>
-                    <option identifier="SolverType">FixedStep</option>
-                    <option identifier="FixedStepOpts.FixedStep">0.025</option>
-                    <option identifier="FixedStepOpts.SolverMode">SingleTasking</option>
-                </configuration>
-            </tool>
-            <tool kind="codeGenerator" vendor="The Mathworks, Inc." name="MATLAB Coder">
-                <version major="23" minor="2" year="2023" month="8" day="1" info="R2023b" />
-            </tool>
-            <tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
-                <configuration>
-                    <option identifier="SCOOPIXFileName"><![CDATA[Car_State.six]]></option>
-                    <option identifier="ExternalMode">0</option>
-                    <option identifier="IgnoreCustomStorageClasses">1</option>
-                    <option identifier="StopSimuAfterAssert">1</option>
-                    <option identifier="GenerateOnlySelectedSignalsToASAP2">0</option>
-                </configuration>
-            </tool>
-        </creators>
-    </moduleInfo>
-
-    <codeInfo>
-        <constitution mode="sourceCode" />
-        <dateTime kind="created" year="2024" month="8" day="2" hour="9" minute="5" second="46" />
-        <target>
-            <board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target" />
-            <tool kind="compiler" vendor="GNU Project" 
-                  family="GNU Compiler Collection" name="GNU C Compiler">
-                <configuration>
-                    <optionKind name="macroDefine" prefix="-D" />
-                    <optionKind name="includeDirectory" prefix="-I" />
-                    <!-- RTW specific defines -->
-                    <option kind="macroDefine" name="USE_RTMODEL" />
-                    <option kind="macroDefine" name="MODEL">Car_State</option>
-                    <option kind="macroDefine" name="RT" />
-                    <option kind="macroDefine" name="NUMST">1</option>
-                    <option kind="macroDefine" name="TID01EQ">0</option>
-                    <option kind="macroDefine" name="NCSTATES">0</option>
-                    <option kind="macroDefine" name="MT">0</option>
-                    <option kind="macroDefine" name="HAVESTDIO" />
-                    <option kind="macroDefine" name="MdlStart">MdlStart_Car_State</option>
-                    <option kind="macroDefine" name="MdlOutputs">MdlOutputs_Car_State</option>
-                    <option kind="macroDefine" name="MdlUpdate">MdlUpdate_Car_State</option>
-                    <option kind="macroDefine" name="MdlTerminate">MdlTerminate_Car_State</option>
-                    <option kind="macroDefine" name="MdlInitializeSizes">MdlInitializeSizes_Car_State</option>
-                    <option kind="macroDefine" name="MdlInitializeSampleTimes">MdlInitializeSampleTimes_Car_State</option>
-                    <option kind="macroDefine" name="MdlInitialize">MdlInitialize_Car_State</option>
-                    <option kind="macroDefine" name="MdlEnable">MdlEnable_Car_State</option>
-                    <option kind="macroDefine" name="MdlDerivatives">MdlDerivatives_Car_State</option>
-                    <option kind="macroDefine" name="MdlProjection">MdlProjection_Car_State</option>
-                    <option kind="macroDefine" name="rt_ODECreateIntegrationData">rt_ODECreateIntegrationData_Car_State</option>
-                    <option kind="macroDefine" name="rt_ODEUpdateContinuousStates">rt_ODEUpdateContinuousStates_Car_State</option>
-                    <option kind="macroDefine" name="rt_ODEDestroyIntegrationData">rt_ODEDestroyIntegrationData_Car_State</option>
-                    <option kind="macroDefine" name="rt_ODECacheDataIntoSolverInfo">rt_ODECacheDataIntoSolverInfo_Car_State</option>
-                    <option kind="macroDefine" name="rt_ODERetrieveDataFromSolverInfo">rt_ODERetrieveDataFromSolverInfo_Car_State</option>
-                    <option kind="macroDefine" name="rt_ODECreateSolverInfo">rt_ODECreateSolverInfo_Car_State</option>
-                    <option kind="macroDefine" name="rt_SimInitTimingEngine">rt_SimInitTimingEngine_Car_State</option>
-                    <option kind="macroDefine" name="rt_SimGetNextSampleHit">rt_SimGetNextSampleHit_Car_State</option>
-                    <option kind="macroDefine" name="rt_SimUpdateDiscreteTaskSampleHits">rt_SimUpdateDiscreteTaskSampleHits_Car_State</option>
-                    <option kind="macroDefine" name="rt_SimUpdateDiscreteEvents">rt_SimUpdateDiscreteEvents_Car_State</option>
-                    <option kind="macroDefine" name="rt_SimUpdateDiscreteTaskTime">rt_SimUpdateDiscreteTaskTime_Car_State</option>
-                    <option kind="macroDefine" name="rt_CallSys">rt_CallSys_Car_State</option>
-                    <option kind="macroDefine" name="rt_EnableSys">rt_EnableSys_Car_State</option>
-                    <option kind="macroDefine" name="rt_DisableSys">rt_DisableSys_Car_State</option>
-                    <option kind="macroDefine" name="rt_SimDestroyTimingEngine">rt_SimDestroyTimingEngine_Car_State</option>
-                    <option kind="macroDefine" name="rt_InitTimingEngine">rt_InitTimingEngine_Car_State</option>
-                    <option kind="macroDefine" name="rt_DestroyTimingEngine">rt_DestroyTimingEngine_Car_State</option>
-                    <option kind="macroDefine" name="rt_UpdateDiscreteTaskSampleHits">rt_UpdateDiscreteTaskSampleHits_Car_State</option>
-                    <option kind="macroDefine" name="rt_GetNextSampleHit">rt_GetNextSampleHit_Car_State</option>
-                    <option kind="macroDefine" name="rt_UpdateDiscreteEvents">rt_UpdateDiscreteEvents_Car_State</option>
-                    <option kind="macroDefine" name="rt_UpdateDiscreteTaskTime">rt_UpdateDiscreteTaskTime_Car_State</option>
-                    <!-- RTW specific include directories -->
-                    <option kind="includeDirectory"><![CDATA[{{codeDir}}]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{integratorDir}}c\src\]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{integratorDir}}c\lib\]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{codeDir}}external\simulink\include\]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{codeDir}}external\extern\include\]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\src\]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\libsrc\]]></option>
-                    <option kind="includeDirectory"><![CDATA[{{codeDir}}external\_sharedutils\]]></option>
-                </configuration>
-            </tool>
-        </target>
-    </codeInfo>
-
-    <!-- Model specific files -->
-    <fileContainer constitution="sourceCode">
-        <pathBase path="{{codeDir}}" />
-        <!-- Model specific source files -->
-        <file name="Car_State_types.h" kind="header" />
-        <file name="Car_State.c" kind="body" />
-        <file name="Car_State_private.h" kind="header" />
-        <file name="Car_State.h" kind="header" />
-        <file name="rtmodel.h" kind="header" />
-            <file name="Car_State_main.c" kind="body" />
-        <file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body" />
-        <!-- Target specific libraries -->
-        <file name="rtwStaticLib.lib" kind="symbolicLibrary" />
-        <file name="rtwSharedLib.lib" kind="symbolicLibrary" />
-        <!-- Additional files -->
-    </fileContainer>
-    <fileContainer constitution="referencedModels">
-    </fileContainer>
-
-    <interface>
-        <modelLinkBase href="mlsl:///{{modelDir}}Car_State.slx?" />
-        <pathBase path="{{codeDir}}" />
-        <fileOrigin name="Car_State.c" />
-        <fileOrigin name="rt_nonfinite.c" />
-        <fileOrigin name="Car_State_main.c" />
-        <headerFile name="Car_State.h" />
-        <headerFile name="Car_State_private.h" />
-        <usage layoutFamily="mlsl:standardLayout" />
-
-        <!-- "import" MATLAB/Simulink base type and complex struct definitions via external entity -->
-        &baseTypes-mlsl;
-        <definitions>
-            <structDef name="_B_Car_State_T">
-                <fileOrigin name="Car_State.h" />
-                <structMember identifier="Merge">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Opaque</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="TorqueEnable">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;S6&gt;/ SFunction </documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="error">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;S6&gt;/ SFunction </documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="InvertersAction">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;S6&gt;/ SFunction </documentation>
-                    </annotation>
-                </structMember>
-            </structDef>
-            <typeDef name="B_Car_State_T">
-                <struct /><typeRef name="_B_Car_State_T" />
-                <fileOrigin name="Car_State.h" />
-                <annotation>
-                    <documentation>Block signals (auto storage)</documentation>
-                </annotation>
-            </typeDef>
-            <structDef name="ExtU_Car_State_T_tag">
-                <fileOrigin name="Car_State.h" />
-                <structMember identifier="AIRs_State">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/AIRs_State</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="PrechargeRequest">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/PrechargeRequest</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="EnableDrive_Order">
-                    <type><typeRef name="boolean_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/EnableDrive_Order</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="BrakePedal_Value">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/BrakePedal_Value</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Critical_CAN_Disconnection">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Critical_CAN_Disconnection</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="InvertersSubscribed">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/InvertersSubscribed</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Shutdown_PackageIntck">
-                    <type><typeRef name="boolean_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Shutdown_PackageIntck</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Accumulator_Voltage">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Accumulator_Voltage</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="InvertersMinDCBus">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/InvertersMinDCBus</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="APPS1_Value">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/APPS1_Value</documentation>
-                    </annotation>
-                </structMember>
-            </structDef>
-            <typeDef name="ExtU_Car_State_T">
-                <struct /><typeRef name="ExtU_Car_State_T_tag" />
-                <fileOrigin name="Car_State.h" />
-            </typeDef>
-            <structDef name="ExtY_Car_State_T_tag">
-                <fileOrigin name="Car_State.h" />
-                <structMember identifier="TorqueEnable">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/TorqueEnable</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="AIRs_Request">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/AIRs_Request</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="errors">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/errors</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Relay_Error">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Relay_Error</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="InvertersAction">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/InvertersAction</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Car_OK">
-                    <type><typeRef name="boolean_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Car_OK</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="PrechargeAssert">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/PrechargeAssert</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Precharge_Percentage">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Precharge_Percentage</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Precharge_Voltage">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Precharge_Voltage</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="Car_State_b">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>&lt;Root&gt;/Car_State</documentation>
-                    </annotation>
-                </structMember>
-            </structDef>
-            <typeDef name="ExtY_Car_State_T">
-                <struct /><typeRef name="ExtY_Car_State_T_tag" />
-                <fileOrigin name="Car_State.h" />
-            </typeDef>
-            <structDef name="_DW_Car_State_T">
-                <fileOrigin name="Car_State.h" />
-                <structMember identifier="A">
-                    <type><typeRef name="real_T" /></type>
-                    <annotation>
-                        <documentation>State information for &apos;dsmMem&apos;.</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="temporalCounter_i1">
-                    <type><typeRef name="uint16_T" /></type>
-                    <annotation>
-                        <documentation>State information for &apos;DWORK3&apos;.</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="is_active_c1_Car_State">
-                    <type><typeRef name="uint8_T" /></type>
-                    <annotation>
-                        <documentation>State information for &apos;DWORK1&apos;.</documentation>
-                    </annotation>
-                </structMember>
-                <structMember identifier="is_c1_Car_State">
-                    <type><typeRef name="uint8_T" /></type>
-                    <annotation>
-                        <documentation>State information for &apos;DWORK2&apos;.</documentation>
-                    </annotation>
-                </structMember>
-            </structDef>
-            <typeDef name="DW_Car_State_T">
-                <struct /><typeRef name="_DW_Car_State_T" />
-                <fileOrigin name="Car_State.h" />
-            </typeDef>
-
-            <baseDef identifier="Car_State_B">
-                <type><typeRef name="B_Car_State_T" /></type>
-                <fileOrigin name="Car_State.c" />
-                <annotation>
-                    <documentation>The rtB data structure for signals.</documentation>
-                </annotation>
-            </baseDef>
-            <baseDef identifier="Car_State_U">
-                <type><typeRef name="ExtU_Car_State_T" /></type>
-                <fileOrigin name="Car_State.c" />
-                <annotation>
-                    <documentation>The rtU data structure for external inputs.</documentation>
-                </annotation>
-            </baseDef>
-            <baseDef identifier="Car_State_Y">
-                <type><typeRef name="ExtY_Car_State_T" /></type>
-                <fileOrigin name="Car_State.c" />
-                <annotation>
-                    <documentation>The rtY data structure for external outputs.</documentation>
-                </annotation>
-            </baseDef>
-            <baseDef identifier="Car_State_DW">
-                <type><typeRef name="DW_Car_State_T" /></type>
-                <fileOrigin name="Car_State.c" />
-                <annotation>
-                    <documentation>The dWork data structure for model state.</documentation>
-                </annotation>
-            </baseDef>
-
-
-
-            <conversion name="Car_State_CM_double">
-                <rationalFunction>
-                    <numerator bx="1.0" />
-                    <denominator f="1.0" />
-                </rationalFunction>
-                <annotation>
-                    <documentation>Q = V</documentation>
-                </annotation>
-            </conversion>
-            <conversion name="Car_State_CM_boolean">
-                <rationalFunction>
-                    <numerator bx="1.0" />
-                    <denominator f="1.0" />
-                </rationalFunction>
-                <annotation>
-                    <documentation>Q = V</documentation>
-                </annotation>
-            </conversion>
-        </definitions>
-
-        <!-- rtP parameters following -->
-        <!-- Constant parameters following -->
-        <!-- Exported global parameters following -->
-        <!-- Imported extern parameters following -->
-        <!-- Global BlockIO (rtB) signals following -->
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_B.Merge">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_B" />
-                        <memberRef identifier="Merge" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.Opaque.Merge">
-                <name>Merge</name>
-                <modelLink href="Car_State/Opaque" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="AIRS_Request" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="Merge" kind="mlsl:block" />
-                    <pathNode name="Merge" kind="mlsl:signal" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="private">
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-                <annotation>
-                </annotation>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-
-
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_B.InvertersAction">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_B" />
-                        <memberRef identifier="InvertersAction" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.Car_State_Manager.InvertersAction">
-                <name>InvertersAction</name>
-                <modelLink href="Car_State/Car State Manager" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" type="atomic" />
-                    <pathNode name="Car State Manager" kind="mlsl:block" />
-                    <pathNode name="InvertersAction" kind="mlsl:signal" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="private">
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-                <annotation>
-                </annotation>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-        <!-- Global constant BlockIO (rtC) signals following -->
-        <!-- Exported global and imported extern signals following -->
-        <!-- Global IRT DWork port signals following -->
-
-
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_DW.A">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_DW" />
-                        <memberRef identifier="A" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.Opaque.A">
-                <name>A</name>
-                <modelLink href="Car_State/Opaque" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="CurrentPathDisconnection Detection" kind="mlsl:subsystem" />
-                    <pathNode name="Subsystem" kind="mlsl:subsystem" type="atomic" />
-                    <pathNode name="Data Store Memory" kind="mlsl:block" />
-                    <pathNode name="A" kind="mlsl:signal" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="private">
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-                <annotation>
-                </annotation>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-
-
-
-
-
-
-
-
-        <!-- rtU input ports following -->
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_U.AIRs_State">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_U" />
-                        <memberRef identifier="AIRs_State" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.AIRs_State">
-                <name>AIRs_State</name>
-                <modelLink href="Car_State/AIRs_State" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="AIRs_State" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_U.PrechargeRequest">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_U" />
-                        <memberRef identifier="PrechargeRequest" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.PrechargeRequest">
-                <name>PrechargeRequest</name>
-                <modelLink href="Car_State/PrechargeRequest" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="PrechargeRequest" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_U.EnableDrive_Order">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_U" />
-                        <memberRef identifier="EnableDrive_Order" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.EnableDrive_Order">
-                <name>EnableDrive_Order</name>
-                <modelLink href="Car_State/EnableDrive_Order" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="EnableDrive_Order" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="Boolean">
-                    <valueRange min="0.0" max="1.0" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_boolean" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_U.BrakePedal_Value">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_U" />
-                        <memberRef identifier="BrakePedal_Value" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.BrakePedal_Value">
-                <name>BrakePedal_Value</name>
-                <modelLink href="Car_State/BrakePedal_Value" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="BrakePedal_Value" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_U.Critical_CAN_Disconnection">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_U" />
-                        <memberRef identifier="Critical_CAN_Disconnection" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.Critical_CAN_Disconnection">
-                <name>Critical_CAN_Disconnection</name>
-                <modelLink href="Car_State/Critical_CAN_Disconnection" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="Critical_CAN_Disconnection" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_U.InvertersSubscribed">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_U" />
-                        <memberRef identifier="InvertersSubscribed" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.InvertersSubscribed">
-                <name>InvertersSubscribed</name>
-                <modelLink href="Car_State/InvertersSubscribed" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="InvertersSubscribed" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_U.Shutdown_PackageIntck">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_U" />
-                        <memberRef identifier="Shutdown_PackageIntck" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.Shutdown_PackageIntck">
-                <name>Shutdown_PackageIntck</name>
-                <modelLink href="Car_State/Shutdown_PackageIntck" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="Shutdown_PackageIntck" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="Boolean">
-                    <valueRange min="0.0" max="1.0" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_boolean" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_U.Accumulator_Voltage">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_U" />
-                        <memberRef identifier="Accumulator_Voltage" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.Accumulator_Voltage">
-                <name>Accumulator_Voltage</name>
-                <modelLink href="Car_State/Accumulator_Voltage" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="Accumulator_Voltage" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_U.InvertersMinDCBus">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_U" />
-                        <memberRef identifier="InvertersMinDCBus" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.InvertersMinDCBus">
-                <name>InvertersMinDCBus</name>
-                <modelLink href="Car_State/InvertersMinDCBus" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="InvertersMinDCBus" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_U.APPS1_Value">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_U" />
-                        <memberRef identifier="APPS1_Value" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.APPS1_Value">
-                <name>APPS1_Value</name>
-                <modelLink href="Car_State/APPS1_Value" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="APPS1_Value" kind="mlsl:block" type="Inport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection in="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <!-- rtY output ports following -->
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_Y.TorqueEnable">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_Y" />
-                        <memberRef identifier="TorqueEnable" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.TorqueEnable">
-                <name>TorqueEnable</name>
-                <modelLink href="Car_State/TorqueEnable" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="TorqueEnable" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_Y.AIRs_Request">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_Y" />
-                        <memberRef identifier="AIRs_Request" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.AIRs_Request">
-                <name>AIRs_Request</name>
-                <modelLink href="Car_State/AIRs_Request" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="AIRs_Request" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_Y.errors">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_Y" />
-                        <memberRef identifier="errors" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.errors">
-                <name>errors</name>
-                <modelLink href="Car_State/errors" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="errors" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_Y.Relay_Error">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_Y" />
-                        <memberRef identifier="Relay_Error" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.Relay_Error">
-                <name>Relay_Error</name>
-                <modelLink href="Car_State/Relay_Error" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="Relay_Error" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_Y.InvertersAction">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_Y" />
-                        <memberRef identifier="InvertersAction" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.InvertersAction">
-                <name>InvertersAction</name>
-                <modelLink href="Car_State/InvertersAction" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="InvertersAction" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_Y.Car_OK">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_Y" />
-                        <memberRef identifier="Car_OK" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.Car_OK">
-                <name>Car_OK</name>
-                <modelLink href="Car_State/Car_OK" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="Car_OK" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="Boolean">
-                    <valueRange min="0.0" max="1.0" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_boolean" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_Y.PrechargeAssert">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_Y" />
-                        <memberRef identifier="PrechargeAssert" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.PrechargeAssert">
-                <name>PrechargeAssert</name>
-                <modelLink href="Car_State/PrechargeAssert" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="PrechargeAssert" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_Y.Precharge_Percentage">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_Y" />
-                        <memberRef identifier="Precharge_Percentage" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.Precharge_Percentage">
-                <name>Precharge_Percentage</name>
-                <modelLink href="Car_State/Precharge_Percentage" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="Precharge_Percentage" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_Y.Precharge_Voltage">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_Y" />
-                        <memberRef identifier="Precharge_Voltage" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.Precharge_Voltage">
-                <name>Precharge_Voltage</name>
-                <modelLink href="Car_State/Precharge_Voltage" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="Precharge_Voltage" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-        <dataElement interfaceKind="export">
-            <dataCInterface identifier="Car_State_Y.Car_State_b">
-                <definitionLocation>
-                    <baseRef identifier="Car_State_Y" />
-                        <memberRef identifier="Car_State_b" />
-                </definitionLocation>
-                <fileOrigin name="Car_State.c" />
-            </dataCInterface>
-            <modelOrigin identifier="Car_State.Car_State">
-                <name>Car_State</name>
-                <modelLink href="Car_State/Car_State" />
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="Car_State" kind="mlsl:block" type="Outport" />
-                </modelLocation>
-                <modelKind kind="variable" visibility="public">
-                    <flowDirection out="true" />
-                </modelKind>
-                <modelType type="continuous">
-                    <valueRange min="-1.7E+308" max="1.7E+308" />
-                </modelType>
-            </modelOrigin>
-            <implementation>
-                <conversionRef name="Car_State_CM_double" />
-            </implementation>
-            <usage measurement="true">
-                <address kind="pseudo">
-                    <BLOB kind="KP_BLOB" device="E_TARGET"/>
-                </address>
-            </usage>
-        </dataElement>
-
-
-    
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-
-        <functionElement interfaceKind="export">
-            <functionCInterface identifier="irt_Start_Car_State">
-                <signature>
-                    <return>
-                        <type><void /></type>
-                    </return>
-                    <void />
-                </signature>
-                <fileOrigin name="Car_State_main.c" />
-            </functionCInterface>
-            <modelOrigin identifier="irt_Start_Car_State">
-                <name>irt_Start_Car_State</name>
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="irt_Start_Car_State" kind="mlsl:process" type="initialization" />
-                </modelLocation>
-                <modelKind kind="process" />
-                <runTimeInfo>
-                    <constraint>
-                        <execution trigger="initialization" />
-                    </constraint>
-                </runTimeInfo>
-                <annotation>
-                    <documentation>
+<module xmlns="http://www.etas.com/scoop-ix/1.5" xmlns:ix="http://www.etas.com/scoop-ix/1.5" xmlns:mlsl="http://www.etas.com/scoop-ix/1.5/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.5
+        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
+	<directoryLocations scheme="MATLAB 23.2">
+		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\"/>
+		<directory identifier="toolDir" path=".\"/>
+		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\"/>
+		<directory identifier="codeDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Car_State_irt_rtw\"/>
+	</directoryLocations>
+	<moduleInfo identifier="Car_State">
+		<name>Car_State</name>
+		<modelLink href="mlsl:///&quot;{{modelDir}}Car_State.slx&quot;"/>
+		<version major="13" minor="13"/>
+		<dateTime kind="created" year="2021" month="2" day="18" hour="9" minute="1" second="3"/>
+		<dateTime kind="lastModified" year="2024" month="8" day="5" hour="17" minute="37" second="34"/>
+		<completion degree="full"/>
+		<suitability>
+			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
+			<application domain="softwareDevelopment" addressesAvailable="false" nestedDataStructuresAvailable="true"/>
+		</suitability>
+		<user lastName="joser" role="modifier"/>
+		<creators>
+			<user lastName="cspt" role="creator"/>
+			<tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
+			</tool>
+			<tool kind="modeler" vendor="The Mathworks, Inc." name="Simulink">
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
+			</tool>
+			<tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
+			</tool>
+			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
+				<mode name="target" value="INTECRIO Real-Time Target"/>
+				<configuration>
+					<option identifier="InlineParameters">1</option>
+					<option identifier="InlineInvariantSignals">0</option>
+					<option identifier="Solver">FixedStepDiscrete</option>
+					<option identifier="SolverType">FixedStep</option>
+					<option identifier="FixedStepOpts.FixedStep">0.025</option>
+					<option identifier="FixedStepOpts.SolverMode">SingleTasking</option>
+				</configuration>
+			</tool>
+			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="MATLAB Coder">
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
+			</tool>
+			<tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
+				<configuration>
+					<option identifier="SCOOPIXFileName"><![CDATA[Car_State.six]]></option>
+					<option identifier="ExternalMode">0</option>
+					<option identifier="IgnoreCustomStorageClasses">1</option>
+					<option identifier="StopSimuAfterAssert">1</option>
+					<option identifier="GenerateOnlySelectedSignalsToASAP2">0</option>
+				</configuration>
+			</tool>
+		</creators>
+	</moduleInfo>
+	<codeInfo>
+		<constitution mode="sourceCode"/>
+		<dateTime kind="created" year="2024" month="8" day="5" hour="17" minute="38" second="16"/>
+		<target>
+			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
+			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
+				<configuration>
+					<optionKind name="macroDefine" prefix="-D"/>
+					<optionKind name="includeDirectory" prefix="-I"/>
+					<!-- RTW specific defines -->
+					<option kind="macroDefine" name="USE_RTMODEL"/>
+					<option kind="macroDefine" name="MODEL">Car_State</option>
+					<option kind="macroDefine" name="RT"/>
+					<option kind="macroDefine" name="NUMST">1</option>
+					<option kind="macroDefine" name="TID01EQ">0</option>
+					<option kind="macroDefine" name="NCSTATES">0</option>
+					<option kind="macroDefine" name="MT">0</option>
+					<option kind="macroDefine" name="HAVESTDIO"/>
+					<option kind="macroDefine" name="MdlStart">MdlStart_Car_State</option>
+					<option kind="macroDefine" name="MdlOutputs">MdlOutputs_Car_State</option>
+					<option kind="macroDefine" name="MdlUpdate">MdlUpdate_Car_State</option>
+					<option kind="macroDefine" name="MdlTerminate">MdlTerminate_Car_State</option>
+					<option kind="macroDefine" name="MdlInitializeSizes">MdlInitializeSizes_Car_State</option>
+					<option kind="macroDefine" name="MdlInitializeSampleTimes">MdlInitializeSampleTimes_Car_State</option>
+					<option kind="macroDefine" name="MdlInitialize">MdlInitialize_Car_State</option>
+					<option kind="macroDefine" name="MdlEnable">MdlEnable_Car_State</option>
+					<option kind="macroDefine" name="MdlDerivatives">MdlDerivatives_Car_State</option>
+					<option kind="macroDefine" name="MdlProjection">MdlProjection_Car_State</option>
+					<option kind="macroDefine" name="rt_ODECreateIntegrationData">rt_ODECreateIntegrationData_Car_State</option>
+					<option kind="macroDefine" name="rt_ODEUpdateContinuousStates">rt_ODEUpdateContinuousStates_Car_State</option>
+					<option kind="macroDefine" name="rt_ODEDestroyIntegrationData">rt_ODEDestroyIntegrationData_Car_State</option>
+					<option kind="macroDefine" name="rt_ODECacheDataIntoSolverInfo">rt_ODECacheDataIntoSolverInfo_Car_State</option>
+					<option kind="macroDefine" name="rt_ODERetrieveDataFromSolverInfo">rt_ODERetrieveDataFromSolverInfo_Car_State</option>
+					<option kind="macroDefine" name="rt_ODECreateSolverInfo">rt_ODECreateSolverInfo_Car_State</option>
+					<option kind="macroDefine" name="rt_SimInitTimingEngine">rt_SimInitTimingEngine_Car_State</option>
+					<option kind="macroDefine" name="rt_SimGetNextSampleHit">rt_SimGetNextSampleHit_Car_State</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteTaskSampleHits">rt_SimUpdateDiscreteTaskSampleHits_Car_State</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteEvents">rt_SimUpdateDiscreteEvents_Car_State</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteTaskTime">rt_SimUpdateDiscreteTaskTime_Car_State</option>
+					<option kind="macroDefine" name="rt_CallSys">rt_CallSys_Car_State</option>
+					<option kind="macroDefine" name="rt_EnableSys">rt_EnableSys_Car_State</option>
+					<option kind="macroDefine" name="rt_DisableSys">rt_DisableSys_Car_State</option>
+					<option kind="macroDefine" name="rt_SimDestroyTimingEngine">rt_SimDestroyTimingEngine_Car_State</option>
+					<option kind="macroDefine" name="rt_InitTimingEngine">rt_InitTimingEngine_Car_State</option>
+					<option kind="macroDefine" name="rt_DestroyTimingEngine">rt_DestroyTimingEngine_Car_State</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteTaskSampleHits">rt_UpdateDiscreteTaskSampleHits_Car_State</option>
+					<option kind="macroDefine" name="rt_GetNextSampleHit">rt_GetNextSampleHit_Car_State</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteEvents">rt_UpdateDiscreteEvents_Car_State</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteTaskTime">rt_UpdateDiscreteTaskTime_Car_State</option>
+					<!-- RTW specific include directories -->
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}]]></option>
+					<option kind="includeDirectory"><![CDATA[{{integratorDir}}c\src\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{integratorDir}}c\lib\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\simulink\include\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\extern\include\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\src\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\libsrc\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\_sharedutils\]]></option>
+				</configuration>
+			</tool>
+		</target>
+	</codeInfo>
+	<!-- Model specific files -->
+	<fileContainer constitution="sourceCode">
+		<pathBase path="{{codeDir}}"/>
+		<!-- Model specific source files -->
+		<file name="Car_State_types.h" kind="header"/>
+		<file name="Car_State.c" kind="body"/>
+		<file name="Car_State_private.h" kind="header"/>
+		<file name="Car_State.h" kind="header"/>
+		<file name="rtmodel.h" kind="header"/>
+		<file name="Car_State_main.c" kind="body"/>
+		<file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body"/>
+		<!-- Target specific libraries -->
+		<file name="rtwStaticLib.lib" kind="symbolicLibrary"/>
+		<file name="rtwSharedLib.lib" kind="symbolicLibrary"/>
+		<!-- Additional files -->
+	</fileContainer>
+	<fileContainer constitution="referencedModels">
+	</fileContainer>
+	<interface>
+		<modelLinkBase href="mlsl:///{{modelDir}}Car_State.slx?"/>
+		<pathBase path="{{codeDir}}"/>
+		<fileOrigin name="Car_State.c"/>
+		<fileOrigin name="rt_nonfinite.c"/>
+		<fileOrigin name="Car_State_main.c"/>
+		<headerFile name="Car_State.h"/>
+		<headerFile name="Car_State_private.h"/>
+		<usage layoutFamily="mlsl:standardLayout"/>
+		<!-- "import" MATLAB/Simulink base type and complex struct definitions via external entity -->
+		&baseTypes-mlsl;
+		<definitions>
+			<structDef name="_B_Car_State_T">
+				<fileOrigin name="Car_State.h"/>
+				<structMember identifier="Merge">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="TorqueEnable">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S6&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="error">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S6&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="InvertersAction">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S6&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="B_Car_State_T">
+				<struct/><typeRef name="_B_Car_State_T"/>
+				<fileOrigin name="Car_State.h"/>
+				<annotation>
+					<documentation>Block signals (auto storage)</documentation>
+				</annotation>
+			</typeDef>
+			<structDef name="ExtU_Car_State_T_tag">
+				<fileOrigin name="Car_State.h"/>
+				<structMember identifier="AIRs_State">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/AIRs_State</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="PrechargeRequest">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/PrechargeRequest</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="EnableDrive_Order">
+					<type><typeRef name="boolean_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/EnableDrive_Order</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="BrakePedal_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/BrakePedal_Value</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Critical_CAN_Disconnection">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Critical_CAN_Disconnection</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="InvertersSubscribed">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/InvertersSubscribed</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Shutdown_PackageIntck">
+					<type><typeRef name="boolean_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Shutdown_PackageIntck</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Accumulator_Voltage">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Accumulator_Voltage</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="InvertersMinDCBus">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/InvertersMinDCBus</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="APPS1_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/APPS1_Value</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ExtU_Car_State_T">
+				<struct/><typeRef name="ExtU_Car_State_T_tag"/>
+				<fileOrigin name="Car_State.h"/>
+			</typeDef>
+			<structDef name="ExtY_Car_State_T_tag">
+				<fileOrigin name="Car_State.h"/>
+				<structMember identifier="TorqueEnable">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/TorqueEnable</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="AIRs_Request">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/AIRs_Request</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="errors">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/errors</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Relay_Error">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Relay_Error</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="InvertersAction">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/InvertersAction</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Car_OK">
+					<type><typeRef name="boolean_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Car_OK</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="PrechargeAssert">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/PrechargeAssert</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Precharge_Percentage">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Precharge_Percentage</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Precharge_Voltage">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Precharge_Voltage</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Car_State_b">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Car_State</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ExtY_Car_State_T">
+				<struct/><typeRef name="ExtY_Car_State_T_tag"/>
+				<fileOrigin name="Car_State.h"/>
+			</typeDef>
+			<structDef name="_DW_Car_State_T">
+				<fileOrigin name="Car_State.h"/>
+				<structMember identifier="A">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'dsmMem'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="temporalCounter_i1">
+					<type><typeRef name="uint16_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK3'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="is_active_c1_Car_State">
+					<type><typeRef name="uint8_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK1'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="is_c1_Car_State">
+					<type><typeRef name="uint8_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK2'.</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="DW_Car_State_T">
+				<struct/><typeRef name="_DW_Car_State_T"/>
+				<fileOrigin name="Car_State.h"/>
+			</typeDef>
+			<baseDef identifier="Car_State_B">
+				<type><typeRef name="B_Car_State_T"/></type>
+				<fileOrigin name="Car_State.c"/>
+				<annotation>
+					<documentation>The rtB data structure for signals.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="Car_State_U">
+				<type><typeRef name="ExtU_Car_State_T"/></type>
+				<fileOrigin name="Car_State.c"/>
+				<annotation>
+					<documentation>The rtU data structure for external inputs.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="Car_State_Y">
+				<type><typeRef name="ExtY_Car_State_T"/></type>
+				<fileOrigin name="Car_State.c"/>
+				<annotation>
+					<documentation>The rtY data structure for external outputs.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="Car_State_DW">
+				<type><typeRef name="DW_Car_State_T"/></type>
+				<fileOrigin name="Car_State.c"/>
+				<annotation>
+					<documentation>The dWork data structure for model state.</documentation>
+				</annotation>
+			</baseDef>
+			<conversion name="Car_State_CM_double">
+				<rationalFunction>
+					<numerator bx="1.0"/>
+					<denominator f="1.0"/>
+				</rationalFunction>
+				<annotation>
+					<documentation>Q = V</documentation>
+				</annotation>
+			</conversion>
+			<conversion name="Car_State_CM_boolean">
+				<rationalFunction>
+					<numerator bx="1.0"/>
+					<denominator f="1.0"/>
+				</rationalFunction>
+				<annotation>
+					<documentation>Q = V</documentation>
+				</annotation>
+			</conversion>
+		</definitions>
+		<!-- rtP parameters following -->
+		<!-- Constant parameters following -->
+		<!-- Exported global parameters following -->
+		<!-- Imported extern parameters following -->
+		<!-- Global BlockIO (rtB) signals following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_B.Merge">
+				<definitionLocation>
+					<baseRef identifier="Car_State_B"/>
+					<memberRef identifier="Merge"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.Opaque.Merge">
+				<name>Merge</name>
+				<modelLink href="Car_State/Opaque"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="AIRS_Request" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Merge" kind="mlsl:block"/>
+					<pathNode name="Merge" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_B.InvertersAction">
+				<definitionLocation>
+					<baseRef identifier="Car_State_B"/>
+					<memberRef identifier="InvertersAction"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.Car_State_Manager.InvertersAction">
+				<name>InvertersAction</name>
+				<modelLink href="Car_State/Car State Manager"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Car State Manager" kind="mlsl:block"/>
+					<pathNode name="InvertersAction" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- Global constant BlockIO (rtC) signals following -->
+		<!-- Exported global and imported extern signals following -->
+		<!-- Global IRT DWork port signals following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_DW.A">
+				<definitionLocation>
+					<baseRef identifier="Car_State_DW"/>
+					<memberRef identifier="A"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.Opaque.A">
+				<name>A</name>
+				<modelLink href="Car_State/Opaque"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="CurrentPathDisconnection Detection" kind="mlsl:subsystem"/>
+					<pathNode name="Subsystem" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Data Store Memory" kind="mlsl:block"/>
+					<pathNode name="A" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- rtU input ports following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_U.AIRs_State">
+				<definitionLocation>
+					<baseRef identifier="Car_State_U"/>
+					<memberRef identifier="AIRs_State"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.AIRs_State">
+				<name>AIRs_State</name>
+				<modelLink href="Car_State/AIRs_State"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="AIRs_State" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_U.PrechargeRequest">
+				<definitionLocation>
+					<baseRef identifier="Car_State_U"/>
+					<memberRef identifier="PrechargeRequest"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.PrechargeRequest">
+				<name>PrechargeRequest</name>
+				<modelLink href="Car_State/PrechargeRequest"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="PrechargeRequest" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_U.EnableDrive_Order">
+				<definitionLocation>
+					<baseRef identifier="Car_State_U"/>
+					<memberRef identifier="EnableDrive_Order"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.EnableDrive_Order">
+				<name>EnableDrive_Order</name>
+				<modelLink href="Car_State/EnableDrive_Order"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="EnableDrive_Order" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="Boolean">
+					<valueRange min="0.0" max="1.0"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_boolean"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_U.BrakePedal_Value">
+				<definitionLocation>
+					<baseRef identifier="Car_State_U"/>
+					<memberRef identifier="BrakePedal_Value"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.BrakePedal_Value">
+				<name>BrakePedal_Value</name>
+				<modelLink href="Car_State/BrakePedal_Value"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="BrakePedal_Value" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_U.Critical_CAN_Disconnection">
+				<definitionLocation>
+					<baseRef identifier="Car_State_U"/>
+					<memberRef identifier="Critical_CAN_Disconnection"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.Critical_CAN_Disconnection">
+				<name>Critical_CAN_Disconnection</name>
+				<modelLink href="Car_State/Critical_CAN_Disconnection"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="Critical_CAN_Disconnection" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_U.InvertersSubscribed">
+				<definitionLocation>
+					<baseRef identifier="Car_State_U"/>
+					<memberRef identifier="InvertersSubscribed"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.InvertersSubscribed">
+				<name>InvertersSubscribed</name>
+				<modelLink href="Car_State/InvertersSubscribed"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="InvertersSubscribed" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_U.Shutdown_PackageIntck">
+				<definitionLocation>
+					<baseRef identifier="Car_State_U"/>
+					<memberRef identifier="Shutdown_PackageIntck"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.Shutdown_PackageIntck">
+				<name>Shutdown_PackageIntck</name>
+				<modelLink href="Car_State/Shutdown_PackageIntck"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="Shutdown_PackageIntck" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="Boolean">
+					<valueRange min="0.0" max="1.0"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_boolean"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_U.Accumulator_Voltage">
+				<definitionLocation>
+					<baseRef identifier="Car_State_U"/>
+					<memberRef identifier="Accumulator_Voltage"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.Accumulator_Voltage">
+				<name>Accumulator_Voltage</name>
+				<modelLink href="Car_State/Accumulator_Voltage"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="Accumulator_Voltage" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_U.InvertersMinDCBus">
+				<definitionLocation>
+					<baseRef identifier="Car_State_U"/>
+					<memberRef identifier="InvertersMinDCBus"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.InvertersMinDCBus">
+				<name>InvertersMinDCBus</name>
+				<modelLink href="Car_State/InvertersMinDCBus"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="InvertersMinDCBus" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_U.APPS1_Value">
+				<definitionLocation>
+					<baseRef identifier="Car_State_U"/>
+					<memberRef identifier="APPS1_Value"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.APPS1_Value">
+				<name>APPS1_Value</name>
+				<modelLink href="Car_State/APPS1_Value"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="APPS1_Value" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- rtY output ports following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_Y.TorqueEnable">
+				<definitionLocation>
+					<baseRef identifier="Car_State_Y"/>
+					<memberRef identifier="TorqueEnable"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.TorqueEnable">
+				<name>TorqueEnable</name>
+				<modelLink href="Car_State/TorqueEnable"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="TorqueEnable" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_Y.AIRs_Request">
+				<definitionLocation>
+					<baseRef identifier="Car_State_Y"/>
+					<memberRef identifier="AIRs_Request"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.AIRs_Request">
+				<name>AIRs_Request</name>
+				<modelLink href="Car_State/AIRs_Request"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="AIRs_Request" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_Y.errors">
+				<definitionLocation>
+					<baseRef identifier="Car_State_Y"/>
+					<memberRef identifier="errors"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.errors">
+				<name>errors</name>
+				<modelLink href="Car_State/errors"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="errors" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_Y.Relay_Error">
+				<definitionLocation>
+					<baseRef identifier="Car_State_Y"/>
+					<memberRef identifier="Relay_Error"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.Relay_Error">
+				<name>Relay_Error</name>
+				<modelLink href="Car_State/Relay_Error"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="Relay_Error" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_Y.InvertersAction">
+				<definitionLocation>
+					<baseRef identifier="Car_State_Y"/>
+					<memberRef identifier="InvertersAction"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.InvertersAction">
+				<name>InvertersAction</name>
+				<modelLink href="Car_State/InvertersAction"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="InvertersAction" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_Y.Car_OK">
+				<definitionLocation>
+					<baseRef identifier="Car_State_Y"/>
+					<memberRef identifier="Car_OK"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.Car_OK">
+				<name>Car_OK</name>
+				<modelLink href="Car_State/Car_OK"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="Car_OK" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="Boolean">
+					<valueRange min="0.0" max="1.0"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_boolean"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_Y.PrechargeAssert">
+				<definitionLocation>
+					<baseRef identifier="Car_State_Y"/>
+					<memberRef identifier="PrechargeAssert"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.PrechargeAssert">
+				<name>PrechargeAssert</name>
+				<modelLink href="Car_State/PrechargeAssert"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="PrechargeAssert" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_Y.Precharge_Percentage">
+				<definitionLocation>
+					<baseRef identifier="Car_State_Y"/>
+					<memberRef identifier="Precharge_Percentage"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.Precharge_Percentage">
+				<name>Precharge_Percentage</name>
+				<modelLink href="Car_State/Precharge_Percentage"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="Precharge_Percentage" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_Y.Precharge_Voltage">
+				<definitionLocation>
+					<baseRef identifier="Car_State_Y"/>
+					<memberRef identifier="Precharge_Voltage"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.Precharge_Voltage">
+				<name>Precharge_Voltage</name>
+				<modelLink href="Car_State/Precharge_Voltage"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="Precharge_Voltage" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_Y.Car_State_b">
+				<definitionLocation>
+					<baseRef identifier="Car_State_Y"/>
+					<memberRef identifier="Car_State_b"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.Car_State">
+				<name>Car_State</name>
+				<modelLink href="Car_State/Car_State"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="Car_State" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_Start_Car_State">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Car_State_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_Start_Car_State">
+				<name>irt_Start_Car_State</name>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="irt_Start_Car_State" kind="mlsl:process" type="initialization"/>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<constraint>
+						<execution trigger="initialization"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
                         This is the initialization process of the Real-Time Target code.
                     </documentation>
-                </annotation>
-            </modelOrigin>
-        </functionElement>
-
-        <functionElement interfaceKind="export">
-            <functionCInterface identifier="irt_OneStep_Car_State">
-                <signature>
-                    <return>
-                        <type><void /></type>
-                    </return>
-                    <void />
-                </signature>
-                <fileOrigin name="Car_State_main.c" />
-            </functionCInterface>
-            <modelOrigin identifier="irt_OneStep_Car_State">
-                <name>irt_OneStep_Car_State</name>
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="irt_OneStep_Car_State" kind="mlsl:process" type="execution">
-                        <pathParameter name="mlsl:baseSampleRate" value="0.025" />
-                        <pathParameter name="mlsl:sampleRates" value="0.025" />
-                    </pathNode>
-                </modelLocation>
-                <modelKind kind="process" />
-                <runTimeInfo>
-                    <messageAccess>
-                    <message identifier="Car_State_U.AIRs_State" send="false"></message>
-                    <message identifier="Car_State_U.PrechargeRequest" send="false"></message>
-                    <message identifier="Car_State_U.EnableDrive_Order" send="false"></message>
-                    <message identifier="Car_State_U.BrakePedal_Value" send="false"></message>
-                    <message identifier="Car_State_U.Critical_CAN_Disconnection" send="false"></message>
-                    <message identifier="Car_State_U.InvertersSubscribed" send="false"></message>
-                    <message identifier="Car_State_U.Shutdown_PackageIntck" send="false"></message>
-                    <message identifier="Car_State_U.Accumulator_Voltage" send="false"></message>
-                    <message identifier="Car_State_U.InvertersMinDCBus" send="false"></message>
-                    <message identifier="Car_State_U.APPS1_Value" send="false"></message>
-                    <message identifier="Car_State_Y.TorqueEnable" send="true"></message>
-                    <message identifier="Car_State_Y.AIRs_Request" send="true"></message>
-                    <message identifier="Car_State_Y.errors" send="true"></message>
-                    <message identifier="Car_State_Y.Relay_Error" send="true"></message>
-                    <message identifier="Car_State_Y.InvertersAction" send="true"></message>
-                    <message identifier="Car_State_Y.Car_OK" send="true"></message>
-                    <message identifier="Car_State_Y.PrechargeAssert" send="true"></message>
-                    <message identifier="Car_State_Y.Precharge_Percentage" send="true"></message>
-                    <message identifier="Car_State_Y.Precharge_Voltage" send="true"></message>
-                    <message identifier="Car_State_Y.Car_State_b" send="true"></message>
-                    </messageAccess>
-                    <constraint>
-                        <period value="0.025" />
-                        <offset value="0.0" />
-                        <execution trigger="timer" priority="normal" />
-                    </constraint>
-                </runTimeInfo>
-                <annotation>
-                    <documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_OneStep_Car_State">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Car_State_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_OneStep_Car_State">
+				<name>irt_OneStep_Car_State</name>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="irt_OneStep_Car_State" kind="mlsl:process" type="execution">
+						<pathParameter name="mlsl:baseSampleRate" value="0.025"/>
+						<pathParameter name="mlsl:sampleRates" value="0.025"/>
+					</pathNode>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<messageAccess>
+						<message identifier="Car_State_U.AIRs_State" send="false"></message>
+						<message identifier="Car_State_U.PrechargeRequest" send="false"></message>
+						<message identifier="Car_State_U.EnableDrive_Order" send="false"></message>
+						<message identifier="Car_State_U.BrakePedal_Value" send="false"></message>
+						<message identifier="Car_State_U.Critical_CAN_Disconnection" send="false"></message>
+						<message identifier="Car_State_U.InvertersSubscribed" send="false"></message>
+						<message identifier="Car_State_U.Shutdown_PackageIntck" send="false"></message>
+						<message identifier="Car_State_U.Accumulator_Voltage" send="false"></message>
+						<message identifier="Car_State_U.InvertersMinDCBus" send="false"></message>
+						<message identifier="Car_State_U.APPS1_Value" send="false"></message>
+						<message identifier="Car_State_Y.TorqueEnable" send="true"></message>
+						<message identifier="Car_State_Y.AIRs_Request" send="true"></message>
+						<message identifier="Car_State_Y.errors" send="true"></message>
+						<message identifier="Car_State_Y.Relay_Error" send="true"></message>
+						<message identifier="Car_State_Y.InvertersAction" send="true"></message>
+						<message identifier="Car_State_Y.Car_OK" send="true"></message>
+						<message identifier="Car_State_Y.PrechargeAssert" send="true"></message>
+						<message identifier="Car_State_Y.Precharge_Percentage" send="true"></message>
+						<message identifier="Car_State_Y.Precharge_Voltage" send="true"></message>
+						<message identifier="Car_State_Y.Car_State_b" send="true"></message>
+					</messageAccess>
+					<constraint>
+						<period value="0.025"/>
+						<offset value="0.0"/>
+						<execution trigger="timer" priority="normal"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
                         This is the execution process of the Real-Time Target code.
                     </documentation>
-                </annotation>
-            </modelOrigin>
-        </functionElement>
-
-
-
-        <functionElement interfaceKind="export">
-            <functionCInterface identifier="irt_Terminate_Car_State">
-                <signature>
-                    <return>
-                        <type><void /></type>
-                    </return>
-                    <void />
-                </signature>
-                <fileOrigin name="Car_State_main.c" />
-            </functionCInterface>
-            <modelOrigin identifier="irt_Terminate_Car_State">
-                <name>irt_Terminate_Car_State</name>
-                <modelLocation>
-                    <pathNode name="Car_State" kind="mlsl:model" />
-                    <pathNode name="irt_Terminate_Car_State" kind="mlsl:process" type="termination" />
-                </modelLocation>
-                <modelKind kind="process" />
-                <runTimeInfo>
-                    <constraint>
-                        <execution trigger="termination" />
-                    </constraint>
-                </runTimeInfo>
-                <annotation>
-                    <documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_Terminate_Car_State">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Car_State_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_Terminate_Car_State">
+				<name>irt_Terminate_Car_State</name>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="irt_Terminate_Car_State" kind="mlsl:process" type="termination"/>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<constraint>
+						<execution trigger="termination"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
                         This is the termination process of the INTECRIO Real-Time Target code.
                     </documentation>
-                </annotation>
-            </modelOrigin>
-        </functionElement>
-
-
-
-
-    </interface>
-
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+	</interface>
 </module>
-

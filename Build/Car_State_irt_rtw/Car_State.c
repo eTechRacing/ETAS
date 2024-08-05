@@ -7,9 +7,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 13.11
+ * Model version              : 13.13
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Fri Aug  2 09:05:46 2024
+ * C source code generated on : Mon Aug  5 17:38:16 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -487,7 +487,7 @@ static void Car_State_output(void)
   /* If: '<S9>/If' incorporates:
    *  Inport: '<Root>/APPS1_Value'
    */
-  if ((rtb_CarState == 15) && (Car_State_U.APPS1_Value > 0.3)) {
+  if ((rtb_CarState == 15) && (Car_State_U.APPS1_Value > 0.2)) {
     /* Outputs for IfAction SubSystem: '<S9>/TqEnable' incorporates:
      *  ActionPort: '<S38>/Action Port'
      */
@@ -498,8 +498,8 @@ static void Car_State_output(void)
     Car_State_Y.InvertersAction = 30.0;
 
     /* End of Outputs for SubSystem: '<S9>/TqEnable' */
-  } else if ((rtb_CarState == 15) && (Car_State_U.APPS1_Value < 0.3) &&
-             (Car_State_U.APPS1_Value > 0.05)) {
+  } else if ((rtb_CarState == 15) && (Car_State_U.APPS1_Value < 0.2) &&
+             (Car_State_U.APPS1_Value > 0.02)) {
     /* Outputs for IfAction SubSystem: '<S9>/EnableInv' incorporates:
      *  ActionPort: '<S35>/Action Port'
      */
@@ -510,7 +510,7 @@ static void Car_State_output(void)
     Car_State_Y.InvertersAction = 21.0;
 
     /* End of Outputs for SubSystem: '<S9>/EnableInv' */
-  } else if ((rtb_CarState == 15) && (Car_State_U.APPS1_Value < 0.05)) {
+  } else if ((rtb_CarState == 15) && (Car_State_U.APPS1_Value < 0.02)) {
     /* Outputs for IfAction SubSystem: '<S9>/EnableInv1' incorporates:
      *  ActionPort: '<S36>/Action Port'
      */
