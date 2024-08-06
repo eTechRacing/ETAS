@@ -7,9 +7,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 13.9
+ * Model version              : 13.12
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Thu Aug  1 12:48:03 2024
+ * C source code generated on : Tue Aug  6 18:54:22 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -84,7 +84,7 @@ static void Sensors_output(void)
     /* Outputs for IfAction SubSystem: '<S1>/If Action Subsystem1' incorporates:
      *  ActionPort: '<S10>/Action Port'
      */
-    Sensors_IfActionSubsystem1((Sensors_U.APPS1_Bits - 100.0) /
+    Sensors_IfActionSubsystem1((Sensors_U.APPS1_Bits - 1450.0) /
       Sensors_ConstB.Sum1, &rtb_Saturation);
 
     /* End of Outputs for SubSystem: '<S1>/If Action Subsystem1' */
@@ -124,7 +124,7 @@ static void Sensors_output(void)
     /* Outputs for IfAction SubSystem: '<S2>/If Action Subsystem1' incorporates:
      *  ActionPort: '<S12>/Action Port'
      */
-    Sensors_IfActionSubsystem1((Sensors_U.APPS2_Bits - 3800.0) /
+    Sensors_IfActionSubsystem1((Sensors_U.APPS2_Bits - 2600.0) /
       Sensors_ConstB.Sum1_d, &rtb_Saturation);
 
     /* End of Outputs for SubSystem: '<S2>/If Action Subsystem1' */
@@ -151,7 +151,7 @@ static void Sensors_output(void)
    *  Inport: '<Root>/BrakePedal_Bits'
    *  Sum: '<S3>/Sum'
    */
-  rtb_Saturation = (Sensors_U.BrakePedal_Bits - 350.0) / Sensors_ConstB.Sum1_c;
+  rtb_Saturation = (Sensors_U.BrakePedal_Bits - 900.0) / Sensors_ConstB.Sum1_c;
 
   /* Saturate: '<S3>/Saturation' */
   if (rtb_Saturation > 1.0) {
@@ -235,7 +235,7 @@ static void Sensors_output(void)
    *  Sum: '<S4>/Sum'
    */
   Sensors_DW.Previous_IN = (Sensors_U.SteeringSensor_Bits - 2000.0) * 2.0 /
-    3500.0 * 115.0;
+    3100.0 * -115.0;
 
   /* Saturate: '<S4>/Saturation' incorporates:
    *  Gain: '<S13>/Gain'

@@ -7,9 +7,9 @@
  *
  * Code generation for model "Disconnections".
  *
- * Model version              : 13.31
+ * Model version              : 13.32
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Fri Aug  2 03:14:57 2024
+ * C source code generated on : Tue Aug  6 18:40:17 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -436,7 +436,7 @@ static void Disconnections_output(void)
      *  Constant: '<S32>/threshold low'
      *  Inport: '<Root>/BrakePedal_Bits'
      */
-    if (Disconnections_U.BrakePedal_Bits < 10.0) {
+    if (Disconnections_U.BrakePedal_Bits < 12.0) {
       /* Outputs for IfAction SubSystem: '<S32>/If Action Subsystem' incorporates:
        *  ActionPort: '<S46>/Action Port'
        */
@@ -473,14 +473,14 @@ static void Disconnections_output(void)
      *  Constant: '<S33>/threshold low'
      *  Inport: '<Root>/SteeringSensor_Bits'
      */
-    if (Disconnections_U.SteeringSensor_Bits < 10.0) {
+    if (Disconnections_U.SteeringSensor_Bits < 50.0) {
       /* Outputs for IfAction SubSystem: '<S33>/If Action Subsystem' incorporates:
        *  ActionPort: '<S50>/Action Port'
        */
       Disconnection_IfActionSubsystem(&Disconnections_B.Merge_d);
 
       /* End of Outputs for SubSystem: '<S33>/If Action Subsystem' */
-    } else if (Disconnections_U.SteeringSensor_Bits > 4030.0) {
+    } else if (Disconnections_U.SteeringSensor_Bits > 3900.0) {
       /* Outputs for IfAction SubSystem: '<S33>/If Action Subsystem1' incorporates:
        *  ActionPort: '<S51>/Action Port'
        */
