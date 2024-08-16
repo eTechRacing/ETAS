@@ -3,6 +3,16 @@
 #include "VDC_irtmacros.h"
 /* PATCH END */
 
+/* Patched in by the INTECRIO IRT target */
+/* PATCH BEGIN */
+#include "VDC_irtmacros.h"
+/* PATCH END */
+
+/* Patched in by the INTECRIO IRT target */
+/* PATCH BEGIN */
+#include "VDC_irtmacros.h"
+/* PATCH END */
+
 /*
  * VDC.h
  *

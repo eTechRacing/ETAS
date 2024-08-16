@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE YBOModule SYSTEM ".\dtd\ybomodule.dtd" [ <?RequiredDTDVersion "4.7.1"?>
+
+<!NOTATION _OSrvLink SYSTEM "_OSrvLink" >
+<!ENTITY _533 SYSTEM "OSrv://ObjectHandle#533" NDATA _OIDLink >
+<!ENTITY _1485 SYSTEM "OSrv://ObjectHandle#1485" NDATA _OIDLink >
+<!ENTITY _5787 SYSTEM "OSrv://ObjectHandle#5787" NDATA _OIDLink >
+<!ENTITY _5838 SYSTEM "OSrv://ObjectHandle#5838" NDATA _OIDLink >
+<!ENTITY _5844 SYSTEM "OSrv://ObjectHandle#5844" NDATA _OIDLink >
+<!ENTITY _5712 SYSTEM "OSrv://ObjectHandle#5712" NDATA _OIDLink >
+<!ENTITY _5713 SYSTEM "OSrv://ObjectHandle#5713" NDATA _OIDLink >
+<!ENTITY _5715 SYSTEM "OSrv://ObjectHandle#5715" NDATA _OIDLink >
+<!ENTITY _5717 SYSTEM "OSrv://ObjectHandle#5717" NDATA _OIDLink >
+<!ENTITY _5719 SYSTEM "OSrv://ObjectHandle#5719" NDATA _OIDLink >
+]><YBOModule
+	Name="SoC"
+	ScoopIXSource="c:\users\joser\onedrive\documentos\github\etas\build\soc_irt_rtw\soc.six"
+	FileDateTime="133683021081114525"
+	ModelingTool="MATLAB"
+	Kind="SOFTWARE"
+	VisibleName="SoC"
+	ReferencedModuleListValid="TRUE"><_System><_AdminInfo/><_LinkTarget><_LinkTarget
+	Name="SoftwareSystem"
+	Index="533"
+	Type="YBOSoftwareSystem"><_LinkTarget
+	Name="Connection234"
+	Index="1485"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection236"
+	Index="5787"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection238"
+	Index="5838"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection240"
+	Index="5844"
+	Type="YBOConnection"/></_LinkTarget><_LinkTarget
+	Name="SoC"
+	Index="5712"
+	Type="YBOModule"><_LinkTarget
+	Name="SoC_U.Accumulator_Current"
+	Index="5713"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="SoC_U.Average_CellTemp"
+	Index="5715"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="SoC_U.Lowest_CellVoltage"
+	Index="5717"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="SoC_Y.SoC_KF"
+	Index="5719"
+	Type="YBOSWPort"/></_LinkTarget></_LinkTarget></_System><YBOModule.Ports><YBOPortList><YBOSWPort
+	Name="SoC.SoC_5FU_5C.Accumulator_5FCurrent"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Accumulator_Current"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_1485"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="SoC.SoC_5FU_5C.Average_5FCellTemp"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Average_CellTemp"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_5787"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="SoC.SoC_5FU_5C.Lowest_5FCellVoltage"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Lowest_CellVoltage"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_5838"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="SoC.SoC_5FY_5C.SoC_5FKF"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="SoC_KF"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_5844"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort></YBOPortList></YBOModule.Ports><YBOModule.Processes><YBOProcessList><YBOProcess
+	Name="SoC.irt_5FStart_5FSoC"
+	Kind="INITIALIZATION"
+	Priority="0.5"
+	VisibleName="irt_Start_SoC"><YBOProcess.Actions><YBOActionList><YBOAction
+	Name="SoC.irt_5FStart_5FSoC.Action"
+	Kind="PROCESS"/></YBOActionList></YBOProcess.Actions><YBOProcess.CrossbarHooks><YBOCrossbarHookList><YBOCrossbarHook
+	Name="SoC.irt_5FStart_5FSoC.irt_5FStart_5FSoC_5FSourceCopy"
+	Kind="SOURCE"
+	VisibleName="irt_Start_SoC_SourceCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="SoC.irt_5FStart_5FSoC.irt_5FStart_5FSoC_5FSourceCopy.Action"
+	Hidden="TRUE"
+	Kind="SOURCE_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList/></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
+	Name="SoC.irt_5FStart_5FSoC.irt_5FStart_5FSoC_5FSinkCopy"
+	Kind="SINK"
+	VisibleName="irt_Start_SoC_SinkCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="SoC.irt_5FStart_5FSoC.irt_5FStart_5FSoC_5FSinkCopy.Action"
+	Hidden="TRUE"
+	Kind="SINK_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList/></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess><YBOProcess
+	Name="SoC.irt_5FOneStep_5FSoC"
+	Kind="TIMER"
+	Period="0.2000000000000000111"
+	Priority="0.5"
+	VisibleName="irt_OneStep_SoC"><YBOProcess.Actions><YBOActionList><YBOAction
+	Name="SoC.irt_5FOneStep_5FSoC.Action"
+	Kind="PROCESS"/></YBOActionList></YBOProcess.Actions><YBOProcess.CrossbarHooks><YBOCrossbarHookList><YBOCrossbarHook
+	Name="SoC.irt_5FOneStep_5FSoC.irt_5FOneStep_5FSoC_5FSourceCopy"
+	Kind="SOURCE"
+	VisibleName="irt_OneStep_SoC_SourceCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="SoC.irt_5FOneStep_5FSoC.irt_5FOneStep_5FSoC_5FSourceCopy.Action"
+	Hidden="TRUE"
+	Kind="SOURCE_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_5713"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_5715"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_5717"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
+	Name="SoC.irt_5FOneStep_5FSoC.irt_5FOneStep_5FSoC_5FSinkCopy"
+	Kind="SINK"
+	VisibleName="irt_OneStep_SoC_SinkCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="SoC.irt_5FOneStep_5FSoC.irt_5FOneStep_5FSoC_5FSinkCopy.Action"
+	Hidden="TRUE"
+	Kind="SINK_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_5719"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess><YBOProcess
+	Name="SoC.irt_5FTerminate_5FSoC"
+	Kind="TERMINATION"
+	Priority="0.5"
+	VisibleName="irt_Terminate_SoC"><YBOProcess.Actions><YBOActionList><YBOAction
+	Name="SoC.irt_5FTerminate_5FSoC.Action"
+	Kind="PROCESS"/></YBOActionList></YBOProcess.Actions><YBOProcess.CrossbarHooks><YBOCrossbarHookList><YBOCrossbarHook
+	Name="SoC.irt_5FTerminate_5FSoC.irt_5FTerminate_5FSoC_5FSourceCopy"
+	Kind="SOURCE"
+	VisibleName="irt_Terminate_SoC_SourceCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="SoC.irt_5FTerminate_5FSoC.irt_5FTerminate_5FSoC_5FSourceCopy.Action"
+	Hidden="TRUE"
+	Kind="SOURCE_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList/></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
+	Name="SoC.irt_5FTerminate_5FSoC.irt_5FTerminate_5FSoC_5FSinkCopy"
+	Kind="SINK"
+	VisibleName="irt_Terminate_SoC_SinkCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="SoC.irt_5FTerminate_5FSoC.irt_5FTerminate_5FSoC_5FSinkCopy.Action"
+	Hidden="TRUE"
+	Kind="SINK_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList/></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess></YBOProcessList></YBOModule.Processes><YBOModule.ArXMLSources><YBOArXMLSourceList/></YBOModule.ArXMLSources><YBOModule.ArCSources><YBOArCSourceList/></YBOModule.ArCSources><YBOModule.ReferencedModules><YBOModuleRefList/></YBOModule.ReferencedModules></YBOModule>

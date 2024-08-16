@@ -3032,7 +3032,7 @@ const char rtioRequestMessages[] =
 };
 
 const T_L1Record l1RtioRequestRecord =
-{	8548UL, /* configuration identifier */
+{	8550UL, /* configuration identifier */
 	242,   /* number of messages */
 	&rtioRequestMessages[0]
 };

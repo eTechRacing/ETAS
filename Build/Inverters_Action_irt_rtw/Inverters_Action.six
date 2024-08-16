@@ -22,9 +22,9 @@
 	<moduleInfo identifier="Inverters_Action">
 		<name>Inverters_Action</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Inverters_Action.slx&quot;"/>
-		<version major="13" minor="9"/>
+		<version major="13" minor="10"/>
 		<dateTime kind="created" year="2021" month="7" day="16" hour="11" minute="31" second="58"/>
-		<dateTime kind="lastModified" year="2024" month="7" day="13" hour="11" minute="58" second="13"/>
+		<dateTime kind="lastModified" year="2024" month="8" day="9" hour="13" minute="0" second="53"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="7" day="27" hour="11" minute="10" second="6"/>
+		<dateTime kind="created" year="2024" month="8" day="14" hour="1" minute="47" second="26"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -187,7 +187,7 @@
 						<documentation>&lt;Root&gt;/Opaque</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="subscribed_b">
+				<structMember identifier="subscribed_k">
 					<type><typeRef name="boolean_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Opaque</documentation>
@@ -259,13 +259,13 @@
 			</typeDef>
 			<structDef name="_ConstB_Inverters_Action_T">
 				<fileOrigin name="Inverters_Action.h"/>
-				<structMember identifier="TorqueCommand0_g">
+				<structMember identifier="TorqueCommand0_a">
 					<type><typeRef name="ConstB_TorqueCommand0_Inverte_T"/></type>
 					<annotation>
 						<documentation>&lt;S2&gt;/Torque Command 0</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="TorqueCommand_m">
+				<structMember identifier="TorqueCommand_k">
 					<type><typeRef name="ConstB_TorqueCommand_Inverter_T"/></type>
 					<annotation>
 						<documentation>&lt;S2&gt;/Torque Command</documentation>
@@ -373,7 +373,7 @@
 						<documentation>State information for 'DSTATE'.</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Delay_DSTATE_h">
+				<structMember identifier="Delay_DSTATE_f">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>State information for 'DSTATE'.</documentation>
@@ -385,7 +385,7 @@
 						<documentation>State information for 'dsmMem'.</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="LastAction_k">
+				<structMember identifier="LastAction_l">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>State information for 'dsmMem'.</documentation>
@@ -397,7 +397,7 @@
 						<documentation>State information for 'dsmMem'.</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="EnumerationCounter_m">
+				<structMember identifier="EnumerationCounter_g">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>State information for 'dsmMem'.</documentation>
@@ -498,7 +498,7 @@
 				<modelLink href="Inverters_Action/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Subsystem9" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Blost-e Left" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Merge2" kind="mlsl:block"/>
 					<pathNode name="Merge2" kind="mlsl:signal"/>
 				</modelLocation>
@@ -532,7 +532,7 @@
 				<modelLink href="Inverters_Action/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Subsystem10" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Blost-e Right" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Merge2" kind="mlsl:block"/>
 					<pathNode name="Merge2_p" kind="mlsl:signal"/>
 				</modelLocation>
@@ -599,7 +599,7 @@
 				<modelLink href="Inverters_Action/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Subsystem9" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Blost-e Right" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Unsubscribe//Subscribe" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="subscribed?" kind="mlsl:block"/>
 					<pathNode name="subscribed" kind="mlsl:signal"/>
@@ -622,22 +622,22 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Action_B.subscribed_b">
+			<dataCInterface identifier="Inverters_Action_B.subscribed_k">
 				<definitionLocation>
 					<baseRef identifier="Inverters_Action_B"/>
-					<memberRef identifier="subscribed_b"/>
+					<memberRef identifier="subscribed_k"/>
 				</definitionLocation>
 				<fileOrigin name="Inverters_Action.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Inverters_Action.Opaque.subscribed_b">
-				<name>subscribed_b</name>
+			<modelOrigin identifier="Inverters_Action.Opaque.subscribed_k">
+				<name>subscribed_k</name>
 				<modelLink href="Inverters_Action/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Subsystem10" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Blost-e Left" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Unsubscribe//Subscribe" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="subscribed?" kind="mlsl:block"/>
-					<pathNode name="subscribed_b" kind="mlsl:signal"/>
+					<pathNode name="subscribed_k" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
@@ -658,10 +658,10 @@
 		</dataElement>
 		<!-- Global constant BlockIO (rtC) signals following -->
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Action_ConstB.TorqueCommand0_g.Divide">
+			<dataCInterface identifier="Inverters_Action_ConstB.TorqueCommand0_a.Divide">
 				<definitionLocation>
 					<baseRef identifier="Inverters_Action_ConstB"/>
-					<memberRef identifier="TorqueCommand0_g"/>
+					<memberRef identifier="TorqueCommand0_a"/>
 					<memberRef identifier="Divide"/>
 				</definitionLocation>
 				<fileOrigin name="Inverters_Action.c"/>
@@ -671,7 +671,7 @@
 				<modelLink href="Inverters_Action/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Subsystem9" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Blost-e Right" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Torque Command 0" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Divide" kind="mlsl:block"/>
 					<pathNode name="Divide" kind="mlsl:signal"/>
@@ -694,10 +694,10 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Action_ConstB.TorqueCommand0_g.Current0to65535">
+			<dataCInterface identifier="Inverters_Action_ConstB.TorqueCommand0_a.Current0to65535">
 				<definitionLocation>
 					<baseRef identifier="Inverters_Action_ConstB"/>
-					<memberRef identifier="TorqueCommand0_g"/>
+					<memberRef identifier="TorqueCommand0_a"/>
 					<memberRef identifier="Current0to65535"/>
 				</definitionLocation>
 				<fileOrigin name="Inverters_Action.c"/>
@@ -707,7 +707,7 @@
 				<modelLink href="Inverters_Action/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Subsystem9" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Blost-e Right" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Torque Command 0" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Product" kind="mlsl:block"/>
 					<pathNode name="Current 0 to 65535" kind="mlsl:signal"/>
@@ -730,10 +730,10 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Action_ConstB.TorqueCommand0_g.b7tob0">
+			<dataCInterface identifier="Inverters_Action_ConstB.TorqueCommand0_a.b7tob0">
 				<definitionLocation>
 					<baseRef identifier="Inverters_Action_ConstB"/>
-					<memberRef identifier="TorqueCommand0_g"/>
+					<memberRef identifier="TorqueCommand0_a"/>
 					<memberRef identifier="b7tob0"/>
 				</definitionLocation>
 				<fileOrigin name="Inverters_Action.c"/>
@@ -743,7 +743,7 @@
 				<modelLink href="Inverters_Action/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Subsystem9" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Blost-e Right" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Torque Command 0" kind="mlsl:subsystem"/>
 					<pathNode name="Subsystem" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Bitwise Operator" kind="mlsl:block"/>
@@ -767,10 +767,10 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Action_ConstB.TorqueCommand0_g.ShiftArithmetic">
+			<dataCInterface identifier="Inverters_Action_ConstB.TorqueCommand0_a.ShiftArithmetic">
 				<definitionLocation>
 					<baseRef identifier="Inverters_Action_ConstB"/>
-					<memberRef identifier="TorqueCommand0_g"/>
+					<memberRef identifier="TorqueCommand0_a"/>
 					<memberRef identifier="ShiftArithmetic"/>
 				</definitionLocation>
 				<fileOrigin name="Inverters_Action.c"/>
@@ -780,7 +780,7 @@
 				<modelLink href="Inverters_Action/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Subsystem9" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Blost-e Right" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Torque Command 0" kind="mlsl:subsystem"/>
 					<pathNode name="Subsystem" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Shift Arithmetic" kind="mlsl:block"/>
@@ -804,10 +804,10 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Action_ConstB.TorqueCommand0_g.BitwiseOperator1">
+			<dataCInterface identifier="Inverters_Action_ConstB.TorqueCommand0_a.BitwiseOperator1">
 				<definitionLocation>
 					<baseRef identifier="Inverters_Action_ConstB"/>
-					<memberRef identifier="TorqueCommand0_g"/>
+					<memberRef identifier="TorqueCommand0_a"/>
 					<memberRef identifier="BitwiseOperator1"/>
 				</definitionLocation>
 				<fileOrigin name="Inverters_Action.c"/>
@@ -817,7 +817,7 @@
 				<modelLink href="Inverters_Action/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Subsystem9" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Blost-e Right" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Torque Command 0" kind="mlsl:subsystem"/>
 					<pathNode name="Subsystem" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Bitwise Operator1" kind="mlsl:block"/>
@@ -841,10 +841,10 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Action_ConstB.TorqueCommand_m.Divide">
+			<dataCInterface identifier="Inverters_Action_ConstB.TorqueCommand_k.Divide">
 				<definitionLocation>
 					<baseRef identifier="Inverters_Action_ConstB"/>
-					<memberRef identifier="TorqueCommand_m"/>
+					<memberRef identifier="TorqueCommand_k"/>
 					<memberRef identifier="Divide"/>
 				</definitionLocation>
 				<fileOrigin name="Inverters_Action.c"/>
@@ -854,7 +854,7 @@
 				<modelLink href="Inverters_Action/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Subsystem9" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Blost-e Right" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Torque Command" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Divide" kind="mlsl:block"/>
 					<pathNode name="Divide" kind="mlsl:signal"/>
@@ -890,7 +890,7 @@
 				<modelLink href="Inverters_Action/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Subsystem10" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Blost-e Left" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Torque Command 0" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Divide" kind="mlsl:block"/>
 					<pathNode name="Divide" kind="mlsl:signal"/>
@@ -926,7 +926,7 @@
 				<modelLink href="Inverters_Action/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Subsystem10" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Blost-e Left" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Torque Command 0" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Product" kind="mlsl:block"/>
 					<pathNode name="Current 0 to 65535" kind="mlsl:signal"/>
@@ -962,7 +962,7 @@
 				<modelLink href="Inverters_Action/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Subsystem10" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Blost-e Left" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Torque Command 0" kind="mlsl:subsystem"/>
 					<pathNode name="Subsystem" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Bitwise Operator" kind="mlsl:block"/>
@@ -999,7 +999,7 @@
 				<modelLink href="Inverters_Action/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Subsystem10" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Blost-e Left" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Torque Command 0" kind="mlsl:subsystem"/>
 					<pathNode name="Subsystem" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Shift Arithmetic" kind="mlsl:block"/>
@@ -1036,7 +1036,7 @@
 				<modelLink href="Inverters_Action/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Subsystem10" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Blost-e Left" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Torque Command 0" kind="mlsl:subsystem"/>
 					<pathNode name="Subsystem" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Bitwise Operator1" kind="mlsl:block"/>
@@ -1073,7 +1073,7 @@
 				<modelLink href="Inverters_Action/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Subsystem10" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Blost-e Left" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Torque Command" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Divide" kind="mlsl:block"/>
 					<pathNode name="Divide" kind="mlsl:signal"/>
@@ -1110,7 +1110,7 @@
 				<modelLink href="Inverters_Action/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Subsystem10" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Blost-e Left" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Data Store Memory1" kind="mlsl:block"/>
 					<pathNode name="LastAction" kind="mlsl:signal"/>
 				</modelLocation>
@@ -1132,21 +1132,21 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Action_DW.LastAction_k">
+			<dataCInterface identifier="Inverters_Action_DW.LastAction_l">
 				<definitionLocation>
 					<baseRef identifier="Inverters_Action_DW"/>
-					<memberRef identifier="LastAction_k"/>
+					<memberRef identifier="LastAction_l"/>
 				</definitionLocation>
 				<fileOrigin name="Inverters_Action.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Inverters_Action.Opaque.LastAction_k">
-				<name>LastAction_k</name>
+			<modelOrigin identifier="Inverters_Action.Opaque.LastAction_l">
+				<name>LastAction_l</name>
 				<modelLink href="Inverters_Action/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Subsystem9" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Blost-e Right" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Data Store Memory1" kind="mlsl:block"/>
-					<pathNode name="LastAction_k" kind="mlsl:signal"/>
+					<pathNode name="LastAction_l" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
@@ -1178,7 +1178,7 @@
 				<modelLink href="Inverters_Action/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Subsystem10" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Blost-e Left" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Data Store Memory2" kind="mlsl:block"/>
 					<pathNode name="EnumerationCounter" kind="mlsl:signal"/>
 				</modelLocation>
@@ -1200,21 +1200,21 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Action_DW.EnumerationCounter_m">
+			<dataCInterface identifier="Inverters_Action_DW.EnumerationCounter_g">
 				<definitionLocation>
 					<baseRef identifier="Inverters_Action_DW"/>
-					<memberRef identifier="EnumerationCounter_m"/>
+					<memberRef identifier="EnumerationCounter_g"/>
 				</definitionLocation>
 				<fileOrigin name="Inverters_Action.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Inverters_Action.Opaque.EnumerationCounter_m">
-				<name>EnumerationCounter_m</name>
+			<modelOrigin identifier="Inverters_Action.Opaque.EnumerationCounter_g">
+				<name>EnumerationCounter_g</name>
 				<modelLink href="Inverters_Action/Opaque"/>
 				<modelLocation>
 					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Subsystem9" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Blost-e Right" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Data Store Memory2" kind="mlsl:block"/>
-					<pathNode name="EnumerationCounter_m" kind="mlsl:signal"/>
+					<pathNode name="EnumerationCounter_g" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>

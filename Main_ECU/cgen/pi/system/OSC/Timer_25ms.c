@@ -20,9 +20,12 @@ extern void crossbarHook_32_9(void);
 extern void irt_OneStep_Sensors(void);
 extern void crossbarHook_32_10(void);
 extern void crossbarHook_32_11(void);
-extern void irt_OneStep_VDC(void);
+extern void irt_OneStep_SoC(void);
 extern void crossbarHook_32_12(void);
 extern void crossbarHook_32_13(void);
+extern void irt_OneStep_VDC(void);
+extern void crossbarHook_32_14(void);
+extern void crossbarHook_32_15(void);
 extern void rtioHook_32_0(void);
 
 
@@ -60,9 +63,12 @@ TASK(Timer_25ms)
 	irt_OneStep_Sensors();
 	crossbarHook_32_10();
 	crossbarHook_32_11();
-	irt_OneStep_VDC();
+	irt_OneStep_SoC();
 	crossbarHook_32_12();
 	crossbarHook_32_13();
+	irt_OneStep_VDC();
+	crossbarHook_32_14();
+	crossbarHook_32_15();
 	rtioHook_32_0();
 	
 #ifdef XCP_SLAVE

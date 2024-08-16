@@ -7,9 +7,9 @@
  *
  * Code generation for model "Power_Control".
  *
- * Model version              : 4.34
+ * Model version              : 4.35
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Thu Aug  1 13:09:29 2024
+ * C source code generated on : Wed Aug 14 01:48:02 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -234,7 +234,7 @@ static void Power_Control_output(void)
    *  Constant: '<Root>/Change_Factor'
    *  Constant: '<Root>/Inv_MaxTemp'
    *  Constant: '<Root>/Tolerance_Temp'
-   *  Gain: '<S7>/Torky'
+   *  Gain: '<S7>/Fluxy'
    *  Inport: '<Root>/Inv_L_TempIGBT'
    *  Inport: '<Root>/Torque_L'
    */
@@ -265,7 +265,7 @@ static void Power_Control_output(void)
    *  Constant: '<Root>/Change_Factor'
    *  Constant: '<Root>/Inv_MaxTemp'
    *  Constant: '<Root>/Tolerance_Temp'
-   *  Gain: '<S7>/Emy'
+   *  Gain: '<S7>/Saly'
    *  Inport: '<Root>/Inv_R_TempIGBT'
    *  Inport: '<Root>/Torque_R'
    */

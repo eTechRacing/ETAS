@@ -8,6 +8,16 @@
 #include "Ellipse_irtmacros.h"
 /* PATCH END */
 
+/* Patched in by the INTECRIO IRT target */
+/* PATCH BEGIN */
+#include "Ellipse_irtmacros.h"
+/* PATCH END */
+
+/* Patched in by the INTECRIO IRT target */
+/* PATCH BEGIN */
+#include "Ellipse_irtmacros.h"
+/* PATCH END */
+
 /*
  * Ellipse.h
  *
