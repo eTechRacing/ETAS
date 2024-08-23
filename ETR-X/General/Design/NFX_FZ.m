@@ -21,8 +21,33 @@ NFX_113=NFX(7:680,1);
 %% Curvefitter
 X1=[-1049.64 -840.95 -640.22 -207.59];
 Y1=[2.99 3.05 3.1 4.12];
+%curveFitter(X1, Y1)
+a1=    4.3810; 
+b1=    0.0004;
+f1=@(x) a1*exp(b1*x);
+
 X2=[-1089 -873.08 -673.87 -218.63];
 Y2=[-2.83 -2.87 -2.99 -3.82];
+curveFitter(X2,Y2)
+Fit Name: untitled fit 4
+
+Polynomial Curve Fit (poly1)
+f(x) = p1*x + p2
+
+Coefficients and 95% Confidence Bounds
+       Value      Lower      Upper  
+p1    -0.0012    -0.0025    0.0001 
+p2    -3.9744    -4.9666    -2.9822
+
+Goodness of Fit
+            Value  
+SSE         0.0717
+R-square    0.8902
+DFE         2.0000
+Adj R-sq    0.8354
+RMSE        0.1893
+
+%{
 %curveFitter(X1,Y1)
 p1=    0.0014;
 p2=    4.2601;
@@ -42,6 +67,7 @@ hold off
 legend('IA=0deg, FZ=22.680kg','IA=0deg, FZ=68.039kg','IA=0deg, FZ=90.718kg','IA=0deg, FZ=113.380kg')
 xlabel('FZ (N)')
 ylabel('FX/FZ (N)')
+%}
 
 
 
