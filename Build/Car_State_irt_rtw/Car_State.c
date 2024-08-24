@@ -7,9 +7,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 13.15
+ * Model version              : 13.16
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Wed Aug 14 01:46:36 2024
+ * C source code generated on : Sun Aug 25 00:52:07 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -501,26 +501,26 @@ static void Car_State_output(void)
   } else if ((rtb_CarState == 15) && (Car_State_U.APPS1_Value < 0.2) &&
              (Car_State_U.APPS1_Value > 0.02)) {
     /* Outputs for IfAction SubSystem: '<S9>/EnableInv' incorporates:
-     *  ActionPort: '<S35>/Action Port'
+     *  ActionPort: '<S36>/Action Port'
      */
     /* Outport: '<Root>/InvertersAction' incorporates:
-     *  Constant: '<S35>/Constant'
-     *  SignalConversion generated from: '<S35>/21'
+     *  Constant: '<S36>/Constant'
+     *  SignalConversion generated from: '<S36>/21'
      */
     Car_State_Y.InvertersAction = 21.0;
 
     /* End of Outputs for SubSystem: '<S9>/EnableInv' */
   } else if ((rtb_CarState == 15) && (Car_State_U.APPS1_Value < 0.02)) {
-    /* Outputs for IfAction SubSystem: '<S9>/EnableInv1' incorporates:
-     *  ActionPort: '<S36>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S9>/DisableInv' incorporates:
+     *  ActionPort: '<S35>/Action Port'
      */
     /* Outport: '<Root>/InvertersAction' incorporates:
-     *  Constant: '<S36>/Constant'
-     *  SignalConversion generated from: '<S36>/20'
+     *  Constant: '<S35>/Constant'
+     *  SignalConversion generated from: '<S35>/20'
      */
     Car_State_Y.InvertersAction = 20.0;
 
-    /* End of Outputs for SubSystem: '<S9>/EnableInv1' */
+    /* End of Outputs for SubSystem: '<S9>/DisableInv' */
   } else {
     /* Outputs for IfAction SubSystem: '<S9>/NoRTD' incorporates:
      *  ActionPort: '<S37>/Action Port'

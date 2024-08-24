@@ -3,20 +3,20 @@
 #include "../a_basdef.h"
 #include "osc_dyn.h"
 
-extern void crossbarHook_20_0(void);
-extern void rtioHook_20_0(void);
+extern void crossbarHook_21_0(void);
+extern void rtioHook_21_0(void);
 
 
-TASK_MONITOR_DEF(SWT_CAN2_AP_ELLIPSE_VEL_Valid, thread23);
+TASK_MONITOR_DEF(SWT_CAN2_AP_ELLIPSE_VEL_Valid, thread24);
 
 TASK(SWT_CAN2_AP_ELLIPSE_VEL_Valid)
 {
 	START_TASK_HOOK(SWT_CAN2_AP_ELLIPSE_VEL_Valid);
 
-	sgHook(20);
+	sgHook(21);
 
 #ifdef FEATURE_LABCAR_SG
-    labcar_sgHook(20);
+    labcar_sgHook(21);
 #endif
     
 #ifdef XCP_SLAVE
@@ -24,8 +24,8 @@ TASK(SWT_CAN2_AP_ELLIPSE_VEL_Valid)
     XCP_STIM_SWT_CAN2_AP_ELLIPSE_VEL_Valid
 #endif
 #endif
-	crossbarHook_20_0();
-	rtioHook_20_0();
+	crossbarHook_21_0();
+	rtioHook_21_0();
 	
 #ifdef XCP_SLAVE
 #if defined XCP_DAQ_SWT_CAN2_AP_ELLIPSE_VEL_Valid

@@ -22,9 +22,9 @@
 	<moduleInfo identifier="Ellipse">
 		<name>Ellipse</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Ellipse.slx&quot;"/>
-		<version major="13" minor="13"/>
+		<version major="13" minor="14"/>
 		<dateTime kind="created" year="2022" month="8" day="20" hour="10" minute="22" second="41"/>
-		<dateTime kind="lastModified" year="2024" month="7" day="18" hour="13" minute="15" second="8"/>
+		<dateTime kind="lastModified" year="2024" month="8" day="24" hour="23" minute="26" second="46"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="7" day="27" hour="11" minute="9" second="42"/>
+		<dateTime kind="created" year="2024" month="8" day="25" hour="0" minute="52" second="58"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -241,6 +241,36 @@
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/el_Vel_EKF_Z</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="el_AngleTrack">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_AngleTrack</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="el_CurvatureRadius">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_CurvatureRadius</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="el_SlipAngle">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_SlipAngle</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="el_Slip_Valid">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_Slip_Valid</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="el_Curvature_Valid">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_Curvature_Valid</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -681,6 +711,161 @@
 				</address>
 			</usage>
 		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.el_AngleTrack">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="el_AngleTrack"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.el_AngleTrack">
+				<name>el_AngleTrack</name>
+				<modelLink href="Ellipse/el_AngleTrack"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="el_AngleTrack" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.el_CurvatureRadius">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="el_CurvatureRadius"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.el_CurvatureRadius">
+				<name>el_CurvatureRadius</name>
+				<modelLink href="Ellipse/el_CurvatureRadius"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="el_CurvatureRadius" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.el_SlipAngle">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="el_SlipAngle"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.el_SlipAngle">
+				<name>el_SlipAngle</name>
+				<modelLink href="Ellipse/el_SlipAngle"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="el_SlipAngle" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.el_Slip_Valid">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="el_Slip_Valid"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.el_Slip_Valid">
+				<name>el_Slip_Valid</name>
+				<modelLink href="Ellipse/el_Slip_Valid"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="el_Slip_Valid" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Ellipse_U.el_Curvature_Valid">
+				<definitionLocation>
+					<baseRef identifier="Ellipse_U"/>
+					<memberRef identifier="el_Curvature_Valid"/>
+				</definitionLocation>
+				<fileOrigin name="Ellipse.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Ellipse.el_Curvature_Valid">
+				<name>el_Curvature_Valid</name>
+				<modelLink href="Ellipse/el_Curvature_Valid"/>
+				<modelLocation>
+					<pathNode name="Ellipse" kind="mlsl:model"/>
+					<pathNode name="el_Curvature_Valid" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Ellipse_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
 		<!-- rtY output ports following -->
 		<dataElement interfaceKind="export">
 			<dataCInterface identifier="Ellipse_Y.el_VEL">
@@ -806,6 +991,11 @@
 						<message identifier="Ellipse_U.el_Vel_GPS_D" send="false"></message>
 						<message identifier="Ellipse_U.el_Vel_EKF_Y" send="false"></message>
 						<message identifier="Ellipse_U.el_Vel_EKF_Z" send="false"></message>
+						<message identifier="Ellipse_U.el_AngleTrack" send="false"></message>
+						<message identifier="Ellipse_U.el_CurvatureRadius" send="false"></message>
+						<message identifier="Ellipse_U.el_SlipAngle" send="false"></message>
+						<message identifier="Ellipse_U.el_Slip_Valid" send="false"></message>
+						<message identifier="Ellipse_U.el_Curvature_Valid" send="false"></message>
 						<message identifier="Ellipse_Y.el_VEL" send="true"></message>
 						<message identifier="Ellipse_Y.el_Vel_OK" send="true"></message>
 					</messageAccess>

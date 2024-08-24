@@ -7,15 +7,21 @@
 <!ENTITY _5787 SYSTEM "OSrv://ObjectHandle#5787" NDATA _OIDLink >
 <!ENTITY _5838 SYSTEM "OSrv://ObjectHandle#5838" NDATA _OIDLink >
 <!ENTITY _5844 SYSTEM "OSrv://ObjectHandle#5844" NDATA _OIDLink >
+<!ENTITY _6015 SYSTEM "OSrv://ObjectHandle#6015" NDATA _OIDLink >
+<!ENTITY _6022 SYSTEM "OSrv://ObjectHandle#6022" NDATA _OIDLink >
+<!ENTITY _6029 SYSTEM "OSrv://ObjectHandle#6029" NDATA _OIDLink >
 <!ENTITY _5712 SYSTEM "OSrv://ObjectHandle#5712" NDATA _OIDLink >
 <!ENTITY _5713 SYSTEM "OSrv://ObjectHandle#5713" NDATA _OIDLink >
 <!ENTITY _5715 SYSTEM "OSrv://ObjectHandle#5715" NDATA _OIDLink >
 <!ENTITY _5717 SYSTEM "OSrv://ObjectHandle#5717" NDATA _OIDLink >
+<!ENTITY _5966 SYSTEM "OSrv://ObjectHandle#5966" NDATA _OIDLink >
 <!ENTITY _5719 SYSTEM "OSrv://ObjectHandle#5719" NDATA _OIDLink >
+<!ENTITY _5967 SYSTEM "OSrv://ObjectHandle#5967" NDATA _OIDLink >
+<!ENTITY _5968 SYSTEM "OSrv://ObjectHandle#5968" NDATA _OIDLink >
 ]><YBOModule
 	Name="SoC"
 	ScoopIXSource="c:\users\joser\onedrive\documentos\github\etas\build\soc_irt_rtw\soc.six"
-	FileDateTime="133683021081114525"
+	FileDateTime="133690137125487339"
 	ModelingTool="MATLAB"
 	Kind="SOFTWARE"
 	VisibleName="SoC"
@@ -34,6 +40,15 @@
 	Type="YBOConnection"/><_LinkTarget
 	Name="Connection240"
 	Index="5844"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection252"
+	Index="6015"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection254"
+	Index="6022"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection256"
+	Index="6029"
 	Type="YBOConnection"/></_LinkTarget><_LinkTarget
 	Name="SoC"
 	Index="5712"
@@ -47,8 +62,17 @@
 	Name="SoC_U.Lowest_CellVoltage"
 	Index="5717"
 	Type="YBOSWPort"/><_LinkTarget
+	Name="SoC_U.Accumulator_Voltage"
+	Index="5966"
+	Type="YBOSWPort"/><_LinkTarget
 	Name="SoC_Y.SoC_KF"
 	Index="5719"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="SoC_Y.SoC_Avg"
+	Index="5967"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="SoC_Y.SoC_Low"
+	Index="5968"
 	Type="YBOSWPort"/></_LinkTarget></_LinkTarget></_System><YBOModule.Ports><YBOPortList><YBOSWPort
 	Name="SoC.SoC_5FU_5C.Accumulator_5FCurrent"
 	Size="REAL64"
@@ -85,7 +109,34 @@
 	LowerBound="-1.6999999999999999388e+308"
 	UpperBound="1.6999999999999999388e+308"
 	VisibleName="SoC_KF"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_5844"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort></YBOPortList></YBOModule.Ports><YBOModule.Processes><YBOProcessList><YBOProcess
+	EmbeddedLink.ofTypeYBOConnection="_5844"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="SoC.SoC_5FU_5C.Accumulator_5FVoltage"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="IN"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Accumulator_Voltage"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6015"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="SoC.SoC_5FY_5C.SoC_5FAvg"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="SoC_Avg"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6022"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="SoC.SoC_5FY_5C.SoC_5FLow"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="SoC_Low"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6029"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort></YBOPortList></YBOModule.Ports><YBOModule.Processes><YBOProcessList><YBOProcess
 	Name="SoC.irt_5FStart_5FSoC"
 	Kind="INITIALIZATION"
 	Priority="0.5"
@@ -119,14 +170,17 @@
 	Kind="SOURCE_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList><YBOSWPortRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOSWPort="_5713"/><YBOSWPortRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOSWPort="_5715"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_5717"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
+	EmbeddedLink.ofTypeYBOSWPort="_5717"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_5966"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
 	Name="SoC.irt_5FOneStep_5FSoC.irt_5FOneStep_5FSoC_5FSinkCopy"
 	Kind="SINK"
 	VisibleName="irt_OneStep_SoC_SinkCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
 	Name="SoC.irt_5FOneStep_5FSoC.irt_5FOneStep_5FSoC_5FSinkCopy.Action"
 	Hidden="TRUE"
 	Kind="SINK_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_5719"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess><YBOProcess
+	EmbeddedLink.ofTypeYBOSWPort="_5719"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_5967"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_5968"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess><YBOProcess
 	Name="SoC.irt_5FTerminate_5FSoC"
 	Kind="TERMINATION"
 	Priority="0.5"

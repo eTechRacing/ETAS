@@ -3,11 +3,6 @@
 #include "Car_State_irtmacros.h"
 /* PATCH END */
 
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "Car_State_irtmacros.h"
-/* PATCH END */
-
 /*
  * Car_State.h
  *
@@ -17,9 +12,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 13.15
+ * Model version              : 13.16
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Wed Aug 14 01:46:36 2024
+ * C source code generated on : Sun Aug 25 00:52:07 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1089,8 +1084,8 @@ extern RT_MODEL_Car_State_T *const Car_State_M;
  * '<S32>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/OK'
  * '<S33>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/Signal_Failure'
  * '<S34>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/Signal_OK'
- * '<S35>'  : 'Car_State/Inv_Action/EnableInv'
- * '<S36>'  : 'Car_State/Inv_Action/EnableInv1'
+ * '<S35>'  : 'Car_State/Inv_Action/DisableInv'
+ * '<S36>'  : 'Car_State/Inv_Action/EnableInv'
  * '<S37>'  : 'Car_State/Inv_Action/NoRTD'
  * '<S38>'  : 'Car_State/Inv_Action/TqEnable'
  * '<S39>'  : 'Car_State/PrechargeAssert Conditions/FALSE'

@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ellipse".
  *
- * Model version              : 13.13
+ * Model version              : 13.14
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jul 27 11:09:42 2024
+ * C source code generated on : Sun Aug 25 00:52:58 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

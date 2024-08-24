@@ -24,16 +24,24 @@ void setDeltaT_SoC(void);
 struct RTWTop_SoC_Class
 {
     ASDObjectHeader objectHeader;
+    scalarWrapper_Obj *RTWWrapper_SoC_B_AccuOCVtoSOC2024_Ptr;
     scalarWrapper_Obj *RTWWrapper_SoC_B_CellOCVtoSOC2024_Ptr;
     matrixWrapper_Obj *RTWWrapper_SoC_B_CoreSubsys_0__Pdot_Ptr;
     vectorWrapper_Obj *RTWWrapper_SoC_B_CoreSubsys_0__Sum2_Ptr;
     vectorWrapper_Obj *RTWWrapper_SoC_B_CoreSubsys_0__TmpSignalConversionAtIntegrator_Ptr;
-    scalarWrapper_Obj *RTWWrapper_SoC_B_Gain_Ptr;
+    matrixWrapper_Obj *RTWWrapper_SoC_B_CoreSubsys_p_0__Pdot_Ptr;
+    scalarWrapper_Obj *RTWWrapper_SoC_B_CoreSubsys_p_0__Sum2_Ptr;
+    vectorWrapper_Obj *RTWWrapper_SoC_B_CoreSubsys_p_0__Sum2_c_Ptr;
+    vectorWrapper_Obj *RTWWrapper_SoC_B_CoreSubsys_p_0__TmpSignalConversionAtIntegrator_Ptr;
     scalarWrapper_Obj *RTWWrapper_SoC_ConstB_CoreSubsys_Divide_Ptr;
+    scalarWrapper_Obj *RTWWrapper_SoC_ConstB_CoreSubsys_p_Divide_Ptr;
     scalarWrapper_Obj *RTWWrapper_SoC_U_Accumulator_Current_Ptr;
+    scalarWrapper_Obj *RTWWrapper_SoC_U_Accumulator_Voltage_Ptr;
     scalarWrapper_Obj *RTWWrapper_SoC_U_Average_CellTemp_Ptr;
     scalarWrapper_Obj *RTWWrapper_SoC_U_Lowest_CellVoltage_Ptr;
+    scalarWrapper_Obj *RTWWrapper_SoC_Y_SoC_Avg_Ptr;
     scalarWrapper_Obj *RTWWrapper_SoC_Y_SoC_KF_Ptr;
+    scalarWrapper_Obj *RTWWrapper_SoC_Y_SoC_Low_Ptr;
 };
 /* Definition of the class object structure */
 struct RTWTop_SoC_Obj

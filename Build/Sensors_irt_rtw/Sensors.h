@@ -13,6 +13,11 @@
 #include "Sensors_irtmacros.h"
 /* PATCH END */
 
+/* Patched in by the INTECRIO IRT target */
+/* PATCH BEGIN */
+#include "Sensors_irtmacros.h"
+/* PATCH END */
+
 /*
  * Sensors.h
  *

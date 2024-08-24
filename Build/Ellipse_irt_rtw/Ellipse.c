@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ellipse".
  *
- * Model version              : 13.13
+ * Model version              : 13.14
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jul 27 11:09:42 2024
+ * C source code generated on : Sun Aug 25 00:52:58 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -258,7 +258,7 @@ RT_MODEL_Ellipse_T *Ellipse(void)
   /* Initialize Sizes */
   Ellipse_M->Sizes.numContStates = (0);/* Number of continuous states */
   Ellipse_M->Sizes.numY = (2);         /* Number of model outputs */
-  Ellipse_M->Sizes.numU = (11);        /* Number of model inputs */
+  Ellipse_M->Sizes.numU = (16);        /* Number of model inputs */
   Ellipse_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Ellipse_M->Sizes.numSampTimes = (1); /* Number of sample times */
   Ellipse_M->Sizes.numBlocks = (20);   /* Number of blocks */

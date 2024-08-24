@@ -25,8 +25,13 @@ struct RTWTop_Ellipse_Class
 {
     ASDObjectHeader objectHeader;
     scalarWrapper_Obj *RTWWrapper_Ellipse_B_Merge_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Ellipse_U_el_AngleTrack_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Ellipse_U_el_CurvatureRadius_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Ellipse_U_el_Curvature_Valid_Ptr;
     scalarWrapper_Obj *RTWWrapper_Ellipse_U_el_LATITUDE_EKF_Ptr;
     scalarWrapper_Obj *RTWWrapper_Ellipse_U_el_LONGITUDE_EKF_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Ellipse_U_el_SlipAngle_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Ellipse_U_el_Slip_Valid_Ptr;
     scalarWrapper_Obj *RTWWrapper_Ellipse_U_el_SolutionMode_Ptr;
     scalarWrapper_Obj *RTWWrapper_Ellipse_U_el_Vel_EKF_Valid_Ptr;
     scalarWrapper_Obj *RTWWrapper_Ellipse_U_el_Vel_EKF_X_Ptr;

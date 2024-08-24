@@ -12,9 +12,9 @@
  *
  * Code generation for model "SoC".
  *
- * Model version              : 13.11
+ * Model version              : 13.15
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Fri Aug 16 19:14:06 2024
+ * C source code generated on : Sun Aug 25 00:54:54 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -877,68 +877,111 @@
 /* Block signals for system '<Root>/3RC_Accu' */
 typedef struct {
   real_T TmpSignalConversionAtIntegrator[4];
-  real_T Pdot[16];                     /* '<S4>/Sum' */
-  real_T Sum2[4];                      /* '<S4>/Sum2' */
+  real_T Pdot[16];                     /* '<S5>/Sum' */
+  real_T Sum2[4];                      /* '<S5>/Sum2' */
 } B_CoreSubsys_SoC_T;
 
 /* Block states (default storage) for system '<Root>/3RC_Accu' */
 typedef struct {
-  real_T Divide_DWORK4;                /* '<S4>/Divide' */
-  int_T Integrator1_IWORK;             /* '<S4>/Integrator1' */
+  real_T Divide_DWORK4;                /* '<S5>/Divide' */
+  int_T Integrator1_IWORK;             /* '<S5>/Integrator1' */
 } DW_CoreSubsys_SoC_T;
 
 /* Continuous states for system '<Root>/3RC_Accu' */
 typedef struct {
-  real_T Integrator1_CSTATE[4];        /* '<S4>/Integrator1' */
-  real_T Integrator_CSTATE[16];        /* '<S4>/Integrator' */
+  real_T Integrator1_CSTATE_g[4];      /* '<S5>/Integrator1' */
+  real_T Integrator_CSTATE_k[16];      /* '<S5>/Integrator' */
 } X_CoreSubsys_SoC_T;
 
 /* State derivatives for system '<Root>/3RC_Accu' */
 typedef struct {
-  real_T Integrator1_CSTATE[4];        /* '<S4>/Integrator1' */
-  real_T Integrator_CSTATE[16];        /* '<S4>/Integrator' */
+  real_T Integrator1_CSTATE_g[4];      /* '<S5>/Integrator1' */
+  real_T Integrator_CSTATE_k[16];      /* '<S5>/Integrator' */
 } XDot_CoreSubsys_SoC_T;
 
 /* State Disabled for system '<Root>/3RC_Accu' */
 typedef struct {
-  boolean_T Integrator1_CSTATE[4];     /* '<S4>/Integrator1' */
-  boolean_T Integrator_CSTATE[16];     /* '<S4>/Integrator' */
+  boolean_T Integrator1_CSTATE_g[4];   /* '<S5>/Integrator1' */
+  boolean_T Integrator_CSTATE_k[16];   /* '<S5>/Integrator' */
 } XDis_CoreSubsys_SoC_T;
+
+/* Block signals for system '<Root>/3RC_Cell' */
+typedef struct {
+  real_T TmpSignalConversionAtIntegrator[4];
+  real_T Sum2;                         /* '<S10>/Sum2' */
+  real_T Pdot[16];                     /* '<S11>/Sum' */
+  real_T Sum2_c[4];                    /* '<S11>/Sum2' */
+} B_CoreSubsys_SoC_c_T;
+
+/* Block states (default storage) for system '<Root>/3RC_Cell' */
+typedef struct {
+  real_T Divide_DWORK4;                /* '<S11>/Divide' */
+  int_T Integrator1_IWORK;             /* '<S11>/Integrator1' */
+} DW_CoreSubsys_SoC_f_T;
+
+/* Continuous states for system '<Root>/3RC_Cell' */
+typedef struct {
+  real_T Integrator1_CSTATE[4];        /* '<S11>/Integrator1' */
+  real_T Integrator_CSTATE[16];        /* '<S11>/Integrator' */
+} X_CoreSubsys_SoC_n_T;
+
+/* State derivatives for system '<Root>/3RC_Cell' */
+typedef struct {
+  real_T Integrator1_CSTATE[4];        /* '<S11>/Integrator1' */
+  real_T Integrator_CSTATE[16];        /* '<S11>/Integrator' */
+} XDot_CoreSubsys_SoC_n_T;
+
+/* State Disabled for system '<Root>/3RC_Cell' */
+typedef struct {
+  boolean_T Integrator1_CSTATE[4];     /* '<S11>/Integrator1' */
+  boolean_T Integrator_CSTATE[16];     /* '<S11>/Integrator' */
+} XDis_CoreSubsys_SoC_n_T;
 
 /* Block signals (default storage) */
 typedef struct {
-  real_T Gain;                         /* '<Root>/Gain' */
-  real_T CellOCVtoSOC2024;             /* '<Root>/CellOCV to SOC 2024' */
+  real_T CellOCVtoSOC2024;             /* '<Root>/Cell OCV to SOC 2024' */
+  real_T AccuOCVtoSOC2024;             /* '<Root>/Accu OCV to SOC 2024' */
+  B_CoreSubsys_SoC_c_T CoreSubsys_p[1];/* '<Root>/3RC_Cell' */
   B_CoreSubsys_SoC_T CoreSubsys[1];    /* '<Root>/3RC_Accu' */
 } B_SoC_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
+  DW_CoreSubsys_SoC_f_T CoreSubsys_p[1];/* '<Root>/3RC_Cell' */
   DW_CoreSubsys_SoC_T CoreSubsys[1];   /* '<Root>/3RC_Accu' */
 } DW_SoC_T;
 
 /* Continuous states (default storage) */
 typedef struct {
+  X_CoreSubsys_SoC_n_T CoreSubsys_p[1];/* '<S2>/CoreSubsys' */
   X_CoreSubsys_SoC_T CoreSubsys[1];    /* '<S1>/CoreSubsys' */
 } X_SoC_T;
 
 /* State derivatives (default storage) */
 typedef struct {
+  XDot_CoreSubsys_SoC_n_T CoreSubsys_p[1];/* '<S2>/CoreSubsys' */
   XDot_CoreSubsys_SoC_T CoreSubsys[1]; /* '<S1>/CoreSubsys' */
 } XDot_SoC_T;
 
 /* State disabled  */
 typedef struct {
+  XDis_CoreSubsys_SoC_n_T CoreSubsys_p[1];/* '<S2>/CoreSubsys' */
   XDis_CoreSubsys_SoC_T CoreSubsys[1]; /* '<S1>/CoreSubsys' */
 } XDis_SoC_T;
 
 /* Invariant block signals for system '<Root>/3RC_Accu' */
 typedef struct {
-  const real_T Divide;                 /* '<S4>/Divide' */
+  const real_T Divide;                 /* '<S5>/Divide' */
 } ConstB_CoreSubsys_SoC_T;
+
+/* Invariant block signals for system '<Root>/3RC_Cell' */
+typedef struct {
+  const real_T Divide;                 /* '<S11>/Divide' */
+} ConstB_CoreSubsys_SoC_h_T;
 
 /* Invariant block signals (default storage) */
 typedef struct {
+  ConstB_CoreSubsys_SoC_h_T CoreSubsys_p;/* '<Root>/3RC_Cell' */
   ConstB_CoreSubsys_SoC_T CoreSubsys;  /* '<Root>/3RC_Accu' */
 } ConstB_SoC_T;
 
@@ -956,6 +999,7 @@ typedef struct {
 /* External inputs (root inport signals with default storage) */
 typedef struct {
   real_T Accumulator_Current;          /* '<Root>/Accumulator_Current' */
+  real_T Accumulator_Voltage;          /* '<Root>/Accumulator_Voltage' */
   real_T Lowest_CellVoltage;           /* '<Root>/Lowest_CellVoltage' */
   real_T Average_CellTemp;             /* '<Root>/Average_CellTemp' */
 } ExtU_SoC_T;
@@ -963,6 +1007,8 @@ typedef struct {
 /* External outputs (root outports fed by signals with default storage) */
 typedef struct {
   real_T SoC_KF;                       /* '<Root>/SoC_KF' */
+  real_T SoC_Avg;                      /* '<Root>/SoC_Avg' */
+  real_T SoC_Low;                      /* '<Root>/SoC_Low' */
 } ExtY_SoC_T;
 
 /* Backward compatible GRT Identifiers */
@@ -1010,8 +1056,8 @@ struct tag_RTM_SoC_T {
   boolean_T zCCacheNeedsReset;
   boolean_T derivCacheNeedsReset;
   boolean_T CTOutputIncnstWithState;
-  real_T odeY[20];
-  real_T odeF[3][20];
+  real_T odeY[40];
+  real_T odeF[3][40];
   ODE3_IntgData intgData;
   void *dwork;
 
@@ -1144,11 +1190,18 @@ extern RT_MODEL_SoC_T *const SoC_M;
  *
  * '<Root>' : 'SoC'
  * '<S1>'   : 'SoC/3RC_Accu'
- * '<S2>'   : 'SoC/3RC_Accu/EKF 3RC'
- * '<S3>'   : 'SoC/3RC_Accu/EKF 3RC/Jacobian'
- * '<S4>'   : 'SoC/3RC_Accu/EKF 3RC/Prediction-correction'
- * '<S5>'   : 'SoC/3RC_Accu/EKF 3RC/Jacobian/Tau 1'
- * '<S6>'   : 'SoC/3RC_Accu/EKF 3RC/Jacobian/Tau 2'
- * '<S7>'   : 'SoC/3RC_Accu/EKF 3RC/Jacobian/Tau 3'
+ * '<S2>'   : 'SoC/3RC_Cell'
+ * '<S3>'   : 'SoC/3RC_Accu/EKF 3RC'
+ * '<S4>'   : 'SoC/3RC_Accu/EKF 3RC/Jacobian'
+ * '<S5>'   : 'SoC/3RC_Accu/EKF 3RC/Prediction-correction'
+ * '<S6>'   : 'SoC/3RC_Accu/EKF 3RC/Jacobian/Tau 1'
+ * '<S7>'   : 'SoC/3RC_Accu/EKF 3RC/Jacobian/Tau 2'
+ * '<S8>'   : 'SoC/3RC_Accu/EKF 3RC/Jacobian/Tau 3'
+ * '<S9>'   : 'SoC/3RC_Cell/EKF 3RC'
+ * '<S10>'  : 'SoC/3RC_Cell/EKF 3RC/Jacobian'
+ * '<S11>'  : 'SoC/3RC_Cell/EKF 3RC/Prediction-correction'
+ * '<S12>'  : 'SoC/3RC_Cell/EKF 3RC/Jacobian/Tau 1'
+ * '<S13>'  : 'SoC/3RC_Cell/EKF 3RC/Jacobian/Tau 2'
+ * '<S14>'  : 'SoC/3RC_Cell/EKF 3RC/Jacobian/Tau 3'
  */
 #endif                                 /* RTW_HEADER_SoC_h_ */

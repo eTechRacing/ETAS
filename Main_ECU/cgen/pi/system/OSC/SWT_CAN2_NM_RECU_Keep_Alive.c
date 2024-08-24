@@ -3,20 +3,20 @@
 #include "../a_basdef.h"
 #include "osc_dyn.h"
 
-extern void crossbarHook_28_0(void);
-extern void rtioHook_28_0(void);
+extern void crossbarHook_29_0(void);
+extern void rtioHook_29_0(void);
 
 
-TASK_MONITOR_DEF(SWT_CAN2_NM_RECU_Keep_Alive, thread26);
+TASK_MONITOR_DEF(SWT_CAN2_NM_RECU_Keep_Alive, thread27);
 
 TASK(SWT_CAN2_NM_RECU_Keep_Alive)
 {
 	START_TASK_HOOK(SWT_CAN2_NM_RECU_Keep_Alive);
 
-	sgHook(28);
+	sgHook(29);
 
 #ifdef FEATURE_LABCAR_SG
-    labcar_sgHook(28);
+    labcar_sgHook(29);
 #endif
     
 #ifdef XCP_SLAVE
@@ -24,8 +24,8 @@ TASK(SWT_CAN2_NM_RECU_Keep_Alive)
     XCP_STIM_SWT_CAN2_NM_RECU_Keep_Alive
 #endif
 #endif
-	crossbarHook_28_0();
-	rtioHook_28_0();
+	crossbarHook_29_0();
+	rtioHook_29_0();
 	
 #ifdef XCP_SLAVE
 #if defined XCP_DAQ_SWT_CAN2_NM_RECU_Keep_Alive

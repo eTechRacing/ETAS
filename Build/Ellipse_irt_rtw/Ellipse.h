@@ -3,21 +3,6 @@
 #include "Ellipse_irtmacros.h"
 /* PATCH END */
 
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "Ellipse_irtmacros.h"
-/* PATCH END */
-
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "Ellipse_irtmacros.h"
-/* PATCH END */
-
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "Ellipse_irtmacros.h"
-/* PATCH END */
-
 /*
  * Ellipse.h
  *
@@ -27,9 +12,9 @@
  *
  * Code generation for model "Ellipse".
  *
- * Model version              : 13.13
+ * Model version              : 13.14
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jul 27 11:09:42 2024
+ * C source code generated on : Sun Aug 25 00:52:58 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -891,6 +876,11 @@ typedef struct {
   real_T el_Vel_GPS_D;                 /* '<Root>/el_Vel_GPS_D' */
   real_T el_Vel_EKF_Y;                 /* '<Root>/el_Vel_EKF_Y' */
   real_T el_Vel_EKF_Z;                 /* '<Root>/el_Vel_EKF_Z' */
+  real_T el_AngleTrack;                /* '<Root>/el_AngleTrack' */
+  real_T el_CurvatureRadius;           /* '<Root>/el_CurvatureRadius' */
+  real_T el_SlipAngle;                 /* '<Root>/el_SlipAngle' */
+  real_T el_Slip_Valid;                /* '<Root>/el_Slip_Valid' */
+  real_T el_Curvature_Valid;           /* '<Root>/el_Curvature_Valid' */
 } ExtU_Ellipse_T;
 
 /* External outputs (root outports fed by signals with default storage) */
