@@ -28,10 +28,19 @@ struct RTWTop_VDC_Class
     scalarWrapper_Obj *RTWWrapper_VDC_B_Merge2_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_B_Merge3_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_B_Merge4_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDC_B_Merge6_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDC_B_TC_Warning_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDC_B_TC_Warning_l_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_B_sf_MATLABFunction_Torque_L_Nm_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_B_sf_MATLABFunction_Torque_R_Nm_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_B_sf_MATLABFunction_a_Torque_L_Nm_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_B_sf_MATLABFunction_a_Torque_R_Nm_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDC_B_sf_RigidAxlewithTC2024_c_Motor_Torque_RL_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDC_B_sf_RigidAxlewithTC2024_c_Motor_Torque_RR_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDC_B_sf_RigidAxlewithTC2024_c_TC_Warning_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDC_B_sf_RigidAxlewithTC2024_p2_Motor_Torque_RL_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDC_B_sf_RigidAxlewithTC2024_p2_Motor_Torque_RR_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDC_B_sf_RigidAxlewithTC2024_p2_TC_Warning_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_B_sf_Torquedemandedbythedriver_a_Throttle_Torque_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_B_sf_Torquedemandedbythedriver_k_Throttle_Torque_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_B_sf_Torquedemandedbythedriver_m_Throttle_Torque_Ptr;
@@ -70,6 +79,7 @@ struct RTWTop_VDC_Class
     scalarWrapper_Obj *RTWWrapper_VDC_Y_BrakeLight_Control_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_Y_Regenerative_Enable_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_Y_Sensorics_Mode_Ptr;
+    scalarWrapper_Obj *RTWWrapper_VDC_Y_TC_Warning_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_Y_Throttle_Torque_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_Y_Torque_L_Ptr;
     scalarWrapper_Obj *RTWWrapper_VDC_Y_Torque_OK_Ptr;

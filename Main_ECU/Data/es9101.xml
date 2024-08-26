@@ -42,6 +42,7 @@
 <!ENTITY _5874 SYSTEM "OSrv://ObjectHandle#5874" NDATA _OIDLink >
 <!ENTITY _5875 SYSTEM "OSrv://ObjectHandle#5875" NDATA _OIDLink >
 <!ENTITY _769 SYSTEM "OSrv://ObjectHandle#769" NDATA _OIDLink >
+<!ENTITY _6354 SYSTEM "OSrv://ObjectHandle#6354" NDATA _OIDLink >
 <!ENTITY _770 SYSTEM "OSrv://ObjectHandle#770" NDATA _OIDLink >
 <!ENTITY _771 SYSTEM "OSrv://ObjectHandle#771" NDATA _OIDLink >
 <!ENTITY _767 SYSTEM "OSrv://ObjectHandle#767" NDATA _OIDLink >
@@ -259,6 +260,9 @@
 	Type="YBOConnection"/><_LinkTarget
 	Name="Connection12"
 	Index="769"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection144"
+	Index="6354"
 	Type="YBOConnection"/><_LinkTarget
 	Name="Connection13"
 	Index="770"
@@ -1087,7 +1091,8 @@
 	PortType="BOOLEAN"
 	Direction="IN"
 	UpperBound="1."
-	VisibleName="TC_Warning"><YBOHWPort.Connections><YBOConnectionRefList/></YBOHWPort.Connections></YBOHWPort><YBOHWPort
+	VisibleName="TC_Warning"><YBOHWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_6354"/></YBOConnectionRefList></YBOHWPort.Connections></YBOHWPort><YBOHWPort
 	Name="ES9101.ES9102.CAN1.CAN1.MEAS_5FETAS_5FInternalVars.Regenerative_5FEnable"
 	Unit="Bit"
 	Size="REAL64"
@@ -1585,34 +1590,6 @@
 	Name="ES9101.ES9102.CAN2.CAN2.MEAS_5FRECU_5FSDC.Event"/></YBOEventList></YBOSignalGroup.Events><YBOSignalGroup.Actions><YBOActionList><YBOAction
 	Name="ES9101.ES9102.CAN2.CAN2.MEAS_5FRECU_5FSDC.Action"
 	Kind="READ"/></YBOActionList></YBOSignalGroup.Actions></YBOSignalGroup><YBOSignalGroup
-	Name="ES9101.ES9102.CAN2.CAN2.MEAS_5FFECU_5FSDC"
-	Direction="RECEIVE"
-	IRQTriggered="TRUE"
-	VisibleName="MEAS_FECU_SDC"><YBOSignalGroup.Ports><YBOPortList><YBOHWPort
-	Name="ES9101.ES9102.CAN2.CAN2.MEAS_5FFECU_5FSDC.Shutdown_5FSC_5FBOTS"
-	Unit="Bit"
-	Size="REAL64"
-	PortType="BOOLEAN"
-	Saturated="FALSE"
-	Direction="OUT"
-	VisibleName="Shutdown_SC_BOTS"><YBOHWPort.Connections><YBOConnectionRefList/></YBOHWPort.Connections></YBOHWPort><YBOHWPort
-	Name="ES9101.ES9102.CAN2.CAN2.MEAS_5FFECU_5FSDC.Shutdown_5FBSPD_5FInertia"
-	Unit="Bit"
-	Size="REAL64"
-	PortType="BOOLEAN"
-	Saturated="FALSE"
-	Direction="OUT"
-	VisibleName="Shutdown_BSPD_Inertia"><YBOHWPort.Connections><YBOConnectionRefList/></YBOHWPort.Connections></YBOHWPort><YBOHWPort
-	Name="ES9101.ES9102.CAN2.CAN2.MEAS_5FFECU_5FSDC.Shutdown_5FSetas"
-	Unit="Bit"
-	Size="REAL64"
-	PortType="BOOLEAN"
-	Saturated="FALSE"
-	Direction="OUT"
-	VisibleName="Shutdown_Setas"><YBOHWPort.Connections><YBOConnectionRefList/></YBOHWPort.Connections></YBOHWPort></YBOPortList></YBOSignalGroup.Ports><YBOSignalGroup.Events><YBOEventList><YBOEvent
-	Name="ES9101.ES9102.CAN2.CAN2.MEAS_5FFECU_5FSDC.Event"/></YBOEventList></YBOSignalGroup.Events><YBOSignalGroup.Actions><YBOActionList><YBOAction
-	Name="ES9101.ES9102.CAN2.CAN2.MEAS_5FFECU_5FSDC.Action"
-	Kind="READ"/></YBOActionList></YBOSignalGroup.Actions></YBOSignalGroup><YBOSignalGroup
 	Name="ES9101.ES9102.CAN2.CAN2.AP_5FELLIPSE_5FEKF_5FPOS"
 	Direction="RECEIVE"
 	IRQTriggered="TRUE"
@@ -2033,13 +2010,27 @@
 	Direction="RECEIVE"
 	IRQTriggered="TRUE"
 	VisibleName="AP_FECU_Data2"><YBOSignalGroup.Ports><YBOPortList><YBOHWPort
-	Name="ES9101.ES9102.CAN2.CAN2.AP_5FFECU_5FData2.Pitot_5FBits"
-	Unit="Bits"
+	Name="ES9101.ES9102.CAN2.CAN2.AP_5FFECU_5FData2.Shutdown_5FSC_5FBOTS"
+	Unit="Bit"
 	Size="REAL64"
-	PortType="UDISCRETE"
+	PortType="BOOLEAN"
 	Saturated="FALSE"
 	Direction="OUT"
-	VisibleName="Pitot_Bits"><YBOHWPort.Connections><YBOConnectionRefList/></YBOHWPort.Connections></YBOHWPort><YBOHWPort
+	VisibleName="Shutdown_SC_BOTS"><YBOHWPort.Connections><YBOConnectionRefList/></YBOHWPort.Connections></YBOHWPort><YBOHWPort
+	Name="ES9101.ES9102.CAN2.CAN2.AP_5FFECU_5FData2.Shutdown_5FBSPD_5FInertia"
+	Unit="Bit"
+	Size="REAL64"
+	PortType="BOOLEAN"
+	Saturated="FALSE"
+	Direction="OUT"
+	VisibleName="Shutdown_BSPD_Inertia"><YBOHWPort.Connections><YBOConnectionRefList/></YBOHWPort.Connections></YBOHWPort><YBOHWPort
+	Name="ES9101.ES9102.CAN2.CAN2.AP_5FFECU_5FData2.Shutdown_5FSetas"
+	Unit="Bit"
+	Size="REAL64"
+	PortType="BOOLEAN"
+	Saturated="FALSE"
+	Direction="OUT"
+	VisibleName="Shutdown_Setas"><YBOHWPort.Connections><YBOConnectionRefList/></YBOHWPort.Connections></YBOHWPort><YBOHWPort
 	Name="ES9101.ES9102.CAN2.CAN2.AP_5FFECU_5FData2.Susp_5FF_5FR_5FBits"
 	Unit="Bits"
 	Size="REAL64"

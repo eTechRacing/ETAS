@@ -5,8 +5,8 @@
 	<Name value="Main_ECU"/>
 	<Caption value="Main_ECU"/>
 	<DateTimeCreated value="2024-04-20T01:28:13.0Z"/>
-	<DateTimeLastOpened value="2024-08-24T23:30:08.0Z"/>
-	<DateTimeLastSaved value="2024-08-24T23:30:08.0Z"/>
+	<DateTimeLastOpened value="2024-08-26T16:46:07.0Z"/>
+	<DateTimeLastSaved value="2024-08-26T16:46:07.0Z"/>
 	<VersionCreated value="5.0.5.1003"/>
 	<VersionLastSaved value="5.0.5.1003"/>
 	<VersionMinRequired value="5.0.5.1001"/>
@@ -5619,15 +5619,15 @@
 							<Company value=""/>
 							<UserRole value="modifier"/>
 							<DateTimeCreated value="2024-3-15T15:34:18.0Z"/>
-							<Version value="4.204"/>
+							<Version value="4.206"/>
 							<ModelLink value="mlsl:\\\&quot;C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\VDC.slx&quot;"/>
-							<DateTimeModified value="2024-8-24T13:40:32.0Z"/>
+							<DateTimeModified value="2024-8-26T16:46:24.0Z"/>
 							<Description/>
 							<InterfaceFile>
 								<Name value="vdc.six"/>
 								<Path value="c:\users\joser\onedrive\documentos\github\etas\build\vdc_irt_rtw\vdc.six"/>
 								<Kind value="SCOOP-IX"/>
-								<DateTime value="2024-08-25T00:56:02.0Z"/>
+								<DateTime value="2024-08-26T16:47:12.0Z"/>
 							</InterfaceFile>
 							<Suitabilities>
 								<Suitability>
@@ -5756,7 +5756,7 @@
 							</File>
 						</FileContainer>
 						<Interface>
-							<Ports portCount="38">
+							<Ports portCount="39">
 								<Port id="Handle_1983_VDC.VDC_U\.el_ACCEL_X">
 									<ID value="VDC.VDC_U\.el_ACCEL_X"/>
 									<ShortId value="VDC_U.el_ACCEL_X"/>
@@ -6745,6 +6745,32 @@
 										<Kind value="Linear"/>
 									</QuantizationFormula>
 								</Port>
+								<Port id="Handle_3257_VDC.VDC_Y\.TC_Warning">
+									<ID value="VDC.VDC_Y\.TC_Warning"/>
+									<ShortId value="VDC_Y.TC_Warning"/>
+									<Name value="VDC.TC_Warning"/>
+									<Caption value="TC_Warning"/>
+									<Direction value="Out"/>
+									<Type value="continuous"/>
+									<Size value="real64"/>
+									<Unit value=""/>
+									<LowerBound value="-1.7E+308"/>
+									<UpperBound value="1.7E+308"/>
+									<Saturated value="true"/>
+									<RepresentationFormat value="Implemented"/>
+									<InitValue value="0"/>
+									<Kind value="ModulePort"/>
+									<Connected value="true"/>
+									<QuantizationFormula id="Handle_3257_VDC.VDC_Y\.TC_Warning">
+										<ID value="VDC.VDC_Y\.TC_Warning"/>
+										<ShortId value="VDC_Y.TC_Warning"/>
+										<Name value="TC_Warning"/>
+										<Caption value="TC_Warning"/>
+										<ParamM value="1"/>
+										<ParamT value="0"/>
+										<Kind value="Linear"/>
+									</QuantizationFormula>
+								</Port>
 							</Ports>
 							<Processes>
 								<Process id="Handle_1377_VDC.irt_Start_VDC">
@@ -6829,6 +6855,7 @@
 										<MessageReference targetRef="Handle_2018_VDC.VDC_Y\.Regenerative_Enable"/>
 										<MessageReference targetRef="Handle_2019_VDC.VDC_Y\.Throttle_Torque"/>
 										<MessageReference targetRef="Handle_2020_VDC.VDC_Y\.Sensorics_Mode"/>
+										<MessageReference targetRef="Handle_3257_VDC.VDC_Y\.TC_Warning"/>
 									</MessageReferences>
 								</Process>
 								<Process id="Handle_1383_VDC.irt_Terminate_VDC">
@@ -7318,7 +7345,7 @@
 					<SoftwareMetaInfo functionCount="0" moduleCount="10"/>
 					<Kind value="Software"/>
 					<Interface>
-						<Ports portCount="146">
+						<Ports portCount="147">
 							<Port id="Handle_1217_SoftwareSystem.SAP">
 								<ID value="SoftwareSystem.SAP"/>
 								<ShortId value="SAP"/>
@@ -11115,9 +11142,35 @@
 									<Kind value="Linear"/>
 								</QuantizationFormula>
 							</Port>
+							<Port id="Handle_3258_SoftwareSystem.SAP13">
+								<ID value="SoftwareSystem.SAP13"/>
+								<ShortId value="SAP13"/>
+								<Name value="out"/>
+								<Caption value="VDC.TC_Warning"/>
+								<Direction value="Out"/>
+								<Type value="continuous"/>
+								<Size value="real64"/>
+								<Unit value=""/>
+								<LowerBound value="-1.7E+308"/>
+								<UpperBound value="1.7E+308"/>
+								<Saturated value="true"/>
+								<RepresentationFormat value="Implemented"/>
+								<InitValue value="0"/>
+								<Kind value="FunctionPort"/>
+								<Connected value="true"/>
+								<QuantizationFormula id="Handle_3257_VDC.VDC_Y\.TC_Warning">
+									<ID value="VDC.VDC_Y\.TC_Warning"/>
+									<ShortId value="VDC_Y.TC_Warning"/>
+									<Name value="TC_Warning"/>
+									<Caption value="TC_Warning"/>
+									<ParamM value="1"/>
+									<ParamT value="0"/>
+									<Kind value="Linear"/>
+								</QuantizationFormula>
+							</Port>
 						</Ports>
 					</Interface>
-					<Connections connectionCount="183">
+					<Connections connectionCount="184">
 						<Connection id="Handle_609_SoftwareSystem.Connection4">
 							<ID value="SoftwareSystem.Connection4"/>
 							<ShortId value="Connection4"/>
@@ -13863,6 +13916,21 @@
 								<Name value="SoC.SoC_Low"/>
 							</SinkPortRef>
 						</Connection>
+						<Connection id="Handle_3263_SoftwareSystem.Connection257">
+							<ID value="SoftwareSystem.Connection257"/>
+							<ShortId value="Connection257"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_3257_VDC.VDC_Y\.TC_Warning">
+								<Name value="TC_Warning"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_3258_SoftwareSystem.SAP13">
+								<Name value="VDC.TC_Warning"/>
+							</SinkPortRef>
+						</Connection>
 					</Connections>
 					<EmbeddedComponents>
 						<Functions>
@@ -13894,7 +13962,7 @@
 					<Caption value="ETAS"/>
 					<Kind value="StandardSystem"/>
 					<SystemMetaInfo>
-						<ProgramIdentifier value="0xece7a307"/>
+						<ProgramIdentifier value="0x9d09cd65"/>
 					</SystemMetaInfo>
 					<Hardware id="Handle_1389_System.YBOMappedECU" refId="">
 						<ID value="System.YBOMappedECU"/>
@@ -15902,7 +15970,7 @@
 																		<ShortId value="TC_Warning"/>
 																		<Name value="CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning"/>
 																		<Caption value="TC_Warning"/>
-																		<Connected value="false"/>
+																		<Connected value="true"/>
 																		<Type value="boolean"/>
 																		<Unit value="Bit"/>
 																		<RepresentationFormat value="Physical"/>
@@ -17536,7 +17604,7 @@
 																	<ShortId value="TC_Warning"/>
 																	<Name value="CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning"/>
 																	<Caption value="TC_Warning"/>
-																	<Connected value="false"/>
+																	<Connected value="true"/>
 																	<Type value="boolean"/>
 																	<Unit value="Bit"/>
 																	<RepresentationFormat value="Physical"/>
@@ -19220,109 +19288,6 @@
 																	</Signal>
 																</Signals>
 															</SignalGroup>
-															<SignalGroup id="Handle_284_ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC">
-																<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC"/>
-																<ShortId value="MEAS_FECU_SDC"/>
-																<Name value="MEAS_FECU_SDC"/>
-																<Caption value="MEAS_FECU_SDC"/>
-																<Direction value="Out"/>
-																<Enabled value="true"/>
-																<IrqTriggered value="true"/>
-																<HardwareActions>
-																	<HardwareAction id="Handle_923_ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Action">
-																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Action"/>
-																		<ShortId value="Action"/>
-																		<Name value="MEAS_FECU_SDC"/>
-																		<Caption value="CAN2.MEAS_FECU_SDC"/>
-																		<ProvidedBy value=""/>
-																		<HiddenAction value="false"/>
-																		<Kind value="ReadAction"/>
-																	</HardwareAction>
-																</HardwareActions>
-																<Signals>
-																	<Signal id="Handle_285_ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_SC_BOTS">
-																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_SC_BOTS"/>
-																		<ShortId value="Shutdown_SC_BOTS"/>
-																		<Name value="CAN2.CAN2.MEAS_FECU_SDC.Shutdown_SC_BOTS"/>
-																		<Caption value="Shutdown_SC_BOTS"/>
-																		<Connected value="false"/>
-																		<Type value="boolean"/>
-																		<Unit value="Bit"/>
-																		<RepresentationFormat value="Physical"/>
-																		<Direction value="Out"/>
-																		<InitValue value="0"/>
-																		<Size value="real64"/>
-																		<LowerBound value="0"/>
-																		<Kind value="HardwarePort"/>
-																		<UpperBound value="0"/>
-																		<Saturated value="false"/>
-																		<QuantizationFormula id="Handle_285_ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_SC_BOTS">
-																			<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_SC_BOTS"/>
-																			<ShortId value="Shutdown_SC_BOTS"/>
-																			<Name value="Shutdown_SC_BOTS"/>
-																			<Caption value="Shutdown_SC_BOTS"/>
-																			<ParamM value="1"/>
-																			<ParamT value="0"/>
-																			<Kind value="Linear"/>
-																		</QuantizationFormula>
-																		<RtioRefId value="113"/>
-																	</Signal>
-																	<Signal id="Handle_286_ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_BSPD_Inertia">
-																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_BSPD_Inertia"/>
-																		<ShortId value="Shutdown_BSPD_Inertia"/>
-																		<Name value="CAN2.CAN2.MEAS_FECU_SDC.Shutdown_BSPD_Inertia"/>
-																		<Caption value="Shutdown_BSPD_Inertia"/>
-																		<Connected value="false"/>
-																		<Type value="boolean"/>
-																		<Unit value="Bit"/>
-																		<RepresentationFormat value="Physical"/>
-																		<Direction value="Out"/>
-																		<InitValue value="0"/>
-																		<Size value="real64"/>
-																		<LowerBound value="0"/>
-																		<Kind value="HardwarePort"/>
-																		<UpperBound value="0"/>
-																		<Saturated value="false"/>
-																		<QuantizationFormula id="Handle_286_ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_BSPD_Inertia">
-																			<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_BSPD_Inertia"/>
-																			<ShortId value="Shutdown_BSPD_Inertia"/>
-																			<Name value="Shutdown_BSPD_Inertia"/>
-																			<Caption value="Shutdown_BSPD_Inertia"/>
-																			<ParamM value="1"/>
-																			<ParamT value="0"/>
-																			<Kind value="Linear"/>
-																		</QuantizationFormula>
-																		<RtioRefId value="114"/>
-																	</Signal>
-																	<Signal id="Handle_287_ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_Setas">
-																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_Setas"/>
-																		<ShortId value="Shutdown_Setas"/>
-																		<Name value="CAN2.CAN2.MEAS_FECU_SDC.Shutdown_Setas"/>
-																		<Caption value="Shutdown_Setas"/>
-																		<Connected value="false"/>
-																		<Type value="boolean"/>
-																		<Unit value="Bit"/>
-																		<RepresentationFormat value="Physical"/>
-																		<Direction value="Out"/>
-																		<InitValue value="0"/>
-																		<Size value="real64"/>
-																		<LowerBound value="0"/>
-																		<Kind value="HardwarePort"/>
-																		<UpperBound value="0"/>
-																		<Saturated value="false"/>
-																		<QuantizationFormula id="Handle_287_ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_Setas">
-																			<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_Setas"/>
-																			<ShortId value="Shutdown_Setas"/>
-																			<Name value="Shutdown_Setas"/>
-																			<Caption value="Shutdown_Setas"/>
-																			<ParamM value="1"/>
-																			<ParamT value="0"/>
-																			<Kind value="Linear"/>
-																		</QuantizationFormula>
-																		<RtioRefId value="115"/>
-																	</Signal>
-																</Signals>
-															</SignalGroup>
 															<SignalGroup id="Handle_288_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_POS">
 																<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_POS"/>
 																<ShortId value="AP_ELLIPSE_EKF_POS"/>
@@ -19368,7 +19333,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="116"/>
+																		<RtioRefId value="113"/>
 																	</Signal>
 																	<Signal id="Handle_290_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_POS.el_LATITUDE_EKF">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_POS.el_LATITUDE_EKF"/>
@@ -19395,7 +19360,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="117"/>
+																		<RtioRefId value="114"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -19444,7 +19409,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="118"/>
+																		<RtioRefId value="115"/>
 																	</Signal>
 																	<Signal id="Handle_293_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_Y">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_Y"/>
@@ -19471,7 +19436,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="119"/>
+																		<RtioRefId value="116"/>
 																	</Signal>
 																	<Signal id="Handle_294_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_X">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_X"/>
@@ -19498,7 +19463,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="120"/>
+																		<RtioRefId value="117"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -19547,7 +19512,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="121"/>
+																		<RtioRefId value="118"/>
 																	</Signal>
 																	<Signal id="Handle_297_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_EULER.el_PITCH">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_EULER.el_PITCH"/>
@@ -19574,7 +19539,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="122"/>
+																		<RtioRefId value="119"/>
 																	</Signal>
 																	<Signal id="Handle_298_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_EULER.el_ROLL">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_EULER.el_ROLL"/>
@@ -19601,7 +19566,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="123"/>
+																		<RtioRefId value="120"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -19650,7 +19615,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="124"/>
+																		<RtioRefId value="121"/>
 																	</Signal>
 																	<Signal id="Handle_301_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_VEL.el_Vel_EKF_Y">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_VEL.el_Vel_EKF_Y"/>
@@ -19677,7 +19642,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="125"/>
+																		<RtioRefId value="122"/>
 																	</Signal>
 																	<Signal id="Handle_302_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_VEL.el_Vel_EKF_X">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_VEL.el_Vel_EKF_X"/>
@@ -19704,7 +19669,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="126"/>
+																		<RtioRefId value="123"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -19753,7 +19718,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="127"/>
+																		<RtioRefId value="124"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -19802,7 +19767,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="128"/>
+																		<RtioRefId value="125"/>
 																	</Signal>
 																	<Signal id="Handle_307_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_GYRO.el_GYRO_Y">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_GYRO.el_GYRO_Y"/>
@@ -19829,7 +19794,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="129"/>
+																		<RtioRefId value="126"/>
 																	</Signal>
 																	<Signal id="Handle_308_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_GYRO.el_GYRO_X">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_GYRO.el_GYRO_X"/>
@@ -19856,7 +19821,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="130"/>
+																		<RtioRefId value="127"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -19905,7 +19870,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="131"/>
+																		<RtioRefId value="128"/>
 																	</Signal>
 																	<Signal id="Handle_311_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_VEL_Valid.el_Vel_GPS_Valid">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_VEL_Valid.el_Vel_GPS_Valid"/>
@@ -19932,7 +19897,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="132"/>
+																		<RtioRefId value="129"/>
 																	</Signal>
 																	<Signal id="Handle_312_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_VEL_Valid.el_Vel_EKF_Valid">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_VEL_Valid.el_Vel_EKF_Valid"/>
@@ -19959,7 +19924,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="133"/>
+																		<RtioRefId value="130"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -20017,7 +19982,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="135"/>
+																		<RtioRefId value="132"/>
 																	</Signal>
 																	<Signal id="Handle_315_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R"/>
@@ -20044,7 +20009,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="136"/>
+																		<RtioRefId value="133"/>
 																	</Signal>
 																	<Signal id="Handle_316_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT"/>
@@ -20071,7 +20036,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="137"/>
+																		<RtioRefId value="134"/>
 																	</Signal>
 																	<Signal id="Handle_317_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel"/>
@@ -20098,7 +20063,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="138"/>
+																		<RtioRefId value="135"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -20156,7 +20121,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="140"/>
+																		<RtioRefId value="137"/>
 																	</Signal>
 																	<Signal id="Handle_320_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L"/>
@@ -20183,7 +20148,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="141"/>
+																		<RtioRefId value="138"/>
 																	</Signal>
 																	<Signal id="Handle_321_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT"/>
@@ -20210,7 +20175,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="142"/>
+																		<RtioRefId value="139"/>
 																	</Signal>
 																	<Signal id="Handle_322_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel"/>
@@ -20237,7 +20202,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="143"/>
+																		<RtioRefId value="140"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -20295,7 +20260,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="145"/>
+																		<RtioRefId value="142"/>
 																	</Signal>
 																	<Signal id="Handle_325_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_L">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_L"/>
@@ -20322,7 +20287,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="146"/>
+																		<RtioRefId value="143"/>
 																	</Signal>
 																	<Signal id="Handle_326_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_R">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_R"/>
@@ -20349,7 +20314,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="147"/>
+																		<RtioRefId value="144"/>
 																	</Signal>
 																	<Signal id="Handle_327_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_L">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_L"/>
@@ -20376,7 +20341,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="148"/>
+																		<RtioRefId value="145"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -20434,7 +20399,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="150"/>
+																		<RtioRefId value="147"/>
 																	</Signal>
 																	<Signal id="Handle_330_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_R">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_R"/>
@@ -20461,7 +20426,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="151"/>
+																		<RtioRefId value="148"/>
 																	</Signal>
 																	<Signal id="Handle_331_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_L">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_L"/>
@@ -20488,7 +20453,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="152"/>
+																		<RtioRefId value="149"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -20537,7 +20502,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="153"/>
+																		<RtioRefId value="150"/>
 																	</Signal>
 																	<Signal id="Handle_334_ES9101.ES9102.CAN2.CAN2.AP_RECU_Data.Susp_R_L_Bits">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_RECU_Data.Susp_R_L_Bits"/>
@@ -20564,7 +20529,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="154"/>
+																		<RtioRefId value="151"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -20613,7 +20578,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="155"/>
+																		<RtioRefId value="152"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -20662,7 +20627,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="156"/>
+																		<RtioRefId value="153"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -20686,14 +20651,14 @@
 																	</HardwareAction>
 																</HardwareActions>
 																<Signals>
-																	<Signal id="Handle_340_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Pitot_Bits">
-																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Pitot_Bits"/>
-																		<ShortId value="Pitot_Bits"/>
-																		<Name value="CAN2.CAN2.AP_FECU_Data2.Pitot_Bits"/>
-																		<Caption value="Pitot_Bits"/>
+																	<Signal id="Handle_2510_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_SC_BOTS">
+																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_SC_BOTS"/>
+																		<ShortId value="Shutdown_SC_BOTS"/>
+																		<Name value="CAN2.CAN2.AP_FECU_Data2.Shutdown_SC_BOTS"/>
+																		<Caption value="Shutdown_SC_BOTS"/>
 																		<Connected value="false"/>
-																		<Type value="udiscrete"/>
-																		<Unit value="Bits"/>
+																		<Type value="boolean"/>
+																		<Unit value="Bit"/>
 																		<RepresentationFormat value="Physical"/>
 																		<Direction value="Out"/>
 																		<InitValue value="0"/>
@@ -20702,16 +20667,70 @@
 																		<Kind value="HardwarePort"/>
 																		<UpperBound value="0"/>
 																		<Saturated value="false"/>
-																		<QuantizationFormula id="Handle_340_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Pitot_Bits">
-																			<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Pitot_Bits"/>
-																			<ShortId value="Pitot_Bits"/>
-																			<Name value="Pitot_Bits"/>
-																			<Caption value="Pitot_Bits"/>
+																		<QuantizationFormula id="Handle_2510_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_SC_BOTS">
+																			<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_SC_BOTS"/>
+																			<ShortId value="Shutdown_SC_BOTS"/>
+																			<Name value="Shutdown_SC_BOTS"/>
+																			<Caption value="Shutdown_SC_BOTS"/>
 																			<ParamM value="1"/>
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="157"/>
+																		<RtioRefId value="154"/>
+																	</Signal>
+																	<Signal id="Handle_2511_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_BSPD_Inertia">
+																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_BSPD_Inertia"/>
+																		<ShortId value="Shutdown_BSPD_Inertia"/>
+																		<Name value="CAN2.CAN2.AP_FECU_Data2.Shutdown_BSPD_Inertia"/>
+																		<Caption value="Shutdown_BSPD_Inertia"/>
+																		<Connected value="false"/>
+																		<Type value="boolean"/>
+																		<Unit value="Bit"/>
+																		<RepresentationFormat value="Physical"/>
+																		<Direction value="Out"/>
+																		<InitValue value="0"/>
+																		<Size value="real64"/>
+																		<LowerBound value="0"/>
+																		<Kind value="HardwarePort"/>
+																		<UpperBound value="0"/>
+																		<Saturated value="false"/>
+																		<QuantizationFormula id="Handle_2511_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_BSPD_Inertia">
+																			<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_BSPD_Inertia"/>
+																			<ShortId value="Shutdown_BSPD_Inertia"/>
+																			<Name value="Shutdown_BSPD_Inertia"/>
+																			<Caption value="Shutdown_BSPD_Inertia"/>
+																			<ParamM value="1"/>
+																			<ParamT value="0"/>
+																			<Kind value="Linear"/>
+																		</QuantizationFormula>
+																		<RtioRefId value="155"/>
+																	</Signal>
+																	<Signal id="Handle_2512_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_Setas">
+																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_Setas"/>
+																		<ShortId value="Shutdown_Setas"/>
+																		<Name value="CAN2.CAN2.AP_FECU_Data2.Shutdown_Setas"/>
+																		<Caption value="Shutdown_Setas"/>
+																		<Connected value="false"/>
+																		<Type value="boolean"/>
+																		<Unit value="Bit"/>
+																		<RepresentationFormat value="Physical"/>
+																		<Direction value="Out"/>
+																		<InitValue value="0"/>
+																		<Size value="real64"/>
+																		<LowerBound value="0"/>
+																		<Kind value="HardwarePort"/>
+																		<UpperBound value="0"/>
+																		<Saturated value="false"/>
+																		<QuantizationFormula id="Handle_2512_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_Setas">
+																			<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_Setas"/>
+																			<ShortId value="Shutdown_Setas"/>
+																			<Name value="Shutdown_Setas"/>
+																			<Caption value="Shutdown_Setas"/>
+																			<ParamM value="1"/>
+																			<ParamT value="0"/>
+																			<Kind value="Linear"/>
+																		</QuantizationFormula>
+																		<RtioRefId value="156"/>
 																	</Signal>
 																	<Signal id="Handle_341_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Susp_F_R_Bits">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Susp_F_R_Bits"/>
@@ -20738,7 +20757,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="158"/>
+																		<RtioRefId value="157"/>
 																	</Signal>
 																	<Signal id="Handle_342_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Susp_F_L_Bits">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Susp_F_L_Bits"/>
@@ -20765,7 +20784,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="159"/>
+																		<RtioRefId value="158"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -20814,7 +20833,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="160"/>
+																		<RtioRefId value="159"/>
 																	</Signal>
 																	<Signal id="Handle_345_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.BrakePedal_Bits">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.BrakePedal_Bits"/>
@@ -20841,7 +20860,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="161"/>
+																		<RtioRefId value="160"/>
 																	</Signal>
 																	<Signal id="Handle_346_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.APPS2_Bits">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.APPS2_Bits"/>
@@ -20868,7 +20887,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="162"/>
+																		<RtioRefId value="161"/>
 																	</Signal>
 																	<Signal id="Handle_347_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.APPS1_Bits">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.APPS1_Bits"/>
@@ -20895,7 +20914,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="163"/>
+																		<RtioRefId value="162"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -20953,13 +20972,13 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="165"/>
+																		<RtioRefId value="164"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
 														</SignalGroups>
 														<Interface>
-															<Ports portCount="86">
+															<Ports portCount="85">
 																<Port id="Handle_3426_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_Low">
 																	<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_Low"/>
 																	<ShortId value="SOC_Low"/>
@@ -21948,84 +21967,6 @@
 																		<Kind value="Linear"/>
 																	</QuantizationFormula>
 																</Port>
-																<Port id="Handle_285_ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_SC_BOTS">
-																	<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_SC_BOTS"/>
-																	<ShortId value="Shutdown_SC_BOTS"/>
-																	<Name value="CAN2.CAN2.MEAS_FECU_SDC.Shutdown_SC_BOTS"/>
-																	<Caption value="Shutdown_SC_BOTS"/>
-																	<Connected value="false"/>
-																	<Type value="boolean"/>
-																	<Unit value="Bit"/>
-																	<RepresentationFormat value="Physical"/>
-																	<Direction value="Out"/>
-																	<InitValue value="0"/>
-																	<Size value="real64"/>
-																	<LowerBound value="0"/>
-																	<Kind value="HardwarePort"/>
-																	<UpperBound value="0"/>
-																	<Saturated value="false"/>
-																	<QuantizationFormula id="Handle_285_ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_SC_BOTS">
-																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_SC_BOTS"/>
-																		<ShortId value="Shutdown_SC_BOTS"/>
-																		<Name value="Shutdown_SC_BOTS"/>
-																		<Caption value="Shutdown_SC_BOTS"/>
-																		<ParamM value="1"/>
-																		<ParamT value="0"/>
-																		<Kind value="Linear"/>
-																	</QuantizationFormula>
-																</Port>
-																<Port id="Handle_286_ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_BSPD_Inertia">
-																	<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_BSPD_Inertia"/>
-																	<ShortId value="Shutdown_BSPD_Inertia"/>
-																	<Name value="CAN2.CAN2.MEAS_FECU_SDC.Shutdown_BSPD_Inertia"/>
-																	<Caption value="Shutdown_BSPD_Inertia"/>
-																	<Connected value="false"/>
-																	<Type value="boolean"/>
-																	<Unit value="Bit"/>
-																	<RepresentationFormat value="Physical"/>
-																	<Direction value="Out"/>
-																	<InitValue value="0"/>
-																	<Size value="real64"/>
-																	<LowerBound value="0"/>
-																	<Kind value="HardwarePort"/>
-																	<UpperBound value="0"/>
-																	<Saturated value="false"/>
-																	<QuantizationFormula id="Handle_286_ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_BSPD_Inertia">
-																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_BSPD_Inertia"/>
-																		<ShortId value="Shutdown_BSPD_Inertia"/>
-																		<Name value="Shutdown_BSPD_Inertia"/>
-																		<Caption value="Shutdown_BSPD_Inertia"/>
-																		<ParamM value="1"/>
-																		<ParamT value="0"/>
-																		<Kind value="Linear"/>
-																	</QuantizationFormula>
-																</Port>
-																<Port id="Handle_287_ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_Setas">
-																	<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_Setas"/>
-																	<ShortId value="Shutdown_Setas"/>
-																	<Name value="CAN2.CAN2.MEAS_FECU_SDC.Shutdown_Setas"/>
-																	<Caption value="Shutdown_Setas"/>
-																	<Connected value="false"/>
-																	<Type value="boolean"/>
-																	<Unit value="Bit"/>
-																	<RepresentationFormat value="Physical"/>
-																	<Direction value="Out"/>
-																	<InitValue value="0"/>
-																	<Size value="real64"/>
-																	<LowerBound value="0"/>
-																	<Kind value="HardwarePort"/>
-																	<UpperBound value="0"/>
-																	<Saturated value="false"/>
-																	<QuantizationFormula id="Handle_287_ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_Setas">
-																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Shutdown_Setas"/>
-																		<ShortId value="Shutdown_Setas"/>
-																		<Name value="Shutdown_Setas"/>
-																		<Caption value="Shutdown_Setas"/>
-																		<ParamM value="1"/>
-																		<ParamT value="0"/>
-																		<Kind value="Linear"/>
-																	</QuantizationFormula>
-																</Port>
 																<Port id="Handle_289_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_POS.el_LONGITUDE_EKF">
 																	<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_POS.el_LONGITUDE_EKF"/>
 																	<ShortId value="el_LONGITUDE_EKF"/>
@@ -22988,14 +22929,14 @@
 																		<Kind value="Linear"/>
 																	</QuantizationFormula>
 																</Port>
-																<Port id="Handle_340_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Pitot_Bits">
-																	<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Pitot_Bits"/>
-																	<ShortId value="Pitot_Bits"/>
-																	<Name value="CAN2.CAN2.AP_FECU_Data2.Pitot_Bits"/>
-																	<Caption value="Pitot_Bits"/>
+																<Port id="Handle_2510_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_SC_BOTS">
+																	<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_SC_BOTS"/>
+																	<ShortId value="Shutdown_SC_BOTS"/>
+																	<Name value="CAN2.CAN2.AP_FECU_Data2.Shutdown_SC_BOTS"/>
+																	<Caption value="Shutdown_SC_BOTS"/>
 																	<Connected value="false"/>
-																	<Type value="udiscrete"/>
-																	<Unit value="Bits"/>
+																	<Type value="boolean"/>
+																	<Unit value="Bit"/>
 																	<RepresentationFormat value="Physical"/>
 																	<Direction value="Out"/>
 																	<InitValue value="0"/>
@@ -23004,11 +22945,63 @@
 																	<Kind value="HardwarePort"/>
 																	<UpperBound value="0"/>
 																	<Saturated value="false"/>
-																	<QuantizationFormula id="Handle_340_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Pitot_Bits">
-																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Pitot_Bits"/>
-																		<ShortId value="Pitot_Bits"/>
-																		<Name value="Pitot_Bits"/>
-																		<Caption value="Pitot_Bits"/>
+																	<QuantizationFormula id="Handle_2510_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_SC_BOTS">
+																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_SC_BOTS"/>
+																		<ShortId value="Shutdown_SC_BOTS"/>
+																		<Name value="Shutdown_SC_BOTS"/>
+																		<Caption value="Shutdown_SC_BOTS"/>
+																		<ParamM value="1"/>
+																		<ParamT value="0"/>
+																		<Kind value="Linear"/>
+																	</QuantizationFormula>
+																</Port>
+																<Port id="Handle_2511_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_BSPD_Inertia">
+																	<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_BSPD_Inertia"/>
+																	<ShortId value="Shutdown_BSPD_Inertia"/>
+																	<Name value="CAN2.CAN2.AP_FECU_Data2.Shutdown_BSPD_Inertia"/>
+																	<Caption value="Shutdown_BSPD_Inertia"/>
+																	<Connected value="false"/>
+																	<Type value="boolean"/>
+																	<Unit value="Bit"/>
+																	<RepresentationFormat value="Physical"/>
+																	<Direction value="Out"/>
+																	<InitValue value="0"/>
+																	<Size value="real64"/>
+																	<LowerBound value="0"/>
+																	<Kind value="HardwarePort"/>
+																	<UpperBound value="0"/>
+																	<Saturated value="false"/>
+																	<QuantizationFormula id="Handle_2511_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_BSPD_Inertia">
+																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_BSPD_Inertia"/>
+																		<ShortId value="Shutdown_BSPD_Inertia"/>
+																		<Name value="Shutdown_BSPD_Inertia"/>
+																		<Caption value="Shutdown_BSPD_Inertia"/>
+																		<ParamM value="1"/>
+																		<ParamT value="0"/>
+																		<Kind value="Linear"/>
+																	</QuantizationFormula>
+																</Port>
+																<Port id="Handle_2512_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_Setas">
+																	<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_Setas"/>
+																	<ShortId value="Shutdown_Setas"/>
+																	<Name value="CAN2.CAN2.AP_FECU_Data2.Shutdown_Setas"/>
+																	<Caption value="Shutdown_Setas"/>
+																	<Connected value="false"/>
+																	<Type value="boolean"/>
+																	<Unit value="Bit"/>
+																	<RepresentationFormat value="Physical"/>
+																	<Direction value="Out"/>
+																	<InitValue value="0"/>
+																	<Size value="real64"/>
+																	<LowerBound value="0"/>
+																	<Kind value="HardwarePort"/>
+																	<UpperBound value="0"/>
+																	<Saturated value="false"/>
+																	<QuantizationFormula id="Handle_2512_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_Setas">
+																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_Setas"/>
+																		<ShortId value="Shutdown_Setas"/>
+																		<Name value="Shutdown_Setas"/>
+																		<Caption value="Shutdown_Setas"/>
 																		<ParamM value="1"/>
 																		<ParamT value="0"/>
 																		<Kind value="Linear"/>
@@ -23222,7 +23215,7 @@
 						<Ports portCount="0">
 						</Ports>
 					</Interface>
-					<Connections connectionCount="133">
+					<Connections connectionCount="134">
 						<Connection id="Handle_757_System.Connection">
 							<ID value="System.Connection"/>
 							<ShortId value="Connection"/>
@@ -25218,6 +25211,21 @@
 								<Name value="Ellipse.el_Curvature_Valid"/>
 							</SinkPortRef>
 						</Connection>
+						<Connection id="Handle_6354_System.Connection144">
+							<ID value="System.Connection144"/>
+							<ShortId value="Connection144"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_3258_SoftwareSystem.SAP13">
+								<Name value="VDC.TC_Warning"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_73_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning">
+								<Name value="TC_Warning"/>
+							</SinkPortRef>
+						</Connection>
 					</Connections>
 				</System>
 			</Systems>
@@ -25229,12 +25237,12 @@
 			<ShortId value="YBOOS"/>
 			<Name value="OS Configuration"/>
 			<Caption value="OS Configuration"/>
-			<MaxTaskPrio value="126"/>
-			<MinISRPrio value="114"/>
-			<MaxISRPrio value="129"/>
+			<MaxTaskPrio value="125"/>
+			<MinISRPrio value="113"/>
+			<MaxISRPrio value="128"/>
 			<MinPreempPrio value="0"/>
-			<TimerPrio value="126"/>
-			<SchedulerPrio value="126"/>
+			<TimerPrio value="125"/>
+			<SchedulerPrio value="125"/>
 			<PreScalerVal value="4"/>
 			<RtEnable value="false"/>
 			<RtTraceProcesses value="false"/>
@@ -25271,7 +25279,7 @@
 					<ShortId value="Task"/>
 					<Name value="Sync_25ms"/>
 					<Caption value="Sync_25ms"/>
-					<TaskID value="30"/>
+					<TaskID value="29"/>
 					<TaskKind value="TimerTask"/>
 					<ReadOnly value="false"/>
 					<HiddenTask value="false"/>
@@ -25380,7 +25388,7 @@
 					<ShortId value="Task1"/>
 					<Name value="Timer_25ms"/>
 					<Caption value="Timer_25ms"/>
-					<TaskID value="33"/>
+					<TaskID value="32"/>
 					<TaskKind value="TimerTask"/>
 					<ReadOnly value="false"/>
 					<HiddenTask value="false"/>
@@ -25921,7 +25929,7 @@
 					<ShortId value="Task2"/>
 					<Name value="Timer_100ms"/>
 					<Caption value="Timer_100ms"/>
-					<TaskID value="32"/>
+					<TaskID value="31"/>
 					<TaskKind value="TimerTask"/>
 					<ReadOnly value="false"/>
 					<HiddenTask value="false"/>
@@ -25970,7 +25978,7 @@
 					<ShortId value="Task3"/>
 					<Name value="Timer_1000ms"/>
 					<Caption value="Timer_1000ms"/>
-					<TaskID value="31"/>
+					<TaskID value="30"/>
 					<TaskKind value="TimerTask"/>
 					<ReadOnly value="false"/>
 					<HiddenTask value="false"/>
@@ -26019,7 +26027,7 @@
 					<ShortId value="Task4"/>
 					<Name value="Timer_Inv"/>
 					<Caption value="Timer_Inv"/>
-					<TaskID value="34"/>
+					<TaskID value="33"/>
 					<TaskKind value="TimerTask"/>
 					<ReadOnly value="false"/>
 					<HiddenTask value="false"/>
@@ -26811,7 +26819,7 @@
 					<ShortId value="Task20"/>
 					<Name value="SWT_CAN2_MEAS_RECU_SDC"/>
 					<Caption value="SWT_CAN2_MEAS_RECU_SDC"/>
-					<TaskID value="26"/>
+					<TaskID value="25"/>
 					<TaskKind value="SoftwareTask"/>
 					<ReadOnly value="false"/>
 					<HiddenTask value="false"/>
@@ -26852,49 +26860,6 @@
 				<SoftwareTask id="Handle_1560_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task21">
 					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task21"/>
 					<ShortId value="Task21"/>
-					<Name value="SWT_CAN2_MEAS_FECU_SDC"/>
-					<Caption value="SWT_CAN2_MEAS_FECU_SDC"/>
-					<TaskID value="25"/>
-					<TaskKind value="SoftwareTask"/>
-					<ReadOnly value="false"/>
-					<HiddenTask value="false"/>
-					<MappedActions>
-						<MappedAction id="Handle_923_ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Action">
-							<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Action"/>
-							<ShortId value="Action"/>
-							<Name value="MEAS_FECU_SDC"/>
-							<Caption value="CAN2.MEAS_FECU_SDC"/>
-							<Kind value="ReadAction"/>
-							<HiddenAction value="false"/>
-							<ProvidedBy value=""/>
-							<HookID value="0"/>
-							<HookPosition value="0"/>
-							<Index value="0"/>
-						</MappedAction>
-					</MappedActions>
-					<Priority value="101"/>
-					<Deadline value="0"/>
-					<Scheduling value="Full"/>
-					<MaxNoActivation value="1"/>
-					<AutoStart value="false"/>
-					<ExcludeFromTrace value="true"/>
-					<ExecutionBudget value="0"/>
-					<Monitoring value="false"/>
-					<Events>
-						<Event id="Handle_922_ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Event">
-							<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_FECU_SDC.Event"/>
-							<ShortId value="Event"/>
-							<Name value="MEAS_FECU_SDC"/>
-							<Caption value="CAN2.MEAS_FECU_SDC"/>
-							<Kind value="TaskActivationEvent"/>
-							<Source value=""/>
-							<HiddenEvent value="false"/>
-						</Event>
-					</Events>
-				</SoftwareTask>
-				<SoftwareTask id="Handle_1562_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task22">
-					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task22"/>
-					<ShortId value="Task22"/>
 					<Name value="SWT_CAN2_AP_ELLIPSE_EKF_POS"/>
 					<Caption value="SWT_CAN2_AP_ELLIPSE_EKF_POS"/>
 					<TaskID value="16"/>
@@ -26915,7 +26880,7 @@
 							<Index value="0"/>
 						</MappedAction>
 					</MappedActions>
-					<Priority value="102"/>
+					<Priority value="101"/>
 					<Deadline value="0"/>
 					<Scheduling value="Full"/>
 					<MaxNoActivation value="1"/>
@@ -26935,9 +26900,9 @@
 						</Event>
 					</Events>
 				</SoftwareTask>
-				<SoftwareTask id="Handle_1564_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task23">
-					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task23"/>
-					<ShortId value="Task23"/>
+				<SoftwareTask id="Handle_1562_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task22">
+					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task22"/>
+					<ShortId value="Task22"/>
 					<Name value="SWT_CAN2_AP_ELLIPSE_IMU_ACCEL"/>
 					<Caption value="SWT_CAN2_AP_ELLIPSE_IMU_ACCEL"/>
 					<TaskID value="19"/>
@@ -26958,7 +26923,7 @@
 							<Index value="0"/>
 						</MappedAction>
 					</MappedActions>
-					<Priority value="103"/>
+					<Priority value="102"/>
 					<Deadline value="0"/>
 					<Scheduling value="Full"/>
 					<MaxNoActivation value="1"/>
@@ -26978,9 +26943,9 @@
 						</Event>
 					</Events>
 				</SoftwareTask>
-				<SoftwareTask id="Handle_1566_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task24">
-					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task24"/>
-					<ShortId value="Task24"/>
+				<SoftwareTask id="Handle_1564_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task23">
+					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task23"/>
+					<ShortId value="Task23"/>
 					<Name value="SWT_CAN2_AP_ELLIPSE_EKF_EULER"/>
 					<Caption value="SWT_CAN2_AP_ELLIPSE_EKF_EULER"/>
 					<TaskID value="15"/>
@@ -27001,7 +26966,7 @@
 							<Index value="0"/>
 						</MappedAction>
 					</MappedActions>
-					<Priority value="104"/>
+					<Priority value="103"/>
 					<Deadline value="0"/>
 					<Scheduling value="Full"/>
 					<MaxNoActivation value="1"/>
@@ -27021,9 +26986,9 @@
 						</Event>
 					</Events>
 				</SoftwareTask>
-				<SoftwareTask id="Handle_1568_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task25">
-					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task25"/>
-					<ShortId value="Task25"/>
+				<SoftwareTask id="Handle_1566_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task24">
+					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task24"/>
+					<ShortId value="Task24"/>
 					<Name value="SWT_CAN2_AP_ELLIPSE_EKF_VEL"/>
 					<Caption value="SWT_CAN2_AP_ELLIPSE_EKF_VEL"/>
 					<TaskID value="17"/>
@@ -27044,7 +27009,7 @@
 							<Index value="0"/>
 						</MappedAction>
 					</MappedActions>
-					<Priority value="105"/>
+					<Priority value="104"/>
 					<Deadline value="0"/>
 					<Scheduling value="Full"/>
 					<MaxNoActivation value="1"/>
@@ -27064,12 +27029,12 @@
 						</Event>
 					</Events>
 				</SoftwareTask>
-				<SoftwareTask id="Handle_1570_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task26">
-					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task26"/>
-					<ShortId value="Task26"/>
+				<SoftwareTask id="Handle_1568_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task25">
+					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task25"/>
+					<ShortId value="Task25"/>
 					<Name value="SWT_CAN2_NM_ELLIPSE_Status"/>
 					<Caption value="SWT_CAN2_NM_ELLIPSE_Status"/>
-					<TaskID value="27"/>
+					<TaskID value="26"/>
 					<TaskKind value="SoftwareTask"/>
 					<ReadOnly value="false"/>
 					<HiddenTask value="false"/>
@@ -27087,7 +27052,7 @@
 							<Index value="0"/>
 						</MappedAction>
 					</MappedActions>
-					<Priority value="106"/>
+					<Priority value="105"/>
 					<Deadline value="0"/>
 					<Scheduling value="Full"/>
 					<MaxNoActivation value="1"/>
@@ -27107,9 +27072,9 @@
 						</Event>
 					</Events>
 				</SoftwareTask>
-				<SoftwareTask id="Handle_1572_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task27">
-					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task27"/>
-					<ShortId value="Task27"/>
+				<SoftwareTask id="Handle_1570_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task26">
+					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task26"/>
+					<ShortId value="Task26"/>
 					<Name value="SWT_CAN2_AP_ELLIPSE_IMU_GYRO"/>
 					<Caption value="SWT_CAN2_AP_ELLIPSE_IMU_GYRO"/>
 					<TaskID value="20"/>
@@ -27130,7 +27095,7 @@
 							<Index value="0"/>
 						</MappedAction>
 					</MappedActions>
-					<Priority value="107"/>
+					<Priority value="106"/>
 					<Deadline value="0"/>
 					<Scheduling value="Full"/>
 					<MaxNoActivation value="1"/>
@@ -27150,9 +27115,9 @@
 						</Event>
 					</Events>
 				</SoftwareTask>
-				<SoftwareTask id="Handle_1574_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task28">
-					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task28"/>
-					<ShortId value="Task28"/>
+				<SoftwareTask id="Handle_1572_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task27">
+					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task27"/>
+					<ShortId value="Task27"/>
 					<Name value="SWT_CAN2_AP_ELLIPSE_VEL_Valid"/>
 					<Caption value="SWT_CAN2_AP_ELLIPSE_VEL_Valid"/>
 					<TaskID value="21"/>
@@ -27173,7 +27138,7 @@
 							<Index value="0"/>
 						</MappedAction>
 					</MappedActions>
-					<Priority value="108"/>
+					<Priority value="107"/>
 					<Deadline value="0"/>
 					<Scheduling value="Full"/>
 					<MaxNoActivation value="1"/>
@@ -27193,9 +27158,9 @@
 						</Event>
 					</Events>
 				</SoftwareTask>
-				<SoftwareTask id="Handle_1576_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task29">
-					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task29"/>
-					<ShortId value="Task29"/>
+				<SoftwareTask id="Handle_1574_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task28">
+					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task28"/>
+					<ShortId value="Task28"/>
 					<Name value="SWT_CAN2_AP_RECU_Data"/>
 					<Caption value="SWT_CAN2_AP_RECU_Data"/>
 					<TaskID value="24"/>
@@ -27216,7 +27181,7 @@
 							<Index value="0"/>
 						</MappedAction>
 					</MappedActions>
-					<Priority value="109"/>
+					<Priority value="108"/>
 					<Deadline value="0"/>
 					<Scheduling value="Full"/>
 					<MaxNoActivation value="1"/>
@@ -27236,12 +27201,12 @@
 						</Event>
 					</Events>
 				</SoftwareTask>
-				<SoftwareTask id="Handle_1578_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task30">
-					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task30"/>
-					<ShortId value="Task30"/>
+				<SoftwareTask id="Handle_1576_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task29">
+					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task29"/>
+					<ShortId value="Task29"/>
 					<Name value="SWT_CAN2_NM_FECU_Keep_Alive"/>
 					<Caption value="SWT_CAN2_NM_FECU_Keep_Alive"/>
-					<TaskID value="28"/>
+					<TaskID value="27"/>
 					<TaskKind value="SoftwareTask"/>
 					<ReadOnly value="false"/>
 					<HiddenTask value="false"/>
@@ -27259,7 +27224,7 @@
 							<Index value="0"/>
 						</MappedAction>
 					</MappedActions>
-					<Priority value="110"/>
+					<Priority value="109"/>
 					<Deadline value="0"/>
 					<Scheduling value="Full"/>
 					<MaxNoActivation value="1"/>
@@ -27279,12 +27244,12 @@
 						</Event>
 					</Events>
 				</SoftwareTask>
-				<SoftwareTask id="Handle_1580_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task31">
-					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task31"/>
-					<ShortId value="Task31"/>
+				<SoftwareTask id="Handle_1578_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task30">
+					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task30"/>
+					<ShortId value="Task30"/>
 					<Name value="SWT_CAN2_NM_RECU_Keep_Alive"/>
 					<Caption value="SWT_CAN2_NM_RECU_Keep_Alive"/>
-					<TaskID value="29"/>
+					<TaskID value="28"/>
 					<TaskKind value="SoftwareTask"/>
 					<ReadOnly value="false"/>
 					<HiddenTask value="false"/>
@@ -27302,7 +27267,7 @@
 							<Index value="0"/>
 						</MappedAction>
 					</MappedActions>
-					<Priority value="111"/>
+					<Priority value="110"/>
 					<Deadline value="0"/>
 					<Scheduling value="Full"/>
 					<MaxNoActivation value="1"/>
@@ -27322,9 +27287,9 @@
 						</Event>
 					</Events>
 				</SoftwareTask>
-				<SoftwareTask id="Handle_1582_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task32">
-					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task32"/>
-					<ShortId value="Task32"/>
+				<SoftwareTask id="Handle_1580_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task31">
+					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task31"/>
+					<ShortId value="Task31"/>
 					<Name value="SWT_CAN2_AP_FECU_Data2"/>
 					<Caption value="SWT_CAN2_AP_FECU_Data2"/>
 					<TaskID value="23"/>
@@ -27345,7 +27310,7 @@
 							<Index value="0"/>
 						</MappedAction>
 					</MappedActions>
-					<Priority value="112"/>
+					<Priority value="111"/>
 					<Deadline value="0"/>
 					<Scheduling value="Full"/>
 					<MaxNoActivation value="1"/>
@@ -27365,9 +27330,9 @@
 						</Event>
 					</Events>
 				</SoftwareTask>
-				<SoftwareTask id="Handle_5899_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task33">
-					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task33"/>
-					<ShortId value="Task33"/>
+				<SoftwareTask id="Handle_1582_System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task32">
+					<ID value="System.YBOMappedECU.ES9101\.ES9102.YBOOS.Task32"/>
+					<ShortId value="Task32"/>
 					<Name value="SWT_CAN2_AP_FECU_Data1"/>
 					<Caption value="SWT_CAN2_AP_FECU_Data1"/>
 					<TaskID value="22"/>
@@ -27388,7 +27353,7 @@
 							<Index value="0"/>
 						</MappedAction>
 					</MappedActions>
-					<Priority value="113"/>
+					<Priority value="112"/>
 					<Deadline value="0"/>
 					<Scheduling value="Full"/>
 					<MaxNoActivation value="1"/>
@@ -27415,7 +27380,7 @@
 					<ShortId value="Task3"/>
 					<Name value="ISR_CAN1"/>
 					<Caption value="ISR_CAN1"/>
-					<TaskID value="35"/>
+					<TaskID value="34"/>
 					<TaskKind value="ISR"/>
 					<ReadOnly value="false"/>
 					<HiddenTask value="false"/>
@@ -27464,7 +27429,7 @@
 					<ShortId value="Task17"/>
 					<Name value="ISR_CAN2"/>
 					<Caption value="ISR_CAN2"/>
-					<TaskID value="36"/>
+					<TaskID value="35"/>
 					<TaskKind value="ISR"/>
 					<ReadOnly value="false"/>
 					<HiddenTask value="false"/>
@@ -27514,7 +27479,7 @@
 				<ShortId value="Task"/>
 				<Name value="Init"/>
 				<Caption value="Init"/>
-				<TaskID value="37"/>
+				<TaskID value="36"/>
 				<TaskKind value="InitTask"/>
 				<ReadOnly value="false"/>
 				<HiddenTask value="false"/>
@@ -27934,7 +27899,7 @@
 				<ShortId value="Task1"/>
 				<Name value="Exit"/>
 				<Caption value="Exit"/>
-				<TaskID value="38"/>
+				<TaskID value="37"/>
 				<TaskKind value="ExitTask"/>
 				<ReadOnly value="false"/>
 				<HiddenTask value="false"/>

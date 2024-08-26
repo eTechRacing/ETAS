@@ -62,7 +62,6 @@ T_taskTableEntry taskTableEntries[] =
     {(TaskType *)&SWT_CAN2_AP_FECU_Data1, "SWT_CAN2_AP_FECU_Data1", TASK_MONITOR_PTR(SWT_CAN2_AP_FECU_Data1)},
     {(TaskType *)&SWT_CAN2_AP_FECU_Data2, "SWT_CAN2_AP_FECU_Data2", TASK_MONITOR_PTR(SWT_CAN2_AP_FECU_Data2)},
     {(TaskType *)&SWT_CAN2_AP_RECU_Data, "SWT_CAN2_AP_RECU_Data", TASK_MONITOR_PTR(SWT_CAN2_AP_RECU_Data)},
-    {(TaskType *)&SWT_CAN2_MEAS_FECU_SDC, "SWT_CAN2_MEAS_FECU_SDC", TASK_MONITOR_PTR(SWT_CAN2_MEAS_FECU_SDC)},
     {(TaskType *)&SWT_CAN2_MEAS_RECU_SDC, "SWT_CAN2_MEAS_RECU_SDC", TASK_MONITOR_PTR(SWT_CAN2_MEAS_RECU_SDC)},
     {(TaskType *)&SWT_CAN2_NM_ELLIPSE_Status, "SWT_CAN2_NM_ELLIPSE_Status", TASK_MONITOR_PTR(SWT_CAN2_NM_ELLIPSE_Status)},
     {(TaskType *)&SWT_CAN2_NM_FECU_Keep_Alive, "SWT_CAN2_NM_FECU_Keep_Alive", TASK_MONITOR_PTR(SWT_CAN2_NM_FECU_Keep_Alive)},
@@ -76,43 +75,43 @@ T_taskTableEntry taskTableEntries[] =
 
 T_taskTable taskTable =
 {
-    1 + 34,
+    1 + 33,
     &taskTableEntries[0]
 };
 
 /************** init tasks ******************/
-extern void crossbarHook_37_0(void);
+extern void crossbarHook_36_0(void);
 extern void irt_Start_Car_State(void);
-extern void crossbarHook_37_1(void);
-extern void crossbarHook_37_2(void);
+extern void crossbarHook_36_1(void);
+extern void crossbarHook_36_2(void);
 extern void irt_Start_Disconnections(void);
-extern void crossbarHook_37_3(void);
-extern void crossbarHook_37_4(void);
+extern void crossbarHook_36_3(void);
+extern void crossbarHook_36_4(void);
 extern void irt_Start_Ellipse(void);
-extern void crossbarHook_37_5(void);
-extern void crossbarHook_37_6(void);
+extern void crossbarHook_36_5(void);
+extern void crossbarHook_36_6(void);
 extern void irt_Start_Inverters_Action(void);
-extern void crossbarHook_37_7(void);
-extern void crossbarHook_37_8(void);
+extern void crossbarHook_36_7(void);
+extern void crossbarHook_36_8(void);
 extern void irt_Start_Inverters_Data(void);
-extern void crossbarHook_37_9(void);
-extern void crossbarHook_37_10(void);
+extern void crossbarHook_36_9(void);
+extern void crossbarHook_36_10(void);
 extern void irt_Start_Power_Control(void);
-extern void crossbarHook_37_11(void);
-extern void crossbarHook_37_12(void);
+extern void crossbarHook_36_11(void);
+extern void crossbarHook_36_12(void);
 extern void irt_Start_Sensors(void);
-extern void crossbarHook_37_13(void);
-extern void crossbarHook_37_14(void);
+extern void crossbarHook_36_13(void);
+extern void crossbarHook_36_14(void);
 extern void irt_Start_SoC(void);
-extern void crossbarHook_37_15(void);
-extern void crossbarHook_37_16(void);
+extern void crossbarHook_36_15(void);
+extern void crossbarHook_36_16(void);
 extern void irt_Start_Synchronism(void);
-extern void crossbarHook_37_17(void);
-extern void crossbarHook_37_18(void);
+extern void crossbarHook_36_17(void);
+extern void crossbarHook_36_18(void);
 extern void irt_Start_VDC(void);
-extern void crossbarHook_37_19(void);
+extern void crossbarHook_36_19(void);
 extern void etasRtioInitProcess(void);
-extern void rtioHook_37_0(void);
+extern void rtioHook_36_0(void);
 extern void etasRtioIntEnableProcess(void);
 
 void etasStartupInitTask(void)
@@ -155,38 +154,38 @@ void TimerInitTask(void)
     USER_APP_MODE_INIT_TASK_START_FW_HOOK
 #endif
 
-    crossbarHook_37_0();
+    crossbarHook_36_0();
 	irt_Start_Car_State();
-	crossbarHook_37_1();
-	crossbarHook_37_2();
+	crossbarHook_36_1();
+	crossbarHook_36_2();
 	irt_Start_Disconnections();
-	crossbarHook_37_3();
-	crossbarHook_37_4();
+	crossbarHook_36_3();
+	crossbarHook_36_4();
 	irt_Start_Ellipse();
-	crossbarHook_37_5();
-	crossbarHook_37_6();
+	crossbarHook_36_5();
+	crossbarHook_36_6();
 	irt_Start_Inverters_Action();
-	crossbarHook_37_7();
-	crossbarHook_37_8();
+	crossbarHook_36_7();
+	crossbarHook_36_8();
 	irt_Start_Inverters_Data();
-	crossbarHook_37_9();
-	crossbarHook_37_10();
+	crossbarHook_36_9();
+	crossbarHook_36_10();
 	irt_Start_Power_Control();
-	crossbarHook_37_11();
-	crossbarHook_37_12();
+	crossbarHook_36_11();
+	crossbarHook_36_12();
 	irt_Start_Sensors();
-	crossbarHook_37_13();
-	crossbarHook_37_14();
+	crossbarHook_36_13();
+	crossbarHook_36_14();
 	irt_Start_SoC();
-	crossbarHook_37_15();
-	crossbarHook_37_16();
+	crossbarHook_36_15();
+	crossbarHook_36_16();
 	irt_Start_Synchronism();
-	crossbarHook_37_17();
-	crossbarHook_37_18();
+	crossbarHook_36_17();
+	crossbarHook_36_18();
 	irt_Start_VDC();
-	crossbarHook_37_19();
+	crossbarHook_36_19();
 	etasRtioInitProcess();
-	rtioHook_37_0();
+	rtioHook_36_0();
 	etasRtioIntEnableProcess();
 	
     
@@ -222,38 +221,38 @@ void etasInitTasks(void)
 }
 
 /**************** exit tasks *****************/
-extern void crossbarHook_38_0(void);
+extern void crossbarHook_37_0(void);
 extern void irt_Terminate_Car_State(void);
-extern void crossbarHook_38_1(void);
-extern void crossbarHook_38_2(void);
+extern void crossbarHook_37_1(void);
+extern void crossbarHook_37_2(void);
 extern void irt_Terminate_Disconnections(void);
-extern void crossbarHook_38_3(void);
-extern void crossbarHook_38_4(void);
+extern void crossbarHook_37_3(void);
+extern void crossbarHook_37_4(void);
 extern void irt_Terminate_Ellipse(void);
-extern void crossbarHook_38_5(void);
-extern void crossbarHook_38_6(void);
+extern void crossbarHook_37_5(void);
+extern void crossbarHook_37_6(void);
 extern void irt_Terminate_Inverters_Action(void);
-extern void crossbarHook_38_7(void);
-extern void crossbarHook_38_8(void);
+extern void crossbarHook_37_7(void);
+extern void crossbarHook_37_8(void);
 extern void irt_Terminate_Inverters_Data(void);
-extern void crossbarHook_38_9(void);
-extern void crossbarHook_38_10(void);
+extern void crossbarHook_37_9(void);
+extern void crossbarHook_37_10(void);
 extern void irt_Terminate_Power_Control(void);
-extern void crossbarHook_38_11(void);
-extern void crossbarHook_38_12(void);
+extern void crossbarHook_37_11(void);
+extern void crossbarHook_37_12(void);
 extern void irt_Terminate_Sensors(void);
-extern void crossbarHook_38_13(void);
-extern void crossbarHook_38_14(void);
+extern void crossbarHook_37_13(void);
+extern void crossbarHook_37_14(void);
 extern void irt_Terminate_SoC(void);
-extern void crossbarHook_38_15(void);
-extern void crossbarHook_38_16(void);
+extern void crossbarHook_37_15(void);
+extern void crossbarHook_37_16(void);
 extern void irt_Terminate_Synchronism(void);
-extern void crossbarHook_38_17(void);
-extern void crossbarHook_38_18(void);
+extern void crossbarHook_37_17(void);
+extern void crossbarHook_37_18(void);
 extern void irt_Terminate_VDC(void);
-extern void crossbarHook_38_19(void);
+extern void crossbarHook_37_19(void);
 extern void etasRtioIntDisableProcess(void);
-extern void rtioHook_38_0(void);
+extern void rtioHook_37_0(void);
 extern void etasRtioExitProcess(void);
 
 void etasStartupExitTask(void)
@@ -286,38 +285,38 @@ void TimerExitTask(void)
     USER_APP_MODE_EXIT_TASK_START_FW_HOOK
 #endif
 
-    crossbarHook_38_0();
+    crossbarHook_37_0();
 	irt_Terminate_Car_State();
-	crossbarHook_38_1();
-	crossbarHook_38_2();
+	crossbarHook_37_1();
+	crossbarHook_37_2();
 	irt_Terminate_Disconnections();
-	crossbarHook_38_3();
-	crossbarHook_38_4();
+	crossbarHook_37_3();
+	crossbarHook_37_4();
 	irt_Terminate_Ellipse();
-	crossbarHook_38_5();
-	crossbarHook_38_6();
+	crossbarHook_37_5();
+	crossbarHook_37_6();
 	irt_Terminate_Inverters_Action();
-	crossbarHook_38_7();
-	crossbarHook_38_8();
+	crossbarHook_37_7();
+	crossbarHook_37_8();
 	irt_Terminate_Inverters_Data();
-	crossbarHook_38_9();
-	crossbarHook_38_10();
+	crossbarHook_37_9();
+	crossbarHook_37_10();
 	irt_Terminate_Power_Control();
-	crossbarHook_38_11();
-	crossbarHook_38_12();
+	crossbarHook_37_11();
+	crossbarHook_37_12();
 	irt_Terminate_Sensors();
-	crossbarHook_38_13();
-	crossbarHook_38_14();
+	crossbarHook_37_13();
+	crossbarHook_37_14();
 	irt_Terminate_SoC();
-	crossbarHook_38_15();
-	crossbarHook_38_16();
+	crossbarHook_37_15();
+	crossbarHook_37_16();
 	irt_Terminate_Synchronism();
-	crossbarHook_38_17();
-	crossbarHook_38_18();
+	crossbarHook_37_17();
+	crossbarHook_37_18();
 	irt_Terminate_VDC();
-	crossbarHook_38_19();
+	crossbarHook_37_19();
 	etasRtioIntDisableProcess();
-	rtioHook_38_0();
+	rtioHook_37_0();
 	etasRtioExitProcess();
 	
     
@@ -362,6 +361,6 @@ T_osAdmin osAdmin =
 /************ dummies **********/
 
 /* stimuligenerator table */
-sgTaskTableEntry sgTaskTable[1 + 34 + 2] = {NULL}; /* all elements are initialized with 0 */
+sgTaskTableEntry sgTaskTable[1 + 33 + 2] = {NULL}; /* all elements are initialized with 0 */
 
 

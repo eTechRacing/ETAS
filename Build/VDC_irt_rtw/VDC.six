@@ -22,9 +22,9 @@
 	<moduleInfo identifier="VDC">
 		<name>VDC</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}VDC.slx&quot;"/>
-		<version major="4" minor="204"/>
+		<version major="4" minor="206"/>
 		<dateTime kind="created" year="2024" month="3" day="15" hour="15" minute="34" second="18"/>
-		<dateTime kind="lastModified" year="2024" month="8" day="24" hour="13" minute="40" second="32"/>
+		<dateTime kind="lastModified" year="2024" month="8" day="26" hour="16" minute="46" second="24"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="8" day="25" hour="0" minute="55" second="43"/>
+		<dateTime kind="created" year="2024" month="8" day="26" hour="16" minute="46" second="48"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -197,6 +197,34 @@
 					<documentation>Type of block signal data structure for system '&lt;S7&gt;/Torque demanded by the driver'.</documentation>
 				</annotation>
 			</typeDef>
+			<structDef name="_B_RigidAxlewithTC2024_VDC_T">
+				<fileOrigin name="VDC.h"/>
+				<structMember identifier="Motor_Torque_RR">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S21&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="TC_Warning">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S21&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Motor_Torque_RL">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S21&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="B_RigidAxlewithTC2024_VDC_T">
+				<struct/><typeRef name="_B_RigidAxlewithTC2024_VDC_T"/>
+				<fileOrigin name="VDC.h"/>
+				<annotation>
+					<documentation>Type of block signal data structure for system '&lt;S17&gt;/Rigid Axle with TC 2024 '.</documentation>
+				</annotation>
+			</typeDef>
 			<structDef name="_B_VDC_T">
 				<fileOrigin name="VDC.h"/>
 				<structMember identifier="Merge2">
@@ -223,6 +251,12 @@
 						<documentation>&lt;Root&gt;/Opaque</documentation>
 					</annotation>
 				</structMember>
+				<structMember identifier="Merge6">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
 				<structMember identifier="state">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
@@ -235,10 +269,34 @@
 						<documentation>&lt;S40&gt;/ SFunction </documentation>
 					</annotation>
 				</structMember>
+				<structMember identifier="TC_Warning">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S15&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="TC_Warning_l">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S55&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="sf_RigidAxlewithTC2024_c">
+					<type><typeRef name="B_RigidAxlewithTC2024_VDC_T"/></type>
+					<annotation>
+						<documentation>&lt;S25&gt;/Rigid Axle with TC 2024 </documentation>
+					</annotation>
+				</structMember>
 				<structMember identifier="sf_Torquedemandedbythedriver_a">
 					<type><typeRef name="B_Torquedemandedbythedriver_V_T"/></type>
 					<annotation>
 						<documentation>&lt;S2&gt;/Torque demanded by the driver</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="sf_RigidAxlewithTC2024_p2">
+					<type><typeRef name="B_RigidAxlewithTC2024_VDC_T"/></type>
+					<annotation>
+						<documentation>&lt;S17&gt;/Rigid Axle with TC 2024 </documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="sf_Torquedemandedbythedriver_k">
@@ -510,6 +568,12 @@
 						<documentation>&lt;Root&gt;/Throttle_Torque</documentation>
 					</annotation>
 				</structMember>
+				<structMember identifier="TC_Warning">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/TC_Warning</documentation>
+					</annotation>
+				</structMember>
 			</structDef>
 			<typeDef name="ExtY_VDC_T">
 				<struct/><typeRef name="ExtY_VDC_T_tag"/>
@@ -529,13 +593,13 @@
 						<documentation>State information for 'DWORK1'.</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="correction_e">
+				<structMember identifier="correction_i">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>State information for 'DWORK1'.</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="correction_i">
+				<structMember identifier="correction_g">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>State information for 'DWORK1'.</documentation>
@@ -749,6 +813,39 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.Merge6">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="Merge6"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.Opaque.Merge6">
+				<name>Merge6</name>
+				<modelLink href="VDC/Opaque"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Merge6" kind="mlsl:block"/>
+					<pathNode name="Merge6" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
 			<dataCInterface identifier="VDC_B.state">
 				<definitionLocation>
 					<baseRef identifier="VDC_B"/>
@@ -784,6 +881,184 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.TC_Warning">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="TC_Warning"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.ACCELERATION.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024_n.TC_Warning">
+				<name>TC_Warning</name>
+				<modelLink href="VDC/ACCELERATION/RIGIDAXLE WITH TC/Rigid Axle with TC 2024\n"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="ACCELERATION" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="RIGIDAXLE WITH TC" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Rigid Axle with TC 2024" kind="mlsl:block"/>
+					<pathNode name="TC_Warning" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.TC_Warning_l">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="TC_Warning_l"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.SKIDPAD.TC_TV.Rigid_Axle_with_TC_2024_n.TC_Warning">
+				<name>TC_Warning</name>
+				<modelLink href="VDC/SKIDPAD/TC+TV/Rigid Axle with TC 2024\n"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="SKIDPAD" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="TC+TV" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Rigid Axle with TC 2024" kind="mlsl:block"/>
+					<pathNode name="TC_Warning" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.sf_RigidAxlewithTC2024_c.Motor_Torque_RR">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="sf_RigidAxlewithTC2024_c"/>
+					<memberRef identifier="Motor_Torque_RR"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.AUTOX1.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024_n.Motor_Torque_RR">
+				<name>Motor_Torque_RR</name>
+				<modelLink href="VDC/AUTOX1/RIGIDAXLE WITH TC/Rigid Axle with TC 2024\n"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="ENDURANCE" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="RIGIDAXLE WITH TC" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Rigid Axle with TC 2024" kind="mlsl:block"/>
+					<pathNode name="Motor_Torque_RR" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.sf_RigidAxlewithTC2024_c.TC_Warning">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="sf_RigidAxlewithTC2024_c"/>
+					<memberRef identifier="TC_Warning"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.AUTOX1.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024_n.TC_Warning">
+				<name>TC_Warning</name>
+				<modelLink href="VDC/AUTOX1/RIGIDAXLE WITH TC/Rigid Axle with TC 2024\n"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="ENDURANCE" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="RIGIDAXLE WITH TC" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Rigid Axle with TC 2024" kind="mlsl:block"/>
+					<pathNode name="TC_Warning" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.sf_RigidAxlewithTC2024_c.Motor_Torque_RL">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="sf_RigidAxlewithTC2024_c"/>
+					<memberRef identifier="Motor_Torque_RL"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.AUTOX1.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024_n.Motor_Torque_RL">
+				<name>Motor_Torque_RL</name>
+				<modelLink href="VDC/AUTOX1/RIGIDAXLE WITH TC/Rigid Axle with TC 2024\n"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="ENDURANCE" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="RIGIDAXLE WITH TC" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Rigid Axle with TC 2024" kind="mlsl:block"/>
+					<pathNode name="Motor_Torque_RL" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
 			<dataCInterface identifier="VDC_B.sf_Torquedemandedbythedriver_a.Throttle_Torque">
 				<definitionLocation>
 					<baseRef identifier="VDC_B"/>
@@ -800,6 +1075,114 @@
 					<pathNode name="AUTOX1" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Torque demanded by the driver" kind="mlsl:block"/>
 					<pathNode name="Throttle_Torque" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.sf_RigidAxlewithTC2024_p2.Motor_Torque_RR">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="sf_RigidAxlewithTC2024_p2"/>
+					<memberRef identifier="Motor_Torque_RR"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.AUTOX1.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024_n.Motor_Torque_RR">
+				<name>Motor_Torque_RR</name>
+				<modelLink href="VDC/AUTOX1/RIGIDAXLE WITH TC/Rigid Axle with TC 2024\n"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="AUTOX1" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="RIGIDAXLE WITH TC" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Rigid Axle with TC 2024" kind="mlsl:block"/>
+					<pathNode name="Motor_Torque_RR" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.sf_RigidAxlewithTC2024_p2.TC_Warning">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="sf_RigidAxlewithTC2024_p2"/>
+					<memberRef identifier="TC_Warning"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.AUTOX1.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024_n.TC_Warning">
+				<name>TC_Warning</name>
+				<modelLink href="VDC/AUTOX1/RIGIDAXLE WITH TC/Rigid Axle with TC 2024\n"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="AUTOX1" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="RIGIDAXLE WITH TC" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Rigid Axle with TC 2024" kind="mlsl:block"/>
+					<pathNode name="TC_Warning" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.sf_RigidAxlewithTC2024_p2.Motor_Torque_RL">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="sf_RigidAxlewithTC2024_p2"/>
+					<memberRef identifier="Motor_Torque_RL"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.AUTOX1.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024_n.Motor_Torque_RL">
+				<name>Motor_Torque_RL</name>
+				<modelLink href="VDC/AUTOX1/RIGIDAXLE WITH TC/Rigid Axle with TC 2024\n"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="AUTOX1" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="RIGIDAXLE WITH TC" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Rigid Axle with TC 2024" kind="mlsl:block"/>
+					<pathNode name="Motor_Torque_RL" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
@@ -2250,6 +2633,37 @@
 				</address>
 			</usage>
 		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Y.TC_Warning">
+				<definitionLocation>
+					<baseRef identifier="VDC_Y"/>
+					<memberRef identifier="TC_Warning"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.TC_Warning">
+				<name>TC_Warning</name>
+				<modelLink href="VDC/TC_Warning"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model"/>
+					<pathNode name="TC_Warning" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
 		<functionElement interfaceKind="export">
 			<functionCInterface identifier="irt_Start_VDC">
 				<signature>
@@ -2338,6 +2752,7 @@
 						<message identifier="VDC_Y.BrakeLight_Control" send="true"></message>
 						<message identifier="VDC_Y.Regenerative_Enable" send="true"></message>
 						<message identifier="VDC_Y.Throttle_Torque" send="true"></message>
+						<message identifier="VDC_Y.TC_Warning" send="true"></message>
 						<message identifier="VDC_Y.VDC_Max_Tyre_Slip" send="true"></message>
 					</messageAccess>
 					<constraint>

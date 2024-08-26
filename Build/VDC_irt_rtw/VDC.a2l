@@ -8,9 +8,9 @@
  *
  * Code generation for model "VDC".
  *
- * Model version              : 4.204
+ * Model version              : 4.206
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sun Aug 25 00:55:43 2024
+ * C source code generated on : Mon Aug 26 16:46:48 2024
  * 
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1103,6 +1103,16 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      TC_Warning ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       ACCELERATION ""
       /begin SUB_FUNCTION
         RIGIDAXLE
@@ -1133,6 +1143,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         
         
         
+        
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
@@ -1146,6 +1157,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         Merge1
         Merge2
         Merge3
+        Merge4
         Saturation
         Saturation1
       /end SUB_FUNCTION
@@ -1170,6 +1182,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         
         
         
+        
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
@@ -1182,6 +1195,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         TC_TV
         Torque
         If
+        Merge1
         Merge2
         Merge3
         Merge4
@@ -1208,6 +1222,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
         
         
         
@@ -1285,6 +1300,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
         
         
         
@@ -1562,6 +1578,20 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      Merge6 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       Max ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -1615,6 +1645,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
     /begin FUNCTION
       RIGIDAXLE_WITH_TC ""
       /begin SUB_FUNCTION
+        TC_Warning
         Rigid_Axle_with_TC_2024_
         RigidAxleTC
         Max
@@ -1629,6 +1660,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
         
         
         
@@ -1755,6 +1787,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         
         
         
+        
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
@@ -1777,6 +1810,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
         
         
         
@@ -1841,6 +1875,18 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
         
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge4 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
         
         
       /end IN_MEASUREMENT
@@ -1928,6 +1974,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         
         
         
+        
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
@@ -1952,6 +1999,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
         
         
         
@@ -1996,6 +2044,18 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin OUT_MEASUREMENT
         
         
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
         
       /end OUT_MEASUREMENT
     /end FUNCTION
@@ -2193,6 +2253,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
     /begin FUNCTION
       TC_TV ""
       /begin SUB_FUNCTION
+        TC_Warning
         MATLAB_Function
         Rigid_Axle_with_TC_2024_
         TV_TC
@@ -2210,6 +2271,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
         
         
         
@@ -2474,6 +2536,16 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      TC_Warning ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       Rigid_Axle_with_TC_2024_ ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -2484,6 +2556,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
         
         
       /end OUT_MEASUREMENT
@@ -2545,6 +2618,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin OUT_MEASUREMENT
         
         
+        
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
@@ -2597,6 +2671,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
         
         
       /end OUT_MEASUREMENT
@@ -2665,6 +2740,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
         
         
       /end OUT_MEASUREMENT
@@ -2741,6 +2817,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
         
         
       /end OUT_MEASUREMENT
@@ -3068,6 +3145,16 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      TC_Warning ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       MATLAB_Function ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -3095,6 +3182,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
+        
         
         
       /end OUT_MEASUREMENT

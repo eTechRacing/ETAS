@@ -43,6 +43,7 @@
 <!ENTITY _1207 SYSTEM "OSrv://ObjectHandle#1207" NDATA _OIDLink >
 <!ENTITY _1208 SYSTEM "OSrv://ObjectHandle#1208" NDATA _OIDLink >
 <!ENTITY _1210 SYSTEM "OSrv://ObjectHandle#1210" NDATA _OIDLink >
+<!ENTITY _3263 SYSTEM "OSrv://ObjectHandle#3263" NDATA _OIDLink >
 <!ENTITY _1216 SYSTEM "OSrv://ObjectHandle#1216" NDATA _OIDLink >
 <!ENTITY _1983 SYSTEM "OSrv://ObjectHandle#1983" NDATA _OIDLink >
 <!ENTITY _1984 SYSTEM "OSrv://ObjectHandle#1984" NDATA _OIDLink >
@@ -82,10 +83,11 @@
 <!ENTITY _2018 SYSTEM "OSrv://ObjectHandle#2018" NDATA _OIDLink >
 <!ENTITY _2019 SYSTEM "OSrv://ObjectHandle#2019" NDATA _OIDLink >
 <!ENTITY _2020 SYSTEM "OSrv://ObjectHandle#2020" NDATA _OIDLink >
+<!ENTITY _3257 SYSTEM "OSrv://ObjectHandle#3257" NDATA _OIDLink >
 ]><YBOModule
 	Name="VDC"
 	ScoopIXSource="c:\users\joser\onedrive\documentos\github\etas\build\vdc_irt_rtw\vdc.six"
-	FileDateTime="133690137623713626"
+	FileDateTime="133691572329141407"
 	ModelingTool="MATLAB"
 	Kind="SOFTWARE"
 	VisibleName="VDC"
@@ -212,6 +214,9 @@
 	Type="YBOConnection"/><_LinkTarget
 	Name="Connection220"
 	Index="1210"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection257"
+	Index="3263"
 	Type="YBOConnection"/></_LinkTarget><_LinkTarget
 	Name="VDC"
 	Index="1216"
@@ -329,6 +334,9 @@
 	Type="YBOSWPort"/><_LinkTarget
 	Name="VDC_Y.Sensorics_Mode"
 	Index="2020"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="VDC_Y.TC_Warning"
+	Index="3257"
 	Type="YBOSWPort"/></_LinkTarget></_LinkTarget></_System><YBOModule.Ports><YBOPortList><YBOSWPort
 	Name="VDC.VDC_5FU_5C.el_5FACCEL_5FX"
 	Size="REAL64"
@@ -670,7 +678,16 @@
 	LowerBound="-1.6999999999999999388e+308"
 	UpperBound="1.6999999999999999388e+308"
 	VisibleName="Throttle_Torque"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOConnection="_1210"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort></YBOPortList></YBOModule.Ports><YBOModule.Processes><YBOProcessList><YBOProcess
+	EmbeddedLink.ofTypeYBOConnection="_1210"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="VDC.VDC_5FY_5C.TC_5FWarning"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="TC_Warning"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_3263"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort></YBOPortList></YBOModule.Ports><YBOModule.Processes><YBOProcessList><YBOProcess
 	Name="VDC.irt_5FStart_5FVDC"
 	Kind="INITIALIZATION"
 	Priority="0.5"
@@ -745,7 +762,8 @@
 	EmbeddedLink.ofTypeYBOSWPort="_2017"/><YBOSWPortRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOSWPort="_2018"/><YBOSWPortRefList.EmbeddedLink
 	EmbeddedLink.ofTypeYBOSWPort="_2019"/><YBOSWPortRefList.EmbeddedLink
-	EmbeddedLink.ofTypeYBOSWPort="_2020"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess><YBOProcess
+	EmbeddedLink.ofTypeYBOSWPort="_2020"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_3257"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess><YBOProcess
 	Name="VDC.irt_5FTerminate_5FVDC"
 	Kind="TERMINATION"
 	Priority="0.5"

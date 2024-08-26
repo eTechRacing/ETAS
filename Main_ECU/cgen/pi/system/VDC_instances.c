@@ -42,10 +42,19 @@ void initClass_RTWTop_VDC(struct RTWTop_VDC_Class *self)
     self->RTWWrapper_VDC_B_Merge2_Ptr = initInstance_scalarWrapper((void*)&VDC_B.Merge2, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_B_Merge3_Ptr = initInstance_scalarWrapper((void*)&VDC_B.Merge3, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_B_Merge4_Ptr = initInstance_scalarWrapper((void*)&VDC_B.Merge4, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDC_B_Merge6_Ptr = initInstance_scalarWrapper((void*)&VDC_B.Merge6, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDC_B_TC_Warning_Ptr = initInstance_scalarWrapper((void*)&VDC_B.TC_Warning, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDC_B_TC_Warning_l_Ptr = initInstance_scalarWrapper((void*)&VDC_B.TC_Warning_l, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_B_sf_MATLABFunction_Torque_L_Nm_Ptr = initInstance_scalarWrapper((void*)&VDC_B.sf_MATLABFunction.Torque_L_Nm, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_B_sf_MATLABFunction_Torque_R_Nm_Ptr = initInstance_scalarWrapper((void*)&VDC_B.sf_MATLABFunction.Torque_R_Nm, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_B_sf_MATLABFunction_a_Torque_L_Nm_Ptr = initInstance_scalarWrapper((void*)&VDC_B.sf_MATLABFunction_a.Torque_L_Nm, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_B_sf_MATLABFunction_a_Torque_R_Nm_Ptr = initInstance_scalarWrapper((void*)&VDC_B.sf_MATLABFunction_a.Torque_R_Nm, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDC_B_sf_RigidAxlewithTC2024_c_Motor_Torque_RL_Ptr = initInstance_scalarWrapper((void*)&VDC_B.sf_RigidAxlewithTC2024_c.Motor_Torque_RL, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDC_B_sf_RigidAxlewithTC2024_c_Motor_Torque_RR_Ptr = initInstance_scalarWrapper((void*)&VDC_B.sf_RigidAxlewithTC2024_c.Motor_Torque_RR, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDC_B_sf_RigidAxlewithTC2024_c_TC_Warning_Ptr = initInstance_scalarWrapper((void*)&VDC_B.sf_RigidAxlewithTC2024_c.TC_Warning, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDC_B_sf_RigidAxlewithTC2024_p2_Motor_Torque_RL_Ptr = initInstance_scalarWrapper((void*)&VDC_B.sf_RigidAxlewithTC2024_p2.Motor_Torque_RL, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDC_B_sf_RigidAxlewithTC2024_p2_Motor_Torque_RR_Ptr = initInstance_scalarWrapper((void*)&VDC_B.sf_RigidAxlewithTC2024_p2.Motor_Torque_RR, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDC_B_sf_RigidAxlewithTC2024_p2_TC_Warning_Ptr = initInstance_scalarWrapper((void*)&VDC_B.sf_RigidAxlewithTC2024_p2.TC_Warning, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_B_sf_Torquedemandedbythedriver_a_Throttle_Torque_Ptr = initInstance_scalarWrapper((void*)&VDC_B.sf_Torquedemandedbythedriver_a.Throttle_Torque, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_B_sf_Torquedemandedbythedriver_k_Throttle_Torque_Ptr = initInstance_scalarWrapper((void*)&VDC_B.sf_Torquedemandedbythedriver_k.Throttle_Torque, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_B_sf_Torquedemandedbythedriver_m_Throttle_Torque_Ptr = initInstance_scalarWrapper((void*)&VDC_B.sf_Torquedemandedbythedriver_m.Throttle_Torque, sizeof(double), (uint32)ASD_VARIABLE);
@@ -84,6 +93,7 @@ void initClass_RTWTop_VDC(struct RTWTop_VDC_Class *self)
     self->RTWWrapper_VDC_Y_BrakeLight_Control_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.BrakeLight_Control, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_Y_Regenerative_Enable_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.Regenerative_Enable, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_Y_Sensorics_Mode_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.Sensorics_Mode, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_VDC_Y_TC_Warning_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.TC_Warning, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_Y_Throttle_Torque_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.Throttle_Torque, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_Y_Torque_L_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.Torque_L, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_VDC_Y_Torque_OK_Ptr = initInstance_scalarWrapper((void*)&VDC_Y.Torque_OK, sizeof(double), (uint32)ASD_VARIABLE);
@@ -109,9 +119,19 @@ static MethodList RTWTop_VDC_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_VDC_ClassHeader =
-    {0, 1, 0, 51 + 0, (MethodList *)0, (MethodList *)&RTWTop_VDC_ClassMethodList};
+    {0, 1, 0, 61 + 0, (MethodList *)0, (MethodList *)&RTWTop_VDC_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_VDC_Class RTWTop_VDC_ClassObj = {{1, {&RTWTop_VDC_ClassHeader}, {0}}
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
     ,NULL
     ,NULL
     ,NULL
