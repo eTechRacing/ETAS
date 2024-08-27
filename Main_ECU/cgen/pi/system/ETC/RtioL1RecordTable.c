@@ -140,7 +140,7 @@ const char rtioRequestMessages[] =
 	0, 0, 5, 0, 9, 0, 16, 0, 0, 0, 0, 0, 2, 0, 0, 0, 
 	0, 0, 5, 0, 2, 0, 65, 80, 95, 67, 117, 114, 114, 101, 110, 116, 
 	83, 101, 110, 115, 111, 114, 16, 0, 0, 0, 22, 0, 0, 3, 0, 1, 
-	0, 4, 0, 0, 3, 0, 8, 3, 0, 128, 3, 0, 194, 3, 0, 0, 
+	0, 4, 0, 0, 3, 0, 8, 3, 0, 128, 3, 0, 192, 3, 0, 0, 
 	5, 0, 1, 0, 0, 0, 5, 0, 23, 0, 10, 0, 23, 0, 3, 1, 
 	0, 0, 5, 0, 32, 0, 0, 0, 0, 0, 1, 0, 0, 4, 0, 0, 
 	5, 0, 9, 0, 16, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 
@@ -3143,7 +3143,7 @@ const char rtioRequestMessages[] =
 };
 
 const T_L1Record l1RtioRequestRecord =
-{	15864UL, /* configuration identifier */
+{	15865UL, /* configuration identifier */
 	251,   /* number of messages */
 	&rtioRequestMessages[0]
 };
