@@ -3,21 +3,6 @@
 #include "Sensors_irtmacros.h"
 /* PATCH END */
 
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "Sensors_irtmacros.h"
-/* PATCH END */
-
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "Sensors_irtmacros.h"
-/* PATCH END */
-
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "Sensors_irtmacros.h"
-/* PATCH END */
-
 /*
  * Sensors.h
  *
@@ -27,9 +12,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 13.12
+ * Model version              : 13.13
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Aug  6 18:54:22 2024
+ * C source code generated on : Tue Aug 27 10:18:10 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
