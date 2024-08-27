@@ -3,26 +3,6 @@
 #include "Disconnections_irtmacros.h"
 /* PATCH END */
 
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "Disconnections_irtmacros.h"
-/* PATCH END */
-
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "Disconnections_irtmacros.h"
-/* PATCH END */
-
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "Disconnections_irtmacros.h"
-/* PATCH END */
-
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "Disconnections_irtmacros.h"
-/* PATCH END */
-
 /*
  * Disconnections.h
  *
@@ -32,9 +12,9 @@
  *
  * Code generation for model "Disconnections".
  *
- * Model version              : 13.32
+ * Model version              : 13.34
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Aug  6 18:40:17 2024
+ * C source code generated on : Tue Aug 27 10:09:38 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

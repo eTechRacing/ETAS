@@ -7,9 +7,9 @@
  *
  * Code generation for model "Disconnections".
  *
- * Model version              : 13.32
+ * Model version              : 13.34
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Aug  6 18:40:17 2024
+ * C source code generated on : Tue Aug 27 10:09:38 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -362,14 +362,14 @@ static void Disconnections_output(void)
      *  Constant: '<S30>/threshold low'
      *  Inport: '<Root>/APPS1_Bits'
      */
-    if (Disconnections_U.APPS1_Bits < 12.0) {
+    if (Disconnections_U.APPS1_Bits < 9.0) {
       /* Outputs for IfAction SubSystem: '<S30>/If Action Subsystem' incorporates:
        *  ActionPort: '<S38>/Action Port'
        */
       Disconnection_IfActionSubsystem(&Disconnections_B.Merge);
 
       /* End of Outputs for SubSystem: '<S30>/If Action Subsystem' */
-    } else if (Disconnections_U.APPS1_Bits > 4050.0) {
+    } else if (Disconnections_U.APPS1_Bits > 4020.0) {
       /* Outputs for IfAction SubSystem: '<S30>/If Action Subsystem1' incorporates:
        *  ActionPort: '<S39>/Action Port'
        */
