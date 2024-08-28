@@ -22,9 +22,9 @@
 	<moduleInfo identifier="SoC">
 		<name>SoC</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}SoC.slx&quot;"/>
-		<version major="13" minor="15"/>
+		<version major="13" minor="17"/>
 		<dateTime kind="created" year="2021" month="2" day="17" hour="14" minute="58" second="42"/>
-		<dateTime kind="lastModified" year="2024" month="8" day="25" hour="0" minute="29" second="26"/>
+		<dateTime kind="lastModified" year="2024" month="8" day="28" hour="2" minute="7" second="25"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="8" day="25" hour="0" minute="54" second="54"/>
+		<dateTime kind="created" year="2024" month="8" day="28" hour="2" minute="13" second="9"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -82,7 +82,7 @@
 					<option kind="macroDefine" name="RT"/>
 					<option kind="macroDefine" name="NUMST">2</option>
 					<option kind="macroDefine" name="TID01EQ">1</option>
-					<option kind="macroDefine" name="NCSTATES">40</option>
+					<option kind="macroDefine" name="NCSTATES">60</option>
 					<option kind="macroDefine" name="MT">0</option>
 					<option kind="macroDefine" name="HAVESTDIO"/>
 					<option kind="macroDefine" name="MdlStart">MdlStart_SoC</option>
@@ -212,7 +212,7 @@
 						<documentation>&lt;Root&gt;/Opaque</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Sum2_c">
+				<structMember identifier="Sum2_h">
 					<type><typeRef name="real_T"/><width value="4"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Opaque</documentation>
@@ -224,6 +224,22 @@
 				<fileOrigin name="SoC.h"/>
 				<annotation>
 					<documentation>Type of block signal data structure for system '&lt;S2&gt;/CoreSubsys'.</documentation>
+				</annotation>
+			</typeDef>
+			<structDef name="_B_uRC_Cell_H_SoC_T">
+				<fileOrigin name="SoC.h"/>
+				<structMember identifier="CoreSubsys">
+					<type><typeRef name="B_CoreSubsys_SoC_c_T"/></type>
+					<annotation>
+						<documentation>&lt;S2&gt;/CoreSubsys</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="B_uRC_Cell_H_SoC_T">
+				<struct/><typeRef name="_B_uRC_Cell_H_SoC_T"/>
+				<fileOrigin name="SoC.h"/>
+				<annotation>
+					<documentation>Type of block signal data structure for system '&lt;Root&gt;/3RC_Cell_H'.</documentation>
 				</annotation>
 			</typeDef>
 			<structDef name="_B_SoC_T">
@@ -240,10 +256,22 @@
 						<documentation>&lt;Root&gt;/Opaque</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="CoreSubsys_p">
-					<type><typeRef name="B_CoreSubsys_SoC_c_T"/></type>
+				<structMember identifier="CellOCVtoSOC1">
+					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;S2&gt;/CoreSubsys</documentation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="uRC_Cell_L">
+					<type><typeRef name="B_uRC_Cell_H_SoC_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/3RC_Cell_L</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="uRC_Cell_H">
+					<type><typeRef name="B_uRC_Cell_H_SoC_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/3RC_Cell_H</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="CoreSubsys">
@@ -292,12 +320,34 @@
 					<documentation>Type of invariant block signal data structure for system '&lt;S2&gt;/CoreSubsys'.</documentation>
 				</annotation>
 			</typeDef>
-			<structDef name="_ConstB_SoC_T">
+			<structDef name="_ConstB_uRC_Cell_H_SoC_T">
 				<fileOrigin name="SoC.h"/>
-				<structMember identifier="CoreSubsys_p">
+				<structMember identifier="CoreSubsys">
 					<type><typeRef name="ConstB_CoreSubsys_SoC_h_T"/></type>
 					<annotation>
 						<documentation>&lt;S2&gt;/CoreSubsys</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ConstB_uRC_Cell_H_SoC_T">
+				<struct/><typeRef name="_ConstB_uRC_Cell_H_SoC_T"/>
+				<fileOrigin name="SoC.h"/>
+				<annotation>
+					<documentation>Type of invariant block signal data structure for system '&lt;Root&gt;/3RC_Cell_H'.</documentation>
+				</annotation>
+			</typeDef>
+			<structDef name="_ConstB_SoC_T">
+				<fileOrigin name="SoC.h"/>
+				<structMember identifier="uRC_Cell_L">
+					<type><typeRef name="ConstB_uRC_Cell_H_SoC_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/3RC_Cell_L</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="uRC_Cell_H">
+					<type><typeRef name="ConstB_uRC_Cell_H_SoC_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/3RC_Cell_H</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="CoreSubsys">
@@ -340,6 +390,12 @@
 						<documentation>&lt;Root&gt;/Average_CellTemp</documentation>
 					</annotation>
 				</structMember>
+				<structMember identifier="Highest_CellVoltage">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Highest_CellVoltage</documentation>
+					</annotation>
+				</structMember>
 			</structDef>
 			<typeDef name="ExtU_SoC_T">
 				<struct/><typeRef name="ExtU_SoC_T_tag"/>
@@ -365,6 +421,12 @@
 						<documentation>&lt;Root&gt;/SoC_Low</documentation>
 					</annotation>
 				</structMember>
+				<structMember identifier="SoC_High">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/SoC_High</documentation>
+					</annotation>
+				</structMember>
 			</structDef>
 			<typeDef name="ExtY_SoC_T">
 				<struct/><typeRef name="ExtY_SoC_T_tag"/>
@@ -372,6 +434,18 @@
 			</typeDef>
 			<structDef name="_DW_SoC_T">
 				<fileOrigin name="SoC.h"/>
+				<structMember identifier="Divide_DWORK4">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK4'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Integrator1_IWORK">
+					<type><typeRef name="int_T"/></type>
+					<annotation>
+						<documentation>State information for 'IWORK'.</documentation>
+					</annotation>
+				</structMember>
 				<structMember identifier="Divide_DWORK4">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
@@ -518,10 +592,44 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="SoC_B.CoreSubsys_p[0].TmpSignalConversionAtIntegrator">
+			<dataCInterface identifier="SoC_B.CellOCVtoSOC1">
 				<definitionLocation>
 					<baseRef identifier="SoC_B"/>
-					<memberRef identifier="CoreSubsys_p"/>
+					<memberRef identifier="CellOCVtoSOC1"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.Opaque.CellOCVtoSOC1">
+				<name>CellOCVtoSOC1</name>
+				<modelLink href="SoC/Opaque"/>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Cell OCV to SOC 1" kind="mlsl:block"/>
+					<pathNode name="CellOCVtoSOC1" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_B.uRC_Cell_L[0].CoreSubsys.TmpSignalConversionAtIntegrator">
+				<definitionLocation>
+					<baseRef identifier="SoC_B"/>
+					<memberRef identifier="uRC_Cell_L"/>
+					<memberRef identifier="CoreSubsys"/>
 					<memberRef identifier="TmpSignalConversionAtIntegrator"/>
 				</definitionLocation>
 				<fileOrigin name="SoC.c"/>
@@ -547,10 +655,11 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="SoC_B.CoreSubsys_p[0].Sum2">
+			<dataCInterface identifier="SoC_B.uRC_Cell_L[0].CoreSubsys.Sum2">
 				<definitionLocation>
 					<baseRef identifier="SoC_B"/>
-					<memberRef identifier="CoreSubsys_p"/>
+					<memberRef identifier="uRC_Cell_L"/>
+					<memberRef identifier="CoreSubsys"/>
 					<memberRef identifier="Sum2"/>
 				</definitionLocation>
 				<fileOrigin name="SoC.c"/>
@@ -560,7 +669,7 @@
 				<modelLink href="SoC/Opaque"/>
 				<modelLocation>
 					<pathNode name="SoC" kind="mlsl:model" type="atomic"/>
-					<pathNode name="3RC_Cell" kind="mlsl:subsystem"/>
+					<pathNode name="3RC_Cell_L" kind="mlsl:subsystem"/>
 					<pathNode name="EKF 3RC" kind="mlsl:subsystem"/>
 					<pathNode name="Jacobian" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Sum2" kind="mlsl:block"/>
@@ -584,10 +693,11 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="SoC_B.CoreSubsys_p[0].Pdot">
+			<dataCInterface identifier="SoC_B.uRC_Cell_L[0].CoreSubsys.Pdot">
 				<definitionLocation>
 					<baseRef identifier="SoC_B"/>
-					<memberRef identifier="CoreSubsys_p"/>
+					<memberRef identifier="uRC_Cell_L"/>
+					<memberRef identifier="CoreSubsys"/>
 					<memberRef identifier="Pdot"/>
 				</definitionLocation>
 				<fileOrigin name="SoC.c"/>
@@ -597,7 +707,7 @@
 				<modelLink href="SoC/Opaque"/>
 				<modelLocation>
 					<pathNode name="SoC" kind="mlsl:model" type="atomic"/>
-					<pathNode name="3RC_Cell" kind="mlsl:subsystem"/>
+					<pathNode name="3RC_Cell_L" kind="mlsl:subsystem"/>
 					<pathNode name="EKF 3RC" kind="mlsl:subsystem"/>
 					<pathNode name="Prediction-correction" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Sum" kind="mlsl:block"/>
@@ -621,24 +731,169 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="SoC_B.CoreSubsys_p[0].Sum2_c">
+			<dataCInterface identifier="SoC_B.uRC_Cell_L[0].CoreSubsys.Sum2_h">
 				<definitionLocation>
 					<baseRef identifier="SoC_B"/>
-					<memberRef identifier="CoreSubsys_p"/>
-					<memberRef identifier="Sum2_c"/>
+					<memberRef identifier="uRC_Cell_L"/>
+					<memberRef identifier="CoreSubsys"/>
+					<memberRef identifier="Sum2_h"/>
 				</definitionLocation>
 				<fileOrigin name="SoC.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="SoC.Opaque.Sum2_c">
-				<name>Sum2_c</name>
+			<modelOrigin identifier="SoC.Opaque.Sum2_h">
+				<name>Sum2_h</name>
 				<modelLink href="SoC/Opaque"/>
 				<modelLocation>
 					<pathNode name="SoC" kind="mlsl:model" type="atomic"/>
-					<pathNode name="3RC_Cell" kind="mlsl:subsystem"/>
+					<pathNode name="3RC_Cell_L" kind="mlsl:subsystem"/>
 					<pathNode name="EKF 3RC" kind="mlsl:subsystem"/>
 					<pathNode name="Prediction-correction" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Sum2" kind="mlsl:block"/>
-					<pathNode name="Sum2_c" kind="mlsl:signal"/>
+					<pathNode name="Sum2_h" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous"><width value="4"/>
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_B.uRC_Cell_H[0].CoreSubsys.TmpSignalConversionAtIntegrator">
+				<definitionLocation>
+					<baseRef identifier="SoC_B"/>
+					<memberRef identifier="uRC_Cell_H"/>
+					<memberRef identifier="CoreSubsys"/>
+					<memberRef identifier="TmpSignalConversionAtIntegrator"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.Opaque.TmpSignalConversionAtIntegrator">
+				<name>TmpSignalConversionAtIntegrator</name>
+				<modelLink href="SoC/Opaque"/>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous"><width value="4"/>
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_B.uRC_Cell_H[0].CoreSubsys.Sum2">
+				<definitionLocation>
+					<baseRef identifier="SoC_B"/>
+					<memberRef identifier="uRC_Cell_H"/>
+					<memberRef identifier="CoreSubsys"/>
+					<memberRef identifier="Sum2"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.Opaque.Sum2">
+				<name>Sum2</name>
+				<modelLink href="SoC/Opaque"/>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="3RC_Cell_H" kind="mlsl:subsystem"/>
+					<pathNode name="EKF 3RC" kind="mlsl:subsystem"/>
+					<pathNode name="Jacobian" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Sum2" kind="mlsl:block"/>
+					<pathNode name="Sum2" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_B.uRC_Cell_H[0].CoreSubsys.Pdot">
+				<definitionLocation>
+					<baseRef identifier="SoC_B"/>
+					<memberRef identifier="uRC_Cell_H"/>
+					<memberRef identifier="CoreSubsys"/>
+					<memberRef identifier="Pdot"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.Opaque.Pdot">
+				<name>Pdot</name>
+				<modelLink href="SoC/Opaque"/>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="3RC_Cell_H" kind="mlsl:subsystem"/>
+					<pathNode name="EKF 3RC" kind="mlsl:subsystem"/>
+					<pathNode name="Prediction-correction" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Sum" kind="mlsl:block"/>
+					<pathNode name="Pdot" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous"><width value="4"/><width value="4"/>
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_B.uRC_Cell_H[0].CoreSubsys.Sum2_h">
+				<definitionLocation>
+					<baseRef identifier="SoC_B"/>
+					<memberRef identifier="uRC_Cell_H"/>
+					<memberRef identifier="CoreSubsys"/>
+					<memberRef identifier="Sum2_h"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.Opaque.Sum2_h">
+				<name>Sum2_h</name>
+				<modelLink href="SoC/Opaque"/>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="3RC_Cell_H" kind="mlsl:subsystem"/>
+					<pathNode name="EKF 3RC" kind="mlsl:subsystem"/>
+					<pathNode name="Prediction-correction" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Sum2" kind="mlsl:block"/>
+					<pathNode name="Sum2_h" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
@@ -762,10 +1017,11 @@
 		</dataElement>
 		<!-- Global constant BlockIO (rtC) signals following -->
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="SoC_ConstB.CoreSubsys_p.Divide">
+			<dataCInterface identifier="SoC_ConstB.uRC_Cell_L.CoreSubsys.Divide">
 				<definitionLocation>
 					<baseRef identifier="SoC_ConstB"/>
-					<memberRef identifier="CoreSubsys_p"/>
+					<memberRef identifier="uRC_Cell_L"/>
+					<memberRef identifier="CoreSubsys"/>
 					<memberRef identifier="Divide"/>
 				</definitionLocation>
 				<fileOrigin name="SoC.c"/>
@@ -775,7 +1031,45 @@
 				<modelLink href="SoC/Opaque"/>
 				<modelLocation>
 					<pathNode name="SoC" kind="mlsl:model" type="atomic"/>
-					<pathNode name="3RC_Cell" kind="mlsl:subsystem"/>
+					<pathNode name="3RC_Cell_L" kind="mlsl:subsystem"/>
+					<pathNode name="EKF 3RC" kind="mlsl:subsystem"/>
+					<pathNode name="Prediction-correction" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Divide" kind="mlsl:block"/>
+					<pathNode name="Divide" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_ConstB.uRC_Cell_H.CoreSubsys.Divide">
+				<definitionLocation>
+					<baseRef identifier="SoC_ConstB"/>
+					<memberRef identifier="uRC_Cell_H"/>
+					<memberRef identifier="CoreSubsys"/>
+					<memberRef identifier="Divide"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.Opaque.Divide">
+				<name>Divide</name>
+				<modelLink href="SoC/Opaque"/>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="3RC_Cell_H" kind="mlsl:subsystem"/>
 					<pathNode name="EKF 3RC" kind="mlsl:subsystem"/>
 					<pathNode name="Prediction-correction" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Divide" kind="mlsl:block"/>
@@ -962,6 +1256,37 @@
 				</address>
 			</usage>
 		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_U.Highest_CellVoltage">
+				<definitionLocation>
+					<baseRef identifier="SoC_U"/>
+					<memberRef identifier="Highest_CellVoltage"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.Highest_CellVoltage">
+				<name>Highest_CellVoltage</name>
+				<modelLink href="SoC/Highest_CellVoltage"/>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model"/>
+					<pathNode name="Highest_CellVoltage" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
 		<!-- rtY output ports following -->
 		<dataElement interfaceKind="export">
 			<dataCInterface identifier="SoC_Y.SoC_KF">
@@ -1056,6 +1381,37 @@
 				</address>
 			</usage>
 		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="SoC_Y.SoC_High">
+				<definitionLocation>
+					<baseRef identifier="SoC_Y"/>
+					<memberRef identifier="SoC_High"/>
+				</definitionLocation>
+				<fileOrigin name="SoC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="SoC.SoC_High">
+				<name>SoC_High</name>
+				<modelLink href="SoC/SoC_High"/>
+				<modelLocation>
+					<pathNode name="SoC" kind="mlsl:model"/>
+					<pathNode name="SoC_High" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="SoC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
 		<functionElement interfaceKind="export">
 			<functionCInterface identifier="irt_Start_SoC">
 				<signature>
@@ -1111,9 +1467,11 @@
 						<message identifier="SoC_U.Accumulator_Voltage" send="false"></message>
 						<message identifier="SoC_U.Lowest_CellVoltage" send="false"></message>
 						<message identifier="SoC_U.Average_CellTemp" send="false"></message>
+						<message identifier="SoC_U.Highest_CellVoltage" send="false"></message>
 						<message identifier="SoC_Y.SoC_KF" send="true"></message>
 						<message identifier="SoC_Y.SoC_Avg" send="true"></message>
 						<message identifier="SoC_Y.SoC_Low" send="true"></message>
+						<message identifier="SoC_Y.SoC_High" send="true"></message>
 					</messageAccess>
 					<constraint>
 						<period value="0.2"/>

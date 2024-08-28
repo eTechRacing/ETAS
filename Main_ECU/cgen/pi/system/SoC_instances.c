@@ -40,21 +40,29 @@ void initClass_RTWTop_SoC(struct RTWTop_SoC_Class *self)
 {
     /* Level 1 class variables */
     self->RTWWrapper_SoC_B_AccuOCVtoSOC2024_Ptr = initInstance_scalarWrapper((void*)&SoC_B.AccuOCVtoSOC2024, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_SoC_B_CellOCVtoSOC1_Ptr = initInstance_scalarWrapper((void*)&SoC_B.CellOCVtoSOC1, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_SoC_B_CellOCVtoSOC2024_Ptr = initInstance_scalarWrapper((void*)&SoC_B.CellOCVtoSOC2024, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_SoC_B_CoreSubsys_0__Pdot_Ptr = initInstance_matrixWrapper((void*)&SoC_B.CoreSubsys[0].Pdot[0], sizeof(double), (uint32)4, (uint32)4, (uint32)ASD_VARIABLE);
     self->RTWWrapper_SoC_B_CoreSubsys_0__Sum2_Ptr = initInstance_vectorWrapper((void*)&SoC_B.CoreSubsys[0].Sum2, sizeof(double), (uint32)4, (uint32)ASD_VARIABLE);
     self->RTWWrapper_SoC_B_CoreSubsys_0__TmpSignalConversionAtIntegrator_Ptr = initInstance_vectorWrapper((void*)&SoC_B.CoreSubsys[0].TmpSignalConversionAtIntegrator, sizeof(double), (uint32)4, (uint32)ASD_VARIABLE);
-    self->RTWWrapper_SoC_B_CoreSubsys_p_0__Pdot_Ptr = initInstance_matrixWrapper((void*)&SoC_B.CoreSubsys_p[0].Pdot[0], sizeof(double), (uint32)4, (uint32)4, (uint32)ASD_VARIABLE);
-    self->RTWWrapper_SoC_B_CoreSubsys_p_0__Sum2_Ptr = initInstance_scalarWrapper((void*)&SoC_B.CoreSubsys_p[0].Sum2, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_SoC_B_CoreSubsys_p_0__Sum2_c_Ptr = initInstance_vectorWrapper((void*)&SoC_B.CoreSubsys_p[0].Sum2_c, sizeof(double), (uint32)4, (uint32)ASD_VARIABLE);
-    self->RTWWrapper_SoC_B_CoreSubsys_p_0__TmpSignalConversionAtIntegrator_Ptr = initInstance_vectorWrapper((void*)&SoC_B.CoreSubsys_p[0].TmpSignalConversionAtIntegrator, sizeof(double), (uint32)4, (uint32)ASD_VARIABLE);
+    self->RTWWrapper_SoC_B_uRC_Cell_H_0__CoreSubsys_Pdot_Ptr = initInstance_matrixWrapper((void*)&SoC_B.uRC_Cell_H[0].CoreSubsys.Pdot[0], sizeof(double), (uint32)4, (uint32)4, (uint32)ASD_VARIABLE);
+    self->RTWWrapper_SoC_B_uRC_Cell_H_0__CoreSubsys_Sum2_Ptr = initInstance_scalarWrapper((void*)&SoC_B.uRC_Cell_H[0].CoreSubsys.Sum2, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_SoC_B_uRC_Cell_H_0__CoreSubsys_Sum2_h_Ptr = initInstance_vectorWrapper((void*)&SoC_B.uRC_Cell_H[0].CoreSubsys.Sum2_h, sizeof(double), (uint32)4, (uint32)ASD_VARIABLE);
+    self->RTWWrapper_SoC_B_uRC_Cell_H_0__CoreSubsys_TmpSignalConversionAtIntegrator_Ptr = initInstance_vectorWrapper((void*)&SoC_B.uRC_Cell_H[0].CoreSubsys.TmpSignalConversionAtIntegrator, sizeof(double), (uint32)4, (uint32)ASD_VARIABLE);
+    self->RTWWrapper_SoC_B_uRC_Cell_L_0__CoreSubsys_Pdot_Ptr = initInstance_matrixWrapper((void*)&SoC_B.uRC_Cell_L[0].CoreSubsys.Pdot[0], sizeof(double), (uint32)4, (uint32)4, (uint32)ASD_VARIABLE);
+    self->RTWWrapper_SoC_B_uRC_Cell_L_0__CoreSubsys_Sum2_Ptr = initInstance_scalarWrapper((void*)&SoC_B.uRC_Cell_L[0].CoreSubsys.Sum2, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_SoC_B_uRC_Cell_L_0__CoreSubsys_Sum2_h_Ptr = initInstance_vectorWrapper((void*)&SoC_B.uRC_Cell_L[0].CoreSubsys.Sum2_h, sizeof(double), (uint32)4, (uint32)ASD_VARIABLE);
+    self->RTWWrapper_SoC_B_uRC_Cell_L_0__CoreSubsys_TmpSignalConversionAtIntegrator_Ptr = initInstance_vectorWrapper((void*)&SoC_B.uRC_Cell_L[0].CoreSubsys.TmpSignalConversionAtIntegrator, sizeof(double), (uint32)4, (uint32)ASD_VARIABLE);
     self->RTWWrapper_SoC_ConstB_CoreSubsys_Divide_Ptr = initInstance_scalarWrapper((void*)&SoC_ConstB.CoreSubsys.Divide, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_SoC_ConstB_CoreSubsys_p_Divide_Ptr = initInstance_scalarWrapper((void*)&SoC_ConstB.CoreSubsys_p.Divide, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_SoC_ConstB_uRC_Cell_H_CoreSubsys_Divide_Ptr = initInstance_scalarWrapper((void*)&SoC_ConstB.uRC_Cell_H.CoreSubsys.Divide, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_SoC_ConstB_uRC_Cell_L_CoreSubsys_Divide_Ptr = initInstance_scalarWrapper((void*)&SoC_ConstB.uRC_Cell_L.CoreSubsys.Divide, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_SoC_U_Accumulator_Current_Ptr = initInstance_scalarWrapper((void*)&SoC_U.Accumulator_Current, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_SoC_U_Accumulator_Voltage_Ptr = initInstance_scalarWrapper((void*)&SoC_U.Accumulator_Voltage, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_SoC_U_Average_CellTemp_Ptr = initInstance_scalarWrapper((void*)&SoC_U.Average_CellTemp, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_SoC_U_Highest_CellVoltage_Ptr = initInstance_scalarWrapper((void*)&SoC_U.Highest_CellVoltage, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_SoC_U_Lowest_CellVoltage_Ptr = initInstance_scalarWrapper((void*)&SoC_U.Lowest_CellVoltage, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_SoC_Y_SoC_Avg_Ptr = initInstance_scalarWrapper((void*)&SoC_Y.SoC_Avg, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_SoC_Y_SoC_High_Ptr = initInstance_scalarWrapper((void*)&SoC_Y.SoC_High, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_SoC_Y_SoC_KF_Ptr = initInstance_scalarWrapper((void*)&SoC_Y.SoC_KF, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_SoC_Y_SoC_Low_Ptr = initInstance_scalarWrapper((void*)&SoC_Y.SoC_Low, sizeof(double), (uint32)ASD_VARIABLE);
     return;
@@ -77,9 +85,17 @@ static MethodList RTWTop_SoC_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_SoC_ClassHeader =
-    {0, 1, 0, 18 + 0, (MethodList *)0, (MethodList *)&RTWTop_SoC_ClassMethodList};
+    {0, 1, 0, 26 + 0, (MethodList *)0, (MethodList *)&RTWTop_SoC_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_SoC_Class RTWTop_SoC_ClassObj = {{1, {&RTWTop_SoC_ClassHeader}, {0}}
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
     ,NULL
     ,NULL
     ,NULL

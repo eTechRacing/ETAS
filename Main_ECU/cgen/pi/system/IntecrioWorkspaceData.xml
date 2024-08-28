@@ -5,8 +5,8 @@
 	<Name value="Main_ECU"/>
 	<Caption value="Main_ECU"/>
 	<DateTimeCreated value="2024-04-20T01:28:13.0Z"/>
-	<DateTimeLastOpened value="2024-08-27T18:16:24.0Z"/>
-	<DateTimeLastSaved value="2024-08-27T18:16:24.0Z"/>
+	<DateTimeLastOpened value="2024-08-28T02:08:09.0Z"/>
+	<DateTimeLastSaved value="2024-08-28T02:08:09.0Z"/>
 	<VersionCreated value="5.0.5.1003"/>
 	<VersionLastSaved value="5.0.5.1003"/>
 	<VersionMinRequired value="5.0.5.1001"/>
@@ -6904,15 +6904,15 @@
 							<Company value=""/>
 							<UserRole value="modifier"/>
 							<DateTimeCreated value="2021-2-17T14:58:42.0Z"/>
-							<Version value="13.15"/>
+							<Version value="13.17"/>
 							<ModelLink value="mlsl:\\\&quot;C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\SoC.slx&quot;"/>
-							<DateTimeModified value="2024-8-25T0:29:26.0Z"/>
+							<DateTimeModified value="2024-8-28T2:7:25.0Z"/>
 							<Description/>
 							<InterfaceFile>
 								<Name value="soc.six"/>
 								<Path value="c:\users\joser\onedrive\documentos\github\etas\build\soc_irt_rtw\soc.six"/>
 								<Kind value="SCOOP-IX"/>
-								<DateTime value="2024-08-25T00:55:12.0Z"/>
+								<DateTime value="2024-08-28T02:13:33.0Z"/>
 							</InterfaceFile>
 							<Suitabilities>
 								<Suitability>
@@ -7059,7 +7059,7 @@
 							</File>
 						</FileContainer>
 						<Interface>
-							<Ports portCount="7">
+							<Ports portCount="9">
 								<Port id="Handle_5713_SoC.SoC_U\.Accumulator_Current">
 									<ID value="SoC.SoC_U\.Accumulator_Current"/>
 									<ShortId value="SoC_U.Accumulator_Current"/>
@@ -7242,6 +7242,58 @@
 										<Kind value="Linear"/>
 									</QuantizationFormula>
 								</Port>
+								<Port id="Handle_3278_SoC.SoC_U\.Highest_CellVoltage">
+									<ID value="SoC.SoC_U\.Highest_CellVoltage"/>
+									<ShortId value="SoC_U.Highest_CellVoltage"/>
+									<Name value="SoC.Highest_CellVoltage"/>
+									<Caption value="Highest_CellVoltage"/>
+									<Direction value="In"/>
+									<Type value="continuous"/>
+									<Size value="real64"/>
+									<Unit value=""/>
+									<LowerBound value="-1.7E+308"/>
+									<UpperBound value="1.7E+308"/>
+									<Saturated value="true"/>
+									<RepresentationFormat value="Implemented"/>
+									<InitValue value="0"/>
+									<Kind value="ModulePort"/>
+									<Connected value="true"/>
+									<QuantizationFormula id="Handle_3278_SoC.SoC_U\.Highest_CellVoltage">
+										<ID value="SoC.SoC_U\.Highest_CellVoltage"/>
+										<ShortId value="SoC_U.Highest_CellVoltage"/>
+										<Name value="Highest_CellVoltage"/>
+										<Caption value="Highest_CellVoltage"/>
+										<ParamM value="1"/>
+										<ParamT value="0"/>
+										<Kind value="Linear"/>
+									</QuantizationFormula>
+								</Port>
+								<Port id="Handle_3279_SoC.SoC_Y\.SoC_High">
+									<ID value="SoC.SoC_Y\.SoC_High"/>
+									<ShortId value="SoC_Y.SoC_High"/>
+									<Name value="SoC.SoC_High"/>
+									<Caption value="SoC_High"/>
+									<Direction value="Out"/>
+									<Type value="continuous"/>
+									<Size value="real64"/>
+									<Unit value=""/>
+									<LowerBound value="-1.7E+308"/>
+									<UpperBound value="1.7E+308"/>
+									<Saturated value="true"/>
+									<RepresentationFormat value="Implemented"/>
+									<InitValue value="0"/>
+									<Kind value="ModulePort"/>
+									<Connected value="true"/>
+									<QuantizationFormula id="Handle_3279_SoC.SoC_Y\.SoC_High">
+										<ID value="SoC.SoC_Y\.SoC_High"/>
+										<ShortId value="SoC_Y.SoC_High"/>
+										<Name value="SoC_High"/>
+										<Caption value="SoC_High"/>
+										<ParamM value="1"/>
+										<ParamT value="0"/>
+										<Kind value="Linear"/>
+									</QuantizationFormula>
+								</Port>
 							</Ports>
 							<Processes>
 								<Process id="Handle_5720_SoC.irt_Start_SoC">
@@ -7292,9 +7344,11 @@
 										<MessageReference targetRef="Handle_5715_SoC.SoC_U\.Average_CellTemp"/>
 										<MessageReference targetRef="Handle_5717_SoC.SoC_U\.Lowest_CellVoltage"/>
 										<MessageReference targetRef="Handle_5966_SoC.SoC_U\.Accumulator_Voltage"/>
+										<MessageReference targetRef="Handle_3278_SoC.SoC_U\.Highest_CellVoltage"/>
 										<MessageReference targetRef="Handle_5719_SoC.SoC_Y\.SoC_KF"/>
 										<MessageReference targetRef="Handle_5967_SoC.SoC_Y\.SoC_Avg"/>
 										<MessageReference targetRef="Handle_5968_SoC.SoC_Y\.SoC_Low"/>
+										<MessageReference targetRef="Handle_3279_SoC.SoC_Y\.SoC_High"/>
 									</MessageReferences>
 								</Process>
 								<Process id="Handle_5732_SoC.irt_Terminate_SoC">
@@ -7345,7 +7399,7 @@
 					<SoftwareMetaInfo functionCount="0" moduleCount="10"/>
 					<Kind value="Software"/>
 					<Interface>
-						<Ports portCount="147">
+						<Ports portCount="149">
 							<Port id="Handle_1217_SoftwareSystem.SAP">
 								<ID value="SoftwareSystem.SAP"/>
 								<ShortId value="SAP"/>
@@ -11168,9 +11222,61 @@
 									<Kind value="Linear"/>
 								</QuantizationFormula>
 							</Port>
+							<Port id="Handle_817_SoftwareSystem.SAP14">
+								<ID value="SoftwareSystem.SAP14"/>
+								<ShortId value="SAP14"/>
+								<Name value="in"/>
+								<Caption value="SoC.Highest_CellVoltage"/>
+								<Direction value="In"/>
+								<Type value="continuous"/>
+								<Size value="real64"/>
+								<Unit value=""/>
+								<LowerBound value="-1.7E+308"/>
+								<UpperBound value="1.7E+308"/>
+								<Saturated value="true"/>
+								<RepresentationFormat value="Implemented"/>
+								<InitValue value="0"/>
+								<Kind value="FunctionPort"/>
+								<Connected value="true"/>
+								<QuantizationFormula id="Handle_3278_SoC.SoC_U\.Highest_CellVoltage">
+									<ID value="SoC.SoC_U\.Highest_CellVoltage"/>
+									<ShortId value="SoC_U.Highest_CellVoltage"/>
+									<Name value="Highest_CellVoltage"/>
+									<Caption value="Highest_CellVoltage"/>
+									<ParamM value="1"/>
+									<ParamT value="0"/>
+									<Kind value="Linear"/>
+								</QuantizationFormula>
+							</Port>
+							<Port id="Handle_3190_SoftwareSystem.SAP259">
+								<ID value="SoftwareSystem.SAP259"/>
+								<ShortId value="SAP259"/>
+								<Name value="out"/>
+								<Caption value="SoC.SoC_High"/>
+								<Direction value="Out"/>
+								<Type value="continuous"/>
+								<Size value="real64"/>
+								<Unit value=""/>
+								<LowerBound value="-1.7E+308"/>
+								<UpperBound value="1.7E+308"/>
+								<Saturated value="true"/>
+								<RepresentationFormat value="Implemented"/>
+								<InitValue value="0"/>
+								<Kind value="FunctionPort"/>
+								<Connected value="true"/>
+								<QuantizationFormula id="Handle_3279_SoC.SoC_Y\.SoC_High">
+									<ID value="SoC.SoC_Y\.SoC_High"/>
+									<ShortId value="SoC_Y.SoC_High"/>
+									<Name value="SoC_High"/>
+									<Caption value="SoC_High"/>
+									<ParamM value="1"/>
+									<ParamT value="0"/>
+									<Kind value="Linear"/>
+								</QuantizationFormula>
+							</Port>
 						</Ports>
 					</Interface>
-					<Connections connectionCount="184">
+					<Connections connectionCount="186">
 						<Connection id="Handle_609_SoftwareSystem.Connection4">
 							<ID value="SoftwareSystem.Connection4"/>
 							<ShortId value="Connection4"/>
@@ -13931,6 +14037,36 @@
 								<Name value="VDC.TC_Warning"/>
 							</SinkPortRef>
 						</Connection>
+						<Connection id="Handle_5853_SoftwareSystem.Connection258">
+							<ID value="SoftwareSystem.Connection258"/>
+							<ShortId value="Connection258"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_817_SoftwareSystem.SAP14">
+								<Name value="SoC.Highest_CellVoltage"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_3278_SoC.SoC_U\.Highest_CellVoltage">
+								<Name value="Highest_CellVoltage"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_5860_SoftwareSystem.Connection260">
+							<ID value="SoftwareSystem.Connection260"/>
+							<ShortId value="Connection260"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_3279_SoC.SoC_Y\.SoC_High">
+								<Name value="SoC_High"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_3190_SoftwareSystem.SAP259">
+								<Name value="SoC.SoC_High"/>
+							</SinkPortRef>
+						</Connection>
 					</Connections>
 					<EmbeddedComponents>
 						<Functions>
@@ -13962,7 +14098,7 @@
 					<Caption value="ETAS"/>
 					<Kind value="StandardSystem"/>
 					<SystemMetaInfo>
-						<ProgramIdentifier value="0x7f748fdf"/>
+						<ProgramIdentifier value="0xd18c2967"/>
 					</SystemMetaInfo>
 					<Hardware id="Handle_1389_System.YBOMappedECU" refId="">
 						<ID value="System.YBOMappedECU"/>
@@ -14372,7 +14508,7 @@
 																		<ShortId value="Highest_CellVoltage"/>
 																		<Name value="CAN1.CAN1.AP_BMS_Voltages.Highest_CellVoltage"/>
 																		<Caption value="Highest_CellVoltage"/>
-																		<Connected value="false"/>
+																		<Connected value="true"/>
 																		<Type value="udiscrete"/>
 																		<Unit value="V"/>
 																		<RepresentationFormat value="Physical"/>
@@ -16486,7 +16622,7 @@
 																	<ShortId value="Highest_CellVoltage"/>
 																	<Name value="CAN1.CAN1.AP_BMS_Voltages.Highest_CellVoltage"/>
 																	<Caption value="Highest_CellVoltage"/>
-																	<Connected value="false"/>
+																	<Connected value="true"/>
 																	<Type value="udiscrete"/>
 																	<Unit value="V"/>
 																	<RepresentationFormat value="Physical"/>
@@ -18101,6 +18237,33 @@
 																	</HardwareAction>
 																</HardwareActions>
 																<Signals>
+																	<Signal id="Handle_2520_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_High">
+																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_High"/>
+																		<ShortId value="SOC_High"/>
+																		<Name value="CAN2.CAN2.MEAS_ETAS_SOC.SOC_High"/>
+																		<Caption value="SOC_High"/>
+																		<Connected value="true"/>
+																		<Type value="udiscrete"/>
+																		<Unit value="%"/>
+																		<RepresentationFormat value="Physical"/>
+																		<Direction value="In"/>
+																		<InitValue value="0"/>
+																		<Size value="real64"/>
+																		<LowerBound value="0"/>
+																		<Kind value="HardwarePort"/>
+																		<UpperBound value="655.35"/>
+																		<Saturated value="true"/>
+																		<QuantizationFormula id="Handle_2520_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_High">
+																			<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_High"/>
+																			<ShortId value="SOC_High"/>
+																			<Name value="SOC_High"/>
+																			<Caption value="SOC_High"/>
+																			<ParamM value="1"/>
+																			<ParamT value="0"/>
+																			<Kind value="Linear"/>
+																		</QuantizationFormula>
+																		<RtioRefId value="72"/>
+																	</Signal>
 																	<Signal id="Handle_3426_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_Low">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_Low"/>
 																		<ShortId value="SOC_Low"/>
@@ -18115,7 +18278,7 @@
 																		<Size value="real64"/>
 																		<LowerBound value="0"/>
 																		<Kind value="HardwarePort"/>
-																		<UpperBound value="255"/>
+																		<UpperBound value="655.35"/>
 																		<Saturated value="true"/>
 																		<QuantizationFormula id="Handle_3426_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_Low">
 																			<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_Low"/>
@@ -18126,7 +18289,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="72"/>
+																		<RtioRefId value="73"/>
 																	</Signal>
 																	<Signal id="Handle_3427_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_Avg">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_Avg"/>
@@ -18142,7 +18305,7 @@
 																		<Size value="real64"/>
 																		<LowerBound value="0"/>
 																		<Kind value="HardwarePort"/>
-																		<UpperBound value="255"/>
+																		<UpperBound value="655.35"/>
 																		<Saturated value="true"/>
 																		<QuantizationFormula id="Handle_3427_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_Avg">
 																			<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_Avg"/>
@@ -18153,7 +18316,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="73"/>
+																		<RtioRefId value="74"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -18202,7 +18365,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="74"/>
+																		<RtioRefId value="75"/>
 																	</Signal>
 																	<Signal id="Handle_6312_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_AUTO.el_Slip_Valid">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_AUTO.el_Slip_Valid"/>
@@ -18229,7 +18392,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="75"/>
+																		<RtioRefId value="76"/>
 																	</Signal>
 																	<Signal id="Handle_6313_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_AUTO.el_Curvature_Valid">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_AUTO.el_Curvature_Valid"/>
@@ -18256,7 +18419,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="76"/>
+																		<RtioRefId value="77"/>
 																	</Signal>
 																	<Signal id="Handle_6314_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_AUTO.el_SlipAngle">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_AUTO.el_SlipAngle"/>
@@ -18283,7 +18446,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="77"/>
+																		<RtioRefId value="78"/>
 																	</Signal>
 																	<Signal id="Handle_6315_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_AUTO.el_CurvatureRadius">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_AUTO.el_CurvatureRadius"/>
@@ -18310,7 +18473,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="78"/>
+																		<RtioRefId value="79"/>
 																	</Signal>
 																	<Signal id="Handle_6316_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_AUTO.el_AngleTrack">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_AUTO.el_AngleTrack"/>
@@ -18337,7 +18500,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="79"/>
+																		<RtioRefId value="80"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -18386,7 +18549,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="80"/>
+																		<RtioRefId value="81"/>
 																	</Signal>
 																	<Signal id="Handle_251_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_GPS_VEL.el_Vel_GPS_E">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_GPS_VEL.el_Vel_GPS_E"/>
@@ -18413,7 +18576,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="81"/>
+																		<RtioRefId value="82"/>
 																	</Signal>
 																	<Signal id="Handle_252_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_GPS_VEL.el_Vel_GPS_D">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_GPS_VEL.el_Vel_GPS_D"/>
@@ -18440,7 +18603,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="82"/>
+																		<RtioRefId value="83"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -18498,7 +18661,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="84"/>
+																		<RtioRefId value="85"/>
 																	</Signal>
 																	<Signal id="Handle_255_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_InvL">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_InvL"/>
@@ -18525,7 +18688,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="85"/>
+																		<RtioRefId value="86"/>
 																	</Signal>
 																	<Signal id="Handle_256_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Susp_R_R">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Susp_R_R"/>
@@ -18552,7 +18715,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="86"/>
+																		<RtioRefId value="87"/>
 																	</Signal>
 																	<Signal id="Handle_257_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Susp_R_L">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Susp_R_L"/>
@@ -18579,7 +18742,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="87"/>
+																		<RtioRefId value="88"/>
 																	</Signal>
 																	<Signal id="Handle_258_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Susp_F_R">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Susp_F_R"/>
@@ -18606,7 +18769,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="88"/>
+																		<RtioRefId value="89"/>
 																	</Signal>
 																	<Signal id="Handle_259_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Susp_F_L">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Susp_F_L"/>
@@ -18633,7 +18796,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="89"/>
+																		<RtioRefId value="90"/>
 																	</Signal>
 																	<Signal id="Handle_260_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_SteeringSensor">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_SteeringSensor"/>
@@ -18660,7 +18823,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="90"/>
+																		<RtioRefId value="91"/>
 																	</Signal>
 																	<Signal id="Handle_261_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Rear">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Rear"/>
@@ -18687,7 +18850,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="91"/>
+																		<RtioRefId value="92"/>
 																	</Signal>
 																	<Signal id="Handle_262_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Pitot">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Pitot"/>
@@ -18714,7 +18877,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="92"/>
+																		<RtioRefId value="93"/>
 																	</Signal>
 																	<Signal id="Handle_263_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Front">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Front"/>
@@ -18741,7 +18904,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="93"/>
+																		<RtioRefId value="94"/>
 																	</Signal>
 																	<Signal id="Handle_264_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Ellipse">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Ellipse"/>
@@ -18768,7 +18931,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="94"/>
+																		<RtioRefId value="95"/>
 																	</Signal>
 																	<Signal id="Handle_265_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_DashBoard">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_DashBoard"/>
@@ -18795,7 +18958,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="95"/>
+																		<RtioRefId value="96"/>
 																	</Signal>
 																	<Signal id="Handle_266_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_BrakePedal">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_BrakePedal"/>
@@ -18822,7 +18985,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="96"/>
+																		<RtioRefId value="97"/>
 																	</Signal>
 																	<Signal id="Handle_267_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_BMS">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_BMS"/>
@@ -18849,7 +19012,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="97"/>
+																		<RtioRefId value="98"/>
 																	</Signal>
 																	<Signal id="Handle_268_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS2">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS2"/>
@@ -18876,7 +19039,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="98"/>
+																		<RtioRefId value="99"/>
 																	</Signal>
 																	<Signal id="Handle_269_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS1">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS1"/>
@@ -18903,7 +19066,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="99"/>
+																		<RtioRefId value="100"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -18961,7 +19124,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="101"/>
+																		<RtioRefId value="102"/>
 																	</Signal>
 																	<Signal id="Handle_272_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Values.SteeringSensor_Value">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Values.SteeringSensor_Value"/>
@@ -18988,7 +19151,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="102"/>
+																		<RtioRefId value="103"/>
 																	</Signal>
 																	<Signal id="Handle_273_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Values.BrakePedal_Value">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Values.BrakePedal_Value"/>
@@ -19015,7 +19178,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="103"/>
+																		<RtioRefId value="104"/>
 																	</Signal>
 																	<Signal id="Handle_274_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value"/>
@@ -19042,7 +19205,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="104"/>
+																		<RtioRefId value="105"/>
 																	</Signal>
 																	<Signal id="Handle_275_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS1_Value">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS1_Value"/>
@@ -19069,7 +19232,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="105"/>
+																		<RtioRefId value="106"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -19127,7 +19290,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="107"/>
+																		<RtioRefId value="108"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -19176,7 +19339,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="108"/>
+																		<RtioRefId value="109"/>
 																	</Signal>
 																	<Signal id="Handle_280_ES9101.ES9102.CAN2.CAN2.MEAS_RECU_SDC.Shutdown_HVD">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_RECU_SDC.Shutdown_HVD"/>
@@ -19203,7 +19366,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="109"/>
+																		<RtioRefId value="110"/>
 																	</Signal>
 																	<Signal id="Handle_281_ES9101.ES9102.CAN2.CAN2.MEAS_RECU_SDC.Shutdown_HVBox">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_RECU_SDC.Shutdown_HVBox"/>
@@ -19230,7 +19393,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="110"/>
+																		<RtioRefId value="111"/>
 																	</Signal>
 																	<Signal id="Handle_282_ES9101.ES9102.CAN2.CAN2.MEAS_RECU_SDC.Shutdown_LeftTS">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_RECU_SDC.Shutdown_LeftTS"/>
@@ -19257,7 +19420,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="111"/>
+																		<RtioRefId value="112"/>
 																	</Signal>
 																	<Signal id="Handle_283_ES9101.ES9102.CAN2.CAN2.MEAS_RECU_SDC.Shutdown_RightTS">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_RECU_SDC.Shutdown_RightTS"/>
@@ -19284,7 +19447,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="112"/>
+																		<RtioRefId value="113"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -19333,7 +19496,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="113"/>
+																		<RtioRefId value="114"/>
 																	</Signal>
 																	<Signal id="Handle_290_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_POS.el_LATITUDE_EKF">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_POS.el_LATITUDE_EKF"/>
@@ -19360,7 +19523,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="114"/>
+																		<RtioRefId value="115"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -19409,7 +19572,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="115"/>
+																		<RtioRefId value="116"/>
 																	</Signal>
 																	<Signal id="Handle_293_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_Y">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_Y"/>
@@ -19436,7 +19599,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="116"/>
+																		<RtioRefId value="117"/>
 																	</Signal>
 																	<Signal id="Handle_294_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_X">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_X"/>
@@ -19463,7 +19626,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="117"/>
+																		<RtioRefId value="118"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -19512,7 +19675,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="118"/>
+																		<RtioRefId value="119"/>
 																	</Signal>
 																	<Signal id="Handle_297_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_EULER.el_PITCH">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_EULER.el_PITCH"/>
@@ -19539,7 +19702,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="119"/>
+																		<RtioRefId value="120"/>
 																	</Signal>
 																	<Signal id="Handle_298_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_EULER.el_ROLL">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_EULER.el_ROLL"/>
@@ -19566,7 +19729,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="120"/>
+																		<RtioRefId value="121"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -19615,7 +19778,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="121"/>
+																		<RtioRefId value="122"/>
 																	</Signal>
 																	<Signal id="Handle_301_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_VEL.el_Vel_EKF_Y">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_VEL.el_Vel_EKF_Y"/>
@@ -19642,7 +19805,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="122"/>
+																		<RtioRefId value="123"/>
 																	</Signal>
 																	<Signal id="Handle_302_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_VEL.el_Vel_EKF_X">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_VEL.el_Vel_EKF_X"/>
@@ -19669,7 +19832,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="123"/>
+																		<RtioRefId value="124"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -19718,7 +19881,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="124"/>
+																		<RtioRefId value="125"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -19767,7 +19930,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="125"/>
+																		<RtioRefId value="126"/>
 																	</Signal>
 																	<Signal id="Handle_307_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_GYRO.el_GYRO_Y">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_GYRO.el_GYRO_Y"/>
@@ -19794,7 +19957,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="126"/>
+																		<RtioRefId value="127"/>
 																	</Signal>
 																	<Signal id="Handle_308_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_GYRO.el_GYRO_X">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_GYRO.el_GYRO_X"/>
@@ -19821,7 +19984,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="127"/>
+																		<RtioRefId value="128"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -19870,7 +20033,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="128"/>
+																		<RtioRefId value="129"/>
 																	</Signal>
 																	<Signal id="Handle_311_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_VEL_Valid.el_Vel_GPS_Valid">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_VEL_Valid.el_Vel_GPS_Valid"/>
@@ -19897,7 +20060,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="129"/>
+																		<RtioRefId value="130"/>
 																	</Signal>
 																	<Signal id="Handle_312_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_VEL_Valid.el_Vel_EKF_Valid">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_VEL_Valid.el_Vel_EKF_Valid"/>
@@ -19924,7 +20087,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="130"/>
+																		<RtioRefId value="131"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -19982,7 +20145,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="132"/>
+																		<RtioRefId value="133"/>
 																	</Signal>
 																	<Signal id="Handle_315_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R"/>
@@ -20009,7 +20172,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="133"/>
+																		<RtioRefId value="134"/>
 																	</Signal>
 																	<Signal id="Handle_316_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT"/>
@@ -20036,7 +20199,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="134"/>
+																		<RtioRefId value="135"/>
 																	</Signal>
 																	<Signal id="Handle_317_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel"/>
@@ -20063,7 +20226,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="135"/>
+																		<RtioRefId value="136"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -20121,7 +20284,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="137"/>
+																		<RtioRefId value="138"/>
 																	</Signal>
 																	<Signal id="Handle_320_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L"/>
@@ -20148,7 +20311,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="138"/>
+																		<RtioRefId value="139"/>
 																	</Signal>
 																	<Signal id="Handle_321_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT"/>
@@ -20175,7 +20338,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="139"/>
+																		<RtioRefId value="140"/>
 																	</Signal>
 																	<Signal id="Handle_322_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel"/>
@@ -20202,7 +20365,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="140"/>
+																		<RtioRefId value="141"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -20260,7 +20423,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="142"/>
+																		<RtioRefId value="143"/>
 																	</Signal>
 																	<Signal id="Handle_325_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_L">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_L"/>
@@ -20287,7 +20450,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="143"/>
+																		<RtioRefId value="144"/>
 																	</Signal>
 																	<Signal id="Handle_326_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_R">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_R"/>
@@ -20314,7 +20477,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="144"/>
+																		<RtioRefId value="145"/>
 																	</Signal>
 																	<Signal id="Handle_327_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_L">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_L"/>
@@ -20341,7 +20504,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="145"/>
+																		<RtioRefId value="146"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -20399,7 +20562,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="147"/>
+																		<RtioRefId value="148"/>
 																	</Signal>
 																	<Signal id="Handle_330_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_R">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_R"/>
@@ -20426,7 +20589,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="148"/>
+																		<RtioRefId value="149"/>
 																	</Signal>
 																	<Signal id="Handle_331_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_L">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_L"/>
@@ -20453,7 +20616,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="149"/>
+																		<RtioRefId value="150"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -20502,7 +20665,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="150"/>
+																		<RtioRefId value="151"/>
 																	</Signal>
 																	<Signal id="Handle_334_ES9101.ES9102.CAN2.CAN2.AP_RECU_Data.Susp_R_L_Bits">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_RECU_Data.Susp_R_L_Bits"/>
@@ -20529,7 +20692,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="151"/>
+																		<RtioRefId value="152"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -20578,7 +20741,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="152"/>
+																		<RtioRefId value="153"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -20627,7 +20790,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="153"/>
+																		<RtioRefId value="154"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -20651,14 +20814,14 @@
 																	</HardwareAction>
 																</HardwareActions>
 																<Signals>
-																	<Signal id="Handle_2510_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_SC_BOTS">
-																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_SC_BOTS"/>
-																		<ShortId value="Shutdown_SC_BOTS"/>
-																		<Name value="CAN2.CAN2.AP_FECU_Data2.Shutdown_SC_BOTS"/>
-																		<Caption value="Shutdown_SC_BOTS"/>
+																	<Signal id="Handle_2521_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Pitot_Bits">
+																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Pitot_Bits"/>
+																		<ShortId value="Pitot_Bits"/>
+																		<Name value="CAN2.CAN2.AP_FECU_Data2.Pitot_Bits"/>
+																		<Caption value="Pitot_Bits"/>
 																		<Connected value="false"/>
-																		<Type value="boolean"/>
-																		<Unit value="Bit"/>
+																		<Type value="udiscrete"/>
+																		<Unit value="Bits"/>
 																		<RepresentationFormat value="Physical"/>
 																		<Direction value="Out"/>
 																		<InitValue value="0"/>
@@ -20667,70 +20830,16 @@
 																		<Kind value="HardwarePort"/>
 																		<UpperBound value="0"/>
 																		<Saturated value="false"/>
-																		<QuantizationFormula id="Handle_2510_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_SC_BOTS">
-																			<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_SC_BOTS"/>
-																			<ShortId value="Shutdown_SC_BOTS"/>
-																			<Name value="Shutdown_SC_BOTS"/>
-																			<Caption value="Shutdown_SC_BOTS"/>
-																			<ParamM value="1"/>
-																			<ParamT value="0"/>
-																			<Kind value="Linear"/>
-																		</QuantizationFormula>
-																		<RtioRefId value="154"/>
-																	</Signal>
-																	<Signal id="Handle_2511_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_BSPD_Inertia">
-																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_BSPD_Inertia"/>
-																		<ShortId value="Shutdown_BSPD_Inertia"/>
-																		<Name value="CAN2.CAN2.AP_FECU_Data2.Shutdown_BSPD_Inertia"/>
-																		<Caption value="Shutdown_BSPD_Inertia"/>
-																		<Connected value="false"/>
-																		<Type value="boolean"/>
-																		<Unit value="Bit"/>
-																		<RepresentationFormat value="Physical"/>
-																		<Direction value="Out"/>
-																		<InitValue value="0"/>
-																		<Size value="real64"/>
-																		<LowerBound value="0"/>
-																		<Kind value="HardwarePort"/>
-																		<UpperBound value="0"/>
-																		<Saturated value="false"/>
-																		<QuantizationFormula id="Handle_2511_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_BSPD_Inertia">
-																			<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_BSPD_Inertia"/>
-																			<ShortId value="Shutdown_BSPD_Inertia"/>
-																			<Name value="Shutdown_BSPD_Inertia"/>
-																			<Caption value="Shutdown_BSPD_Inertia"/>
+																		<QuantizationFormula id="Handle_2521_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Pitot_Bits">
+																			<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Pitot_Bits"/>
+																			<ShortId value="Pitot_Bits"/>
+																			<Name value="Pitot_Bits"/>
+																			<Caption value="Pitot_Bits"/>
 																			<ParamM value="1"/>
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
 																		<RtioRefId value="155"/>
-																	</Signal>
-																	<Signal id="Handle_2512_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_Setas">
-																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_Setas"/>
-																		<ShortId value="Shutdown_Setas"/>
-																		<Name value="CAN2.CAN2.AP_FECU_Data2.Shutdown_Setas"/>
-																		<Caption value="Shutdown_Setas"/>
-																		<Connected value="false"/>
-																		<Type value="boolean"/>
-																		<Unit value="Bit"/>
-																		<RepresentationFormat value="Physical"/>
-																		<Direction value="Out"/>
-																		<InitValue value="0"/>
-																		<Size value="real64"/>
-																		<LowerBound value="0"/>
-																		<Kind value="HardwarePort"/>
-																		<UpperBound value="0"/>
-																		<Saturated value="false"/>
-																		<QuantizationFormula id="Handle_2512_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_Setas">
-																			<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_Setas"/>
-																			<ShortId value="Shutdown_Setas"/>
-																			<Name value="Shutdown_Setas"/>
-																			<Caption value="Shutdown_Setas"/>
-																			<ParamM value="1"/>
-																			<ParamT value="0"/>
-																			<Kind value="Linear"/>
-																		</QuantizationFormula>
-																		<RtioRefId value="156"/>
 																	</Signal>
 																	<Signal id="Handle_341_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Susp_F_R_Bits">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Susp_F_R_Bits"/>
@@ -20757,7 +20866,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="157"/>
+																		<RtioRefId value="156"/>
 																	</Signal>
 																	<Signal id="Handle_342_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Susp_F_L_Bits">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Susp_F_L_Bits"/>
@@ -20784,7 +20893,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="158"/>
+																		<RtioRefId value="157"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -20833,7 +20942,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="159"/>
+																		<RtioRefId value="158"/>
 																	</Signal>
 																	<Signal id="Handle_345_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.BrakePedal_Bits">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.BrakePedal_Bits"/>
@@ -20860,7 +20969,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="160"/>
+																		<RtioRefId value="159"/>
 																	</Signal>
 																	<Signal id="Handle_346_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.APPS2_Bits">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.APPS2_Bits"/>
@@ -20887,7 +20996,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="161"/>
+																		<RtioRefId value="160"/>
 																	</Signal>
 																	<Signal id="Handle_347_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.APPS1_Bits">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.APPS1_Bits"/>
@@ -20914,7 +21023,7 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="162"/>
+																		<RtioRefId value="161"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
@@ -20972,13 +21081,39 @@
 																			<ParamT value="0"/>
 																			<Kind value="Linear"/>
 																		</QuantizationFormula>
-																		<RtioRefId value="164"/>
+																		<RtioRefId value="163"/>
 																	</Signal>
 																</Signals>
 															</SignalGroup>
 														</SignalGroups>
 														<Interface>
-															<Ports portCount="85">
+															<Ports portCount="84">
+																<Port id="Handle_2520_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_High">
+																	<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_High"/>
+																	<ShortId value="SOC_High"/>
+																	<Name value="CAN2.CAN2.MEAS_ETAS_SOC.SOC_High"/>
+																	<Caption value="SOC_High"/>
+																	<Connected value="true"/>
+																	<Type value="udiscrete"/>
+																	<Unit value="%"/>
+																	<RepresentationFormat value="Physical"/>
+																	<Direction value="In"/>
+																	<InitValue value="0"/>
+																	<Size value="real64"/>
+																	<LowerBound value="0"/>
+																	<Kind value="HardwarePort"/>
+																	<UpperBound value="655.35"/>
+																	<Saturated value="true"/>
+																	<QuantizationFormula id="Handle_2520_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_High">
+																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_High"/>
+																		<ShortId value="SOC_High"/>
+																		<Name value="SOC_High"/>
+																		<Caption value="SOC_High"/>
+																		<ParamM value="1"/>
+																		<ParamT value="0"/>
+																		<Kind value="Linear"/>
+																	</QuantizationFormula>
+																</Port>
 																<Port id="Handle_3426_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_Low">
 																	<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_Low"/>
 																	<ShortId value="SOC_Low"/>
@@ -20993,7 +21128,7 @@
 																	<Size value="real64"/>
 																	<LowerBound value="0"/>
 																	<Kind value="HardwarePort"/>
-																	<UpperBound value="255"/>
+																	<UpperBound value="655.35"/>
 																	<Saturated value="true"/>
 																	<QuantizationFormula id="Handle_3426_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_Low">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_Low"/>
@@ -21019,7 +21154,7 @@
 																	<Size value="real64"/>
 																	<LowerBound value="0"/>
 																	<Kind value="HardwarePort"/>
-																	<UpperBound value="255"/>
+																	<UpperBound value="655.35"/>
 																	<Saturated value="true"/>
 																	<QuantizationFormula id="Handle_3427_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_Avg">
 																		<ID value="ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_Avg"/>
@@ -22929,14 +23064,14 @@
 																		<Kind value="Linear"/>
 																	</QuantizationFormula>
 																</Port>
-																<Port id="Handle_2510_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_SC_BOTS">
-																	<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_SC_BOTS"/>
-																	<ShortId value="Shutdown_SC_BOTS"/>
-																	<Name value="CAN2.CAN2.AP_FECU_Data2.Shutdown_SC_BOTS"/>
-																	<Caption value="Shutdown_SC_BOTS"/>
+																<Port id="Handle_2521_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Pitot_Bits">
+																	<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Pitot_Bits"/>
+																	<ShortId value="Pitot_Bits"/>
+																	<Name value="CAN2.CAN2.AP_FECU_Data2.Pitot_Bits"/>
+																	<Caption value="Pitot_Bits"/>
 																	<Connected value="false"/>
-																	<Type value="boolean"/>
-																	<Unit value="Bit"/>
+																	<Type value="udiscrete"/>
+																	<Unit value="Bits"/>
 																	<RepresentationFormat value="Physical"/>
 																	<Direction value="Out"/>
 																	<InitValue value="0"/>
@@ -22945,63 +23080,11 @@
 																	<Kind value="HardwarePort"/>
 																	<UpperBound value="0"/>
 																	<Saturated value="false"/>
-																	<QuantizationFormula id="Handle_2510_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_SC_BOTS">
-																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_SC_BOTS"/>
-																		<ShortId value="Shutdown_SC_BOTS"/>
-																		<Name value="Shutdown_SC_BOTS"/>
-																		<Caption value="Shutdown_SC_BOTS"/>
-																		<ParamM value="1"/>
-																		<ParamT value="0"/>
-																		<Kind value="Linear"/>
-																	</QuantizationFormula>
-																</Port>
-																<Port id="Handle_2511_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_BSPD_Inertia">
-																	<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_BSPD_Inertia"/>
-																	<ShortId value="Shutdown_BSPD_Inertia"/>
-																	<Name value="CAN2.CAN2.AP_FECU_Data2.Shutdown_BSPD_Inertia"/>
-																	<Caption value="Shutdown_BSPD_Inertia"/>
-																	<Connected value="false"/>
-																	<Type value="boolean"/>
-																	<Unit value="Bit"/>
-																	<RepresentationFormat value="Physical"/>
-																	<Direction value="Out"/>
-																	<InitValue value="0"/>
-																	<Size value="real64"/>
-																	<LowerBound value="0"/>
-																	<Kind value="HardwarePort"/>
-																	<UpperBound value="0"/>
-																	<Saturated value="false"/>
-																	<QuantizationFormula id="Handle_2511_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_BSPD_Inertia">
-																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_BSPD_Inertia"/>
-																		<ShortId value="Shutdown_BSPD_Inertia"/>
-																		<Name value="Shutdown_BSPD_Inertia"/>
-																		<Caption value="Shutdown_BSPD_Inertia"/>
-																		<ParamM value="1"/>
-																		<ParamT value="0"/>
-																		<Kind value="Linear"/>
-																	</QuantizationFormula>
-																</Port>
-																<Port id="Handle_2512_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_Setas">
-																	<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_Setas"/>
-																	<ShortId value="Shutdown_Setas"/>
-																	<Name value="CAN2.CAN2.AP_FECU_Data2.Shutdown_Setas"/>
-																	<Caption value="Shutdown_Setas"/>
-																	<Connected value="false"/>
-																	<Type value="boolean"/>
-																	<Unit value="Bit"/>
-																	<RepresentationFormat value="Physical"/>
-																	<Direction value="Out"/>
-																	<InitValue value="0"/>
-																	<Size value="real64"/>
-																	<LowerBound value="0"/>
-																	<Kind value="HardwarePort"/>
-																	<UpperBound value="0"/>
-																	<Saturated value="false"/>
-																	<QuantizationFormula id="Handle_2512_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_Setas">
-																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Shutdown_Setas"/>
-																		<ShortId value="Shutdown_Setas"/>
-																		<Name value="Shutdown_Setas"/>
-																		<Caption value="Shutdown_Setas"/>
+																	<QuantizationFormula id="Handle_2521_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Pitot_Bits">
+																		<ID value="ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Pitot_Bits"/>
+																		<ShortId value="Pitot_Bits"/>
+																		<Name value="Pitot_Bits"/>
+																		<Caption value="Pitot_Bits"/>
 																		<ParamM value="1"/>
 																		<ParamT value="0"/>
 																		<Kind value="Linear"/>
@@ -23215,14 +23298,14 @@
 						<Ports portCount="0">
 						</Ports>
 					</Interface>
-					<Connections connectionCount="134">
+					<Connections connectionCount="136">
 						<Connection id="Handle_757_System.Connection">
 							<ID value="System.Connection"/>
 							<ShortId value="Connection"/>
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_1239_SoftwareSystem.SAP120">
 								<Name value="Inverters_Data.Speed"/>
@@ -23237,7 +23320,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_1347_SoftwareSystem.SAP250">
 								<Name value="Car_State.Precharge_Voltage"/>
@@ -23252,7 +23335,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_1346_SoftwareSystem.SAP248">
 								<Name value="Car_State.Precharge_Percentage"/>
@@ -23267,7 +23350,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_1336_SoftwareSystem.SAP227">
 								<Name value="VDC.VDC_Max_Tyre_Slip"/>
@@ -23282,7 +23365,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_1311_SoftwareSystem.SAP203">
 								<Name value="Inverters_Action.Inverter_R_RegID"/>
@@ -23297,7 +23380,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_1310_SoftwareSystem.SAP201">
 								<Name value="Inverters_Action.Inverter_R_b7tob0"/>
@@ -23312,7 +23395,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_1309_SoftwareSystem.SAP199">
 								<Name value="Inverters_Action.Inverter_R_b15tob8"/>
@@ -23327,7 +23410,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_1308_SoftwareSystem.SAP197">
 								<Name value="Inverters_Action.Inverter_L_RegID"/>
@@ -23342,7 +23425,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_1307_SoftwareSystem.SAP195">
 								<Name value="Inverters_Action.Inverter_L_b7tob0"/>
@@ -23357,7 +23440,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_1306_SoftwareSystem.SAP8">
 								<Name value="Inverters_Action.Inverter_L_b15tob8"/>
@@ -23372,7 +23455,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_1343_SoftwareSystem.SAP242">
 								<Name value="Car_State.Car_State"/>
@@ -23387,7 +23470,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_1341_SoftwareSystem.SAP238">
 								<Name value="Car_State.AIRs_Request"/>
@@ -23402,7 +23485,7 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_1298_SoftwareSystem.SAP191">
 								<Name value="Ellipse.el_Vel_OK"/>
@@ -23417,13 +23500,13 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1330_SoftwareSystem.SAP215">
-								<Name value="VDC.Regenerative_Enable"/>
+							<SourcePortRef refId="Handle_3258_SoftwareSystem.SAP13">
+								<Name value="VDC.TC_Warning"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_74_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.Regenerative_Enable">
-								<Name value="Regenerative_Enable"/>
+							<SinkPortRef refId="Handle_73_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning">
+								<Name value="TC_Warning"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_771_System.Connection14">
@@ -23432,13 +23515,13 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1271_SoftwareSystem.SAP164">
-								<Name value="Disconnections.CriticalDisconnection"/>
+							<SourcePortRef refId="Handle_1330_SoftwareSystem.SAP215">
+								<Name value="VDC.Regenerative_Enable"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_75_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.CriticalDisconnection">
-								<Name value="CriticalDisconnection"/>
+							<SinkPortRef refId="Handle_74_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.Regenerative_Enable">
+								<Name value="Regenerative_Enable"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_767_System.Connection15">
@@ -23447,13 +23530,13 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1349_SoftwareSystem.SAP254">
-								<Name value="Car_State.Relay_Error"/>
+							<SourcePortRef refId="Handle_1271_SoftwareSystem.SAP164">
+								<Name value="Disconnections.CriticalDisconnection"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_76_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.Relay_Error">
-								<Name value="Relay_Error"/>
+							<SinkPortRef refId="Handle_75_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.CriticalDisconnection">
+								<Name value="CriticalDisconnection"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_768_System.Connection16">
@@ -23462,13 +23545,13 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1342_SoftwareSystem.SAP240">
-								<Name value="Car_State.Car_OK"/>
+							<SourcePortRef refId="Handle_1349_SoftwareSystem.SAP254">
+								<Name value="Car_State.Relay_Error"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_77_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.Car_OK">
-								<Name value="Car_OK"/>
+							<SinkPortRef refId="Handle_76_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.Relay_Error">
+								<Name value="Relay_Error"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_774_System.Connection17">
@@ -23477,13 +23560,13 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1303_SoftwareSystem.SAP200">
-								<Name value="Power_Control.Power"/>
+							<SourcePortRef refId="Handle_1342_SoftwareSystem.SAP240">
+								<Name value="Car_State.Car_OK"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_78_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.Power">
-								<Name value="Power"/>
+							<SinkPortRef refId="Handle_77_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.Car_OK">
+								<Name value="Car_OK"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_775_System.Connection18">
@@ -23492,13 +23575,13 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1334_SoftwareSystem.SAP223">
-								<Name value="VDC.Torque_OK"/>
+							<SourcePortRef refId="Handle_1303_SoftwareSystem.SAP200">
+								<Name value="Power_Control.Power"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_79_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.Torque_OK">
-								<Name value="Torque_OK"/>
+							<SinkPortRef refId="Handle_78_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.Power">
+								<Name value="Power"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_776_System.Connection19">
@@ -23507,13 +23590,13 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1331_SoftwareSystem.SAP217">
-								<Name value="VDC.Sensorics_Mode"/>
+							<SourcePortRef refId="Handle_1334_SoftwareSystem.SAP223">
+								<Name value="VDC.Torque_OK"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_80_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.Sensorics_Mode">
-								<Name value="Sensorics_Mode"/>
+							<SinkPortRef refId="Handle_79_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.Torque_OK">
+								<Name value="Torque_OK"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_777_System.Connection20">
@@ -23522,13 +23605,13 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1270_SoftwareSystem.SAP162">
-								<Name value="Disconnections.Critical_Signal_Disconnection"/>
+							<SourcePortRef refId="Handle_1331_SoftwareSystem.SAP217">
+								<Name value="VDC.Sensorics_Mode"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_81_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.Critical_Signal_Disconnection">
-								<Name value="Critical_Signal_Disconnection"/>
+							<SinkPortRef refId="Handle_80_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.Sensorics_Mode">
+								<Name value="Sensorics_Mode"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_778_System.Connection21">
@@ -23537,13 +23620,13 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1269_SoftwareSystem.SAP161">
-								<Name value="Disconnections.Critical_CAN_Disconnection"/>
+							<SourcePortRef refId="Handle_1270_SoftwareSystem.SAP162">
+								<Name value="Disconnections.Critical_Signal_Disconnection"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_82_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.Critical_CAN_Disconnection">
-								<Name value="Critical_CAN_Disconnection"/>
+							<SinkPortRef refId="Handle_81_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.Critical_Signal_Disconnection">
+								<Name value="Critical_Signal_Disconnection"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_779_System.Connection22">
@@ -23552,13 +23635,13 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1328_SoftwareSystem.SAP81">
-								<Name value="VDC.APPS_Implausibility"/>
+							<SourcePortRef refId="Handle_1269_SoftwareSystem.SAP161">
+								<Name value="Disconnections.Critical_CAN_Disconnection"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_83_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.APPS_Implausibility">
-								<Name value="APPS_Implausibility"/>
+							<SinkPortRef refId="Handle_82_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.Critical_CAN_Disconnection">
+								<Name value="Critical_CAN_Disconnection"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_780_System.Connection23">
@@ -23567,13 +23650,568 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1328_SoftwareSystem.SAP81">
+								<Name value="VDC.APPS_Implausibility"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_83_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.APPS_Implausibility">
+								<Name value="APPS_Implausibility"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_784_System.Connection24">
+							<ID value="System.Connection24"/>
+							<ShortId value="Connection24"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_1217_SoftwareSystem.SAP">
 								<Name value="Synchronism.Sync_CAN1"/>
 							</SourcePortRef>
 							<SinkPortRef refId="Handle_85_ES9101.ES9102.CAN1.CAN1.AP_ETAS_Synchronism.Sync_CAN1">
 								<Name value="Sync_CAN1"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_785_System.Connection25">
+							<ID value="System.Connection25"/>
+							<ShortId value="Connection25"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1316_SoftwareSystem.SAP214">
+								<Name value="Inverters_Data.Disconnection_InvR"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_254_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_InvR">
+								<Name value="Disconnection_InvR"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_786_System.Connection26">
+							<ID value="System.Connection26"/>
+							<ShortId value="Connection26"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1315_SoftwareSystem.SAP212">
+								<Name value="Inverters_Data.Disconnection_InvL"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_255_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_InvL">
+								<Name value="Disconnection_InvL"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_787_System.Connection27">
+							<ID value="System.Connection27"/>
+							<ShortId value="Connection27"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1285_SoftwareSystem.SAP165">
+								<Name value="Disconnections.Disconnection_Susp_R_R"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_256_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Susp_R_R">
+								<Name value="Disconnection_Susp_R_R"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_788_System.Connection28">
+							<ID value="System.Connection28"/>
+							<ShortId value="Connection28"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1284_SoftwareSystem.SAP163">
+								<Name value="Disconnections.Disconnection_Susp_R_L"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_257_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Susp_R_L">
+								<Name value="Disconnection_Susp_R_L"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_789_System.Connection29">
+							<ID value="System.Connection29"/>
+							<ShortId value="Connection29"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1283_SoftwareSystem.SAP188">
+								<Name value="Disconnections.Disconnection_Susp_F_R"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_258_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Susp_F_R">
+								<Name value="Disconnection_Susp_F_R"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_790_System.Connection30">
+							<ID value="System.Connection30"/>
+							<ShortId value="Connection30"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1282_SoftwareSystem.SAP186">
+								<Name value="Disconnections.Disconnection_Susp_F_L"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_259_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Susp_F_L">
+								<Name value="Disconnection_Susp_F_L"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_791_System.Connection31">
+							<ID value="System.Connection31"/>
+							<ShortId value="Connection31"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1281_SoftwareSystem.SAP184">
+								<Name value="Disconnections.Disconnection_SteeringSensor"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_260_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_SteeringSensor">
+								<Name value="Disconnection_SteeringSensor"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_792_System.Connection32">
+							<ID value="System.Connection32"/>
+							<ShortId value="Connection32"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1280_SoftwareSystem.SAP182">
+								<Name value="Disconnections.Disconnection_Rear"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_261_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Rear">
+								<Name value="Disconnection_Rear"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_793_System.Connection33">
+							<ID value="System.Connection33"/>
+							<ShortId value="Connection33"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1278_SoftwareSystem.SAP178">
+								<Name value="Disconnections.Disconnection_Front"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_263_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Front">
+								<Name value="Disconnection_Front"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_794_System.Connection34">
+							<ID value="System.Connection34"/>
+							<ShortId value="Connection34"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1277_SoftwareSystem.SAP176">
+								<Name value="Disconnections.Disconnection_Ellipse"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_264_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Ellipse">
+								<Name value="Disconnection_Ellipse"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_795_System.Connection35">
+							<ID value="System.Connection35"/>
+							<ShortId value="Connection35"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1276_SoftwareSystem.SAP174">
+								<Name value="Disconnections.Disconnection_DashBoard"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_265_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_DashBoard">
+								<Name value="Disconnection_DashBoard"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_796_System.Connection36">
+							<ID value="System.Connection36"/>
+							<ShortId value="Connection36"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1275_SoftwareSystem.SAP172">
+								<Name value="Disconnections.Disconnection_BrakePedal"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_266_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_BrakePedal">
+								<Name value="Disconnection_BrakePedal"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_797_System.Connection37">
+							<ID value="System.Connection37"/>
+							<ShortId value="Connection37"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1274_SoftwareSystem.SAP170">
+								<Name value="Disconnections.Disconnection_BMS"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_267_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_BMS">
+								<Name value="Disconnection_BMS"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_798_System.Connection38">
+							<ID value="System.Connection38"/>
+							<ShortId value="Connection38"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1273_SoftwareSystem.SAP168">
+								<Name value="Disconnections.Disconnection_APPS2"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_268_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS2">
+								<Name value="Disconnection_APPS2"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_799_System.Connection39">
+							<ID value="System.Connection39"/>
+							<ShortId value="Connection39"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1272_SoftwareSystem.SAP166">
+								<Name value="Disconnections.Disconnection_APPS1"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_269_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS1">
+								<Name value="Disconnection_APPS1"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_800_System.Connection40">
+							<ID value="System.Connection40"/>
+							<ShortId value="Connection40"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1297_SoftwareSystem.SAP189">
+								<Name value="Ellipse.el_VEL"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_271_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Values.el_VEL">
+								<Name value="el_VEL"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_801_System.Connection41">
+							<ID value="System.Connection41"/>
+							<ShortId value="Connection41"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1251_SoftwareSystem.SAP131">
+								<Name value="Sensors.SteeringSensor_Value"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_272_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Values.SteeringSensor_Value">
+								<Name value="SteeringSensor_Value"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_802_System.Connection42">
+							<ID value="System.Connection42"/>
+							<ShortId value="Connection42"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1250_SoftwareSystem.SAP129">
+								<Name value="Sensors.BrakePedal_Value"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_273_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Values.BrakePedal_Value">
+								<Name value="BrakePedal_Value"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_803_System.Connection43">
+							<ID value="System.Connection43"/>
+							<ShortId value="Connection43"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1249_SoftwareSystem.SAP127">
+								<Name value="Sensors.APPS2_Value"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_274_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value">
+								<Name value="APPS2_Value"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_804_System.Connection44">
+							<ID value="System.Connection44"/>
+							<ShortId value="Connection44"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1248_SoftwareSystem.SAP125">
+								<Name value="Sensors.APPS1_Value"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_275_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS1_Value">
+								<Name value="APPS1_Value"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_823_System.Connection45">
+							<ID value="System.Connection45"/>
+							<ShortId value="Connection45"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1329_SoftwareSystem.SAP83">
+								<Name value="VDC.BrakeLight_Control"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_277_ES9101.ES9102.CAN2.CAN2.AP_ETAS_BrakeLight.BrakeLight_Control">
+								<Name value="BrakeLight_Control"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_824_System.Connection46">
+							<ID value="System.Connection46"/>
+							<ShortId value="Connection46"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1231_SoftwareSystem.SAP105">
+								<Name value="Inverters_Data.Inv_R_TempMotor"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_314_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor">
+								<Name value="Inv_R_TempMotor"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_825_System.Connection47">
+							<ID value="System.Connection47"/>
+							<ShortId value="Connection47"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1302_SoftwareSystem.SAP198">
+								<Name value="Power_Control.current_R"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_315_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R">
+								<Name value="current_R"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_826_System.Connection48">
+							<ID value="System.Connection48"/>
+							<ShortId value="Connection48"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1230_SoftwareSystem.SAP103">
+								<Name value="Inverters_Data.Inv_R_TempIGBT"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_316_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT">
+								<Name value="Inv_R_TempIGBT"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_827_System.Connection49">
+							<ID value="System.Connection49"/>
+							<ShortId value="Connection49"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1238_SoftwareSystem.SAP118">
+								<Name value="Inverters_Data.RR_Vel_ms_Wheel"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_317_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel">
+								<Name value="RR_Vel_ms_Wheel"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_828_System.Connection50">
+							<ID value="System.Connection50"/>
+							<ShortId value="Connection50"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1229_SoftwareSystem.SAP101">
+								<Name value="Inverters_Data.Inv_L_TempMotor"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_319_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor">
+								<Name value="Inv_L_TempMotor"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_829_System.Connection51">
+							<ID value="System.Connection51"/>
+							<ShortId value="Connection51"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1301_SoftwareSystem.SAP196">
+								<Name value="Power_Control.current_L"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_320_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L">
+								<Name value="current_L"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_830_System.Connection52">
+							<ID value="System.Connection52"/>
+							<ShortId value="Connection52"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1228_SoftwareSystem.SAP99">
+								<Name value="Inverters_Data.Inv_L_TempIGBT"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_321_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT">
+								<Name value="Inv_L_TempIGBT"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_831_System.Connection53">
+							<ID value="System.Connection53"/>
+							<ShortId value="Connection53"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1236_SoftwareSystem.SAP114">
+								<Name value="Inverters_Data.RL_Vel_ms_Wheel"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_322_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel">
+								<Name value="RL_Vel_ms_Wheel"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_832_System.Connection54">
+							<ID value="System.Connection54"/>
+							<ShortId value="Connection54"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1255_SoftwareSystem.SAP138">
+								<Name value="Sensors.SUSP_R_R"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_324_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_R">
+								<Name value="SUSP_R_R"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_833_System.Connection55">
+							<ID value="System.Connection55"/>
+							<ShortId value="Connection55"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1254_SoftwareSystem.SAP136">
+								<Name value="Sensors.SUSP_R_L"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_325_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_L">
+								<Name value="SUSP_R_L"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_834_System.Connection56">
+							<ID value="System.Connection56"/>
+							<ShortId value="Connection56"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1253_SoftwareSystem.SAP135">
+								<Name value="Sensors.SUSP_F_R"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_326_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_R">
+								<Name value="SUSP_F_R"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_835_System.Connection57">
+							<ID value="System.Connection57"/>
+							<ShortId value="Connection57"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1252_SoftwareSystem.SAP133">
+								<Name value="Sensors.SUSP_F_L"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_327_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_L">
+								<Name value="SUSP_F_L"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_836_System.Connection58">
+							<ID value="System.Connection58"/>
+							<ShortId value="Connection58"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1332_SoftwareSystem.SAP219">
+								<Name value="VDC.Throttle_Torque"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_329_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Throttle_Torque">
+								<Name value="Throttle_Torque"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_837_System.Connection59">
+							<ID value="System.Connection59"/>
+							<ShortId value="Connection59"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1335_SoftwareSystem.SAP225">
+								<Name value="VDC.Torque_R"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_330_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_R">
+								<Name value="Torque_R"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_856_System.Connection60">
+							<ID value="System.Connection60"/>
+							<ShortId value="Connection60"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_1333_SoftwareSystem.SAP221">
+								<Name value="VDC.Torque_L"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_331_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_L">
+								<Name value="Torque_L"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_772_System.Connection61">
@@ -23584,11 +24222,11 @@
 							<Kind value="Dynamic"/>
 							<Type value="Logical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_5_ES9101.ES9102.CAN1.CAN1.AP_BMS_SDC.Shutdown_PackageIntck">
-								<Name value="Shutdown_PackageIntck"/>
+							<SourcePortRef refId="Handle_1218_SoftwareSystem.SAP32">
+								<Name value="Synchronism.Sync_CAN2"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_1219_SoftwareSystem.SAP39">
-								<Name value="VDC.Shutdown_PackageIntck"/>
+							<SinkPortRef refId="Handle_349_ES9101.ES9102.CAN2.CAN2.AP_ETAS_Synchronism.Sync_CAN2">
+								<Name value="Sync_CAN2"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_773_System.Connection62">
@@ -23597,13 +24235,13 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_39_ES9101.ES9102.CAN1.CAN1.AP_Inverter_L_Tx.Inv_L_RegID_M235_Inv_L_DCBus">
-								<Name value="Inv_L_RegID_M235_Inv_L_DCBus"/>
+							<SourcePortRef refId="Handle_13_ES9101.ES9102.CAN1.CAN1.AP_BMS_Voltages.Highest_CellVoltage">
+								<Name value="Highest_CellVoltage"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_1220_SoftwareSystem.SAP3">
-								<Name value="Inverters_Data.Inv_L_RegID_M235_Inv_L_DCBus"/>
+							<SinkPortRef refId="Handle_817_SoftwareSystem.SAP14">
+								<Name value="SoC.Highest_CellVoltage"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_740_System.Connection63">
@@ -23612,13 +24250,13 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_35_ES9101.ES9102.CAN1.CAN1.AP_Inverter_L_Tx.Inv_L_RegID_M48_Inv_L_Speed">
-								<Name value="Inv_L_RegID_M48_Inv_L_Speed"/>
+							<SourcePortRef refId="Handle_5_ES9101.ES9102.CAN1.CAN1.AP_BMS_SDC.Shutdown_PackageIntck">
+								<Name value="Shutdown_PackageIntck"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_1221_SoftwareSystem.SAP85">
-								<Name value="Inverters_Data.Inv_L_RegID_M48_Inv_L_Speed"/>
+							<SinkPortRef refId="Handle_1219_SoftwareSystem.SAP39">
+								<Name value="VDC.Shutdown_PackageIntck"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_755_System.Connection64">
@@ -23627,13 +24265,13 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_33_ES9101.ES9102.CAN1.CAN1.AP_Inverter_L_Tx.Inv_L_RegID_M73_Inv_L_TempMotor">
-								<Name value="Inv_L_RegID_M73_Inv_L_TempMotor"/>
+							<SourcePortRef refId="Handle_39_ES9101.ES9102.CAN1.CAN1.AP_Inverter_L_Tx.Inv_L_RegID_M235_Inv_L_DCBus">
+								<Name value="Inv_L_RegID_M235_Inv_L_DCBus"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_1222_SoftwareSystem.SAP87">
-								<Name value="Inverters_Data.Inv_L_RegID_M73_Inv_L_TempMotor"/>
+							<SinkPortRef refId="Handle_1220_SoftwareSystem.SAP3">
+								<Name value="Inverters_Data.Inv_L_RegID_M235_Inv_L_DCBus"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_736_System.Connection65">
@@ -23642,13 +24280,13 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_34_ES9101.ES9102.CAN1.CAN1.AP_Inverter_L_Tx.Inv_L_RegID_M74_Inv_L_TempIGBT">
-								<Name value="Inv_L_RegID_M74_Inv_L_TempIGBT"/>
+							<SourcePortRef refId="Handle_35_ES9101.ES9102.CAN1.CAN1.AP_Inverter_L_Tx.Inv_L_RegID_M48_Inv_L_Speed">
+								<Name value="Inv_L_RegID_M48_Inv_L_Speed"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_1223_SoftwareSystem.SAP89">
-								<Name value="Inverters_Data.Inv_L_RegID_M74_Inv_L_TempIGBT"/>
+							<SinkPortRef refId="Handle_1221_SoftwareSystem.SAP85">
+								<Name value="Inverters_Data.Inv_L_RegID_M48_Inv_L_Speed"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_738_System.Connection66">
@@ -23657,13 +24295,13 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_30_ES9101.ES9102.CAN1.CAN1.AP_Inverter_R_Tx.Inv_R_RegID_M235_Inv_R_DCBus">
-								<Name value="Inv_R_RegID_M235_Inv_R_DCBus"/>
+							<SourcePortRef refId="Handle_33_ES9101.ES9102.CAN1.CAN1.AP_Inverter_L_Tx.Inv_L_RegID_M73_Inv_L_TempMotor">
+								<Name value="Inv_L_RegID_M73_Inv_L_TempMotor"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_1224_SoftwareSystem.SAP91">
-								<Name value="Inverters_Data.Inv_R_RegID_M235_Inv_R_DCBus"/>
+							<SinkPortRef refId="Handle_1222_SoftwareSystem.SAP87">
+								<Name value="Inverters_Data.Inv_L_RegID_M73_Inv_L_TempMotor"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_809_System.Connection67">
@@ -23672,13 +24310,13 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_26_ES9101.ES9102.CAN1.CAN1.AP_Inverter_R_Tx.Inv_R_RegID_M48_Inv_R_Speed">
-								<Name value="Inv_R_RegID_M48_Inv_R_Speed"/>
+							<SourcePortRef refId="Handle_34_ES9101.ES9102.CAN1.CAN1.AP_Inverter_L_Tx.Inv_L_RegID_M74_Inv_L_TempIGBT">
+								<Name value="Inv_L_RegID_M74_Inv_L_TempIGBT"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_1225_SoftwareSystem.SAP93">
-								<Name value="Inverters_Data.Inv_R_RegID_M48_Inv_R_Speed"/>
+							<SinkPortRef refId="Handle_1223_SoftwareSystem.SAP89">
+								<Name value="Inverters_Data.Inv_L_RegID_M74_Inv_L_TempIGBT"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_808_System.Connection68">
@@ -23687,13 +24325,13 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_24_ES9101.ES9102.CAN1.CAN1.AP_Inverter_R_Tx.Inv_R_RegID_M73_Inv_R_TempMotor">
-								<Name value="Inv_R_RegID_M73_Inv_R_TempMotor"/>
+							<SourcePortRef refId="Handle_30_ES9101.ES9102.CAN1.CAN1.AP_Inverter_R_Tx.Inv_R_RegID_M235_Inv_R_DCBus">
+								<Name value="Inv_R_RegID_M235_Inv_R_DCBus"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_1226_SoftwareSystem.SAP95">
-								<Name value="Inverters_Data.Inv_R_RegID_M73_Inv_R_TempMotor"/>
+							<SinkPortRef refId="Handle_1224_SoftwareSystem.SAP91">
+								<Name value="Inverters_Data.Inv_R_RegID_M235_Inv_R_DCBus"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_807_System.Connection69">
@@ -23702,13 +24340,163 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_26_ES9101.ES9102.CAN1.CAN1.AP_Inverter_R_Tx.Inv_R_RegID_M48_Inv_R_Speed">
+								<Name value="Inv_R_RegID_M48_Inv_R_Speed"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1225_SoftwareSystem.SAP93">
+								<Name value="Inverters_Data.Inv_R_RegID_M48_Inv_R_Speed"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_6692_System.Connection70">
+							<ID value="System.Connection70"/>
+							<ShortId value="Connection70"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_24_ES9101.ES9102.CAN1.CAN1.AP_Inverter_R_Tx.Inv_R_RegID_M73_Inv_R_TempMotor">
+								<Name value="Inv_R_RegID_M73_Inv_R_TempMotor"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1226_SoftwareSystem.SAP95">
+								<Name value="Inverters_Data.Inv_R_RegID_M73_Inv_R_TempMotor"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_6693_System.Connection71">
+							<ID value="System.Connection71"/>
+							<ShortId value="Connection71"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_25_ES9101.ES9102.CAN1.CAN1.AP_Inverter_R_Tx.Inv_R_RegID_M74_Inv_R_TempIGBT">
 								<Name value="Inv_R_RegID_M74_Inv_R_TempIGBT"/>
 							</SourcePortRef>
 							<SinkPortRef refId="Handle_1227_SoftwareSystem.SAP97">
 								<Name value="Inverters_Data.Inv_R_RegID_M74_Inv_R_TempIGBT"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_6694_System.Connection72">
+							<ID value="System.Connection72"/>
+							<ShortId value="Connection72"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_347_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.APPS1_Bits">
+								<Name value="APPS1_Bits"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1240_SoftwareSystem.SAP4">
+								<Name value="Sensors.APPS1_Bits"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_6695_System.Connection73">
+							<ID value="System.Connection73"/>
+							<ShortId value="Connection73"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_346_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.APPS2_Bits">
+								<Name value="APPS2_Bits"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1241_SoftwareSystem.SAP111">
+								<Name value="Sensors.APPS2_Bits"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_6696_System.Connection74">
+							<ID value="System.Connection74"/>
+							<ShortId value="Connection74"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_345_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.BrakePedal_Bits">
+								<Name value="BrakePedal_Bits"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1242_SoftwareSystem.SAP113">
+								<Name value="Sensors.BrakePedal_Bits"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_6697_System.Connection75">
+							<ID value="System.Connection75"/>
+							<ShortId value="Connection75"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_344_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.SteeringSensor_Bits">
+								<Name value="SteeringSensor_Bits"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1243_SoftwareSystem.SAP115">
+								<Name value="Sensors.SteeringSensor_Bits"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_6698_System.Connection76">
+							<ID value="System.Connection76"/>
+							<ShortId value="Connection76"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_342_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Susp_F_L_Bits">
+								<Name value="Susp_F_L_Bits"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1244_SoftwareSystem.SAP117">
+								<Name value="Sensors.Susp_F_L_Bits"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_6699_System.Connection77">
+							<ID value="System.Connection77"/>
+							<ShortId value="Connection77"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_341_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Susp_F_R_Bits">
+								<Name value="Susp_F_R_Bits"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1245_SoftwareSystem.SAP119">
+								<Name value="Sensors.Susp_F_R_Bits"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_6700_System.Connection78">
+							<ID value="System.Connection78"/>
+							<ShortId value="Connection78"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_334_ES9101.ES9102.CAN2.CAN2.AP_RECU_Data.Susp_R_L_Bits">
+								<Name value="Susp_R_L_Bits"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1246_SoftwareSystem.SAP121">
+								<Name value="Sensors.Susp_R_L_Bits"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_6701_System.Connection79">
+							<ID value="System.Connection79"/>
+							<ShortId value="Connection79"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_333_ES9101.ES9102.CAN2.CAN2.AP_RECU_Data.Susp_R_R_Bits">
+								<Name value="Susp_R_R_Bits"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1247_SoftwareSystem.SAP123">
+								<Name value="Sensors.Susp_R_R_Bits"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_748_System.Connection80">
@@ -23719,11 +24507,26 @@
 							<Kind value="Dynamic"/>
 							<Type value="Logical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_43_ES9101.ES9102.CAN1.CAN1.NM_BMS_Keep_Alive.BMS_Alive">
-								<Name value="BMS_Alive"/>
+							<SourcePortRef refId="Handle_347_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.APPS1_Bits">
+								<Name value="APPS1_Bits"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_1258_SoftwareSystem.SAP139">
-								<Name value="Disconnections.BMS_Alive"/>
+							<SinkPortRef refId="Handle_1256_SoftwareSystem.SAP5">
+								<Name value="Disconnections.APPS1_Bits"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_6702_System.Connection81">
+							<ID value="System.Connection81"/>
+							<ShortId value="Connection81"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_346_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.APPS2_Bits">
+								<Name value="APPS2_Bits"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1257_SoftwareSystem.SAP137">
+								<Name value="Disconnections.APPS2_Bits"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_744_System.Connection82">
@@ -23732,7 +24535,37 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_43_ES9101.ES9102.CAN1.CAN1.NM_BMS_Keep_Alive.BMS_Alive">
+								<Name value="BMS_Alive"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1258_SoftwareSystem.SAP139">
+								<Name value="Disconnections.BMS_Alive"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_742_System.Connection83">
+							<ID value="System.Connection83"/>
+							<ShortId value="Connection83"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_345_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.BrakePedal_Bits">
+								<Name value="BrakePedal_Bits"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1259_SoftwareSystem.SAP141">
+								<Name value="Disconnections.BrakePedal_Bits"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_743_System.Connection84">
+							<ID value="System.Connection84"/>
+							<ShortId value="Connection84"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_47_ES9101.ES9102.CAN1.CAN1.NM_DASH_Keep_Alive.Dash_Alive">
 								<Name value="Dash_Alive"/>
@@ -23741,9 +24574,294 @@
 								<Name value="Disconnections.Dash_Alive"/>
 							</SinkPortRef>
 						</Connection>
+						<Connection id="Handle_854_System.Connection85">
+							<ID value="System.Connection85"/>
+							<ShortId value="Connection85"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_304_ES9101.ES9102.CAN2.CAN2.NM_ELLIPSE_Status.Ellipse_Alive">
+								<Name value="Ellipse_Alive"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1261_SoftwareSystem.SAP145">
+								<Name value="Disconnections.Ellipse_Alive"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_852_System.Connection86">
+							<ID value="System.Connection86"/>
+							<ShortId value="Connection86"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_336_ES9101.ES9102.CAN2.CAN2.NM_FECU_Keep_Alive.Front_Alive">
+								<Name value="Front_Alive"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1262_SoftwareSystem.SAP147">
+								<Name value="Disconnections.Front_Alive"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_850_System.Connection87">
+							<ID value="System.Connection87"/>
+							<ShortId value="Connection87"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_338_ES9101.ES9102.CAN2.CAN2.NM_RECU_Keep_Alive.Rear_Alive">
+								<Name value="Rear_Alive"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1263_SoftwareSystem.SAP149">
+								<Name value="Disconnections.Rear_Alive"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_848_System.Connection88">
+							<ID value="System.Connection88"/>
+							<ShortId value="Connection88"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_344_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.SteeringSensor_Bits">
+								<Name value="SteeringSensor_Bits"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1264_SoftwareSystem.SAP151">
+								<Name value="Disconnections.SteeringSensor_Bits"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_846_System.Connection89">
+							<ID value="System.Connection89"/>
+							<ShortId value="Connection89"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_342_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Susp_F_L_Bits">
+								<Name value="Susp_F_L_Bits"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1265_SoftwareSystem.SAP153">
+								<Name value="Disconnections.Susp_F_L_Bits"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_844_System.Connection90">
+							<ID value="System.Connection90"/>
+							<ShortId value="Connection90"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_341_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Susp_F_R_Bits">
+								<Name value="Susp_F_R_Bits"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1266_SoftwareSystem.SAP155">
+								<Name value="Disconnections.Susp_F_R_Bits"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_840_System.Connection91">
+							<ID value="System.Connection91"/>
+							<ShortId value="Connection91"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_334_ES9101.ES9102.CAN2.CAN2.AP_RECU_Data.Susp_R_L_Bits">
+								<Name value="Susp_R_L_Bits"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1267_SoftwareSystem.SAP157">
+								<Name value="Disconnections.Susp_R_L_Bits"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_838_System.Connection92">
+							<ID value="System.Connection92"/>
+							<ShortId value="Connection92"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_333_ES9101.ES9102.CAN2.CAN2.AP_RECU_Data.Susp_R_R_Bits">
+								<Name value="Susp_R_R_Bits"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1268_SoftwareSystem.SAP159">
+								<Name value="Disconnections.Susp_R_R_Bits"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_855_System.Connection93">
+							<ID value="System.Connection93"/>
+							<ShortId value="Connection93"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_290_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_POS.el_LATITUDE_EKF">
+								<Name value="el_LATITUDE_EKF"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1286_SoftwareSystem.SAP6">
+								<Name value="Ellipse.el_LATITUDE_EKF"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_853_System.Connection94">
+							<ID value="System.Connection94"/>
+							<ShortId value="Connection94"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_289_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_POS.el_LONGITUDE_EKF">
+								<Name value="el_LONGITUDE_EKF"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1287_SoftwareSystem.SAP169">
+								<Name value="Ellipse.el_LONGITUDE_EKF"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_752_System.Connection95">
+							<ID value="System.Connection95"/>
+							<ShortId value="Connection95"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_310_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_VEL_Valid.el_SolutionMode">
+								<Name value="el_SolutionMode"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1288_SoftwareSystem.SAP171">
+								<Name value="Ellipse.el_SolutionMode"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_851_System.Connection96">
+							<ID value="System.Connection96"/>
+							<ShortId value="Connection96"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_312_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_VEL_Valid.el_Vel_EKF_Valid">
+								<Name value="el_Vel_EKF_Valid"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1289_SoftwareSystem.SAP173">
+								<Name value="Ellipse.el_Vel_EKF_Valid"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_754_System.Connection97">
+							<ID value="System.Connection97"/>
+							<ShortId value="Connection97"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_302_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_VEL.el_Vel_EKF_X">
+								<Name value="el_Vel_EKF_X"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1290_SoftwareSystem.SAP175">
+								<Name value="Ellipse.el_Vel_EKF_X"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_816_System.Connection98">
+							<ID value="System.Connection98"/>
+							<ShortId value="Connection98"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_301_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_VEL.el_Vel_EKF_Y">
+								<Name value="el_Vel_EKF_Y"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1291_SoftwareSystem.SAP177">
+								<Name value="Ellipse.el_Vel_EKF_Y"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_842_System.Connection99">
+							<ID value="System.Connection99"/>
+							<ShortId value="Connection99"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_300_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_VEL.el_Vel_EKF_Z">
+								<Name value="el_Vel_EKF_Z"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1292_SoftwareSystem.SAP179">
+								<Name value="Ellipse.el_Vel_EKF_Z"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_843_System.Connection100">
+							<ID value="System.Connection100"/>
+							<ShortId value="Connection100"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_252_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_GPS_VEL.el_Vel_GPS_D">
+								<Name value="el_Vel_GPS_D"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1293_SoftwareSystem.SAP181">
+								<Name value="Ellipse.el_Vel_GPS_D"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_849_System.Connection101">
+							<ID value="System.Connection101"/>
+							<ShortId value="Connection101"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_251_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_GPS_VEL.el_Vel_GPS_E">
+								<Name value="el_Vel_GPS_E"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1294_SoftwareSystem.SAP183">
+								<Name value="Ellipse.el_Vel_GPS_E"/>
+							</SinkPortRef>
+						</Connection>
 						<Connection id="Handle_847_System.Connection102">
 							<ID value="System.Connection102"/>
 							<ShortId value="Connection102"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_250_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_GPS_VEL.el_Vel_GPS_N">
+								<Name value="el_Vel_GPS_N"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1295_SoftwareSystem.SAP185">
+								<Name value="Ellipse.el_Vel_GPS_N"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_845_System.Connection103">
+							<ID value="System.Connection103"/>
+							<ShortId value="Connection103"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_311_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_VEL_Valid.el_Vel_GPS_Valid">
+								<Name value="el_Vel_GPS_Valid"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1296_SoftwareSystem.SAP187">
+								<Name value="Ellipse.el_Vel_GPS_Valid"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_841_System.Connection104">
+							<ID value="System.Connection104"/>
+							<ShortId value="Connection104"/>
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
@@ -23756,9 +24874,9 @@
 								<Name value="Power_Control.Accumulator_Current"/>
 							</SinkPortRef>
 						</Connection>
-						<Connection id="Handle_845_System.Connection103">
-							<ID value="System.Connection103"/>
-							<ShortId value="Connection103"/>
+						<Connection id="Handle_839_System.Connection105">
+							<ID value="System.Connection105"/>
+							<ShortId value="Connection105"/>
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
@@ -23771,13 +24889,13 @@
 								<Name value="Power_Control.Accumulator_Voltage"/>
 							</SinkPortRef>
 						</Connection>
-						<Connection id="Handle_841_System.Connection104">
-							<ID value="System.Connection104"/>
-							<ShortId value="Connection104"/>
+						<Connection id="Handle_806_System.Connection106">
+							<ID value="System.Connection106"/>
+							<ShortId value="Connection106"/>
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_32_ES9101.ES9102.CAN1.CAN1.AP_Inverter_L_Tx.Inv_L_RegID">
 								<Name value="Inv_L_RegID"/>
@@ -23786,13 +24904,13 @@
 								<Name value="Inverters_Data.Inv_L_RegID"/>
 							</SinkPortRef>
 						</Connection>
-						<Connection id="Handle_839_System.Connection105">
-							<ID value="System.Connection105"/>
-							<ShortId value="Connection105"/>
+						<Connection id="Handle_805_System.Connection107">
+							<ID value="System.Connection107"/>
+							<ShortId value="Connection107"/>
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_23_ES9101.ES9102.CAN1.CAN1.AP_Inverter_R_Tx.Inv_R_RegID">
 								<Name value="Inv_R_RegID"/>
@@ -23801,13 +24919,13 @@
 								<Name value="Inverters_Data.Inv_R_RegID"/>
 							</SinkPortRef>
 						</Connection>
-						<Connection id="Handle_806_System.Connection106">
-							<ID value="System.Connection106"/>
-							<ShortId value="Connection106"/>
+						<Connection id="Handle_820_System.Connection108">
+							<ID value="System.Connection108"/>
+							<ShortId value="Connection108"/>
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_14_ES9101.ES9102.CAN1.CAN1.AP_BMS_Voltages.Accumulator_Voltage">
 								<Name value="Accumulator_Voltage"/>
@@ -23816,9 +24934,144 @@
 								<Name value="VDC.Accumulator_Voltage"/>
 							</SinkPortRef>
 						</Connection>
+						<Connection id="Handle_822_System.Connection109">
+							<ID value="System.Connection109"/>
+							<ShortId value="Connection109"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_294_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_X">
+								<Name value="el_ACCEL_X"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1318_SoftwareSystem.SAP61">
+								<Name value="VDC.el_ACCEL_X"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_815_System.Connection110">
+							<ID value="System.Connection110"/>
+							<ShortId value="Connection110"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_293_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_Y">
+								<Name value="el_ACCEL_Y"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1319_SoftwareSystem.SAP63">
+								<Name value="VDC.el_ACCEL_Y"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_814_System.Connection111">
+							<ID value="System.Connection111"/>
+							<ShortId value="Connection111"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_292_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_Z">
+								<Name value="el_ACCEL_Z"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1320_SoftwareSystem.SAP65">
+								<Name value="VDC.el_ACCEL_Z"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_813_System.Connection112">
+							<ID value="System.Connection112"/>
+							<ShortId value="Connection112"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_308_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_GYRO.el_GYRO_X">
+								<Name value="el_GYRO_X"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1321_SoftwareSystem.SAP67">
+								<Name value="VDC.el_GYRO_X"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_783_System.Connection113">
+							<ID value="System.Connection113"/>
+							<ShortId value="Connection113"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_307_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_GYRO.el_GYRO_Y">
+								<Name value="el_GYRO_Y"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1322_SoftwareSystem.SAP69">
+								<Name value="VDC.el_GYRO_Y"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_782_System.Connection114">
+							<ID value="System.Connection114"/>
+							<ShortId value="Connection114"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_306_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_GYRO.el_GYRO_Z">
+								<Name value="el_GYRO_Z"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1323_SoftwareSystem.SAP71">
+								<Name value="VDC.el_GYRO_Z"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_781_System.Connection115">
+							<ID value="System.Connection115"/>
+							<ShortId value="Connection115"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_297_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_EULER.el_PITCH">
+								<Name value="el_PITCH"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1324_SoftwareSystem.SAP73">
+								<Name value="VDC.el_PITCH"/>
+							</SinkPortRef>
+						</Connection>
 						<Connection id="Handle_821_System.Connection116">
 							<ID value="System.Connection116"/>
 							<ShortId value="Connection116"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_298_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_EULER.el_ROLL">
+								<Name value="el_ROLL"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1325_SoftwareSystem.SAP75">
+								<Name value="VDC.el_ROLL"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_737_System.Connection117">
+							<ID value="System.Connection117"/>
+							<ShortId value="Connection117"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_296_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_EULER.el_YAW">
+								<Name value="el_YAW"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1326_SoftwareSystem.SAP77">
+								<Name value="VDC.el_YAW"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_739_System.Connection118">
+							<ID value="System.Connection118"/>
+							<ShortId value="Connection118"/>
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
@@ -23831,13 +25084,13 @@
 								<Name value="VDC.RacingMode"/>
 							</SinkPortRef>
 						</Connection>
-						<Connection id="Handle_737_System.Connection117">
-							<ID value="System.Connection117"/>
-							<ShortId value="Connection117"/>
+						<Connection id="Handle_746_System.Connection119">
+							<ID value="System.Connection119"/>
+							<ShortId value="Connection119"/>
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_14_ES9101.ES9102.CAN1.CAN1.AP_BMS_Voltages.Accumulator_Voltage">
 								<Name value="Accumulator_Voltage"/>
@@ -23846,13 +25099,13 @@
 								<Name value="Car_State.Accumulator_Voltage"/>
 							</SinkPortRef>
 						</Connection>
-						<Connection id="Handle_739_System.Connection118">
-							<ID value="System.Connection118"/>
-							<ShortId value="Connection118"/>
+						<Connection id="Handle_741_System.Connection120">
+							<ID value="System.Connection120"/>
+							<ShortId value="Connection120"/>
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_45_ES9101.ES9102.CAN1.CAN1.AP_BMS_AIRs_State.AIRs_State">
 								<Name value="AIRs_State"/>
@@ -23861,13 +25114,13 @@
 								<Name value="Car_State.AIRs_State"/>
 							</SinkPortRef>
 						</Connection>
-						<Connection id="Handle_746_System.Connection119">
-							<ID value="System.Connection119"/>
-							<ShortId value="Connection119"/>
+						<Connection id="Handle_756_System.Connection121">
+							<ID value="System.Connection121"/>
+							<ShortId value="Connection121"/>
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_51_ES9101.ES9102.CAN1.CAN1.AP_DASH_EnableDrive.EnableDrive_Order">
 								<Name value="EnableDrive_Order"/>
@@ -23876,49 +25129,19 @@
 								<Name value="Car_State.EnableDrive_Order"/>
 							</SinkPortRef>
 						</Connection>
-						<Connection id="Handle_741_System.Connection120">
-							<ID value="System.Connection120"/>
-							<ShortId value="Connection120"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_49_ES9101.ES9102.CAN1.CAN1.AP_DASH_PrechargeRequest.PrechargeRequest">
-								<Name value="PrechargeRequest"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1340_SoftwareSystem.SAP236">
-								<Name value="Car_State.PrechargeRequest"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_756_System.Connection121">
-							<ID value="System.Connection121"/>
-							<ShortId value="Connection121"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_21_ES9101.ES9102.CAN1.CAN1.AP_BMS_Temperatures.Average_CellTemp">
-								<Name value="Average_CellTemp"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1486_SoftwareSystem.SAP235">
-								<Name value="SoC.Average_CellTemp"/>
-							</SinkPortRef>
-						</Connection>
 						<Connection id="Handle_753_System.Connection122">
 							<ID value="System.Connection122"/>
 							<ShortId value="Connection122"/>
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_12_ES9101.ES9102.CAN1.CAN1.AP_BMS_Voltages.Lowest_CellVoltage">
-								<Name value="Lowest_CellVoltage"/>
+							<SourcePortRef refId="Handle_49_ES9101.ES9102.CAN1.CAN1.AP_DASH_PrechargeRequest.PrechargeRequest">
+								<Name value="PrechargeRequest"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_1487_SoftwareSystem.SAP237">
-								<Name value="SoC.Lowest_CellVoltage"/>
+							<SinkPortRef refId="Handle_1340_SoftwareSystem.SAP236">
+								<Name value="Car_State.PrechargeRequest"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_5876_System.Connection123">
@@ -23928,6 +25151,36 @@
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
 							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_21_ES9101.ES9102.CAN1.CAN1.AP_BMS_Temperatures.Average_CellTemp">
+								<Name value="Average_CellTemp"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1486_SoftwareSystem.SAP235">
+								<Name value="SoC.Average_CellTemp"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_5877_System.Connection124">
+							<ID value="System.Connection124"/>
+							<ShortId value="Connection124"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Physical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_12_ES9101.ES9102.CAN1.CAN1.AP_BMS_Voltages.Lowest_CellVoltage">
+								<Name value="Lowest_CellVoltage"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_1487_SoftwareSystem.SAP237">
+								<Name value="SoC.Lowest_CellVoltage"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_6290_System.Connection125">
+							<ID value="System.Connection125"/>
+							<ShortId value="Connection125"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
 							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_5839_SoftwareSystem.SAP239">
 								<Name value="SoC.SoC_KF"/>
@@ -23942,13 +25195,13 @@
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
+							<Type value="Physical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_10_ES9101.ES9102.CAN1.CAN1.AP_CurrentSensor.Accumulator_Current">
-								<Name value="Accumulator_Current"/>
+							<SourcePortRef refId="Handle_3190_SoftwareSystem.SAP259">
+								<Name value="SoC.SoC_High"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_5833_SoftwareSystem.SAP10">
-								<Name value="SoC.Accumulator_Current"/>
+							<SinkPortRef refId="Handle_2520_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_SOC.SOC_High">
+								<Name value="SOC_High"/>
 							</SinkPortRef>
 						</Connection>
 						<Connection id="Handle_6292_System.Connection127">
@@ -23959,1161 +25212,6 @@
 							<Kind value="Dynamic"/>
 							<Type value="Logical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_14_ES9101.ES9102.CAN1.CAN1.AP_BMS_Voltages.Accumulator_Voltage">
-								<Name value="Accumulator_Voltage"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_6010_SoftwareSystem.SAP12">
-								<Name value="SoC.Accumulator_Voltage"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_784_System.Connection24">
-							<ID value="System.Connection24"/>
-							<ShortId value="Connection24"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1316_SoftwareSystem.SAP214">
-								<Name value="Inverters_Data.Disconnection_InvR"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_254_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_InvR">
-								<Name value="Disconnection_InvR"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_785_System.Connection25">
-							<ID value="System.Connection25"/>
-							<ShortId value="Connection25"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1315_SoftwareSystem.SAP212">
-								<Name value="Inverters_Data.Disconnection_InvL"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_255_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_InvL">
-								<Name value="Disconnection_InvL"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_786_System.Connection26">
-							<ID value="System.Connection26"/>
-							<ShortId value="Connection26"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1285_SoftwareSystem.SAP165">
-								<Name value="Disconnections.Disconnection_Susp_R_R"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_256_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Susp_R_R">
-								<Name value="Disconnection_Susp_R_R"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_787_System.Connection27">
-							<ID value="System.Connection27"/>
-							<ShortId value="Connection27"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1284_SoftwareSystem.SAP163">
-								<Name value="Disconnections.Disconnection_Susp_R_L"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_257_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Susp_R_L">
-								<Name value="Disconnection_Susp_R_L"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_788_System.Connection28">
-							<ID value="System.Connection28"/>
-							<ShortId value="Connection28"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1283_SoftwareSystem.SAP188">
-								<Name value="Disconnections.Disconnection_Susp_F_R"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_258_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Susp_F_R">
-								<Name value="Disconnection_Susp_F_R"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_789_System.Connection29">
-							<ID value="System.Connection29"/>
-							<ShortId value="Connection29"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1282_SoftwareSystem.SAP186">
-								<Name value="Disconnections.Disconnection_Susp_F_L"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_259_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Susp_F_L">
-								<Name value="Disconnection_Susp_F_L"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_790_System.Connection30">
-							<ID value="System.Connection30"/>
-							<ShortId value="Connection30"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1281_SoftwareSystem.SAP184">
-								<Name value="Disconnections.Disconnection_SteeringSensor"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_260_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_SteeringSensor">
-								<Name value="Disconnection_SteeringSensor"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_791_System.Connection31">
-							<ID value="System.Connection31"/>
-							<ShortId value="Connection31"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1280_SoftwareSystem.SAP182">
-								<Name value="Disconnections.Disconnection_Rear"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_261_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Rear">
-								<Name value="Disconnection_Rear"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_792_System.Connection32">
-							<ID value="System.Connection32"/>
-							<ShortId value="Connection32"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1278_SoftwareSystem.SAP178">
-								<Name value="Disconnections.Disconnection_Front"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_263_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Front">
-								<Name value="Disconnection_Front"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_793_System.Connection33">
-							<ID value="System.Connection33"/>
-							<ShortId value="Connection33"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1277_SoftwareSystem.SAP176">
-								<Name value="Disconnections.Disconnection_Ellipse"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_264_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_Ellipse">
-								<Name value="Disconnection_Ellipse"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_794_System.Connection34">
-							<ID value="System.Connection34"/>
-							<ShortId value="Connection34"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1276_SoftwareSystem.SAP174">
-								<Name value="Disconnections.Disconnection_DashBoard"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_265_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_DashBoard">
-								<Name value="Disconnection_DashBoard"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_795_System.Connection35">
-							<ID value="System.Connection35"/>
-							<ShortId value="Connection35"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1275_SoftwareSystem.SAP172">
-								<Name value="Disconnections.Disconnection_BrakePedal"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_266_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_BrakePedal">
-								<Name value="Disconnection_BrakePedal"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_796_System.Connection36">
-							<ID value="System.Connection36"/>
-							<ShortId value="Connection36"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1274_SoftwareSystem.SAP170">
-								<Name value="Disconnections.Disconnection_BMS"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_267_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_BMS">
-								<Name value="Disconnection_BMS"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_797_System.Connection37">
-							<ID value="System.Connection37"/>
-							<ShortId value="Connection37"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1273_SoftwareSystem.SAP168">
-								<Name value="Disconnections.Disconnection_APPS2"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_268_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS2">
-								<Name value="Disconnection_APPS2"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_798_System.Connection38">
-							<ID value="System.Connection38"/>
-							<ShortId value="Connection38"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1272_SoftwareSystem.SAP166">
-								<Name value="Disconnections.Disconnection_APPS1"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_269_ES9101.ES9102.CAN2.CAN2.NM_ETAS_Disconnections.Disconnection_APPS1">
-								<Name value="Disconnection_APPS1"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_799_System.Connection39">
-							<ID value="System.Connection39"/>
-							<ShortId value="Connection39"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1297_SoftwareSystem.SAP189">
-								<Name value="Ellipse.el_VEL"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_271_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Values.el_VEL">
-								<Name value="el_VEL"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_800_System.Connection40">
-							<ID value="System.Connection40"/>
-							<ShortId value="Connection40"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1251_SoftwareSystem.SAP131">
-								<Name value="Sensors.SteeringSensor_Value"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_272_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Values.SteeringSensor_Value">
-								<Name value="SteeringSensor_Value"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_801_System.Connection41">
-							<ID value="System.Connection41"/>
-							<ShortId value="Connection41"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1250_SoftwareSystem.SAP129">
-								<Name value="Sensors.BrakePedal_Value"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_273_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Values.BrakePedal_Value">
-								<Name value="BrakePedal_Value"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_802_System.Connection42">
-							<ID value="System.Connection42"/>
-							<ShortId value="Connection42"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1249_SoftwareSystem.SAP127">
-								<Name value="Sensors.APPS2_Value"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_274_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS2_Value">
-								<Name value="APPS2_Value"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_803_System.Connection43">
-							<ID value="System.Connection43"/>
-							<ShortId value="Connection43"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1248_SoftwareSystem.SAP125">
-								<Name value="Sensors.APPS1_Value"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_275_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Values.APPS1_Value">
-								<Name value="APPS1_Value"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_804_System.Connection44">
-							<ID value="System.Connection44"/>
-							<ShortId value="Connection44"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1329_SoftwareSystem.SAP83">
-								<Name value="VDC.BrakeLight_Control"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_277_ES9101.ES9102.CAN2.CAN2.AP_ETAS_BrakeLight.BrakeLight_Control">
-								<Name value="BrakeLight_Control"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_823_System.Connection45">
-							<ID value="System.Connection45"/>
-							<ShortId value="Connection45"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1231_SoftwareSystem.SAP105">
-								<Name value="Inverters_Data.Inv_R_TempMotor"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_314_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempMotor">
-								<Name value="Inv_R_TempMotor"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_824_System.Connection46">
-							<ID value="System.Connection46"/>
-							<ShortId value="Connection46"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1302_SoftwareSystem.SAP198">
-								<Name value="Power_Control.current_R"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_315_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.current_R">
-								<Name value="current_R"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_825_System.Connection47">
-							<ID value="System.Connection47"/>
-							<ShortId value="Connection47"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1230_SoftwareSystem.SAP103">
-								<Name value="Inverters_Data.Inv_R_TempIGBT"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_316_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.Inv_R_TempIGBT">
-								<Name value="Inv_R_TempIGBT"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_826_System.Connection48">
-							<ID value="System.Connection48"/>
-							<ShortId value="Connection48"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1238_SoftwareSystem.SAP118">
-								<Name value="Inverters_Data.RR_Vel_ms_Wheel"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_317_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_R_Data.RR_Vel_ms_Wheel">
-								<Name value="RR_Vel_ms_Wheel"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_827_System.Connection49">
-							<ID value="System.Connection49"/>
-							<ShortId value="Connection49"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1229_SoftwareSystem.SAP101">
-								<Name value="Inverters_Data.Inv_L_TempMotor"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_319_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempMotor">
-								<Name value="Inv_L_TempMotor"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_828_System.Connection50">
-							<ID value="System.Connection50"/>
-							<ShortId value="Connection50"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1301_SoftwareSystem.SAP196">
-								<Name value="Power_Control.current_L"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_320_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.current_L">
-								<Name value="current_L"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_829_System.Connection51">
-							<ID value="System.Connection51"/>
-							<ShortId value="Connection51"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1228_SoftwareSystem.SAP99">
-								<Name value="Inverters_Data.Inv_L_TempIGBT"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_321_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.Inv_L_TempIGBT">
-								<Name value="Inv_L_TempIGBT"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_830_System.Connection52">
-							<ID value="System.Connection52"/>
-							<ShortId value="Connection52"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1236_SoftwareSystem.SAP114">
-								<Name value="Inverters_Data.RL_Vel_ms_Wheel"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_322_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_Inverter_L_Data.RL_Vel_ms_Wheel">
-								<Name value="RL_Vel_ms_Wheel"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_831_System.Connection53">
-							<ID value="System.Connection53"/>
-							<ShortId value="Connection53"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1255_SoftwareSystem.SAP138">
-								<Name value="Sensors.SUSP_R_R"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_324_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_R">
-								<Name value="SUSP_R_R"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_832_System.Connection54">
-							<ID value="System.Connection54"/>
-							<ShortId value="Connection54"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1254_SoftwareSystem.SAP136">
-								<Name value="Sensors.SUSP_R_L"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_325_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_R_L">
-								<Name value="SUSP_R_L"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_833_System.Connection55">
-							<ID value="System.Connection55"/>
-							<ShortId value="Connection55"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1253_SoftwareSystem.SAP135">
-								<Name value="Sensors.SUSP_F_R"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_326_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_R">
-								<Name value="SUSP_F_R"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_834_System.Connection56">
-							<ID value="System.Connection56"/>
-							<ShortId value="Connection56"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1252_SoftwareSystem.SAP133">
-								<Name value="Sensors.SUSP_F_L"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_327_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Suspe.SUSP_F_L">
-								<Name value="SUSP_F_L"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_835_System.Connection57">
-							<ID value="System.Connection57"/>
-							<ShortId value="Connection57"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1332_SoftwareSystem.SAP219">
-								<Name value="VDC.Throttle_Torque"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_329_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Throttle_Torque">
-								<Name value="Throttle_Torque"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_836_System.Connection58">
-							<ID value="System.Connection58"/>
-							<ShortId value="Connection58"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1335_SoftwareSystem.SAP225">
-								<Name value="VDC.Torque_R"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_330_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_R">
-								<Name value="Torque_R"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_837_System.Connection59">
-							<ID value="System.Connection59"/>
-							<ShortId value="Connection59"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1333_SoftwareSystem.SAP221">
-								<Name value="VDC.Torque_L"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_331_ES9101.ES9102.CAN2.CAN2.MEAS_ETAS_VDC_Tq.Torque_L">
-								<Name value="Torque_L"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_856_System.Connection60">
-							<ID value="System.Connection60"/>
-							<ShortId value="Connection60"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_1218_SoftwareSystem.SAP32">
-								<Name value="Synchronism.Sync_CAN2"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_349_ES9101.ES9102.CAN2.CAN2.AP_ETAS_Synchronism.Sync_CAN2">
-								<Name value="Sync_CAN2"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_742_System.Connection83">
-							<ID value="System.Connection83"/>
-							<ShortId value="Connection83"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_347_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.APPS1_Bits">
-								<Name value="APPS1_Bits"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1240_SoftwareSystem.SAP4">
-								<Name value="Sensors.APPS1_Bits"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_743_System.Connection84">
-							<ID value="System.Connection84"/>
-							<ShortId value="Connection84"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_346_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.APPS2_Bits">
-								<Name value="APPS2_Bits"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1241_SoftwareSystem.SAP111">
-								<Name value="Sensors.APPS2_Bits"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_854_System.Connection85">
-							<ID value="System.Connection85"/>
-							<ShortId value="Connection85"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_345_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.BrakePedal_Bits">
-								<Name value="BrakePedal_Bits"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1242_SoftwareSystem.SAP113">
-								<Name value="Sensors.BrakePedal_Bits"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_852_System.Connection86">
-							<ID value="System.Connection86"/>
-							<ShortId value="Connection86"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_344_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.SteeringSensor_Bits">
-								<Name value="SteeringSensor_Bits"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1243_SoftwareSystem.SAP115">
-								<Name value="Sensors.SteeringSensor_Bits"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_850_System.Connection87">
-							<ID value="System.Connection87"/>
-							<ShortId value="Connection87"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_342_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Susp_F_L_Bits">
-								<Name value="Susp_F_L_Bits"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1244_SoftwareSystem.SAP117">
-								<Name value="Sensors.Susp_F_L_Bits"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_848_System.Connection88">
-							<ID value="System.Connection88"/>
-							<ShortId value="Connection88"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_341_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Susp_F_R_Bits">
-								<Name value="Susp_F_R_Bits"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1245_SoftwareSystem.SAP119">
-								<Name value="Sensors.Susp_F_R_Bits"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_846_System.Connection89">
-							<ID value="System.Connection89"/>
-							<ShortId value="Connection89"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_334_ES9101.ES9102.CAN2.CAN2.AP_RECU_Data.Susp_R_L_Bits">
-								<Name value="Susp_R_L_Bits"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1246_SoftwareSystem.SAP121">
-								<Name value="Sensors.Susp_R_L_Bits"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_844_System.Connection90">
-							<ID value="System.Connection90"/>
-							<ShortId value="Connection90"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_333_ES9101.ES9102.CAN2.CAN2.AP_RECU_Data.Susp_R_R_Bits">
-								<Name value="Susp_R_R_Bits"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1247_SoftwareSystem.SAP123">
-								<Name value="Sensors.Susp_R_R_Bits"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_840_System.Connection91">
-							<ID value="System.Connection91"/>
-							<ShortId value="Connection91"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_347_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.APPS1_Bits">
-								<Name value="APPS1_Bits"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1256_SoftwareSystem.SAP5">
-								<Name value="Disconnections.APPS1_Bits"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_838_System.Connection92">
-							<ID value="System.Connection92"/>
-							<ShortId value="Connection92"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_346_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.APPS2_Bits">
-								<Name value="APPS2_Bits"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1257_SoftwareSystem.SAP137">
-								<Name value="Disconnections.APPS2_Bits"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_855_System.Connection93">
-							<ID value="System.Connection93"/>
-							<ShortId value="Connection93"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_345_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.BrakePedal_Bits">
-								<Name value="BrakePedal_Bits"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1259_SoftwareSystem.SAP141">
-								<Name value="Disconnections.BrakePedal_Bits"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_853_System.Connection94">
-							<ID value="System.Connection94"/>
-							<ShortId value="Connection94"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_304_ES9101.ES9102.CAN2.CAN2.NM_ELLIPSE_Status.Ellipse_Alive">
-								<Name value="Ellipse_Alive"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1261_SoftwareSystem.SAP145">
-								<Name value="Disconnections.Ellipse_Alive"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_752_System.Connection95">
-							<ID value="System.Connection95"/>
-							<ShortId value="Connection95"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_336_ES9101.ES9102.CAN2.CAN2.NM_FECU_Keep_Alive.Front_Alive">
-								<Name value="Front_Alive"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1262_SoftwareSystem.SAP147">
-								<Name value="Disconnections.Front_Alive"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_851_System.Connection96">
-							<ID value="System.Connection96"/>
-							<ShortId value="Connection96"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_338_ES9101.ES9102.CAN2.CAN2.NM_RECU_Keep_Alive.Rear_Alive">
-								<Name value="Rear_Alive"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1263_SoftwareSystem.SAP149">
-								<Name value="Disconnections.Rear_Alive"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_754_System.Connection97">
-							<ID value="System.Connection97"/>
-							<ShortId value="Connection97"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_344_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data1.SteeringSensor_Bits">
-								<Name value="SteeringSensor_Bits"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1264_SoftwareSystem.SAP151">
-								<Name value="Disconnections.SteeringSensor_Bits"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_816_System.Connection98">
-							<ID value="System.Connection98"/>
-							<ShortId value="Connection98"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_342_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Susp_F_L_Bits">
-								<Name value="Susp_F_L_Bits"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1265_SoftwareSystem.SAP153">
-								<Name value="Disconnections.Susp_F_L_Bits"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_842_System.Connection99">
-							<ID value="System.Connection99"/>
-							<ShortId value="Connection99"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_341_ES9101.ES9102.CAN2.CAN2.AP_FECU_Data2.Susp_F_R_Bits">
-								<Name value="Susp_F_R_Bits"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1266_SoftwareSystem.SAP155">
-								<Name value="Disconnections.Susp_F_R_Bits"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_843_System.Connection100">
-							<ID value="System.Connection100"/>
-							<ShortId value="Connection100"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_334_ES9101.ES9102.CAN2.CAN2.AP_RECU_Data.Susp_R_L_Bits">
-								<Name value="Susp_R_L_Bits"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1267_SoftwareSystem.SAP157">
-								<Name value="Disconnections.Susp_R_L_Bits"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_849_System.Connection101">
-							<ID value="System.Connection101"/>
-							<ShortId value="Connection101"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_333_ES9101.ES9102.CAN2.CAN2.AP_RECU_Data.Susp_R_R_Bits">
-								<Name value="Susp_R_R_Bits"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1268_SoftwareSystem.SAP159">
-								<Name value="Disconnections.Susp_R_R_Bits"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_805_System.Connection107">
-							<ID value="System.Connection107"/>
-							<ShortId value="Connection107"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_290_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_POS.el_LATITUDE_EKF">
-								<Name value="el_LATITUDE_EKF"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1286_SoftwareSystem.SAP6">
-								<Name value="Ellipse.el_LATITUDE_EKF"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_820_System.Connection108">
-							<ID value="System.Connection108"/>
-							<ShortId value="Connection108"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_289_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_POS.el_LONGITUDE_EKF">
-								<Name value="el_LONGITUDE_EKF"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1287_SoftwareSystem.SAP169">
-								<Name value="Ellipse.el_LONGITUDE_EKF"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_822_System.Connection109">
-							<ID value="System.Connection109"/>
-							<ShortId value="Connection109"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_310_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_VEL_Valid.el_SolutionMode">
-								<Name value="el_SolutionMode"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1288_SoftwareSystem.SAP171">
-								<Name value="Ellipse.el_SolutionMode"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_815_System.Connection110">
-							<ID value="System.Connection110"/>
-							<ShortId value="Connection110"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_312_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_VEL_Valid.el_Vel_EKF_Valid">
-								<Name value="el_Vel_EKF_Valid"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1289_SoftwareSystem.SAP173">
-								<Name value="Ellipse.el_Vel_EKF_Valid"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_814_System.Connection111">
-							<ID value="System.Connection111"/>
-							<ShortId value="Connection111"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_302_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_VEL.el_Vel_EKF_X">
-								<Name value="el_Vel_EKF_X"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1290_SoftwareSystem.SAP175">
-								<Name value="Ellipse.el_Vel_EKF_X"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_813_System.Connection112">
-							<ID value="System.Connection112"/>
-							<ShortId value="Connection112"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_301_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_VEL.el_Vel_EKF_Y">
-								<Name value="el_Vel_EKF_Y"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1291_SoftwareSystem.SAP177">
-								<Name value="Ellipse.el_Vel_EKF_Y"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_783_System.Connection113">
-							<ID value="System.Connection113"/>
-							<ShortId value="Connection113"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_300_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_VEL.el_Vel_EKF_Z">
-								<Name value="el_Vel_EKF_Z"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1292_SoftwareSystem.SAP179">
-								<Name value="Ellipse.el_Vel_EKF_Z"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_782_System.Connection114">
-							<ID value="System.Connection114"/>
-							<ShortId value="Connection114"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_252_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_GPS_VEL.el_Vel_GPS_D">
-								<Name value="el_Vel_GPS_D"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1293_SoftwareSystem.SAP181">
-								<Name value="Ellipse.el_Vel_GPS_D"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_781_System.Connection115">
-							<ID value="System.Connection115"/>
-							<ShortId value="Connection115"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_251_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_GPS_VEL.el_Vel_GPS_E">
-								<Name value="el_Vel_GPS_E"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1294_SoftwareSystem.SAP183">
-								<Name value="Ellipse.el_Vel_GPS_E"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_5877_System.Connection124">
-							<ID value="System.Connection124"/>
-							<ShortId value="Connection124"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Logical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_250_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_GPS_VEL.el_Vel_GPS_N">
-								<Name value="el_Vel_GPS_N"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1295_SoftwareSystem.SAP185">
-								<Name value="Ellipse.el_Vel_GPS_N"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_6290_System.Connection125">
-							<ID value="System.Connection125"/>
-							<ShortId value="Connection125"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_311_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_VEL_Valid.el_Vel_GPS_Valid">
-								<Name value="el_Vel_GPS_Valid"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1296_SoftwareSystem.SAP187">
-								<Name value="Ellipse.el_Vel_GPS_Valid"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_6366_System.Connection128">
-							<ID value="System.Connection128"/>
-							<ShortId value="Connection128"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_294_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_X">
-								<Name value="el_ACCEL_X"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1318_SoftwareSystem.SAP61">
-								<Name value="VDC.el_ACCEL_X"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_6367_System.Connection129">
-							<ID value="System.Connection129"/>
-							<ShortId value="Connection129"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_293_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_Y">
-								<Name value="el_ACCEL_Y"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1319_SoftwareSystem.SAP63">
-								<Name value="VDC.el_ACCEL_Y"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_6368_System.Connection130">
-							<ID value="System.Connection130"/>
-							<ShortId value="Connection130"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_292_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_ACCEL.el_ACCEL_Z">
-								<Name value="el_ACCEL_Z"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1320_SoftwareSystem.SAP65">
-								<Name value="VDC.el_ACCEL_Z"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_6369_System.Connection131">
-							<ID value="System.Connection131"/>
-							<ShortId value="Connection131"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_308_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_GYRO.el_GYRO_X">
-								<Name value="el_GYRO_X"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1321_SoftwareSystem.SAP67">
-								<Name value="VDC.el_GYRO_X"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_6370_System.Connection132">
-							<ID value="System.Connection132"/>
-							<ShortId value="Connection132"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_307_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_GYRO.el_GYRO_Y">
-								<Name value="el_GYRO_Y"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1322_SoftwareSystem.SAP69">
-								<Name value="VDC.el_GYRO_Y"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_6371_System.Connection133">
-							<ID value="System.Connection133"/>
-							<ShortId value="Connection133"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_306_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_IMU_GYRO.el_GYRO_Z">
-								<Name value="el_GYRO_Z"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1323_SoftwareSystem.SAP71">
-								<Name value="VDC.el_GYRO_Z"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_6372_System.Connection134">
-							<ID value="System.Connection134"/>
-							<ShortId value="Connection134"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_297_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_EULER.el_PITCH">
-								<Name value="el_PITCH"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1324_SoftwareSystem.SAP73">
-								<Name value="VDC.el_PITCH"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_6373_System.Connection135">
-							<ID value="System.Connection135"/>
-							<ShortId value="Connection135"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_298_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_EULER.el_ROLL">
-								<Name value="el_ROLL"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1325_SoftwareSystem.SAP75">
-								<Name value="VDC.el_ROLL"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_6374_System.Connection136">
-							<ID value="System.Connection136"/>
-							<ShortId value="Connection136"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_296_ES9101.ES9102.CAN2.CAN2.AP_ELLIPSE_EKF_EULER.el_YAW">
-								<Name value="el_YAW"/>
-							</SourcePortRef>
-							<SinkPortRef refId="Handle_1326_SoftwareSystem.SAP77">
-								<Name value="VDC.el_YAW"/>
-							</SinkPortRef>
-						</Connection>
-						<Connection id="Handle_6375_System.Connection137">
-							<ID value="System.Connection137"/>
-							<ShortId value="Connection137"/>
-							<Name value="Connection"/>
-							<Caption value="Connection"/>
-							<Kind value="Dynamic"/>
-							<Type value="Physical"/>
-							<Enabled value="true"/>
 							<SourcePortRef refId="Handle_6024_SoftwareSystem.SAP255">
 								<Name value="SoC.SoC_Low"/>
 							</SourcePortRef>
@@ -25121,9 +25219,9 @@
 								<Name value="SOC_Low"/>
 							</SinkPortRef>
 						</Connection>
-						<Connection id="Handle_6376_System.Connection138">
-							<ID value="System.Connection138"/>
-							<ShortId value="Connection138"/>
+						<Connection id="Handle_6366_System.Connection128">
+							<ID value="System.Connection128"/>
+							<ShortId value="Connection128"/>
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
@@ -25136,9 +25234,24 @@
 								<Name value="SOC_Avg"/>
 							</SinkPortRef>
 						</Connection>
-						<Connection id="Handle_6377_System.Connection139">
-							<ID value="System.Connection139"/>
-							<ShortId value="Connection139"/>
+						<Connection id="Handle_6367_System.Connection129">
+							<ID value="System.Connection129"/>
+							<ShortId value="Connection129"/>
+							<Name value="Connection"/>
+							<Caption value="Connection"/>
+							<Kind value="Dynamic"/>
+							<Type value="Logical"/>
+							<Enabled value="true"/>
+							<SourcePortRef refId="Handle_10_ES9101.ES9102.CAN1.CAN1.AP_CurrentSensor.Accumulator_Current">
+								<Name value="Accumulator_Current"/>
+							</SourcePortRef>
+							<SinkPortRef refId="Handle_5833_SoftwareSystem.SAP10">
+								<Name value="SoC.Accumulator_Current"/>
+							</SinkPortRef>
+						</Connection>
+						<Connection id="Handle_6368_System.Connection130">
+							<ID value="System.Connection130"/>
+							<ShortId value="Connection130"/>
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
@@ -25151,9 +25264,9 @@
 								<Name value="Ellipse.el_AngleTrack"/>
 							</SinkPortRef>
 						</Connection>
-						<Connection id="Handle_6378_System.Connection140">
-							<ID value="System.Connection140"/>
-							<ShortId value="Connection140"/>
+						<Connection id="Handle_6369_System.Connection131">
+							<ID value="System.Connection131"/>
+							<ShortId value="Connection131"/>
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
@@ -25166,9 +25279,9 @@
 								<Name value="Ellipse.el_CurvatureRadius"/>
 							</SinkPortRef>
 						</Connection>
-						<Connection id="Handle_6379_System.Connection141">
-							<ID value="System.Connection141"/>
-							<ShortId value="Connection141"/>
+						<Connection id="Handle_6370_System.Connection132">
+							<ID value="System.Connection132"/>
+							<ShortId value="Connection132"/>
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
@@ -25181,9 +25294,9 @@
 								<Name value="Ellipse.el_SlipAngle"/>
 							</SinkPortRef>
 						</Connection>
-						<Connection id="Handle_6380_System.Connection142">
-							<ID value="System.Connection142"/>
-							<ShortId value="Connection142"/>
+						<Connection id="Handle_6371_System.Connection133">
+							<ID value="System.Connection133"/>
+							<ShortId value="Connection133"/>
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
@@ -25196,9 +25309,9 @@
 								<Name value="Ellipse.el_Slip_Valid"/>
 							</SinkPortRef>
 						</Connection>
-						<Connection id="Handle_6381_System.Connection143">
-							<ID value="System.Connection143"/>
-							<ShortId value="Connection143"/>
+						<Connection id="Handle_6372_System.Connection134">
+							<ID value="System.Connection134"/>
+							<ShortId value="Connection134"/>
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
@@ -25211,19 +25324,19 @@
 								<Name value="Ellipse.el_Curvature_Valid"/>
 							</SinkPortRef>
 						</Connection>
-						<Connection id="Handle_6354_System.Connection144">
-							<ID value="System.Connection144"/>
-							<ShortId value="Connection144"/>
+						<Connection id="Handle_6373_System.Connection135">
+							<ID value="System.Connection135"/>
+							<ShortId value="Connection135"/>
 							<Name value="Connection"/>
 							<Caption value="Connection"/>
 							<Kind value="Dynamic"/>
 							<Type value="Logical"/>
 							<Enabled value="true"/>
-							<SourcePortRef refId="Handle_3258_SoftwareSystem.SAP13">
-								<Name value="VDC.TC_Warning"/>
+							<SourcePortRef refId="Handle_14_ES9101.ES9102.CAN1.CAN1.AP_BMS_Voltages.Accumulator_Voltage">
+								<Name value="Accumulator_Voltage"/>
 							</SourcePortRef>
-							<SinkPortRef refId="Handle_73_ES9101.ES9102.CAN1.CAN1.MEAS_ETAS_InternalVars.TC_Warning">
-								<Name value="TC_Warning"/>
+							<SinkPortRef refId="Handle_6010_SoftwareSystem.SAP12">
+								<Name value="SoC.Accumulator_Voltage"/>
 							</SinkPortRef>
 						</Connection>
 					</Connections>

@@ -43,5 +43,6 @@ SoC.o: \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/rt_nonfinite.h \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/zero_crossing_types.h \
  C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\/SoC_private.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/look1_binlxpw.h \
- C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/look2_binlxpw.h
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\/SoC.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/look2_binlxpw.h \
+ C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\SoC_irt_rtw\external\_sharedutils/look1_binlxpw.h
