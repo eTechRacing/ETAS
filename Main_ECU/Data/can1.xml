@@ -125,6 +125,8 @@
 <!ENTITY _70 SYSTEM "OSrv://ObjectHandle#70" NDATA _OIDLink >
 <!ENTITY _136 SYSTEM "OSrv://ObjectHandle#136" NDATA _OIDLink >
 <!ENTITY _71 SYSTEM "OSrv://ObjectHandle#71" NDATA _OIDLink >
+<!ENTITY _2212 SYSTEM "OSrv://ObjectHandle#2212" NDATA _OIDLink >
+<!ENTITY _1590 SYSTEM "OSrv://ObjectHandle#1590" NDATA _OIDLink >
 <!ENTITY _72 SYSTEM "OSrv://ObjectHandle#72" NDATA _OIDLink >
 <!ENTITY _137 SYSTEM "OSrv://ObjectHandle#137" NDATA _OIDLink >
 <!ENTITY _73 SYSTEM "OSrv://ObjectHandle#73" NDATA _OIDLink >
@@ -371,6 +373,9 @@
 	Name="MEAS_ETAS_InternalVars"
 	Index="71"
 	Type="YBOSignalGroup"><_LinkTarget
+	Name="InvertersAction"
+	Index="2212"
+	Type="YBOHWPort"/><_LinkTarget
 	Name="el_Vel_OK"
 	Index="72"
 	Type="YBOHWPort"/><_LinkTarget
@@ -565,6 +570,9 @@
 	Type="ESCANBaseNodeSignal"/><_LinkTarget
 	Name="AIRs_Request"
 	Index="136"
+	Type="ESCANBaseNodeSignal"/><_LinkTarget
+	Name="InvertersAction"
+	Index="1590"
 	Type="ESCANBaseNodeSignal"/><_LinkTarget
 	Name="el_Vel_OK"
 	Index="137"
@@ -2058,6 +2066,34 @@
 	Min="1"
 	Max="8"/></ESCANBaseNodeSignalParameters.SignalSize><ESCANBaseNodeSignalParameters.SignalLength><ESParameterUInt
 	Value="4"
+	Min="1"
+	Max="64"/></ESCANBaseNodeSignalParameters.SignalLength><ESCANBaseNodeSignalParameters.SignalByteOrder><ESParameterEnum
+	IndexValue="1"/></ESCANBaseNodeSignalParameters.SignalByteOrder><ESCANBaseNodeSignalParameters.AutoMinMax><ESParameterBoolean
+	Value="False"
+	ReadOnly="False"
+	Active="True"/></ESCANBaseNodeSignalParameters.AutoMinMax></ESCANBaseNodeSignalParameters></ESCANBaseNodeSignal.Parameters><ESCANBaseNodeSignal.SubNodes><ESCANBaseNodeSignalSubNodeList/></ESCANBaseNodeSignal.SubNodes></ESCANBaseNodeSignal><ESCANBaseNodeSignal
+	Name="CAN1.CAN_5FController.ESCANBasePoolSignal.InvertersAction"><ESCANBaseNodeSignal.Parameters><ESCANBaseNodeSignalParameters><ESCANBaseNodeSignalParameters.Name><ESParameterName
+	Value="InvertersAction"/></ESCANBaseNodeSignalParameters.Name><ESCANBaseNodeSignalParameters.SignalType><ESParameterEnum
+	IndexValue="2"
+	ReadOnly="True"/></ESCANBaseNodeSignalParameters.SignalType><ESCANBaseNodeSignalParameters.Unit><ESParameterString/></ESCANBaseNodeSignalParameters.Unit><ESCANBaseNodeSignalParameters.Formula><ESParameterUnion
+	Active="True"><ESParameterUnion.ParameterList><ESParameterList><ESParameterIdentityFormula/><ESParameterLinearFormula/></ESParameterList></ESParameterUnion.ParameterList><ESParameterUnion.ParameterList><ESParameterList/></ESParameterUnion.ParameterList></ESParameterUnion></ESCANBaseNodeSignalParameters.Formula><ESCANBaseNodeSignalParameters.Min><ESParameterFloat
+	ReadOnly="False"
+	Active="True"
+	Min="-0.49999900000000002676"
+	Max="31.499998999999998972"/></ESCANBaseNodeSignalParameters.Min><ESCANBaseNodeSignalParameters.Max><ESParameterFloat
+	Value="31."
+	ReadOnly="False"
+	Active="True"
+	Min="-0.49999900000000002676"
+	Max="31.499998999999998972"/></ESCANBaseNodeSignalParameters.Max><ESCANBaseNodeSignalParameters.InitValue><ESParameterFloat
+	Min="0."
+	Max="31."/></ESCANBaseNodeSignalParameters.InitValue><ESCANBaseNodeSignalParameters.DataType><ESParameterEnum
+	IndexValue="1"/></ESCANBaseNodeSignalParameters.DataType><ESCANBaseNodeSignalParameters.SignalSize><ESParameterUInt
+	Value="1"
+	ReadOnly="True"
+	Min="1"
+	Max="8"/></ESCANBaseNodeSignalParameters.SignalSize><ESCANBaseNodeSignalParameters.SignalLength><ESParameterUInt
+	Value="5"
 	Min="1"
 	Max="64"/></ESCANBaseNodeSignalParameters.SignalLength><ESCANBaseNodeSignalParameters.SignalByteOrder><ESParameterEnum
 	IndexValue="1"/></ESCANBaseNodeSignalParameters.SignalByteOrder><ESCANBaseNodeSignalParameters.AutoMinMax><ESParameterBoolean
@@ -3955,7 +3991,7 @@
 	Consistent="True"
 	Min="0"
 	Max="536870911"/></ESCANBaseNodeSignalGroupParameters.CANIdentifier><ESCANBaseNodeSignalGroupParameters.DLC><ESParameterUInt
-	Value="4"
+	Value="5"
 	Min="0"
 	Max="8"/></ESCANBaseNodeSignalGroupParameters.DLC><ESCANBaseNodeSignalGroupParameters.SubsamplingRate><ESParameterUInt
 	Value="1"
@@ -3971,6 +4007,20 @@
 	APIROID="93"
 	IRQTriggered="False"
 	SignalGroupIndex="-1"><ESCANBaseNodeSignalGroupL1Generation.UnionCase><ESCANBaseNodeSignalGroupL1GenerationUnionCase/></ESCANBaseNodeSignalGroupL1Generation.UnionCase><ESCANBaseNodeSignalGroupL1Generation.Reconnect><ESCANBaseNodeSignalGroupL1GenerationReconnect/></ESCANBaseNodeSignalGroupL1Generation.Reconnect></ESCANBaseNodeSignalGroupL1Generation></ESCANBaseNodeSignalGroup.L1Generation><ESCANBaseNodeSignalGroup.SubNodes><ESCANBaseNodeSignalGroupSubNodeList><ESCANBaseNodeSignalInstance
+	Name="CAN1.CAN_5FController.CAN1.MEAS_5FETAS_5FInternalVars.InvertersAction"
+	GlobalObject.ofTypeYBOHWPort="_2212"
+	GlobalParent.ofTypeYBOSignalGroup="_71"><ESCANBaseNodeSignalInstance.Parameters><ESCANBaseNodeSignalInstanceParameters><ESCANBaseNodeSignalInstanceParameters.Enabled><ESParameterBoolean
+	Value="True"/></ESCANBaseNodeSignalInstanceParameters.Enabled><ESCANBaseNodeSignalInstanceParameters.StartBit><ESParameterUInt
+	Value="35"
+	Min="0"
+	Max="63"/></ESCANBaseNodeSignalInstanceParameters.StartBit><ESCANBaseNodeSignalInstanceParameters.InstanceType
+	EnumAvailable1="1"
+	EnumAvailable2="1"
+	EnumAvailable3="0"><ESParameterEnum/></ESCANBaseNodeSignalInstanceParameters.InstanceType><ESCANBaseNodeSignalInstanceParameters.Message><ESParameterString/></ESCANBaseNodeSignalInstanceParameters.Message></ESCANBaseNodeSignalInstanceParameters></ESCANBaseNodeSignalInstance.Parameters><ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstanceL1Generation
+	L1TreeIndex="0"
+	MappingROID="95"
+	DirectionReceive="False"><ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1GenerationUnionCase/></ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1Generation.Reconnect><ESCANBaseNodeSignalInstanceL1GenerationReconnect/></ESCANBaseNodeSignalInstanceL1Generation.Reconnect></ESCANBaseNodeSignalInstanceL1Generation></ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstanceSubNodeList/></ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstance.NodeLink><ESCANBaseNodeLink
+	NodeLink.ofTypeESNode="_1590"/></ESCANBaseNodeSignalInstance.NodeLink></ESCANBaseNodeSignalInstance><ESCANBaseNodeSignalInstance
 	Name="CAN1.CAN_5FController.CAN1.MEAS_5FETAS_5FInternalVars.el_5FVel_5FOK"
 	GlobalObject.ofTypeYBOHWPort="_72"
 	GlobalParent.ofTypeYBOSignalGroup="_71"><ESCANBaseNodeSignalInstance.Parameters><ESCANBaseNodeSignalInstanceParameters><ESCANBaseNodeSignalInstanceParameters.Enabled><ESParameterBoolean
@@ -3981,8 +4031,8 @@
 	EnumAvailable1="1"
 	EnumAvailable2="1"
 	EnumAvailable3="0"><ESParameterEnum/></ESCANBaseNodeSignalInstanceParameters.InstanceType><ESCANBaseNodeSignalInstanceParameters.Message><ESParameterString/></ESCANBaseNodeSignalInstanceParameters.Message></ESCANBaseNodeSignalInstanceParameters></ESCANBaseNodeSignalInstance.Parameters><ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstanceL1Generation
-	L1TreeIndex="0"
-	MappingROID="95"
+	L1TreeIndex="1"
+	MappingROID="96"
 	DirectionReceive="False"><ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1GenerationUnionCase/></ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1Generation.Reconnect><ESCANBaseNodeSignalInstanceL1GenerationReconnect/></ESCANBaseNodeSignalInstanceL1Generation.Reconnect></ESCANBaseNodeSignalInstanceL1Generation></ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstanceSubNodeList/></ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstance.NodeLink><ESCANBaseNodeLink
 	NodeLink.ofTypeESNode="_137"/></ESCANBaseNodeSignalInstance.NodeLink></ESCANBaseNodeSignalInstance><ESCANBaseNodeSignalInstance
 	Name="CAN1.CAN_5FController.CAN1.MEAS_5FETAS_5FInternalVars.TC_5FWarning"
@@ -3995,8 +4045,8 @@
 	EnumAvailable1="1"
 	EnumAvailable2="1"
 	EnumAvailable3="0"><ESParameterEnum/></ESCANBaseNodeSignalInstanceParameters.InstanceType><ESCANBaseNodeSignalInstanceParameters.Message><ESParameterString/></ESCANBaseNodeSignalInstanceParameters.Message></ESCANBaseNodeSignalInstanceParameters></ESCANBaseNodeSignalInstance.Parameters><ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstanceL1Generation
-	L1TreeIndex="1"
-	MappingROID="96"
+	L1TreeIndex="2"
+	MappingROID="97"
 	DirectionReceive="False"><ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1GenerationUnionCase/></ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1Generation.Reconnect><ESCANBaseNodeSignalInstanceL1GenerationReconnect/></ESCANBaseNodeSignalInstanceL1Generation.Reconnect></ESCANBaseNodeSignalInstanceL1Generation></ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstanceSubNodeList/></ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstance.NodeLink><ESCANBaseNodeLink
 	NodeLink.ofTypeESNode="_138"/></ESCANBaseNodeSignalInstance.NodeLink></ESCANBaseNodeSignalInstance><ESCANBaseNodeSignalInstance
 	Name="CAN1.CAN_5FController.CAN1.MEAS_5FETAS_5FInternalVars.Regenerative_5FEnable"
@@ -4009,8 +4059,8 @@
 	EnumAvailable1="1"
 	EnumAvailable2="1"
 	EnumAvailable3="0"><ESParameterEnum/></ESCANBaseNodeSignalInstanceParameters.InstanceType><ESCANBaseNodeSignalInstanceParameters.Message><ESParameterString/></ESCANBaseNodeSignalInstanceParameters.Message></ESCANBaseNodeSignalInstanceParameters></ESCANBaseNodeSignalInstance.Parameters><ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstanceL1Generation
-	L1TreeIndex="2"
-	MappingROID="97"
+	L1TreeIndex="3"
+	MappingROID="98"
 	DirectionReceive="False"><ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1GenerationUnionCase/></ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1Generation.Reconnect><ESCANBaseNodeSignalInstanceL1GenerationReconnect/></ESCANBaseNodeSignalInstanceL1Generation.Reconnect></ESCANBaseNodeSignalInstanceL1Generation></ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstanceSubNodeList/></ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstance.NodeLink><ESCANBaseNodeLink
 	NodeLink.ofTypeESNode="_139"/></ESCANBaseNodeSignalInstance.NodeLink></ESCANBaseNodeSignalInstance><ESCANBaseNodeSignalInstance
 	Name="CAN1.CAN_5FController.CAN1.MEAS_5FETAS_5FInternalVars.CriticalDisconnection"
@@ -4023,8 +4073,8 @@
 	EnumAvailable1="1"
 	EnumAvailable2="1"
 	EnumAvailable3="0"><ESParameterEnum/></ESCANBaseNodeSignalInstanceParameters.InstanceType><ESCANBaseNodeSignalInstanceParameters.Message><ESParameterString/></ESCANBaseNodeSignalInstanceParameters.Message></ESCANBaseNodeSignalInstanceParameters></ESCANBaseNodeSignalInstance.Parameters><ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstanceL1Generation
-	L1TreeIndex="3"
-	MappingROID="98"
+	L1TreeIndex="4"
+	MappingROID="99"
 	DirectionReceive="False"><ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1GenerationUnionCase/></ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1Generation.Reconnect><ESCANBaseNodeSignalInstanceL1GenerationReconnect/></ESCANBaseNodeSignalInstanceL1Generation.Reconnect></ESCANBaseNodeSignalInstanceL1Generation></ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstanceSubNodeList/></ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstance.NodeLink><ESCANBaseNodeLink
 	NodeLink.ofTypeESNode="_140"/></ESCANBaseNodeSignalInstance.NodeLink></ESCANBaseNodeSignalInstance><ESCANBaseNodeSignalInstance
 	Name="CAN1.CAN_5FController.CAN1.MEAS_5FETAS_5FInternalVars.Relay_5FError"
@@ -4037,8 +4087,8 @@
 	EnumAvailable1="1"
 	EnumAvailable2="1"
 	EnumAvailable3="0"><ESParameterEnum/></ESCANBaseNodeSignalInstanceParameters.InstanceType><ESCANBaseNodeSignalInstanceParameters.Message><ESParameterString/></ESCANBaseNodeSignalInstanceParameters.Message></ESCANBaseNodeSignalInstanceParameters></ESCANBaseNodeSignalInstance.Parameters><ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstanceL1Generation
-	L1TreeIndex="4"
-	MappingROID="99"
+	L1TreeIndex="5"
+	MappingROID="100"
 	DirectionReceive="False"><ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1GenerationUnionCase/></ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1Generation.Reconnect><ESCANBaseNodeSignalInstanceL1GenerationReconnect/></ESCANBaseNodeSignalInstanceL1Generation.Reconnect></ESCANBaseNodeSignalInstanceL1Generation></ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstanceSubNodeList/></ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstance.NodeLink><ESCANBaseNodeLink
 	NodeLink.ofTypeESNode="_141"/></ESCANBaseNodeSignalInstance.NodeLink></ESCANBaseNodeSignalInstance><ESCANBaseNodeSignalInstance
 	Name="CAN1.CAN_5FController.CAN1.MEAS_5FETAS_5FInternalVars.Car_5FOK"
@@ -4051,8 +4101,8 @@
 	EnumAvailable1="1"
 	EnumAvailable2="1"
 	EnumAvailable3="0"><ESParameterEnum/></ESCANBaseNodeSignalInstanceParameters.InstanceType><ESCANBaseNodeSignalInstanceParameters.Message><ESParameterString/></ESCANBaseNodeSignalInstanceParameters.Message></ESCANBaseNodeSignalInstanceParameters></ESCANBaseNodeSignalInstance.Parameters><ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstanceL1Generation
-	L1TreeIndex="5"
-	MappingROID="100"
+	L1TreeIndex="6"
+	MappingROID="101"
 	DirectionReceive="False"><ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1GenerationUnionCase/></ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1Generation.Reconnect><ESCANBaseNodeSignalInstanceL1GenerationReconnect/></ESCANBaseNodeSignalInstanceL1Generation.Reconnect></ESCANBaseNodeSignalInstanceL1Generation></ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstanceSubNodeList/></ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstance.NodeLink><ESCANBaseNodeLink
 	NodeLink.ofTypeESNode="_142"/></ESCANBaseNodeSignalInstance.NodeLink></ESCANBaseNodeSignalInstance><ESCANBaseNodeSignalInstance
 	Name="CAN1.CAN_5FController.CAN1.MEAS_5FETAS_5FInternalVars.Power"
@@ -4065,8 +4115,8 @@
 	EnumAvailable1="1"
 	EnumAvailable2="0"
 	EnumAvailable3="0"><ESParameterEnum/></ESCANBaseNodeSignalInstanceParameters.InstanceType><ESCANBaseNodeSignalInstanceParameters.Message><ESParameterString/></ESCANBaseNodeSignalInstanceParameters.Message></ESCANBaseNodeSignalInstanceParameters></ESCANBaseNodeSignalInstance.Parameters><ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstanceL1Generation
-	L1TreeIndex="6"
-	MappingROID="101"
+	L1TreeIndex="7"
+	MappingROID="102"
 	DirectionReceive="False"><ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1GenerationUnionCase/></ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1Generation.Reconnect><ESCANBaseNodeSignalInstanceL1GenerationReconnect/></ESCANBaseNodeSignalInstanceL1Generation.Reconnect></ESCANBaseNodeSignalInstanceL1Generation></ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstanceSubNodeList/></ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstance.NodeLink><ESCANBaseNodeLink
 	NodeLink.ofTypeESNode="_143"/></ESCANBaseNodeSignalInstance.NodeLink></ESCANBaseNodeSignalInstance><ESCANBaseNodeSignalInstance
 	Name="CAN1.CAN_5FController.CAN1.MEAS_5FETAS_5FInternalVars.Torque_5FOK"
@@ -4079,8 +4129,8 @@
 	EnumAvailable1="1"
 	EnumAvailable2="1"
 	EnumAvailable3="0"><ESParameterEnum/></ESCANBaseNodeSignalInstanceParameters.InstanceType><ESCANBaseNodeSignalInstanceParameters.Message><ESParameterString/></ESCANBaseNodeSignalInstanceParameters.Message></ESCANBaseNodeSignalInstanceParameters></ESCANBaseNodeSignalInstance.Parameters><ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstanceL1Generation
-	L1TreeIndex="7"
-	MappingROID="102"
+	L1TreeIndex="8"
+	MappingROID="103"
 	DirectionReceive="False"><ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1GenerationUnionCase/></ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1Generation.Reconnect><ESCANBaseNodeSignalInstanceL1GenerationReconnect/></ESCANBaseNodeSignalInstanceL1Generation.Reconnect></ESCANBaseNodeSignalInstanceL1Generation></ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstanceSubNodeList/></ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstance.NodeLink><ESCANBaseNodeLink
 	NodeLink.ofTypeESNode="_144"/></ESCANBaseNodeSignalInstance.NodeLink></ESCANBaseNodeSignalInstance><ESCANBaseNodeSignalInstance
 	Name="CAN1.CAN_5FController.CAN1.MEAS_5FETAS_5FInternalVars.Sensorics_5FMode"
@@ -4093,8 +4143,8 @@
 	EnumAvailable1="1"
 	EnumAvailable2="1"
 	EnumAvailable3="0"><ESParameterEnum/></ESCANBaseNodeSignalInstanceParameters.InstanceType><ESCANBaseNodeSignalInstanceParameters.Message><ESParameterString/></ESCANBaseNodeSignalInstanceParameters.Message></ESCANBaseNodeSignalInstanceParameters></ESCANBaseNodeSignalInstance.Parameters><ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstanceL1Generation
-	L1TreeIndex="8"
-	MappingROID="103"
+	L1TreeIndex="9"
+	MappingROID="104"
 	DirectionReceive="False"><ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1GenerationUnionCase/></ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1Generation.Reconnect><ESCANBaseNodeSignalInstanceL1GenerationReconnect/></ESCANBaseNodeSignalInstanceL1Generation.Reconnect></ESCANBaseNodeSignalInstanceL1Generation></ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstanceSubNodeList/></ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstance.NodeLink><ESCANBaseNodeLink
 	NodeLink.ofTypeESNode="_145"/></ESCANBaseNodeSignalInstance.NodeLink></ESCANBaseNodeSignalInstance><ESCANBaseNodeSignalInstance
 	Name="CAN1.CAN_5FController.CAN1.MEAS_5FETAS_5FInternalVars.Critical_5FSignal_5FDisconnection"
@@ -4107,8 +4157,8 @@
 	EnumAvailable1="1"
 	EnumAvailable2="1"
 	EnumAvailable3="0"><ESParameterEnum/></ESCANBaseNodeSignalInstanceParameters.InstanceType><ESCANBaseNodeSignalInstanceParameters.Message><ESParameterString/></ESCANBaseNodeSignalInstanceParameters.Message></ESCANBaseNodeSignalInstanceParameters></ESCANBaseNodeSignalInstance.Parameters><ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstanceL1Generation
-	L1TreeIndex="9"
-	MappingROID="104"
+	L1TreeIndex="10"
+	MappingROID="105"
 	DirectionReceive="False"><ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1GenerationUnionCase/></ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1Generation.Reconnect><ESCANBaseNodeSignalInstanceL1GenerationReconnect/></ESCANBaseNodeSignalInstanceL1Generation.Reconnect></ESCANBaseNodeSignalInstanceL1Generation></ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstanceSubNodeList/></ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstance.NodeLink><ESCANBaseNodeLink
 	NodeLink.ofTypeESNode="_146"/></ESCANBaseNodeSignalInstance.NodeLink></ESCANBaseNodeSignalInstance><ESCANBaseNodeSignalInstance
 	Name="CAN1.CAN_5FController.CAN1.MEAS_5FETAS_5FInternalVars.Critical_5FCAN_5FDisconnection"
@@ -4121,8 +4171,8 @@
 	EnumAvailable1="1"
 	EnumAvailable2="1"
 	EnumAvailable3="0"><ESParameterEnum/></ESCANBaseNodeSignalInstanceParameters.InstanceType><ESCANBaseNodeSignalInstanceParameters.Message><ESParameterString/></ESCANBaseNodeSignalInstanceParameters.Message></ESCANBaseNodeSignalInstanceParameters></ESCANBaseNodeSignalInstance.Parameters><ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstanceL1Generation
-	L1TreeIndex="10"
-	MappingROID="105"
+	L1TreeIndex="11"
+	MappingROID="106"
 	DirectionReceive="False"><ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1GenerationUnionCase/></ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1Generation.Reconnect><ESCANBaseNodeSignalInstanceL1GenerationReconnect/></ESCANBaseNodeSignalInstanceL1Generation.Reconnect></ESCANBaseNodeSignalInstanceL1Generation></ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstanceSubNodeList/></ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstance.NodeLink><ESCANBaseNodeLink
 	NodeLink.ofTypeESNode="_147"/></ESCANBaseNodeSignalInstance.NodeLink></ESCANBaseNodeSignalInstance><ESCANBaseNodeSignalInstance
 	Name="CAN1.CAN_5FController.CAN1.MEAS_5FETAS_5FInternalVars.APPS_5FImplausibility"
@@ -4135,8 +4185,8 @@
 	EnumAvailable1="1"
 	EnumAvailable2="1"
 	EnumAvailable3="0"><ESParameterEnum/></ESCANBaseNodeSignalInstanceParameters.InstanceType><ESCANBaseNodeSignalInstanceParameters.Message><ESParameterString/></ESCANBaseNodeSignalInstanceParameters.Message></ESCANBaseNodeSignalInstanceParameters></ESCANBaseNodeSignalInstance.Parameters><ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstanceL1Generation
-	L1TreeIndex="11"
-	MappingROID="106"
+	L1TreeIndex="12"
+	MappingROID="107"
 	DirectionReceive="False"><ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1GenerationUnionCase/></ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1Generation.Reconnect><ESCANBaseNodeSignalInstanceL1GenerationReconnect/></ESCANBaseNodeSignalInstanceL1Generation.Reconnect></ESCANBaseNodeSignalInstanceL1Generation></ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstanceSubNodeList/></ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstance.NodeLink><ESCANBaseNodeLink
 	NodeLink.ofTypeESNode="_148"/></ESCANBaseNodeSignalInstance.NodeLink></ESCANBaseNodeSignalInstance></ESCANBaseNodeSignalGroupSubNodeList></ESCANBaseNodeSignalGroup.SubNodes></ESCANBaseNodeSignalGroup><ESCANBaseNodeSignalGroup
 	Name="CAN1.CAN_5FController.CAN1.AP_5FETAS_5FSynchronism"
@@ -4164,7 +4214,7 @@
 	Active="True"
 	Min="0."/></ESCANBaseNodeSignalGroupParameters.DefaultExecutionPeriod></ESCANBaseNodeSignalGroupParameters></ESCANBaseNodeSignalGroup.Parameters><ESCANBaseNodeSignalGroup.L1Generation><ESCANBaseNodeSignalGroupL1Generation
 	L1TreeIndex="20"
-	APIROID="107"
+	APIROID="108"
 	IRQTriggered="False"
 	SignalGroupIndex="-1"><ESCANBaseNodeSignalGroupL1Generation.UnionCase><ESCANBaseNodeSignalGroupL1GenerationUnionCase/></ESCANBaseNodeSignalGroupL1Generation.UnionCase><ESCANBaseNodeSignalGroupL1Generation.Reconnect><ESCANBaseNodeSignalGroupL1GenerationReconnect/></ESCANBaseNodeSignalGroupL1Generation.Reconnect></ESCANBaseNodeSignalGroupL1Generation></ESCANBaseNodeSignalGroup.L1Generation><ESCANBaseNodeSignalGroup.SubNodes><ESCANBaseNodeSignalGroupSubNodeList><ESCANBaseNodeSignalInstance
 	Name="CAN1.CAN_5FController.CAN1.AP_5FETAS_5FSynchronism.Sync_5FCAN1"
@@ -4177,6 +4227,6 @@
 	EnumAvailable2="1"
 	EnumAvailable3="0"><ESParameterEnum/></ESCANBaseNodeSignalInstanceParameters.InstanceType><ESCANBaseNodeSignalInstanceParameters.Message><ESParameterString/></ESCANBaseNodeSignalInstanceParameters.Message></ESCANBaseNodeSignalInstanceParameters></ESCANBaseNodeSignalInstance.Parameters><ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstanceL1Generation
 	L1TreeIndex="0"
-	MappingROID="109"
+	MappingROID="110"
 	DirectionReceive="False"><ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1GenerationUnionCase/></ESCANBaseNodeSignalInstanceL1Generation.UnionCase><ESCANBaseNodeSignalInstanceL1Generation.Reconnect><ESCANBaseNodeSignalInstanceL1GenerationReconnect/></ESCANBaseNodeSignalInstanceL1Generation.Reconnect></ESCANBaseNodeSignalInstanceL1Generation></ESCANBaseNodeSignalInstance.L1Generation><ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstanceSubNodeList/></ESCANBaseNodeSignalInstance.SubNodes><ESCANBaseNodeSignalInstance.NodeLink><ESCANBaseNodeLink
 	NodeLink.ofTypeESNode="_149"/></ESCANBaseNodeSignalInstance.NodeLink></ESCANBaseNodeSignalInstance></ESCANBaseNodeSignalGroupSubNodeList></ESCANBaseNodeSignalGroup.SubNodes></ESCANBaseNodeSignalGroup></ESCANBaseNodeDeviceSubNodeList></ES900CANNodeDevice.SubNodes></ES900CANNodeDevice></ES900CANNodeCANControllerSubNodeList></ES900CANNodeCANController.SubNodes></ES900CANNodeCANController></ES900CANNodeMainSubNodeList></ES900CANNodeMain.SubNodes></ES900CANNodeMain>
