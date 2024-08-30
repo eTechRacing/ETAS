@@ -26,6 +26,7 @@ struct RTWTop_Car_State_Class
     ASDObjectHeader objectHeader;
     scalarWrapper_Obj *RTWWrapper_Car_State_B_InvertersAction_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_B_Merge_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Car_State_B_Merge_b_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_DW_A_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_U_AIRs_State_Ptr;
     scalarWrapper_Obj *RTWWrapper_Car_State_U_APPS1_Value_Ptr;

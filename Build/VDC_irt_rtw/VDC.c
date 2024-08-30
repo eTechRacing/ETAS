@@ -7,9 +7,9 @@
  *
  * Code generation for model "VDC".
  *
- * Model version              : 4.206
+ * Model version              : 4.207
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Mon Aug 26 16:46:48 2024
+ * C source code generated on : Fri Aug 30 15:47:39 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -290,13 +290,13 @@ static void VDC_output(void)
      *  Inport: '<Root>/RR_Vel_ms_Wheel'
      *  MinMax: '<Root>/Max'
      */
-    if ((VDC_U.APPS1_Value <= 0.3) || (fmax(VDC_U.RR_Vel_ms_Wheel,
+    if ((VDC_U.APPS1_Value <= 0.05) || (fmax(VDC_U.RR_Vel_ms_Wheel,
           VDC_U.RL_Vel_ms_Wheel) > 5.0)) {
       rtb_max_regen_torque_RR = 0.0;
     } else if (VDC_U.APPS1_Value >= 1.0) {
       rtb_max_regen_torque_RR = 1.0;
     } else {
-      rtb_max_regen_torque_RR = (VDC_U.APPS1_Value - 0.3) / 0.7;
+      rtb_max_regen_torque_RR = (VDC_U.APPS1_Value - 0.05) / 0.95;
     }
 
     rtb_max_regen_torque_RR *= 3.0;
@@ -338,7 +338,7 @@ static void VDC_output(void)
      *  Constant: '<Root>/Max_Motor_Torque_Rear [Nm]'
      *  Inport: '<Root>/APPS1_Value'
      */
-    VDC_Torquedemandedbythedriver(VDC_U.APPS1_Value, 0.3, 1.0, 27.0,
+    VDC_Torquedemandedbythedriver(VDC_U.APPS1_Value, 0.05, 1.0, 27.0,
       &VDC_B.sf_Torquedemandedbythedriver_m);
 
     /* If: '<S7>/If' incorporates:
@@ -518,7 +518,7 @@ static void VDC_output(void)
      *  Constant: '<Root>/Max_Motor_Torque_Rear [Nm]'
      *  Inport: '<Root>/APPS1_Value'
      */
-    VDC_Torquedemandedbythedriver(VDC_U.APPS1_Value, 0.3, 1.0, 27.0,
+    VDC_Torquedemandedbythedriver(VDC_U.APPS1_Value, 0.05, 1.0, 27.0,
       &VDC_B.sf_Torquedemandedbythedriver_k);
 
     /* If: '<S1>/If' incorporates:
@@ -664,7 +664,7 @@ static void VDC_output(void)
      *  Constant: '<Root>/Max_Motor_Torque_Rear [Nm]'
      *  Inport: '<Root>/APPS1_Value'
      */
-    VDC_Torquedemandedbythedriver(VDC_U.APPS1_Value, 0.3, 1.0, 27.0,
+    VDC_Torquedemandedbythedriver(VDC_U.APPS1_Value, 0.05, 1.0, 27.0,
       &VDC_B.sf_Torquedemandedbythedriver_a);
 
     /* If: '<S2>/If' incorporates:
@@ -888,8 +888,8 @@ static void VDC_output(void)
     VDC_B.state = 1.0;
     if (VDC_U.APPS1_Value < 0.0) {
       VDC_B.state = 0.0;
-    } else if (((!(VDC_U.APPS1_Value >= 0.0)) || (!(VDC_U.APPS1_Value <= 0.3))) &&
-               (VDC_U.APPS1_Value > 0.3)) {
+    } else if (((!(VDC_U.APPS1_Value >= 0.0)) || (!(VDC_U.APPS1_Value <= 0.05)))
+               && (VDC_U.APPS1_Value > 0.05)) {
       VDC_B.state = 2.0;
     }
 
@@ -916,7 +916,7 @@ static void VDC_output(void)
     }
 
     if (VDC_B.state == 2.0) {
-      rtb_max_regen_torque_RL = (VDC_U.APPS1_Value - 0.3) / 0.7 * 27.0;
+      rtb_max_regen_torque_RL = (VDC_U.APPS1_Value - 0.05) / 0.95 * 27.0;
       rtb_tq_RL = rtb_max_regen_torque_RL;
     }
 

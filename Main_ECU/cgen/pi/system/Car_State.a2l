@@ -75,6 +75,22 @@ ASAP2_VERSION
         /end MEASUREMENT
  
         /begin MEASUREMENT 
+            /* Name                */     Car_State_B.Merge_b 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Car_State_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Car_State.Inv_Action.Merge.Merge_b 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
             /* Name                */     Car_State_DW.A 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 

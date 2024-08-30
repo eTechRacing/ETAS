@@ -7,9 +7,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 13.17
+ * Model version              : 13.23
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Aug 27 18:17:12 2024
+ * C source code generated on : Fri Aug 30 16:50:29 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -29,5 +29,6 @@
 
 extern void Car_State_TRUE(real_T *rty_u);
 extern void Car_State_FALSE(real_T *rty_u);
+extern void Car_State_TqEnable(real_T *rty_u0);
 
 #endif                                 /* RTW_HEADER_Car_State_private_h_ */

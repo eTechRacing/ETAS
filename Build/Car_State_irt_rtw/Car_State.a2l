@@ -8,9 +8,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 13.17
+ * Model version              : 13.23
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Aug 27 18:17:12 2024
+ * C source code generated on : Fri Aug 30 16:50:29 2024
  * 
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1031,6 +1031,21 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      Compare_To_Constant ""
+      /begin SUB_FUNCTION
+        Constant
+        Compare
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       CurrentPathDisconnection_Detection ""
       /begin SUB_FUNCTION
         DocBlock
@@ -1054,11 +1069,14 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
     /begin FUNCTION
       Inv_Action ""
       /begin SUB_FUNCTION
-        DisableInv
-        EnableInv
+        DisableDrive
+        EnableDrive_Up
         NoRTD
         TqEnable
+        TqEnable1
+        Data_Type_Conversion1
         If
+        Memory
         Merge
       /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
@@ -1471,6 +1489,28 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Compare ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       DocBlock ""
       /begin SUB_FUNCTION
         EmptySubsystem
@@ -1568,7 +1608,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      DisableInv ""
+      DisableDrive ""
       /begin SUB_FUNCTION
         Constant
       /end SUB_FUNCTION
@@ -1581,7 +1621,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      EnableInv ""
+      EnableDrive_Up ""
       /begin SUB_FUNCTION
         Constant
       /end SUB_FUNCTION
@@ -1621,10 +1661,35 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      TqEnable1 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Data_Type_Conversion1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       If ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
+        
         
         
       /end IN_MEASUREMENT
@@ -1633,6 +1698,18 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
         
         
         
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Memory ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
@@ -1640,6 +1717,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
+        
         
         
         
@@ -2112,6 +2190,16 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
         
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
         

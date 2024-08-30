@@ -40,6 +40,7 @@ void initClass_RTWTop_Car_State(struct RTWTop_Car_State_Class *self)
     /* Level 1 class variables */
     self->RTWWrapper_Car_State_B_InvertersAction_Ptr = initInstance_scalarWrapper((void*)&Car_State_B.InvertersAction, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Car_State_B_Merge_Ptr = initInstance_scalarWrapper((void*)&Car_State_B.Merge, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Car_State_B_Merge_b_Ptr = initInstance_scalarWrapper((void*)&Car_State_B.Merge_b, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Car_State_DW_A_Ptr = initInstance_scalarWrapper((void*)&Car_State_DW.A, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Car_State_U_AIRs_State_Ptr = initInstance_scalarWrapper((void*)&Car_State_U.AIRs_State, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Car_State_U_APPS1_Value_Ptr = initInstance_scalarWrapper((void*)&Car_State_U.APPS1_Value, sizeof(double), (uint32)ASD_VARIABLE);
@@ -81,9 +82,10 @@ static MethodList RTWTop_Car_State_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_Car_State_ClassHeader =
-    {0, 1, 0, 23 + 0, (MethodList *)0, (MethodList *)&RTWTop_Car_State_ClassMethodList};
+    {0, 1, 0, 24 + 0, (MethodList *)0, (MethodList *)&RTWTop_Car_State_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_Car_State_Class RTWTop_Car_State_ClassObj = {{1, {&RTWTop_Car_State_ClassHeader}, {0}}
+    ,NULL
     ,NULL
     ,NULL
     ,NULL

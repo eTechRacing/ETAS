@@ -3,6 +3,16 @@
 #include "Car_State_irtmacros.h"
 /* PATCH END */
 
+/* Patched in by the INTECRIO IRT target */
+/* PATCH BEGIN */
+#include "Car_State_irtmacros.h"
+/* PATCH END */
+
+/* Patched in by the INTECRIO IRT target */
+/* PATCH BEGIN */
+#include "Car_State_irtmacros.h"
+/* PATCH END */
+
 /*
  * Car_State.h
  *
@@ -12,9 +22,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 13.17
+ * Model version              : 13.23
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Aug 27 18:17:12 2024
+ * C source code generated on : Fri Aug 30 16:50:29 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -861,12 +871,14 @@
 /* Block signals (default storage) */
 typedef struct {
   real_T Merge;                        /* '<S5>/Merge' */
+  real_T Merge_b;                      /* '<S10>/Merge' */
   real_T InvertersAction;              /* '<Root>/Car State Manager' */
 } B_Car_State_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  real_T A;                            /* '<S30>/Data Store Memory' */
+  real_T A;                            /* '<S31>/Data Store Memory' */
+  real_T Memory_PreviousInput;         /* '<S10>/Memory' */
   uint16_T temporalCounter_i1;         /* '<Root>/Car State Manager' */
   uint8_T is_active_c1_Car_State;      /* '<Root>/Car State Manager' */
   uint8_T is_c1_Car_State;             /* '<Root>/Car State Manager' */
@@ -1057,38 +1069,40 @@ extern RT_MODEL_Car_State_T *const Car_State_M;
  * '<S5>'   : 'Car_State/AIRS_Request'
  * '<S6>'   : 'Car_State/Car State Manager'
  * '<S7>'   : 'Car_State/CarOK Checks'
- * '<S8>'   : 'Car_State/CurrentPathDisconnection Detection'
- * '<S9>'   : 'Car_State/Inv_Action'
- * '<S10>'  : 'Car_State/Precharge Info'
- * '<S11>'  : 'Car_State/PrechargeAssert Conditions'
- * '<S12>'  : 'Car_State/AIRS_Closed/FALSE'
- * '<S13>'  : 'Car_State/AIRS_Closed/TRUE'
- * '<S14>'  : 'Car_State/AIRS_Opened/FALSE'
- * '<S15>'  : 'Car_State/AIRS_Opened/TRUE'
- * '<S16>'  : 'Car_State/AIRS_Precharge/FALSE'
- * '<S17>'  : 'Car_State/AIRS_Precharge/TRUE'
- * '<S18>'  : 'Car_State/AIRS_Precharge1/Compare To Constant'
- * '<S19>'  : 'Car_State/AIRS_Precharge1/FALSE'
- * '<S20>'  : 'Car_State/AIRS_Precharge1/TRUE'
- * '<S21>'  : 'Car_State/AIRS_Request/Obrir AIRs'
- * '<S22>'  : 'Car_State/AIRS_Request/Precharge'
- * '<S23>'  : 'Car_State/AIRS_Request/Tancar Airs'
- * '<S24>'  : 'Car_State/CarOK Checks/Compare To Constant'
- * '<S25>'  : 'Car_State/CarOK Checks/Compare To Zero1'
- * '<S26>'  : 'Car_State/CarOK Checks/Compare To Zero2'
- * '<S27>'  : 'Car_State/CurrentPathDisconnection Detection/DocBlock'
- * '<S28>'  : 'Car_State/CurrentPathDisconnection Detection/Failure'
- * '<S29>'  : 'Car_State/CurrentPathDisconnection Detection/OK'
- * '<S30>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem'
- * '<S31>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/Error counter'
- * '<S32>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/OK'
- * '<S33>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/Signal_Failure'
- * '<S34>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/Signal_OK'
- * '<S35>'  : 'Car_State/Inv_Action/DisableInv'
- * '<S36>'  : 'Car_State/Inv_Action/EnableInv'
- * '<S37>'  : 'Car_State/Inv_Action/NoRTD'
- * '<S38>'  : 'Car_State/Inv_Action/TqEnable'
- * '<S39>'  : 'Car_State/PrechargeAssert Conditions/FALSE'
- * '<S40>'  : 'Car_State/PrechargeAssert Conditions/TRUE'
+ * '<S8>'   : 'Car_State/Compare To Constant'
+ * '<S9>'   : 'Car_State/CurrentPathDisconnection Detection'
+ * '<S10>'  : 'Car_State/Inv_Action'
+ * '<S11>'  : 'Car_State/Precharge Info'
+ * '<S12>'  : 'Car_State/PrechargeAssert Conditions'
+ * '<S13>'  : 'Car_State/AIRS_Closed/FALSE'
+ * '<S14>'  : 'Car_State/AIRS_Closed/TRUE'
+ * '<S15>'  : 'Car_State/AIRS_Opened/FALSE'
+ * '<S16>'  : 'Car_State/AIRS_Opened/TRUE'
+ * '<S17>'  : 'Car_State/AIRS_Precharge/FALSE'
+ * '<S18>'  : 'Car_State/AIRS_Precharge/TRUE'
+ * '<S19>'  : 'Car_State/AIRS_Precharge1/Compare To Constant'
+ * '<S20>'  : 'Car_State/AIRS_Precharge1/FALSE'
+ * '<S21>'  : 'Car_State/AIRS_Precharge1/TRUE'
+ * '<S22>'  : 'Car_State/AIRS_Request/Obrir AIRs'
+ * '<S23>'  : 'Car_State/AIRS_Request/Precharge'
+ * '<S24>'  : 'Car_State/AIRS_Request/Tancar Airs'
+ * '<S25>'  : 'Car_State/CarOK Checks/Compare To Constant'
+ * '<S26>'  : 'Car_State/CarOK Checks/Compare To Zero1'
+ * '<S27>'  : 'Car_State/CarOK Checks/Compare To Zero2'
+ * '<S28>'  : 'Car_State/CurrentPathDisconnection Detection/DocBlock'
+ * '<S29>'  : 'Car_State/CurrentPathDisconnection Detection/Failure'
+ * '<S30>'  : 'Car_State/CurrentPathDisconnection Detection/OK'
+ * '<S31>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem'
+ * '<S32>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/Error counter'
+ * '<S33>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/OK'
+ * '<S34>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/Signal_Failure'
+ * '<S35>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/Signal_OK'
+ * '<S36>'  : 'Car_State/Inv_Action/DisableDrive'
+ * '<S37>'  : 'Car_State/Inv_Action/EnableDrive_Up'
+ * '<S38>'  : 'Car_State/Inv_Action/NoRTD'
+ * '<S39>'  : 'Car_State/Inv_Action/TqEnable'
+ * '<S40>'  : 'Car_State/Inv_Action/TqEnable1'
+ * '<S41>'  : 'Car_State/PrechargeAssert Conditions/FALSE'
+ * '<S42>'  : 'Car_State/PrechargeAssert Conditions/TRUE'
  */
 #endif                                 /* RTW_HEADER_Car_State_h_ */

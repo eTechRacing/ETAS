@@ -3,26 +3,6 @@
 #include "Inverters_Data_irtmacros.h"
 /* PATCH END */
 
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "Inverters_Data_irtmacros.h"
-/* PATCH END */
-
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "Inverters_Data_irtmacros.h"
-/* PATCH END */
-
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "Inverters_Data_irtmacros.h"
-/* PATCH END */
-
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "Inverters_Data_irtmacros.h"
-/* PATCH END */
-
 /*
  * Inverters_Data.h
  *
@@ -32,9 +12,9 @@
  *
  * Code generation for model "Inverters_Data".
  *
- * Model version              : 13.23
+ * Model version              : 13.25
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sun Aug  4 16:57:32 2024
+ * C source code generated on : Fri Aug 30 17:35:42 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

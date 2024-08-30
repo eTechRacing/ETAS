@@ -22,9 +22,9 @@
 	<moduleInfo identifier="Car_State">
 		<name>Car_State</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Car_State.slx&quot;"/>
-		<version major="13" minor="17"/>
+		<version major="13" minor="23"/>
 		<dateTime kind="created" year="2021" month="2" day="18" hour="9" minute="1" second="3"/>
-		<dateTime kind="lastModified" year="2024" month="8" day="27" hour="18" minute="16" second="51"/>
+		<dateTime kind="lastModified" year="2024" month="8" day="30" hour="16" minute="35" second="20"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="8" day="27" hour="18" minute="17" second="12"/>
+		<dateTime kind="created" year="2024" month="8" day="30" hour="16" minute="50" second="29"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -162,6 +162,12 @@
 			<structDef name="_B_Car_State_T">
 				<fileOrigin name="Car_State.h"/>
 				<structMember identifier="Merge">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Merge_b">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Opaque</documentation>
@@ -335,6 +341,12 @@
 						<documentation>State information for 'dsmMem'.</documentation>
 					</annotation>
 				</structMember>
+				<structMember identifier="Memory_PreviousInput">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'PreviousInput'.</documentation>
+					</annotation>
+				</structMember>
 				<structMember identifier="temporalCounter_i1">
 					<type><typeRef name="uint16_T"/></type>
 					<annotation>
@@ -426,6 +438,40 @@
 					<pathNode name="AIRS_Request" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Merge" kind="mlsl:block"/>
 					<pathNode name="Merge" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Car_State_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Car_State_B.Merge_b">
+				<definitionLocation>
+					<baseRef identifier="Car_State_B"/>
+					<memberRef identifier="Merge_b"/>
+				</definitionLocation>
+				<fileOrigin name="Car_State.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Car_State.Opaque.Merge_b">
+				<name>Merge_b</name>
+				<modelLink href="Car_State/Opaque"/>
+				<modelLocation>
+					<pathNode name="Car_State" kind="mlsl:model"/>
+					<pathNode name="Inv_Action" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Merge" kind="mlsl:block"/>
+					<pathNode name="Merge_b" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
