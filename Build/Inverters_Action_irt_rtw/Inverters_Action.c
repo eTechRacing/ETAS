@@ -9,7 +9,7 @@
  *
  * Model version              : 13.12
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Fri Aug 30 17:01:51 2024
+ * C source code generated on : Sat Aug 31 11:47:36 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -428,6 +428,7 @@ static void Inverters_Action_output(void)
   /* End of Outputs for SubSystem: '<S2>/Unsubscribe//Subscribe' */
 
   /* SwitchCase: '<S1>/Action Selector' incorporates:
+   *  Gain: '<Root>/Gain'
    *  Inport: '<Root>/InvertersAction'
    *  Inport: '<Root>/current_L'
    */
@@ -527,7 +528,7 @@ static void Inverters_Action_output(void)
     /* Outputs for IfAction SubSystem: '<S1>/Torque Command' incorporates:
      *  ActionPort: '<S6>/Action Port'
      */
-    Inverters_Action_TorqueCommand(Inverters_Action_U.current_L, &rtb_Merge,
+    Inverters_Action_TorqueCommand(-Inverters_Action_U.current_L, &rtb_Merge,
       &rtb_Merge1, &Inverters_Action_B.Merge2, &rtb_MergeMuxEnable,
       &Inverters_Action_ConstB.TorqueCommand);
 
@@ -972,7 +973,7 @@ RT_MODEL_Inverters_Action_T *Inverters_Action(void)
   Inverters_Action_M->Sizes.numU = (3);/* Number of model inputs */
   Inverters_Action_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Inverters_Action_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  Inverters_Action_M->Sizes.numBlocks = (178);/* Number of blocks */
+  Inverters_Action_M->Sizes.numBlocks = (179);/* Number of blocks */
   Inverters_Action_M->Sizes.numBlockIO = (5);/* Number of block outputs */
   return Inverters_Action_M;
 }

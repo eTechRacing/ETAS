@@ -18,9 +18,9 @@
 #include "./Inverters_Data_instances.h"
 #include "./Power_Control_instances.h"
 #include "./Sensors_instances.h"
+#include "./SoC_instances.h"
 #include "./Synchronism_instances.h"
 #include "./VDC_instances.h"
-#include "./SoC_instances.h"
 /* Data structure for keeping the INTECRIO version (defines must be set) */
 #ifdef INTECRIO_VERSION_NUMBER
 static const uint32 intecrioVersionNumber = INTECRIO_VERSION_NUMBER;
@@ -61,9 +61,9 @@ static void initClass_INTECRIOTop_ROOT(struct INTECRIOTop_ROOT_Class *self)
     self->RTWTop_Inverters_Data_Ptr = (struct RTWTop_Inverters_Data_Obj*)initModel_RTWTop_Inverters_Data();
     self->RTWTop_Power_Control_Ptr = (struct RTWTop_Power_Control_Obj*)initModel_RTWTop_Power_Control();
     self->RTWTop_Sensors_Ptr = (struct RTWTop_Sensors_Obj*)initModel_RTWTop_Sensors();
+    self->RTWTop_SoC_Ptr = (struct RTWTop_SoC_Obj*)initModel_RTWTop_SoC();
     self->RTWTop_Synchronism_Ptr = (struct RTWTop_Synchronism_Obj*)initModel_RTWTop_Synchronism();
     self->RTWTop_VDC_Ptr = (struct RTWTop_VDC_Obj*)initModel_RTWTop_VDC();
-    self->RTWTop_SoC_Ptr = (struct RTWTop_SoC_Obj*)initModel_RTWTop_SoC();
     return;
 }
 /* Definition of the class header */
@@ -101,9 +101,9 @@ void os_setDeltaT (void)
     setDeltaT_Inverters_Data();
     setDeltaT_Power_Control();
     setDeltaT_Sensors();
+    setDeltaT_SoC();
     setDeltaT_Synchronism();
     setDeltaT_VDC();
-    setDeltaT_SoC();
 }
 /* Accessor for staticDT */
 uint32 getDeltaT (void)

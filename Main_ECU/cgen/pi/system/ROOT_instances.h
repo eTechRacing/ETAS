@@ -31,9 +31,9 @@ struct INTECRIOTop_ROOT_Class
     struct RTWTop_Inverters_Data_Obj *RTWTop_Inverters_Data_Ptr;
     struct RTWTop_Power_Control_Obj *RTWTop_Power_Control_Ptr;
     struct RTWTop_Sensors_Obj *RTWTop_Sensors_Ptr;
+    struct RTWTop_SoC_Obj *RTWTop_SoC_Ptr;
     struct RTWTop_Synchronism_Obj *RTWTop_Synchronism_Ptr;
     struct RTWTop_VDC_Obj *RTWTop_VDC_Ptr;
-    struct RTWTop_SoC_Obj *RTWTop_SoC_Ptr;
 };
 /* Definition of the class object structure */
 struct INTECRIOTop_ROOT_Obj
