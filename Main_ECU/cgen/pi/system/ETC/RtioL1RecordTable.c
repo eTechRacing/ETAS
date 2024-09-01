@@ -675,9 +675,9 @@ const char rtioRequestMessages[] =
 	0, 0, 0, 4,	 /* CMD */
 	0, 0, 0, 0,	 /* ERR */
 	/* Data of message 47 */
-	2, 0, 203, 143, 228, 5, 175, 54, 10, 192, 18, 0, 0, 0, 0, 0, 
+	2, 0, 212, 143, 228, 5, 175, 54, 10, 64, 18, 0, 0, 0, 0, 0, 
 	0, 0, 0, 0, 18, 0, 16, 0, 0, 0, 0, 0, 0, 0, 2, 0, 
-	16, 3, 0, 8, 0, 4, 0, 3, 0, 0, 0, 0, 0, 32, 0, 48, 
+	17, 3, 0, 8, 0, 4, 0, 3, 0, 0, 0, 0, 0, 30, 0, 48, 
 	0, 0, 0, 42, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 
 	0, 0, 0, 25, 0, 0, 0, 45, 0, 0, 0,
 
@@ -3149,7 +3149,7 @@ const char rtioRequestMessages[] =
 };
 
 const T_L1Record l1RtioRequestRecord =
-{	22259UL, /* configuration identifier */
+{	22263UL, /* configuration identifier */
 	251,   /* number of messages */
 	&rtioRequestMessages[0]
 };

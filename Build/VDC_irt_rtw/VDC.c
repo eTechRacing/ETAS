@@ -7,9 +7,9 @@
  *
  * Code generation for model "VDC".
  *
- * Model version              : 4.208
+ * Model version              : 4.211
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Aug 31 11:51:31 2024
+ * C source code generated on : Sun Sep  1 14:43:21 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -385,7 +385,7 @@ static void VDC_output(void)
           rtb_Merge3_o = VDC_U.RL_Vel_ms_Wheel / VDC_U.el_VEL;
         }
 
-        if (fmax(d, rtb_Merge3_o) < 1.15) {
+        if (fmax(d, rtb_Merge3_o) < 1.3) {
           /* SignalConversion generated from: '<S50>/Tq_RR_SM1 [Nm] (0,27)' */
           rtb_Torque_L_Nm_l = VDC_B.sf_MATLABFunction.Torque_R_Nm;
 
@@ -552,7 +552,7 @@ static void VDC_output(void)
           rtb_Torque_L_Nm_l /= VDC_U.el_VEL;
         }
 
-        if (rtb_Torque_L_Nm_l < 1.15) {
+        if (rtb_Torque_L_Nm_l < 1.3) {
           /* SignalConversion generated from: '<S12>/Tq_RR_SM2 [Nm] (0,27)' */
           rtb_Torque_L_Nm_l =
             VDC_B.sf_Torquedemandedbythedriver_k.Throttle_Torque;
@@ -725,7 +725,7 @@ static void VDC_output(void)
           rtb_Merge3_o = VDC_U.RL_Vel_ms_Wheel / VDC_U.el_VEL;
         }
 
-        if (fmax(d, rtb_Merge3_o) < 1.15) {
+        if (fmax(d, rtb_Merge3_o) < 1.3) {
           VDC_DW.correction_i = 0.0;
 
           /* Merge: '<Root>/Merge6' */
@@ -775,7 +775,7 @@ static void VDC_output(void)
        *  Inport: '<Root>/el_VEL'
        *  MinMax: '<S17>/Max'
        */
-      VDC_RigidAxlewithTC2024(1.15,
+      VDC_RigidAxlewithTC2024(1.3,
         VDC_B.sf_Torquedemandedbythedriver_a.Throttle_Torque, VDC_U.el_VEL, fmax
         (VDC_U.RR_Vel_ms_Wheel, VDC_U.RL_Vel_ms_Wheel),
         &VDC_B.sf_RigidAxlewithTC2024_p2, &VDC_DW.sf_RigidAxlewithTC2024_p2);
@@ -945,7 +945,7 @@ static void VDC_initialize(void)
   /* ConstCode for Outport: '<Root>/VDC_Max_Tyre_Slip' incorporates:
    *  Constant: '<Root>/Max_Tyre_Slip'
    */
-  VDC_Y.VDC_Max_Tyre_Slip = 1.15;
+  VDC_Y.VDC_Max_Tyre_Slip = 1.3;
 
   /* SystemInitialize for IfAction SubSystem: '<Root>/SKIDPAD' */
   /* SystemInitialize for IfAction SubSystem: '<S7>/TC+TV' */

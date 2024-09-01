@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE YBOModule SYSTEM ".\dtd\ybomodule.dtd" [ <?RequiredDTDVersion "4.7.1"?>
+
+<!NOTATION _OSrvLink SYSTEM "_OSrvLink" >
+<!ENTITY _556 SYSTEM "OSrv://ObjectHandle#556" NDATA _OIDLink >
+<!ENTITY _1281 SYSTEM "OSrv://ObjectHandle#1281" NDATA _OIDLink >
+<!ENTITY _1282 SYSTEM "OSrv://ObjectHandle#1282" NDATA _OIDLink >
+<!ENTITY _1305 SYSTEM "OSrv://ObjectHandle#1305" NDATA _OIDLink >
+<!ENTITY _1456 SYSTEM "OSrv://ObjectHandle#1456" NDATA _OIDLink >
+<!ENTITY _1457 SYSTEM "OSrv://ObjectHandle#1457" NDATA _OIDLink >
+]><YBOModule
+	Name="Synchronism"
+	ScoopIXSource="c:\users\joser\onedrive\documentos\github\etas\build\synchronism_irt_rtw\synchronism.six"
+	FileDateTime="133690086261447453"
+	ModelingTool="MATLAB"
+	Kind="SOFTWARE"
+	VisibleName="Synchronism"
+	ReferencedModuleListValid="TRUE"><_System><_AdminInfo/><_LinkTarget><_LinkTarget
+	Name="SoftwareSystem"
+	Index="556"
+	Type="YBOSoftwareSystem"><_LinkTarget
+	Name="Connection31"
+	Index="1281"
+	Type="YBOConnection"/><_LinkTarget
+	Name="Connection33"
+	Index="1282"
+	Type="YBOConnection"/></_LinkTarget><_LinkTarget
+	Name="Synchronism"
+	Index="1305"
+	Type="YBOModule"><_LinkTarget
+	Name="Synchronism_Y.Sync_CAN1"
+	Index="1456"
+	Type="YBOSWPort"/><_LinkTarget
+	Name="Synchronism_Y.Sync_CAN2"
+	Index="1457"
+	Type="YBOSWPort"/></_LinkTarget></_LinkTarget></_System><YBOModule.Ports><YBOPortList><YBOSWPort
+	Name="Synchronism.Synchronism_5FY_5C.Sync_5FCAN1"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Sync_CAN1"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_1281"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort><YBOSWPort
+	Name="Synchronism.Synchronism_5FY_5C.Sync_5FCAN2"
+	Size="REAL64"
+	PortType="CONTINUOUS"
+	Direction="OUT"
+	Format="IMPLEMENTED"
+	LowerBound="-1.6999999999999999388e+308"
+	UpperBound="1.6999999999999999388e+308"
+	VisibleName="Sync_CAN2"><YBOSWPort.Connections><YBOConnectionRefList><YBOConnectionRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOConnection="_1282"/></YBOConnectionRefList></YBOSWPort.Connections></YBOSWPort></YBOPortList></YBOModule.Ports><YBOModule.Processes><YBOProcessList><YBOProcess
+	Name="Synchronism.irt_5FStart_5FSynchronism"
+	Kind="INITIALIZATION"
+	Priority="0.5"
+	VisibleName="irt_Start_Synchronism"><YBOProcess.Actions><YBOActionList><YBOAction
+	Name="Synchronism.irt_5FStart_5FSynchronism.Action"
+	Kind="PROCESS"/></YBOActionList></YBOProcess.Actions><YBOProcess.CrossbarHooks><YBOCrossbarHookList><YBOCrossbarHook
+	Name="Synchronism.irt_5FStart_5FSynchronism.irt_5FStart_5FSynchronism_5FSourceCopy"
+	Kind="SOURCE"
+	VisibleName="irt_Start_Synchronism_SourceCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="Synchronism.irt_5FStart_5FSynchronism.irt_5FStart_5FSynchronism_5FSourceCopy.Action"
+	Hidden="TRUE"
+	Kind="SOURCE_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList/></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
+	Name="Synchronism.irt_5FStart_5FSynchronism.irt_5FStart_5FSynchronism_5FSinkCopy"
+	Kind="SINK"
+	VisibleName="irt_Start_Synchronism_SinkCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="Synchronism.irt_5FStart_5FSynchronism.irt_5FStart_5FSynchronism_5FSinkCopy.Action"
+	Hidden="TRUE"
+	Kind="SINK_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList/></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess><YBOProcess
+	Name="Synchronism.irt_5FOneStep_5FSynchronism"
+	Kind="TIMER"
+	Period="0.2000000000000000111"
+	Priority="0.5"
+	VisibleName="irt_OneStep_Synchronism"><YBOProcess.Actions><YBOActionList><YBOAction
+	Name="Synchronism.irt_5FOneStep_5FSynchronism.Action"
+	Kind="PROCESS"/></YBOActionList></YBOProcess.Actions><YBOProcess.CrossbarHooks><YBOCrossbarHookList><YBOCrossbarHook
+	Name="Synchronism.irt_5FOneStep_5FSynchronism.irt_5FOneStep_5FSynchronism_5FSourceCopy"
+	Kind="SOURCE"
+	VisibleName="irt_OneStep_Synchronism_SourceCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="Synchronism.irt_5FOneStep_5FSynchronism.irt_5FOneStep_5FSynchronism_5FSourceCopy.Action"
+	Hidden="TRUE"
+	Kind="SOURCE_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList/></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
+	Name="Synchronism.irt_5FOneStep_5FSynchronism.irt_5FOneStep_5FSynchronism_5FSinkCopy"
+	Kind="SINK"
+	VisibleName="irt_OneStep_Synchronism_SinkCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="Synchronism.irt_5FOneStep_5FSynchronism.irt_5FOneStep_5FSynchronism_5FSinkCopy.Action"
+	Hidden="TRUE"
+	Kind="SINK_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1456"/><YBOSWPortRefList.EmbeddedLink
+	EmbeddedLink.ofTypeYBOSWPort="_1457"/></YBOSWPortRefList></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess><YBOProcess
+	Name="Synchronism.irt_5FTerminate_5FSynchronism"
+	Kind="TERMINATION"
+	Priority="0.5"
+	VisibleName="irt_Terminate_Synchronism"><YBOProcess.Actions><YBOActionList><YBOAction
+	Name="Synchronism.irt_5FTerminate_5FSynchronism.Action"
+	Kind="PROCESS"/></YBOActionList></YBOProcess.Actions><YBOProcess.CrossbarHooks><YBOCrossbarHookList><YBOCrossbarHook
+	Name="Synchronism.irt_5FTerminate_5FSynchronism.irt_5FTerminate_5FSynchronism_5FSourceCopy"
+	Kind="SOURCE"
+	VisibleName="irt_Terminate_Synchronism_SourceCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="Synchronism.irt_5FTerminate_5FSynchronism.irt_5FTerminate_5FSynchronism_5FSourceCopy.Action"
+	Hidden="TRUE"
+	Kind="SOURCE_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList/></YBOCrossbarHook.SWPorts></YBOCrossbarHook><YBOCrossbarHook
+	Name="Synchronism.irt_5FTerminate_5FSynchronism.irt_5FTerminate_5FSynchronism_5FSinkCopy"
+	Kind="SINK"
+	VisibleName="irt_Terminate_Synchronism_SinkCopy"><YBOCrossbarHook.Actions><YBOActionList><YBOAction
+	Name="Synchronism.irt_5FTerminate_5FSynchronism.irt_5FTerminate_5FSynchronism_5FSinkCopy.Action"
+	Hidden="TRUE"
+	Kind="SINK_COPY"/></YBOActionList></YBOCrossbarHook.Actions><YBOCrossbarHook.SWPorts><YBOSWPortRefList/></YBOCrossbarHook.SWPorts></YBOCrossbarHook></YBOCrossbarHookList></YBOProcess.CrossbarHooks><YBOProcess.ArEventRefs><YBOArEventRefList/></YBOProcess.ArEventRefs></YBOProcess></YBOProcessList></YBOModule.Processes><YBOModule.ArXMLSources><YBOArXMLSourceList/></YBOModule.ArXMLSources><YBOModule.ArCSources><YBOArCSourceList/></YBOModule.ArCSources><YBOModule.ReferencedModules><YBOModuleRefList/></YBOModule.ReferencedModules></YBOModule>
