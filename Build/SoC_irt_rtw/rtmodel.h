@@ -7,9 +7,9 @@
  *
  * Code generation for model "SoC".
  *
- * Model version              : 13.17
+ * Model version              : 13.18
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Wed Aug 28 02:13:09 2024
+ * C source code generated on : Sun Sep  1 18:45:04 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

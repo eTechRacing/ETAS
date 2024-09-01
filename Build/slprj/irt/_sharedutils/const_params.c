@@ -7,9 +7,9 @@
  *
  * Code generation for model "SoC".
  *
- * Model version              : 13.17
+ * Model version              : 13.18
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Wed Aug 28 02:13:09 2024
+ * C source code generated on : Sun Sep  1 18:45:04 2024
  */
 #include "rtwtypes.h"
 
@@ -1539,6 +1539,10 @@ const real_T rtCP_pooled_fxWA1Yt4ngAK[210] = { 3.45903500199314,
 extern const real_T rtCP_pooled_ga4GCJFGTB0C[16];
 const real_T rtCP_pooled_ga4GCJFGTB0C[16] = { 1.0E-5, 0.0, 0.0, 0.0, 0.0, 1.0,
   0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 } ;
+
+extern const real_T rtCP_pooled_hcSDF5o47VTU[10];
+const real_T rtCP_pooled_hcSDF5o47VTU[10] = { 11.594, 11.594, 11.594, 11.594,
+  11.594, 11.594, 11.594, 11.594, 11.594, 11.594 } ;
 
 extern const real_T rtCP_pooled_igefqBa1elSs[16];
 const real_T rtCP_pooled_igefqBa1elSs[16] = { 1.0E-6, 0.0, 0.0, 0.0, 0.0, 1.0,

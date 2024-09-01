@@ -7,9 +7,9 @@
  *
  * Code generation for model "SoC".
  *
- * Model version              : 13.17
+ * Model version              : 13.18
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Wed Aug 28 02:13:09 2024
+ * C source code generated on : Sun Sep  1 18:45:04 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -33,7 +33,7 @@ extern const real_T rtCP_pooled_6QV4OqumygMa[21];
 extern const real_T rtCP_pooled_WWI5lQmswkwy[10];
 extern const real_T rtCP_pooled_GWJogR1aJ1Jf[210];
 extern const real_T rtCP_pooled_MFKGCu1mzbkT[210];
-extern const real_T rtCP_pooled_QZVScg5DIQdS[10];
+extern const real_T rtCP_pooled_hcSDF5o47VTU[10];
 extern const real_T rtCP_pooled_fxWA1Yt4ngAK[210];
 extern const real_T rtCP_pooled_49OGFs0T58UH[210];
 extern const real_T rtCP_pooled_kyjvwdftBcJU[210];
@@ -45,7 +45,6 @@ extern const real_T rtCP_pooled_7kRMiFbntIfH[210];
 extern const real_T rtCP_pooled_BbJYiBpMf0uY[21];
 extern const real_T rtCP_pooled_WLloasCl3Kzu[210];
 extern const real_T rtCP_pooled_ZaxtwqXNkspn[210];
-extern const real_T rtCP_pooled_ZM3UwiblDaMD[10];
 extern const real_T rtCP_pooled_VrP3MjW4C1Y1[210];
 extern const real_T rtCP_pooled_3AOW4VeladUB[210];
 extern const real_T rtCP_pooled_vCkSv7es2M01[210];
@@ -87,7 +86,7 @@ extern const uint32_T rtCP_pooled_Ie8v1ZM5rKrP[2];
 #define rtCP_uDLookupTableR0_bp02Data  rtCP_pooled_WWI5lQmswkwy  /* Expression: [5,10,15,20,25,30,35,40,45,50]
                                                                   * Referenced by: '<S5>/2-D Lookup Table R0'
                                                                   */
-#define rtCP_Capacity_tableData        rtCP_pooled_QZVScg5DIQdS  /* Expression: [12.2803238182655,12.3995435082792,12.3995435032435,12.3995434656671,12.3995434362179,12.3995434011637,12.3995434398212,12.3995434555911,12.3995434107120,12.3995434055113]
+#define rtCP_Capacity_tableData        rtCP_pooled_hcSDF5o47VTU  /* Expression: [11.5940, 11.5940, 11.5940, 11.5940, 11.5940, 11.5940, 11.5940, 11.5940, 11.5940, 11.5940]
                                                                   * Referenced by: '<S5>/Capacity'
                                                                   */
 #define rtCP_Capacity_bp01Data         rtCP_pooled_WWI5lQmswkwy  /* Expression: [5,10,15,20,25,30,35,40,45,50]
@@ -180,7 +179,7 @@ extern const uint32_T rtCP_pooled_Ie8v1ZM5rKrP[2];
 #define rtCP_uDLookupTableOCV1_bp02Da_l rtCP_pooled_WWI5lQmswkwy /* Expression: [5,10,15,20,25,30,35,40,45,50]
                                                                   * Referenced by: '<S11>/2-D Lookup Table OCV1'
                                                                   */
-#define rtCP_Capacity_tableData_b      rtCP_pooled_ZM3UwiblDaMD  /* Expression: [12.2803207667821,12.3995435101465,12.3995434846691,12.3995434820686,12.3995434471594,12.3995434107591,12.3995434251602,12.3995434217620,12.3995434119913,12.3995434085247]
+#define rtCP_Capacity_tableData_b      rtCP_pooled_hcSDF5o47VTU  /* Expression: [11.5940 11.5940 11.5940 11.5940 11.5940 11.5940 11.5940 11.5940 11.5940 11.5940]
                                                                   * Referenced by: '<S11>/Capacity'
                                                                   */
 #define rtCP_Capacity_bp01Data_f       rtCP_pooled_WWI5lQmswkwy  /* Expression: [5,10,15,20,25,30,35,40,45,50]
