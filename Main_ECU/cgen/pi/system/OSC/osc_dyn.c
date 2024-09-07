@@ -17,13 +17,13 @@
 
 extern AppModeType etasStartupAppMode;
 extern AppModeType etasInactiveAppMode;
-extern AppModeType TimerAppMode;
+extern AppModeType TimersAppMode;
 
 T_appModeTableEntry appModeEntries[] =
 {
     {(AppModeType *)&etasStartupAppMode, "etasStartup"},
     {(AppModeType *)&etasInactiveAppMode, "etasInactive"},
-    {(AppModeType *)&TimerAppMode, "Timer"}
+    {(AppModeType *)&TimersAppMode, "Timers"}
 };
 
 T_appModeTable appModeTable =
@@ -66,11 +66,11 @@ T_taskTableEntry taskTableEntries[] =
     {(TaskType *)&SWT_CAN2_NM_ELLIPSE_Status, "SWT_CAN2_NM_ELLIPSE_Status", TASK_MONITOR_PTR(SWT_CAN2_NM_ELLIPSE_Status)},
     {(TaskType *)&SWT_CAN2_NM_FECU_Keep_Alive, "SWT_CAN2_NM_FECU_Keep_Alive", TASK_MONITOR_PTR(SWT_CAN2_NM_FECU_Keep_Alive)},
     {(TaskType *)&SWT_CAN2_NM_RECU_Keep_Alive, "SWT_CAN2_NM_RECU_Keep_Alive", TASK_MONITOR_PTR(SWT_CAN2_NM_RECU_Keep_Alive)},
-    {(TaskType *)&Sync_25ms, "Sync_25ms", TASK_MONITOR_PTR(Sync_25ms)},
     {(TaskType *)&Timer_1000ms, "Timer_1000ms", TASK_MONITOR_PTR(Timer_1000ms)},
     {(TaskType *)&Timer_100ms, "Timer_100ms", TASK_MONITOR_PTR(Timer_100ms)},
     {(TaskType *)&Timer_25ms, "Timer_25ms", TASK_MONITOR_PTR(Timer_25ms)},
-    {(TaskType *)&Timer_Inv, "Timer_Inv", TASK_MONITOR_PTR(Timer_Inv)}
+    {(TaskType *)&Timer_Inv, "Timer_Inv", TASK_MONITOR_PTR(Timer_Inv)},
+    {(TaskType *)&Timer_Sync, "Timer_Sync", TASK_MONITOR_PTR(Timer_Sync)}
 };
 
 T_taskTable taskTable =
@@ -102,14 +102,11 @@ extern void crossbarHook_36_12(void);
 extern void irt_Start_Sensors(void);
 extern void crossbarHook_36_13(void);
 extern void crossbarHook_36_14(void);
-extern void irt_Start_SoC(void);
+extern void irt_Start_Synchronism(void);
 extern void crossbarHook_36_15(void);
 extern void crossbarHook_36_16(void);
-extern void irt_Start_Synchronism(void);
-extern void crossbarHook_36_17(void);
-extern void crossbarHook_36_18(void);
 extern void irt_Start_VDC(void);
-extern void crossbarHook_36_19(void);
+extern void crossbarHook_36_17(void);
 extern void etasRtioInitProcess(void);
 extern void rtioHook_36_0(void);
 extern void etasRtioIntEnableProcess(void);
@@ -148,7 +145,7 @@ void etasInactiveInitTask(void)
     return;
 }
 
-void TimerInitTask(void)
+void TimersInitTask(void)
 {
 #ifdef USER_APP_MODE_INIT_TASK_START_FW_HOOK
     USER_APP_MODE_INIT_TASK_START_FW_HOOK
@@ -176,14 +173,11 @@ void TimerInitTask(void)
 	irt_Start_Sensors();
 	crossbarHook_36_13();
 	crossbarHook_36_14();
-	irt_Start_SoC();
+	irt_Start_Synchronism();
 	crossbarHook_36_15();
 	crossbarHook_36_16();
-	irt_Start_Synchronism();
-	crossbarHook_36_17();
-	crossbarHook_36_18();
 	irt_Start_VDC();
-	crossbarHook_36_19();
+	crossbarHook_36_17();
 	etasRtioInitProcess();
 	rtioHook_36_0();
 	etasRtioIntEnableProcess();
@@ -212,8 +206,8 @@ void etasInitTasks(void)
             etasInactiveInitTask();
             break;
 
-        case Timer:
-            TimerInitTask();
+        case Timers:
+            TimersInitTask();
             break;
     }
 
@@ -243,14 +237,11 @@ extern void crossbarHook_37_12(void);
 extern void irt_Terminate_Sensors(void);
 extern void crossbarHook_37_13(void);
 extern void crossbarHook_37_14(void);
-extern void irt_Terminate_SoC(void);
+extern void irt_Terminate_Synchronism(void);
 extern void crossbarHook_37_15(void);
 extern void crossbarHook_37_16(void);
-extern void irt_Terminate_Synchronism(void);
-extern void crossbarHook_37_17(void);
-extern void crossbarHook_37_18(void);
 extern void irt_Terminate_VDC(void);
-extern void crossbarHook_37_19(void);
+extern void crossbarHook_37_17(void);
 extern void etasRtioIntDisableProcess(void);
 extern void rtioHook_37_0(void);
 extern void etasRtioExitProcess(void);
@@ -279,7 +270,7 @@ void etasInactiveExitTask(void)
     return;
 }
 
-void TimerExitTask(void)
+void TimersExitTask(void)
 {
 #ifdef USER_APP_MODE_EXIT_TASK_START_FW_HOOK
     USER_APP_MODE_EXIT_TASK_START_FW_HOOK
@@ -307,14 +298,11 @@ void TimerExitTask(void)
 	irt_Terminate_Sensors();
 	crossbarHook_37_13();
 	crossbarHook_37_14();
-	irt_Terminate_SoC();
+	irt_Terminate_Synchronism();
 	crossbarHook_37_15();
 	crossbarHook_37_16();
-	irt_Terminate_Synchronism();
-	crossbarHook_37_17();
-	crossbarHook_37_18();
 	irt_Terminate_VDC();
-	crossbarHook_37_19();
+	crossbarHook_37_17();
 	etasRtioIntDisableProcess();
 	rtioHook_37_0();
 	etasRtioExitProcess();
@@ -342,8 +330,8 @@ void etasExitTasks(void)
             etasInactiveExitTask();
             break;
 
-        case Timer:
-            TimerExitTask();
+        case Timers:
+            TimersExitTask();
             break;
     }
 

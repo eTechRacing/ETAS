@@ -94,19 +94,19 @@ rtioHookTableEntry rtioHookTable27[1] = {NULL};
 /* rtio hook in task 28 SWT_CAN2_NM_RECU_Keep_Alive */
 rtioHookTableEntry rtioHookTable28[1] = {NULL};
 
-/* rtio hook in task 29 Sync_25ms */
+/* rtio hook in task 29 Timer_1000ms */
 rtioHookTableEntry rtioHookTable29[1] = {NULL};
 
-/* rtio hook in task 30 Timer_1000ms */
+/* rtio hook in task 30 Timer_100ms */
 rtioHookTableEntry rtioHookTable30[1] = {NULL};
 
-/* rtio hook in task 31 Timer_100ms */
+/* rtio hook in task 31 Timer_25ms */
 rtioHookTableEntry rtioHookTable31[1] = {NULL};
 
-/* rtio hook in task 32 Timer_25ms */
+/* rtio hook in task 32 Timer_Inv */
 rtioHookTableEntry rtioHookTable32[1] = {NULL};
 
-/* rtio hook in task 33 Timer_Inv */
+/* rtio hook in task 33 Timer_Sync */
 rtioHookTableEntry rtioHookTable33[1] = {NULL};
 
 /* rtio hook in task 34 ISR_CAN1 */

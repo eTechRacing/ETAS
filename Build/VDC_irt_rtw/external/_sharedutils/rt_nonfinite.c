@@ -7,9 +7,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 13.10
+ * Model version              : 13.24
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Jul 27 11:08:28 2024
+ * C source code generated on : Sat Sep  7 16:33:26 2024
  */
 
 #include "rtGetNaN.h"

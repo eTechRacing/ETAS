@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<!DOCTYPE ES900 SYSTEM ".\dtd\es900.dtd" [ <?RequiredDTDVersion "4.0.0"?>
+<!DOCTYPE ES910NodeMain SYSTEM ".\dtd\es910nodemain.dtd" [ <?RequiredDTDVersion "5.0.2.0"?>
 
 <!NOTATION _OSrvLink SYSTEM "_OSrvLink" >
-<!ENTITY _764 SYSTEM "OSrv://ObjectHandle#764" NDATA _OIDLink >
-<!ENTITY _765 SYSTEM "OSrv://ObjectHandle#765" NDATA _OIDLink >
-<!ENTITY _0 SYSTEM "OSrv://ObjectHandle#0" NDATA _OIDLink >
-<!ENTITY _766 SYSTEM "OSrv://ObjectHandle#766" NDATA _OIDLink >
-]><ES900
+<!ENTITY _2237 SYSTEM "OSrv://ObjectHandle#2237" NDATA _OIDLink >
+<!ENTITY _2162 SYSTEM "OSrv://ObjectHandle#2162" NDATA _OIDLink >
+<!ENTITY _2163 SYSTEM "OSrv://ObjectHandle#2163" NDATA _OIDLink >
+<!ENTITY _2227 SYSTEM "OSrv://ObjectHandle#2227" NDATA _OIDLink >
+]><ES910NodeMain
 	Name="ES910"
-	Hardware.ofTypeYBOHardware="_765"
-	GlobalObject.ofTypeYBOECU="_0"
-	GlobalParent="_765"
-	BoardLink.ofTypeESNode="_766"><_System><_AdminInfo/><_LinkTarget><_LinkTarget
-	Name="Workspace"
-	Index="764"
-	Type="YBOWorkspace"><_LinkTarget
-	Name="YBOHardware"
-	Index="765"
-	Type="YBOHardware"/></_LinkTarget><_LinkTarget
-	Name="ES9101"
-	Type="YBOECU"/><_LinkTarget
-	Name="ES9102"
-	Index="766"
-	Type="ES910NodeMain"/></_LinkTarget></_System></ES900>
+	ConfigurationID="3303"
+	GlobalObject.ofTypeYBOCPUBoard="_2162"
+	GlobalParent.ofTypeYBOECU="_2237"><_System><_AdminInfo/><_LinkTarget><_LinkTarget
+	Name="ES9001"
+	Index="2237"
+	Type="YBOECU"><_LinkTarget
+	Name="ES910"
+	Index="2162"
+	Type="YBOCPUBoard"/></_LinkTarget><_LinkTarget
+	Name="CAN1"
+	Index="2163"
+	Type="ES900CANNodeMain"/><_LinkTarget
+	Name="CAN2"
+	Index="2227"
+	Type="ES900CANNodeMain"/></_LinkTarget></_System><ES910NodeMain.Parameters><ES910NodeMainParameters><ES910NodeMainParameters.Name><ESParameterName
+	Value="ES910"/></ES910NodeMainParameters.Name><ES910NodeMainParameters.IOFailureBehaviour><ESParameterEnum/></ES910NodeMainParameters.IOFailureBehaviour></ES910NodeMainParameters></ES910NodeMain.Parameters><ES910NodeMain.L1Generation><ES910NodeMainL1Generation><ES910NodeMainL1Generation.NotRunning><ES910NodeMainL1GenerationNotRunning/></ES910NodeMainL1Generation.NotRunning><ES910NodeMainL1Generation.Reconnect><ES910NodeMainL1GenerationReconnect/></ES910NodeMainL1Generation.Reconnect><ES910NodeMainL1Generation.WriteToStream><ES910NodeMainL1GenerationWriteToStream/></ES910NodeMainL1Generation.WriteToStream></ES910NodeMainL1Generation></ES910NodeMain.L1Generation><ES910NodeMain.SubNodes><ES910NodeMainSubNodeList><ESNodeRef
+	ref.ofTypeESNode="_2163"/><ESNodeRef
+	ref.ofTypeESNode="_2227"/></ES910NodeMainSubNodeList></ES910NodeMain.SubNodes></ES910NodeMain>

@@ -1217,9 +1217,9 @@ task osek_task_SWT_CAN1_AP_BMS_SDC {
 # 321 "os_config.stc"
 
 # 322 "os_config.stc"
-task osek_task_Sync_25ms {
+task osek_task_Timer_1000ms {
 # 323 "os_config.stc"
-	entry osek_task_e_Sync_25ms;
+	entry osek_task_e_Timer_1000ms;
 # 323 "os_config.stc"
 
 # 324 "os_config.stc"
@@ -1251,9 +1251,9 @@ task osek_task_Sync_25ms {
 # 331 "os_config.stc"
 
 # 332 "os_config.stc"
-task osek_task_Timer_1000ms {
+task osek_task_Timer_100ms {
 # 333 "os_config.stc"
-	entry osek_task_e_Timer_1000ms;
+	entry osek_task_e_Timer_100ms;
 # 333 "os_config.stc"
 
 # 334 "os_config.stc"
@@ -1285,9 +1285,9 @@ task osek_task_Timer_1000ms {
 # 341 "os_config.stc"
 
 # 342 "os_config.stc"
-task osek_task_Timer_100ms {
+task osek_task_Timer_25ms {
 # 343 "os_config.stc"
-	entry osek_task_e_Timer_100ms;
+	entry osek_task_e_Timer_25ms;
 # 343 "os_config.stc"
 
 # 344 "os_config.stc"
@@ -1319,9 +1319,9 @@ task osek_task_Timer_100ms {
 # 351 "os_config.stc"
 
 # 352 "os_config.stc"
-task osek_task_Timer_25ms {
+task osek_task_Timer_Inv {
 # 353 "os_config.stc"
-	entry osek_task_e_Timer_25ms;
+	entry osek_task_e_Timer_Inv;
 # 353 "os_config.stc"
 
 # 354 "os_config.stc"
@@ -1353,9 +1353,9 @@ task osek_task_Timer_25ms {
 # 361 "os_config.stc"
 
 # 362 "os_config.stc"
-task osek_task_Timer_Inv {
+task osek_task_Timer_Sync {
 # 363 "os_config.stc"
-	entry osek_task_e_Timer_Inv;
+	entry osek_task_e_Timer_Sync;
 # 363 "os_config.stc"
 
 # 364 "os_config.stc"
@@ -1583,23 +1583,23 @@ taskset osek_cc2_tasks {
 # 423 "os_config.stc"
 
 # 424 "os_config.stc"
-	task osek_task_Sync_25ms;
+	task osek_task_Timer_1000ms;
 # 424 "os_config.stc"
 
 # 425 "os_config.stc"
-	task osek_task_Timer_1000ms;
+	task osek_task_Timer_100ms;
 # 425 "os_config.stc"
 
 # 426 "os_config.stc"
-	task osek_task_Timer_100ms;
+	task osek_task_Timer_25ms;
 # 426 "os_config.stc"
 
 # 427 "os_config.stc"
-	task osek_task_Timer_25ms;
+	task osek_task_Timer_Inv;
 # 427 "os_config.stc"
 
 # 428 "os_config.stc"
-	task osek_task_Timer_Inv;
+	task osek_task_Timer_Sync;
 # 428 "os_config.stc"
 
 # 429 "os_config.stc"
@@ -1653,23 +1653,23 @@ nonpreemption group   {
 # 442 "os_config.stc"
 nonpreemption group   {
 # 443 "os_config.stc"
-	task osek_task_Sync_25ms;
+	task osek_task_Timer_1000ms;
 # 443 "os_config.stc"
 
 # 444 "os_config.stc"
-	task osek_task_Timer_1000ms;
+	task osek_task_Timer_100ms;
 # 444 "os_config.stc"
 
 # 445 "os_config.stc"
-	task osek_task_Timer_100ms;
+	task osek_task_Timer_25ms;
 # 445 "os_config.stc"
 
 # 446 "os_config.stc"
-	task osek_task_Timer_25ms;
+	task osek_task_Timer_Inv;
 # 446 "os_config.stc"
 
 # 447 "os_config.stc"
-	task osek_task_Timer_Inv;
+	task osek_task_Timer_Sync;
 # 447 "os_config.stc"
 
 # 448 "os_config.stc"
@@ -2077,23 +2077,23 @@ task priority order {
 # 563 "os_config.stc"
 
 # 564 "os_config.stc"
-	task osek_task_Sync_25ms;
+	task osek_task_Timer_1000ms;
 # 564 "os_config.stc"
 
 # 565 "os_config.stc"
-	task osek_task_Timer_1000ms;
+	task osek_task_Timer_100ms;
 # 565 "os_config.stc"
 
 # 566 "os_config.stc"
-	task osek_task_Timer_100ms;
+	task osek_task_Timer_25ms;
 # 566 "os_config.stc"
 
 # 567 "os_config.stc"
-	task osek_task_Timer_25ms;
+	task osek_task_Timer_Inv;
 # 567 "os_config.stc"
 
 # 568 "os_config.stc"
-	task osek_task_Timer_Inv;
+	task osek_task_Timer_Sync;
 # 568 "os_config.stc"
 
 # 569 "os_config.stc"

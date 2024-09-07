@@ -53,13 +53,12 @@ ROOT_instances.o: \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../i_salone.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../y_primit.h \
  c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./ROOT_instances.h \
- c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./Car_State_instances.h \
  c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./Disconnections_instances.h \
- c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./Ellipse_instances.h \
- c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./Inverters_Action_instances.h \
- c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./Inverters_Data_instances.h \
- c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./Power_Control_instances.h \
+ c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./Car_State_instances.h \
  c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./Sensors_instances.h \
- c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./SoC_instances.h \
+ c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./VDC_instances.h \
  c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./Synchronism_instances.h \
- c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./VDC_instances.h
+ c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./Power_Control_instances.h \
+ c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./Inverters_Data_instances.h \
+ c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./Inverters_Action_instances.h \
+ c:\users\joser\onedrive\documentos\github\etas\main_ecu\cgen\pi\system\/./Ellipse_instances.h

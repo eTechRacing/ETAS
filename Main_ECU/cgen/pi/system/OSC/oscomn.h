@@ -6,7 +6,7 @@
  * Build level is standard
  * Project is 'os_config'
  * Last edited 'unknown'
- * File generated 'Sun Sep 01 15:54:12 2024'
+ * File generated 'Sat Sep 07 16:52:21 2024'
  * Target variant 'ES900'
  */
 #ifndef __OS_COMN_H__
@@ -94,15 +94,15 @@ extern struct os_task OS_L004D;
 extern struct os_task OS_L004E;
 #define osek_task_SWT_CAN1_AP_BMS_SDC (&OS_L004E)
 extern struct os_task OS_L004F;
-#define osek_task_Sync_25ms (&OS_L004F)
+#define osek_task_Timer_1000ms (&OS_L004F)
 extern struct os_task OS_L0050;
-#define osek_task_Timer_1000ms (&OS_L0050)
+#define osek_task_Timer_100ms (&OS_L0050)
 extern struct os_task OS_L0051;
-#define osek_task_Timer_100ms (&OS_L0051)
+#define osek_task_Timer_25ms (&OS_L0051)
 extern struct os_task OS_L0052;
-#define osek_task_Timer_25ms (&OS_L0052)
+#define osek_task_Timer_Inv (&OS_L0052)
 extern struct os_task OS_L0053;
-#define osek_task_Timer_Inv (&OS_L0053)
+#define osek_task_Timer_Sync (&OS_L0053)
 extern struct os_task OS_L0054;
 #define osek_task_etasL1Task (&OS_L0054)
 extern struct os_task OS_L0055;

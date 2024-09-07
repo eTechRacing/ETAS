@@ -8,9 +8,9 @@
  *
  * Code generation for model "Inverters_Action".
  *
- * Model version              : 13.21
+ * Model version              : 13.34
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Aug 31 22:06:47 2024
+ * C source code generated on : Sat Sep  7 16:35:08 2024
  * 
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -753,6 +753,36 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      RL_rads_Motor ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Car_State ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      RacingMode ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       Inverter_L_RegID ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -895,6 +925,800 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
+      Forced_Forward_Direction_accel ""
+      /begin SUB_FUNCTION
+        DocBlock
+        If_Action_Subsystem
+        If_Action_Subsystem1
+        Initial_direction_OK
+        Initial_direction_WRONG
+        Abs
+        Constant2
+        Gain
+        If
+        If2
+        NOR
+        NOR1
+        Memory1
+        Merge
+        Merge1
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Negative_current_skid ""
+      /begin SUB_FUNCTION
+        Gain
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Positive_current ""
+      /begin SUB_FUNCTION
+        current_L
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      DirectionR ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Data_Store_Memory1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Data_Store_Memory2 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Action_not_Defined ""
+      /begin SUB_FUNCTION
+        __
+        __1
+        __2
+        __3
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      DisableDrive__EnableDrive ""
+      /begin SUB_FUNCTION
+        Enable
+        If_Action_Subsystem1
+        _x51
+        Constant
+        void1
+        If
+        Merge
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Reset_Enumeration ""
+      /begin SUB_FUNCTION
+        Constant1
+        Parameter_Counter_Write
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Torque_Command ""
+      /begin SUB_FUNCTION
+        DocBlock
+        Subsystem
+        _x90
+        Always_Enabled_if_action_is_torquecommand
+        Bits_Max
+        IMAX
+        Divide
+        Product
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Torque_Command_0 ""
+      /begin SUB_FUNCTION
+        Subsystem
+        _x90
+        Bits_Max
+        Constant
+        IMAX
+        Divide
+        Product
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Unsubscribe__Subscribe ""
+      /begin SUB_FUNCTION
+        EnumerationDone
+        Register_Enumerator_
+        Subscribe
+        Unsubscribe
+        Unsubscribe__Subscribe
+        Constant
+        Data_Store_Read1
+        If
+        Merge
+        Merge1
+        Merge2
+        Merge3
+        subscribed_
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      bypass ""
+      /begin SUB_FUNCTION
+        In_RegID
+        In_b15_to_b8
+        In_b7_to_b0
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      edge_detection ""
+      /begin SUB_FUNCTION
+        If2
+        Delay
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Action_Selector ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge_MuxEnable ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge2 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge3 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge4 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge5 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Data_Store_Memory1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Data_Store_Memory2 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Action_not_Defined ""
+      /begin SUB_FUNCTION
+        __
+        __1
+        __2
+        __3
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      DisableDrive__EnableDrive ""
+      /begin SUB_FUNCTION
+        Enable
+        If_Action_Subsystem1
+        _x51
+        Constant
+        void1
+        If
+        Merge
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Reset_Enumeration ""
+      /begin SUB_FUNCTION
+        Constant1
+        Parameter_Counter_Write
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Torque_Command ""
+      /begin SUB_FUNCTION
+        DocBlock
+        Subsystem
+        _x90
+        Always_Enabled_if_action_is_torquecommand
+        Bits_Max
+        IMAX
+        Divide
+        Product
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Torque_Command_0 ""
+      /begin SUB_FUNCTION
+        Subsystem
+        _x90
+        Bits_Max
+        Constant
+        IMAX
+        Divide
+        Product
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Unsubscribe__Subscribe ""
+      /begin SUB_FUNCTION
+        EnumerationDone
+        Register_Enumerator_
+        Subscribe
+        Unsubscribe
+        Unsubscribe__Subscribe
+        Constant
+        Data_Store_Read1
+        If
+        Merge
+        Merge1
+        Merge2
+        Merge3
+        subscribed_
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      bypass ""
+      /begin SUB_FUNCTION
+        In_RegID
+        In_b15_to_b8
+        In_b7_to_b0
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      edge_detection ""
+      /begin SUB_FUNCTION
+        If2
+        Delay
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Action_Selector ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge_MuxEnable ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge2 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge3 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge4 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Merge5 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      DocBlock ""
+      /begin SUB_FUNCTION
+        EmptySubsystem
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If_Action_Subsystem1 ""
+      /begin SUB_FUNCTION
+        Constant
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Initial_direction_OK ""
+      /begin SUB_FUNCTION
+        Gain
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Initial_direction_WRONG ""
+      /begin SUB_FUNCTION
+        Gain
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Abs ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant2 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
       Gain ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
@@ -906,181 +1730,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Gain1 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Merge ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Data_Store_Memory1 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Data_Store_Memory2 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Action_not_Defined ""
-      /begin SUB_FUNCTION
-        __
-        __1
-        __2
-        __3
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-        
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      DisableDrive__EnableDrive ""
-      /begin SUB_FUNCTION
-        Enable
-        If_Action_Subsystem1
-        _x51
-        Constant
-        void1
-        If
-        Merge
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-        
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Reset_Enumeration ""
-      /begin SUB_FUNCTION
-        Constant1
-        Parameter_Counter_Write
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Torque_Command ""
-      /begin SUB_FUNCTION
-        DocBlock
-        Subsystem
-        _x90
-        Always_Enabled_if_action_is_torquecommand
-        Bits_Max
-        IMAX
-        Divide
-        Product
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-        
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Torque_Command_0 ""
-      /begin SUB_FUNCTION
-        Subsystem
-        _x90
-        Bits_Max
-        Constant
-        IMAX
-        Divide
-        Product
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Unsubscribe__Subscribe ""
-      /begin SUB_FUNCTION
-        EnumerationDone
-        Register_Enumerator_
-        Subscribe
-        Unsubscribe
-        Unsubscribe__Subscribe
-        Constant
-        Data_Store_Read1
-        If
-        Merge
-        Merge1
-        Merge2
-        Merge3
-        subscribed_
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-        
-        
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      bypass ""
-      /begin SUB_FUNCTION
-        In_RegID
-        In_b15_to_b8
-        In_b7_to_b0
-      /end SUB_FUNCTION
+      If ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -1091,18 +1741,26 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin OUT_MEASUREMENT
         
         
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      If2 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
         
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      edge_detection ""
-      /begin SUB_FUNCTION
-        If2
-        Delay
-      /end SUB_FUNCTION
+      NOR ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
+        
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
@@ -1110,28 +1768,25 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Action_Selector ""
+      NOR1 ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
         
+        
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
-        
-        
-        
         
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      If1 ""
+      Memory1 ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
-        
         
       /end OUT_MEASUREMENT
     /end FUNCTION
@@ -1140,22 +1795,6 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
-        
-        
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Merge_MuxEnable ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
         
         
       /end IN_MEASUREMENT
@@ -1170,237 +1809,13 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin IN_MEASUREMENT
         
         
-        
-        
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
         
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Merge2 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Merge3 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Merge4 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Merge5 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Data_Store_Memory1 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Data_Store_Memory2 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Action_not_Defined ""
-      /begin SUB_FUNCTION
-        __
-        __1
-        __2
-        __3
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-        
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      DisableDrive__EnableDrive ""
-      /begin SUB_FUNCTION
-        Enable
-        If_Action_Subsystem1
-        _x51
-        Constant
-        void1
-        If
-        Merge
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-        
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Reset_Enumeration ""
-      /begin SUB_FUNCTION
-        Constant1
-        Parameter_Counter_Write
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Torque_Command ""
-      /begin SUB_FUNCTION
-        DocBlock
-        Subsystem
-        _x90
-        Always_Enabled_if_action_is_torquecommand
-        Bits_Max
-        IMAX
-        Divide
-        Product
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-        
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Torque_Command_0 ""
-      /begin SUB_FUNCTION
-        Subsystem
-        _x90
-        Bits_Max
-        Constant
-        IMAX
-        Divide
-        Product
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Unsubscribe__Subscribe ""
-      /begin SUB_FUNCTION
-        EnumerationDone
-        Register_Enumerator_
-        Subscribe
-        Unsubscribe
-        Unsubscribe__Subscribe
-        Constant
-        Data_Store_Read1
-        If
-        Merge
-        Merge1
-        Merge2
-        Merge3
-        subscribed_
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-        
-        
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      bypass ""
-      /begin SUB_FUNCTION
-        In_RegID
-        In_b15_to_b8
-        In_b7_to_b0
-      /end SUB_FUNCTION
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      edge_detection ""
-      /begin SUB_FUNCTION
-        If2
-        Delay
-      /end SUB_FUNCTION
+      Gain ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -1411,117 +1826,10 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Action_Selector ""
+      current_L ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-        
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      If1 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Merge ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Merge_MuxEnable ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Merge1 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Merge2 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Merge3 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Merge4 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Merge5 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
@@ -2623,6 +2931,59 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
     /end FUNCTION
     /begin FUNCTION
       Delay ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      EmptySubsystem ""
+      /begin SUB_FUNCTION
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Gain ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Gain ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT

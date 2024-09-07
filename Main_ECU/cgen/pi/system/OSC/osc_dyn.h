@@ -66,16 +66,16 @@ extern uint Xcp_Event (uint eventId, uint doDaq);
 #define XCP_STIM_SWT_CAN2_NM_FECU_Keep_Alive Xcp_Event(26,1);
 #define XCP_DAQ_SWT_CAN2_NM_RECU_Keep_Alive Xcp_Event(27,0);
 #define XCP_STIM_SWT_CAN2_NM_RECU_Keep_Alive Xcp_Event(27,1);
-#define XCP_DAQ_Sync_25ms Xcp_Event(28,0);
-#define XCP_STIM_Sync_25ms Xcp_Event(28,1);
-#define XCP_DAQ_Timer_1000ms Xcp_Event(29,0);
-#define XCP_STIM_Timer_1000ms Xcp_Event(29,1);
-#define XCP_DAQ_Timer_100ms Xcp_Event(30,0);
-#define XCP_STIM_Timer_100ms Xcp_Event(30,1);
-#define XCP_DAQ_Timer_25ms Xcp_Event(31,0);
-#define XCP_STIM_Timer_25ms Xcp_Event(31,1);
-#define XCP_DAQ_Timer_Inv Xcp_Event(32,0);
-#define XCP_STIM_Timer_Inv Xcp_Event(32,1);
+#define XCP_DAQ_Timer_1000ms Xcp_Event(28,0);
+#define XCP_STIM_Timer_1000ms Xcp_Event(28,1);
+#define XCP_DAQ_Timer_100ms Xcp_Event(29,0);
+#define XCP_STIM_Timer_100ms Xcp_Event(29,1);
+#define XCP_DAQ_Timer_25ms Xcp_Event(30,0);
+#define XCP_STIM_Timer_25ms Xcp_Event(30,1);
+#define XCP_DAQ_Timer_Inv Xcp_Event(31,0);
+#define XCP_STIM_Timer_Inv Xcp_Event(31,1);
+#define XCP_DAQ_Timer_Sync Xcp_Event(32,0);
+#define XCP_STIM_Timer_Sync Xcp_Event(32,1);
 
 #else
 #define XCP_DAQ_SWT_CAN1_AP_BMS_AIRs_State 
@@ -134,8 +134,6 @@ extern uint Xcp_Event (uint eventId, uint doDaq);
 #define XCP_STIM_SWT_CAN2_NM_FECU_Keep_Alive
 #define XCP_DAQ_SWT_CAN2_NM_RECU_Keep_Alive 
 #define XCP_STIM_SWT_CAN2_NM_RECU_Keep_Alive
-#define XCP_DAQ_Sync_25ms 
-#define XCP_STIM_Sync_25ms
 #define XCP_DAQ_Timer_1000ms 
 #define XCP_STIM_Timer_1000ms
 #define XCP_DAQ_Timer_100ms 
@@ -144,6 +142,8 @@ extern uint Xcp_Event (uint eventId, uint doDaq);
 #define XCP_STIM_Timer_25ms
 #define XCP_DAQ_Timer_Inv 
 #define XCP_STIM_Timer_Inv
+#define XCP_DAQ_Timer_Sync 
+#define XCP_STIM_Timer_Sync
 
 #endif
 

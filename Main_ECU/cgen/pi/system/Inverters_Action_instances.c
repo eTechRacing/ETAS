@@ -42,6 +42,7 @@ void initClass_RTWTop_Inverters_Action(struct RTWTop_Inverters_Action_Class *sel
     self->RTWWrapper_Inverters_Action_B_Merge_Ptr = initInstance_scalarWrapper((void*)&Inverters_Action_B.Merge, sizeof(char), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Action_B_Merge2_Ptr = initInstance_scalarWrapper((void*)&Inverters_Action_B.Merge2, sizeof(char), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Action_B_Merge2_p_Ptr = initInstance_scalarWrapper((void*)&Inverters_Action_B.Merge2_p, sizeof(char), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Inverters_Action_B_NOR_Ptr = initInstance_scalarWrapper((void*)&Inverters_Action_B.NOR, sizeof(char), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Action_B_subscribed_Ptr = initInstance_scalarWrapper((void*)&Inverters_Action_B.subscribed, sizeof(char), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Action_B_subscribed_k_Ptr = initInstance_scalarWrapper((void*)&Inverters_Action_B.subscribed_k, sizeof(char), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Action_ConstB_TorqueCommand_Divide_Ptr = initInstance_scalarWrapper((void*)&Inverters_Action_ConstB.TorqueCommand.Divide, sizeof(double), (uint32)ASD_VARIABLE);
@@ -60,7 +61,10 @@ void initClass_RTWTop_Inverters_Action(struct RTWTop_Inverters_Action_Class *sel
     self->RTWWrapper_Inverters_Action_DW_EnumerationCounter_g_Ptr = initInstance_scalarWrapper((void*)&Inverters_Action_DW.EnumerationCounter_g, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Action_DW_LastAction_Ptr = initInstance_scalarWrapper((void*)&Inverters_Action_DW.LastAction, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Action_DW_LastAction_l_Ptr = initInstance_scalarWrapper((void*)&Inverters_Action_DW.LastAction_l, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Inverters_Action_U_Car_State_Ptr = initInstance_scalarWrapper((void*)&Inverters_Action_U.Car_State, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Action_U_InvertersAction_Ptr = initInstance_scalarWrapper((void*)&Inverters_Action_U.InvertersAction, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Inverters_Action_U_RL_rads_Motor_Ptr = initInstance_scalarWrapper((void*)&Inverters_Action_U.RL_rads_Motor, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Inverters_Action_U_RacingMode_Ptr = initInstance_scalarWrapper((void*)&Inverters_Action_U.RacingMode, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Action_U_current_L_Ptr = initInstance_scalarWrapper((void*)&Inverters_Action_U.current_L, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Action_U_current_R_Ptr = initInstance_scalarWrapper((void*)&Inverters_Action_U.current_R, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Inverters_Action_Y_Inverter_L_RegID_Ptr = initInstance_scalarWrapper((void*)&Inverters_Action_Y.Inverter_L_RegID, sizeof(char), (uint32)ASD_VARIABLE);
@@ -90,9 +94,13 @@ static MethodList RTWTop_Inverters_Action_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_Inverters_Action_ClassHeader =
-    {0, 1, 0, 31 + 0, (MethodList *)0, (MethodList *)&RTWTop_Inverters_Action_ClassMethodList};
+    {0, 1, 0, 35 + 0, (MethodList *)0, (MethodList *)&RTWTop_Inverters_Action_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_Inverters_Action_Class RTWTop_Inverters_Action_ClassObj = {{1, {&RTWTop_Inverters_Action_ClassHeader}, {0}}
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
     ,NULL
     ,NULL
     ,NULL

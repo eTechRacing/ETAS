@@ -7,7 +7,7 @@
 #
 # "Project is 'os_config'"
 # "Last edited 'unknown'"
-# "File generated 'Sun Sep 01 15:54:12 2024'"
+# "File generated 'Sat Sep 07 16:52:21 2024'"
 # "Target variant 'ES900'"
 	.section	".os_pir","aw",@progbits
 	.align 2
@@ -700,7 +700,7 @@ OS_L004F:
 	.long	0
 	.long	7
 	.align 2
-	.long	osek_task_e_Sync_25ms
+	.long	osek_task_e_Timer_1000ms
 	.align 2
 	.long	0
 	.align 2
@@ -720,7 +720,7 @@ OS_L0050:
 	.long	0
 	.long	7
 	.align 2
-	.long	osek_task_e_Timer_1000ms
+	.long	osek_task_e_Timer_100ms
 	.align 2
 	.long	0
 	.align 2
@@ -740,7 +740,7 @@ OS_L0051:
 	.long	0
 	.long	7
 	.align 2
-	.long	osek_task_e_Timer_100ms
+	.long	osek_task_e_Timer_25ms
 	.align 2
 	.long	0
 	.align 2
@@ -760,7 +760,7 @@ OS_L0052:
 	.long	0
 	.long	7
 	.align 2
-	.long	osek_task_e_Timer_25ms
+	.long	osek_task_e_Timer_Inv
 	.align 2
 	.long	0
 	.align 2
@@ -780,7 +780,7 @@ OS_L0053:
 	.long	0
 	.long	7
 	.align 2
-	.long	osek_task_e_Timer_Inv
+	.long	osek_task_e_Timer_Sync
 	.align 2
 	.long	0
 	.align 2

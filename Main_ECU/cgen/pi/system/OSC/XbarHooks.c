@@ -91,20 +91,20 @@ crossbarHookTableEntry crossbarHookTable27[1] = {NULL};
 /* crossbar hook in task 28 SWT_CAN2_NM_RECU_Keep_Alive */
 crossbarHookTableEntry crossbarHookTable28[1] = {NULL};
 
-/* crossbar hook in task 29 Sync_25ms */
-crossbarHookTableEntry crossbarHookTable29[4] = {NULL, NULL, NULL, NULL};
+/* crossbar hook in task 29 Timer_1000ms */
+crossbarHookTableEntry crossbarHookTable29[2] = {NULL, NULL};
 
-/* crossbar hook in task 30 Timer_1000ms */
+/* crossbar hook in task 30 Timer_100ms */
 crossbarHookTableEntry crossbarHookTable30[2] = {NULL, NULL};
 
-/* crossbar hook in task 31 Timer_100ms */
-crossbarHookTableEntry crossbarHookTable31[2] = {NULL, NULL};
+/* crossbar hook in task 31 Timer_25ms */
+crossbarHookTableEntry crossbarHookTable31[14] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
 
-/* crossbar hook in task 32 Timer_25ms */
-crossbarHookTableEntry crossbarHookTable32[16] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
+/* crossbar hook in task 32 Timer_Inv */
+crossbarHookTableEntry crossbarHookTable32[6] = {NULL, NULL, NULL, NULL, NULL, NULL};
 
-/* crossbar hook in task 33 Timer_Inv */
-crossbarHookTableEntry crossbarHookTable33[6] = {NULL, NULL, NULL, NULL, NULL, NULL};
+/* crossbar hook in task 33 Timer_Sync */
+crossbarHookTableEntry crossbarHookTable33[4] = {NULL, NULL, NULL, NULL};
 
 /* crossbar hook in task 34 ISR_CAN1 */
 crossbarHookTableEntry crossbarHookTable34[1] = {NULL};
@@ -113,10 +113,10 @@ crossbarHookTableEntry crossbarHookTable34[1] = {NULL};
 crossbarHookTableEntry crossbarHookTable35[1] = {NULL};
 
 /* crossbar hook in task 36 Init */
-crossbarHookTableEntry crossbarHookTable36[20] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
+crossbarHookTableEntry crossbarHookTable36[18] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
 
 /* crossbar hook in task 37 Exit */
-crossbarHookTableEntry crossbarHookTable37[20] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
+crossbarHookTableEntry crossbarHookTable37[18] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
 
 
 /* crossbar task table */
@@ -343,18 +343,6 @@ void crossbarHook_29_1(void)
 	return;
 }
 
-void crossbarHook_29_2(void)
-{
-	crossbarHook(29,2);
-	return;
-}
-
-void crossbarHook_29_3(void)
-{
-	crossbarHook(29,3);
-	return;
-}
-
 void crossbarHook_30_0(void)
 {
 	crossbarHook(30,0);
@@ -376,6 +364,78 @@ void crossbarHook_31_0(void)
 void crossbarHook_31_1(void)
 {
 	crossbarHook(31,1);
+	return;
+}
+
+void crossbarHook_31_2(void)
+{
+	crossbarHook(31,2);
+	return;
+}
+
+void crossbarHook_31_3(void)
+{
+	crossbarHook(31,3);
+	return;
+}
+
+void crossbarHook_31_4(void)
+{
+	crossbarHook(31,4);
+	return;
+}
+
+void crossbarHook_31_5(void)
+{
+	crossbarHook(31,5);
+	return;
+}
+
+void crossbarHook_31_6(void)
+{
+	crossbarHook(31,6);
+	return;
+}
+
+void crossbarHook_31_7(void)
+{
+	crossbarHook(31,7);
+	return;
+}
+
+void crossbarHook_31_8(void)
+{
+	crossbarHook(31,8);
+	return;
+}
+
+void crossbarHook_31_9(void)
+{
+	crossbarHook(31,9);
+	return;
+}
+
+void crossbarHook_31_10(void)
+{
+	crossbarHook(31,10);
+	return;
+}
+
+void crossbarHook_31_11(void)
+{
+	crossbarHook(31,11);
+	return;
+}
+
+void crossbarHook_31_12(void)
+{
+	crossbarHook(31,12);
+	return;
+}
+
+void crossbarHook_31_13(void)
+{
+	crossbarHook(31,13);
 	return;
 }
 
@@ -415,66 +475,6 @@ void crossbarHook_32_5(void)
 	return;
 }
 
-void crossbarHook_32_6(void)
-{
-	crossbarHook(32,6);
-	return;
-}
-
-void crossbarHook_32_7(void)
-{
-	crossbarHook(32,7);
-	return;
-}
-
-void crossbarHook_32_8(void)
-{
-	crossbarHook(32,8);
-	return;
-}
-
-void crossbarHook_32_9(void)
-{
-	crossbarHook(32,9);
-	return;
-}
-
-void crossbarHook_32_10(void)
-{
-	crossbarHook(32,10);
-	return;
-}
-
-void crossbarHook_32_11(void)
-{
-	crossbarHook(32,11);
-	return;
-}
-
-void crossbarHook_32_12(void)
-{
-	crossbarHook(32,12);
-	return;
-}
-
-void crossbarHook_32_13(void)
-{
-	crossbarHook(32,13);
-	return;
-}
-
-void crossbarHook_32_14(void)
-{
-	crossbarHook(32,14);
-	return;
-}
-
-void crossbarHook_32_15(void)
-{
-	crossbarHook(32,15);
-	return;
-}
-
 void crossbarHook_33_0(void)
 {
 	crossbarHook(33,0);
@@ -496,18 +496,6 @@ void crossbarHook_33_2(void)
 void crossbarHook_33_3(void)
 {
 	crossbarHook(33,3);
-	return;
-}
-
-void crossbarHook_33_4(void)
-{
-	crossbarHook(33,4);
-	return;
-}
-
-void crossbarHook_33_5(void)
-{
-	crossbarHook(33,5);
 	return;
 }
 
@@ -649,20 +637,6 @@ void crossbarHook_36_17(void)
 	return;
 }
 
-void crossbarHook_36_18(void)
-{
-	crossbarHook(36,18);
-	INIT_EXIT_FW_HOOK
-	return;
-}
-
-void crossbarHook_36_19(void)
-{
-	crossbarHook(36,19);
-	INIT_EXIT_FW_HOOK
-	return;
-}
-
 void crossbarHook_37_0(void)
 {
 	crossbarHook(37,0);
@@ -785,20 +759,6 @@ void crossbarHook_37_16(void)
 void crossbarHook_37_17(void)
 {
 	crossbarHook(37,17);
-	INIT_EXIT_FW_HOOK
-	return;
-}
-
-void crossbarHook_37_18(void)
-{
-	crossbarHook(37,18);
-	INIT_EXIT_FW_HOOK
-	return;
-}
-
-void crossbarHook_37_19(void)
-{
-	crossbarHook(37,19);
 	INIT_EXIT_FW_HOOK
 	return;
 }
