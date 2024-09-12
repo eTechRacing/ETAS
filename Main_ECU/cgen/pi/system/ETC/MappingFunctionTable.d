@@ -46,6 +46,7 @@ MappingFunctionTable.o: \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../t_rtcros.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../i_rtioma.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../t_croman.h \
+ C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../t_crotyp.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../t_sglow.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../t_sgman.h \
  C:\Program\ Files\ (x86)\ETAS\INTECRIO5.0\Target\Etarget\ES910/../i_mapfnc.h \

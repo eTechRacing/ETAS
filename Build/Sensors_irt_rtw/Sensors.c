@@ -7,9 +7,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 10.4
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Mar 29 01:03:13 2024
+ * Model version              : 13.15
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Sat Sep  7 16:35:26 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -20,6 +20,7 @@
 
 #include "Sensors.h"
 #include "rtwtypes.h"
+#include "Sensors_private.h"
 #include <string.h>
 #include "rt_nonfinite.h"
 
@@ -36,116 +37,222 @@ ExtY_Sensors_T Sensors_Y;
 static RT_MODEL_Sensors_T Sensors_M_;
 RT_MODEL_Sensors_T *const Sensors_M = &Sensors_M_;
 
+/*
+ * Output and update for action system:
+ *    '<S1>/If Action Subsystem'
+ *    '<S2>/If Action Subsystem'
+ */
+void Sensors_IfActionSubsystem(real_T *rty_u)
+{
+  /* SignalConversion generated from: '<S9>/0' incorporates:
+   *  Constant: '<S9>/cte'
+   */
+  *rty_u = 0.0;
+}
+
+/*
+ * Output and update for action system:
+ *    '<S1>/If Action Subsystem1'
+ *    '<S2>/If Action Subsystem1'
+ */
+void Sensors_IfActionSubsystem1(real_T rtu_Value_in, real_T *rty_Value_out)
+{
+  /* SignalConversion generated from: '<S10>/Value_in' */
+  *rty_Value_out = rtu_Value_in;
+}
+
 /* Model output function */
 static void Sensors_output(void)
 {
-  real_T rtb_Divide;
+  real_T rtb_Saturation;
+
+  /* If: '<S1>/If' incorporates:
+   *  Constant: '<S1>/min'
+   *  Inport: '<Root>/APPS1_Bits'
+   *  Inport: '<Root>/Disconnection_APPS1'
+   *  Product: '<S1>/Divide'
+   *  Sum: '<S1>/Sum'
+   */
+  if (Sensors_U.Disconnection_APPS1 == 1.0) {
+    /* Outputs for IfAction SubSystem: '<S1>/If Action Subsystem' incorporates:
+     *  ActionPort: '<S9>/Action Port'
+     */
+    Sensors_IfActionSubsystem(&rtb_Saturation);
+
+    /* End of Outputs for SubSystem: '<S1>/If Action Subsystem' */
+  } else {
+    /* Outputs for IfAction SubSystem: '<S1>/If Action Subsystem1' incorporates:
+     *  ActionPort: '<S10>/Action Port'
+     */
+    Sensors_IfActionSubsystem1((Sensors_U.APPS1_Bits - 800.0) /
+      Sensors_ConstB.Sum1, &rtb_Saturation);
+
+    /* End of Outputs for SubSystem: '<S1>/If Action Subsystem1' */
+  }
+
+  /* End of If: '<S1>/If' */
+
+  /* Saturate: '<S1>/Saturation' */
+  if (rtb_Saturation > 1.0) {
+    /* Outport: '<Root>/APPS1_Value' */
+    Sensors_Y.APPS1_Value = 1.0;
+  } else if (rtb_Saturation < 0.0) {
+    /* Outport: '<Root>/APPS1_Value' */
+    Sensors_Y.APPS1_Value = 0.0;
+  } else {
+    /* Outport: '<Root>/APPS1_Value' */
+    Sensors_Y.APPS1_Value = rtb_Saturation;
+  }
+
+  /* End of Saturate: '<S1>/Saturation' */
+
+  /* If: '<S2>/If' incorporates:
+   *  Constant: '<S2>/min'
+   *  Inport: '<Root>/APPS2_Bits'
+   *  Inport: '<Root>/Disconnection_APPS2'
+   *  Product: '<S2>/Divide'
+   *  Sum: '<S2>/Sum'
+   */
+  if (Sensors_U.Disconnection_APPS2 == 1.0) {
+    /* Outputs for IfAction SubSystem: '<S2>/If Action Subsystem' incorporates:
+     *  ActionPort: '<S11>/Action Port'
+     */
+    Sensors_IfActionSubsystem(&rtb_Saturation);
+
+    /* End of Outputs for SubSystem: '<S2>/If Action Subsystem' */
+  } else {
+    /* Outputs for IfAction SubSystem: '<S2>/If Action Subsystem1' incorporates:
+     *  ActionPort: '<S12>/Action Port'
+     */
+    Sensors_IfActionSubsystem1((Sensors_U.APPS2_Bits - 3200.0) /
+      Sensors_ConstB.Sum1_d, &rtb_Saturation);
+
+    /* End of Outputs for SubSystem: '<S2>/If Action Subsystem1' */
+  }
+
+  /* End of If: '<S2>/If' */
+
+  /* Saturate: '<S2>/Saturation' */
+  if (rtb_Saturation > 1.0) {
+    /* Outport: '<Root>/APPS2_Value' */
+    Sensors_Y.APPS2_Value = 1.0;
+  } else if (rtb_Saturation < 0.0) {
+    /* Outport: '<Root>/APPS2_Value' */
+    Sensors_Y.APPS2_Value = 0.0;
+  } else {
+    /* Outport: '<Root>/APPS2_Value' */
+    Sensors_Y.APPS2_Value = rtb_Saturation;
+  }
+
+  /* End of Saturate: '<S2>/Saturation' */
 
   /* Product: '<S3>/Divide' incorporates:
+   *  Constant: '<S3>/min'
    *  Inport: '<Root>/BrakePedal_Bits'
+   *  Sum: '<S3>/Sum'
    */
-  rtb_Divide = Sensors_U.BrakePedal_Bits / Sensors_ConstB.Sum1;
+  rtb_Saturation = (Sensors_U.BrakePedal_Bits - 900.0) / Sensors_ConstB.Sum1_c;
 
-  /* Outputs for Atomic SubSystem: '<Root>/Brake_Light' */
-  /* If: '<S4>/If' incorporates:
-   *  Constant: '<S4>/Brake_Light_Threshold'
-   *  Outport: '<Root>/BrakeLight_Control'
-   */
-  Sensors_Y.BrakeLight_Control = (rtb_Divide > 0.2);
+  /* Saturate: '<S3>/Saturation' */
+  if (rtb_Saturation > 1.0) {
+    /* Outport: '<Root>/BrakePedal_Value' */
+    Sensors_Y.BrakePedal_Value = 1.0;
+  } else if (rtb_Saturation < 0.0) {
+    /* Outport: '<Root>/BrakePedal_Value' */
+    Sensors_Y.BrakePedal_Value = 0.0;
+  } else {
+    /* Outport: '<Root>/BrakePedal_Value' */
+    Sensors_Y.BrakePedal_Value = rtb_Saturation;
+  }
 
-  /* End of Outputs for SubSystem: '<Root>/Brake_Light' */
-
-  /* Outport: '<Root>/BrakePedal_Value' */
-  Sensors_Y.BrakePedal_Value = rtb_Divide;
-
-  /* Outport: '<Root>/APPS1_Value' incorporates:
-   *  Inport: '<Root>/APPS1_Bits'
-   *  Product: '<S1>/Divide'
-   */
-  Sensors_Y.APPS1_Value = Sensors_U.APPS1_Bits / Sensors_ConstB.Sum1_p;
-
-  /* Outport: '<Root>/APPS2_Value' incorporates:
-   *  Inport: '<Root>/APPS2_Bits'
-   *  Product: '<S2>/Divide'
-   */
-  Sensors_Y.APPS2_Value = Sensors_U.APPS2_Bits / Sensors_ConstB.Sum1_f;
+  /* End of Saturate: '<S3>/Saturation' */
 
   /* Outport: '<Root>/SUSP_F_L' incorporates:
    *  Constant: '<Root>/Zero_Bits_Experimental'
-   *  Gain: '<S6>/Cte muelles'
-   *  Gain: '<S6>/Ltotal'
+   *  Gain: '<S5>/Cte muelles'
+   *  Gain: '<S5>/Ltotal'
    *  Inport: '<Root>/Susp_F_L_Bits'
-   *  Product: '<S6>/Divide'
-   *  Sum: '<S6>/Subtract1'
+   *  Product: '<S5>/Divide'
+   *  Sum: '<S5>/Subtract1'
    */
-  Sensors_Y.SUSP_F_L = (Sensors_U.Susp_F_L_Bits - 1.0) / Sensors_ConstB.Subtract
-    * 57.0 * 30.0;
+  Sensors_Y.SUSP_F_L = (Sensors_U.Susp_F_L_Bits - 25.0) /
+    Sensors_ConstB.Subtract * 57.0 * 30.0;
 
   /* Outport: '<Root>/SUSP_F_R' incorporates:
    *  Constant: '<Root>/Zero_Bits_Experimental'
-   *  Gain: '<S7>/Cte muelles'
-   *  Gain: '<S7>/Ltotal'
+   *  Gain: '<S6>/Cte muelles'
+   *  Gain: '<S6>/Ltotal'
    *  Inport: '<Root>/Susp_F_R_Bits'
-   *  Product: '<S7>/Divide'
-   *  Sum: '<S7>/Subtract1'
+   *  Product: '<S6>/Divide'
+   *  Sum: '<S6>/Subtract1'
    */
-  Sensors_Y.SUSP_F_R = (Sensors_U.Susp_F_R_Bits - 1.0) /
+  Sensors_Y.SUSP_F_R = (Sensors_U.Susp_F_R_Bits - 25.0) /
     Sensors_ConstB.Subtract_a * 57.0 * 30.0;
 
   /* Outport: '<Root>/SUSP_R_L' incorporates:
    *  Constant: '<Root>/Zero_Bits_Experimental'
-   *  Gain: '<S8>/Cte muelles'
-   *  Gain: '<S8>/Ltotal'
+   *  Gain: '<S7>/Cte muelles'
+   *  Gain: '<S7>/Ltotal'
    *  Inport: '<Root>/Susp_R_L_Bits'
-   *  Product: '<S8>/Divide'
-   *  Sum: '<S8>/Subtract1'
+   *  Product: '<S7>/Divide'
+   *  Sum: '<S7>/Subtract1'
    */
-  Sensors_Y.SUSP_R_L = (Sensors_U.Susp_R_L_Bits - 1.0) /
+  Sensors_Y.SUSP_R_L = (Sensors_U.Susp_R_L_Bits - 25.0) /
     Sensors_ConstB.Subtract_e * 57.0 * 30.0;
 
   /* Outport: '<Root>/SUSP_R_R' incorporates:
    *  Constant: '<Root>/Zero_Bits_Experimental'
-   *  Gain: '<S9>/Cte muelles'
-   *  Gain: '<S9>/Ltotal'
+   *  Gain: '<S8>/Cte muelles'
+   *  Gain: '<S8>/Ltotal'
    *  Inport: '<Root>/Susp_R_R_Bits'
-   *  Product: '<S9>/Divide'
-   *  Sum: '<S9>/Subtract1'
+   *  Product: '<S8>/Divide'
+   *  Sum: '<S8>/Subtract1'
    */
-  Sensors_Y.SUSP_R_R = (Sensors_U.Susp_R_R_Bits - 1.0) /
+  Sensors_Y.SUSP_R_R = (Sensors_U.Susp_R_R_Bits - 25.0) /
     Sensors_ConstB.Subtract_n * 57.0 * 30.0;
 
-  /* Outputs for Atomic SubSystem: '<S5>/Low Pass' */
-  /* Sum: '<S12>/Subtract1' incorporates:
-   *  Constant: '<S12>/exp(-tcycle//tau)1'
-   *  DataStoreRead: '<S12>/Data Store Read'
-   *  DataStoreRead: '<S12>/Data Store Read1'
-   *  Product: '<S12>/Product'
-   *  Product: '<S12>/Product1'
+  /* Outputs for Atomic SubSystem: '<S4>/Low Pass' */
+  /* Sum: '<S13>/Subtract1' incorporates:
+   *  Constant: '<S13>/exp(-tcycle//tau)1'
+   *  DataStoreRead: '<S13>/Data Store Read'
+   *  DataStoreRead: '<S13>/Data Store Read1'
+   *  Product: '<S13>/Product'
+   *  Product: '<S13>/Product1'
    */
-  rtb_Divide = Sensors_DW.Previous_IN * Sensors_ConstB.Subtract_p + 0.905 *
+  rtb_Saturation = Sensors_DW.Previous_IN * Sensors_ConstB.Subtract_p + 0.905 *
     Sensors_DW.Previous_OUT;
 
-  /* DataStoreWrite: '<S12>/Data Store Write1' */
-  Sensors_DW.Previous_OUT = rtb_Divide;
+  /* DataStoreWrite: '<S13>/Data Store Write1' */
+  Sensors_DW.Previous_OUT = rtb_Saturation;
 
-  /* DataStoreWrite: '<S12>/Data Store Write' incorporates:
-   *  Constant: '<S5>/half range'
-   *  Constant: '<S5>/range'
-   *  Constant: '<S5>/zero'
-   *  Gain: '<S5>/Gain'
+  /* DataStoreWrite: '<S13>/Data Store Write' incorporates:
+   *  Constant: '<S4>/half range'
+   *  Constant: '<S4>/range'
+   *  Constant: '<S4>/zero'
+   *  Gain: '<S4>/Gain'
    *  Inport: '<Root>/SteeringSensor_Bits'
-   *  Product: '<S5>/Divide'
-   *  Sum: '<S5>/Sum'
+   *  Product: '<S4>/Divide'
+   *  Sum: '<S4>/Sum'
    */
-  Sensors_DW.Previous_IN = (Sensors_U.SteeringSensor_Bits - 250.0) * 2.0 / 500.0
-    * 115.0;
+  Sensors_DW.Previous_IN = (Sensors_U.SteeringSensor_Bits - 2000.0) * 2.0 /
+    3100.0 * -115.0;
 
-  /* Outport: '<Root>/SteeringSensor_Value' incorporates:
-   *  Gain: '<S12>/Gain'
+  /* Saturate: '<S4>/Saturation' incorporates:
+   *  Gain: '<S13>/Gain'
    */
-  Sensors_Y.SteeringSensor_Value = -rtb_Divide;
+  if (-rtb_Saturation > 125.0) {
+    /* Outport: '<Root>/SteeringSensor_Value' */
+    Sensors_Y.SteeringSensor_Value = 125.0;
+  } else if (-rtb_Saturation < -125.0) {
+    /* Outport: '<Root>/SteeringSensor_Value' */
+    Sensors_Y.SteeringSensor_Value = -125.0;
+  } else {
+    /* Outport: '<Root>/SteeringSensor_Value' */
+    Sensors_Y.SteeringSensor_Value = -rtb_Saturation;
+  }
 
-  /* End of Outputs for SubSystem: '<S5>/Low Pass' */
+  /* End of Saturate: '<S4>/Saturation' */
+  /* End of Outputs for SubSystem: '<S4>/Low Pass' */
 }
 
 /* Model update function */
@@ -172,14 +279,14 @@ static void Sensors_update(void)
 /* Model initialize function */
 static void Sensors_initialize(void)
 {
-  /* Start for Atomic SubSystem: '<S5>/Low Pass' */
-  /* Start for DataStoreMemory: '<S12>/Data Store Memory' */
+  /* Start for Atomic SubSystem: '<S4>/Low Pass' */
+  /* Start for DataStoreMemory: '<S13>/Data Store Memory' */
   Sensors_DW.Previous_IN = 0.0;
 
-  /* Start for DataStoreMemory: '<S12>/Data Store Memory1' */
+  /* Start for DataStoreMemory: '<S13>/Data Store Memory1' */
   Sensors_DW.Previous_OUT = 0.0;
 
-  /* End of Start for SubSystem: '<S5>/Low Pass' */
+  /* End of Start for SubSystem: '<S4>/Low Pass' */
 }
 
 /* Model terminate function */
@@ -309,11 +416,11 @@ RT_MODEL_Sensors_T *Sensors(void)
 
   /* Initialize Sizes */
   Sensors_M->Sizes.numContStates = (0);/* Number of continuous states */
-  Sensors_M->Sizes.numY = (9);         /* Number of model outputs */
-  Sensors_M->Sizes.numU = (8);         /* Number of model inputs */
+  Sensors_M->Sizes.numY = (8);         /* Number of model outputs */
+  Sensors_M->Sizes.numU = (10);        /* Number of model inputs */
   Sensors_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Sensors_M->Sizes.numSampTimes = (1); /* Number of sample times */
-  Sensors_M->Sizes.numBlocks = (79);   /* Number of blocks */
+  Sensors_M->Sizes.numBlocks = (83);   /* Number of blocks */
   Sensors_M->Sizes.numBlockIO = (0);   /* Number of block outputs */
   return Sensors_M;
 }

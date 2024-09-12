@@ -68,7 +68,7 @@ ASAP2_VERSION
             /* Lower limit         */     0.0 
             /* Upper limit         */     255.0 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Action.Subsystem9.Merge2.Merge2 
+            DISPLAY_IDENTIFIER Inverters_Action.Blost_e_Left.Merge2.Merge2 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -93,7 +93,23 @@ ASAP2_VERSION
             /* Lower limit         */     0.0 
             /* Upper limit         */     255.0 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Action.Subsystem10.Merge2.Merge2_p 
+            DISPLAY_IDENTIFIER Inverters_Action.Blost_e_Right.Merge2.Merge2_p 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     Inverters_Action_B.NOR 
+            /* Long identifier     */     "" 
+            /* Data type           */     UBYTE 
+            /* Conversion method   */     Inverters_Action_CM_boolean 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     0 
+            /* Upper limit         */     1 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Inverters_Action.Forced_Forward_Direction_accel.NOR.NOR 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -109,14 +125,14 @@ ASAP2_VERSION
             /* Lower limit         */     0 
             /* Upper limit         */     1 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Action.Subsystem9.Unsubscribe__Subscribe.subscribed_.subscribed 
+            DISPLAY_IDENTIFIER Inverters_Action.Blost_e_Right.Unsubscribe__Subscribe.subscribed_.subscribed 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     Inverters_Action_B.subscribed_b 
+            /* Name                */     Inverters_Action_B.subscribed_k 
             /* Long identifier     */     "" 
             /* Data type           */     UBYTE 
             /* Conversion method   */     Inverters_Action_CM_boolean 
@@ -125,7 +141,7 @@ ASAP2_VERSION
             /* Lower limit         */     0 
             /* Upper limit         */     1 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Action.Subsystem10.Unsubscribe__Subscribe.subscribed_.subscribed_b 
+            DISPLAY_IDENTIFIER Inverters_Action.Blost_e_Left.Unsubscribe__Subscribe.subscribed_.subscribed_k 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -141,7 +157,7 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Action.Subsystem10.Torque_Command.Divide.Divide 
+            DISPLAY_IDENTIFIER Inverters_Action.Blost_e_Left.Torque_Command.Divide.Divide 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -166,7 +182,7 @@ ASAP2_VERSION
             /* Lower limit         */     0.0 
             /* Upper limit         */     65535.0 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Action.Subsystem10.Torque_Command_0.Subsystem.Bitwise_Operator1.BitwiseOperator1 
+            DISPLAY_IDENTIFIER Inverters_Action.Blost_e_Left.Torque_Command_0.Subsystem.Bitwise_Operator1.BitwiseOperator1 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -191,7 +207,7 @@ ASAP2_VERSION
             /* Lower limit         */     0.0 
             /* Upper limit         */     65535.0 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Action.Subsystem10.Torque_Command_0.Product.Current_0_to_65535 
+            DISPLAY_IDENTIFIER Inverters_Action.Blost_e_Left.Torque_Command_0.Product.Current_0_to_65535 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -207,7 +223,7 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Action.Subsystem10.Torque_Command_0.Divide.Divide 
+            DISPLAY_IDENTIFIER Inverters_Action.Blost_e_Left.Torque_Command_0.Divide.Divide 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -223,7 +239,7 @@ ASAP2_VERSION
             /* Lower limit         */     0.0 
             /* Upper limit         */     65535.0 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Action.Subsystem10.Torque_Command_0.Subsystem.Shift_Arithmetic.ShiftArithmetic 
+            DISPLAY_IDENTIFIER Inverters_Action.Blost_e_Left.Torque_Command_0.Subsystem.Shift_Arithmetic.ShiftArithmetic 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -239,14 +255,14 @@ ASAP2_VERSION
             /* Lower limit         */     0.0 
             /* Upper limit         */     65535.0 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Action.Subsystem10.Torque_Command_0.Subsystem.Bitwise_Operator.b7_to_b0 
+            DISPLAY_IDENTIFIER Inverters_Action.Blost_e_Left.Torque_Command_0.Subsystem.Bitwise_Operator.b7_to_b0 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     Inverters_Action_ConstB.TorqueCommand0_g.BitwiseOperator1 
+            /* Name                */     Inverters_Action_ConstB.TorqueCommand0_a.BitwiseOperator1 
             /* Long identifier     */     "" 
             /* Data type           */     UWORD 
             /* Conversion method   */     Inverters_Action_CM_uint16 
@@ -255,14 +271,14 @@ ASAP2_VERSION
             /* Lower limit         */     0.0 
             /* Upper limit         */     65535.0 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Action.Subsystem9.Torque_Command_0.Subsystem.Bitwise_Operator1.BitwiseOperator1 
+            DISPLAY_IDENTIFIER Inverters_Action.Blost_e_Right.Torque_Command_0.Subsystem.Bitwise_Operator1.BitwiseOperator1 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     Inverters_Action_ConstB.TorqueCommand0_g.Current0to65535 
+            /* Name                */     Inverters_Action_ConstB.TorqueCommand0_a.Current0to65535 
             /* Long identifier     */     "" 
             /* Data type           */     UWORD 
             /* Conversion method   */     Inverters_Action_CM_uint16 
@@ -271,14 +287,14 @@ ASAP2_VERSION
             /* Lower limit         */     0.0 
             /* Upper limit         */     65535.0 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Action.Subsystem9.Torque_Command_0.Product.Current_0_to_65535 
+            DISPLAY_IDENTIFIER Inverters_Action.Blost_e_Right.Torque_Command_0.Product.Current_0_to_65535 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     Inverters_Action_ConstB.TorqueCommand0_g.Divide 
+            /* Name                */     Inverters_Action_ConstB.TorqueCommand0_a.Divide 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     Inverters_Action_CM_double 
@@ -287,14 +303,14 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Action.Subsystem9.Torque_Command_0.Divide.Divide 
+            DISPLAY_IDENTIFIER Inverters_Action.Blost_e_Right.Torque_Command_0.Divide.Divide 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     Inverters_Action_ConstB.TorqueCommand0_g.ShiftArithmetic 
+            /* Name                */     Inverters_Action_ConstB.TorqueCommand0_a.ShiftArithmetic 
             /* Long identifier     */     "" 
             /* Data type           */     UWORD 
             /* Conversion method   */     Inverters_Action_CM_uint16 
@@ -303,14 +319,14 @@ ASAP2_VERSION
             /* Lower limit         */     0.0 
             /* Upper limit         */     65535.0 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Action.Subsystem9.Torque_Command_0.Subsystem.Shift_Arithmetic.ShiftArithmetic 
+            DISPLAY_IDENTIFIER Inverters_Action.Blost_e_Right.Torque_Command_0.Subsystem.Shift_Arithmetic.ShiftArithmetic 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     Inverters_Action_ConstB.TorqueCommand0_g.b7tob0 
+            /* Name                */     Inverters_Action_ConstB.TorqueCommand0_a.b7tob0 
             /* Long identifier     */     "" 
             /* Data type           */     UWORD 
             /* Conversion method   */     Inverters_Action_CM_uint16 
@@ -319,14 +335,14 @@ ASAP2_VERSION
             /* Lower limit         */     0.0 
             /* Upper limit         */     65535.0 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Action.Subsystem9.Torque_Command_0.Subsystem.Bitwise_Operator.b7_to_b0 
+            DISPLAY_IDENTIFIER Inverters_Action.Blost_e_Right.Torque_Command_0.Subsystem.Bitwise_Operator.b7_to_b0 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     Inverters_Action_ConstB.TorqueCommand_m.Divide 
+            /* Name                */     Inverters_Action_ConstB.TorqueCommand_k.Divide 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     Inverters_Action_CM_double 
@@ -335,7 +351,7 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Action.Subsystem9.Torque_Command.Divide.Divide 
+            DISPLAY_IDENTIFIER Inverters_Action.Blost_e_Right.Torque_Command.Divide.Divide 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -351,14 +367,14 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Action.Subsystem10.Data_Store_Memory2.EnumerationCounter 
+            DISPLAY_IDENTIFIER Inverters_Action.Blost_e_Left.Data_Store_Memory2.EnumerationCounter 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     Inverters_Action_DW.EnumerationCounter_m 
+            /* Name                */     Inverters_Action_DW.EnumerationCounter_g 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     Inverters_Action_CM_double 
@@ -367,7 +383,7 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Action.Subsystem9.Data_Store_Memory2.EnumerationCounter_m 
+            DISPLAY_IDENTIFIER Inverters_Action.Blost_e_Right.Data_Store_Memory2.EnumerationCounter_g 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -383,14 +399,14 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Action.Subsystem10.Data_Store_Memory1.LastAction 
+            DISPLAY_IDENTIFIER Inverters_Action.Blost_e_Left.Data_Store_Memory1.LastAction 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     Inverters_Action_DW.LastAction_k 
+            /* Name                */     Inverters_Action_DW.LastAction_l 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     Inverters_Action_CM_double 
@@ -399,7 +415,23 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Inverters_Action.Subsystem9.Data_Store_Memory1.LastAction_k 
+            DISPLAY_IDENTIFIER Inverters_Action.Blost_e_Right.Data_Store_Memory1.LastAction_l 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     Inverters_Action_U.Car_State 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Inverters_Action_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Inverters_Action.Car_State 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -416,6 +448,38 @@ ASAP2_VERSION
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Inverters_Action.InvertersAction 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     Inverters_Action_U.RL_rads_Motor 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Inverters_Action_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Inverters_Action.RL_rads_Motor 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     Inverters_Action_U.RacingMode 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Inverters_Action_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Inverters_Action.RacingMode 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 

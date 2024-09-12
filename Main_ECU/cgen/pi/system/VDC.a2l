@@ -77,30 +77,21 @@ ASAP2_VERSION
         /begin MEASUREMENT 
             /* Name                */     VDC_B.Merge3 
             /* Long identifier     */     "" 
-            /* Data type           */     UBYTE 
-            /* Conversion method   */     VDC_CM_boolean 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
-            /* Lower limit         */     0 
-            /* Upper limit         */     1 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER VDC.Merge3.Merge3 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
         /end MEASUREMENT
-        /begin COMPU_METHOD 
-            /* Name                */     VDC_CM_boolean 
-            /* Long identifier     */     "Q = V" 
-            /* ConversionType      */     RAT_FUNC 
-            /* Format              */     "%9.6" 
-            /* Unit                */     "NO_PHYSICAL_QTY" 
-            COEFFS            0.0 1.0 0.0 0.0 0.0 1.0  
-        /end COMPU_METHOD 
-
  
         /begin MEASUREMENT 
-            /* Name                */     VDC_DW.A 
+            /* Name                */     VDC_B.Merge4 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     VDC_CM_double 
@@ -109,7 +100,279 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDC.Accumulator_Power.PowerLimitDetection.Data_Store_Memory10.A 
+            DISPLAY_IDENTIFIER VDC.Merge4.Merge4 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_B.Merge6 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.Merge6.Merge6 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_B.TC_Warning 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.ACCELERATION.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024.TC_Warning 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_B.TC_Warning_l 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.SKIDPAD.TC_TV.Rigid_Axle_with_TC_2024.TC_Warning 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_B.sf_MATLABFunction.Torque_L_Nm 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.SKIDPAD.TC_TV.MATLAB_Function.Torque_L_Nm 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_B.sf_MATLABFunction.Torque_R_Nm 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.SKIDPAD.TC_TV.MATLAB_Function.Torque_R_Nm 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_B.sf_MATLABFunction_a.Torque_L_Nm 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.SKIDPAD.TV_with_TC_OFF.MATLAB_Function.Torque_L_Nm 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_B.sf_MATLABFunction_a.Torque_R_Nm 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.SKIDPAD.TV_with_TC_OFF.MATLAB_Function.Torque_R_Nm 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_B.sf_RigidAxlewithTC2024_c.Motor_Torque_RL 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.ENDURANCE.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024.Motor_Torque_RL 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_B.sf_RigidAxlewithTC2024_c.Motor_Torque_RR 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.ENDURANCE.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024.Motor_Torque_RR 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_B.sf_RigidAxlewithTC2024_c.TC_Warning 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.ENDURANCE.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024.TC_Warning 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_B.sf_RigidAxlewithTC2024_p2.Motor_Torque_RL 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.AUTOX1.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024.Motor_Torque_RL 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_B.sf_RigidAxlewithTC2024_p2.Motor_Torque_RR 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.AUTOX1.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024.Motor_Torque_RR 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_B.sf_RigidAxlewithTC2024_p2.TC_Warning 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.AUTOX1.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024.TC_Warning 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_B.sf_Torquedemandedbythedriver_a.Throttle_Torque 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.AUTOX1.Torque_demanded_by_the_driver.Throttle_Torque 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_B.sf_Torquedemandedbythedriver_k.Throttle_Torque 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.ACCELERATION.Torque_demanded_by_the_driver.Throttle_Torque 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_B.sf_Torquedemandedbythedriver_m.Throttle_Torque 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.SKIDPAD.Torque_demanded_by_the_driver.Throttle_Torque 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_B.state 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.ENDURANCE.Torque.state.state 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -158,22 +421,6 @@ ASAP2_VERSION
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER VDC.APPS2_Value 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     VDC_U.Accumulator_Current 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDC_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDC.Accumulator_Current 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -242,6 +489,31 @@ ASAP2_VERSION
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
         /end MEASUREMENT
+        /begin COMPU_METHOD 
+            /* Name                */     VDC_CM_boolean 
+            /* Long identifier     */     "Q = V" 
+            /* ConversionType      */     RAT_FUNC 
+            /* Format              */     "%9.6" 
+            /* Unit                */     "NO_PHYSICAL_QTY" 
+            COEFFS            0.0 1.0 0.0 0.0 0.0 1.0  
+        /end COMPU_METHOD 
+
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_U.Disconnection_Mode 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.Disconnection_Mode 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
  
         /begin MEASUREMENT 
             /* Name                */     VDC_U.RL_Vel_ms_Wheel 
@@ -302,6 +574,22 @@ ASAP2_VERSION
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER VDC.RR_rads_Motor 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_U.RacingMode 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.RacingMode 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -404,22 +692,6 @@ ASAP2_VERSION
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     VDC_U.TV_Mode 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDC_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDC.TV_Mode 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
             /* Name                */     VDC_U.TorqueEnable 
             /* Long identifier     */     "" 
             /* Data type           */     UBYTE 
@@ -430,38 +702,6 @@ ASAP2_VERSION
             /* Upper limit         */     1 
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER VDC.TorqueEnable 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     VDC_U.VDC_Max_Tyre_Slip 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDC_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDC.VDC_Max_Tyre_Slip 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     VDC_U.Workshop_Mode_Enable 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDC_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDC.Workshop_Mode_Enable 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -596,7 +836,7 @@ ASAP2_VERSION
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     VDC_U.el_SlipAngle 
+            /* Name                */     VDC_U.el_VEL 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     VDC_CM_double 
@@ -605,55 +845,7 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDC.el_SlipAngle 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     VDC_U.el_Vel_X 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDC_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDC.el_Vel_X 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     VDC_U.el_Vel_Y 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDC_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDC.el_Vel_Y 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     VDC_U.el_Vel_Z 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDC_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDC.el_Vel_Z 
+            DISPLAY_IDENTIFIER VDC.el_VEL 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -692,7 +884,7 @@ ASAP2_VERSION
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     VDC_Y.Power 
+            /* Name                */     VDC_Y.BrakeLight_Control 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     VDC_CM_double 
@@ -701,39 +893,7 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDC.Power 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     VDC_Y.PowerLimitReached 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDC_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDC.PowerLimitReached 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     VDC_Y.PowerMean500ms 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     VDC_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDC.PowerMean500ms 
+            DISPLAY_IDENTIFIER VDC.BrakeLight_Control 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -756,14 +916,30 @@ ASAP2_VERSION
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     VDC_Y.TC_Warning 
+            /* Name                */     VDC_Y.Sensorics_Mode 
             /* Long identifier     */     "" 
-            /* Data type           */     UBYTE 
-            /* Conversion method   */     VDC_CM_boolean 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
             /* Resolution          */     0 
             /* Accuracy            */     0 
-            /* Lower limit         */     0 
-            /* Upper limit         */     1 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.Sensorics_Mode 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_Y.TC_Warning 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER VDC.TC_Warning 
             /begin IF_DATA E_TARGET 
@@ -788,7 +964,7 @@ ASAP2_VERSION
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     VDC_Y.Torque_L_out 
+            /* Name                */     VDC_Y.Torque_L 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     VDC_CM_double 
@@ -797,7 +973,7 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDC.Torque_L_out 
+            DISPLAY_IDENTIFIER VDC.Torque_L 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -820,7 +996,7 @@ ASAP2_VERSION
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     VDC_Y.Torque_R_out 
+            /* Name                */     VDC_Y.Torque_R 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     VDC_CM_double 
@@ -829,7 +1005,23 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER VDC.Torque_R_out 
+            DISPLAY_IDENTIFIER VDC.Torque_R 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     VDC_Y.VDC_Max_Tyre_Slip 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     VDC_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER VDC.VDC_Max_Tyre_Slip 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 

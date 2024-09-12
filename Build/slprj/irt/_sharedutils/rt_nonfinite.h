@@ -7,15 +7,16 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 10.13
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Mar 29 00:58:48 2024
+ * Model version              : 13.24
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Sat Sep  7 16:33:26 2024
  */
 
 #ifndef RTW_HEADER_rt_nonfinite_h_
 #define RTW_HEADER_rt_nonfinite_h_
 #include <stddef.h>
 #include "rtwtypes.h"
+#define NOT_USING_NONFINITE_LITERALS   1
 
 extern real_T rtInf;
 extern real_T rtMinusInf;

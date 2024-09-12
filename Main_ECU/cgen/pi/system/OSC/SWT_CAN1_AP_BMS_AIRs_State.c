@@ -7,7 +7,7 @@ extern void crossbarHook_1_0(void);
 extern void rtioHook_1_0(void);
 
 
-TASK_MONITOR_DEF(SWT_CAN1_AP_BMS_AIRs_State, thread11);
+TASK_MONITOR_DEF(SWT_CAN1_AP_BMS_AIRs_State, thread10);
 
 TASK(SWT_CAN1_AP_BMS_AIRs_State)
 {

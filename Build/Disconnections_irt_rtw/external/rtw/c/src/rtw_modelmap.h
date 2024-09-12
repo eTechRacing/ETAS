@@ -1,4 +1,4 @@
-/* Copyright 1994-2020 The MathWorks, Inc. */
+/* Copyright 1994-2022 The MathWorks, Inc. */
 
 /*
  * File: rtw_modelmap.h
@@ -27,7 +27,11 @@
 #ifdef HOST_CAPI_BUILD
 # include "simstruc_types.h"
 #else
-# include "rtwtypes.h"
+/* Macro SIMPLIFIED_RTWTYPES_COMPATIBILITY declares compatibility with simplified version of
+ * rtwtypes.h */
+#define SIMPLIFIED_RTWTYPES_COMPATIBILITY
+#include "rtwtypes.h"
+#undef SIMPLIFIED_RTWTYPES_COMPATIBILITY
 #endif
 
 #ifndef __RTW_UTFREE__

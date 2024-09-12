@@ -1,4 +1,4 @@
-/* Copyright 1990-2021 The MathWorks, Inc. */
+/* Copyright 1990-2023 The MathWorks, Inc. */
 
 /*
  *
@@ -16,6 +16,8 @@
 /* 32-bit and 64-bit exclusive typedefs */
 typedef struct DimsInfo_tag DimsInfo_AsInt;
 typedef struct DimsInfo_tag_SLSize DimsInfo_AsSLSize;
+typedef struct SparseHeader_Tag SparseHeader_AsInt;
+typedef struct SparseHeader_Tag_SLSize SparseHeader_AsSLSize;
 
 /* Forward-declaration of type for which the full definition is not needed everywhere */
 struct _ssMdlInfo;
@@ -53,6 +55,8 @@ typedef enum {
     MDL_INFO_ID_OUTPORT_BLOCK_SIGNAL,
     MDL_INFO_ID_MDL_WKS_PARAM,
     MDL_INFO_ID_INPORT_SIGNAL,
+    MDL_INFO_ID_BLOCK_PARAM,
+    MDL_INFO_ID_NMV_VARIANT_PARAM,
     NumMdlInfoType
 } MdlInfoType;
 

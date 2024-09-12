@@ -13,13 +13,13 @@ rtioHookTableEntry rtioHookTable0[1] = {NULL};
 /* rtio hook in task 1 SWT_CAN1_AP_BMS_AIRs_State */
 rtioHookTableEntry rtioHookTable1[1] = {NULL};
 
-/* rtio hook in task 2 SWT_CAN1_AP_BMS_BatteryTemperatures */
+/* rtio hook in task 2 SWT_CAN1_AP_BMS_ChargerParameters */
 rtioHookTableEntry rtioHookTable2[1] = {NULL};
 
-/* rtio hook in task 3 SWT_CAN1_AP_BMS_ChargerParameters */
+/* rtio hook in task 3 SWT_CAN1_AP_BMS_SDC */
 rtioHookTableEntry rtioHookTable3[1] = {NULL};
 
-/* rtio hook in task 4 SWT_CAN1_AP_BMS_SDC */
+/* rtio hook in task 4 SWT_CAN1_AP_BMS_Temperatures */
 rtioHookTableEntry rtioHookTable4[1] = {NULL};
 
 /* rtio hook in task 5 SWT_CAN1_AP_BMS_Voltages */
@@ -28,40 +28,40 @@ rtioHookTableEntry rtioHookTable5[1] = {NULL};
 /* rtio hook in task 6 SWT_CAN1_AP_CurrentSensor */
 rtioHookTableEntry rtioHookTable6[1] = {NULL};
 
-/* rtio hook in task 7 SWT_CAN1_AP_DASH_CustomMode */
+/* rtio hook in task 7 SWT_CAN1_AP_DASH_EnableDrive */
 rtioHookTableEntry rtioHookTable7[1] = {NULL};
 
-/* rtio hook in task 8 SWT_CAN1_AP_DASH_EnableDrive */
+/* rtio hook in task 8 SWT_CAN1_AP_DASH_Mode */
 rtioHookTableEntry rtioHookTable8[1] = {NULL};
 
-/* rtio hook in task 9 SWT_CAN1_AP_DASH_Mode */
+/* rtio hook in task 9 SWT_CAN1_AP_DASH_PrechargeRequest */
 rtioHookTableEntry rtioHookTable9[1] = {NULL};
 
-/* rtio hook in task 10 SWT_CAN1_AP_DASH_PrechargeRequest */
+/* rtio hook in task 10 SWT_CAN1_AP_Inverter_L_Tx */
 rtioHookTableEntry rtioHookTable10[1] = {NULL};
 
-/* rtio hook in task 11 SWT_CAN1_AP_DASH_TorqueLockOn */
+/* rtio hook in task 11 SWT_CAN1_AP_Inverter_R_Tx */
 rtioHookTableEntry rtioHookTable11[1] = {NULL};
 
-/* rtio hook in task 12 SWT_CAN1_AP_Inverter_L_Tx */
+/* rtio hook in task 12 SWT_CAN1_NM_BMS_Keep_Alive */
 rtioHookTableEntry rtioHookTable12[1] = {NULL};
 
-/* rtio hook in task 13 SWT_CAN1_AP_Inverter_R_Tx */
+/* rtio hook in task 13 SWT_CAN1_NM_DASH_Keep_Alive */
 rtioHookTableEntry rtioHookTable13[1] = {NULL};
 
-/* rtio hook in task 14 SWT_CAN1_NM_BMS_Keep_Alive */
+/* rtio hook in task 14 SWT_CAN2_AP_ELLIPSE_AUTO */
 rtioHookTableEntry rtioHookTable14[1] = {NULL};
 
-/* rtio hook in task 15 SWT_CAN1_NM_DASH_Keep_Alive */
+/* rtio hook in task 15 SWT_CAN2_AP_ELLIPSE_EKF_EULER */
 rtioHookTableEntry rtioHookTable15[1] = {NULL};
 
-/* rtio hook in task 16 SWT_CAN2_AP_ELLIPSE_EKF_EULER */
+/* rtio hook in task 16 SWT_CAN2_AP_ELLIPSE_EKF_POS */
 rtioHookTableEntry rtioHookTable16[1] = {NULL};
 
-/* rtio hook in task 17 SWT_CAN2_AP_ELLIPSE_EKF_POS */
+/* rtio hook in task 17 SWT_CAN2_AP_ELLIPSE_EKF_VEL */
 rtioHookTableEntry rtioHookTable17[1] = {NULL};
 
-/* rtio hook in task 18 SWT_CAN2_AP_ELLIPSE_EKF_VEL */
+/* rtio hook in task 18 SWT_CAN2_AP_ELLIPSE_GPS_VEL */
 rtioHookTableEntry rtioHookTable18[1] = {NULL};
 
 /* rtio hook in task 19 SWT_CAN2_AP_ELLIPSE_IMU_ACCEL */
@@ -70,7 +70,7 @@ rtioHookTableEntry rtioHookTable19[1] = {NULL};
 /* rtio hook in task 20 SWT_CAN2_AP_ELLIPSE_IMU_GYRO */
 rtioHookTableEntry rtioHookTable20[1] = {NULL};
 
-/* rtio hook in task 21 SWT_CAN2_AP_ELLIPSE_SLIP_CURV */
+/* rtio hook in task 21 SWT_CAN2_AP_ELLIPSE_VEL_Valid */
 rtioHookTableEntry rtioHookTable21[1] = {NULL};
 
 /* rtio hook in task 22 SWT_CAN2_AP_FECU_Data1 */
@@ -82,51 +82,48 @@ rtioHookTableEntry rtioHookTable23[1] = {NULL};
 /* rtio hook in task 24 SWT_CAN2_AP_RECU_Data */
 rtioHookTableEntry rtioHookTable24[1] = {NULL};
 
-/* rtio hook in task 25 SWT_CAN2_MEAS_FECU_SDC */
+/* rtio hook in task 25 SWT_CAN2_MEAS_RECU_SDC */
 rtioHookTableEntry rtioHookTable25[1] = {NULL};
 
-/* rtio hook in task 26 SWT_CAN2_MEAS_RECU_SDC */
+/* rtio hook in task 26 SWT_CAN2_NM_ELLIPSE_Status */
 rtioHookTableEntry rtioHookTable26[1] = {NULL};
 
-/* rtio hook in task 27 SWT_CAN2_NM_ELLIPSE_Status */
+/* rtio hook in task 27 SWT_CAN2_NM_FECU_Keep_Alive */
 rtioHookTableEntry rtioHookTable27[1] = {NULL};
 
-/* rtio hook in task 28 SWT_CAN2_NM_FECU_Keep_Alive */
+/* rtio hook in task 28 SWT_CAN2_NM_RECU_Keep_Alive */
 rtioHookTableEntry rtioHookTable28[1] = {NULL};
 
-/* rtio hook in task 29 SWT_CAN2_NM_RECU_Keep_Alive */
+/* rtio hook in task 29 Timer_1000ms */
 rtioHookTableEntry rtioHookTable29[1] = {NULL};
 
-/* rtio hook in task 30 Sync_25ms */
+/* rtio hook in task 30 Timer_100ms */
 rtioHookTableEntry rtioHookTable30[1] = {NULL};
 
-/* rtio hook in task 31 Timer_1000ms */
+/* rtio hook in task 31 Timer_25ms */
 rtioHookTableEntry rtioHookTable31[1] = {NULL};
 
-/* rtio hook in task 32 Timer_100ms */
+/* rtio hook in task 32 Timer_Inv */
 rtioHookTableEntry rtioHookTable32[1] = {NULL};
 
-/* rtio hook in task 33 Timer_25ms */
+/* rtio hook in task 33 Timer_Sync */
 rtioHookTableEntry rtioHookTable33[1] = {NULL};
 
-/* rtio hook in task 34 Timer_Inv */
+/* rtio hook in task 34 ISR_CAN1 */
 rtioHookTableEntry rtioHookTable34[1] = {NULL};
 
-/* rtio hook in task 35 ISR_CAN1 */
+/* rtio hook in task 35 ISR_CAN2 */
 rtioHookTableEntry rtioHookTable35[1] = {NULL};
 
-/* rtio hook in task 36 ISR_CAN2 */
+/* rtio hook in task 36 Init */
 rtioHookTableEntry rtioHookTable36[1] = {NULL};
 
-/* rtio hook in task 37 Init */
+/* rtio hook in task 37 Exit */
 rtioHookTableEntry rtioHookTable37[1] = {NULL};
-
-/* rtio hook in task 38 Exit */
-rtioHookTableEntry rtioHookTable38[1] = {NULL};
 
 
 /* rtio task table */
-rtioTaskTableEntry rtioTaskTable[39] =
+rtioTaskTableEntry rtioTaskTable[38] =
 {
 	{&rtioHookTable0[0]},
 	{&rtioHookTable1[0]},
@@ -165,8 +162,7 @@ rtioTaskTableEntry rtioTaskTable[39] =
 	{&rtioHookTable34[0]},
 	{&rtioHookTable35[0]},
 	{&rtioHookTable36[0]},
-	{&rtioHookTable37[0]},
-	{&rtioHookTable38[0]}
+	{&rtioHookTable37[0]}
 };
 
 /* rtio hook processes */
@@ -389,19 +385,13 @@ void rtioHook_35_0(void)
 void rtioHook_36_0(void)
 {
 	rtioHook(36,0);
+	INIT_EXIT_FW_HOOK
 	return;
 }
 
 void rtioHook_37_0(void)
 {
 	rtioHook(37,0);
-	INIT_EXIT_FW_HOOK
-	return;
-}
-
-void rtioHook_38_0(void)
-{
-	rtioHook(38,0);
 	INIT_EXIT_FW_HOOK
 	return;
 }

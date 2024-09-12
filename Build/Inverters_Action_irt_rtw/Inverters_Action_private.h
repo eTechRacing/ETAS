@@ -7,9 +7,9 @@
  *
  * Code generation for model "Inverters_Action".
  *
- * Model version              : 10.2
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Mar 29 01:01:21 2024
+ * Model version              : 13.34
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Sat Sep  7 16:35:08 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -25,11 +25,14 @@
 #include "multiword_types.h"
 #include "zero_crossing_types.h"
 #include "Inverters_Action.h"
+#include "Inverters_Action_types.h"
 
 extern void Inverters_Ac_RegisterEnumerator(uint8_T *rty_Register, boolean_T
   *rty_MuxEnable1, boolean_T *rty_u00, real_T *rtd_EnumerationCounter);
 extern void Inverters_Actio_EnumerationDone(boolean_T rtu_SubscribedIn, uint8_T *
   rty_DummyRegister, boolean_T *rty_MuxEnable0, boolean_T *rty_SubscribedOut);
+extern void Inverters_Action_Unsubscribe(uint8_T *rty_uXFFStopTransmission,
+  boolean_T *rty_u);
 extern void Inverte_DisableDriveEnableDrive(real_T rtu_action, uint8_T
   *rty_RegID, uint8_T *rty_b7tob0, uint8_T *rty_b15tob8, boolean_T
   *rty_MuxEnable);

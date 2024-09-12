@@ -1,0 +1,76 @@
+<?DTDVersion "2.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!NOTATION ofTypeX86NodeMain SYSTEM "X86NodeMain">
+<!NOTATION ofTypeESNode SYSTEM "ESNode">
+<!NOTATION ofTypeESNodeDevice SYSTEM "ESNodeDevice">
+<!NOTATION ofTypeESNodeMain SYSTEM "ESNodeMain">
+<!NOTATION ofTypeESNodeProcessor SYSTEM "ESNodeProcessor">
+<!NOTATION ofTypeESNodeSignal SYSTEM "ESNodeSignal">
+<!NOTATION ofTypeESNodeSignalGroup SYSTEM "ESNodeSignalGroup">
+<!NOTATION ofTypeESPoolSignal SYSTEM "ESPoolSignal">
+<!NOTATION ofTypeESSystem SYSTEM "ESSystem">
+
+<?SuperClass X86NodeMain->ESNodeProcessor ?>
+
+<!ELEMENT X86NodeMain (X86NodeMain.Parameters, X86NodeMain.L1Generation, X86NodeMain.SubNodes, _System)>
+<!ATTLIST X86NodeMain
+    Name ID #REQUIRED
+    ConfigurationID CDATA ""
+    
+    GlobalObject.ofTypeYBOCPUBoard ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOECU ENTITY #REQUIRED
+>
+<!ELEMENT X86NodeMain.Parameters (X86NodeMainParameters)>
+<!ELEMENT X86NodeMain.L1Generation (X86NodeMainL1Generation)>
+<!ELEMENT X86NodeMain.SubNodes (X86NodeMainSubNodeList)>
+
+<!ELEMENT X86NodeMainL1Generation (X86NodeMainL1Generation.NotRunning, X86NodeMainL1Generation.Reconnect, X86NodeMainL1Generation.WriteToStream)>
+<!ATTLIST X86NodeMainL1Generation
+    L1TreeIndex CDATA "-1"
+    ObjectsToReconnect CDATA "-1"
+>
+
+<!ELEMENT X86NodeMainL1Generation.NotRunning (X86NodeMainL1GenerationNotRunning)>
+<!ELEMENT X86NodeMainL1Generation.Reconnect (X86NodeMainL1GenerationReconnect)>
+<!ELEMENT X86NodeMainL1Generation.WriteToStream (X86NodeMainL1GenerationWriteToStream)>
+
+<!ELEMENT X86NodeMainL1GenerationNotRunning EMPTY>
+<!ELEMENT X86NodeMainL1GenerationReconnect EMPTY>
+<!ELEMENT X86NodeMainL1GenerationWriteToStream EMPTY>
+
+<!ELEMENT X86NodeMainParameters (X86NodeMainParameters.Name,X86NodeMainParameters.Enabled,X86NodeMainParameters.IOFailureBehaviour,X86NodeMainParameters.TimeBase)>
+
+<!ELEMENT X86NodeMainParameters.Name (ESParameterName)>
+<!ELEMENT X86NodeMainParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT X86NodeMainParameters.IOFailureBehaviour (ESParameterEnum)>
+<!ELEMENT X86NodeMainParameters.TimeBase (ESParameterEnum)>
+
+<!ATTLIST X86NodeMainParameters.IOFailureBehaviour 
+    EnumText1      CDATA "abort"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "continue"
+    EnumL1Value2     CDATA "0"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ATTLIST X86NodeMainParameters.TimeBase 
+        EnumText1      CDATA "Adaptive Time"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+        EnumText2      CDATA "Scaled Real-Time"
+    EnumL1Value2     CDATA "0"
+    EnumAvailable2 CDATA "1"
+
+
+>
+
+<!ELEMENT X86NodeMainSubNodeList (ESNodeRef)*>

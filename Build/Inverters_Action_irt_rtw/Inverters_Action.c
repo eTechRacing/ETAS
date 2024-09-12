@@ -7,9 +7,9 @@
  *
  * Code generation for model "Inverters_Action".
  *
- * Model version              : 10.2
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Mar 29 01:01:21 2024
+ * Model version              : 13.34
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Sat Sep  7 16:35:08 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -43,24 +43,24 @@ RT_MODEL_Inverters_Action_T *const Inverters_Action_M = &Inverters_Action_M_;
 
 /*
  * Output and update for action system:
- *    '<S8>/Register Enumerator '
- *    '<S33>/Register Enumerator '
+ *    '<S11>/Register Enumerator '
+ *    '<S36>/Register Enumerator '
  */
 void Inverters_Ac_RegisterEnumerator(uint8_T *rty_Register, boolean_T
   *rty_MuxEnable1, boolean_T *rty_u00, real_T *rtd_EnumerationCounter)
 {
   real_T rtb_Counter;
 
-  /* DataStoreRead: '<S16>/Parameter Counter Read' */
+  /* DataStoreRead: '<S20>/Parameter Counter Read' */
   rtb_Counter = *rtd_EnumerationCounter;
 
-  /* DataStoreWrite: '<S16>/Parameter Counter Write' incorporates:
-   *  Constant: '<S16>/Constant'
-   *  Sum: '<S16>/Add'
+  /* DataStoreWrite: '<S20>/Parameter Counter Write' incorporates:
+   *  Constant: '<S20>/Constant'
+   *  Sum: '<S20>/Add'
    */
   (*rtd_EnumerationCounter)++;
 
-  /* SwitchCase: '<S16>/Switch Case' */
+  /* SwitchCase: '<S20>/Switch Case' */
   rtb_Counter = trunc(rtb_Counter);
   if (rtIsNaN(rtb_Counter) || rtIsInf(rtb_Counter)) {
     rtb_Counter = 0.0;
@@ -71,147 +71,154 @@ void Inverters_Ac_RegisterEnumerator(uint8_T *rty_Register, boolean_T
   switch (rtb_Counter < 0.0 ? -(int32_T)(uint32_T)-rtb_Counter : (int32_T)
           (uint32_T)rtb_Counter) {
    case 0:
-    /* Outputs for IfAction SubSystem: '<S16>/I actual' incorporates:
-     *  ActionPort: '<S20>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S20>/I actual' incorporates:
+     *  ActionPort: '<S23>/Action Port'
      */
-    /* SignalConversion generated from: '<S20>/I actual Register Address' incorporates:
-     *  Constant: '<S20>/0x20'
+    /* SignalConversion generated from: '<S23>/I actual Register Address' incorporates:
+     *  Constant: '<S23>/0x20'
      */
     *rty_Register = 32U;
 
-    /* End of Outputs for SubSystem: '<S16>/I actual' */
+    /* End of Outputs for SubSystem: '<S20>/I actual' */
     break;
 
    case 1:
-    /* Outputs for IfAction SubSystem: '<S16>/I cmd' incorporates:
-     *  ActionPort: '<S21>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S20>/I cmd' incorporates:
+     *  ActionPort: '<S24>/Action Port'
      */
-    /* SignalConversion generated from: '<S21>/I cmd Register Address' incorporates:
-     *  Constant: '<S21>/0x26'
+    /* SignalConversion generated from: '<S24>/I cmd Register Address' incorporates:
+     *  Constant: '<S24>/0x26'
      */
     *rty_Register = 38U;
 
-    /* End of Outputs for SubSystem: '<S16>/I cmd' */
+    /* End of Outputs for SubSystem: '<S20>/I cmd' */
     break;
 
    case 2:
-    /* Outputs for IfAction SubSystem: '<S16>/Iq actual' incorporates:
-     *  ActionPort: '<S22>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S20>/Iq actual' incorporates:
+     *  ActionPort: '<S25>/Action Port'
      */
-    /* SignalConversion generated from: '<S22>/Iq actual Register Address' incorporates:
-     *  Constant: '<S22>/0x27'
+    /* SignalConversion generated from: '<S25>/Iq actual Register Address' incorporates:
+     *  Constant: '<S25>/0x27'
      */
     *rty_Register = 39U;
 
-    /* End of Outputs for SubSystem: '<S16>/Iq actual' */
+    /* End of Outputs for SubSystem: '<S20>/Iq actual' */
     break;
 
    case 3:
-    /* Outputs for IfAction SubSystem: '<S16>/N actual' incorporates:
-     *  ActionPort: '<S23>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S20>/N actual' incorporates:
+     *  ActionPort: '<S26>/Action Port'
      */
-    /* SignalConversion generated from: '<S23>/N actual Register Address' incorporates:
-     *  Constant: '<S23>/0x30'
+    /* SignalConversion generated from: '<S26>/N actual Register Address' incorporates:
+     *  Constant: '<S26>/0x30'
      */
     *rty_Register = 48U;
 
-    /* End of Outputs for SubSystem: '<S16>/N actual' */
+    /* End of Outputs for SubSystem: '<S20>/N actual' */
     break;
 
    case 4:
-    /* Outputs for IfAction SubSystem: '<S16>/T-motor' incorporates:
-     *  ActionPort: '<S26>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S20>/T-motor' incorporates:
+     *  ActionPort: '<S29>/Action Port'
      */
-    /* SignalConversion generated from: '<S26>/T-motor Register Address' incorporates:
-     *  Constant: '<S26>/0x49'
+    /* SignalConversion generated from: '<S29>/T-motor Register Address' incorporates:
+     *  Constant: '<S29>/0x49'
      */
     *rty_Register = 73U;
 
-    /* End of Outputs for SubSystem: '<S16>/T-motor' */
+    /* End of Outputs for SubSystem: '<S20>/T-motor' */
     break;
 
    case 5:
-    /* Outputs for IfAction SubSystem: '<S16>/T-igbt' incorporates:
-     *  ActionPort: '<S25>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S20>/T-igbt' incorporates:
+     *  ActionPort: '<S28>/Action Port'
      */
-    /* SignalConversion generated from: '<S25>/T-igbt Register Address' incorporates:
-     *  Constant: '<S25>/0x4A'
+    /* SignalConversion generated from: '<S28>/T-igbt Register Address' incorporates:
+     *  Constant: '<S28>/0x4A'
      */
     *rty_Register = 74U;
 
-    /* End of Outputs for SubSystem: '<S16>/T-igbt' */
+    /* End of Outputs for SubSystem: '<S20>/T-igbt' */
     break;
 
    case 6:
-    /* Outputs for IfAction SubSystem: '<S16>/(in) Run (Frg)' incorporates:
-     *  ActionPort: '<S19>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S20>/Vdc-Bus' incorporates:
+     *  ActionPort: '<S30>/Action Port'
      */
-    /* SignalConversion generated from: '<S19>/(in) Run (Frg) Register Address' incorporates:
-     *  Constant: '<S19>/0xE8'
-     */
-    *rty_Register = 232U;
-
-    /* End of Outputs for SubSystem: '<S16>/(in) Run (Frg)' */
-    break;
-
-   case 7:
-    /* Outputs for IfAction SubSystem: '<S16>/Vdc-Bus' incorporates:
-     *  ActionPort: '<S27>/Action Port'
-     */
-    /* SignalConversion generated from: '<S27>/Vdc-Bus Register Address' incorporates:
-     *  Constant: '<S27>/0xEB'
+    /* SignalConversion generated from: '<S30>/Vdc-Bus Register Address' incorporates:
+     *  Constant: '<S30>/0xEB'
      */
     *rty_Register = 235U;
 
-    /* End of Outputs for SubSystem: '<S16>/Vdc-Bus' */
+    /* End of Outputs for SubSystem: '<S20>/Vdc-Bus' */
     break;
 
    default:
-    /* Outputs for IfAction SubSystem: '<S16>/Register to Read' incorporates:
-     *  ActionPort: '<S24>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S20>/Register to Read' incorporates:
+     *  ActionPort: '<S27>/Action Port'
      */
-    /* SignalConversion generated from: '<S24>/[Param] Register Address' incorporates:
-     *  Constant: '<S24>/ Register adress'
+    /* SignalConversion generated from: '<S27>/[Param] Register Address' incorporates:
+     *  Constant: '<S27>/ Register adress'
      */
     *rty_Register = 0U;
 
-    /* End of Outputs for SubSystem: '<S16>/Register to Read' */
+    /* End of Outputs for SubSystem: '<S20>/Register to Read' */
     break;
   }
 
-  /* End of SwitchCase: '<S16>/Switch Case' */
+  /* End of SwitchCase: '<S20>/Switch Case' */
 
-  /* SignalConversion generated from: '<S16>/MuxEnable:1' incorporates:
-   *  Constant: '<S16>/Constant1'
+  /* SignalConversion generated from: '<S20>/MuxEnable:1' incorporates:
+   *  Constant: '<S20>/Constant1'
    */
   *rty_MuxEnable1 = true;
 
-  /* SignalConversion generated from: '<S16>/100' incorporates:
-   *  Constant: '<S16>/Constant2'
+  /* SignalConversion generated from: '<S20>/100' incorporates:
+   *  Constant: '<S20>/Constant2'
    */
   *rty_u00 = true;
 }
 
 /*
  * Output and update for action system:
- *    '<S8>/EnumerationDone'
- *    '<S33>/EnumerationDone'
+ *    '<S11>/EnumerationDone'
+ *    '<S36>/EnumerationDone'
  */
 void Inverters_Actio_EnumerationDone(boolean_T rtu_SubscribedIn, uint8_T
   *rty_DummyRegister, boolean_T *rty_MuxEnable0, boolean_T *rty_SubscribedOut)
 {
-  /* SignalConversion generated from: '<S15>/DummyRegister' incorporates:
-   *  Constant: '<S15>/Constant'
+  /* SignalConversion generated from: '<S19>/DummyRegister' incorporates:
+   *  Constant: '<S19>/Constant'
    */
   *rty_DummyRegister = 0U;
 
-  /* SignalConversion generated from: '<S15>/MuxEnable: 0' incorporates:
-   *  Constant: '<S15>/Constant1'
+  /* SignalConversion generated from: '<S19>/MuxEnable: 0' incorporates:
+   *  Constant: '<S19>/Constant1'
    */
   *rty_MuxEnable0 = false;
 
-  /* SignalConversion generated from: '<S15>/Subscribed In' */
+  /* SignalConversion generated from: '<S19>/Subscribed In' */
   *rty_SubscribedOut = rtu_SubscribedIn;
+}
+
+/*
+ * Output and update for action system:
+ *    '<S11>/Unsubscribe'
+ *    '<S36>/Unsubscribe'
+ */
+void Inverters_Action_Unsubscribe(uint8_T *rty_uXFFStopTransmission, boolean_T
+  *rty_u)
+{
+  /* SignalConversion generated from: '<S22>/0XFF Stop Transmission' incorporates:
+   *  Constant: '<S22>/0XFF'
+   */
+  *rty_uXFFStopTransmission = MAX_uint8_T;
+
+  /* SignalConversion generated from: '<S22>/0' incorporates:
+   *  Constant: '<S22>/ '
+   */
+  *rty_u = false;
 }
 
 /*
@@ -222,42 +229,42 @@ void Inverters_Actio_EnumerationDone(boolean_T rtu_SubscribedIn, uint8_T
 void Inverte_DisableDriveEnableDrive(real_T rtu_action, uint8_T *rty_RegID,
   uint8_T *rty_b7tob0, uint8_T *rty_b15tob8, boolean_T *rty_MuxEnable)
 {
-  /* SignalConversion generated from: '<S4>/RegID' incorporates:
-   *  Constant: '<S4>/0x51'
+  /* SignalConversion generated from: '<S7>/RegID' incorporates:
+   *  Constant: '<S7>/0x51'
    */
   *rty_RegID = 81U;
 
-  /* If: '<S4>/If' incorporates:
-   *  Constant: '<S11>/Constant'
+  /* If: '<S7>/If' incorporates:
+   *  Constant: '<S14>/Constant'
    */
   if (rtu_action == 21.0) {
-    /* Outputs for IfAction SubSystem: '<S4>/Enable' incorporates:
-     *  ActionPort: '<S11>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S7>/Enable' incorporates:
+     *  ActionPort: '<S14>/Action Port'
      */
     *rty_b7tob0 = 0U;
 
-    /* End of Outputs for SubSystem: '<S4>/Enable' */
+    /* End of Outputs for SubSystem: '<S7>/Enable' */
   } else {
-    /* Outputs for IfAction SubSystem: '<S4>/If Action Subsystem1' incorporates:
-     *  ActionPort: '<S12>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S7>/If Action Subsystem1' incorporates:
+     *  ActionPort: '<S15>/Action Port'
      */
-    /* SignalConversion generated from: '<S12>/Out1' incorporates:
-     *  Constant: '<S12>/Constant'
+    /* SignalConversion generated from: '<S15>/Out1' incorporates:
+     *  Constant: '<S15>/Constant'
      */
     *rty_b7tob0 = 4U;
 
-    /* End of Outputs for SubSystem: '<S4>/If Action Subsystem1' */
+    /* End of Outputs for SubSystem: '<S7>/If Action Subsystem1' */
   }
 
-  /* End of If: '<S4>/If' */
+  /* End of If: '<S7>/If' */
 
-  /* SignalConversion generated from: '<S4>/b15 to b8' incorporates:
-   *  Constant: '<S4>/Constant'
+  /* SignalConversion generated from: '<S7>/b15 to b8' incorporates:
+   *  Constant: '<S7>/Constant'
    */
   *rty_b15tob8 = 0U;
 
-  /* SignalConversion generated from: '<S4>/MuxEnable' incorporates:
-   *  Constant: '<S4>/void1'
+  /* SignalConversion generated from: '<S7>/MuxEnable' incorporates:
+   *  Constant: '<S7>/void1'
    */
   *rty_MuxEnable = true;
 }
@@ -274,12 +281,12 @@ void Inverters_Action_TorqueCommand(real_T rtu_IqCurrent, uint8_T *rty_RegID,
   real_T tmp;
   uint16_T rtb_BitwiseOperator1;
 
-  /* SignalConversion generated from: '<S6>/RegID' incorporates:
-   *  Constant: '<S6>/0x90'
+  /* SignalConversion generated from: '<S9>/RegID' incorporates:
+   *  Constant: '<S9>/0x90'
    */
   *rty_RegID = 144U;
 
-  /* Product: '<S6>/Product' */
+  /* Product: '<S9>/Product' */
   tmp = floor(localC->Divide * rtu_IqCurrent);
   if (rtIsNaN(tmp) || rtIsInf(tmp)) {
     tmp = 0.0;
@@ -290,21 +297,21 @@ void Inverters_Action_TorqueCommand(real_T rtu_IqCurrent, uint8_T *rty_RegID,
   rtb_BitwiseOperator1 = (uint16_T)(tmp < 0.0 ? (int32_T)(uint16_T)-(int16_T)
     (uint16_T)-tmp : (int32_T)(uint16_T)tmp);
 
-  /* End of Product: '<S6>/Product' */
+  /* End of Product: '<S9>/Product' */
 
-  /* DataTypeConversion: '<S13>/Data Type Conversion' incorporates:
-   *  S-Function (sfix_bitop): '<S13>/Bitwise Operator'
+  /* DataTypeConversion: '<S17>/Data Type Conversion' incorporates:
+   *  S-Function (sfix_bitop): '<S17>/Bitwise Operator'
    */
   *rty_b7tob0 = (uint8_T)(rtb_BitwiseOperator1 & 255);
 
-  /* DataTypeConversion: '<S13>/Data Type Conversion1' incorporates:
-   *  ArithShift: '<S13>/Shift Arithmetic'
-   *  S-Function (sfix_bitop): '<S13>/Bitwise Operator1'
+  /* DataTypeConversion: '<S17>/Data Type Conversion1' incorporates:
+   *  ArithShift: '<S17>/Shift Arithmetic'
+   *  S-Function (sfix_bitop): '<S17>/Bitwise Operator1'
    */
   *rty_b15tob8 = (uint8_T)((uint32_T)rtb_BitwiseOperator1 >> 8);
 
-  /* SignalConversion generated from: '<S6>/MuxEnable' incorporates:
-   *  Constant: '<S6>/Always Enabled if action is torquecommand'
+  /* SignalConversion generated from: '<S9>/MuxEnable' incorporates:
+   *  Constant: '<S9>/Always Enabled if action is torquecommand'
    */
   *rty_MuxEnable = true;
 }
@@ -317,23 +324,23 @@ void Inverters_Action_TorqueCommand(real_T rtu_IqCurrent, uint8_T *rty_RegID,
 void Inverters_Acti_ActionnotDefined(uint8_T *rty_RegID, uint8_T *rty_b7tob0,
   uint8_T *rty_b15tob8, boolean_T *rty_MuxDisable)
 {
-  /* SignalConversion generated from: '<S3>/RegID' incorporates:
-   *  Constant: '<S3>/0 1'
+  /* SignalConversion generated from: '<S6>/RegID' incorporates:
+   *  Constant: '<S6>/0 1'
    */
   *rty_RegID = 0U;
 
-  /* SignalConversion generated from: '<S3>/b7 to b0' incorporates:
-   *  Constant: '<S3>/0 2'
+  /* SignalConversion generated from: '<S6>/b7 to b0' incorporates:
+   *  Constant: '<S6>/0 2'
    */
   *rty_b7tob0 = 0U;
 
-  /* SignalConversion generated from: '<S3>/b15 to b8' incorporates:
-   *  Constant: '<S3>/0 3'
+  /* SignalConversion generated from: '<S6>/b15 to b8' incorporates:
+   *  Constant: '<S6>/0 3'
    */
   *rty_b15tob8 = 0U;
 
-  /* SignalConversion generated from: '<S3>/MuxDisable' incorporates:
-   *  Constant: '<S3>/0 '
+  /* SignalConversion generated from: '<S6>/MuxDisable' incorporates:
+   *  Constant: '<S6>/0 '
    */
   *rty_MuxDisable = false;
 }
@@ -347,13 +354,13 @@ void Inverters_Action_bypass(uint8_T rtu_InRegID, uint8_T rtu_Inb7tob0, uint8_T
   rtu_Inb15tob8, uint8_T *rty_OutRegID, uint8_T *rty_Outb7tob0, uint8_T
   *rty_Outb15tob8)
 {
-  /* SignalConversion generated from: '<S9>/In RegID' */
+  /* SignalConversion generated from: '<S12>/In RegID' */
   *rty_OutRegID = rtu_InRegID;
 
-  /* SignalConversion generated from: '<S9>/In b7 to b0' */
+  /* SignalConversion generated from: '<S12>/In b7 to b0' */
   *rty_Outb7tob0 = rtu_Inb7tob0;
 
-  /* SignalConversion generated from: '<S9>/In b15 to b8' */
+  /* SignalConversion generated from: '<S12>/In b15 to b8' */
   *rty_Outb15tob8 = rtu_Inb15tob8;
 }
 
@@ -365,15 +372,15 @@ void Inverters_Action_bypass(uint8_T rtu_InRegID, uint8_T rtu_Inb7tob0, uint8_T
 void Inverters_Action_TorqueCommand0(uint8_T *rty_RegID, uint8_T *rty_b7tob0,
   uint8_T *rty_b15tob8, const ConstB_TorqueCommand0_Inverte_T *localC)
 {
-  /* SignalConversion generated from: '<S7>/RegID' incorporates:
-   *  Constant: '<S7>/0x90'
+  /* SignalConversion generated from: '<S10>/RegID' incorporates:
+   *  Constant: '<S10>/0x90'
    */
   *rty_RegID = 144U;
 
-  /* DataTypeConversion: '<S14>/Data Type Conversion' */
+  /* DataTypeConversion: '<S18>/Data Type Conversion' */
   *rty_b7tob0 = (uint8_T)localC->b7tob0;
 
-  /* DataTypeConversion: '<S14>/Data Type Conversion1' */
+  /* DataTypeConversion: '<S18>/Data Type Conversion1' */
   *rty_b15tob8 = (uint8_T)localC->BitwiseOperator1;
 }
 
@@ -384,8 +391,8 @@ void Inverters_Action_TorqueCommand0(uint8_T *rty_RegID, uint8_T *rty_b7tob0,
  */
 void Inverters_Acti_ResetEnumeration(real_T *rtd_EnumerationCounter)
 {
-  /* DataStoreWrite: '<S5>/Parameter Counter Write' incorporates:
-   *  Constant: '<S5>/Constant1'
+  /* DataStoreWrite: '<S8>/Parameter Counter Write' incorporates:
+   *  Constant: '<S8>/Constant1'
    */
   *rtd_EnumerationCounter = 0.0;
 }
@@ -393,39 +400,116 @@ void Inverters_Acti_ResetEnumeration(real_T *rtd_EnumerationCounter)
 /* Model output function */
 static void Inverters_Action_output(void)
 {
+  real_T rtb_Merge1;
   real_T tmp;
   real_T tmp_0;
-  uint8_T rtb_Merge;
-  uint8_T rtb_Merge1;
-  uint8_T rtb_Merge3;
-  uint8_T rtb_Merge4;
-  uint8_T rtb_Merge5;
-  boolean_T rtb_MergeMuxEnable;
+  uint8_T rtb_Merge1_c;
+  uint8_T rtb_Merge_k;
+  boolean_T rtb_NOR1;
   boolean_T tmp_1;
   boolean_T tmp_2;
 
-  /* Outputs for IfAction SubSystem: '<S1>/Unsubscribe//Subscribe' incorporates:
-   *  ActionPort: '<S8>/Action Port'
+  /* If: '<Root>/If' incorporates:
+   *  Inport: '<Root>/RacingMode'
    */
+  if (Inverters_Action_U.RacingMode == 3.0) {
+    Inverters_Action_DW.If_ActiveSubsystem = 0;
+
+    /* Outputs for IfAction SubSystem: '<Root>/Forced Forward Direction accel' incorporates:
+     *  ActionPort: '<S3>/Action Port'
+     */
+    /* Logic: '<S3>/NOR1' incorporates:
+     *  Memory: '<S3>/Memory1'
+     */
+    rtb_NOR1 = !Inverters_Action_DW.Memory1_PreviousInput;
+
+    /* If: '<S3>/If2' */
+    if (rtb_NOR1) {
+      /* Outputs for IfAction SubSystem: '<S3>/Initial direction WRONG' incorporates:
+       *  ActionPort: '<S60>/Action Port'
+       */
+      /* Gain: '<S60>/Gain' incorporates:
+       *  Inport: '<Root>/current_L'
+       */
+      rtb_Merge1 = -Inverters_Action_U.current_L;
+
+      /* End of Outputs for SubSystem: '<S3>/Initial direction WRONG' */
+    } else {
+      /* Outputs for IfAction SubSystem: '<S3>/Initial direction OK' incorporates:
+       *  ActionPort: '<S59>/Action Port'
+       */
+      /* Gain: '<S59>/Gain' incorporates:
+       *  Inport: '<Root>/current_L'
+       */
+      rtb_Merge1 = Inverters_Action_U.current_L;
+
+      /* End of Outputs for SubSystem: '<S3>/Initial direction OK' */
+    }
+
+    /* End of If: '<S3>/If2' */
+
+    /* If: '<S3>/If' incorporates:
+     *  Abs: '<S3>/Abs'
+     *  Gain: '<S3>/Gain'
+     *  Inport: '<Root>/Car_State'
+     *  Inport: '<Root>/RL_rads_Motor'
+     *  Logic: '<S3>/NOR'
+     */
+    Inverters_Action_B.NOR = (((!(9.5492965855137211 * fabs
+      (Inverters_Action_U.RL_rads_Motor) > 60.0)) ||
+      (!(Inverters_Action_U.Car_State == 15.0)) ||
+      (!(Inverters_Action_U.RL_rads_Motor < 0.0))) && (!rtb_NOR1));
+
+    /* End of Outputs for SubSystem: '<Root>/Forced Forward Direction accel' */
+  } else if (Inverters_Action_U.RacingMode == 2.0) {
+    Inverters_Action_DW.If_ActiveSubsystem = 1;
+
+    /* Outputs for IfAction SubSystem: '<Root>/Negative_current_skid' incorporates:
+     *  ActionPort: '<S4>/Action Port'
+     */
+    /* Gain: '<S4>/Gain' incorporates:
+     *  Inport: '<Root>/current_L'
+     */
+    rtb_Merge1 = -Inverters_Action_U.current_L;
+
+    /* End of Outputs for SubSystem: '<Root>/Negative_current_skid' */
+  } else {
+    Inverters_Action_DW.If_ActiveSubsystem = 2;
+
+    /* Outputs for IfAction SubSystem: '<Root>/Positive current' incorporates:
+     *  ActionPort: '<S5>/Action Port'
+     */
+    /* SignalConversion generated from: '<S5>/current_L' incorporates:
+     *  Inport: '<Root>/current_L'
+     */
+    rtb_Merge1 = Inverters_Action_U.current_L;
+
+    /* End of Outputs for SubSystem: '<Root>/Positive current' */
+  }
+
+  /* End of If: '<Root>/If' */
+
   /* Outputs for IfAction SubSystem: '<S2>/Unsubscribe//Subscribe' incorporates:
-   *  ActionPort: '<S33>/Action Port'
+   *  ActionPort: '<S36>/Action Port'
    */
-  /* SwitchCase: '<S8>/Unsubscribe//Subscribe' incorporates:
+  /* Outputs for IfAction SubSystem: '<S1>/Unsubscribe//Subscribe' incorporates:
+   *  ActionPort: '<S11>/Action Port'
+   */
+  /* SwitchCase: '<S36>/Unsubscribe//Subscribe' incorporates:
    *  Inport: '<Root>/InvertersAction'
+   *  SwitchCase: '<S11>/Unsubscribe//Subscribe'
    *  SwitchCase: '<S1>/Action Selector'
    *  SwitchCase: '<S2>/Action Selector'
-   *  SwitchCase: '<S33>/Unsubscribe//Subscribe'
    */
   tmp_0 = trunc(Inverters_Action_U.InvertersAction);
   tmp_1 = rtIsNaN(tmp_0);
   tmp_2 = rtIsInf(tmp_0);
 
-  /* End of Outputs for SubSystem: '<S2>/Unsubscribe//Subscribe' */
   /* End of Outputs for SubSystem: '<S1>/Unsubscribe//Subscribe' */
+  /* End of Outputs for SubSystem: '<S2>/Unsubscribe//Subscribe' */
 
-  /* SwitchCase: '<S2>/Action Selector' incorporates:
+  /* SwitchCase: '<S1>/Action Selector' incorporates:
    *  Inport: '<Root>/InvertersAction'
-   *  Inport: '<Root>/current_L'
    */
   if (tmp_1 || tmp_2) {
     tmp = 0.0;
@@ -436,10 +520,10 @@ static void Inverters_Action_output(void)
   switch (tmp < 0.0 ? -(int32_T)(uint32_T)-tmp : (int32_T)(uint32_T)tmp) {
    case 10:
    case 11:
-    /* Outputs for IfAction SubSystem: '<S2>/Unsubscribe//Subscribe' incorporates:
-     *  ActionPort: '<S33>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S1>/Unsubscribe//Subscribe' incorporates:
+     *  ActionPort: '<S11>/Action Port'
      */
-    /* SwitchCase: '<S33>/Unsubscribe//Subscribe' */
+    /* SwitchCase: '<S11>/Unsubscribe//Subscribe' */
     if (tmp_1 || tmp_2) {
       tmp = 0.0;
     } else {
@@ -448,139 +532,133 @@ static void Inverters_Action_output(void)
 
     switch (tmp < 0.0 ? -(int32_T)(uint32_T)-tmp : (int32_T)(uint32_T)tmp) {
      case 10:
-      /* Outputs for IfAction SubSystem: '<S33>/Unsubscribe' incorporates:
-       *  ActionPort: '<S43>/Action Port'
+      /* Outputs for IfAction SubSystem: '<S11>/Unsubscribe' incorporates:
+       *  ActionPort: '<S22>/Action Port'
        */
-      /* Merge: '<S2>/Merge2' incorporates:
-       *  Constant: '<S43>/0XFF'
-       *  SignalConversion generated from: '<S43>/0XFF Stop Transmission'
-       */
-      Inverters_Action_B.Merge2 = MAX_uint8_T;
+      Inverters_Action_Unsubscribe(&Inverters_Action_B.Merge2,
+        &Inverters_Action_B.subscribed_k);
 
-      /* Merge: '<S33>/subscribed?' incorporates:
-       *  Constant: '<S43>/ '
-       *  SignalConversion generated from: '<S43>/0'
-       */
-      Inverters_Action_B.subscribed = true;
-
-      /* End of Outputs for SubSystem: '<S33>/Unsubscribe' */
+      /* End of Outputs for SubSystem: '<S11>/Unsubscribe' */
       break;
 
      case 11:
-      /* Outputs for IfAction SubSystem: '<S33>/Subscribe' incorporates:
-       *  ActionPort: '<S42>/Action Port'
+      /* Outputs for IfAction SubSystem: '<S11>/Subscribe' incorporates:
+       *  ActionPort: '<S21>/Action Port'
        */
-      /* Merge: '<S2>/Merge2' incorporates:
-       *  Constant: '<S42>/Time Interval'
-       *  SignalConversion generated from: '<S42>/15ms'
+      /* Merge: '<S1>/Merge2' incorporates:
+       *  Constant: '<S21>/Time Interval'
+       *  SignalConversion generated from: '<S21>/ms'
        */
-      Inverters_Action_B.Merge2 = 25U;
+      Inverters_Action_B.Merge2 = 21U;
 
-      /* Merge: '<S33>/subscribed?' incorporates:
-       *  Constant: '<S42>/ 1'
-       *  SignalConversion generated from: '<S42>/1'
+      /* Merge: '<S11>/subscribed?' incorporates:
+       *  Constant: '<S21>/ 1'
+       *  SignalConversion generated from: '<S21>/1'
        */
-      Inverters_Action_B.subscribed = true;
+      Inverters_Action_B.subscribed_k = true;
 
-      /* End of Outputs for SubSystem: '<S33>/Subscribe' */
+      /* End of Outputs for SubSystem: '<S11>/Subscribe' */
       break;
     }
 
-    /* If: '<S33>/If' incorporates:
-     *  DataStoreRead: '<S33>/Data Store Read1'
+    /* If: '<S11>/If' incorporates:
+     *  DataStoreRead: '<S11>/Data Store Read1'
      */
-    if (Inverters_Action_DW.EnumerationCounter_m < 8.0) {
-      /* Outputs for IfAction SubSystem: '<S33>/Register Enumerator ' incorporates:
-       *  ActionPort: '<S41>/Action Port'
+    if (Inverters_Action_DW.EnumerationCounter < 7.0) {
+      /* Outputs for IfAction SubSystem: '<S11>/Register Enumerator ' incorporates:
+       *  ActionPort: '<S20>/Action Port'
        */
-      Inverters_Ac_RegisterEnumerator(&rtb_Merge1, &rtb_MergeMuxEnable,
-        &Inverters_Action_B.Merge, &Inverters_Action_DW.EnumerationCounter_m);
+      Inverters_Ac_RegisterEnumerator(&rtb_Merge1_c, &rtb_NOR1,
+        &Inverters_Action_B.Merge, &Inverters_Action_DW.EnumerationCounter);
 
-      /* End of Outputs for SubSystem: '<S33>/Register Enumerator ' */
+      /* End of Outputs for SubSystem: '<S11>/Register Enumerator ' */
     } else {
-      /* Outputs for IfAction SubSystem: '<S33>/EnumerationDone' incorporates:
-       *  ActionPort: '<S40>/Action Port'
+      /* Outputs for IfAction SubSystem: '<S11>/EnumerationDone' incorporates:
+       *  ActionPort: '<S19>/Action Port'
        */
-      Inverters_Actio_EnumerationDone(Inverters_Action_B.subscribed, &rtb_Merge1,
-        &rtb_MergeMuxEnable, &Inverters_Action_B.Merge);
+      Inverters_Actio_EnumerationDone(Inverters_Action_B.subscribed_k,
+        &rtb_Merge1_c, &rtb_NOR1, &Inverters_Action_B.Merge);
 
-      /* End of Outputs for SubSystem: '<S33>/EnumerationDone' */
+      /* End of Outputs for SubSystem: '<S11>/EnumerationDone' */
     }
 
-    /* End of If: '<S33>/If' */
+    /* End of If: '<S11>/If' */
 
-    /* SignalConversion generated from: '<S33>/RegID' incorporates:
-     *  Constant: '<S33>/Constant'
+    /* SignalConversion generated from: '<S11>/RegID' incorporates:
+     *  Constant: '<S11>/Constant'
      */
-    rtb_Merge = 61U;
+    rtb_Merge_k = 61U;
 
-    /* End of Outputs for SubSystem: '<S2>/Unsubscribe//Subscribe' */
+    /* End of Outputs for SubSystem: '<S1>/Unsubscribe//Subscribe' */
     break;
 
    case 20:
    case 21:
-    /* Outputs for IfAction SubSystem: '<S2>/DisableDrive//EnableDrive' incorporates:
-     *  ActionPort: '<S29>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S1>/DisableDrive//EnableDrive' incorporates:
+     *  ActionPort: '<S7>/Action Port'
      */
     Inverte_DisableDriveEnableDrive(Inverters_Action_U.InvertersAction,
-      &rtb_Merge, &rtb_Merge1, &Inverters_Action_B.Merge2, &rtb_MergeMuxEnable);
+      &rtb_Merge_k, &rtb_Merge1_c, &Inverters_Action_B.Merge2, &rtb_NOR1);
 
-    /* End of Outputs for SubSystem: '<S2>/DisableDrive//EnableDrive' */
+    /* End of Outputs for SubSystem: '<S1>/DisableDrive//EnableDrive' */
     break;
 
    case 30:
-    /* Outputs for IfAction SubSystem: '<S2>/Torque Command' incorporates:
-     *  ActionPort: '<S31>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S1>/Torque Command' incorporates:
+     *  ActionPort: '<S9>/Action Port'
      */
-    Inverters_Action_TorqueCommand(Inverters_Action_U.current_L, &rtb_Merge,
-      &rtb_Merge1, &Inverters_Action_B.Merge2, &rtb_MergeMuxEnable,
-      &Inverters_Action_ConstB.TorqueCommand_m);
+    Inverters_Action_TorqueCommand(rtb_Merge1, &rtb_Merge_k, &rtb_Merge1_c,
+      &Inverters_Action_B.Merge2, &rtb_NOR1,
+      &Inverters_Action_ConstB.TorqueCommand);
 
-    /* End of Outputs for SubSystem: '<S2>/Torque Command' */
+    /* End of Outputs for SubSystem: '<S1>/Torque Command' */
     break;
 
    default:
-    /* Outputs for IfAction SubSystem: '<S2>/Action not Defined' incorporates:
-     *  ActionPort: '<S28>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S1>/Action not Defined' incorporates:
+     *  ActionPort: '<S6>/Action Port'
      */
-    Inverters_Acti_ActionnotDefined(&rtb_Merge, &rtb_Merge1,
-      &Inverters_Action_B.Merge2, &rtb_MergeMuxEnable);
+    Inverters_Acti_ActionnotDefined(&rtb_Merge_k, &rtb_Merge1_c,
+      &Inverters_Action_B.Merge2, &rtb_NOR1);
 
-    /* End of Outputs for SubSystem: '<S2>/Action not Defined' */
+    /* End of Outputs for SubSystem: '<S1>/Action not Defined' */
     break;
   }
 
-  /* If: '<S2>/If1' */
-  if (rtb_MergeMuxEnable) {
-    /* Outputs for IfAction SubSystem: '<S2>/bypass' incorporates:
-     *  ActionPort: '<S34>/Action Port'
+  /* If: '<S1>/If1' */
+  if (rtb_NOR1) {
+    /* Outputs for IfAction SubSystem: '<S1>/bypass' incorporates:
+     *  ActionPort: '<S12>/Action Port'
      */
-    Inverters_Action_bypass(rtb_Merge, rtb_Merge1, Inverters_Action_B.Merge2,
-      &rtb_Merge4, &rtb_Merge3, &rtb_Merge5);
+    /* Outport: '<Root>/Inverter_L_b7tob0' incorporates:
+     *  Outport: '<Root>/Inverter_L_RegID'
+     *  Outport: '<Root>/Inverter_L_b15tob8'
+     */
+    Inverters_Action_bypass(rtb_Merge_k, rtb_Merge1_c, Inverters_Action_B.Merge2,
+      &Inverters_Action_Y.Inverter_L_RegID,
+      &Inverters_Action_Y.Inverter_L_b7tob0,
+      &Inverters_Action_Y.Inverter_L_b15tob8);
 
-    /* End of Outputs for SubSystem: '<S2>/bypass' */
+    /* End of Outputs for SubSystem: '<S1>/bypass' */
   } else {
-    /* Outputs for IfAction SubSystem: '<S2>/Torque Command 0' incorporates:
-     *  ActionPort: '<S32>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S1>/Torque Command 0' incorporates:
+     *  ActionPort: '<S10>/Action Port'
      */
-    Inverters_Action_TorqueCommand0(&rtb_Merge4, &rtb_Merge3, &rtb_Merge5,
-      &Inverters_Action_ConstB.TorqueCommand0_g);
+    /* Outport: '<Root>/Inverter_L_b7tob0' incorporates:
+     *  Outport: '<Root>/Inverter_L_RegID'
+     *  Outport: '<Root>/Inverter_L_b15tob8'
+     */
+    Inverters_Action_TorqueCommand0(&Inverters_Action_Y.Inverter_L_RegID,
+      &Inverters_Action_Y.Inverter_L_b7tob0,
+      &Inverters_Action_Y.Inverter_L_b15tob8,
+      &Inverters_Action_ConstB.TorqueCommand0);
 
-    /* End of Outputs for SubSystem: '<S2>/Torque Command 0' */
+    /* End of Outputs for SubSystem: '<S1>/Torque Command 0' */
   }
 
-  /* End of If: '<S2>/If1' */
+  /* End of If: '<S1>/If1' */
 
-  /* Outport: '<Root>/Inverter_L_RegID' */
-  Inverters_Action_Y.Inverter_L_RegID = rtb_Merge4;
-
-  /* Outport: '<Root>/Inverter_L_b15tob8' */
-  Inverters_Action_Y.Inverter_L_b15tob8 = rtb_Merge5;
-
-  /* Outport: '<Root>/Inverter_L_b7tob0' */
-  Inverters_Action_Y.Inverter_L_b7tob0 = rtb_Merge3;
-
-  /* SwitchCase: '<S1>/Action Selector' incorporates:
+  /* SwitchCase: '<S2>/Action Selector' incorporates:
    *  Inport: '<Root>/InvertersAction'
    *  Inport: '<Root>/current_R'
    */
@@ -593,10 +671,10 @@ static void Inverters_Action_output(void)
   switch (tmp < 0.0 ? -(int32_T)(uint32_T)-tmp : (int32_T)(uint32_T)tmp) {
    case 10:
    case 11:
-    /* Outputs for IfAction SubSystem: '<S1>/Unsubscribe//Subscribe' incorporates:
-     *  ActionPort: '<S8>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S2>/Unsubscribe//Subscribe' incorporates:
+     *  ActionPort: '<S36>/Action Port'
      */
-    /* SwitchCase: '<S8>/Unsubscribe//Subscribe' */
+    /* SwitchCase: '<S36>/Unsubscribe//Subscribe' */
     if (tmp_1 || tmp_2) {
       tmp_0 = 0.0;
     } else {
@@ -606,185 +684,192 @@ static void Inverters_Action_output(void)
     switch (tmp_0 < 0.0 ? -(int32_T)(uint32_T)-tmp_0 : (int32_T)(uint32_T)tmp_0)
     {
      case 10:
-      /* Outputs for IfAction SubSystem: '<S8>/Unsubscribe' incorporates:
-       *  ActionPort: '<S18>/Action Port'
+      /* Outputs for IfAction SubSystem: '<S36>/Unsubscribe' incorporates:
+       *  ActionPort: '<S47>/Action Port'
        */
-      /* Merge: '<S1>/Merge2' incorporates:
-       *  Constant: '<S18>/0XFF'
-       *  SignalConversion generated from: '<S18>/0XFF Stop Transmission'
-       */
-      Inverters_Action_B.Merge2_p = MAX_uint8_T;
+      Inverters_Action_Unsubscribe(&Inverters_Action_B.Merge2_p,
+        &Inverters_Action_B.subscribed);
 
-      /* Merge: '<S8>/subscribed?' incorporates:
-       *  Constant: '<S18>/ '
-       *  SignalConversion generated from: '<S18>/0'
-       */
-      Inverters_Action_B.subscribed_b = false;
-
-      /* End of Outputs for SubSystem: '<S8>/Unsubscribe' */
+      /* End of Outputs for SubSystem: '<S36>/Unsubscribe' */
       break;
 
      case 11:
-      /* Outputs for IfAction SubSystem: '<S8>/Subscribe' incorporates:
-       *  ActionPort: '<S17>/Action Port'
+      /* Outputs for IfAction SubSystem: '<S36>/Subscribe' incorporates:
+       *  ActionPort: '<S46>/Action Port'
        */
-      /* Merge: '<S1>/Merge2' incorporates:
-       *  Constant: '<S17>/Time Interval'
-       *  SignalConversion generated from: '<S17>/15ms'
+      /* Merge: '<S2>/Merge2' incorporates:
+       *  Constant: '<S46>/Time Interval'
+       *  SignalConversion generated from: '<S46>/ms'
        */
-      Inverters_Action_B.Merge2_p = 25U;
+      Inverters_Action_B.Merge2_p = 21U;
 
-      /* Merge: '<S8>/subscribed?' incorporates:
-       *  Constant: '<S17>/ '
-       *  SignalConversion generated from: '<S17>/1'
+      /* Merge: '<S36>/subscribed?' incorporates:
+       *  Constant: '<S46>/ '
+       *  SignalConversion generated from: '<S46>/1'
        */
-      Inverters_Action_B.subscribed_b = true;
+      Inverters_Action_B.subscribed = true;
 
-      /* End of Outputs for SubSystem: '<S8>/Subscribe' */
+      /* End of Outputs for SubSystem: '<S36>/Subscribe' */
       break;
     }
 
-    /* If: '<S8>/If' incorporates:
-     *  DataStoreRead: '<S8>/Data Store Read1'
+    /* If: '<S36>/If' incorporates:
+     *  DataStoreRead: '<S36>/Data Store Read1'
      */
-    if (Inverters_Action_DW.EnumerationCounter < 8.0) {
-      /* Outputs for IfAction SubSystem: '<S8>/Register Enumerator ' incorporates:
-       *  ActionPort: '<S16>/Action Port'
+    if (Inverters_Action_DW.EnumerationCounter_g < 7.0) {
+      /* Outputs for IfAction SubSystem: '<S36>/Register Enumerator ' incorporates:
+       *  ActionPort: '<S45>/Action Port'
        */
-      Inverters_Ac_RegisterEnumerator(&rtb_Merge1, &rtb_MergeMuxEnable,
-        &Inverters_Action_B.Merge, &Inverters_Action_DW.EnumerationCounter);
+      Inverters_Ac_RegisterEnumerator(&rtb_Merge1_c, &rtb_NOR1,
+        &Inverters_Action_B.Merge, &Inverters_Action_DW.EnumerationCounter_g);
 
-      /* End of Outputs for SubSystem: '<S8>/Register Enumerator ' */
+      /* End of Outputs for SubSystem: '<S36>/Register Enumerator ' */
     } else {
-      /* Outputs for IfAction SubSystem: '<S8>/EnumerationDone' incorporates:
-       *  ActionPort: '<S15>/Action Port'
+      /* Outputs for IfAction SubSystem: '<S36>/EnumerationDone' incorporates:
+       *  ActionPort: '<S44>/Action Port'
        */
-      Inverters_Actio_EnumerationDone(Inverters_Action_B.subscribed_b,
-        &rtb_Merge1, &rtb_MergeMuxEnable, &Inverters_Action_B.Merge);
+      Inverters_Actio_EnumerationDone(Inverters_Action_B.subscribed,
+        &rtb_Merge1_c, &rtb_NOR1, &Inverters_Action_B.Merge);
 
-      /* End of Outputs for SubSystem: '<S8>/EnumerationDone' */
+      /* End of Outputs for SubSystem: '<S36>/EnumerationDone' */
     }
 
-    /* End of If: '<S8>/If' */
+    /* End of If: '<S36>/If' */
 
-    /* SignalConversion generated from: '<S8>/RegID' incorporates:
-     *  Constant: '<S8>/Constant'
+    /* SignalConversion generated from: '<S36>/RegID' incorporates:
+     *  Constant: '<S36>/Constant'
      */
-    rtb_Merge = 61U;
+    rtb_Merge_k = 61U;
 
-    /* End of Outputs for SubSystem: '<S1>/Unsubscribe//Subscribe' */
+    /* End of Outputs for SubSystem: '<S2>/Unsubscribe//Subscribe' */
     break;
 
    case 20:
    case 21:
-    /* Outputs for IfAction SubSystem: '<S1>/DisableDrive//EnableDrive' incorporates:
-     *  ActionPort: '<S4>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S2>/DisableDrive//EnableDrive' incorporates:
+     *  ActionPort: '<S32>/Action Port'
      */
     Inverte_DisableDriveEnableDrive(Inverters_Action_U.InvertersAction,
-      &rtb_Merge, &rtb_Merge1, &Inverters_Action_B.Merge2_p, &rtb_MergeMuxEnable);
+      &rtb_Merge_k, &rtb_Merge1_c, &Inverters_Action_B.Merge2_p, &rtb_NOR1);
 
-    /* End of Outputs for SubSystem: '<S1>/DisableDrive//EnableDrive' */
+    /* End of Outputs for SubSystem: '<S2>/DisableDrive//EnableDrive' */
     break;
 
    case 30:
-    /* Outputs for IfAction SubSystem: '<S1>/Torque Command' incorporates:
-     *  ActionPort: '<S6>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S2>/Torque Command' incorporates:
+     *  ActionPort: '<S34>/Action Port'
      */
-    Inverters_Action_TorqueCommand(Inverters_Action_U.current_R, &rtb_Merge,
-      &rtb_Merge1, &Inverters_Action_B.Merge2_p, &rtb_MergeMuxEnable,
-      &Inverters_Action_ConstB.TorqueCommand);
+    Inverters_Action_TorqueCommand(Inverters_Action_U.current_R, &rtb_Merge_k,
+      &rtb_Merge1_c, &Inverters_Action_B.Merge2_p, &rtb_NOR1,
+      &Inverters_Action_ConstB.TorqueCommand_k);
 
-    /* End of Outputs for SubSystem: '<S1>/Torque Command' */
+    /* End of Outputs for SubSystem: '<S2>/Torque Command' */
     break;
 
    default:
-    /* Outputs for IfAction SubSystem: '<S1>/Action not Defined' incorporates:
-     *  ActionPort: '<S3>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S2>/Action not Defined' incorporates:
+     *  ActionPort: '<S31>/Action Port'
      */
-    Inverters_Acti_ActionnotDefined(&rtb_Merge, &rtb_Merge1,
-      &Inverters_Action_B.Merge2_p, &rtb_MergeMuxEnable);
+    Inverters_Acti_ActionnotDefined(&rtb_Merge_k, &rtb_Merge1_c,
+      &Inverters_Action_B.Merge2_p, &rtb_NOR1);
 
-    /* End of Outputs for SubSystem: '<S1>/Action not Defined' */
+    /* End of Outputs for SubSystem: '<S2>/Action not Defined' */
     break;
   }
 
-  /* If: '<S1>/If1' */
-  if (rtb_MergeMuxEnable) {
-    /* Outputs for IfAction SubSystem: '<S1>/bypass' incorporates:
-     *  ActionPort: '<S9>/Action Port'
+  /* If: '<S2>/If1' */
+  if (rtb_NOR1) {
+    /* Outputs for IfAction SubSystem: '<S2>/bypass' incorporates:
+     *  ActionPort: '<S37>/Action Port'
      */
-    Inverters_Action_bypass(rtb_Merge, rtb_Merge1, Inverters_Action_B.Merge2_p,
-      &rtb_Merge3, &rtb_Merge4, &rtb_Merge5);
+    /* Outport: '<Root>/Inverter_R_b7tob0' incorporates:
+     *  Outport: '<Root>/Inverter_R_RegID'
+     *  Outport: '<Root>/Inverter_R_b15tob8'
+     */
+    Inverters_Action_bypass(rtb_Merge_k, rtb_Merge1_c,
+      Inverters_Action_B.Merge2_p, &Inverters_Action_Y.Inverter_R_RegID,
+      &Inverters_Action_Y.Inverter_R_b7tob0,
+      &Inverters_Action_Y.Inverter_R_b15tob8);
 
-    /* End of Outputs for SubSystem: '<S1>/bypass' */
+    /* End of Outputs for SubSystem: '<S2>/bypass' */
   } else {
-    /* Outputs for IfAction SubSystem: '<S1>/Torque Command 0' incorporates:
-     *  ActionPort: '<S7>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S2>/Torque Command 0' incorporates:
+     *  ActionPort: '<S35>/Action Port'
      */
-    Inverters_Action_TorqueCommand0(&rtb_Merge3, &rtb_Merge4, &rtb_Merge5,
-      &Inverters_Action_ConstB.TorqueCommand0);
+    /* Outport: '<Root>/Inverter_R_b7tob0' incorporates:
+     *  Outport: '<Root>/Inverter_R_RegID'
+     *  Outport: '<Root>/Inverter_R_b15tob8'
+     */
+    Inverters_Action_TorqueCommand0(&Inverters_Action_Y.Inverter_R_RegID,
+      &Inverters_Action_Y.Inverter_R_b7tob0,
+      &Inverters_Action_Y.Inverter_R_b15tob8,
+      &Inverters_Action_ConstB.TorqueCommand0_a);
 
-    /* End of Outputs for SubSystem: '<S1>/Torque Command 0' */
+    /* End of Outputs for SubSystem: '<S2>/Torque Command 0' */
   }
 
-  /* End of If: '<S1>/If1' */
-
-  /* Outport: '<Root>/Inverter_R_RegID' */
-  Inverters_Action_Y.Inverter_R_RegID = rtb_Merge3;
-
-  /* Outport: '<Root>/Inverter_R_b15tob8' */
-  Inverters_Action_Y.Inverter_R_b15tob8 = rtb_Merge5;
-
-  /* Outport: '<Root>/Inverter_R_b7tob0' */
-  Inverters_Action_Y.Inverter_R_b7tob0 = rtb_Merge4;
+  /* End of If: '<S2>/If1' */
 
   /* Outport: '<Root>/InvertersSubscribed' */
   Inverters_Action_Y.InvertersSubscribed = Inverters_Action_B.Merge;
 
-  /* If: '<S10>/If2' incorporates:
-   *  Delay: '<S10>/Delay'
+  /* If: '<S13>/If2' incorporates:
+   *  Delay: '<S13>/Delay'
    *  Inport: '<Root>/InvertersAction'
    */
   if (Inverters_Action_U.InvertersAction != Inverters_Action_DW.Delay_DSTATE) {
     /* Outputs for IfAction SubSystem: '<S1>/Reset Enumeration' incorporates:
-     *  ActionPort: '<S5>/Action Port'
+     *  ActionPort: '<S8>/Action Port'
      */
     Inverters_Acti_ResetEnumeration(&Inverters_Action_DW.EnumerationCounter);
 
     /* End of Outputs for SubSystem: '<S1>/Reset Enumeration' */
   }
 
-  /* End of If: '<S10>/If2' */
+  /* End of If: '<S13>/If2' */
 
-  /* If: '<S35>/If2' incorporates:
-   *  Delay: '<S35>/Delay'
+  /* If: '<S38>/If2' incorporates:
+   *  Delay: '<S38>/Delay'
    *  Inport: '<Root>/InvertersAction'
    */
-  if (Inverters_Action_U.InvertersAction != Inverters_Action_DW.Delay_DSTATE_h)
+  if (Inverters_Action_U.InvertersAction != Inverters_Action_DW.Delay_DSTATE_f)
   {
     /* Outputs for IfAction SubSystem: '<S2>/Reset Enumeration' incorporates:
-     *  ActionPort: '<S30>/Action Port'
+     *  ActionPort: '<S33>/Action Port'
      */
-    Inverters_Acti_ResetEnumeration(&Inverters_Action_DW.EnumerationCounter_m);
+    Inverters_Acti_ResetEnumeration(&Inverters_Action_DW.EnumerationCounter_g);
 
     /* End of Outputs for SubSystem: '<S2>/Reset Enumeration' */
   }
 
-  /* End of If: '<S35>/If2' */
+  /* End of If: '<S38>/If2' */
 }
 
 /* Model update function */
 static void Inverters_Action_update(void)
 {
-  /* Update for Delay: '<S10>/Delay' incorporates:
+  /* Update for If: '<Root>/If' */
+  if (Inverters_Action_DW.If_ActiveSubsystem == 0) {
+    /* Update for IfAction SubSystem: '<Root>/Forced Forward Direction accel' incorporates:
+     *  ActionPort: '<S3>/Action Port'
+     */
+    /* Update for Memory: '<S3>/Memory1' */
+    Inverters_Action_DW.Memory1_PreviousInput = Inverters_Action_B.NOR;
+
+    /* End of Update for SubSystem: '<Root>/Forced Forward Direction accel' */
+  }
+
+  /* End of Update for If: '<Root>/If' */
+
+  /* Update for Delay: '<S13>/Delay' incorporates:
    *  Inport: '<Root>/InvertersAction'
    */
   Inverters_Action_DW.Delay_DSTATE = Inverters_Action_U.InvertersAction;
 
-  /* Update for Delay: '<S35>/Delay' incorporates:
+  /* Update for Delay: '<S38>/Delay' incorporates:
    *  Inport: '<Root>/InvertersAction'
    */
-  Inverters_Action_DW.Delay_DSTATE_h = Inverters_Action_U.InvertersAction;
+  Inverters_Action_DW.Delay_DSTATE_f = Inverters_Action_U.InvertersAction;
 
   /* Update absolute time for base rate */
   /* The "clockTick0" counts the number of times the code of this task has
@@ -812,31 +897,40 @@ static void Inverters_Action_initialize(void)
   Inverters_Action_DW.LastAction = 0.0;
 
   /* Start for DataStoreMemory: '<S2>/Data Store Memory1' */
-  Inverters_Action_DW.LastAction_k = 0.0;
+  Inverters_Action_DW.LastAction_l = 0.0;
+
+  /* Start for If: '<Root>/If' */
+  Inverters_Action_DW.If_ActiveSubsystem = -1;
 
   /* Start for DataStoreMemory: '<S1>/Data Store Memory2' */
   Inverters_Action_DW.EnumerationCounter = 0.0;
 
   /* Start for DataStoreMemory: '<S2>/Data Store Memory2' */
-  Inverters_Action_DW.EnumerationCounter_m = 0.0;
+  Inverters_Action_DW.EnumerationCounter_g = 0.0;
 
-  /* InitializeConditions for Delay: '<S10>/Delay' */
+  /* InitializeConditions for Delay: '<S13>/Delay' */
   Inverters_Action_DW.Delay_DSTATE = 0.0;
 
-  /* InitializeConditions for Delay: '<S35>/Delay' */
-  Inverters_Action_DW.Delay_DSTATE_h = 0.0;
+  /* InitializeConditions for Delay: '<S38>/Delay' */
+  Inverters_Action_DW.Delay_DSTATE_f = 0.0;
+
+  /* SystemInitialize for IfAction SubSystem: '<Root>/Forced Forward Direction accel' */
+  /* InitializeConditions for Memory: '<S3>/Memory1' */
+  Inverters_Action_DW.Memory1_PreviousInput = true;
+
+  /* End of SystemInitialize for SubSystem: '<Root>/Forced Forward Direction accel' */
+
+  /* SystemInitialize for IfAction SubSystem: '<S1>/Unsubscribe//Subscribe' */
+  /* SystemInitialize for Merge: '<S11>/subscribed?' */
+  Inverters_Action_B.subscribed_k = false;
+
+  /* End of SystemInitialize for SubSystem: '<S1>/Unsubscribe//Subscribe' */
 
   /* SystemInitialize for IfAction SubSystem: '<S2>/Unsubscribe//Subscribe' */
-  /* SystemInitialize for Merge: '<S33>/subscribed?' */
+  /* SystemInitialize for Merge: '<S36>/subscribed?' */
   Inverters_Action_B.subscribed = false;
 
   /* End of SystemInitialize for SubSystem: '<S2>/Unsubscribe//Subscribe' */
-
-  /* SystemInitialize for IfAction SubSystem: '<S1>/Unsubscribe//Subscribe' */
-  /* SystemInitialize for Merge: '<S8>/subscribed?' */
-  Inverters_Action_B.subscribed_b = false;
-
-  /* End of SystemInitialize for SubSystem: '<S1>/Unsubscribe//Subscribe' */
 
   /* SystemInitialize for Merge: '<Root>/Merge' */
   Inverters_Action_B.Merge = false;
@@ -977,11 +1071,11 @@ RT_MODEL_Inverters_Action_T *Inverters_Action(void)
   /* Initialize Sizes */
   Inverters_Action_M->Sizes.numContStates = (0);/* Number of continuous states */
   Inverters_Action_M->Sizes.numY = (7);/* Number of model outputs */
-  Inverters_Action_M->Sizes.numU = (3);/* Number of model inputs */
+  Inverters_Action_M->Sizes.numU = (6);/* Number of model inputs */
   Inverters_Action_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Inverters_Action_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  Inverters_Action_M->Sizes.numBlocks = (185);/* Number of blocks */
-  Inverters_Action_M->Sizes.numBlockIO = (5);/* Number of block outputs */
+  Inverters_Action_M->Sizes.numBlocks = (205);/* Number of blocks */
+  Inverters_Action_M->Sizes.numBlockIO = (6);/* Number of block outputs */
   return Inverters_Action_M;
 }
 

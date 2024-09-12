@@ -44,10 +44,10 @@ BUILD_SUCCESS = successful
 
 # make matlab happy
 MODEL                = rtwshared
-MODULES              = rtGetInf.c rtGetNaN.c rt_nonfinite.c rt_powd_snf.c const_params.c look1_binlxpw.c
+MODULES              = rtGetInf.c rtGetNaN.c rt_nonfinite.c const_params.c look1_binlxpw.c
 MAKEFILE             = 
-MATLAB_ROOT          = C:\Program Files\MATLAB\R2022a
-MATLAB_BIN           = C:\Program Files\MATLAB\R2022a\bin
+MATLAB_ROOT          = C:\Program Files\MATLAB\R2023b
+MATLAB_BIN           = C:\Program Files\MATLAB\R2023b\bin
 S_FUNCTIONS          = 
 S_FUNCTIONS_LIB      = 
 SOLVER               = 

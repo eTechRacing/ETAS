@@ -5,12 +5,12 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * Code generation for model "SoC".
+ * Code generation for model "Inverters_Data".
  *
- * Model version              : 10.0
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Mar 29 01:03:28 2024
- * Created for block: SoC
+ * Model version              : 13.28
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Sat Sep  7 16:34:31 2024
+ * Created for block: Inverters_Data
  */
 
 #include "look1_binlxpw.h"

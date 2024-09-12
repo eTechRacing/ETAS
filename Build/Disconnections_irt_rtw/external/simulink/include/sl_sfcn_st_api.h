@@ -69,12 +69,12 @@ SLST_SFCN_API_EXPORT_EXTERN_C void slstAcceptPropagatedOutputPortRate(SimStruct*
 
 #define slstSetNumTicksToNextSampleHitForControllableRate(S, sti, nTicks) \
     slexecSetNumTicksToNextSampleHitForControllableSampleTime(            \
-        ssGetRootSS(S), _ssGetBlkInfo2STInfo2Ptr(S)->ctrlRateInstanceIndex[sti], nTicks)
+        _ssGetRootSS(S), _ssGetBlkInfo2STInfo2Ptr(S)->ctrlRateInstanceIndex[sti], nTicks)
 
 
 #define slstGetNumTicksToNextSampleHitForControllableRate(S, sti) \
     slexecGetNumTicksToNextSampleHitForControllableSampleTime(    \
-        ssGetRootSS(S), _ssGetBlkInfo2STInfo2Ptr(S)->ctrlRateInstanceIndex[sti])
+        _ssGetRootSS(S), _ssGetBlkInfo2STInfo2Ptr(S)->ctrlRateInstanceIndex[sti])
 
 
 #define slstHasSampleHit(S, rateID, tid) ssIsSampleHit(S, ((int_T)rateID), tid)

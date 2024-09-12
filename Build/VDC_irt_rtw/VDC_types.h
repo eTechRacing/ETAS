@@ -7,9 +7,9 @@
  *
  * Code generation for model "VDC".
  *
- * Model version              : 1.5
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Sat Apr  6 01:20:50 2024
+ * Model version              : 4.214
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Sat Sep  7 16:40:11 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -20,8 +20,6 @@
 
 #ifndef RTW_HEADER_VDC_types_h_
 #define RTW_HEADER_VDC_types_h_
-
-/* Model Code Variants */
 
 /* Forward declaration for rtModel */
 typedef struct tag_RTM_VDC_T RT_MODEL_VDC_T;

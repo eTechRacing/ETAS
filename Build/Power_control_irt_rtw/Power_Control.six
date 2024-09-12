@@ -1,0 +1,1183 @@
+<?xml version="1.0"?>
+<!DOCTYPE module [
+    <!ENTITY szlig "&#223;">
+    <!ENTITY copy "&#169;">
+    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/baseTypes-mlsl.six'>
+    ]>
+<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/showSCOOP-IX.xsl"?>
+<!--
+<h1>SCOOP-IX</h1>
+<p>
+    <strong>Copyright &copy; 2014 ETAS GmbH</strong>, Borsigstra&szlig;e 14, D-70469 Stuttgart. <em>All rights reserved.</em>
+</p>
+-->
+<module xmlns="http://www.etas.com/scoop-ix/1.5" xmlns:ix="http://www.etas.com/scoop-ix/1.5" xmlns:mlsl="http://www.etas.com/scoop-ix/1.5/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.5
+        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
+	<directoryLocations scheme="MATLAB 23.2">
+		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\"/>
+		<directory identifier="toolDir" path=".\"/>
+		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\"/>
+		<directory identifier="codeDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Power_Control_irt_rtw\"/>
+	</directoryLocations>
+	<moduleInfo identifier="Power_Control">
+		<name>Power_Control</name>
+		<modelLink href="mlsl:///&quot;{{modelDir}}Power_Control.slx&quot;"/>
+		<version major="4" minor="35"/>
+		<dateTime kind="created" year="2024" month="3" day="15" hour="15" minute="34" second="18"/>
+		<dateTime kind="lastModified" year="2024" month="8" day="9" hour="12" minute="59" second="58"/>
+		<completion degree="full"/>
+		<suitability>
+			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
+			<application domain="softwareDevelopment" addressesAvailable="false" nestedDataStructuresAvailable="true"/>
+		</suitability>
+		<user lastName="joser" role="modifier"/>
+		<creators>
+			<user lastName="no" role="creator"/>
+			<tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
+			</tool>
+			<tool kind="modeler" vendor="The Mathworks, Inc." name="Simulink">
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
+			</tool>
+			<tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
+			</tool>
+			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
+				<mode name="target" value="INTECRIO Real-Time Target"/>
+				<configuration>
+					<option identifier="InlineParameters">1</option>
+					<option identifier="InlineInvariantSignals">0</option>
+					<option identifier="Solver">FixedStepDiscrete</option>
+					<option identifier="SolverType">FixedStep</option>
+					<option identifier="FixedStepOpts.FixedStep">0.0045000000000000005</option>
+					<option identifier="FixedStepOpts.SolverMode">SingleTasking</option>
+				</configuration>
+			</tool>
+			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="MATLAB Coder">
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
+			</tool>
+			<tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
+				<configuration>
+					<option identifier="SCOOPIXFileName"><![CDATA[Power_Control.six]]></option>
+					<option identifier="ExternalMode">0</option>
+					<option identifier="IgnoreCustomStorageClasses">1</option>
+					<option identifier="StopSimuAfterAssert">1</option>
+					<option identifier="GenerateOnlySelectedSignalsToASAP2">0</option>
+				</configuration>
+			</tool>
+		</creators>
+	</moduleInfo>
+	<codeInfo>
+		<constitution mode="sourceCode"/>
+		<dateTime kind="created" year="2024" month="9" day="7" hour="16" minute="34" second="51"/>
+		<target>
+			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
+			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
+				<configuration>
+					<optionKind name="macroDefine" prefix="-D"/>
+					<optionKind name="includeDirectory" prefix="-I"/>
+					<!-- RTW specific defines -->
+					<option kind="macroDefine" name="USE_RTMODEL"/>
+					<option kind="macroDefine" name="MODEL">Power_Control</option>
+					<option kind="macroDefine" name="RT"/>
+					<option kind="macroDefine" name="NUMST">1</option>
+					<option kind="macroDefine" name="TID01EQ">0</option>
+					<option kind="macroDefine" name="NCSTATES">0</option>
+					<option kind="macroDefine" name="MT">0</option>
+					<option kind="macroDefine" name="HAVESTDIO"/>
+					<option kind="macroDefine" name="MdlStart">MdlStart_Power_Control</option>
+					<option kind="macroDefine" name="MdlOutputs">MdlOutputs_Power_Control</option>
+					<option kind="macroDefine" name="MdlUpdate">MdlUpdate_Power_Control</option>
+					<option kind="macroDefine" name="MdlTerminate">MdlTerminate_Power_Control</option>
+					<option kind="macroDefine" name="MdlInitializeSizes">MdlInitializeSizes_Power_Control</option>
+					<option kind="macroDefine" name="MdlInitializeSampleTimes">MdlInitializeSampleTimes_Power_Control</option>
+					<option kind="macroDefine" name="MdlInitialize">MdlInitialize_Power_Control</option>
+					<option kind="macroDefine" name="MdlEnable">MdlEnable_Power_Control</option>
+					<option kind="macroDefine" name="MdlDerivatives">MdlDerivatives_Power_Control</option>
+					<option kind="macroDefine" name="MdlProjection">MdlProjection_Power_Control</option>
+					<option kind="macroDefine" name="rt_ODECreateIntegrationData">rt_ODECreateIntegrationData_Power_Control</option>
+					<option kind="macroDefine" name="rt_ODEUpdateContinuousStates">rt_ODEUpdateContinuousStates_Power_Control</option>
+					<option kind="macroDefine" name="rt_ODEDestroyIntegrationData">rt_ODEDestroyIntegrationData_Power_Control</option>
+					<option kind="macroDefine" name="rt_ODECacheDataIntoSolverInfo">rt_ODECacheDataIntoSolverInfo_Power_Control</option>
+					<option kind="macroDefine" name="rt_ODERetrieveDataFromSolverInfo">rt_ODERetrieveDataFromSolverInfo_Power_Control</option>
+					<option kind="macroDefine" name="rt_ODECreateSolverInfo">rt_ODECreateSolverInfo_Power_Control</option>
+					<option kind="macroDefine" name="rt_SimInitTimingEngine">rt_SimInitTimingEngine_Power_Control</option>
+					<option kind="macroDefine" name="rt_SimGetNextSampleHit">rt_SimGetNextSampleHit_Power_Control</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteTaskSampleHits">rt_SimUpdateDiscreteTaskSampleHits_Power_Control</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteEvents">rt_SimUpdateDiscreteEvents_Power_Control</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteTaskTime">rt_SimUpdateDiscreteTaskTime_Power_Control</option>
+					<option kind="macroDefine" name="rt_CallSys">rt_CallSys_Power_Control</option>
+					<option kind="macroDefine" name="rt_EnableSys">rt_EnableSys_Power_Control</option>
+					<option kind="macroDefine" name="rt_DisableSys">rt_DisableSys_Power_Control</option>
+					<option kind="macroDefine" name="rt_SimDestroyTimingEngine">rt_SimDestroyTimingEngine_Power_Control</option>
+					<option kind="macroDefine" name="rt_InitTimingEngine">rt_InitTimingEngine_Power_Control</option>
+					<option kind="macroDefine" name="rt_DestroyTimingEngine">rt_DestroyTimingEngine_Power_Control</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteTaskSampleHits">rt_UpdateDiscreteTaskSampleHits_Power_Control</option>
+					<option kind="macroDefine" name="rt_GetNextSampleHit">rt_GetNextSampleHit_Power_Control</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteEvents">rt_UpdateDiscreteEvents_Power_Control</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteTaskTime">rt_UpdateDiscreteTaskTime_Power_Control</option>
+					<!-- RTW specific include directories -->
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}]]></option>
+					<option kind="includeDirectory"><![CDATA[{{integratorDir}}c\src\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{integratorDir}}c\lib\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\simulink\include\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\extern\include\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\src\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\libsrc\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\_sharedutils\]]></option>
+				</configuration>
+			</tool>
+		</target>
+	</codeInfo>
+	<!-- Model specific files -->
+	<fileContainer constitution="sourceCode">
+		<pathBase path="{{codeDir}}"/>
+		<!-- Model specific source files -->
+		<file name="Power_Control_types.h" kind="header"/>
+		<file name="Power_Control.c" kind="body"/>
+		<file name="Power_Control_private.h" kind="header"/>
+		<file name="Power_Control.h" kind="header"/>
+		<file name="rtmodel.h" kind="header"/>
+		<file name="Power_Control_main.c" kind="body"/>
+		<file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body"/>
+		<!-- Target specific libraries -->
+		<file name="rtwStaticLib.lib" kind="symbolicLibrary"/>
+		<file name="rtwSharedLib.lib" kind="symbolicLibrary"/>
+		<!-- Additional files -->
+	</fileContainer>
+	<fileContainer constitution="referencedModels">
+	</fileContainer>
+	<interface>
+		<modelLinkBase href="mlsl:///{{modelDir}}Power_Control.slx?"/>
+		<pathBase path="{{codeDir}}"/>
+		<fileOrigin name="Power_Control.c"/>
+		<fileOrigin name="rt_nonfinite.c"/>
+		<fileOrigin name="Power_Control_main.c"/>
+		<headerFile name="Power_Control.h"/>
+		<headerFile name="Power_Control_private.h"/>
+		<usage layoutFamily="mlsl:standardLayout"/>
+		<!-- "import" MATLAB/Simulink base type and complex struct definitions via external entity -->
+		&baseTypes-mlsl;
+		<definitions>
+			<structDef name="_B_InverterL_Temp_Limitation_P_T">
+				<fileOrigin name="Power_Control.h"/>
+				<structMember identifier="Current_out">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S3&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="B_InverterL_Temp_Limitation_P_T">
+				<struct/><typeRef name="_B_InverterL_Temp_Limitation_P_T"/>
+				<fileOrigin name="Power_Control.h"/>
+				<annotation>
+					<documentation>Type of block signal data structure for system '&lt;Root&gt;/InverterL_Temp_Limitation'.</documentation>
+				</annotation>
+			</typeDef>
+			<structDef name="_B_MotorL_Temp_Limitation_Powe_T">
+				<fileOrigin name="Power_Control.h"/>
+				<structMember identifier="Current_out">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S5&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="B_MotorL_Temp_Limitation_Powe_T">
+				<struct/><typeRef name="_B_MotorL_Temp_Limitation_Powe_T"/>
+				<fileOrigin name="Power_Control.h"/>
+				<annotation>
+					<documentation>Type of block signal data structure for system '&lt;Root&gt;/MotorL_Temp_Limitation'.</documentation>
+				</annotation>
+			</typeDef>
+			<structDef name="_B_Power_Control_T">
+				<fileOrigin name="Power_Control.h"/>
+				<structMember identifier="sf_MotorR_Temp_Limitation">
+					<type><typeRef name="B_MotorL_Temp_Limitation_Powe_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/MotorR_Temp_Limitation</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="sf_MotorL_Temp_Limitation">
+					<type><typeRef name="B_MotorL_Temp_Limitation_Powe_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/MotorL_Temp_Limitation</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="sf_InverterR_Temp_Limitation">
+					<type><typeRef name="B_InverterL_Temp_Limitation_P_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/InverterR_Temp_Limitation</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="sf_InverterL_Temp_Limitation">
+					<type><typeRef name="B_InverterL_Temp_Limitation_P_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/InverterL_Temp_Limitation</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="B_Power_Control_T">
+				<struct/><typeRef name="_B_Power_Control_T"/>
+				<fileOrigin name="Power_Control.h"/>
+				<annotation>
+					<documentation>Block signals (auto storage)</documentation>
+				</annotation>
+			</typeDef>
+			<structDef name="ExtU_Power_Control_T_tag">
+				<fileOrigin name="Power_Control.h"/>
+				<structMember identifier="Inv_L_TempMotor">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_L_TempMotor</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_R_TempMotor">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_R_TempMotor</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_L_TempIGBT">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_L_TempIGBT</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Inv_R_TempIGBT">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Inv_R_TempIGBT</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Torque_L">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Torque_L</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Torque_R">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Torque_R</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Accumulator_Voltage">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Accumulator_Voltage</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Accumulator_Current">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Accumulator_Current</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ExtU_Power_Control_T">
+				<struct/><typeRef name="ExtU_Power_Control_T_tag"/>
+				<fileOrigin name="Power_Control.h"/>
+			</typeDef>
+			<structDef name="ExtY_Power_Control_T_tag">
+				<fileOrigin name="Power_Control.h"/>
+				<structMember identifier="current_L">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/current_L</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="current_R">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/current_R</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Power">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Power</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="PowerLimitReached">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/PowerLimitReached</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="PowerMean500ms">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/PowerMean500ms</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ExtY_Power_Control_T">
+				<struct/><typeRef name="ExtY_Power_Control_T_tag"/>
+				<fileOrigin name="Power_Control.h"/>
+			</typeDef>
+			<structDef name="_DW_Power_Control_T">
+				<fileOrigin name="Power_Control.h"/>
+				<structMember identifier="A">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'dsmMem'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Last_Temp">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK1'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="AF_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK2'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Times_Incremented">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK4'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Times_Decremented">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK5'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="AF_Value_not_empty">
+					<type><typeRef name="boolean_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK3'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Last_Temp">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK1'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="AF_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK2'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Times_Incremented">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK4'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Times_Decremented">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK5'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="AF_Value_not_empty">
+					<type><typeRef name="boolean_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK3'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Last_Temp">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK1'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="AF_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK2'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Times_Incremented">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK4'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Times_Decremented">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK5'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="AF_Value_not_empty">
+					<type><typeRef name="boolean_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK3'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Last_Temp">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK1'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="AF_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK2'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Times_Incremented">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK4'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Times_Decremented">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK5'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="AF_Value_not_empty">
+					<type><typeRef name="boolean_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK3'.</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="DW_Power_Control_T">
+				<struct/><typeRef name="_DW_Power_Control_T"/>
+				<fileOrigin name="Power_Control.h"/>
+			</typeDef>
+			<baseDef identifier="Power_Control_B">
+				<type><typeRef name="B_Power_Control_T"/></type>
+				<fileOrigin name="Power_Control.c"/>
+				<annotation>
+					<documentation>The rtB data structure for signals.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="Power_Control_U">
+				<type><typeRef name="ExtU_Power_Control_T"/></type>
+				<fileOrigin name="Power_Control.c"/>
+				<annotation>
+					<documentation>The rtU data structure for external inputs.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="Power_Control_Y">
+				<type><typeRef name="ExtY_Power_Control_T"/></type>
+				<fileOrigin name="Power_Control.c"/>
+				<annotation>
+					<documentation>The rtY data structure for external outputs.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="Power_Control_DW">
+				<type><typeRef name="DW_Power_Control_T"/></type>
+				<fileOrigin name="Power_Control.c"/>
+				<annotation>
+					<documentation>The dWork data structure for model state.</documentation>
+				</annotation>
+			</baseDef>
+			<conversion name="Power_Control_CM_double">
+				<rationalFunction>
+					<numerator bx="1.0"/>
+					<denominator f="1.0"/>
+				</rationalFunction>
+				<annotation>
+					<documentation>Q = V</documentation>
+				</annotation>
+			</conversion>
+		</definitions>
+		<!-- rtP parameters following -->
+		<!-- Constant parameters following -->
+		<!-- Exported global parameters following -->
+		<!-- Imported extern parameters following -->
+		<!-- Global BlockIO (rtB) signals following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_B.sf_MotorR_Temp_Limitation.Current_out">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_B"/>
+					<memberRef identifier="sf_MotorR_Temp_Limitation"/>
+					<memberRef identifier="Current_out"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.MotorL_Temp_Limitation.Current_out">
+				<name>Current_out</name>
+				<modelLink href="Power_Control/MotorL_Temp_Limitation"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model" type="atomic"/>
+					<pathNode name="MotorR_Temp_Limitation" kind="mlsl:block"/>
+					<pathNode name="Current_out" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_B.sf_MotorL_Temp_Limitation.Current_out">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_B"/>
+					<memberRef identifier="sf_MotorL_Temp_Limitation"/>
+					<memberRef identifier="Current_out"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.MotorL_Temp_Limitation.Current_out">
+				<name>Current_out</name>
+				<modelLink href="Power_Control/MotorL_Temp_Limitation"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model" type="atomic"/>
+					<pathNode name="MotorL_Temp_Limitation" kind="mlsl:block"/>
+					<pathNode name="Current_out" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_B.sf_InverterR_Temp_Limitation.Current_out">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_B"/>
+					<memberRef identifier="sf_InverterR_Temp_Limitation"/>
+					<memberRef identifier="Current_out"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.InverterL_Temp_Limitation.Current_out">
+				<name>Current_out</name>
+				<modelLink href="Power_Control/InverterL_Temp_Limitation"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model" type="atomic"/>
+					<pathNode name="InverterR_Temp_Limitation" kind="mlsl:block"/>
+					<pathNode name="Current_out" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_B.sf_InverterL_Temp_Limitation.Current_out">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_B"/>
+					<memberRef identifier="sf_InverterL_Temp_Limitation"/>
+					<memberRef identifier="Current_out"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.InverterL_Temp_Limitation.Current_out">
+				<name>Current_out</name>
+				<modelLink href="Power_Control/InverterL_Temp_Limitation"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model" type="atomic"/>
+					<pathNode name="InverterL_Temp_Limitation" kind="mlsl:block"/>
+					<pathNode name="Current_out" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- Global constant BlockIO (rtC) signals following -->
+		<!-- Exported global and imported extern signals following -->
+		<!-- Global IRT DWork port signals following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_DW.A">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_DW"/>
+					<memberRef identifier="A"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.Opaque.A">
+				<name>A</name>
+				<modelLink href="Power_Control/Opaque"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="Accumulator Power" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="PowerLimitDetection" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Data Store Memory10" kind="mlsl:block"/>
+					<pathNode name="A" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- rtU input ports following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_U.Inv_L_TempMotor">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_U"/>
+					<memberRef identifier="Inv_L_TempMotor"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.Inv_L_TempMotor">
+				<name>Inv_L_TempMotor</name>
+				<modelLink href="Power_Control/Inv_L_TempMotor"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="Inv_L_TempMotor" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_U.Inv_R_TempMotor">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_U"/>
+					<memberRef identifier="Inv_R_TempMotor"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.Inv_R_TempMotor">
+				<name>Inv_R_TempMotor</name>
+				<modelLink href="Power_Control/Inv_R_TempMotor"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="Inv_R_TempMotor" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_U.Inv_L_TempIGBT">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_U"/>
+					<memberRef identifier="Inv_L_TempIGBT"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.Inv_L_TempIGBT">
+				<name>Inv_L_TempIGBT</name>
+				<modelLink href="Power_Control/Inv_L_TempIGBT"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="Inv_L_TempIGBT" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_U.Inv_R_TempIGBT">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_U"/>
+					<memberRef identifier="Inv_R_TempIGBT"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.Inv_R_TempIGBT">
+				<name>Inv_R_TempIGBT</name>
+				<modelLink href="Power_Control/Inv_R_TempIGBT"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="Inv_R_TempIGBT" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_U.Torque_L">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_U"/>
+					<memberRef identifier="Torque_L"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.Torque_L">
+				<name>Torque_L</name>
+				<modelLink href="Power_Control/Torque_L"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="Torque_L" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_U.Torque_R">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_U"/>
+					<memberRef identifier="Torque_R"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.Torque_R">
+				<name>Torque_R</name>
+				<modelLink href="Power_Control/Torque_R"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="Torque_R" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_U.Accumulator_Voltage">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_U"/>
+					<memberRef identifier="Accumulator_Voltage"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.Accumulator_Voltage">
+				<name>Accumulator_Voltage</name>
+				<modelLink href="Power_Control/Accumulator_Voltage"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="Accumulator_Voltage" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_U.Accumulator_Current">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_U"/>
+					<memberRef identifier="Accumulator_Current"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.Accumulator_Current">
+				<name>Accumulator_Current</name>
+				<modelLink href="Power_Control/Accumulator_Current"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="Accumulator_Current" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- rtY output ports following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_Y.current_L">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_Y"/>
+					<memberRef identifier="current_L"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.current_L">
+				<name>current_L</name>
+				<modelLink href="Power_Control/current_L"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="current_L" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_Y.current_R">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_Y"/>
+					<memberRef identifier="current_R"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.current_R">
+				<name>current_R</name>
+				<modelLink href="Power_Control/current_R"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="current_R" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_Y.Power">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_Y"/>
+					<memberRef identifier="Power"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.Power">
+				<name>Power</name>
+				<modelLink href="Power_Control/Power"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="Power" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_Y.PowerLimitReached">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_Y"/>
+					<memberRef identifier="PowerLimitReached"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.PowerLimitReached">
+				<name>PowerLimitReached</name>
+				<modelLink href="Power_Control/PowerLimitReached"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="PowerLimitReached" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Power_Control_Y.PowerMean500ms">
+				<definitionLocation>
+					<baseRef identifier="Power_Control_Y"/>
+					<memberRef identifier="PowerMean500ms"/>
+				</definitionLocation>
+				<fileOrigin name="Power_Control.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Power_Control.PowerMean500ms">
+				<name>PowerMean500ms</name>
+				<modelLink href="Power_Control/PowerMean500ms"/>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="PowerMean500ms" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Power_Control_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_Start_Power_Control">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Power_Control_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_Start_Power_Control">
+				<name>irt_Start_Power_Control</name>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="irt_Start_Power_Control" kind="mlsl:process" type="initialization"/>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<constraint>
+						<execution trigger="initialization"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the initialization process of the Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_OneStep_Power_Control">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Power_Control_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_OneStep_Power_Control">
+				<name>irt_OneStep_Power_Control</name>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="irt_OneStep_Power_Control" kind="mlsl:process" type="execution">
+						<pathParameter name="mlsl:baseSampleRate" value="0.0045000000000000005"/>
+						<pathParameter name="mlsl:sampleRates" value="0.0045000000000000005"/>
+					</pathNode>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<messageAccess>
+						<message identifier="Power_Control_U.Inv_L_TempMotor" send="false"></message>
+						<message identifier="Power_Control_U.Inv_R_TempMotor" send="false"></message>
+						<message identifier="Power_Control_U.Inv_L_TempIGBT" send="false"></message>
+						<message identifier="Power_Control_U.Inv_R_TempIGBT" send="false"></message>
+						<message identifier="Power_Control_U.Torque_L" send="false"></message>
+						<message identifier="Power_Control_U.Torque_R" send="false"></message>
+						<message identifier="Power_Control_U.Accumulator_Voltage" send="false"></message>
+						<message identifier="Power_Control_U.Accumulator_Current" send="false"></message>
+						<message identifier="Power_Control_Y.current_L" send="true"></message>
+						<message identifier="Power_Control_Y.current_R" send="true"></message>
+						<message identifier="Power_Control_Y.Power" send="true"></message>
+						<message identifier="Power_Control_Y.PowerLimitReached" send="true"></message>
+						<message identifier="Power_Control_Y.PowerMean500ms" send="true"></message>
+					</messageAccess>
+					<constraint>
+						<period value="0.0045000000000000005"/>
+						<offset value="0.0"/>
+						<execution trigger="timer" priority="normal"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the execution process of the Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_Terminate_Power_Control">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="Power_Control_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_Terminate_Power_Control">
+				<name>irt_Terminate_Power_Control</name>
+				<modelLocation>
+					<pathNode name="Power_Control" kind="mlsl:model"/>
+					<pathNode name="irt_Terminate_Power_Control" kind="mlsl:process" type="termination"/>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<constraint>
+						<execution trigger="termination"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the termination process of the INTECRIO Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+	</interface>
+</module>

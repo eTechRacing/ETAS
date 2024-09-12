@@ -44,6 +44,12 @@
 
 #define IS_BIT_SET(uword32, bit) ((uword32 & bit) != 0)
 
+#ifdef __cplusplus
+class slPort;
+#else
+struct slPort;
+#endif
+
 /* region node */
 typedef struct SL_SigRegion_tag {
 #if !defined(S_FUNCTION_NAME) && !defined(BUILDING_SL_LOGGING)

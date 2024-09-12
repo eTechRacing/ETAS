@@ -12,9 +12,9 @@
  *
  * Code generation for model "Ellipse".
  *
- * Model version              : 10.1
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Mar 29 01:01:07 2024
+ * Model version              : 13.14
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Sat Sep  7 16:34:14 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -191,6 +191,14 @@
 
 #ifndef rtmSetMdlRefGlobalTID
 #define rtmSetMdlRefGlobalTID(rtm, val) ()
+#endif
+
+#ifndef rtmGetMdlRefGlobalTimerIndices
+#define rtmGetMdlRefGlobalTimerIndices(rtm) ()
+#endif
+
+#ifndef rtmSetMdlRefGlobalTimerIndices
+#define rtmSetMdlRefGlobalTimerIndices(rtm, val) ()
 #endif
 
 #ifndef rtmGetMdlRefTriggerTID
@@ -850,25 +858,40 @@
 /* Definition for use in the target main file */
 #define Ellipse_rtModel                RT_MODEL_Ellipse_T
 
+/* Block signals (default storage) */
+typedef struct {
+  real_T Merge;                        /* '<Root>/Merge' */
+} B_Ellipse_T;
+
 /* External inputs (root inport signals with default storage) */
 typedef struct {
   real_T el_LATITUDE_EKF;              /* '<Root>/el_LATITUDE_EKF' */
   real_T el_LONGITUDE_EKF;             /* '<Root>/el_LONGITUDE_EKF' */
+  real_T el_Vel_GPS_Valid;             /* '<Root>/el_Vel_GPS_Valid' */
+  real_T el_Vel_EKF_Valid;             /* '<Root>/el_Vel_EKF_Valid' */
+  real_T el_Vel_EKF_X;                 /* '<Root>/el_Vel_EKF_X' */
+  real_T el_Vel_GPS_N;                 /* '<Root>/el_Vel_GPS_N' */
+  real_T el_Vel_GPS_E;                 /* '<Root>/el_Vel_GPS_E' */
+  real_T el_SolutionMode;              /* '<Root>/el_SolutionMode' */
+  real_T el_Vel_GPS_D;                 /* '<Root>/el_Vel_GPS_D' */
+  real_T el_Vel_EKF_Y;                 /* '<Root>/el_Vel_EKF_Y' */
+  real_T el_Vel_EKF_Z;                 /* '<Root>/el_Vel_EKF_Z' */
   real_T el_AngleTrack;                /* '<Root>/el_AngleTrack' */
   real_T el_CurvatureRadius;           /* '<Root>/el_CurvatureRadius' */
-  real_T el_AUTO_STATUS;               /* '<Root>/el_AUTO_STATUS' */
+  real_T el_SlipAngle;                 /* '<Root>/el_SlipAngle' */
+  real_T el_Slip_Valid;                /* '<Root>/el_Slip_Valid' */
+  real_T el_Curvature_Valid;           /* '<Root>/el_Curvature_Valid' */
 } ExtU_Ellipse_T;
 
 /* External outputs (root outports fed by signals with default storage) */
 typedef struct {
-  real_T Lat_EKF;                      /* '<Root>/Lat_EKF' */
-  real_T Long_EKF;                     /* '<Root>/Long_EKF' */
-  real_T TrackAngle;                   /* '<Root>/TrackAngle' */
-  real_T CurvRadius;                   /* '<Root>/CurvRadius' */
-  real_T Status_Auto;                  /* '<Root>/Status_Auto' */
+  real_T el_VEL;                       /* '<Root>/el_VEL' */
+  real_T el_Vel_OK;                    /* '<Root>/el_Vel_OK' */
 } ExtY_Ellipse_T;
 
 /* Backward compatible GRT Identifiers */
+#define rtB                            Ellipse_B
+#define BlockIO                        B_Ellipse_T
 #define rtU                            Ellipse_U
 #define ExternalInputs                 ExtU_Ellipse_T
 #define rtY                            Ellipse_Y
@@ -972,6 +995,9 @@ struct tag_RTM_Ellipse_T {
   } Timing;
 };
 
+/* Block signals (default storage) */
+extern B_Ellipse_T Ellipse_B;
+
 /* External inputs (root inport signals with default storage) */
 extern ExtU_Ellipse_T Ellipse_U;
 
@@ -1008,5 +1034,8 @@ extern RT_MODEL_Ellipse_T *const Ellipse_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'Ellipse'
+ * '<S1>'   : 'Ellipse/If Action Subsystem'
+ * '<S2>'   : 'Ellipse/If Action Subsystem1'
+ * '<S3>'   : 'Ellipse/If Action Subsystem2'
  */
 #endif                                 /* RTW_HEADER_Ellipse_h_ */

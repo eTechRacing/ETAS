@@ -13,7 +13,7 @@
 -->
 <module xmlns="http://www.etas.com/scoop-ix/1.5" xmlns:ix="http://www.etas.com/scoop-ix/1.5" xmlns:mlsl="http://www.etas.com/scoop-ix/1.5/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.5
         file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
-	<directoryLocations scheme="MATLAB 9.12">
+	<directoryLocations scheme="MATLAB 23.2">
 		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\"/>
 		<directory identifier="toolDir" path=".\"/>
 		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\"/>
@@ -22,9 +22,9 @@
 	<moduleInfo identifier="VDC">
 		<name>VDC</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}VDC.slx&quot;"/>
-		<version major="1" minor="5"/>
+		<version major="4" minor="214"/>
 		<dateTime kind="created" year="2024" month="3" day="15" hour="15" minute="34" second="18"/>
-		<dateTime kind="lastModified" year="2024" month="4" day="6" hour="0" minute="7" second="21"/>
+		<dateTime kind="lastModified" year="2024" month="9" day="7" hour="16" minute="39" second="58"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -34,15 +34,15 @@
 		<creators>
 			<user lastName="no" role="creator"/>
 			<tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
-				<version major="9" minor="12" year="2021" month="11" day="13" info="R2022a"/>
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
 			</tool>
 			<tool kind="modeler" vendor="The Mathworks, Inc." name="Simulink">
-				<version major="10" minor="5" year="2021" month="11" day="13" info="R2022a"/>
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
 			</tool>
 			<tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
 			</tool>
 			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
-				<version major="9" minor="7" year="2021" month="11" day="13" info="R2022a"/>
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
 				<mode name="target" value="INTECRIO Real-Time Target"/>
 				<configuration>
 					<option identifier="InlineParameters">1</option>
@@ -54,7 +54,7 @@
 				</configuration>
 			</tool>
 			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="MATLAB Coder">
-				<version major="5" minor="4" year="2021" month="11" day="13" info="R2022a"/>
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
 			</tool>
 			<tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
 				<configuration>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="4" day="6" hour="1" minute="20" second="50"/>
+		<dateTime kind="created" year="2024" month="9" day="7" hour="16" minute="40" second="11"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -139,7 +139,6 @@
 		<file name="VDC.h" kind="header"/>
 		<file name="rtmodel.h" kind="header"/>
 		<file name="VDC_main.c" kind="body"/>
-		<!-- Additionally registered model specific source files -->
 		<file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body"/>
 		<!-- Target specific libraries -->
 		<file name="rtwStaticLib.lib" kind="symbolicLibrary"/>
@@ -160,24 +159,168 @@
 		<!-- "import" MATLAB/Simulink base type and complex struct definitions via external entity -->
 		&baseTypes-mlsl;
 		<definitions>
-			<structDef name="_B_VDC_T">
+			<structDef name="_B_MATLABFunction_VDC_T">
 				<fileOrigin name="VDC.h"/>
-				<structMember identifier="Merge1">
+				<structMember identifier="Torque_R_Nm">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/Opaque</documentation>
+						<documentation>&lt;S54&gt;/ SFunction </documentation>
 					</annotation>
 				</structMember>
+				<structMember identifier="Torque_L_Nm">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S54&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="B_MATLABFunction_VDC_T">
+				<struct/><typeRef name="_B_MATLABFunction_VDC_T"/>
+				<fileOrigin name="VDC.h"/>
+				<annotation>
+					<documentation>Type of block signal data structure for system '&lt;S50&gt;/MATLAB Function'.</documentation>
+				</annotation>
+			</typeDef>
+			<structDef name="_B_Torquedemandedbythedriver_V_T">
+				<fileOrigin name="VDC.h"/>
+				<structMember identifier="Throttle_Torque">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S52&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="B_Torquedemandedbythedriver_V_T">
+				<struct/><typeRef name="_B_Torquedemandedbythedriver_V_T"/>
+				<fileOrigin name="VDC.h"/>
+				<annotation>
+					<documentation>Type of block signal data structure for system '&lt;S7&gt;/Torque demanded by the driver'.</documentation>
+				</annotation>
+			</typeDef>
+			<structDef name="_B_RigidAxlewithTC2024_VDC_T">
+				<fileOrigin name="VDC.h"/>
+				<structMember identifier="Motor_Torque_RR">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S21&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="TC_Warning">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S21&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Motor_Torque_RL">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S21&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="B_RigidAxlewithTC2024_VDC_T">
+				<struct/><typeRef name="_B_RigidAxlewithTC2024_VDC_T"/>
+				<fileOrigin name="VDC.h"/>
+				<annotation>
+					<documentation>Type of block signal data structure for system '&lt;S17&gt;/Rigid Axle with TC 2024 '.</documentation>
+				</annotation>
+			</typeDef>
+			<structDef name="_B_VDC_T">
+				<fileOrigin name="VDC.h"/>
 				<structMember identifier="Merge2">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Opaque</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Merge3">
-					<type><typeRef name="boolean_T"/></type>
+				<structMember identifier="Merge1">
+					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Merge3">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Merge4">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Merge6">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="state">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S41&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="regen_en">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S40&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="TC_Warning">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S15&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="TC_Warning_l">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;S55&gt;/ SFunction </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="sf_RigidAxlewithTC2024_c">
+					<type><typeRef name="B_RigidAxlewithTC2024_VDC_T"/></type>
+					<annotation>
+						<documentation>&lt;S25&gt;/Rigid Axle with TC 2024 </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="sf_Torquedemandedbythedriver_a">
+					<type><typeRef name="B_Torquedemandedbythedriver_V_T"/></type>
+					<annotation>
+						<documentation>&lt;S2&gt;/Torque demanded by the driver</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="sf_RigidAxlewithTC2024_p2">
+					<type><typeRef name="B_RigidAxlewithTC2024_VDC_T"/></type>
+					<annotation>
+						<documentation>&lt;S17&gt;/Rigid Axle with TC 2024 </documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="sf_Torquedemandedbythedriver_k">
+					<type><typeRef name="B_Torquedemandedbythedriver_V_T"/></type>
+					<annotation>
+						<documentation>&lt;S1&gt;/Torque demanded by the driver</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="sf_Torquedemandedbythedriver_m">
+					<type><typeRef name="B_Torquedemandedbythedriver_V_T"/></type>
+					<annotation>
+						<documentation>&lt;S7&gt;/Torque demanded by the driver</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="sf_MATLABFunction_a">
+					<type><typeRef name="B_MATLABFunction_VDC_T"/></type>
+					<annotation>
+						<documentation>&lt;S51&gt;/MATLAB Function</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="sf_MATLABFunction">
+					<type><typeRef name="B_MATLABFunction_VDC_T"/></type>
+					<annotation>
+						<documentation>&lt;S50&gt;/MATLAB Function</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -206,24 +349,6 @@
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/el_ACCEL_Z</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="el_Vel_X">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/el_Vel_X</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="el_Vel_Y">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/el_Vel_Y</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="el_Vel_Z">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/el_Vel_Z</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="el_YAW">
@@ -316,28 +441,16 @@
 						<documentation>&lt;Root&gt;/Accumulator_Voltage</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Accumulator_Current">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Accumulator_Current</documentation>
-					</annotation>
-				</structMember>
 				<structMember identifier="Shutdown_PackageIntck">
 					<type><typeRef name="boolean_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Shutdown_PackageIntck</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Workshop_Mode_Enable">
+				<structMember identifier="Disconnection_Mode">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/Workshop_Mode_Enable</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="TV_Mode">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/TV_Mode</documentation>
+						<documentation>&lt;Root&gt;/Disconnection_Mode</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="Susp_F_L">
@@ -364,12 +477,6 @@
 						<documentation>&lt;Root&gt;/Susp_R_R</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="VDC_Max_Tyre_Slip">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/VDC_Max_Tyre_Slip</documentation>
-					</annotation>
-				</structMember>
 				<structMember identifier="TorqueEnable">
 					<type><typeRef name="boolean_T"/></type>
 					<annotation>
@@ -388,10 +495,16 @@
 						<documentation>&lt;Root&gt;/Car_State</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="el_SlipAngle">
+				<structMember identifier="RacingMode">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/el_SlipAngle</documentation>
+						<documentation>&lt;Root&gt;/RacingMode</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="el_VEL">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_VEL</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -401,40 +514,16 @@
 			</typeDef>
 			<structDef name="ExtY_VDC_T_tag">
 				<fileOrigin name="VDC.h"/>
-				<structMember identifier="Power">
+				<structMember identifier="Torque_R">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/Power</documentation>
+						<documentation>&lt;Root&gt;/Torque_R</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="PowerLimitReached">
+				<structMember identifier="Torque_L">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>&lt;Root&gt;/PowerLimitReached</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="PowerMean500ms">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/PowerMean500ms</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Torque_R_out">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Torque_R_out</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Torque_L_out">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Torque_L_out</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="TC_Warning">
-					<type><typeRef name="boolean_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/TC_Warning</documentation>
+						<documentation>&lt;Root&gt;/Torque_L</documentation>
 					</annotation>
 				</structMember>
 				<structMember identifier="APPS_Implausibility">
@@ -449,6 +538,24 @@
 						<documentation>&lt;Root&gt;/Torque_OK</documentation>
 					</annotation>
 				</structMember>
+				<structMember identifier="VDC_Max_Tyre_Slip">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/VDC_Max_Tyre_Slip</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Sensorics_Mode">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Sensorics_Mode</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="BrakeLight_Control">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/BrakeLight_Control</documentation>
+					</annotation>
+				</structMember>
 				<structMember identifier="Regenerative_Enable">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
@@ -459,6 +566,12 @@
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Throttle_Torque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="TC_Warning">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/TC_Warning</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -480,16 +593,34 @@
 						<documentation>State information for 'DWORK1'.</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="correction_k">
+				<structMember identifier="correction_i">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>State information for 'DWORK1'.</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="A">
+				<structMember identifier="correction_g">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
-						<documentation>State information for 'dsmMem'.</documentation>
+						<documentation>State information for 'DWORK1'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="correction_h">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK1'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="correction">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK1'.</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="correction">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'DWORK1'.</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -550,20 +681,20 @@
 		<!-- Imported extern parameters following -->
 		<!-- Global BlockIO (rtB) signals following -->
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_B.Merge1">
+			<dataCInterface identifier="VDC_B.Merge2">
 				<definitionLocation>
 					<baseRef identifier="VDC_B"/>
-					<memberRef identifier="Merge1"/>
+					<memberRef identifier="Merge2"/>
 				</definitionLocation>
 				<fileOrigin name="VDC.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="VDC.Opaque.Merge1">
-				<name>Merge1</name>
+			<modelOrigin identifier="VDC.Opaque.Merge2">
+				<name>Merge2</name>
 				<modelLink href="VDC/Opaque"/>
 				<modelLocation>
 					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Merge1" kind="mlsl:block"/>
-					<pathNode name="Merge1" kind="mlsl:signal"/>
+					<pathNode name="Merge2" kind="mlsl:block"/>
+					<pathNode name="Merge2" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
@@ -583,20 +714,20 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_B.Merge2">
+			<dataCInterface identifier="VDC_B.Merge1">
 				<definitionLocation>
 					<baseRef identifier="VDC_B"/>
-					<memberRef identifier="Merge2"/>
+					<memberRef identifier="Merge1"/>
 				</definitionLocation>
 				<fileOrigin name="VDC.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="VDC.Opaque.Merge2">
-				<name>Merge2</name>
+			<modelOrigin identifier="VDC.Opaque.Merge1">
+				<name>Merge1</name>
 				<modelLink href="VDC/Opaque"/>
 				<modelLocation>
 					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Merge2" kind="mlsl:block"/>
-					<pathNode name="Merge2" kind="mlsl:signal"/>
+					<pathNode name="Merge1" kind="mlsl:block"/>
+					<pathNode name="Merge1" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
@@ -633,14 +764,650 @@
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
-				<modelType type="Boolean">
-					<valueRange min="0.0" max="1.0"/>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
 				</modelType>
 				<annotation>
 				</annotation>
 			</modelOrigin>
 			<implementation>
-				<conversionRef name="VDC_CM_boolean"/>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.Merge4">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="Merge4"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.Opaque.Merge4">
+				<name>Merge4</name>
+				<modelLink href="VDC/Opaque"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Merge4" kind="mlsl:block"/>
+					<pathNode name="Merge4" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.Merge6">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="Merge6"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.Opaque.Merge6">
+				<name>Merge6</name>
+				<modelLink href="VDC/Opaque"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="Merge6" kind="mlsl:block"/>
+					<pathNode name="Merge6" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.state">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="state"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.ENDURANCE.Torque.state.state">
+				<name>state</name>
+				<modelLink href="VDC/ENDURANCE/Torque/state"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="ENDURANCE" kind="mlsl:subsystem"/>
+					<pathNode name="Torque" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="state" kind="mlsl:block"/>
+					<pathNode name="state" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.TC_Warning">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="TC_Warning"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.ACCELERATION.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024_n.TC_Warning">
+				<name>TC_Warning</name>
+				<modelLink href="VDC/ACCELERATION/RIGIDAXLE WITH TC/Rigid Axle with TC 2024\n"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="ACCELERATION" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="RIGIDAXLE WITH TC" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Rigid Axle with TC 2024" kind="mlsl:block"/>
+					<pathNode name="TC_Warning" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.TC_Warning_l">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="TC_Warning_l"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.SKIDPAD.TC_TV.Rigid_Axle_with_TC_2024_n.TC_Warning">
+				<name>TC_Warning</name>
+				<modelLink href="VDC/SKIDPAD/TC+TV/Rigid Axle with TC 2024\n"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="SKIDPAD" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="TC+TV" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Rigid Axle with TC 2024" kind="mlsl:block"/>
+					<pathNode name="TC_Warning" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.sf_RigidAxlewithTC2024_c.Motor_Torque_RR">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="sf_RigidAxlewithTC2024_c"/>
+					<memberRef identifier="Motor_Torque_RR"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.AUTOX1.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024_n.Motor_Torque_RR">
+				<name>Motor_Torque_RR</name>
+				<modelLink href="VDC/AUTOX1/RIGIDAXLE WITH TC/Rigid Axle with TC 2024\n"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="ENDURANCE" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="RIGIDAXLE WITH TC" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Rigid Axle with TC 2024" kind="mlsl:block"/>
+					<pathNode name="Motor_Torque_RR" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.sf_RigidAxlewithTC2024_c.TC_Warning">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="sf_RigidAxlewithTC2024_c"/>
+					<memberRef identifier="TC_Warning"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.AUTOX1.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024_n.TC_Warning">
+				<name>TC_Warning</name>
+				<modelLink href="VDC/AUTOX1/RIGIDAXLE WITH TC/Rigid Axle with TC 2024\n"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="ENDURANCE" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="RIGIDAXLE WITH TC" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Rigid Axle with TC 2024" kind="mlsl:block"/>
+					<pathNode name="TC_Warning" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.sf_RigidAxlewithTC2024_c.Motor_Torque_RL">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="sf_RigidAxlewithTC2024_c"/>
+					<memberRef identifier="Motor_Torque_RL"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.AUTOX1.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024_n.Motor_Torque_RL">
+				<name>Motor_Torque_RL</name>
+				<modelLink href="VDC/AUTOX1/RIGIDAXLE WITH TC/Rigid Axle with TC 2024\n"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="ENDURANCE" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="RIGIDAXLE WITH TC" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Rigid Axle with TC 2024" kind="mlsl:block"/>
+					<pathNode name="Motor_Torque_RL" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.sf_Torquedemandedbythedriver_a.Throttle_Torque">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="sf_Torquedemandedbythedriver_a"/>
+					<memberRef identifier="Throttle_Torque"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.SKIDPAD.Torque_demanded_by_the_driver.Throttle_Torque">
+				<name>Throttle_Torque</name>
+				<modelLink href="VDC/SKIDPAD/Torque demanded by the driver"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="AUTOX1" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Torque demanded by the driver" kind="mlsl:block"/>
+					<pathNode name="Throttle_Torque" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.sf_RigidAxlewithTC2024_p2.Motor_Torque_RR">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="sf_RigidAxlewithTC2024_p2"/>
+					<memberRef identifier="Motor_Torque_RR"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.AUTOX1.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024_n.Motor_Torque_RR">
+				<name>Motor_Torque_RR</name>
+				<modelLink href="VDC/AUTOX1/RIGIDAXLE WITH TC/Rigid Axle with TC 2024\n"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="AUTOX1" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="RIGIDAXLE WITH TC" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Rigid Axle with TC 2024" kind="mlsl:block"/>
+					<pathNode name="Motor_Torque_RR" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.sf_RigidAxlewithTC2024_p2.TC_Warning">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="sf_RigidAxlewithTC2024_p2"/>
+					<memberRef identifier="TC_Warning"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.AUTOX1.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024_n.TC_Warning">
+				<name>TC_Warning</name>
+				<modelLink href="VDC/AUTOX1/RIGIDAXLE WITH TC/Rigid Axle with TC 2024\n"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="AUTOX1" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="RIGIDAXLE WITH TC" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Rigid Axle with TC 2024" kind="mlsl:block"/>
+					<pathNode name="TC_Warning" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.sf_RigidAxlewithTC2024_p2.Motor_Torque_RL">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="sf_RigidAxlewithTC2024_p2"/>
+					<memberRef identifier="Motor_Torque_RL"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.AUTOX1.RIGIDAXLE_WITH_TC.Rigid_Axle_with_TC_2024_n.Motor_Torque_RL">
+				<name>Motor_Torque_RL</name>
+				<modelLink href="VDC/AUTOX1/RIGIDAXLE WITH TC/Rigid Axle with TC 2024\n"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="AUTOX1" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="RIGIDAXLE WITH TC" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Rigid Axle with TC 2024" kind="mlsl:block"/>
+					<pathNode name="Motor_Torque_RL" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.sf_Torquedemandedbythedriver_k.Throttle_Torque">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="sf_Torquedemandedbythedriver_k"/>
+					<memberRef identifier="Throttle_Torque"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.SKIDPAD.Torque_demanded_by_the_driver.Throttle_Torque">
+				<name>Throttle_Torque</name>
+				<modelLink href="VDC/SKIDPAD/Torque demanded by the driver"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="ACCELERATION" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Torque demanded by the driver" kind="mlsl:block"/>
+					<pathNode name="Throttle_Torque" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.sf_Torquedemandedbythedriver_m.Throttle_Torque">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="sf_Torquedemandedbythedriver_m"/>
+					<memberRef identifier="Throttle_Torque"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.SKIDPAD.Torque_demanded_by_the_driver.Throttle_Torque">
+				<name>Throttle_Torque</name>
+				<modelLink href="VDC/SKIDPAD/Torque demanded by the driver"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="SKIDPAD" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Torque demanded by the driver" kind="mlsl:block"/>
+					<pathNode name="Throttle_Torque" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.sf_MATLABFunction_a.Torque_R_Nm">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="sf_MATLABFunction_a"/>
+					<memberRef identifier="Torque_R_Nm"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.SKIDPAD.TC_TV.MATLAB_Function.Torque_R_Nm">
+				<name>Torque_R_Nm</name>
+				<modelLink href="VDC/SKIDPAD/TC+TV/MATLAB Function"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="SKIDPAD" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="TV with TC OFF" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="MATLAB Function" kind="mlsl:block"/>
+					<pathNode name="Torque_R_Nm" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.sf_MATLABFunction_a.Torque_L_Nm">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="sf_MATLABFunction_a"/>
+					<memberRef identifier="Torque_L_Nm"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.SKIDPAD.TC_TV.MATLAB_Function.Torque_L_Nm">
+				<name>Torque_L_Nm</name>
+				<modelLink href="VDC/SKIDPAD/TC+TV/MATLAB Function"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="SKIDPAD" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="TV with TC OFF" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="MATLAB Function" kind="mlsl:block"/>
+					<pathNode name="Torque_L_Nm" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.sf_MATLABFunction.Torque_R_Nm">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="sf_MATLABFunction"/>
+					<memberRef identifier="Torque_R_Nm"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.SKIDPAD.TC_TV.MATLAB_Function.Torque_R_Nm">
+				<name>Torque_R_Nm</name>
+				<modelLink href="VDC/SKIDPAD/TC+TV/MATLAB Function"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="SKIDPAD" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="TC+TV" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="MATLAB Function" kind="mlsl:block"/>
+					<pathNode name="Torque_R_Nm" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_B.sf_MATLABFunction.Torque_L_Nm">
+				<definitionLocation>
+					<baseRef identifier="VDC_B"/>
+					<memberRef identifier="sf_MATLABFunction"/>
+					<memberRef identifier="Torque_L_Nm"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.SKIDPAD.TC_TV.MATLAB_Function.Torque_L_Nm">
+				<name>Torque_L_Nm</name>
+				<modelLink href="VDC/SKIDPAD/TC+TV/MATLAB Function"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model" type="atomic"/>
+					<pathNode name="SKIDPAD" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="TC+TV" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="MATLAB Function" kind="mlsl:block"/>
+					<pathNode name="Torque_L_Nm" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
 			</implementation>
 			<usage measurement="true">
 				<address kind="pseudo">
@@ -668,41 +1435,6 @@
 					<pathNode name="APPS_IMPLAUSIBILITY" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Data Store Memory1" kind="mlsl:block"/>
 					<pathNode name="ERROR_Counter" kind="mlsl:signal"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="private">
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDC_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_DW.A">
-				<definitionLocation>
-					<baseRef identifier="VDC_DW"/>
-					<memberRef identifier="A"/>
-				</definitionLocation>
-				<fileOrigin name="VDC.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDC.Opaque.A">
-				<name>A</name>
-				<modelLink href="VDC/Opaque"/>
-				<modelLocation>
-					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="Accumulator Power" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="PowerLimitDetection" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Data Store Memory10" kind="mlsl:block"/>
-					<pathNode name="A" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
@@ -798,99 +1530,6 @@
 				<modelLocation>
 					<pathNode name="VDC" kind="mlsl:model"/>
 					<pathNode name="el_ACCEL_Z" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDC_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_U.el_Vel_X">
-				<definitionLocation>
-					<baseRef identifier="VDC_U"/>
-					<memberRef identifier="el_Vel_X"/>
-				</definitionLocation>
-				<fileOrigin name="VDC.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDC.el_Vel_X">
-				<name>el_Vel_X</name>
-				<modelLink href="VDC/el_Vel_X"/>
-				<modelLocation>
-					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="el_Vel_X" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDC_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_U.el_Vel_Y">
-				<definitionLocation>
-					<baseRef identifier="VDC_U"/>
-					<memberRef identifier="el_Vel_Y"/>
-				</definitionLocation>
-				<fileOrigin name="VDC.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDC.el_Vel_Y">
-				<name>el_Vel_Y</name>
-				<modelLink href="VDC/el_Vel_Y"/>
-				<modelLocation>
-					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="el_Vel_Y" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDC_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_U.el_Vel_Z">
-				<definitionLocation>
-					<baseRef identifier="VDC_U"/>
-					<memberRef identifier="el_Vel_Z"/>
-				</definitionLocation>
-				<fileOrigin name="VDC.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDC.el_Vel_Z">
-				<name>el_Vel_Z</name>
-				<modelLink href="VDC/el_Vel_Z"/>
-				<modelLocation>
-					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="el_Vel_Z" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -1374,37 +2013,6 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_U.Accumulator_Current">
-				<definitionLocation>
-					<baseRef identifier="VDC_U"/>
-					<memberRef identifier="Accumulator_Current"/>
-				</definitionLocation>
-				<fileOrigin name="VDC.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDC.Accumulator_Current">
-				<name>Accumulator_Current</name>
-				<modelLink href="VDC/Accumulator_Current"/>
-				<modelLocation>
-					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="Accumulator_Current" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDC_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
 			<dataCInterface identifier="VDC_U.Shutdown_PackageIntck">
 				<definitionLocation>
 					<baseRef identifier="VDC_U"/>
@@ -1436,50 +2044,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_U.Workshop_Mode_Enable">
+			<dataCInterface identifier="VDC_U.Disconnection_Mode">
 				<definitionLocation>
 					<baseRef identifier="VDC_U"/>
-					<memberRef identifier="Workshop_Mode_Enable"/>
+					<memberRef identifier="Disconnection_Mode"/>
 				</definitionLocation>
 				<fileOrigin name="VDC.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="VDC.Workshop_Mode_Enable">
-				<name>Workshop_Mode_Enable</name>
-				<modelLink href="VDC/Workshop_Mode_Enable"/>
+			<modelOrigin identifier="VDC.Disconnection_Mode">
+				<name>Disconnection_Mode</name>
+				<modelLink href="VDC/Disconnection_Mode"/>
 				<modelLocation>
 					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="Workshop_Mode_Enable" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDC_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_U.TV_Mode">
-				<definitionLocation>
-					<baseRef identifier="VDC_U"/>
-					<memberRef identifier="TV_Mode"/>
-				</definitionLocation>
-				<fileOrigin name="VDC.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDC.TV_Mode">
-				<name>TV_Mode</name>
-				<modelLink href="VDC/TV_Mode"/>
-				<modelLocation>
-					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="TV_Mode" kind="mlsl:block" type="Inport"/>
+					<pathNode name="Disconnection_Mode" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -1622,37 +2199,6 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_U.VDC_Max_Tyre_Slip">
-				<definitionLocation>
-					<baseRef identifier="VDC_U"/>
-					<memberRef identifier="VDC_Max_Tyre_Slip"/>
-				</definitionLocation>
-				<fileOrigin name="VDC.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDC.VDC_Max_Tyre_Slip">
-				<name>VDC_Max_Tyre_Slip</name>
-				<modelLink href="VDC/VDC_Max_Tyre_Slip"/>
-				<modelLocation>
-					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="VDC_Max_Tyre_Slip" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDC_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
 			<dataCInterface identifier="VDC_U.TorqueEnable">
 				<definitionLocation>
 					<baseRef identifier="VDC_U"/>
@@ -1746,19 +2292,50 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_U.el_SlipAngle">
+			<dataCInterface identifier="VDC_U.RacingMode">
 				<definitionLocation>
 					<baseRef identifier="VDC_U"/>
-					<memberRef identifier="el_SlipAngle"/>
+					<memberRef identifier="RacingMode"/>
 				</definitionLocation>
 				<fileOrigin name="VDC.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="VDC.el_SlipAngle">
-				<name>el_SlipAngle</name>
-				<modelLink href="VDC/el_SlipAngle"/>
+			<modelOrigin identifier="VDC.RacingMode">
+				<name>RacingMode</name>
+				<modelLink href="VDC/RacingMode"/>
 				<modelLocation>
 					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="el_SlipAngle" kind="mlsl:block" type="Inport"/>
+					<pathNode name="RacingMode" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_U.el_VEL">
+				<definitionLocation>
+					<baseRef identifier="VDC_U"/>
+					<memberRef identifier="el_VEL"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.el_VEL">
+				<name>el_VEL</name>
+				<modelLink href="VDC/el_VEL"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model"/>
+					<pathNode name="el_VEL" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection in="true"/>
@@ -1778,19 +2355,19 @@
 		</dataElement>
 		<!-- rtY output ports following -->
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_Y.Power">
+			<dataCInterface identifier="VDC_Y.Torque_R">
 				<definitionLocation>
 					<baseRef identifier="VDC_Y"/>
-					<memberRef identifier="Power"/>
+					<memberRef identifier="Torque_R"/>
 				</definitionLocation>
 				<fileOrigin name="VDC.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="VDC.Power">
-				<name>Power</name>
-				<modelLink href="VDC/Power"/>
+			<modelOrigin identifier="VDC.Torque_R">
+				<name>Torque_R</name>
+				<modelLink href="VDC/Torque_R"/>
 				<modelLocation>
 					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="Power" kind="mlsl:block" type="Outport"/>
+					<pathNode name="Torque_R" kind="mlsl:block" type="Outport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection out="true"/>
@@ -1809,19 +2386,19 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_Y.PowerLimitReached">
+			<dataCInterface identifier="VDC_Y.Torque_L">
 				<definitionLocation>
 					<baseRef identifier="VDC_Y"/>
-					<memberRef identifier="PowerLimitReached"/>
+					<memberRef identifier="Torque_L"/>
 				</definitionLocation>
 				<fileOrigin name="VDC.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="VDC.PowerLimitReached">
-				<name>PowerLimitReached</name>
-				<modelLink href="VDC/PowerLimitReached"/>
+			<modelOrigin identifier="VDC.Torque_L">
+				<name>Torque_L</name>
+				<modelLink href="VDC/Torque_L"/>
 				<modelLocation>
 					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="PowerLimitReached" kind="mlsl:block" type="Outport"/>
+					<pathNode name="Torque_L" kind="mlsl:block" type="Outport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection out="true"/>
@@ -1832,130 +2409,6 @@
 			</modelOrigin>
 			<implementation>
 				<conversionRef name="VDC_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_Y.PowerMean500ms">
-				<definitionLocation>
-					<baseRef identifier="VDC_Y"/>
-					<memberRef identifier="PowerMean500ms"/>
-				</definitionLocation>
-				<fileOrigin name="VDC.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDC.PowerMean500ms">
-				<name>PowerMean500ms</name>
-				<modelLink href="VDC/PowerMean500ms"/>
-				<modelLocation>
-					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="PowerMean500ms" kind="mlsl:block" type="Outport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection out="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDC_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_Y.Torque_R_out">
-				<definitionLocation>
-					<baseRef identifier="VDC_Y"/>
-					<memberRef identifier="Torque_R_out"/>
-				</definitionLocation>
-				<fileOrigin name="VDC.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDC.Torque_R_out">
-				<name>Torque_R_out</name>
-				<modelLink href="VDC/Torque_R_out"/>
-				<modelLocation>
-					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="Torque_R_out" kind="mlsl:block" type="Outport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection out="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDC_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_Y.Torque_L_out">
-				<definitionLocation>
-					<baseRef identifier="VDC_Y"/>
-					<memberRef identifier="Torque_L_out"/>
-				</definitionLocation>
-				<fileOrigin name="VDC.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDC.Torque_L_out">
-				<name>Torque_L_out</name>
-				<modelLink href="VDC/Torque_L_out"/>
-				<modelLocation>
-					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="Torque_L_out" kind="mlsl:block" type="Outport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection out="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDC_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="VDC_Y.TC_Warning">
-				<definitionLocation>
-					<baseRef identifier="VDC_Y"/>
-					<memberRef identifier="TC_Warning"/>
-				</definitionLocation>
-				<fileOrigin name="VDC.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="VDC.TC_Warning">
-				<name>TC_Warning</name>
-				<modelLink href="VDC/TC_Warning"/>
-				<modelLocation>
-					<pathNode name="VDC" kind="mlsl:model"/>
-					<pathNode name="TC_Warning" kind="mlsl:block" type="Outport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection out="true"/>
-				</modelKind>
-				<modelType type="Boolean">
-					<valueRange min="0.0" max="1.0"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="VDC_CM_boolean"/>
 			</implementation>
 			<usage measurement="true">
 				<address kind="pseudo">
@@ -2008,6 +2461,99 @@
 				<modelLocation>
 					<pathNode name="VDC" kind="mlsl:model"/>
 					<pathNode name="Torque_OK" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Y.VDC_Max_Tyre_Slip">
+				<definitionLocation>
+					<baseRef identifier="VDC_Y"/>
+					<memberRef identifier="VDC_Max_Tyre_Slip"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.VDC_Max_Tyre_Slip">
+				<name>VDC_Max_Tyre_Slip</name>
+				<modelLink href="VDC/VDC_Max_Tyre_Slip"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model"/>
+					<pathNode name="VDC_Max_Tyre_Slip" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Y.Sensorics_Mode">
+				<definitionLocation>
+					<baseRef identifier="VDC_Y"/>
+					<memberRef identifier="Sensorics_Mode"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.Sensorics_Mode">
+				<name>Sensorics_Mode</name>
+				<modelLink href="VDC/Sensorics_Mode"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model"/>
+					<pathNode name="Sensorics_Mode" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Y.BrakeLight_Control">
+				<definitionLocation>
+					<baseRef identifier="VDC_Y"/>
+					<memberRef identifier="BrakeLight_Control"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.BrakeLight_Control">
+				<name>BrakeLight_Control</name>
+				<modelLink href="VDC/BrakeLight_Control"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model"/>
+					<pathNode name="BrakeLight_Control" kind="mlsl:block" type="Outport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
 					<flowDirection out="true"/>
@@ -2087,6 +2633,37 @@
 				</address>
 			</usage>
 		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Y.TC_Warning">
+				<definitionLocation>
+					<baseRef identifier="VDC_Y"/>
+					<memberRef identifier="TC_Warning"/>
+				</definitionLocation>
+				<fileOrigin name="VDC.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC.TC_Warning">
+				<name>TC_Warning</name>
+				<modelLink href="VDC/TC_Warning"/>
+				<modelLocation>
+					<pathNode name="VDC" kind="mlsl:model"/>
+					<pathNode name="TC_Warning" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
 		<functionElement interfaceKind="export">
 			<functionCInterface identifier="irt_Start_VDC">
 				<signature>
@@ -2141,9 +2718,6 @@
 						<message identifier="VDC_U.el_ACCEL_X" send="false"></message>
 						<message identifier="VDC_U.el_ACCEL_Y" send="false"></message>
 						<message identifier="VDC_U.el_ACCEL_Z" send="false"></message>
-						<message identifier="VDC_U.el_Vel_X" send="false"></message>
-						<message identifier="VDC_U.el_Vel_Y" send="false"></message>
-						<message identifier="VDC_U.el_Vel_Z" send="false"></message>
 						<message identifier="VDC_U.el_YAW" send="false"></message>
 						<message identifier="VDC_U.el_PITCH" send="false"></message>
 						<message identifier="VDC_U.el_ROLL" send="false"></message>
@@ -2159,29 +2733,27 @@
 						<message identifier="VDC_U.RR_rads_Motor" send="false"></message>
 						<message identifier="VDC_U.RL_rads_Motor" send="false"></message>
 						<message identifier="VDC_U.Accumulator_Voltage" send="false"></message>
-						<message identifier="VDC_U.Accumulator_Current" send="false"></message>
 						<message identifier="VDC_U.Shutdown_PackageIntck" send="false"></message>
-						<message identifier="VDC_U.Workshop_Mode_Enable" send="false"></message>
-						<message identifier="VDC_U.TV_Mode" send="false"></message>
+						<message identifier="VDC_U.Disconnection_Mode" send="false"></message>
 						<message identifier="VDC_U.Susp_F_L" send="false"></message>
 						<message identifier="VDC_U.Susp_F_R" send="false"></message>
 						<message identifier="VDC_U.Susp_R_L" send="false"></message>
 						<message identifier="VDC_U.Susp_R_R" send="false"></message>
-						<message identifier="VDC_U.VDC_Max_Tyre_Slip" send="false"></message>
 						<message identifier="VDC_U.TorqueEnable" send="false"></message>
 						<message identifier="VDC_U.CriticalDisconnection" send="false"></message>
 						<message identifier="VDC_U.Car_State" send="false"></message>
-						<message identifier="VDC_U.el_SlipAngle" send="false"></message>
-						<message identifier="VDC_Y.Power" send="true"></message>
-						<message identifier="VDC_Y.PowerLimitReached" send="true"></message>
-						<message identifier="VDC_Y.PowerMean500ms" send="true"></message>
-						<message identifier="VDC_Y.Torque_R_out" send="true"></message>
-						<message identifier="VDC_Y.Torque_L_out" send="true"></message>
-						<message identifier="VDC_Y.TC_Warning" send="true"></message>
+						<message identifier="VDC_U.RacingMode" send="false"></message>
+						<message identifier="VDC_U.el_VEL" send="false"></message>
+						<message identifier="VDC_Y.Torque_R" send="true"></message>
+						<message identifier="VDC_Y.Torque_L" send="true"></message>
 						<message identifier="VDC_Y.APPS_Implausibility" send="true"></message>
 						<message identifier="VDC_Y.Torque_OK" send="true"></message>
+						<message identifier="VDC_Y.Sensorics_Mode" send="true"></message>
+						<message identifier="VDC_Y.BrakeLight_Control" send="true"></message>
 						<message identifier="VDC_Y.Regenerative_Enable" send="true"></message>
 						<message identifier="VDC_Y.Throttle_Torque" send="true"></message>
+						<message identifier="VDC_Y.TC_Warning" send="true"></message>
+						<message identifier="VDC_Y.VDC_Max_Tyre_Slip" send="true"></message>
 					</messageAccess>
 					<constraint>
 						<period value="0.2"/>

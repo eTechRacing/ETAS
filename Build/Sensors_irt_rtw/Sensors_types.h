@@ -7,9 +7,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 10.4
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Mar 29 01:03:13 2024
+ * Model version              : 13.15
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Sat Sep  7 16:35:26 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -20,8 +20,6 @@
 
 #ifndef RTW_HEADER_Sensors_types_h_
 #define RTW_HEADER_Sensors_types_h_
-
-/* Model Code Variants */
 
 /* Forward declaration for rtModel */
 typedef struct tag_RTM_Sensors_T RT_MODEL_Sensors_T;

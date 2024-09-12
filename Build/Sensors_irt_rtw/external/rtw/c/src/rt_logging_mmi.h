@@ -1,6 +1,6 @@
 /* 
  *
- * Copyright 1994-2014 The MathWorks, Inc.
+ * Copyright 1994-2022 The MathWorks, Inc.
  *
  * File: rt_logging_mmi.h
  *
@@ -11,7 +11,11 @@
 #define rt_logging_mmi_h
 
 #include <stdlib.h>
+/* Macro SIMPLIFIED_RTWTYPES_COMPATIBILITY declares compatibility with simplified version of
+ * rtwtypes.h */
+#define SIMPLIFIED_RTWTYPES_COMPATIBILITY
 #include "rtwtypes.h"
+#undef SIMPLIFIED_RTWTYPES_COMPATIBILITY
 #include "builtin_typeid_types.h"
 #ifdef IS_SIM_TARGET
 #include "rtw_matlogging_simtarget.h"

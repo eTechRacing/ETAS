@@ -13,18 +13,18 @@
 -->
 <module xmlns="http://www.etas.com/scoop-ix/1.5" xmlns:ix="http://www.etas.com/scoop-ix/1.5" xmlns:mlsl="http://www.etas.com/scoop-ix/1.5/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.5
         file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
-	<directoryLocations scheme="MATLAB 9.12">
+	<directoryLocations scheme="MATLAB 23.2">
 		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\"/>
 		<directory identifier="toolDir" path=".\"/>
-		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Main_ECU\Simulink\"/>
-		<directory identifier="codeDir" path="c:\users\joser\onedrive\documentos\github\etas\build\sensors_irt_rtw\"/>
+		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\"/>
+		<directory identifier="codeDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\Sensors_irt_rtw\"/>
 	</directoryLocations>
 	<moduleInfo identifier="Sensors">
 		<name>Sensors</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Sensors.slx&quot;"/>
-		<version major="10" minor="4"/>
+		<version major="13" minor="15"/>
 		<dateTime kind="created" year="2021" month="2" day="17" hour="15" minute="47" second="20"/>
-		<dateTime kind="lastModified" year="2024" month="3" day="29" hour="0" minute="57" second="41"/>
+		<dateTime kind="lastModified" year="2024" month="8" day="31" hour="20" minute="52" second="52"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -34,15 +34,15 @@
 		<creators>
 			<user lastName="cspt" role="creator"/>
 			<tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
-				<version major="9" minor="12" year="2021" month="11" day="13" info="R2022a"/>
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
 			</tool>
 			<tool kind="modeler" vendor="The Mathworks, Inc." name="Simulink">
-				<version major="10" minor="5" year="2021" month="11" day="13" info="R2022a"/>
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
 			</tool>
 			<tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
 			</tool>
 			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
-				<version major="9" minor="7" year="2021" month="11" day="13" info="R2022a"/>
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
 				<mode name="target" value="INTECRIO Real-Time Target"/>
 				<configuration>
 					<option identifier="InlineParameters">1</option>
@@ -54,7 +54,7 @@
 				</configuration>
 			</tool>
 			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="MATLAB Coder">
-				<version major="5" minor="4" year="2021" month="11" day="13" info="R2022a"/>
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
 			</tool>
 			<tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
 				<configuration>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="3" day="29" hour="1" minute="3" second="13"/>
+		<dateTime kind="created" year="2024" month="9" day="7" hour="16" minute="35" second="26"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -140,7 +140,6 @@
 		<file name="rtmodel.h" kind="header"/>
 		<file name="Sensors_data.c" kind="body"/>
 		<file name="Sensors_main.c" kind="body"/>
-		<!-- Additionally registered model specific source files -->
 		<file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body"/>
 		<!-- Target specific libraries -->
 		<file name="rtwStaticLib.lib" kind="symbolicLibrary"/>
@@ -170,13 +169,13 @@
 						<documentation>&lt;Root&gt;/Opaque</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Sum1_p">
+				<structMember identifier="Sum1_d">
 					<type><const/><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Opaque</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="Sum1_f">
+				<structMember identifier="Sum1_c">
 					<type><const/><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Opaque</documentation>
@@ -270,6 +269,18 @@
 						<documentation>&lt;Root&gt;/SteeringSensor_Bits</documentation>
 					</annotation>
 				</structMember>
+				<structMember identifier="Disconnection_APPS1">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Disconnection_APPS1</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Disconnection_APPS2">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Disconnection_APPS2</documentation>
+					</annotation>
+				</structMember>
 			</structDef>
 			<typeDef name="ExtU_Sensors_T">
 				<struct/><typeRef name="ExtU_Sensors_T_tag"/>
@@ -277,12 +288,6 @@
 			</typeDef>
 			<structDef name="ExtY_Sensors_T_tag">
 				<fileOrigin name="Sensors.h"/>
-				<structMember identifier="BrakeLight_Control">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/BrakeLight_Control</documentation>
-					</annotation>
-				</structMember>
 				<structMember identifier="APPS1_Value">
 					<type><typeRef name="real_T"/></type>
 					<annotation>
@@ -412,7 +417,7 @@
 				<modelLink href="Sensors/Opaque"/>
 				<modelLocation>
 					<pathNode name="Sensors" kind="mlsl:model"/>
-					<pathNode name="Brake Pedal Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="APPS1 Data Conv" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Sum1" kind="mlsl:block"/>
 					<pathNode name="Sum1" kind="mlsl:signal"/>
 				</modelLocation>
@@ -434,21 +439,21 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Sensors_ConstB.Sum1_p">
+			<dataCInterface identifier="Sensors_ConstB.Sum1_d">
 				<definitionLocation>
 					<baseRef identifier="Sensors_ConstB"/>
-					<memberRef identifier="Sum1_p"/>
+					<memberRef identifier="Sum1_d"/>
 				</definitionLocation>
 				<fileOrigin name="Sensors.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Sensors.Opaque.Sum1_p">
-				<name>Sum1_p</name>
+			<modelOrigin identifier="Sensors.Opaque.Sum1_d">
+				<name>Sum1_d</name>
 				<modelLink href="Sensors/Opaque"/>
 				<modelLocation>
 					<pathNode name="Sensors" kind="mlsl:model"/>
-					<pathNode name="APPS1 Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="APPS1 Data Conv1" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Sum1" kind="mlsl:block"/>
-					<pathNode name="Sum1_p" kind="mlsl:signal"/>
+					<pathNode name="Sum1_d" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
@@ -468,21 +473,21 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Sensors_ConstB.Sum1_f">
+			<dataCInterface identifier="Sensors_ConstB.Sum1_c">
 				<definitionLocation>
 					<baseRef identifier="Sensors_ConstB"/>
-					<memberRef identifier="Sum1_f"/>
+					<memberRef identifier="Sum1_c"/>
 				</definitionLocation>
 				<fileOrigin name="Sensors.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Sensors.Opaque.Sum1_f">
-				<name>Sum1_f</name>
+			<modelOrigin identifier="Sensors.Opaque.Sum1_c">
+				<name>Sum1_c</name>
 				<modelLink href="Sensors/Opaque"/>
 				<modelLocation>
 					<pathNode name="Sensors" kind="mlsl:model"/>
-					<pathNode name="APPS2 Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Brake Pedal Data Conv" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Sum1" kind="mlsl:block"/>
-					<pathNode name="Sum1_f" kind="mlsl:signal"/>
+					<pathNode name="Sum1_c" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
@@ -993,24 +998,23 @@
 				</address>
 			</usage>
 		</dataElement>
-		<!-- rtY output ports following -->
 		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Sensors_Y.BrakeLight_Control">
+			<dataCInterface identifier="Sensors_U.Disconnection_APPS1">
 				<definitionLocation>
-					<baseRef identifier="Sensors_Y"/>
-					<memberRef identifier="BrakeLight_Control"/>
+					<baseRef identifier="Sensors_U"/>
+					<memberRef identifier="Disconnection_APPS1"/>
 				</definitionLocation>
 				<fileOrigin name="Sensors.c"/>
 			</dataCInterface>
-			<modelOrigin identifier="Sensors.BrakeLight_Control">
-				<name>BrakeLight_Control</name>
-				<modelLink href="Sensors/BrakeLight_Control"/>
+			<modelOrigin identifier="Sensors.Disconnection_APPS1">
+				<name>Disconnection_APPS1</name>
+				<modelLink href="Sensors/Disconnection_APPS1"/>
 				<modelLocation>
 					<pathNode name="Sensors" kind="mlsl:model"/>
-					<pathNode name="BrakeLight_Control" kind="mlsl:block" type="Outport"/>
+					<pathNode name="Disconnection_APPS1" kind="mlsl:block" type="Inport"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="public">
-					<flowDirection out="true"/>
+					<flowDirection in="true"/>
 				</modelKind>
 				<modelType type="continuous">
 					<valueRange min="-1.7E+308" max="1.7E+308"/>
@@ -1025,6 +1029,38 @@
 				</address>
 			</usage>
 		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_U.Disconnection_APPS2">
+				<definitionLocation>
+					<baseRef identifier="Sensors_U"/>
+					<memberRef identifier="Disconnection_APPS2"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Disconnection_APPS2">
+				<name>Disconnection_APPS2</name>
+				<modelLink href="Sensors/Disconnection_APPS2"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="Disconnection_APPS2" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- rtY output ports following -->
 		<dataElement interfaceKind="export">
 			<dataCInterface identifier="Sensors_Y.APPS1_Value">
 				<definitionLocation>
@@ -1332,7 +1368,8 @@
 						<message identifier="Sensors_U.Susp_R_L_Bits" send="false"></message>
 						<message identifier="Sensors_U.Susp_R_R_Bits" send="false"></message>
 						<message identifier="Sensors_U.SteeringSensor_Bits" send="false"></message>
-						<message identifier="Sensors_Y.BrakeLight_Control" send="true"></message>
+						<message identifier="Sensors_U.Disconnection_APPS1" send="false"></message>
+						<message identifier="Sensors_U.Disconnection_APPS2" send="false"></message>
 						<message identifier="Sensors_Y.APPS1_Value" send="true"></message>
 						<message identifier="Sensors_Y.APPS2_Value" send="true"></message>
 						<message identifier="Sensors_Y.BrakePedal_Value" send="true"></message>

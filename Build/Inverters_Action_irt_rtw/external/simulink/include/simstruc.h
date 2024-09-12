@@ -769,6 +769,7 @@ typedef struct _ssRegisterUnitFromExprType_tag {
  * @param    val           Current size value to set for dimension dIdx.
  */
 #if SS_SL_INTERNAL || SS_SFCN_FOR_SIM
+#if defined(USE_32BIT_FIELDS)
 #define ssSetCurrentOutputPortDimensions(S, pIdx, _dIdx, _val)                             \
     {                                                                                      \
         struct _ssVarDimsIdxVal_tag dIdxVal;                                               \
@@ -777,6 +778,16 @@ typedef struct _ssRegisterUnitFromExprType_tag {
         _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_SET_CURR_OUTPUT_DIMS, pIdx, &dIdxVal) \
             _ssSafelyCallGenericFcnEnd;                                                    \
     }
+#elif defined(USE_64BIT_FIELDS)
+#define ssSetCurrentOutputPortDimensions(S, pIdx, _dIdx, _val)                             \
+    {                                                                                      \
+        struct _ssVarDimsIdxVal_tag dIdxVal;                                               \
+        dIdxVal.dIdx = _dIdx;                                                              \
+        dIdxVal.dValSLSize = _val;                                                         \
+        _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_SET_CURR_OUTPUT_DIMS, pIdx, &dIdxVal) \
+            _ssSafelyCallGenericFcnEnd;                                                    \
+    }
+#endif
 #else
 #define ssSetCurrentOutputPortDimensions(S, pIdx, dIdx, val) \
     _ssSetCurrentOutputPortDimensions(S, pIdx, dIdx, val)
@@ -2203,9 +2214,9 @@ extern DTypeId ssGetDTypeIdFromMxArray(const mxArray* m);
  * @return   A pointer (const mxArray *) to the value of the S-function parameter specified by
  * index.
  */
-#define ssGetSFcnParam(S, index)                                     \
-    ((const mxArray*)_ssGetSFcnParam(S, index)) /* (const mxArray *) \
-                                                 */
+#define ssGetSFcnParam(S, index)                                                     \
+    (SS_STATIC_CAST(const mxArray*, _ssGetSFcnParam(S, index))) /* (const mxArray *) \
+                                                                 */
 
 
 /**
@@ -2896,9 +2907,9 @@ extern int_T rt_DisableSys(SimStruct* S, int_T element, int_T tid);
  * @return   The Boolean value true if the model is being built or simulated in the Rapid
  * Accelerator mode. Returns false otherwise.
  */
-#define ssIsRapidAcceleratorActive(S)                                        \
-    ((!ssGetParentSS(S)) ? ((S)->sizes.flags.isRapidAcceleratorActive == 1U) \
-                         : ((ssGetParentSS(S))->sizes.flags.isRapidAcceleratorActive == 1U))
+#define ssIsRapidAcceleratorActive(S)                                   \
+    ((!(S)->parent) ? ((S)->sizes.flags.isRapidAcceleratorActive == 1U) \
+                    : (((S)->parent)->sizes.flags.isRapidAcceleratorActive == 1U))
 
 /**
  * @brief ssGetT
@@ -3047,7 +3058,7 @@ extern int_T rt_DisableSys(SimStruct* S, int_T element, int_T tid);
  * @return   The Boolean value true if the current simulation time is equal to the simulation start
  * time. Otherwise, returns false.
  */
-#define ssIsFirstInitCond(S) (!((ssGetRootSS(S)->mdlInfo->mdlFlags).firstInitCondCalled))
+#define ssIsFirstInitCond(S) (!(((S)->root->mdlInfo->mdlFlags).firstInitCondCalled))
 
 #if !defined(ENABLE_SLEXEC_SSBRIDGE)
 
@@ -3076,17 +3087,106 @@ extern int_T rt_DisableSys(SimStruct* S, int_T element, int_T tid);
  */
 #define ssIsMajorTimeStep(S) ((S)->mdlInfo->simTimeStep == MAJOR_TIME_STEP) /*  (int_T)    */
 
+/**
+ * @brief ssIsModeUpdateTimeStep
+ *
+ * Determine whether the simulation is in a mode update time step
+ * @param    S           SimStruct representing an S-Function block.
+ * @return   The Boolean value true if the simulation is in a mode update time step. Otherwise,
+ * returns false.
+ */
+
+#define ssIsModeUpdateTimeStep(S) \
+    ((S)->mdlInfo->simTimeStep == MAJOR_TIME_STEP || ssIsMinorTimeStepWithModeChange(S))
+
 
 /**
  * @brief ssSetNeedAbsoluteTime
  *
- * Register whether the block requires  absolute time
+ * Register whether the block requires absolute time
  * @param    S          SimStruct representing an S-Function block
  * @param    n          Boolean flag indicating whether the block must use absolute time
  *
  */
 #define ssSetNeedAbsoluteTime(S, n) (S)->sizes.flags.needAbsoluteTime = (n)
 
+/**
+ * @brief ssGetNeedAbsoluteTime
+ *
+ * Determine whether the block requires absolute time
+ * @param    S          SimStruct representing an S-Function block
+ * @return   The Boolean value true if the block uses absolute time
+ *
+ */
+#define ssGetNeedAbsoluteTime(S) (S)->sizes.flags.needAbsoluteTime
+
+/**
+ * @brief ssSetNeedElapseTime
+ *
+ * Register whether the block requires elapse time
+ * @param    S          SimStruct representing an S-Function block
+ * @param    n          Boolean flag indicating whether the block must use elapse time
+ *
+ */
+#define ssSetNeedElapseTime(S, n) (S)->sizes.flags.needElapseTime = (n)
+
+/**
+ * @brief ssGetNeedElapseTime
+ *
+ * Determine whether the block requires elapse time
+ * @param    S          SimStruct representing an S-Function block
+ * @return   The Boolean value true if the block uses elapse time
+ *
+ */
+#define ssGetNeedElapseTime(S) (S)->sizes.flags.needElapseTime
+
+/**
+ * @brief ssGetElapseTime
+ *
+ * Get the elapse time for the block
+ * @param    S          SimStruct representing an S-Function block
+ * @param    dataPtr    Pointer to the elapse time data
+ *
+ */
+#define ssGetElapseTime(S, dataPtr)                                                  \
+    _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_ELAPSE_TIME, 0, (double*)dataPtr) \
+        _ssSafelyCallGenericFcnEnd
+
+/**
+ * @brief ssGetElapseTimeCounter
+ *
+ * Get the elapse time counter for the block
+ * @param    S          SimStruct representing an S-Function block
+ * @param    dataPtr    Pointer to the elapse time counter data
+ *
+ */
+#define ssGetElapseTimeCounter(S, dataPtr)                                                \
+    _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_ELAPSE_TIME_COUNTER, 0, (int*)dataPtr) \
+        _ssSafelyCallGenericFcnEnd
+
+/**
+ * @brief ssGetElapseTimeCounterDtype
+ *
+ * Get the data type of elapse time counter for the block
+ * @param    S          SimStruct representing an S-Function block
+ * @param    dataPtr    Pointer to the data type of elapse time counter
+ *
+ */
+#define ssGetElapseTimeCounterDtype(S, dataPtr)                                                 \
+    _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_ELAPSE_TIME_COUNTER_DTYPE, 0, (int*)dataPtr) \
+        _ssSafelyCallGenericFcnEnd
+
+/**
+ * @brief ssGetElapseTimeResolution
+ *
+ * Get the resolution of elapse time for the block
+ * @param    S          SimStruct representing an S-Function block
+ * @param    dataPtr    Pointer to the elapse time resolution
+ *
+ */
+#define ssGetElapseTimeResolution(S, dataPtr)                                                   \
+    _ssSafelyCallGenericFcnStart(S)(S, GEN_FCN_GET_ELAPSE_TIME_RESOLUTION, 0, (double*)dataPtr) \
+        _ssSafelyCallGenericFcnEnd
 
 /**
  * @brief ssSetTimeSource
@@ -3341,7 +3441,7 @@ extern int_T rt_DisableSys(SimStruct* S, int_T element, int_T tid);
 #define ssSetNumDWork(S, num) \
     (((S)->regDataType.setNumDWorkFcn != NULL) ? (*(S)->regDataType.setNumDWorkFcn)((S), num) : (0))
 #endif
-#elif defined(USE_32BIT_FIELDS)
+#else
 #define ssSetNumDWork(S, num) ((_ssSetNumDWork(S, num)) >= -1)
 #endif
 #endif /* NOT level 1 S-function */
@@ -4097,6 +4197,7 @@ extern "C" {
  * @return An int_T (1 or 0) or boolean_T (true or false) indicating the success or failure of the
  * function.
  */
+#if defined(USE_32BIT_FIELDS)
 extern int_T ssWriteRTWMx2dMatParam(SimStruct* S,
                                     const char_T* name,
                                     const void* rVal,
@@ -4104,6 +4205,15 @@ extern int_T ssWriteRTWMx2dMatParam(SimStruct* S,
                                     int_T dtInfo,
                                     int_T nRows,
                                     int_T nCols);
+#else
+extern int_T ssWriteRTWMx2dMatParam(SimStruct* S,
+                                    const char_T* name,
+                                    const void* rVal,
+                                    const void* iVal,
+                                    int_T dtInfo,
+                                    SLSize nRows,
+                                    SLSize nCols);
+#endif
 
 
 /**
@@ -4119,13 +4229,21 @@ extern int_T ssWriteRTWMx2dMatParam(SimStruct* S,
  * @return An int_T (1 or 0) or boolean_T (true or false) indicating the success or failure of the
  * function.
  */
+#if defined(USE_32BIT_FIELDS)
 extern int_T ssWriteRTWMxVectParam(SimStruct* S,
                                    const char_T* name,
                                    const void* rVal,
                                    const void* iVal,
                                    int_T dtInfo,
                                    int_T numEl);
-
+#else
+extern int_T ssWriteRTWMxVectParam(SimStruct* S,
+                                   const char_T* name,
+                                   const void* rVal,
+                                   const void* iVal,
+                                   int_T dtInfo,
+                                   SLSize numEl);
+#endif
 /**
  * @brief ssWriteRTWParameters
  *
@@ -4292,7 +4410,7 @@ extern int rtPrintfNoOp(const char* fmt, ...);
  * @param  S      SimStruct representing an S-Function block.
  * @return A pointer (char_T *) to a character vector that identifies the last error message.
  */
-#define ssGetErrorStatus(S) ssGetRootSS(S)->errorStatus.str /* (const char_T*) */
+#define ssGetErrorStatus(S) (S)->root->errorStatus.str /* (const char_T*) */
 
 /**
  * @brief ssSetErrorStatus
@@ -4301,10 +4419,10 @@ extern int rtPrintfNoOp(const char* fmt, ...);
  * @param  S       SimStruct representing an S-Function block or a Simulink model
  * @param  string  Error message
  */
-#define ssSetErrorStatus(S, string)                              \
-    {                                                            \
-        ssGetRootSS(S)->mdlInfo->mdlFlags.errorStatusIsMsg = 0U; \
-        ssGetRootSS(S)->errorStatus.str = (string);              \
+#define ssSetErrorStatus(S, string)                         \
+    {                                                       \
+        (S)->root->mdlInfo->mdlFlags.errorStatusIsMsg = 0U; \
+        (S)->root->errorStatus.str = (string);              \
     }
 
 /**
@@ -4342,16 +4460,29 @@ extern int rtPrintfNoOp(const char* fmt, ...);
  * Information and Options *
  *======================================*/
 
+
 /**
- * @brief ssGetModelName
+ * @brief ssGetSFunctionName
  *
- * Get the model name
  * @param  S     SimStruct pointer
  * @return The name of the S-function MEX-file associated with the block if S is a SimStruct for an
- * S-Function block. If S is the root SimStruct, this macro returns the name of the Simulink block
- * diagram.
+ * S-Function block. Otherwise return NULL.
  */
+#define ssGetSFunctionName(S) \
+    ((S) == (S)->root)) ? NULL : (S)->modelName /* (const char_T*) */
+
+
+/**
+ * @brief ssGetBlockDiagramName
+ *
+ * @param  S     SimStruct pointer
+ * @return The name of the Simulink block diagram.
+ */
+#define ssGetBlockDiagramName(S) (S)->root->modelName /* (const char_T*) */
+
+/* This macro is being deprecated. DO NOT USE */
 #define ssGetModelName(S) (S)->modelName /* (const char_T*) */
+
 
 /**
  * @brief ssSetOptions
@@ -4364,15 +4495,6 @@ extern int rtPrintfNoOp(const char* fmt, ...);
 
 
 /**
- * @brief ssGetParentSS
- *
- * Get the parent of a SimStruct
- * @param  S     SimStruct pointer
- * @return The parent SimStruct of S, or NULL if S is the root SimStruct.
- */
-#define ssGetParentSS(S) (S)->parent /*   (SimStruct *) */
-
-/**
  * @brief ssGetPath
  *
  * Get the path of a block
@@ -4381,14 +4503,34 @@ extern int rtPrintfNoOp(const char* fmt, ...);
  */
 #define ssGetPath(S) (S)->path /* (const char_T*) */
 
-/**
- * @brief ssGetRootSS
- *
- * Get the root of a SimStruct hierarchy
- * @param  S     SimStruct representing an S-function block or a Simulink model.
- * @return The SimStruct at the root of the SimStruct hierarchy.
+/*
+ * RootSS - This is the "root" SimStruct corresponding to the Simulink
+ *   model. DO NOT use this macro in S-Functions.
  */
-#define ssGetRootSS(S) (S)->root /*   (SimStruct *) */
+
+
+#if defined(__GNUC__) || defined(__clang__)
+#define DEPRECATED __attribute__((deprecated))
+#elif defined(_MSC_VER)
+#define DEPRECATED __declspec(deprecated)
+#else
+#pragma message("WARNING: You need to implement DEPRECATED for this compiler")
+#define DEPRECATED
+#endif
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+#if !SS_SFCN_NORMAL || defined(IS_RAPID_ACCEL) || defined(IS_RSIM)
+#define ssGetRootSS(S) (S)->root
+#define ssGetParentSS(S) (S)->parent
+#else
+DEPRECATED extern SimStruct* ssGetRootSS(SimStruct* S);
+DEPRECATED extern SimStruct* ssGetParentSS(SimStruct* S);
+#endif
+#ifdef __cplusplus
+}
+#endif
 
 /**
  * @brief ssGetUserData
@@ -4821,6 +4963,7 @@ typedef struct ssFunctionArgAttributeInfo_tag {
 
 #endif
 /** @} */ /* end of SigRegion */
+
 
 #define ssSetSimStruct(S, srcS) (S)->work.localMdlInfo->simStruct = ((void*)(srcS))
 

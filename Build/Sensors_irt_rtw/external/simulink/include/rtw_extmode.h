@@ -1,4 +1,4 @@
-/* Copyright 1990-2021 The MathWorks, Inc. */
+/* Copyright 1990-2022 The MathWorks, Inc. */
 
 /*
  * File: rtw_extmode.h
@@ -13,6 +13,10 @@
 #ifndef _RTWEXTMODEINFO
 #define _RTWEXTMODEINFO
 typedef struct _RTWExtModeInfo_tag RTWExtModeInfo;
+#endif
+
+#ifndef MATLAB_MEX_FILE
+#include "rtwtypes.h"
 #endif
 
 /* =============================================================================

@@ -170,7 +170,13 @@ SLEXEC_SIMBRIDGE_PUBLISHED_C void vm__ssSignDataValue(void* S, void* data,
 SLEXEC_SIMBRIDGE_PUBLISHED_C uint8_T vm_ssIsSolverComputingJacobian(void* S);
 SLEXEC_SIMBRIDGE_PUBLISHED_C uint8_T vm_ssIsSolverRequestingReset(void* S);
 SLEXEC_SIMBRIDGE_PUBLISHED_C uint8_T vm_ssIsSolverCheckingCIC(void* S);
+
 SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssRaiseEvent(void* S, uint_T runtimeEventIndex);
+SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssRaiseWhenTimerExpiresAfter(
+    void* S, uint_T timerIndex, bool isRecurring, double dur, uint_T runtimeEventIndex);
+SLEXEC_SIMBRIDGE_PUBLISHED_C void
+vm_ssRaiseWhenTimerExpiresAt(void* S, uint_T timerIndex, double t, uint_T runtimeEventIndex);
+SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssCancelTimerToRaiseEvent(void* S, uint_T timerIndex);
 
 SLEXEC_SIMBRIDGE_PUBLISHED_C void vm_ssDummy();
 

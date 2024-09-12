@@ -12,9 +12,9 @@
  *
  * Code generation for model "Inverters_Action".
  *
- * Model version              : 10.2
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Mar 29 01:01:21 2024
+ * Model version              : 13.34
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Sat Sep  7 16:35:08 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -191,6 +191,14 @@
 
 #ifndef rtmSetMdlRefGlobalTID
 #define rtmSetMdlRefGlobalTID(rtm, val) ()
+#endif
+
+#ifndef rtmGetMdlRefGlobalTimerIndices
+#define rtmGetMdlRefGlobalTimerIndices(rtm) ()
+#endif
+
+#ifndef rtmSetMdlRefGlobalTimerIndices
+#define rtmSetMdlRefGlobalTimerIndices(rtm, val) ()
 #endif
 
 #ifndef rtmGetMdlRefTriggerTID
@@ -852,41 +860,44 @@
 
 /* Block signals (default storage) */
 typedef struct {
-  uint8_T Merge2;                      /* '<S2>/Merge2' */
-  uint8_T Merge2_p;                    /* '<S1>/Merge2' */
+  uint8_T Merge2;                      /* '<S1>/Merge2' */
+  uint8_T Merge2_p;                    /* '<S2>/Merge2' */
   boolean_T Merge;                     /* '<Root>/Merge' */
-  boolean_T subscribed;                /* '<S33>/subscribed?' */
-  boolean_T subscribed_b;              /* '<S8>/subscribed?' */
+  boolean_T NOR;                       /* '<S3>/NOR' */
+  boolean_T subscribed;                /* '<S36>/subscribed?' */
+  boolean_T subscribed_k;              /* '<S11>/subscribed?' */
 } B_Inverters_Action_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  real_T Delay_DSTATE;                 /* '<S10>/Delay' */
-  real_T Delay_DSTATE_h;               /* '<S35>/Delay' */
+  real_T Delay_DSTATE;                 /* '<S13>/Delay' */
+  real_T Delay_DSTATE_f;               /* '<S38>/Delay' */
   real_T LastAction;                   /* '<S1>/Data Store Memory1' */
-  real_T LastAction_k;                 /* '<S2>/Data Store Memory1' */
+  real_T LastAction_l;                 /* '<S2>/Data Store Memory1' */
   real_T EnumerationCounter;           /* '<S1>/Data Store Memory2' */
-  real_T EnumerationCounter_m;         /* '<S2>/Data Store Memory2' */
+  real_T EnumerationCounter_g;         /* '<S2>/Data Store Memory2' */
+  int8_T If_ActiveSubsystem;           /* '<Root>/If' */
+  boolean_T Memory1_PreviousInput;     /* '<S3>/Memory1' */
 } DW_Inverters_Action_T;
 
 /* Invariant block signals for system '<S1>/Torque Command' */
 typedef struct {
-  const real_T Divide;                 /* '<S6>/Divide' */
+  const real_T Divide;                 /* '<S9>/Divide' */
 } ConstB_TorqueCommand_Inverter_T;
 
 /* Invariant block signals for system '<S1>/Torque Command 0' */
 typedef struct {
-  const real_T Divide;                 /* '<S7>/Divide' */
-  const uint16_T Current0to65535;      /* '<S7>/Product' */
-  const uint16_T b7tob0;               /* '<S14>/Bitwise Operator' */
-  const uint16_T ShiftArithmetic;      /* '<S14>/Shift Arithmetic' */
-  const uint16_T BitwiseOperator1;     /* '<S14>/Bitwise Operator1' */
+  const real_T Divide;                 /* '<S10>/Divide' */
+  const uint16_T Current0to65535;      /* '<S10>/Product' */
+  const uint16_T b7tob0;               /* '<S18>/Bitwise Operator' */
+  const uint16_T ShiftArithmetic;      /* '<S18>/Shift Arithmetic' */
+  const uint16_T BitwiseOperator1;     /* '<S18>/Bitwise Operator1' */
 } ConstB_TorqueCommand0_Inverte_T;
 
 /* Invariant block signals (default storage) */
 typedef struct {
-  ConstB_TorqueCommand0_Inverte_T TorqueCommand0_g;/* '<S2>/Torque Command 0' */
-  ConstB_TorqueCommand_Inverter_T TorqueCommand_m;/* '<S2>/Torque Command' */
+  ConstB_TorqueCommand0_Inverte_T TorqueCommand0_a;/* '<S2>/Torque Command 0' */
+  ConstB_TorqueCommand_Inverter_T TorqueCommand_k;/* '<S2>/Torque Command' */
   ConstB_TorqueCommand0_Inverte_T TorqueCommand0;/* '<S1>/Torque Command 0' */
   ConstB_TorqueCommand_Inverter_T TorqueCommand;/* '<S1>/Torque Command' */
 } ConstB_Inverters_Action_T;
@@ -896,6 +907,9 @@ typedef struct {
   real_T InvertersAction;              /* '<Root>/InvertersAction' */
   real_T current_R;                    /* '<Root>/current_R' */
   real_T current_L;                    /* '<Root>/current_L' */
+  real_T RL_rads_Motor;                /* '<Root>/RL_rads_Motor' */
+  real_T Car_State;                    /* '<Root>/Car_State' */
+  real_T RacingMode;                   /* '<Root>/RacingMode' */
 } ExtU_Inverters_Action_T;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -1062,57 +1076,65 @@ extern RT_MODEL_Inverters_Action_T *const Inverters_Action_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'Inverters_Action'
- * '<S1>'   : 'Inverters_Action/Subsystem10'
- * '<S2>'   : 'Inverters_Action/Subsystem9'
- * '<S3>'   : 'Inverters_Action/Subsystem10/Action not Defined'
- * '<S4>'   : 'Inverters_Action/Subsystem10/DisableDrive//EnableDrive'
- * '<S5>'   : 'Inverters_Action/Subsystem10/Reset Enumeration'
- * '<S6>'   : 'Inverters_Action/Subsystem10/Torque Command'
- * '<S7>'   : 'Inverters_Action/Subsystem10/Torque Command 0'
- * '<S8>'   : 'Inverters_Action/Subsystem10/Unsubscribe//Subscribe'
- * '<S9>'   : 'Inverters_Action/Subsystem10/bypass'
- * '<S10>'  : 'Inverters_Action/Subsystem10/edge detection'
- * '<S11>'  : 'Inverters_Action/Subsystem10/DisableDrive//EnableDrive/Enable'
- * '<S12>'  : 'Inverters_Action/Subsystem10/DisableDrive//EnableDrive/If Action Subsystem1'
- * '<S13>'  : 'Inverters_Action/Subsystem10/Torque Command/Subsystem'
- * '<S14>'  : 'Inverters_Action/Subsystem10/Torque Command 0/Subsystem'
- * '<S15>'  : 'Inverters_Action/Subsystem10/Unsubscribe//Subscribe/EnumerationDone'
- * '<S16>'  : 'Inverters_Action/Subsystem10/Unsubscribe//Subscribe/Register Enumerator '
- * '<S17>'  : 'Inverters_Action/Subsystem10/Unsubscribe//Subscribe/Subscribe'
- * '<S18>'  : 'Inverters_Action/Subsystem10/Unsubscribe//Subscribe/Unsubscribe'
- * '<S19>'  : 'Inverters_Action/Subsystem10/Unsubscribe//Subscribe/Register Enumerator /(in) Run (Frg)'
- * '<S20>'  : 'Inverters_Action/Subsystem10/Unsubscribe//Subscribe/Register Enumerator /I actual'
- * '<S21>'  : 'Inverters_Action/Subsystem10/Unsubscribe//Subscribe/Register Enumerator /I cmd'
- * '<S22>'  : 'Inverters_Action/Subsystem10/Unsubscribe//Subscribe/Register Enumerator /Iq actual'
- * '<S23>'  : 'Inverters_Action/Subsystem10/Unsubscribe//Subscribe/Register Enumerator /N actual'
- * '<S24>'  : 'Inverters_Action/Subsystem10/Unsubscribe//Subscribe/Register Enumerator /Register to Read'
- * '<S25>'  : 'Inverters_Action/Subsystem10/Unsubscribe//Subscribe/Register Enumerator /T-igbt'
- * '<S26>'  : 'Inverters_Action/Subsystem10/Unsubscribe//Subscribe/Register Enumerator /T-motor'
- * '<S27>'  : 'Inverters_Action/Subsystem10/Unsubscribe//Subscribe/Register Enumerator /Vdc-Bus'
- * '<S28>'  : 'Inverters_Action/Subsystem9/Action not Defined'
- * '<S29>'  : 'Inverters_Action/Subsystem9/DisableDrive//EnableDrive'
- * '<S30>'  : 'Inverters_Action/Subsystem9/Reset Enumeration'
- * '<S31>'  : 'Inverters_Action/Subsystem9/Torque Command'
- * '<S32>'  : 'Inverters_Action/Subsystem9/Torque Command 0'
- * '<S33>'  : 'Inverters_Action/Subsystem9/Unsubscribe//Subscribe'
- * '<S34>'  : 'Inverters_Action/Subsystem9/bypass'
- * '<S35>'  : 'Inverters_Action/Subsystem9/edge detection'
- * '<S36>'  : 'Inverters_Action/Subsystem9/DisableDrive//EnableDrive/Enable'
- * '<S37>'  : 'Inverters_Action/Subsystem9/DisableDrive//EnableDrive/If Action Subsystem1'
- * '<S38>'  : 'Inverters_Action/Subsystem9/Torque Command/Subsystem'
- * '<S39>'  : 'Inverters_Action/Subsystem9/Torque Command 0/Subsystem'
- * '<S40>'  : 'Inverters_Action/Subsystem9/Unsubscribe//Subscribe/EnumerationDone'
- * '<S41>'  : 'Inverters_Action/Subsystem9/Unsubscribe//Subscribe/Register Enumerator '
- * '<S42>'  : 'Inverters_Action/Subsystem9/Unsubscribe//Subscribe/Subscribe'
- * '<S43>'  : 'Inverters_Action/Subsystem9/Unsubscribe//Subscribe/Unsubscribe'
- * '<S44>'  : 'Inverters_Action/Subsystem9/Unsubscribe//Subscribe/Register Enumerator /(in) Run (Frg)'
- * '<S45>'  : 'Inverters_Action/Subsystem9/Unsubscribe//Subscribe/Register Enumerator /I actual'
- * '<S46>'  : 'Inverters_Action/Subsystem9/Unsubscribe//Subscribe/Register Enumerator /I cmd'
- * '<S47>'  : 'Inverters_Action/Subsystem9/Unsubscribe//Subscribe/Register Enumerator /Iq actual'
- * '<S48>'  : 'Inverters_Action/Subsystem9/Unsubscribe//Subscribe/Register Enumerator /N actual'
- * '<S49>'  : 'Inverters_Action/Subsystem9/Unsubscribe//Subscribe/Register Enumerator /Register to Read'
- * '<S50>'  : 'Inverters_Action/Subsystem9/Unsubscribe//Subscribe/Register Enumerator /T-igbt'
- * '<S51>'  : 'Inverters_Action/Subsystem9/Unsubscribe//Subscribe/Register Enumerator /T-motor'
- * '<S52>'  : 'Inverters_Action/Subsystem9/Unsubscribe//Subscribe/Register Enumerator /Vdc-Bus'
+ * '<S1>'   : 'Inverters_Action/Blost-e Left'
+ * '<S2>'   : 'Inverters_Action/Blost-e Right'
+ * '<S3>'   : 'Inverters_Action/Forced Forward Direction accel'
+ * '<S4>'   : 'Inverters_Action/Negative_current_skid'
+ * '<S5>'   : 'Inverters_Action/Positive current'
+ * '<S6>'   : 'Inverters_Action/Blost-e Left/Action not Defined'
+ * '<S7>'   : 'Inverters_Action/Blost-e Left/DisableDrive//EnableDrive'
+ * '<S8>'   : 'Inverters_Action/Blost-e Left/Reset Enumeration'
+ * '<S9>'   : 'Inverters_Action/Blost-e Left/Torque Command'
+ * '<S10>'  : 'Inverters_Action/Blost-e Left/Torque Command 0'
+ * '<S11>'  : 'Inverters_Action/Blost-e Left/Unsubscribe//Subscribe'
+ * '<S12>'  : 'Inverters_Action/Blost-e Left/bypass'
+ * '<S13>'  : 'Inverters_Action/Blost-e Left/edge detection'
+ * '<S14>'  : 'Inverters_Action/Blost-e Left/DisableDrive//EnableDrive/Enable'
+ * '<S15>'  : 'Inverters_Action/Blost-e Left/DisableDrive//EnableDrive/If Action Subsystem1'
+ * '<S16>'  : 'Inverters_Action/Blost-e Left/Torque Command/DocBlock'
+ * '<S17>'  : 'Inverters_Action/Blost-e Left/Torque Command/Subsystem'
+ * '<S18>'  : 'Inverters_Action/Blost-e Left/Torque Command 0/Subsystem'
+ * '<S19>'  : 'Inverters_Action/Blost-e Left/Unsubscribe//Subscribe/EnumerationDone'
+ * '<S20>'  : 'Inverters_Action/Blost-e Left/Unsubscribe//Subscribe/Register Enumerator '
+ * '<S21>'  : 'Inverters_Action/Blost-e Left/Unsubscribe//Subscribe/Subscribe'
+ * '<S22>'  : 'Inverters_Action/Blost-e Left/Unsubscribe//Subscribe/Unsubscribe'
+ * '<S23>'  : 'Inverters_Action/Blost-e Left/Unsubscribe//Subscribe/Register Enumerator /I actual'
+ * '<S24>'  : 'Inverters_Action/Blost-e Left/Unsubscribe//Subscribe/Register Enumerator /I cmd'
+ * '<S25>'  : 'Inverters_Action/Blost-e Left/Unsubscribe//Subscribe/Register Enumerator /Iq actual'
+ * '<S26>'  : 'Inverters_Action/Blost-e Left/Unsubscribe//Subscribe/Register Enumerator /N actual'
+ * '<S27>'  : 'Inverters_Action/Blost-e Left/Unsubscribe//Subscribe/Register Enumerator /Register to Read'
+ * '<S28>'  : 'Inverters_Action/Blost-e Left/Unsubscribe//Subscribe/Register Enumerator /T-igbt'
+ * '<S29>'  : 'Inverters_Action/Blost-e Left/Unsubscribe//Subscribe/Register Enumerator /T-motor'
+ * '<S30>'  : 'Inverters_Action/Blost-e Left/Unsubscribe//Subscribe/Register Enumerator /Vdc-Bus'
+ * '<S31>'  : 'Inverters_Action/Blost-e Right/Action not Defined'
+ * '<S32>'  : 'Inverters_Action/Blost-e Right/DisableDrive//EnableDrive'
+ * '<S33>'  : 'Inverters_Action/Blost-e Right/Reset Enumeration'
+ * '<S34>'  : 'Inverters_Action/Blost-e Right/Torque Command'
+ * '<S35>'  : 'Inverters_Action/Blost-e Right/Torque Command 0'
+ * '<S36>'  : 'Inverters_Action/Blost-e Right/Unsubscribe//Subscribe'
+ * '<S37>'  : 'Inverters_Action/Blost-e Right/bypass'
+ * '<S38>'  : 'Inverters_Action/Blost-e Right/edge detection'
+ * '<S39>'  : 'Inverters_Action/Blost-e Right/DisableDrive//EnableDrive/Enable'
+ * '<S40>'  : 'Inverters_Action/Blost-e Right/DisableDrive//EnableDrive/If Action Subsystem1'
+ * '<S41>'  : 'Inverters_Action/Blost-e Right/Torque Command/DocBlock'
+ * '<S42>'  : 'Inverters_Action/Blost-e Right/Torque Command/Subsystem'
+ * '<S43>'  : 'Inverters_Action/Blost-e Right/Torque Command 0/Subsystem'
+ * '<S44>'  : 'Inverters_Action/Blost-e Right/Unsubscribe//Subscribe/EnumerationDone'
+ * '<S45>'  : 'Inverters_Action/Blost-e Right/Unsubscribe//Subscribe/Register Enumerator '
+ * '<S46>'  : 'Inverters_Action/Blost-e Right/Unsubscribe//Subscribe/Subscribe'
+ * '<S47>'  : 'Inverters_Action/Blost-e Right/Unsubscribe//Subscribe/Unsubscribe'
+ * '<S48>'  : 'Inverters_Action/Blost-e Right/Unsubscribe//Subscribe/Register Enumerator /I actual'
+ * '<S49>'  : 'Inverters_Action/Blost-e Right/Unsubscribe//Subscribe/Register Enumerator /I cmd'
+ * '<S50>'  : 'Inverters_Action/Blost-e Right/Unsubscribe//Subscribe/Register Enumerator /Iq actual'
+ * '<S51>'  : 'Inverters_Action/Blost-e Right/Unsubscribe//Subscribe/Register Enumerator /N actual'
+ * '<S52>'  : 'Inverters_Action/Blost-e Right/Unsubscribe//Subscribe/Register Enumerator /Register to Read'
+ * '<S53>'  : 'Inverters_Action/Blost-e Right/Unsubscribe//Subscribe/Register Enumerator /T-igbt'
+ * '<S54>'  : 'Inverters_Action/Blost-e Right/Unsubscribe//Subscribe/Register Enumerator /T-motor'
+ * '<S55>'  : 'Inverters_Action/Blost-e Right/Unsubscribe//Subscribe/Register Enumerator /Vdc-Bus'
+ * '<S56>'  : 'Inverters_Action/Forced Forward Direction accel/DocBlock'
+ * '<S57>'  : 'Inverters_Action/Forced Forward Direction accel/If Action Subsystem'
+ * '<S58>'  : 'Inverters_Action/Forced Forward Direction accel/If Action Subsystem1'
+ * '<S59>'  : 'Inverters_Action/Forced Forward Direction accel/Initial direction OK'
+ * '<S60>'  : 'Inverters_Action/Forced Forward Direction accel/Initial direction WRONG'
  */
 #endif                                 /* RTW_HEADER_Inverters_Action_h_ */

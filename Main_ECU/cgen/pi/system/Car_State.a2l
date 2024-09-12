@@ -34,7 +34,7 @@ ASAP2_VERSION
 
  
         /begin MEASUREMENT 
-            /* Name                */     Car_State_B.Merge 
+            /* Name                */     Car_State_B.InvertersAction 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     Car_State_CM_double 
@@ -43,7 +43,7 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Car_State.AIRS_Request.Merge.Merge 
+            DISPLAY_IDENTIFIER Car_State.Car_State_Manager.InvertersAction 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -59,6 +59,38 @@ ASAP2_VERSION
 
  
         /begin MEASUREMENT 
+            /* Name                */     Car_State_B.Merge 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Car_State_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Car_State.AIRS_Request.Merge.Merge 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     Car_State_B.Merge_b 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Car_State_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Car_State.Inv_Action.Merge.Merge_b 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
             /* Name                */     Car_State_DW.A 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
@@ -68,7 +100,7 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Car_State.CurrentPathDisconnection_Detection.Data_Store_Memory.A 
+            DISPLAY_IDENTIFIER Car_State.CurrentPathDisconnection_Detection.Subsystem.Data_Store_Memory.A 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -91,6 +123,22 @@ ASAP2_VERSION
         /end MEASUREMENT
  
         /begin MEASUREMENT 
+            /* Name                */     Car_State_U.APPS1_Value 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Car_State_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Car_State.APPS1_Value 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
             /* Name                */     Car_State_U.Accumulator_Voltage 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
@@ -101,6 +149,22 @@ ASAP2_VERSION
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.Accumulator_Voltage 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     Car_State_U.BrakePedal_Value 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Car_State_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Car_State.BrakePedal_Value 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -125,18 +189,27 @@ ASAP2_VERSION
         /begin MEASUREMENT 
             /* Name                */     Car_State_U.EnableDrive_Order 
             /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Car_State_CM_double 
+            /* Data type           */     UBYTE 
+            /* Conversion method   */     Car_State_CM_boolean 
             /* Resolution          */     0 
             /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
+            /* Lower limit         */     0 
+            /* Upper limit         */     1 
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.EnableDrive_Order 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
         /end MEASUREMENT
+        /begin COMPU_METHOD 
+            /* Name                */     Car_State_CM_boolean 
+            /* Long identifier     */     "Q = V" 
+            /* ConversionType      */     RAT_FUNC 
+            /* Format              */     "%9.6" 
+            /* Unit                */     "NO_PHYSICAL_QTY" 
+            COEFFS            0.0 1.0 0.0 0.0 0.0 1.0  
+        /end COMPU_METHOD 
+
  
         /begin MEASUREMENT 
             /* Name                */     Car_State_U.InvertersMinDCBus 
@@ -201,31 +274,6 @@ ASAP2_VERSION
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
         /end MEASUREMENT
-        /begin COMPU_METHOD 
-            /* Name                */     Car_State_CM_boolean 
-            /* Long identifier     */     "Q = V" 
-            /* ConversionType      */     RAT_FUNC 
-            /* Format              */     "%9.6" 
-            /* Unit                */     "NO_PHYSICAL_QTY" 
-            COEFFS            0.0 1.0 0.0 0.0 0.0 1.0  
-        /end COMPU_METHOD 
-
- 
-        /begin MEASUREMENT 
-            /* Name                */     Car_State_U.Torque_LockON 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Car_State_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Car_State.Torque_LockON 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
  
         /begin MEASUREMENT 
             /* Name                */     Car_State_Y.AIRs_Request 
@@ -260,7 +308,7 @@ ASAP2_VERSION
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     Car_State_Y.Car_State_f 
+            /* Name                */     Car_State_Y.Car_State_b 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     Car_State_CM_double 
@@ -270,22 +318,6 @@ ASAP2_VERSION
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.Car_State 
-            /begin IF_DATA E_TARGET 
-                KP_BLOB /***[INTECRIO_BLOB]***/  
-            /end IF_DATA 
-        /end MEASUREMENT
- 
-        /begin MEASUREMENT 
-            /* Name                */     Car_State_Y.CurrentPathDisconnectionFlag 
-            /* Long identifier     */     "" 
-            /* Data type           */     FLOAT64_IEEE 
-            /* Conversion method   */     Car_State_CM_double 
-            /* Resolution          */     0 
-            /* Accuracy            */     0 
-            /* Lower limit         */     -1.7e+308 
-            /* Upper limit         */     1.7e+308 
-            ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Car_State.CurrentPathDisconnectionFlag 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -350,6 +382,22 @@ ASAP2_VERSION
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
             DISPLAY_IDENTIFIER Car_State.Precharge_Voltage 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     Car_State_Y.Relay_Error 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Car_State_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Car_State.Relay_Error 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 

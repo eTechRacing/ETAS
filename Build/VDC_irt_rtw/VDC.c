@@ -7,9 +7,9 @@
  *
  * Code generation for model "VDC".
  *
- * Model version              : 1.5
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Sat Apr  6 01:20:50 2024
+ * Model version              : 4.214
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Sat Sep  7 16:40:11 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -42,504 +42,536 @@ static RT_MODEL_VDC_T VDC_M_;
 RT_MODEL_VDC_T *const VDC_M = &VDC_M_;
 
 /*
- * Output and update for action system:
- *    '<S12>/LimitReached'
- *    '<S15>/Latched Error'
+ * Output and update for atomic system:
+ *    '<S50>/MATLAB Function'
+ *    '<S51>/MATLAB Function'
  */
-void VDC_LimitReached(real_T *rty_Out)
+void VDC_MATLABFunction(real_T rtu_steering_max_angle, real_T rtu_steering,
+  real_T rtu_steering_deadzone, real_T rtu_Throttle_Torque,
+  B_MATLABFunction_VDC_T *localB)
 {
-  /* SignalConversion generated from: '<S14>/Out ' incorporates:
-   *  Constant: '<S14>/Constant'
-   */
-  *rty_Out = 1.0;
+  real_T d;
+  d = fabs(rtu_steering);
+  if (d <= rtu_steering_deadzone) {
+    localB->Torque_L_Nm = rtu_Throttle_Torque;
+    localB->Torque_R_Nm = rtu_Throttle_Torque;
+  } else {
+    d = (d - rtu_steering_deadzone) / (rtu_steering_max_angle -
+      rtu_steering_deadzone) * rtu_Throttle_Torque;
+    if (d > rtu_Throttle_Torque) {
+      d = rtu_Throttle_Torque;
+    }
+
+    if (rtu_steering < -rtu_steering_deadzone) {
+      localB->Torque_L_Nm = rtu_Throttle_Torque - d;
+      localB->Torque_R_Nm = rtu_Throttle_Torque;
+    } else {
+      localB->Torque_L_Nm = rtu_Throttle_Torque;
+      localB->Torque_R_Nm = rtu_Throttle_Torque - d;
+    }
+  }
 }
 
 /*
  * Output and update for action system:
- *    '<Root>/Automatic Failure Mode'
- *    '<Root>/Manual Failure Mode Selection'
+ *    '<S7>/RIGIDAXLE'
+ *    '<S1>/RIGIDAXLE'
+ *    '<S2>/RIGIDAXLE'
+ *    '<S4>/RIGIDAXLE'
  */
-void VDC_AutomaticFailureMode(real_T rtu_In1, real_T *rty_Out1)
+void VDC_RIGIDAXLE(real_T rtu_Throttle_TorqueNm, real_T *rty_Tq_RR_SM4Nm027,
+                   real_T *rty_Tq_RL_SM4Nm027, real_T *rty_sensorics_mode)
 {
-  /* SignalConversion generated from: '<S2>/In1' */
-  *rty_Out1 = rtu_In1;
+  /* SignalConversion generated from: '<S49>/Tq_RL_SM4 [Nm] (0,27)' incorporates:
+   *  MATLAB Function: '<S49>/Rigid Axle 2024 '
+   */
+  *rty_Tq_RL_SM4Nm027 = rtu_Throttle_TorqueNm;
+
+  /* SignalConversion generated from: '<S49>/Tq_RR_SM4 [Nm] (0,27)' incorporates:
+   *  MATLAB Function: '<S49>/Rigid Axle 2024 '
+   */
+  *rty_Tq_RR_SM4Nm027 = rtu_Throttle_TorqueNm;
+
+  /* SignalConversion generated from: '<S49>/sensorics_mode' incorporates:
+   *  Constant: '<S49>/RigidAxle'
+   */
+  *rty_sensorics_mode = 4.0;
+}
+
+/*
+ * Output and update for atomic system:
+ *    '<S7>/Torque demanded by the driver'
+ *    '<S1>/Torque demanded by the driver'
+ *    '<S2>/Torque demanded by the driver'
+ */
+void VDC_Torquedemandedbythedriver(real_T rtu_AP, real_T rtu_pedal_sat_down,
+  real_T rtu_pedal_sat_up, real_T rtu_max_torque,
+  B_Torquedemandedbythedriver_V_T *localB)
+{
+  real_T Throttle_Response;
+  if (rtu_AP <= rtu_pedal_sat_down) {
+    Throttle_Response = 0.0;
+  } else if (rtu_AP >= rtu_pedal_sat_up) {
+    Throttle_Response = 1.0;
+  } else {
+    Throttle_Response = (rtu_AP - rtu_pedal_sat_down) / (rtu_pedal_sat_up -
+      rtu_pedal_sat_down);
+  }
+
+  localB->Throttle_Torque = Throttle_Response * rtu_max_torque;
+}
+
+/*
+ * System initialize for atomic system:
+ *    '<S17>/Rigid Axle with TC 2024 '
+ *    '<S25>/Rigid Axle with TC 2024 '
+ */
+void VDC_RigidAxlewithTC2024_Init(DW_RigidAxlewithTC2024_VDC_T *localDW)
+{
+  localDW->correction = 0.0;
+}
+
+/*
+ * Output and update for atomic system:
+ *    '<S17>/Rigid Axle with TC 2024 '
+ *    '<S25>/Rigid Axle with TC 2024 '
+ */
+void VDC_RigidAxlewithTC2024(real_T rtu_MAX_SLR, real_T rtu_Throttle_Torque,
+  real_T rtu_el_Vel_X, real_T rtu_Max_Vel_ms_Wheel, B_RigidAxlewithTC2024_VDC_T *
+  localB, DW_RigidAxlewithTC2024_VDC_T *localDW)
+{
+  if ((rtu_el_Vel_X < 0.5) || (rtu_Max_Vel_ms_Wheel < 0.5)) {
+    localB->TC_Warning = 0.0;
+    localDW->correction = 0.0;
+    localB->Motor_Torque_RR = rtu_Throttle_Torque;
+    localB->Motor_Torque_RL = rtu_Throttle_Torque;
+  } else if (rtu_Max_Vel_ms_Wheel / rtu_el_Vel_X < rtu_MAX_SLR) {
+    localB->Motor_Torque_RR = rtu_Throttle_Torque;
+    localB->Motor_Torque_RL = rtu_Throttle_Torque;
+    localDW->correction = 0.0;
+    localB->TC_Warning = 0.0;
+  } else {
+    localB->TC_Warning = 1.0;
+    if (localDW->correction == 0.0) {
+      localDW->correction = 1.0;
+      localB->Motor_Torque_RR = rtu_Throttle_Torque - 0.060606060606060608;
+      localB->Motor_Torque_RL = rtu_Throttle_Torque - 0.060606060606060608;
+    } else {
+      real_T Motor_Torque_RR_tmp;
+      localDW->correction++;
+      Motor_Torque_RR_tmp = rtu_Throttle_Torque - (localDW->correction *
+        localDW->correction * 0.030303030303030304 + 0.030303030303030304 *
+        localDW->correction);
+      localB->Motor_Torque_RR = Motor_Torque_RR_tmp;
+      localB->Motor_Torque_RL = Motor_Torque_RR_tmp;
+    }
+  }
+}
+
+/*
+ * Output and update for action system:
+ *    '<S35>/If Action Subsystem'
+ *    '<S30>/If Action Subsystem'
+ */
+void VDC_IfActionSubsystem(real_T rtu_Tq_RR, real_T rtu_Tq_RL, real_T *rty_TQ_RR,
+  real_T *rty_TQ_RL)
+{
+  /* Gain: '<S36>/Gain' */
+  *rty_TQ_RR = 0.25 * rtu_Tq_RR;
+
+  /* Gain: '<S36>/Gain1' */
+  *rty_TQ_RL = 0.25 * rtu_Tq_RL;
+}
+
+/*
+ * Output and update for action system:
+ *    '<S35>/If Action Subsystem1'
+ *    '<S30>/If Action Subsystem1'
+ */
+void VDC_IfActionSubsystem1(real_T rtu_Tq_RR, real_T rtu_Tq_RL, real_T
+  *rty_TQ_RL, real_T *rty_TQ_RR)
+{
+  /* SignalConversion generated from: '<S37>/Tq_RL' */
+  *rty_TQ_RL = rtu_Tq_RL;
+
+  /* SignalConversion generated from: '<S37>/Tq_RR' */
+  *rty_TQ_RR = rtu_Tq_RR;
 }
 
 /* Model output function */
 static void VDC_output(void)
 {
-  real_T rtb_Abs;
-  real_T rtb_Abs1;
-  real_T rtb_Merge1_e;
   real_T rtb_Merge1_j;
-  real_T rtb_Merge_j;
-  real_T rtb_Product;
+  real_T rtb_Torque_L_Nm_l;
+  real_T rtb_Torque_R_Nm_k;
   boolean_T rtb_LogicalOperator;
 
-  /* If: '<S20>/If' incorporates:
-   *  Abs: '<S20>/Ab'
+  /* If: '<S42>/If' incorporates:
+   *  Abs: '<S42>/Ab'
    *  Inport: '<Root>/APPS1_Value'
    *  Inport: '<Root>/APPS2_Value'
-   *  Sum: '<S20>/Sum'
+   *  Sum: '<S42>/Sum'
    */
   if (fabs(VDC_U.APPS1_Value - VDC_U.APPS2_Value) > 0.1) {
-    /* Outputs for IfAction SubSystem: '<S20>/Imp' incorporates:
-     *  ActionPort: '<S23>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S42>/Imp' incorporates:
+     *  ActionPort: '<S45>/Action Port'
      */
-    /* Sum: '<S23>/Add' incorporates:
-     *  Constant: '<S23>/Constant'
-     *  DataStoreRead: '<S23>/Data Store Read'
+    /* Sum: '<S45>/Add' incorporates:
+     *  Constant: '<S45>/Constant'
+     *  DataStoreRead: '<S45>/Data Store Read'
      */
     rtb_Merge1_j = VDC_DW.ERROR_Counter + 1.0;
 
-    /* End of Outputs for SubSystem: '<S20>/Imp' */
+    /* End of Outputs for SubSystem: '<S42>/Imp' */
   } else {
-    /* Outputs for IfAction SubSystem: '<S20>/Not Imp' incorporates:
-     *  ActionPort: '<S24>/Action Port'
+    /* Outputs for IfAction SubSystem: '<S42>/Not Imp' incorporates:
+     *  ActionPort: '<S46>/Action Port'
      */
-    /* SignalConversion generated from: '<S24>/0' incorporates:
-     *  Constant: '<S24>/Constant'
+    /* SignalConversion generated from: '<S46>/0' incorporates:
+     *  Constant: '<S46>/Constant'
      */
     rtb_Merge1_j = 0.0;
 
-    /* End of Outputs for SubSystem: '<S20>/Not Imp' */
+    /* End of Outputs for SubSystem: '<S42>/Not Imp' */
   }
 
-  /* End of If: '<S20>/If' */
+  /* End of If: '<S42>/If' */
 
-  /* DataStoreWrite: '<S20>/Data Store Write' */
+  /* DataStoreWrite: '<S42>/Data Store Write' */
   VDC_DW.ERROR_Counter = rtb_Merge1_j;
 
-  /* Outputs for IfAction SubSystem: '<S20>/Signal_OK' incorporates:
-   *  ActionPort: '<S26>/Action Port'
+  /* Outputs for IfAction SubSystem: '<S42>/Signal_OK' incorporates:
+   *  ActionPort: '<S48>/Action Port'
    */
-  /* Outputs for IfAction SubSystem: '<S20>/Signal_Failure' incorporates:
-   *  ActionPort: '<S25>/Action Port'
+  /* Outputs for IfAction SubSystem: '<S42>/Signal_Failure' incorporates:
+   *  ActionPort: '<S47>/Action Port'
    */
-  /* If: '<S20>/If1' incorporates:
-   *  Constant: '<S20>/Number_of_Periods'
-   *  SignalConversion generated from: '<S25>/Out1'
-   *  SignalConversion generated from: '<S26>/Out1'
+  /* If: '<S42>/If1' incorporates:
+   *  Constant: '<S42>/Number_of_Periods'
+   *  SignalConversion generated from: '<S47>/Out1'
+   *  SignalConversion generated from: '<S48>/Out1'
    */
   rtb_Merge1_j = (rtb_Merge1_j > 4.0);
 
-  /* End of Outputs for SubSystem: '<S20>/Signal_Failure' */
-  /* End of Outputs for SubSystem: '<S20>/Signal_OK' */
+  /* End of Outputs for SubSystem: '<S42>/Signal_Failure' */
+  /* End of Outputs for SubSystem: '<S42>/Signal_OK' */
 
-  /* Logic: '<S7>/Logical Operator' incorporates:
-   *  Constant: '<S21>/Constant'
+  /* Logic: '<S6>/Logical Operator' incorporates:
+   *  Constant: '<S43>/Constant'
    *  Inport: '<Root>/Car_State'
    *  Inport: '<Root>/CriticalDisconnection'
    *  Inport: '<Root>/Shutdown_PackageIntck'
    *  Inport: '<Root>/TorqueEnable'
-   *  Logic: '<S7>/Logical Operator1'
-   *  Logic: '<S7>/NOT'
-   *  RelationalOperator: '<S21>/Compare'
+   *  Logic: '<S6>/Logical Operator1'
+   *  Logic: '<S6>/NOT'
+   *  RelationalOperator: '<S43>/Compare'
    */
   rtb_LogicalOperator = (VDC_U.Shutdown_PackageIntck && VDC_U.TorqueEnable &&
     (!VDC_U.CriticalDisconnection) && (VDC_U.Car_State == 15.0) &&
     (!(rtb_Merge1_j != 0.0)));
 
-  /* Product: '<S1>/Product' incorporates:
-   *  Inport: '<Root>/Accumulator_Current'
-   *  Inport: '<Root>/Accumulator_Voltage'
-   */
-  rtb_Product = VDC_U.Accumulator_Voltage * VDC_U.Accumulator_Current;
-
-  /* Outport: '<Root>/Power' incorporates:
-   *  Constant: '<S13>/0-100 to 0-2'
-   *  Product: '<S13>/Divide5'
-   */
-  VDC_Y.Power = rtb_Product / 1000.0;
-
-  /* Outputs for Atomic SubSystem: '<S1>/PowerLimitDetection' */
-  /* If: '<S12>/If' incorporates:
-   *  DataStoreRead: '<S12>/Data Store Read30'
-   *  If: '<S15>/If'
-   *  SignalConversion generated from: '<S12>/Power'
-   */
-  if (rtb_Product >= 80000.0) {
-    /* Outputs for IfAction SubSystem: '<S12>/LimitReached' incorporates:
-     *  ActionPort: '<S14>/Action Port'
-     */
-    VDC_LimitReached(&rtb_Merge1_e);
-
-    /* End of Outputs for SubSystem: '<S12>/LimitReached' */
-
-    /* Outputs for IfAction SubSystem: '<S12>/OK_OrLatch' incorporates:
-     *  ActionPort: '<S15>/Action Port'
-     */
-  } else if (VDC_DW.A > 0.0) {
-    /* Outputs for IfAction SubSystem: '<S15>/Latched Error' incorporates:
-     *  ActionPort: '<S16>/Action Port'
-     */
-    /* If: '<S15>/If' */
-    VDC_LimitReached(&rtb_Merge1_e);
-
-    /* End of Outputs for SubSystem: '<S15>/Latched Error' */
-  } else {
-    /* Outputs for IfAction SubSystem: '<S15>/OK' incorporates:
-     *  ActionPort: '<S17>/Action Port'
-     */
-    /* If: '<S15>/If' incorporates:
-     *  Constant: '<S17>/Constant'
-     *  SignalConversion generated from: '<S17>/Out '
-     */
-    rtb_Merge1_e = 0.0;
-
-    /* End of Outputs for SubSystem: '<S15>/OK' */
-
-    /* End of Outputs for SubSystem: '<S12>/OK_OrLatch' */
-  }
-
-  /* End of If: '<S12>/If' */
-
-  /* DataStoreWrite: '<S12>/Data Store Write20' */
-  VDC_DW.A = rtb_Merge1_e;
-
-  /* End of Outputs for SubSystem: '<S1>/PowerLimitDetection' */
-
-  /* Outport: '<Root>/PowerLimitReached' */
-  VDC_Y.PowerLimitReached = rtb_Merge1_e;
-
-  /* Outputs for Atomic SubSystem: '<S1>/PowerLimitDetection' */
-  /* Outport: '<Root>/PowerMean500ms' incorporates:
-   *  SignalConversion generated from: '<S12>/Power'
-   */
-  VDC_Y.PowerMean500ms = rtb_Product;
-
-  /* End of Outputs for SubSystem: '<S1>/PowerLimitDetection' */
-
   /* If: '<Root>/If' incorporates:
-   *  Constant: '<Root>/Constant'
-   *  DataTypeConversion: '<S7>/Data Type Conversion'
-   *  Inport: '<Root>/TV_Mode'
+   *  DataTypeConversion: '<S6>/Data Type Conversion'
+   *  Inport: '<Root>/RacingMode'
    */
-  if (rtb_LogicalOperator) {
-    /* Outputs for IfAction SubSystem: '<Root>/Automatic Failure Mode' incorporates:
+  if ((VDC_U.RacingMode == 1.0) && rtb_LogicalOperator) {
+    /* Outputs for IfAction SubSystem: '<Root>/WORKSHOP' incorporates:
+     *  ActionPort: '<S10>/Action Port'
+     */
+    /* MATLAB Function: '<S10>/Torque demanded by the driver' incorporates:
+     *  Constant: '<Root>/AP_sat_down'
+     *  Constant: '<Root>/AP_sat_up'
+     *  Constant: '<Root>/Max_Motor_Torque_Rear [Nm]'
+     *  Inport: '<Root>/APPS1_Value'
+     *  Inport: '<Root>/RL_Vel_ms_Wheel'
+     *  Inport: '<Root>/RR_Vel_ms_Wheel'
+     *  MinMax: '<Root>/Max'
+     */
+    if ((VDC_U.APPS1_Value <= 0.05) || (fmax(VDC_U.RR_Vel_ms_Wheel,
+          VDC_U.RL_Vel_ms_Wheel) > 5.0)) {
+      rtb_Torque_L_Nm_l = 0.0;
+    } else if (VDC_U.APPS1_Value >= 1.0) {
+      rtb_Torque_L_Nm_l = 1.0;
+    } else {
+      rtb_Torque_L_Nm_l = (VDC_U.APPS1_Value - 0.05) / 0.95;
+    }
+
+    rtb_Torque_L_Nm_l *= 3.0;
+
+    /* End of MATLAB Function: '<S10>/Torque demanded by the driver' */
+
+    /* Saturate: '<S10>/Saturation' */
+    if (rtb_Torque_L_Nm_l > 3.0) {
+      rtb_Torque_L_Nm_l = 3.0;
+    } else if (rtb_Torque_L_Nm_l < 0.0) {
+      rtb_Torque_L_Nm_l = 0.0;
+    }
+
+    /* End of Saturate: '<S10>/Saturation' */
+
+    /* Merge: '<Root>/Merge1' incorporates:
+     *  SignalConversion generated from: '<S10>/TQ_L'
+     */
+    VDC_B.Merge1 = rtb_Torque_L_Nm_l;
+
+    /* Merge: '<Root>/Merge2' incorporates:
+     *  SignalConversion generated from: '<S10>/TQ_R'
+     */
+    VDC_B.Merge2 = rtb_Torque_L_Nm_l;
+
+    /* Merge: '<Root>/Merge4' incorporates:
+     *  SignalConversion generated from: '<S10>/TT'
+     */
+    VDC_B.Merge4 = rtb_Torque_L_Nm_l;
+
+    /* End of Outputs for SubSystem: '<Root>/WORKSHOP' */
+  } else if ((VDC_U.RacingMode == 2.0) && rtb_LogicalOperator) {
+    /* Outputs for IfAction SubSystem: '<Root>/SKIDPAD' incorporates:
+     *  ActionPort: '<S7>/Action Port'
+     */
+    /* MATLAB Function: '<S7>/Torque demanded by the driver' incorporates:
+     *  Constant: '<Root>/AP_sat_down'
+     *  Constant: '<Root>/AP_sat_up'
+     *  Constant: '<Root>/Max_Motor_Torque_Rear [Nm]'
+     *  Inport: '<Root>/APPS1_Value'
+     */
+    VDC_Torquedemandedbythedriver(VDC_U.APPS1_Value, 0.05, 1.0, 27.0,
+      &VDC_B.sf_Torquedemandedbythedriver_m);
+
+    /* Outputs for IfAction SubSystem: '<S7>/RIGIDAXLE' incorporates:
+     *  ActionPort: '<S49>/Action Port'
+     */
+    /* If: '<S7>/If' */
+    VDC_RIGIDAXLE(VDC_B.sf_Torquedemandedbythedriver_m.Throttle_Torque,
+                  &rtb_Torque_L_Nm_l, &rtb_Torque_R_Nm_k, &VDC_B.Merge3);
+
+    /* End of Outputs for SubSystem: '<S7>/RIGIDAXLE' */
+
+    /* Merge: '<Root>/Merge6' incorporates:
+     *  SignalConversion generated from: '<S7>/TC_Warning'
+     */
+    VDC_B.Merge6 = VDC_B.TC_Warning_l;
+
+    /* Merge: '<Root>/Merge4' incorporates:
+     *  SignalConversion generated from: '<S7>/TT'
+     */
+    VDC_B.Merge4 = VDC_B.sf_Torquedemandedbythedriver_m.Throttle_Torque;
+
+    /* Saturate: '<S7>/Saturation' */
+    if (rtb_Torque_L_Nm_l > 27.0) {
+      /* Merge: '<Root>/Merge2' */
+      VDC_B.Merge2 = 27.0;
+    } else if (rtb_Torque_L_Nm_l < 0.0) {
+      /* Merge: '<Root>/Merge2' */
+      VDC_B.Merge2 = 0.0;
+    } else {
+      /* Merge: '<Root>/Merge2' */
+      VDC_B.Merge2 = rtb_Torque_L_Nm_l;
+    }
+
+    /* End of Saturate: '<S7>/Saturation' */
+
+    /* Saturate: '<S7>/Saturation1' */
+    if (rtb_Torque_R_Nm_k > 27.0) {
+      /* Merge: '<Root>/Merge1' */
+      VDC_B.Merge1 = 27.0;
+    } else if (rtb_Torque_R_Nm_k < 0.0) {
+      /* Merge: '<Root>/Merge1' */
+      VDC_B.Merge1 = 0.0;
+    } else {
+      /* Merge: '<Root>/Merge1' */
+      VDC_B.Merge1 = rtb_Torque_R_Nm_k;
+    }
+
+    /* End of Saturate: '<S7>/Saturation1' */
+    /* End of Outputs for SubSystem: '<Root>/SKIDPAD' */
+  } else if ((VDC_U.RacingMode == 3.0) && rtb_LogicalOperator) {
+    /* Outputs for IfAction SubSystem: '<Root>/ACCELERATION' incorporates:
+     *  ActionPort: '<S1>/Action Port'
+     */
+    /* MATLAB Function: '<S1>/Torque demanded by the driver' incorporates:
+     *  Constant: '<Root>/AP_sat_down'
+     *  Constant: '<Root>/AP_sat_up'
+     *  Constant: '<Root>/Max_Motor_Torque_Rear [Nm]'
+     *  Inport: '<Root>/APPS1_Value'
+     */
+    VDC_Torquedemandedbythedriver(VDC_U.APPS1_Value, 0.05, 1.0, 27.0,
+      &VDC_B.sf_Torquedemandedbythedriver_k);
+
+    /* Outputs for IfAction SubSystem: '<S1>/RIGIDAXLE' incorporates:
+     *  ActionPort: '<S11>/Action Port'
+     */
+    /* If: '<S1>/If' */
+    VDC_RIGIDAXLE(VDC_B.sf_Torquedemandedbythedriver_k.Throttle_Torque,
+                  &rtb_Torque_L_Nm_l, &rtb_Torque_R_Nm_k, &VDC_B.Merge3);
+
+    /* End of Outputs for SubSystem: '<S1>/RIGIDAXLE' */
+
+    /* Merge: '<Root>/Merge6' incorporates:
+     *  SignalConversion generated from: '<S1>/TC_Warning'
+     */
+    VDC_B.Merge6 = VDC_B.TC_Warning;
+
+    /* Merge: '<Root>/Merge4' incorporates:
+     *  SignalConversion generated from: '<S1>/TT'
+     */
+    VDC_B.Merge4 = VDC_B.sf_Torquedemandedbythedriver_k.Throttle_Torque;
+
+    /* Saturate: '<S1>/Saturation' */
+    if (rtb_Torque_L_Nm_l > 27.0) {
+      /* Merge: '<Root>/Merge2' */
+      VDC_B.Merge2 = 27.0;
+    } else if (rtb_Torque_L_Nm_l < 0.0) {
+      /* Merge: '<Root>/Merge2' */
+      VDC_B.Merge2 = 0.0;
+    } else {
+      /* Merge: '<Root>/Merge2' */
+      VDC_B.Merge2 = rtb_Torque_L_Nm_l;
+    }
+
+    /* End of Saturate: '<S1>/Saturation' */
+
+    /* Saturate: '<S1>/Saturation1' */
+    if (rtb_Torque_R_Nm_k > 27.0) {
+      /* Merge: '<Root>/Merge1' */
+      VDC_B.Merge1 = 27.0;
+    } else if (rtb_Torque_R_Nm_k < 0.0) {
+      /* Merge: '<Root>/Merge1' */
+      VDC_B.Merge1 = 0.0;
+    } else {
+      /* Merge: '<Root>/Merge1' */
+      VDC_B.Merge1 = rtb_Torque_R_Nm_k;
+    }
+
+    /* End of Saturate: '<S1>/Saturation1' */
+    /* End of Outputs for SubSystem: '<Root>/ACCELERATION' */
+  } else if (((VDC_U.RacingMode == 4.0) && rtb_LogicalOperator) ||
+             ((VDC_U.RacingMode == 5.0) && rtb_LogicalOperator)) {
+    /* Outputs for IfAction SubSystem: '<Root>/AUTOX1' incorporates:
      *  ActionPort: '<S2>/Action Port'
      */
-    VDC_AutomaticFailureMode(VDC_U.TV_Mode, &rtb_Merge_j);
-
-    /* End of Outputs for SubSystem: '<Root>/Automatic Failure Mode' */
-  } else {
-    /* Outputs for IfAction SubSystem: '<Root>/Manual Failure Mode Selection' incorporates:
-     *  ActionPort: '<S4>/Action Port'
+    /* MATLAB Function: '<S2>/Torque demanded by the driver' incorporates:
+     *  Constant: '<Root>/AP_sat_down'
+     *  Constant: '<Root>/AP_sat_up'
+     *  Constant: '<Root>/Max_Motor_Torque_Rear [Nm]'
+     *  Inport: '<Root>/APPS1_Value'
      */
-    VDC_AutomaticFailureMode(6.0, &rtb_Merge_j);
+    VDC_Torquedemandedbythedriver(VDC_U.APPS1_Value, 0.05, 1.0, 27.0,
+      &VDC_B.sf_Torquedemandedbythedriver_a);
 
-    /* End of Outputs for SubSystem: '<Root>/Manual Failure Mode Selection' */
+    /* Outputs for IfAction SubSystem: '<S2>/RIGIDAXLE' incorporates:
+     *  ActionPort: '<S16>/Action Port'
+     */
+    /* If: '<S2>/If' */
+    VDC_RIGIDAXLE(VDC_B.sf_Torquedemandedbythedriver_a.Throttle_Torque,
+                  &rtb_Torque_R_Nm_k, &rtb_Torque_L_Nm_l, &VDC_B.Merge3);
+
+    /* End of Outputs for SubSystem: '<S2>/RIGIDAXLE' */
+
+    /* Merge: '<Root>/Merge4' incorporates:
+     *  SignalConversion generated from: '<S2>/TT'
+     */
+    VDC_B.Merge4 = VDC_B.sf_Torquedemandedbythedriver_a.Throttle_Torque;
+
+    /* Saturate: '<S2>/Saturation' */
+    if (rtb_Torque_R_Nm_k > 27.0) {
+      /* Merge: '<Root>/Merge2' */
+      VDC_B.Merge2 = 27.0;
+    } else if (rtb_Torque_R_Nm_k < 0.0) {
+      /* Merge: '<Root>/Merge2' */
+      VDC_B.Merge2 = 0.0;
+    } else {
+      /* Merge: '<Root>/Merge2' */
+      VDC_B.Merge2 = rtb_Torque_R_Nm_k;
+    }
+
+    /* End of Saturate: '<S2>/Saturation' */
+
+    /* Saturate: '<S2>/Saturation1' */
+    if (rtb_Torque_L_Nm_l > 27.0) {
+      /* Merge: '<Root>/Merge1' */
+      VDC_B.Merge1 = 27.0;
+    } else if (rtb_Torque_L_Nm_l < 0.0) {
+      /* Merge: '<Root>/Merge1' */
+      VDC_B.Merge1 = 0.0;
+    } else {
+      /* Merge: '<Root>/Merge1' */
+      VDC_B.Merge1 = rtb_Torque_L_Nm_l;
+    }
+
+    /* End of Saturate: '<S2>/Saturation1' */
+    /* End of Outputs for SubSystem: '<Root>/AUTOX1' */
   }
 
   /* End of If: '<Root>/If' */
 
-  /* Abs: '<Root>/Abs' incorporates:
-   *  Inport: '<Root>/RR_Vel_ms_Wheel'
+  /* MATLAB Function: '<Root>/Safety' incorporates:
+   *  DataTypeConversion: '<S6>/Data Type Conversion'
    */
-  rtb_Abs = fabs(VDC_U.RR_Vel_ms_Wheel);
-
-  /* Abs: '<Root>/Abs1' incorporates:
-   *  Inport: '<Root>/RL_Vel_ms_Wheel'
-   */
-  rtb_Abs1 = fabs(VDC_U.RL_Vel_ms_Wheel);
-
-  /* MATLAB Function: '<Root>/Torque demanded by the driver' incorporates:
-   *  Constant: '<Root>/AP_sat_down'
-   *  Constant: '<Root>/AP_sat_up'
-   *  Constant: '<Root>/Max_Motor_Torque_Rear_FM4 [Nm]'
-   *  Inport: '<Root>/APPS1_Value'
-   */
-  rtb_Product = 0.0;
-  if (!(VDC_U.APPS1_Value <= 0.0)) {
-    if (VDC_U.APPS1_Value >= 1.0) {
-      rtb_Product = 1.0;
-    } else if ((VDC_U.APPS1_Value >= 0.0) && (VDC_U.APPS1_Value <= 1.0)) {
-      rtb_Product = VDC_U.APPS1_Value;
-    }
-  }
-
-  rtb_Product *= 27.0;
-
-  /* End of MATLAB Function: '<Root>/Torque demanded by the driver' */
-
-  /* MATLAB Function: '<Root>/Enable regen?' incorporates:
-   *  Inport: '<Root>/el_Vel_X'
-   */
-  if ((rtb_Abs < 0.55) || (rtb_Abs1 < 0.55)) {
-    rtb_Merge1_e = 0.0;
-  } else {
-    rtb_Merge1_e = !(VDC_U.el_Vel_X >= 8.0);
-  }
-
-  /* End of MATLAB Function: '<Root>/Enable regen?' */
-
-  /* If: '<Root>/FAILURE MODE' */
-  if ((!(rtb_Merge_j == 1.0)) && (!(rtb_Merge_j == 2.0))) {
-    if (rtb_Merge_j == 3.0) {
-      real_T d;
-
-      /* Outputs for IfAction SubSystem: '<Root>/TC+TV' incorporates:
-       *  ActionPort: '<S8>/Action Port'
-       */
-      /* MATLAB Function: '<S8>/MATLAB Function' incorporates:
-       *  Constant: '<Root>/Maximum_Steering_angle [º]'
-       *  Constant: '<Root>/Steering_wheel_sat [º]'
-       *  Inport: '<Root>/SteeringSensor_Value'
-       *  Inport: '<Root>/el_SlipAngle'
-       */
-      rtb_Merge_j = fabs(VDC_U.SteeringSensor_Value);
-      if (rtb_Merge_j <= 10.0) {
-        rtb_Merge_j = rtb_Product;
-        d = rtb_Product;
-      } else if (fabs(VDC_U.el_SlipAngle) > 6.0) {
-        rtb_Merge_j = rtb_Product;
-        d = rtb_Product;
-      } else {
-        d = (rtb_Merge_j - 10.0) / 115.0 * rtb_Product;
-        if ((rtb_Merge1_e == 0.0) && (d > rtb_Product)) {
-          d = rtb_Product;
-        }
-
-        if (VDC_U.SteeringSensor_Value < -10.0) {
-          rtb_Merge_j = rtb_Product - d;
-          d = rtb_Product;
-        } else {
-          rtb_Merge_j = rtb_Product;
-          d = rtb_Product - d;
-        }
-      }
-
-      /* End of MATLAB Function: '<S8>/MATLAB Function' */
-
-      /* MATLAB Function: '<S8>/Rigid Axle with TC 2024 ' incorporates:
-       *  Inport: '<Root>/VDC_Max_Tyre_Slip'
-       *  Inport: '<Root>/el_Vel_X'
-       */
-      if ((VDC_U.el_Vel_X == 0.0) || (rtb_Abs == 0.0)) {
-        rtb_Abs = 1.0;
-      } else {
-        rtb_Abs /= VDC_U.el_Vel_X;
-      }
-
-      if ((VDC_U.el_Vel_X == 0.0) || (rtb_Abs1 == 0.0)) {
-        rtb_Abs1 = 1.0;
-      } else {
-        rtb_Abs1 /= VDC_U.el_Vel_X;
-      }
-
-      if (fmax(rtb_Abs, rtb_Abs1) < VDC_U.VDC_Max_Tyre_Slip) {
-        /* Merge: '<Root>/Merge1' */
-        VDC_B.Merge1 = d;
-
-        /* Merge: '<Root>/Merge2' */
-        VDC_B.Merge2 = rtb_Merge_j;
-        VDC_DW.correction_k = 0.0;
-
-        /* Merge: '<Root>/Merge3' */
-        VDC_B.Merge3 = false;
-      } else {
-        /* Merge: '<Root>/Merge3' */
-        VDC_B.Merge3 = true;
-        if (VDC_DW.correction_k == 0.0) {
-          VDC_DW.correction_k = 1.0;
-
-          /* Merge: '<Root>/Merge1' */
-          VDC_B.Merge1 = d - 0.060606060606060608;
-
-          /* Merge: '<Root>/Merge2' */
-          VDC_B.Merge2 = rtb_Merge_j - 0.060606060606060608;
-        } else {
-          VDC_DW.correction_k++;
-          rtb_Abs = VDC_DW.correction_k * VDC_DW.correction_k *
-            0.030303030303030304 + 0.030303030303030304 * VDC_DW.correction_k;
-
-          /* Merge: '<Root>/Merge1' */
-          VDC_B.Merge1 = d - rtb_Abs;
-
-          /* Merge: '<Root>/Merge2' */
-          VDC_B.Merge2 = rtb_Merge_j - rtb_Abs;
-        }
-      }
-
-      /* End of MATLAB Function: '<S8>/Rigid Axle with TC 2024 ' */
-      /* End of Outputs for SubSystem: '<Root>/TC+TV' */
-    } else if (rtb_Merge_j == 4.0) {
-      /* Outputs for IfAction SubSystem: '<Root>/RIGIDAXLE WITH TC' incorporates:
-       *  ActionPort: '<S6>/Action Port'
-       */
-      /* MinMax: '<S6>/Max' */
-      rtb_Abs1 = fmax(rtb_Abs, rtb_Abs1);
-
-      /* MATLAB Function: '<S6>/Rigid Axle with TC 2024 ' incorporates:
-       *  Inport: '<Root>/VDC_Max_Tyre_Slip'
-       *  Inport: '<Root>/el_Vel_X'
-       */
-      if ((VDC_U.el_Vel_X == 0.0) || (rtb_Abs1 == 0.0)) {
-        rtb_Abs1 = 1.0;
-      } else {
-        rtb_Abs1 /= VDC_U.el_Vel_X;
-      }
-
-      if (rtb_Abs1 < VDC_U.VDC_Max_Tyre_Slip) {
-        /* Merge: '<Root>/Merge1' */
-        VDC_B.Merge1 = rtb_Product;
-
-        /* Merge: '<Root>/Merge2' */
-        VDC_B.Merge2 = rtb_Product;
-        VDC_DW.correction = 0.0;
-
-        /* Merge: '<Root>/Merge3' */
-        VDC_B.Merge3 = false;
-      } else {
-        /* Merge: '<Root>/Merge3' */
-        VDC_B.Merge3 = true;
-        if (VDC_DW.correction == 0.0) {
-          VDC_DW.correction = 1.0;
-
-          /* Merge: '<Root>/Merge1' */
-          VDC_B.Merge1 = rtb_Product - 0.060606060606060608;
-
-          /* Merge: '<Root>/Merge2' */
-          VDC_B.Merge2 = rtb_Product - 0.060606060606060608;
-        } else {
-          VDC_DW.correction++;
-          rtb_Abs = rtb_Product - (VDC_DW.correction * VDC_DW.correction *
-            0.030303030303030304 + 0.030303030303030304 * VDC_DW.correction);
-
-          /* Merge: '<Root>/Merge1' */
-          VDC_B.Merge1 = rtb_Abs;
-
-          /* Merge: '<Root>/Merge2' */
-          VDC_B.Merge2 = rtb_Abs;
-        }
-      }
-
-      /* End of MATLAB Function: '<S6>/Rigid Axle with TC 2024 ' */
-      /* End of Outputs for SubSystem: '<Root>/RIGIDAXLE WITH TC' */
-    } else if (rtb_Merge_j == 5.0) {
-      /* Outputs for IfAction SubSystem: '<Root>/RIGIDAXLE' incorporates:
-       *  ActionPort: '<S5>/Action Port'
-       */
-      /* Merge: '<Root>/Merge2' incorporates:
-       *  MATLAB Function: '<S5>/Rigid Axle 2024 '
-       *  SignalConversion generated from: '<S5>/Tq_RL_FM5 [Nm] (0,inf)'
-       */
-      VDC_B.Merge2 = rtb_Product;
-
-      /* Merge: '<Root>/Merge1' incorporates:
-       *  MATLAB Function: '<S5>/Rigid Axle 2024 '
-       *  SignalConversion generated from: '<S5>/Tq_RR_FM5 [Nm] (0,inf)'
-       */
-      VDC_B.Merge1 = rtb_Product;
-
-      /* Merge: '<Root>/Merge3' incorporates:
-       *  MATLAB Function: '<S5>/Rigid Axle 2024 '
-       *  SignalConversion generated from: '<S5>/warning'
-       */
-      VDC_B.Merge3 = false;
-
-      /* End of Outputs for SubSystem: '<Root>/RIGIDAXLE' */
-    }
-  }
-
-  /* End of If: '<Root>/FAILURE MODE' */
-
-  /* Outputs for Atomic SubSystem: '<Root>/WORKSHOP_MODE_RESTRICTIONS' */
-  /* If: '<S11>/If' incorporates:
-   *  Inport: '<Root>/Workshop_Mode_Enable'
-   */
-  if (VDC_U.Workshop_Mode_Enable == 1.0) {
-    /* Outputs for IfAction SubSystem: '<S11>/Torque_Reduction ' incorporates:
-     *  ActionPort: '<S32>/Action Port'
-     */
-    /* Product: '<S32>/Divide' incorporates:
-     *  Constant: '<S32>/Constant'
-     */
-    rtb_Merge_j = VDC_B.Merge1 / 15.0;
-
-    /* Saturate: '<S32>/Saturation' */
-    if (rtb_Merge_j > 10.0) {
-      rtb_Merge_j = 10.0;
-    } else if (rtb_Merge_j < -10.0) {
-      rtb_Merge_j = -10.0;
+  if (rtb_LogicalOperator && (fmax(VDC_U.RR_rads_Motor, VDC_U.RL_rads_Motor) <
+       1727.8759594743863)) {
+    /* Saturate: '<Root>/Saturation' */
+    if (VDC_B.Merge2 > 27.0) {
+      /* Outport: '<Root>/Torque_R' */
+      VDC_Y.Torque_R = 27.0;
+    } else if (VDC_B.Merge2 < -27.0) {
+      /* Outport: '<Root>/Torque_R' */
+      VDC_Y.Torque_R = -27.0;
+    } else {
+      /* Outport: '<Root>/Torque_R' */
+      VDC_Y.Torque_R = VDC_B.Merge2;
     }
 
-    /* End of Saturate: '<S32>/Saturation' */
+    /* End of Saturate: '<Root>/Saturation' */
 
-    /* Product: '<S32>/Divide1' incorporates:
-     *  Constant: '<S32>/Constant'
-     */
-    rtb_Abs1 = VDC_B.Merge2 / 15.0;
-
-    /* Saturate: '<S32>/Saturation1' */
-    if (rtb_Abs1 > 10.0) {
-      rtb_Abs1 = 10.0;
-    } else if (rtb_Abs1 < -10.0) {
-      rtb_Abs1 = -10.0;
+    /* Saturate: '<Root>/Saturation1' */
+    if (VDC_B.Merge1 > 27.0) {
+      /* Outport: '<Root>/Torque_L' */
+      VDC_Y.Torque_L = 27.0;
+    } else if (VDC_B.Merge1 < -27.0) {
+      /* Outport: '<Root>/Torque_L' */
+      VDC_Y.Torque_L = -27.0;
+    } else {
+      /* Outport: '<Root>/Torque_L' */
+      VDC_Y.Torque_L = VDC_B.Merge1;
     }
 
-    /* End of Saturate: '<S32>/Saturation1' */
-    /* End of Outputs for SubSystem: '<S11>/Torque_Reduction ' */
+    /* End of Saturate: '<Root>/Saturation1' */
   } else {
-    /* Outputs for IfAction SubSystem: '<S11>/BYPASS' incorporates:
-     *  ActionPort: '<S31>/Action Port'
-     */
-    /* SignalConversion generated from: '<S31>/In1' */
-    rtb_Merge_j = VDC_B.Merge1;
+    /* Outport: '<Root>/Torque_R' */
+    VDC_Y.Torque_R = 0.0;
 
-    /* SignalConversion generated from: '<S31>/In2' */
-    rtb_Abs1 = VDC_B.Merge2;
-
-    /* End of Outputs for SubSystem: '<S11>/BYPASS' */
+    /* Outport: '<Root>/Torque_L' */
+    VDC_Y.Torque_L = 0.0;
   }
 
-  /* End of If: '<S11>/If' */
-
-  /* Saturate: '<S11>/Saturation' */
-  if (rtb_Merge_j > 27.0) {
-    /* Outport: '<Root>/Torque_R_out' */
-    VDC_Y.Torque_R_out = 27.0;
-  } else if (rtb_Merge_j < -27.0) {
-    /* Outport: '<Root>/Torque_R_out' */
-    VDC_Y.Torque_R_out = -27.0;
-  } else {
-    /* Outport: '<Root>/Torque_R_out' */
-    VDC_Y.Torque_R_out = rtb_Merge_j;
-  }
-
-  /* End of Saturate: '<S11>/Saturation' */
-
-  /* Saturate: '<S11>/Saturation1' */
-  if (rtb_Abs1 > 27.0) {
-    /* Outport: '<Root>/Torque_L_out' */
-    VDC_Y.Torque_L_out = 27.0;
-  } else if (rtb_Abs1 < -27.0) {
-    /* Outport: '<Root>/Torque_L_out' */
-    VDC_Y.Torque_L_out = -27.0;
-  } else {
-    /* Outport: '<Root>/Torque_L_out' */
-    VDC_Y.Torque_L_out = rtb_Abs1;
-  }
-
-  /* End of Saturate: '<S11>/Saturation1' */
-  /* End of Outputs for SubSystem: '<Root>/WORKSHOP_MODE_RESTRICTIONS' */
-
-  /* Outport: '<Root>/TC_Warning' */
-  VDC_Y.TC_Warning = VDC_B.Merge3;
+  /* End of MATLAB Function: '<Root>/Safety' */
 
   /* Outport: '<Root>/APPS_Implausibility' */
   VDC_Y.APPS_Implausibility = rtb_Merge1_j;
 
   /* Outport: '<Root>/Torque_OK' incorporates:
-   *  DataTypeConversion: '<S7>/Data Type Conversion'
+   *  DataTypeConversion: '<S6>/Data Type Conversion'
    */
   VDC_Y.Torque_OK = rtb_LogicalOperator;
 
-  /* Outport: '<Root>/Regenerative_Enable' */
-  VDC_Y.Regenerative_Enable = rtb_Merge1_e;
+  /* Outport: '<Root>/Sensorics_Mode' */
+  VDC_Y.Sensorics_Mode = VDC_B.Merge3;
+
+  /* Outport: '<Root>/BrakeLight_Control' incorporates:
+   *  Constant: '<Root>/Brake_Light_Threshold'
+   *  Inport: '<Root>/BrakePedal_Value'
+   *  Inport: '<Root>/RacingMode'
+   *  MATLAB Function: '<Root>/Brake_Light'
+   */
+  VDC_Y.BrakeLight_Control = (((VDC_U.RacingMode == 5.0) && (VDC_B.state == 0.0))
+    || (VDC_U.BrakePedal_Value > 0.2));
 
   /* Outport: '<Root>/Throttle_Torque' */
-  VDC_Y.Throttle_Torque = rtb_Product;
+  VDC_Y.Throttle_Torque = VDC_B.Merge4;
+
+  /* Outport: '<Root>/TC_Warning' */
+  VDC_Y.TC_Warning = VDC_B.Merge6;
 }
 
 /* Model update function */
@@ -565,35 +597,87 @@ static void VDC_update(void)
 /* Model initialize function */
 static void VDC_initialize(void)
 {
-  /* Start for DataStoreMemory: '<S20>/Data Store Memory1' */
+  /* Start for DataStoreMemory: '<S42>/Data Store Memory1' */
   VDC_DW.ERROR_Counter = 0.0;
 
-  /* Start for Atomic SubSystem: '<S1>/PowerLimitDetection' */
-  /* Start for DataStoreMemory: '<S12>/Data Store Memory10' */
-  VDC_DW.A = 0.0;
+  /* ConstCode for Outport: '<Root>/VDC_Max_Tyre_Slip' incorporates:
+   *  Constant: '<Root>/Max_Tyre_Slip'
+   */
+  VDC_Y.VDC_Max_Tyre_Slip = 1.3;
 
-  /* End of Start for SubSystem: '<S1>/PowerLimitDetection' */
+  /* SystemInitialize for IfAction SubSystem: '<Root>/SKIDPAD' */
+  /* SystemInitialize for IfAction SubSystem: '<S7>/TC+TV' */
+  /* SystemInitialize for MATLAB Function: '<S50>/Rigid Axle with TC 2024 ' */
+  VDC_DW.correction_h = 0.0;
 
-  /* SystemInitialize for IfAction SubSystem: '<Root>/TC+TV' */
-  /* SystemInitialize for MATLAB Function: '<S8>/Rigid Axle with TC 2024 ' */
-  VDC_DW.correction_k = 0.0;
+  /* SystemInitialize for Outport: '<S50>/TC_Warning' */
+  VDC_B.TC_Warning_l = 0.0;
 
-  /* End of SystemInitialize for SubSystem: '<Root>/TC+TV' */
+  /* End of SystemInitialize for SubSystem: '<S7>/TC+TV' */
+  /* End of SystemInitialize for SubSystem: '<Root>/SKIDPAD' */
 
-  /* SystemInitialize for IfAction SubSystem: '<Root>/RIGIDAXLE WITH TC' */
-  /* SystemInitialize for MATLAB Function: '<S6>/Rigid Axle with TC 2024 ' */
+  /* SystemInitialize for IfAction SubSystem: '<Root>/ACCELERATION' */
+  /* SystemInitialize for IfAction SubSystem: '<S1>/RIGIDAXLE WITH TC' */
+  /* SystemInitialize for MATLAB Function: '<S12>/Rigid Axle with TC 2024 ' */
+  VDC_DW.correction_g = 0.0;
+
+  /* SystemInitialize for Outport: '<S12>/TC_Warning' */
+  VDC_B.TC_Warning = 0.0;
+
+  /* End of SystemInitialize for SubSystem: '<S1>/RIGIDAXLE WITH TC' */
+  /* End of SystemInitialize for SubSystem: '<Root>/ACCELERATION' */
+
+  /* SystemInitialize for IfAction SubSystem: '<Root>/AUTOX1' */
+  /* SystemInitialize for IfAction SubSystem: '<S2>/TC+TV' */
+  /* SystemInitialize for MATLAB Function: '<S18>/Rigid Axle with TC 2024 ' */
+  VDC_DW.correction_i = 0.0;
+
+  /* End of SystemInitialize for SubSystem: '<S2>/TC+TV' */
+
+  /* SystemInitialize for IfAction SubSystem: '<S2>/RIGIDAXLE WITH TC' */
+  /* SystemInitialize for MATLAB Function: '<S17>/Rigid Axle with TC 2024 ' */
+  VDC_RigidAxlewithTC2024_Init(&VDC_DW.sf_RigidAxlewithTC2024_p2);
+
+  /* End of SystemInitialize for SubSystem: '<S2>/RIGIDAXLE WITH TC' */
+  /* End of SystemInitialize for SubSystem: '<Root>/AUTOX1' */
+
+  /* SystemInitialize for IfAction SubSystem: '<Root>/ENDURANCE' */
+  /* SystemInitialize for IfAction SubSystem: '<S4>/TC+TV' */
+  /* SystemInitialize for MATLAB Function: '<S26>/TC 2024' */
   VDC_DW.correction = 0.0;
 
-  /* End of SystemInitialize for SubSystem: '<Root>/RIGIDAXLE WITH TC' */
+  /* End of SystemInitialize for SubSystem: '<S4>/TC+TV' */
 
-  /* SystemInitialize for Merge: '<Root>/Merge1' */
-  VDC_B.Merge1 = 0.0;
+  /* SystemInitialize for IfAction SubSystem: '<S4>/RIGIDAXLE WITH TC' */
+  /* SystemInitialize for MATLAB Function: '<S25>/Rigid Axle with TC 2024 ' */
+  VDC_RigidAxlewithTC2024_Init(&VDC_DW.sf_RigidAxlewithTC2024_c);
+
+  /* End of SystemInitialize for SubSystem: '<S4>/RIGIDAXLE WITH TC' */
+
+  /* SystemInitialize for Outport: '<S4>/Pedal_State' */
+  VDC_B.state = 0.0;
+
+  /* SystemInitialize for Outport: '<Root>/Regenerative_Enable' incorporates:
+   *  Outport: '<S4>/regen_en'
+   */
+  VDC_Y.Regenerative_Enable = 0.0;
+
+  /* End of SystemInitialize for SubSystem: '<Root>/ENDURANCE' */
 
   /* SystemInitialize for Merge: '<Root>/Merge2' */
   VDC_B.Merge2 = 0.0;
 
+  /* SystemInitialize for Merge: '<Root>/Merge1' */
+  VDC_B.Merge1 = 0.0;
+
   /* SystemInitialize for Merge: '<Root>/Merge3' */
-  VDC_B.Merge3 = false;
+  VDC_B.Merge3 = 0.0;
+
+  /* SystemInitialize for Merge: '<Root>/Merge4' */
+  VDC_B.Merge4 = 0.0;
+
+  /* SystemInitialize for Merge: '<Root>/Merge6' */
+  VDC_B.Merge6 = 0.0;
 }
 
 /* Model terminate function */
@@ -729,11 +813,11 @@ RT_MODEL_VDC_T *VDC(void)
   /* Initialize Sizes */
   VDC_M->Sizes.numContStates = (0);    /* Number of continuous states */
   VDC_M->Sizes.numY = (10);            /* Number of model outputs */
-  VDC_M->Sizes.numU = (34);            /* Number of model inputs */
+  VDC_M->Sizes.numU = (29);            /* Number of model inputs */
   VDC_M->Sizes.sysDirFeedThru = (1);   /* The model is direct feedthrough */
   VDC_M->Sizes.numSampTimes = (1);     /* Number of sample times */
-  VDC_M->Sizes.numBlocks = (135);      /* Number of blocks */
-  VDC_M->Sizes.numBlockIO = (3);       /* Number of block outputs */
+  VDC_M->Sizes.numBlocks = (218);      /* Number of blocks */
+  VDC_M->Sizes.numBlockIO = (22);      /* Number of block outputs */
   return VDC_M;
 }
 

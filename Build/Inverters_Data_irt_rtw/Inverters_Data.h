@@ -12,9 +12,9 @@
  *
  * Code generation for model "Inverters_Data".
  *
- * Model version              : 10.15
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Sat Apr  6 01:22:19 2024
+ * Model version              : 13.28
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Sat Sep  7 16:34:31 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -191,6 +191,14 @@
 
 #ifndef rtmSetMdlRefGlobalTID
 #define rtmSetMdlRefGlobalTID(rtm, val) ()
+#endif
+
+#ifndef rtmGetMdlRefGlobalTimerIndices
+#define rtmGetMdlRefGlobalTimerIndices(rtm) ()
+#endif
+
+#ifndef rtmSetMdlRefGlobalTimerIndices
+#define rtmSetMdlRefGlobalTimerIndices(rtm, val) ()
 #endif
 
 #ifndef rtmGetMdlRefTriggerTID
@@ -850,6 +858,14 @@
 /* Definition for use in the target main file */
 #define Inverters_Data_rtModel         RT_MODEL_Inverters_Data_T
 
+/* Block states (default storage) for system '<Root>' */
+typedef struct {
+  real_T Last_alive;                   /* '<S3>/Data Store Memory' */
+  real_T Tot_Errors;                   /* '<S3>/Data Store Memory1' */
+  real_T Last_alive_h;                 /* '<S4>/Data Store Memory' */
+  real_T Tot_Errors_c;                 /* '<S4>/Data Store Memory1' */
+} DW_Inverters_Data_T;
+
 /* External inputs (root inport signals with default storage) */
 typedef struct {
   real_T Inv_L_RegID_M48_Inv_L_Speed; /* '<Root>/Inv_L_RegID_M48_Inv_L_Speed' */
@@ -859,23 +875,15 @@ typedef struct {
                                    /* '<Root>/Inv_L_RegID_M74_Inv_L_TempIGBT' */
   real_T Inv_L_RegID_M235_Inv_L_DCBus;
                                      /* '<Root>/Inv_L_RegID_M235_Inv_L_DCBus' */
-  real_T Inv_R_RegID_M32_Inv_R_Iactual;
-                                    /* '<Root>/Inv_R_RegID_M32_Inv_R_Iactual' */
-  real_T Inv_R_RegID_M38_Inv_R_Icommand;
-                                   /* '<Root>/Inv_R_RegID_M38_Inv_R_Icommand' */
-  real_T Inv_R_RegID_M39_Inv_R_Iq;     /* '<Root>/Inv_R_RegID_M39_Inv_R_Iq' */
-  real_T Inv_L_RegID_M32_Inv_L_Iactual;
-                                    /* '<Root>/Inv_L_RegID_M32_Inv_L_Iactual' */
-  real_T Inv_L_RegID_M38_Inv_L_Icommand;
-                                   /* '<Root>/Inv_L_RegID_M38_Inv_L_Icommand' */
   real_T Inv_R_RegID_M48_Inv_R_Speed; /* '<Root>/Inv_R_RegID_M48_Inv_R_Speed' */
-  real_T Inv_L_RegID_M39_Inv_L_Iq;     /* '<Root>/Inv_L_RegID_M39_Inv_L_Iq' */
   real_T Inv_R_RegID_M73_Inv_R_TempMotor;
                                   /* '<Root>/Inv_R_RegID_M73_Inv_R_TempMotor' */
   real_T Inv_R_RegID_M74_Inv_R_TempIGBT;
                                    /* '<Root>/Inv_R_RegID_M74_Inv_R_TempIGBT' */
   real_T Inv_R_RegID_M235_Inv_R_DCBus;
                                      /* '<Root>/Inv_R_RegID_M235_Inv_R_DCBus' */
+  real_T Inv_L_RegID;                  /* '<Root>/Inv_L_RegID' */
+  real_T Inv_R_RegID;                  /* '<Root>/Inv_R_RegID' */
 } ExtU_Inverters_Data_T;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -886,18 +894,14 @@ typedef struct {
   real_T RR_Vel_ms_Wheel;              /* '<Root>/RR_Vel_ms_Wheel' */
   real_T InvertersMinDCBus;            /* '<Root>/InvertersMinDCBus' */
   real_T Speed;                        /* '<Root>/Speed' */
-  real_T Inv_L_Iq;                     /* '<Root>/Inv_L_Iq' */
-  real_T Inv_R_Iq;                     /* '<Root>/Inv_R_Iq' */
-  real_T Inv_L_Iactual;                /* '<Root>/Inv_L_Iactual' */
-  real_T Inv_R_Iactual;                /* '<Root>/Inv_R_Iactual' */
-  real_T Inv_L_Icommand;               /* '<Root>/Inv_L_Icommand' */
-  real_T Inv_R_Icommand;               /* '<Root>/Inv_R_Icommand' */
-  real_T Inv_L_TempMotor;              /* '<Root>/Inv_L_TempMotor' */
-  real_T Inv_R_TempMotor;              /* '<Root>/Inv_R_TempMotor' */
   real_T Inv_R_TempIGBT;               /* '<Root>/Inv_R_TempIGBT' */
   real_T Inv_L_TempIGBT;               /* '<Root>/Inv_L_TempIGBT' */
   real_T RL_rads_Motor;                /* '<Root>/RL_rads_Motor' */
   real_T RR_rads_Motor;                /* '<Root>/RR_rads_Motor' */
+  real_T Inv_L_TempMotor;              /* '<Root>/Inv_L_TempMotor' */
+  real_T Inv_R_TempMotor;              /* '<Root>/Inv_R_TempMotor' */
+  real_T Disconnection_InvL;           /* '<Root>/Disconnection_InvL' */
+  real_T Disconnection_InvR;           /* '<Root>/Disconnection_InvR' */
 } ExtY_Inverters_Data_T;
 
 /* Backward compatible GRT Identifiers */
@@ -905,6 +909,8 @@ typedef struct {
 #define ExternalInputs                 ExtU_Inverters_Data_T
 #define rtY                            Inverters_Data_Y
 #define ExternalOutputs                ExtY_Inverters_Data_T
+#define rtDWork                        Inverters_Data_DW
+#define D_Work                         DW_Inverters_Data_T
 
 /* Real-time Model Data Structure */
 struct tag_RTM_Inverters_Data_T {
@@ -1004,6 +1010,9 @@ struct tag_RTM_Inverters_Data_T {
   } Timing;
 };
 
+/* Block states (default storage) */
+extern DW_Inverters_Data_T Inverters_Data_DW;
+
 /* External inputs (root inport signals with default storage) */
 extern ExtU_Inverters_Data_T Inverters_Data_U;
 
@@ -1040,22 +1049,29 @@ extern RT_MODEL_Inverters_Data_T *const Inverters_Data_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'Inverters_Data'
- * '<S1>'   : 'Inverters_Data/Average'
- * '<S2>'   : 'Inverters_Data/IL'
- * '<S3>'   : 'Inverters_Data/IL 1'
- * '<S4>'   : 'Inverters_Data/IL 2'
- * '<S5>'   : 'Inverters_Data/IL 3'
- * '<S6>'   : 'Inverters_Data/IL 4'
- * '<S7>'   : 'Inverters_Data/IL 5'
- * '<S8>'   : 'Inverters_Data/IL1'
- * '<S9>'   : 'Inverters_Data/IL2'
- * '<S10>'  : 'Inverters_Data/Subsystem'
- * '<S11>'  : 'Inverters_Data/Subsystem1'
- * '<S12>'  : 'Inverters_Data/Subsystem2'
- * '<S13>'  : 'Inverters_Data/Subsystem3'
- * '<S14>'  : 'Inverters_Data/Subsystem4'
- * '<S15>'  : 'Inverters_Data/Subsystem5'
- * '<S16>'  : 'Inverters_Data/Subsystem6'
- * '<S17>'  : 'Inverters_Data/Subsystem7'
+ * '<S1>'   : 'Inverters_Data/AveragDash_Speed'
+ * '<S2>'   : 'Inverters_Data/DocBlock'
+ * '<S3>'   : 'Inverters_Data/Life_check_InverterL'
+ * '<S4>'   : 'Inverters_Data/Life_check_InverterR'
+ * '<S5>'   : 'Inverters_Data/Subsystem1'
+ * '<S6>'   : 'Inverters_Data/Subsystem2'
+ * '<S7>'   : 'Inverters_Data/Subsystem3'
+ * '<S8>'   : 'Inverters_Data/Subsystem4'
+ * '<S9>'   : 'Inverters_Data/Subsystem5'
+ * '<S10>'  : 'Inverters_Data/Subsystem6'
+ * '<S11>'  : 'Inverters_Data/AveragDash_Speed/Both Disconnected'
+ * '<S12>'  : 'Inverters_Data/AveragDash_Speed/Both Inverters OK'
+ * '<S13>'  : 'Inverters_Data/AveragDash_Speed/InvL Fail'
+ * '<S14>'  : 'Inverters_Data/AveragDash_Speed/InvR Fail'
+ * '<S15>'  : 'Inverters_Data/Life_check_InverterL/CAN_OK'
+ * '<S16>'  : 'Inverters_Data/Life_check_InverterL/DocBlock'
+ * '<S17>'  : 'Inverters_Data/Life_check_InverterL/Error_Counter'
+ * '<S18>'  : 'Inverters_Data/Life_check_InverterL/Signal_Failure'
+ * '<S19>'  : 'Inverters_Data/Life_check_InverterL/Signal_OK'
+ * '<S20>'  : 'Inverters_Data/Life_check_InverterR/CAN_OK'
+ * '<S21>'  : 'Inverters_Data/Life_check_InverterR/DocBlock'
+ * '<S22>'  : 'Inverters_Data/Life_check_InverterR/Error_Counter'
+ * '<S23>'  : 'Inverters_Data/Life_check_InverterR/Signal_Failure'
+ * '<S24>'  : 'Inverters_Data/Life_check_InverterR/Signal_OK'
  */
 #endif                                 /* RTW_HEADER_Inverters_Data_h_ */

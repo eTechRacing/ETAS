@@ -3,11 +3,6 @@
 #include "VDC_irtmacros.h"
 /* PATCH END */
 
-/* Patched in by the INTECRIO IRT target */
-/* PATCH BEGIN */
-#include "VDC_irtmacros.h"
-/* PATCH END */
-
 /*
  * VDC.h
  *
@@ -17,9 +12,9 @@
  *
  * Code generation for model "VDC".
  *
- * Model version              : 1.5
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Sat Apr  6 01:20:50 2024
+ * Model version              : 4.214
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Sat Sep  7 16:40:11 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -196,6 +191,14 @@
 
 #ifndef rtmSetMdlRefGlobalTID
 #define rtmSetMdlRefGlobalTID(rtm, val) ()
+#endif
+
+#ifndef rtmGetMdlRefGlobalTimerIndices
+#define rtmGetMdlRefGlobalTimerIndices(rtm) ()
+#endif
+
+#ifndef rtmSetMdlRefGlobalTimerIndices
+#define rtmSetMdlRefGlobalTimerIndices(rtm, val) ()
 #endif
 
 #ifndef rtmGetMdlRefTriggerTID
@@ -855,19 +858,60 @@
 /* Definition for use in the target main file */
 #define VDC_rtModel                    RT_MODEL_VDC_T
 
+/* Block signals for system '<S50>/MATLAB Function' */
+typedef struct {
+  real_T Torque_R_Nm;                  /* '<S50>/MATLAB Function' */
+  real_T Torque_L_Nm;                  /* '<S50>/MATLAB Function' */
+} B_MATLABFunction_VDC_T;
+
+/* Block signals for system '<S7>/Torque demanded by the driver' */
+typedef struct {
+  real_T Throttle_Torque;             /* '<S7>/Torque demanded by the driver' */
+} B_Torquedemandedbythedriver_V_T;
+
+/* Block signals for system '<S17>/Rigid Axle with TC 2024 ' */
+typedef struct {
+  real_T Motor_Torque_RR;              /* '<S17>/Rigid Axle with TC 2024 ' */
+  real_T TC_Warning;                   /* '<S17>/Rigid Axle with TC 2024 ' */
+  real_T Motor_Torque_RL;              /* '<S17>/Rigid Axle with TC 2024 ' */
+} B_RigidAxlewithTC2024_VDC_T;
+
+/* Block states (default storage) for system '<S17>/Rigid Axle with TC 2024 ' */
+typedef struct {
+  real_T correction;                   /* '<S17>/Rigid Axle with TC 2024 ' */
+} DW_RigidAxlewithTC2024_VDC_T;
+
 /* Block signals (default storage) */
 typedef struct {
-  real_T Merge1;                       /* '<Root>/Merge1' */
   real_T Merge2;                       /* '<Root>/Merge2' */
-  boolean_T Merge3;                    /* '<Root>/Merge3' */
+  real_T Merge1;                       /* '<Root>/Merge1' */
+  real_T Merge3;                       /* '<Root>/Merge3' */
+  real_T Merge4;                       /* '<Root>/Merge4' */
+  real_T Merge6;                       /* '<Root>/Merge6' */
+  real_T state;                        /* '<S27>/state' */
+  real_T TC_Warning;                   /* '<S12>/Rigid Axle with TC 2024 ' */
+  real_T TC_Warning_l;                 /* '<S50>/Rigid Axle with TC 2024 ' */
+  B_RigidAxlewithTC2024_VDC_T sf_RigidAxlewithTC2024_c;/* '<S25>/Rigid Axle with TC 2024 ' */
+  B_Torquedemandedbythedriver_V_T sf_Torquedemandedbythedriver_a;
+                                      /* '<S2>/Torque demanded by the driver' */
+  B_RigidAxlewithTC2024_VDC_T sf_RigidAxlewithTC2024_p2;/* '<S17>/Rigid Axle with TC 2024 ' */
+  B_Torquedemandedbythedriver_V_T sf_Torquedemandedbythedriver_k;
+                                      /* '<S1>/Torque demanded by the driver' */
+  B_Torquedemandedbythedriver_V_T sf_Torquedemandedbythedriver_m;
+                                      /* '<S7>/Torque demanded by the driver' */
+  B_MATLABFunction_VDC_T sf_MATLABFunction_a;/* '<S51>/MATLAB Function' */
+  B_MATLABFunction_VDC_T sf_MATLABFunction;/* '<S50>/MATLAB Function' */
 } B_VDC_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  real_T ERROR_Counter;                /* '<S20>/Data Store Memory1' */
-  real_T correction;                   /* '<S6>/Rigid Axle with TC 2024 ' */
-  real_T correction_k;                 /* '<S8>/Rigid Axle with TC 2024 ' */
-  real_T A;                            /* '<S12>/Data Store Memory10' */
+  real_T ERROR_Counter;                /* '<S42>/Data Store Memory1' */
+  real_T correction;                   /* '<S26>/TC 2024' */
+  real_T correction_i;                 /* '<S18>/Rigid Axle with TC 2024 ' */
+  real_T correction_g;                 /* '<S12>/Rigid Axle with TC 2024 ' */
+  real_T correction_h;                 /* '<S50>/Rigid Axle with TC 2024 ' */
+  DW_RigidAxlewithTC2024_VDC_T sf_RigidAxlewithTC2024_c;/* '<S25>/Rigid Axle with TC 2024 ' */
+  DW_RigidAxlewithTC2024_VDC_T sf_RigidAxlewithTC2024_p2;/* '<S17>/Rigid Axle with TC 2024 ' */
 } DW_VDC_T;
 
 /* External inputs (root inport signals with default storage) */
@@ -875,9 +919,6 @@ typedef struct {
   real_T el_ACCEL_X;                   /* '<Root>/el_ACCEL_X' */
   real_T el_ACCEL_Y;                   /* '<Root>/el_ACCEL_Y' */
   real_T el_ACCEL_Z;                   /* '<Root>/el_ACCEL_Z' */
-  real_T el_Vel_X;                     /* '<Root>/el_Vel_X' */
-  real_T el_Vel_Y;                     /* '<Root>/el_Vel_Y' */
-  real_T el_Vel_Z;                     /* '<Root>/el_Vel_Z' */
   real_T el_YAW;                       /* '<Root>/el_YAW' */
   real_T el_PITCH;                     /* '<Root>/el_PITCH' */
   real_T el_ROLL;                      /* '<Root>/el_ROLL' */
@@ -893,33 +934,31 @@ typedef struct {
   real_T RR_rads_Motor;                /* '<Root>/RR_rads_Motor' */
   real_T RL_rads_Motor;                /* '<Root>/RL_rads_Motor' */
   real_T Accumulator_Voltage;          /* '<Root>/Accumulator_Voltage' */
-  real_T Accumulator_Current;          /* '<Root>/Accumulator_Current' */
   boolean_T Shutdown_PackageIntck;     /* '<Root>/Shutdown_PackageIntck' */
-  real_T Workshop_Mode_Enable;         /* '<Root>/Workshop_Mode_Enable' */
-  real_T TV_Mode;                      /* '<Root>/TV_Mode' */
+  real_T Disconnection_Mode;           /* '<Root>/Disconnection_Mode' */
   real_T Susp_F_L;                     /* '<Root>/Susp_F_L' */
   real_T Susp_F_R;                     /* '<Root>/Susp_F_R' */
   real_T Susp_R_L;                     /* '<Root>/Susp_R_L' */
   real_T Susp_R_R;                     /* '<Root>/Susp_R_R' */
-  real_T VDC_Max_Tyre_Slip;            /* '<Root>/VDC_Max_Tyre_Slip' */
   boolean_T TorqueEnable;              /* '<Root>/TorqueEnable' */
   boolean_T CriticalDisconnection;     /* '<Root>/CriticalDisconnection' */
   real_T Car_State;                    /* '<Root>/Car_State' */
-  real_T el_SlipAngle;                 /* '<Root>/el_SlipAngle' */
+  real_T RacingMode;                   /* '<Root>/RacingMode' */
+  real_T el_VEL;                       /* '<Root>/el_VEL' */
 } ExtU_VDC_T;
 
 /* External outputs (root outports fed by signals with default storage) */
 typedef struct {
-  real_T Power;                        /* '<Root>/Power' */
-  real_T PowerLimitReached;            /* '<Root>/PowerLimitReached' */
-  real_T PowerMean500ms;               /* '<Root>/PowerMean500ms' */
-  real_T Torque_R_out;                 /* '<Root>/Torque_R_out' */
-  real_T Torque_L_out;                 /* '<Root>/Torque_L_out' */
-  boolean_T TC_Warning;                /* '<Root>/TC_Warning' */
+  real_T Torque_R;                     /* '<Root>/Torque_R' */
+  real_T Torque_L;                     /* '<Root>/Torque_L' */
   real_T APPS_Implausibility;          /* '<Root>/APPS_Implausibility' */
   real_T Torque_OK;                    /* '<Root>/Torque_OK' */
+  real_T VDC_Max_Tyre_Slip;            /* '<Root>/VDC_Max_Tyre_Slip' */
+  real_T Sensorics_Mode;               /* '<Root>/Sensorics_Mode' */
+  real_T BrakeLight_Control;           /* '<Root>/BrakeLight_Control' */
   real_T Regenerative_Enable;          /* '<Root>/Regenerative_Enable' */
   real_T Throttle_Torque;              /* '<Root>/Throttle_Torque' */
+  real_T TC_Warning;                   /* '<Root>/TC_Warning' */
 } ExtY_VDC_T;
 
 /* Backward compatible GRT Identifiers */
@@ -1072,37 +1111,64 @@ extern RT_MODEL_VDC_T *const VDC_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'VDC'
- * '<S1>'   : 'VDC/Accumulator Power'
- * '<S2>'   : 'VDC/Automatic Failure Mode'
- * '<S3>'   : 'VDC/Enable regen?'
- * '<S4>'   : 'VDC/Manual Failure Mode Selection'
- * '<S5>'   : 'VDC/RIGIDAXLE'
- * '<S6>'   : 'VDC/RIGIDAXLE WITH TC'
- * '<S7>'   : 'VDC/SAFETY BLOCK'
- * '<S8>'   : 'VDC/TC+TV'
+ * '<S1>'   : 'VDC/ACCELERATION'
+ * '<S2>'   : 'VDC/AUTOX1'
+ * '<S3>'   : 'VDC/Brake_Light'
+ * '<S4>'   : 'VDC/ENDURANCE'
+ * '<S5>'   : 'VDC/Function Explanation'
+ * '<S6>'   : 'VDC/SAFETY BLOCK'
+ * '<S7>'   : 'VDC/SKIDPAD'
+ * '<S8>'   : 'VDC/Safety'
  * '<S9>'   : 'VDC/TEST_MODE_IN'
- * '<S10>'  : 'VDC/Torque demanded by the driver'
- * '<S11>'  : 'VDC/WORKSHOP_MODE_RESTRICTIONS'
- * '<S12>'  : 'VDC/Accumulator Power/PowerLimitDetection'
- * '<S13>'  : 'VDC/Accumulator Power/W to kW'
- * '<S14>'  : 'VDC/Accumulator Power/PowerLimitDetection/LimitReached'
- * '<S15>'  : 'VDC/Accumulator Power/PowerLimitDetection/OK_OrLatch'
- * '<S16>'  : 'VDC/Accumulator Power/PowerLimitDetection/OK_OrLatch/Latched Error'
- * '<S17>'  : 'VDC/Accumulator Power/PowerLimitDetection/OK_OrLatch/OK'
- * '<S18>'  : 'VDC/RIGIDAXLE/Rigid Axle 2024 '
- * '<S19>'  : 'VDC/RIGIDAXLE WITH TC/Rigid Axle with TC 2024 '
- * '<S20>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY'
- * '<S21>'  : 'VDC/SAFETY BLOCK/Compare To Constant'
- * '<S22>'  : 'VDC/SAFETY BLOCK/DocBlock'
- * '<S23>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Imp'
- * '<S24>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Not Imp'
- * '<S25>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Signal_Failure'
- * '<S26>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Signal_OK'
- * '<S27>'  : 'VDC/TC+TV/MATLAB Function'
- * '<S28>'  : 'VDC/TC+TV/Rigid Axle with TC 2024 '
- * '<S29>'  : 'VDC/TEST_MODE_IN/BYPASS'
- * '<S30>'  : 'VDC/TEST_MODE_IN/TEST_CONSTANTS'
- * '<S31>'  : 'VDC/WORKSHOP_MODE_RESTRICTIONS/BYPASS'
- * '<S32>'  : 'VDC/WORKSHOP_MODE_RESTRICTIONS/Torque_Reduction '
+ * '<S10>'  : 'VDC/WORKSHOP'
+ * '<S11>'  : 'VDC/ACCELERATION/RIGIDAXLE'
+ * '<S12>'  : 'VDC/ACCELERATION/RIGIDAXLE WITH TC'
+ * '<S13>'  : 'VDC/ACCELERATION/Torque demanded by the driver'
+ * '<S14>'  : 'VDC/ACCELERATION/RIGIDAXLE/Rigid Axle 2024 '
+ * '<S15>'  : 'VDC/ACCELERATION/RIGIDAXLE WITH TC/Rigid Axle with TC 2024 '
+ * '<S16>'  : 'VDC/AUTOX1/RIGIDAXLE'
+ * '<S17>'  : 'VDC/AUTOX1/RIGIDAXLE WITH TC'
+ * '<S18>'  : 'VDC/AUTOX1/TC+TV'
+ * '<S19>'  : 'VDC/AUTOX1/Torque demanded by the driver'
+ * '<S20>'  : 'VDC/AUTOX1/RIGIDAXLE/Rigid Axle 2024 '
+ * '<S21>'  : 'VDC/AUTOX1/RIGIDAXLE WITH TC/Rigid Axle with TC 2024 '
+ * '<S22>'  : 'VDC/AUTOX1/TC+TV/MATLAB Function'
+ * '<S23>'  : 'VDC/AUTOX1/TC+TV/Rigid Axle with TC 2024 '
+ * '<S24>'  : 'VDC/ENDURANCE/RIGIDAXLE'
+ * '<S25>'  : 'VDC/ENDURANCE/RIGIDAXLE WITH TC'
+ * '<S26>'  : 'VDC/ENDURANCE/TC+TV'
+ * '<S27>'  : 'VDC/ENDURANCE/Torque'
+ * '<S28>'  : 'VDC/ENDURANCE/RIGIDAXLE/Rigid Axle 2024 '
+ * '<S29>'  : 'VDC/ENDURANCE/RIGIDAXLE WITH TC/Rigid Axle with TC 2024 '
+ * '<S30>'  : 'VDC/ENDURANCE/RIGIDAXLE WITH TC/Velocity cap'
+ * '<S31>'  : 'VDC/ENDURANCE/RIGIDAXLE WITH TC/Velocity cap/If Action Subsystem'
+ * '<S32>'  : 'VDC/ENDURANCE/RIGIDAXLE WITH TC/Velocity cap/If Action Subsystem1'
+ * '<S33>'  : 'VDC/ENDURANCE/TC+TV/MATLAB Function'
+ * '<S34>'  : 'VDC/ENDURANCE/TC+TV/TC 2024'
+ * '<S35>'  : 'VDC/ENDURANCE/TC+TV/Velocity cap'
+ * '<S36>'  : 'VDC/ENDURANCE/TC+TV/Velocity cap/If Action Subsystem'
+ * '<S37>'  : 'VDC/ENDURANCE/TC+TV/Velocity cap/If Action Subsystem1'
+ * '<S38>'  : 'VDC/ENDURANCE/Torque/DocBlock'
+ * '<S39>'  : 'VDC/ENDURANCE/Torque/Torque demanded by the driver'
+ * '<S40>'  : 'VDC/ENDURANCE/Torque/enable regen'
+ * '<S41>'  : 'VDC/ENDURANCE/Torque/state'
+ * '<S42>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY'
+ * '<S43>'  : 'VDC/SAFETY BLOCK/Compare To Constant'
+ * '<S44>'  : 'VDC/SAFETY BLOCK/DocBlock'
+ * '<S45>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Imp'
+ * '<S46>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Not Imp'
+ * '<S47>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Signal_Failure'
+ * '<S48>'  : 'VDC/SAFETY BLOCK/APPS_IMPLAUSIBILITY/Signal_OK'
+ * '<S49>'  : 'VDC/SKIDPAD/RIGIDAXLE'
+ * '<S50>'  : 'VDC/SKIDPAD/TC+TV'
+ * '<S51>'  : 'VDC/SKIDPAD/TV with TC OFF '
+ * '<S52>'  : 'VDC/SKIDPAD/Torque demanded by the driver'
+ * '<S53>'  : 'VDC/SKIDPAD/RIGIDAXLE/Rigid Axle 2024 '
+ * '<S54>'  : 'VDC/SKIDPAD/TC+TV/MATLAB Function'
+ * '<S55>'  : 'VDC/SKIDPAD/TC+TV/Rigid Axle with TC 2024 '
+ * '<S56>'  : 'VDC/SKIDPAD/TV with TC OFF /MATLAB Function'
+ * '<S57>'  : 'VDC/TEST_MODE_IN/BYPASS'
+ * '<S58>'  : 'VDC/TEST_MODE_IN/TEST_CONSTANTS'
+ * '<S59>'  : 'VDC/WORKSHOP/Torque demanded by the driver'
  */
 #endif                                 /* RTW_HEADER_VDC_h_ */

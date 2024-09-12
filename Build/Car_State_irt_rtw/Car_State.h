@@ -12,9 +12,9 @@
  *
  * Code generation for model "Car_State".
  *
- * Model version              : 10.15
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Tue Apr  9 14:10:42 2024
+ * Model version              : 13.24
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Sat Sep  7 16:33:26 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -191,6 +191,14 @@
 
 #ifndef rtmSetMdlRefGlobalTID
 #define rtmSetMdlRefGlobalTID(rtm, val) ()
+#endif
+
+#ifndef rtmGetMdlRefGlobalTimerIndices
+#define rtmGetMdlRefGlobalTimerIndices(rtm) ()
+#endif
+
+#ifndef rtmSetMdlRefGlobalTimerIndices
+#define rtmSetMdlRefGlobalTimerIndices(rtm, val) ()
 #endif
 
 #ifndef rtmGetMdlRefTriggerTID
@@ -853,11 +861,14 @@
 /* Block signals (default storage) */
 typedef struct {
   real_T Merge;                        /* '<S5>/Merge' */
+  real_T Merge_b;                      /* '<S10>/Merge' */
+  real_T InvertersAction;              /* '<Root>/Car State Manager' */
 } B_Car_State_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  real_T A;                            /* '<S8>/Data Store Memory' */
+  real_T A;                            /* '<S31>/Data Store Memory' */
+  real_T Memory_PreviousInput;         /* '<S10>/Memory' */
   uint16_T temporalCounter_i1;         /* '<Root>/Car State Manager' */
   uint8_T is_active_c1_Car_State;      /* '<Root>/Car State Manager' */
   uint8_T is_c1_Car_State;             /* '<Root>/Car State Manager' */
@@ -867,7 +878,6 @@ typedef struct {
 typedef struct {
   real_T AIRs_State;                   /* '<Root>/AIRs_State' */
   real_T PrechargeRequest;             /* '<Root>/PrechargeRequest' */
-  real_T Torque_LockON;                /* '<Root>/Torque_LockON' */
   boolean_T EnableDrive_Order;         /* '<Root>/EnableDrive_Order' */
   real_T BrakePedal_Value;             /* '<Root>/BrakePedal_Value' */
   real_T Critical_CAN_Disconnection;   /* '<Root>/Critical_CAN_Disconnection' */
@@ -875,21 +885,21 @@ typedef struct {
   boolean_T Shutdown_PackageIntck;     /* '<Root>/Shutdown_PackageIntck' */
   real_T Accumulator_Voltage;          /* '<Root>/Accumulator_Voltage' */
   real_T InvertersMinDCBus;            /* '<Root>/InvertersMinDCBus' */
+  real_T APPS1_Value;                  /* '<Root>/APPS1_Value' */
 } ExtU_Car_State_T;
 
 /* External outputs (root outports fed by signals with default storage) */
 typedef struct {
-  real_T Car_State_f;                  /* '<Root>/Car_State' */
   real_T TorqueEnable;                 /* '<Root>/TorqueEnable' */
   real_T AIRs_Request;                 /* '<Root>/AIRs_Request' */
   real_T errors;                       /* '<Root>/errors' */
-  real_T CurrentPathDisconnectionFlag;
-                                     /* '<Root>/CurrentPathDisconnectionFlag' */
+  real_T Relay_Error;                  /* '<Root>/Relay_Error' */
   real_T InvertersAction;              /* '<Root>/InvertersAction' */
   boolean_T Car_OK;                    /* '<Root>/Car_OK' */
   real_T PrechargeAssert;              /* '<Root>/PrechargeAssert' */
   real_T Precharge_Percentage;         /* '<Root>/Precharge_Percentage' */
   real_T Precharge_Voltage;            /* '<Root>/Precharge_Voltage' */
+  real_T Car_State_b;                  /* '<Root>/Car_State' */
 } ExtY_Car_State_T;
 
 /* Backward compatible GRT Identifiers */
@@ -1049,30 +1059,40 @@ extern RT_MODEL_Car_State_T *const Car_State_M;
  * '<S5>'   : 'Car_State/AIRS_Request'
  * '<S6>'   : 'Car_State/Car State Manager'
  * '<S7>'   : 'Car_State/CarOK Checks'
- * '<S8>'   : 'Car_State/CurrentPathDisconnection Detection'
- * '<S9>'   : 'Car_State/Precharge Info'
- * '<S10>'  : 'Car_State/PrechargeAssert Conditions'
- * '<S11>'  : 'Car_State/AIRS_Closed/FALSE'
- * '<S12>'  : 'Car_State/AIRS_Closed/TRUE'
- * '<S13>'  : 'Car_State/AIRS_Opened/FALSE'
- * '<S14>'  : 'Car_State/AIRS_Opened/TRUE'
- * '<S15>'  : 'Car_State/AIRS_Precharge/FALSE'
- * '<S16>'  : 'Car_State/AIRS_Precharge/TRUE'
- * '<S17>'  : 'Car_State/AIRS_Precharge1/Compare To Constant'
- * '<S18>'  : 'Car_State/AIRS_Precharge1/FALSE'
- * '<S19>'  : 'Car_State/AIRS_Precharge1/TRUE'
- * '<S20>'  : 'Car_State/AIRS_Request/Obrir AIRs'
- * '<S21>'  : 'Car_State/AIRS_Request/Precharge'
- * '<S22>'  : 'Car_State/AIRS_Request/Tancar Airs'
- * '<S23>'  : 'Car_State/CarOK Checks/Compare To Constant'
- * '<S24>'  : 'Car_State/CarOK Checks/Compare To Zero1'
- * '<S25>'  : 'Car_State/CarOK Checks/Compare To Zero2'
- * '<S26>'  : 'Car_State/CurrentPathDisconnection Detection/DocBlock'
- * '<S27>'  : 'Car_State/CurrentPathDisconnection Detection/Failure'
- * '<S28>'  : 'Car_State/CurrentPathDisconnection Detection/OK or latch'
- * '<S29>'  : 'Car_State/CurrentPathDisconnection Detection/OK or latch/Latched Error'
- * '<S30>'  : 'Car_State/CurrentPathDisconnection Detection/OK or latch/OK'
- * '<S31>'  : 'Car_State/PrechargeAssert Conditions/FALSE'
- * '<S32>'  : 'Car_State/PrechargeAssert Conditions/TRUE'
+ * '<S8>'   : 'Car_State/Compare To Constant'
+ * '<S9>'   : 'Car_State/CurrentPathDisconnection Detection'
+ * '<S10>'  : 'Car_State/Inv_Action'
+ * '<S11>'  : 'Car_State/Precharge Info'
+ * '<S12>'  : 'Car_State/PrechargeAssert Conditions'
+ * '<S13>'  : 'Car_State/AIRS_Closed/FALSE'
+ * '<S14>'  : 'Car_State/AIRS_Closed/TRUE'
+ * '<S15>'  : 'Car_State/AIRS_Opened/FALSE'
+ * '<S16>'  : 'Car_State/AIRS_Opened/TRUE'
+ * '<S17>'  : 'Car_State/AIRS_Precharge/FALSE'
+ * '<S18>'  : 'Car_State/AIRS_Precharge/TRUE'
+ * '<S19>'  : 'Car_State/AIRS_Precharge1/Compare To Constant'
+ * '<S20>'  : 'Car_State/AIRS_Precharge1/FALSE'
+ * '<S21>'  : 'Car_State/AIRS_Precharge1/TRUE'
+ * '<S22>'  : 'Car_State/AIRS_Request/Obrir AIRs'
+ * '<S23>'  : 'Car_State/AIRS_Request/Precharge'
+ * '<S24>'  : 'Car_State/AIRS_Request/Tancar Airs'
+ * '<S25>'  : 'Car_State/CarOK Checks/Compare To Constant'
+ * '<S26>'  : 'Car_State/CarOK Checks/Compare To Zero1'
+ * '<S27>'  : 'Car_State/CarOK Checks/Compare To Zero2'
+ * '<S28>'  : 'Car_State/CurrentPathDisconnection Detection/DocBlock'
+ * '<S29>'  : 'Car_State/CurrentPathDisconnection Detection/Failure'
+ * '<S30>'  : 'Car_State/CurrentPathDisconnection Detection/OK'
+ * '<S31>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem'
+ * '<S32>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/Error counter'
+ * '<S33>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/OK'
+ * '<S34>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/Signal_Failure'
+ * '<S35>'  : 'Car_State/CurrentPathDisconnection Detection/Subsystem/Signal_OK'
+ * '<S36>'  : 'Car_State/Inv_Action/DisableDrive'
+ * '<S37>'  : 'Car_State/Inv_Action/EnableDrive_Up'
+ * '<S38>'  : 'Car_State/Inv_Action/NoRTD'
+ * '<S39>'  : 'Car_State/Inv_Action/TqEnable'
+ * '<S40>'  : 'Car_State/Inv_Action/TqEnable1'
+ * '<S41>'  : 'Car_State/PrechargeAssert Conditions/FALSE'
+ * '<S42>'  : 'Car_State/PrechargeAssert Conditions/TRUE'
  */
 #endif                                 /* RTW_HEADER_Car_State_h_ */

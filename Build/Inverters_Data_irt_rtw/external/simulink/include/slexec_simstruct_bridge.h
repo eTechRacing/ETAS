@@ -36,10 +36,24 @@ SLEXEC_SIMBRIDGE_PUBLISHED_C void ssRaiseEvent(
     SimStruct* S,
     uint_T runtimeEventIndex);
 
-/* taskRuntimeIndex is the runtime index of the task thay you want to raise by enqueuing */
+/* timerIndex is the index of the timer that is used to raise an event as recurring if \param
+ * isRecurring is true after time = dur. runtimeEventIndex is the index of the runtime event on
+ * which you want to raise the event */
+SLEXEC_SIMBRIDGE_PUBLISHED_C void ssRaiseWhenTimerExpiresAfter(
+    SimStruct* S, uint_T timerIndex, boolean_T isRecurring, double dur, uint_T runtimeEventIndex);
+
+/* timerIndex is the index of the timer that is used to raise an event at time = t.
+ * runtimeEventIndex is the index of the runtime event on which you want to raise the event */
+SLEXEC_SIMBRIDGE_PUBLISHED_C void
+ssRaiseWhenTimerExpiresAt(SimStruct* S, uint_T timerIndex, double t, uint_T runtimeEventIndex);
+
+/* timerIndex is the index of the timer that is used to raise an event */
+SLEXEC_SIMBRIDGE_PUBLISHED_C void ssCancelTimerToRaiseEvent(SimStruct* S, uint_T timerIndex);
+
+/* runtimeEventIndex is the index of the runtime event that you want to raise by enqueuing */
 SLEXEC_SIMBRIDGE_PUBLISHED_C void ssRaiseEventWithEnqueue(
     SimStruct* S,
-    uint_T taskRuntimeIndex);
+    uint_T runtimeEventIndex);
 
 /* sti is the (also runtime) index of the *sole* rate in the task thay you want to disable */
 SLEXEC_SIMBRIDGE_PUBLISHED_C void ssDisableTaskUsingRateIndex(

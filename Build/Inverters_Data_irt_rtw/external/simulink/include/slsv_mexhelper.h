@@ -1,4 +1,4 @@
-/* Copyright 2014 The MathWorks, Inc. */
+/* Copyright 2014-2022 The MathWorks, Inc. */
 
 #ifdef SUPPORTS_PRAGMA_ONCE
 #pragma once
@@ -29,61 +29,38 @@
 
 typedef bool (*RAccelMexIsLocked)(void);
 
-typedef int (*RAccelMexPutVar)(
-    const char*,
-    const char*,
-    const mxArray* );
+typedef int (*RAccelMexPutVar)(const char*, const char*, const mxArray*);
 
-typedef const mxArray * (*RAccelMexGetVarPtr)(
-    const char*,
-    const char* );
+typedef const mxArray* (*RAccelMexGetVarPtr)(const char*, const char*);
 
-typedef mxArray * (*RAccelMexGetVar)(
-    const char*,
-    const char * );
+typedef mxArray* (*RAccelMexGetVar)(const char*, const char*);
 
-typedef void (*RAccelMexLock)( void );
+typedef void (*RAccelMexLock)(void);
 
-typedef void (*RAccelMexUnlock)( void );
+typedef void (*RAccelMexUnlock)(void);
 
-typedef const char * (*RAccelMexFunctionName)( void );
+typedef const char* (*RAccelMexFunctionName)(void);
 
-typedef int (*RAccelMexEvalString)( const char * );
+typedef int (*RAccelMexEvalString)(const char*);
 
-typedef mxArray * (*RAccelMexEvalStringWithTrap)( const char * );
+typedef mxArray* (*RAccelMexEvalStringWithTrap)(const char*);
 
-typedef int (*RAccelMexSet)(
-    double,
-    const char *,
-    mxArray * );
+typedef int (*RAccelMexSet)(double, const char*, mxArray*);
 
-typedef const mxArray* (*RAccelMexGet)(
-    double,
-    const char * );
+typedef const mxArray* (*RAccelMexGet)(double, const char*);
 
-typedef int (*RAccelMexCallMatlab)(
-    int,
-    mxArray *plhs[],
-    int,
-    mxArray *prhs[],
-    const char *,
-    bool );
+typedef int (*RAccelMexCallMatlab)(int, mxArray* plhs[], int, mxArray* prhs[], const char*, bool);
 
-typedef mxArray * (*RAccelMexCallMatlabWithTrap)(
-    int,
-    mxArray *plhs[],
-    int,
-    mxArray *prhs[],
-    const char * );
+typedef mxArray* (
+    *RAccelMexCallMatlabWithTrap)(int, mxArray* plhs[], int, mxArray* prhs[], const char*);
 
-typedef mxArray * (*RAccelMexCreateSimpleFunctionHandle)( mxFunctionPtr f);
+typedef mxArray* (*RAccelMexCreateSimpleFunctionHandle)(mxFunctionPtr f);
 
 typedef int (*RAccelMexAtExit)(void (*exitFcn)(void));
 
 typedef bool (*RAccelMexSetMexTrapFlag)();
 
-typedef struct RAccelMexCallbacks_T
-{
+typedef struct RAccelMexCallbacks_T {
     RAccelMexIsLocked isLocked_;
     RAccelMexPutVar putVar_;
     RAccelMexGetVarPtr getVarPtr_;

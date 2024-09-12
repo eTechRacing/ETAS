@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ellipse".
  *
- * Model version              : 10.1
- * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Fri Mar 29 01:01:07 2024
+ * Model version              : 13.14
+ * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
+ * C source code generated on : Sat Sep  7 16:34:14 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -19,8 +19,12 @@
  */
 
 #include "Ellipse.h"
+#include <math.h>
 #include <string.h>
 #include "rt_nonfinite.h"
+
+/* Block signals (default storage) */
+B_Ellipse_T Ellipse_B;
 
 /* External inputs (root inport signals with default storage) */
 ExtU_Ellipse_T Ellipse_U;
@@ -35,30 +39,67 @@ RT_MODEL_Ellipse_T *const Ellipse_M = &Ellipse_M_;
 /* Model output function */
 static void Ellipse_output(void)
 {
-  /* Outport: '<Root>/Lat_EKF' incorporates:
-   *  Inport: '<Root>/el_LATITUDE_EKF'
+  /* If: '<Root>/If' incorporates:
+   *  Inport: '<Root>/el_Vel_EKF_Valid'
+   *  Inport: '<Root>/el_Vel_GPS_Valid'
    */
-  Ellipse_Y.Lat_EKF = Ellipse_U.el_LATITUDE_EKF;
+  if (Ellipse_U.el_Vel_EKF_Valid == 1.0) {
+    /* Outputs for IfAction SubSystem: '<Root>/If Action Subsystem1' incorporates:
+     *  ActionPort: '<S2>/Action Port'
+     */
+    /* Merge: '<Root>/Merge' incorporates:
+     *  Inport: '<Root>/el_Vel_EKF_X'
+     *  SignalConversion generated from: '<S2>/EKF_VEL'
+     */
+    Ellipse_B.Merge = Ellipse_U.el_Vel_EKF_X;
 
-  /* Outport: '<Root>/Long_EKF' incorporates:
-   *  Inport: '<Root>/el_LONGITUDE_EKF'
-   */
-  Ellipse_Y.Long_EKF = Ellipse_U.el_LONGITUDE_EKF;
+    /* Outport: '<Root>/el_Vel_OK' incorporates:
+     *  Constant: '<S2>/Constant'
+     *  SignalConversion generated from: '<S2>/EL_OK'
+     */
+    Ellipse_Y.el_Vel_OK = 1.0;
 
-  /* Outport: '<Root>/TrackAngle' incorporates:
-   *  Inport: '<Root>/el_AngleTrack'
-   */
-  Ellipse_Y.TrackAngle = Ellipse_U.el_AngleTrack;
+    /* End of Outputs for SubSystem: '<Root>/If Action Subsystem1' */
+  } else if (Ellipse_U.el_Vel_GPS_Valid == 1.0) {
+    /* Outputs for IfAction SubSystem: '<Root>/If Action Subsystem' incorporates:
+     *  ActionPort: '<S1>/Action Port'
+     */
+    /* Merge: '<Root>/Merge' incorporates:
+     *  Inport: '<Root>/el_Vel_GPS_E'
+     *  Inport: '<Root>/el_Vel_GPS_N'
+     *  Math: '<Root>/Square'
+     *  Math: '<Root>/Square1'
+     *  SignalConversion generated from: '<S1>/GPS_VEL'
+     *  Sqrt: '<Root>/Sqrt'
+     *  Sum: '<Root>/Sum'
+     */
+    Ellipse_B.Merge = sqrt(Ellipse_U.el_Vel_GPS_N * Ellipse_U.el_Vel_GPS_N +
+      Ellipse_U.el_Vel_GPS_E * Ellipse_U.el_Vel_GPS_E);
 
-  /* Outport: '<Root>/CurvRadius' incorporates:
-   *  Inport: '<Root>/el_CurvatureRadius'
-   */
-  Ellipse_Y.CurvRadius = Ellipse_U.el_CurvatureRadius;
+    /* Outport: '<Root>/el_Vel_OK' incorporates:
+     *  Constant: '<S1>/Constant'
+     *  SignalConversion generated from: '<S1>/EL_OK'
+     */
+    Ellipse_Y.el_Vel_OK = 1.0;
 
-  /* Outport: '<Root>/Status_Auto' incorporates:
-   *  Inport: '<Root>/el_AUTO_STATUS'
-   */
-  Ellipse_Y.Status_Auto = Ellipse_U.el_AUTO_STATUS;
+    /* End of Outputs for SubSystem: '<Root>/If Action Subsystem' */
+  } else {
+    /* Outputs for IfAction SubSystem: '<Root>/If Action Subsystem2' incorporates:
+     *  ActionPort: '<S3>/Action Port'
+     */
+    /* Outport: '<Root>/el_Vel_OK' incorporates:
+     *  Constant: '<S3>/Constant'
+     *  SignalConversion generated from: '<S3>/EL_OK'
+     */
+    Ellipse_Y.el_Vel_OK = 0.0;
+
+    /* End of Outputs for SubSystem: '<Root>/If Action Subsystem2' */
+  }
+
+  /* End of If: '<Root>/If' */
+
+  /* Outport: '<Root>/el_VEL' */
+  Ellipse_Y.el_VEL = Ellipse_B.Merge;
 }
 
 /* Model update function */
@@ -85,6 +126,8 @@ static void Ellipse_update(void)
 /* Model initialize function */
 static void Ellipse_initialize(void)
 {
+  /* SystemInitialize for Merge: '<Root>/Merge' */
+  Ellipse_B.Merge = 0.0;
 }
 
 /* Model terminate function */
@@ -199,6 +242,11 @@ RT_MODEL_Ellipse_T *Ellipse(void)
   rtsiSetFixedStepSize(&Ellipse_M->solverInfo, 0.2);
   rtsiSetSolverMode(&Ellipse_M->solverInfo, SOLVER_MODE_SINGLETASKING);
 
+  /* block I/O */
+  Ellipse_M->blockIO = ((void *) &Ellipse_B);
+  (void) memset(((void *) &Ellipse_B), 0,
+                sizeof(B_Ellipse_T));
+
   /* external inputs */
   Ellipse_M->inputs = (((void*)&Ellipse_U));
   (void)memset(&Ellipse_U, 0, sizeof(ExtU_Ellipse_T));
@@ -209,11 +257,12 @@ RT_MODEL_Ellipse_T *Ellipse(void)
 
   /* Initialize Sizes */
   Ellipse_M->Sizes.numContStates = (0);/* Number of continuous states */
-  Ellipse_M->Sizes.numY = (5);         /* Number of model outputs */
-  Ellipse_M->Sizes.numU = (5);         /* Number of model inputs */
+  Ellipse_M->Sizes.numY = (2);         /* Number of model outputs */
+  Ellipse_M->Sizes.numU = (16);        /* Number of model inputs */
   Ellipse_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Ellipse_M->Sizes.numSampTimes = (1); /* Number of sample times */
-  Ellipse_M->Sizes.numBlocks = (5);    /* Number of blocks */
+  Ellipse_M->Sizes.numBlocks = (20);   /* Number of blocks */
+  Ellipse_M->Sizes.numBlockIO = (1);   /* Number of block outputs */
   return Ellipse_M;
 }
 

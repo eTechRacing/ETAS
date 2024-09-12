@@ -1,6 +1,6 @@
 /* 
  *
- * Copyright 1994-2020 The MathWorks, Inc.
+ * Copyright 1994-2022 The MathWorks, Inc.
  *
  * File: rt_logging.c
  *
@@ -33,6 +33,8 @@
 #include "rt_mxclassid.h"
 #endif
 #include "rtw_matlogging.h"
+
+#include "rtwtypes.h"
 
 #ifndef TMW_NAME_LENGTH_MAX
 #define TMW_NAME_LENGTH_MAX 64
@@ -3480,9 +3482,9 @@ void rt_UpdateLogVar(LogVar *var, const void *data, boolean_T isVarDims)
                           allowed, memset to zeros.
                     */
                     if (dTypeID == SS_DOUBLE) {
-                       (void) memcpy(currRealRow, &rtNaN, elSize);
+                       ((real_T*)(currRealRow))[0] = rtNaN;
                     } else if (dTypeID == SS_SINGLE){
-                        (void) memcpy(currRealRow, &rtNaNF, elSize);
+                        ((real32_T*)(currRealRow))[0] = rtNaNF;
                     } else {
                         (void) memset(currRealRow, 0, elSize);
                     }

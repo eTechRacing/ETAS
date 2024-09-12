@@ -7,7 +7,7 @@ extern void crossbarHook_19_0(void);
 extern void rtioHook_19_0(void);
 
 
-TASK_MONITOR_DEF(SWT_CAN2_AP_ELLIPSE_IMU_ACCEL, thread19);
+TASK_MONITOR_DEF(SWT_CAN2_AP_ELLIPSE_IMU_ACCEL, thread18);
 
 TASK(SWT_CAN2_AP_ELLIPSE_IMU_ACCEL)
 {

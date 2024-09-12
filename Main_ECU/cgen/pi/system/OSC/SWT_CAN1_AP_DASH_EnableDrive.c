@@ -3,20 +3,20 @@
 #include "../a_basdef.h"
 #include "osc_dyn.h"
 
-extern void crossbarHook_8_0(void);
-extern void rtioHook_8_0(void);
+extern void crossbarHook_7_0(void);
+extern void rtioHook_7_0(void);
 
 
-TASK_MONITOR_DEF(SWT_CAN1_AP_DASH_EnableDrive, thread15);
+TASK_MONITOR_DEF(SWT_CAN1_AP_DASH_EnableDrive, thread13);
 
 TASK(SWT_CAN1_AP_DASH_EnableDrive)
 {
 	START_TASK_HOOK(SWT_CAN1_AP_DASH_EnableDrive);
 
-	sgHook(8);
+	sgHook(7);
 
 #ifdef FEATURE_LABCAR_SG
-    labcar_sgHook(8);
+    labcar_sgHook(7);
 #endif
     
 #ifdef XCP_SLAVE
@@ -24,8 +24,8 @@ TASK(SWT_CAN1_AP_DASH_EnableDrive)
     XCP_STIM_SWT_CAN1_AP_DASH_EnableDrive
 #endif
 #endif
-	crossbarHook_8_0();
-	rtioHook_8_0();
+	crossbarHook_7_0();
+	rtioHook_7_0();
 	
 #ifdef XCP_SLAVE
 #if defined XCP_DAQ_SWT_CAN1_AP_DASH_EnableDrive

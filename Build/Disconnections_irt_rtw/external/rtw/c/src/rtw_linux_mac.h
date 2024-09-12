@@ -2,7 +2,7 @@
 #define RTW_LINUX_MAC_H
 
 /*
- * Copyright 2011 The MathWorks, Inc.
+ * Copyright 2011-2022 The MathWorks, Inc.
  *
  * File: rtw_linux_mac.h
  *
@@ -43,10 +43,10 @@ extern void rtw_pthread_sem_create_mac( void** semaphoreDW1,
 
 
 #define rtw_pthread_sem_wait_mac( semaphoreDW ) \
-    sem_wait(semaphoreDW);
+    sem_wait((sem_t *)(semaphoreDW));
 
 #define rtw_pthread_sem_post_mac( semaphoreDW ) \
-    sem_post(semaphoreDW);
+    sem_post((sem_t *)(semaphoreDW));
 
 #define rtw_pthread_sem_destroy_mac( semaphoreDW ) \
     sem_unlink((char*)(semaphoreDW));              \
