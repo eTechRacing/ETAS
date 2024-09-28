@@ -1,0 +1,19 @@
+#INFOFILE1.1 - Do not remove this line!
+FileIdent = CarMaker-PlugInfo 2
+FileCreator = CarMaker 9.0 2020-04-08 12:42 TEMPLATE
+
+FMU.Name = MySusp_ParasiticFriction_FMU
+FMU.Modelclass = Susp_ParasiticEffects
+FMU.GUID = {3027f980-5fc4-4d87-bcfd-cc54b4a17646}
+
+FMU.Inputs.ShowInDDict = 0
+FMU.Outputs.ShowInDDict = 0
+FMU.MakePluginfo = 0
+FMU.DebugLogging = 0
+FMU.InitParamStartValues = 1
+
+FMUIn.vWheelCarrier_z.Link = IFVar
+FMUIn.vWheelCarrier_z.Rel = vWheelCarrier_z
+
+IFVar.Force.Link = FMUVar
+IFVar.Force.Rel = Frc

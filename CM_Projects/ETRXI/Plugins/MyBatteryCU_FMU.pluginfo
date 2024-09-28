@@ -1,0 +1,33 @@
+#INFOFILE1.1 - Do not remove this line!
+FileIdent = CarMaker-PlugInfo 2
+FileCreator = CarMaker 9.0 2020-04-08 12:42 TEMPLATE
+
+FMU.Name = MyBatteryCU_FMU
+FMU.Modelclass = PTBatteryCU
+FMU.GUID = {8348e19b-beb0-4cc3-9712-1738e3b9c4da}
+
+FMU.Inputs.ShowInDDict = 0
+FMU.Outputs.ShowInDDict = 0
+FMU.MakePluginfo = 0
+FMU.DebugLogging = 0
+FMU.InitParamStartValues = 1
+
+FMUIn.BattLV.AOC.Link = IFVar
+FMUIn.BattLV.AOC.Rel = BattLV.AOC
+FMUIn.Ignition.Link = IFVar
+FMUIn.Ignition.Rel = Ignition
+FMUIn.Pwr_HV1toLV_trg_In.Link = IFVar
+FMUIn.Pwr_HV1toLV_trg_In.Rel = Pwr_HV1toLV_trg
+FMUIn.BattLV.Temp.Link = IFVar
+FMUIn.BattLV.Temp.Rel = BattLV.Temp
+FMUIn.BattLV.TempCool_out.Link = IFVar
+FMUIn.BattLV.TempCool_out.Rel = BattLV.TempCool_out
+
+IFVar.Pwr_HV1toLV_trg.Link = FMUVar
+IFVar.Pwr_HV1toLV_trg.Rel = Pwr_HV1toLV_trg_Out
+IFVar.BattLV.SOC.Link = FMUVar
+IFVar.BattLV.SOC.Rel = BattLV.SOC
+IFVar.BattLV.SOH.Link = FMUVar
+IFVar.BattLV.SOH.Rel = BattLV.SOH
+IFVar.BattLV.TempCool_in.Link = FMUVar
+IFVar.BattLV.TempCool_in.Rel = BattLV.TempCool_in

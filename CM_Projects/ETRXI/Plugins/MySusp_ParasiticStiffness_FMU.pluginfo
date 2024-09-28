@@ -1,0 +1,32 @@
+#INFOFILE1.1 - Do not remove this line!
+FileIdent = CarMaker-PlugInfo 2
+FileCreator = CarMaker 9.0 2020-04-08 12:42 TEMPLATE
+
+FMU.Name = MySusp_ParasiticStiffness_FMU
+FMU.Modelclass = Susp_ParasiticEffects
+FMU.GUID = {6735de59-c69b-404a-b9eb-a8dab268a67b}
+
+FMU.Inputs.ShowInDDict = 0
+FMU.Outputs.ShowInDDict = 0
+FMU.MakePluginfo = 0
+FMU.DebugLogging = 0
+FMU.InitParamStartValues = 1
+
+FMUIn.tWheelCarrier_z.Link = IFVar
+FMUIn.tWheelCarrier_z.Rel = tWheelCarrier_z
+
+IFVar.Force.Link = FMUVar
+IFVar.Force.Rel = Frc
+
+# Optional. Parasitic stiffness substitute model
+# amplification factor. Default is 1.
+Susp.Parasitic.Stiffness.SubstModel.Amplify = 
+
+# The spring characteristic of the parasitic
+# stiffness substitute model can be defined with a
+# data table describing the non-linear spring
+# behavior.
+Susp.Parasitic.Stiffness.SubstModel:
+	0.0 0.0
+	1.0 5000.0
+

@@ -1,0 +1,253 @@
+#INFOFILE1.1 - Do not remove this line!
+FileIdent = CarMaker-PlugInfo 2
+FileCreator = CarMaker 9.0 2020-04-08 12:42 TEMPLATE
+
+FMU.Name = MySuspKnC_FMU
+FMU.Modelclass = SuspKnC
+FMU.GUID = {152272f5-9456-4018-9909-776c30200450}
+
+FMU.Inputs.ShowInDDict = 0
+FMU.Outputs.ShowInDDict = 0
+FMU.MakePluginfo = 0
+FMU.DebugLogging = 0
+FMU.InitParamStartValues = 1
+# mandatory auxiliary model: see "MySuspKnC_AuxFMU.c" in subdirectory "ExtraModels" of
+# your src folder for a template and detailed instructions
+FMU.AuxiliaryModel = _MyModel_AuxFMU
+
+FMUIn.ForceCoupling.Link = IFVar
+FMUIn.ForceCoupling.Rel = Cfg.ForceCoupling
+
+FMUIn.Frc2WC_x.Link = IFVar
+FMUIn.Frc2WC_x.Rel = Main.Frc2WC.x
+FMUIn.Frc2WC_y.Link = IFVar
+FMUIn.Frc2WC_y.Rel = Main.Frc2WC.y
+FMUIn.Frc2WC_z.Link = IFVar
+FMUIn.Frc2WC_z.Rel = Main.Frc2WC.z
+
+FMUIn.Trq2WC_x.Link = IFVar
+FMUIn.Trq2WC_x.Rel = Main.Trq2WC.x
+FMUIn.Trq2WC_y.Link = IFVar
+FMUIn.Trq2WC_y.Rel = Main.Trq2WC.y
+FMUIn.Trq2WC_z.Link = IFVar
+FMUIn.Trq2WC_z.Rel = Main.Trq2WC.z
+
+FMUIn.FrcSpring.Link = IFVar
+FMUIn.FrcSpring.Rel = Main.FrcSpring
+FMUIn.FrcDamp.Link = IFVar
+FMUIn.FrcDamp.Rel = Main.FrcDamp
+FMUIn.FrcStabi.Link = IFVar
+FMUIn.FrcStabi.Rel = Main.FrcStabi
+FMUIn.FrcBuf.Link = IFVar
+FMUIn.FrcBuf.Rel = Main.FrcBuf
+
+# qComp is model input if ForceCoupling is NOT activated
+FMUIn.qCompIn.Link = IFVar
+FMUIn.qCompIn.Rel = Main.qComp
+FMUIn.qpCompIn.Link = IFVar
+FMUIn.qpCompIn.Rel = Main.qpComp
+FMUIn.qppCompIn.Link = IFVar
+FMUIn.qppCompIn.Rel = Main.qppComp
+
+# qComp is model output if ForceCoupling is activated
+IFVar.Main.qComp.Link = FMUVar
+IFVar.Main.qComp.Rel = qCompOut
+IFVar.Main.qpComp.Link = FMUVar
+IFVar.Main.qpComp.Rel = qpCompOut
+
+FMUIn.qCalc.Link = IFVar
+FMUIn.qCalc.Rel = Main.FrcCpl.qCalc
+
+FMUIn.AF_t_0_x.Link = IFVar
+FMUIn.AF_t_0_x.Rel = Main.FrcCpl.AF.t_0.x
+FMUIn.AF_t_0_y.Link = IFVar
+FMUIn.AF_t_0_y.Rel = Main.FrcCpl.AF.t_0.y
+FMUIn.AF_t_0_z.Link = IFVar
+FMUIn.AF_t_0_z.Rel = Main.FrcCpl.AF.t_0.z
+
+FMUIn.AF_v_0_x.Link = IFVar
+FMUIn.AF_v_0_x.Rel = Main.FrcCpl.AF.v_0.x
+FMUIn.AF_v_0_y.Link = IFVar
+FMUIn.AF_v_0_y.Rel = Main.FrcCpl.AF.v_0.y
+FMUIn.AF_v_0_z.Link = IFVar
+FMUIn.AF_v_0_z.Rel = Main.FrcCpl.AF.v_0.z
+
+FMUIn.AF_Tr2Fr0_x_x.Link = IFVar
+FMUIn.AF_Tr2Fr0_x_x.Rel = Main.FrcCpl.AF.Tr2Fr0.xx
+FMUIn.AF_Tr2Fr0_x_y.Link = IFVar
+FMUIn.AF_Tr2Fr0_x_y.Rel = Main.FrcCpl.AF.Tr2Fr0.xy
+FMUIn.AF_Tr2Fr0_x_z.Link = IFVar
+FMUIn.AF_Tr2Fr0_x_z.Rel = Main.FrcCpl.AF.Tr2Fr0.xz
+
+FMUIn.AF_Tr2Fr0_y_x.Link = IFVar
+FMUIn.AF_Tr2Fr0_y_x.Rel = Main.FrcCpl.AF.Tr2Fr0.yx
+FMUIn.AF_Tr2Fr0_y_y.Link = IFVar
+FMUIn.AF_Tr2Fr0_y_y.Rel = Main.FrcCpl.AF.Tr2Fr0.yy
+FMUIn.AF_Tr2Fr0_y_z.Link = IFVar
+FMUIn.AF_Tr2Fr0_y_z.Rel = Main.FrcCpl.AF.Tr2Fr0.yz
+
+FMUIn.AF_Tr2Fr0_z_x.Link = IFVar
+FMUIn.AF_Tr2Fr0_z_x.Rel = Main.FrcCpl.AF.Tr2Fr0.zx
+FMUIn.AF_Tr2Fr0_z_y.Link = IFVar
+FMUIn.AF_Tr2Fr0_z_y.Rel = Main.FrcCpl.AF.Tr2Fr0.zy
+FMUIn.AF_Tr2Fr0_z_z.Link = IFVar
+FMUIn.AF_Tr2Fr0_z_z.Rel = Main.FrcCpl.AF.Tr2Fr0.zz
+
+FMUIn.AF_omega_0_x.Link = IFVar
+FMUIn.AF_omega_0_x.Rel = Main.FrcCpl.AF.omega_0.x
+FMUIn.AF_omega_0_y.Link = IFVar
+FMUIn.AF_omega_0_y.Rel = Main.FrcCpl.AF.omega_0.y
+FMUIn.AF_omega_0_z.Link = IFVar
+FMUIn.AF_omega_0_z.Rel = Main.FrcCpl.AF.omega_0.z
+
+FMUIn.Tire_P_0_x.Link = IFVar
+FMUIn.Tire_P_0_x.Rel = Main.FrcCpl.AF.Tire_P_0.x
+FMUIn.Tire_P_0_y.Link = IFVar
+FMUIn.Tire_P_0_y.Rel = Main.FrcCpl.AF.Tire_P_0.y
+FMUIn.Tire_P_0_z.Link = IFVar
+FMUIn.Tire_P_0_z.Rel = Main.FrcCpl.AF.Tire_P_0.z
+
+FMUIn.WheelBodyPos_x.Link = IFVar
+FMUIn.WheelBodyPos_x.Rel = Cfg.WheelBdy.pos.x
+FMUIn.WheelBodyPos_y.Link = IFVar
+FMUIn.WheelBodyPos_y.Rel = Cfg.WheelBdy.pos.y
+FMUIn.WheelBodyPos_z.Link = IFVar
+FMUIn.WheelBodyPos_z.Rel = Cfg.WheelBdy.pos.z
+
+
+# Outputs
+IFVar.Main.Kin.tx.Link = FMUVar
+IFVar.Main.Kin.tx.Rel = Kin_ixtx
+IFVar.Main.Kin.ty.Link = FMUVar
+IFVar.Main.Kin.ty.Rel = Kin_ixty
+IFVar.Main.Kin.tz.Link = FMUVar
+IFVar.Main.Kin.tz.Rel = Kin_ixtz
+IFVar.Main.Kin.rx.Link = FMUVar
+IFVar.Main.Kin.rx.Rel = Kin_ixrx
+IFVar.Main.Kin.ry.Link = FMUVar
+IFVar.Main.Kin.ry.Rel = Kin_ixry
+IFVar.Main.Kin.rz.Link = FMUVar
+IFVar.Main.Kin.rz.Rel = Kin_ixrz
+IFVar.Main.Kin.Spring.Link = FMUVar
+IFVar.Main.Kin.Spring.Rel = Kin_ixSpring
+IFVar.Main.Kin.Damp.Link = FMUVar
+IFVar.Main.Kin.Damp.Rel = Kin_ixDamp
+IFVar.Main.Kin.Buf.Link = FMUVar
+IFVar.Main.Kin.Buf.Rel = Kin_ixBuf
+IFVar.Main.Kin.Stabi.Link = FMUVar
+IFVar.Main.Kin.Stabi.Rel = Kin_ixStabi
+
+IFVar.Main.dqComp.tx.Link = FMUVar
+IFVar.Main.dqComp.tx.Rel = dqComp_ixtx
+IFVar.Main.dqComp.ty.Link = FMUVar
+IFVar.Main.dqComp.ty.Rel = dqComp_ixty
+IFVar.Main.dqComp.tz.Link = FMUVar
+IFVar.Main.dqComp.tz.Rel = dqComp_ixtz
+IFVar.Main.dqComp.rx.Link = FMUVar
+IFVar.Main.dqComp.rx.Rel = dqComp_ixrx
+IFVar.Main.dqComp.ry.Link = FMUVar
+IFVar.Main.dqComp.ry.Rel = dqComp_ixry
+IFVar.Main.dqComp.rz.Link = FMUVar
+IFVar.Main.dqComp.rz.Rel = dqComp_ixrz
+IFVar.Main.dqComp.Spring.Link = FMUVar
+IFVar.Main.dqComp.Spring.Rel = dqComp_ixSpring
+IFVar.Main.dqComp.Damp.Link = FMUVar
+IFVar.Main.dqComp.Damp.Rel = dqComp_ixDamp
+IFVar.Main.dqComp.Buf.Link = FMUVar
+IFVar.Main.dqComp.Buf.Rel = dqComp_ixBuf
+IFVar.Main.dqComp.Stabi.Link = FMUVar
+IFVar.Main.dqComp.Stabi.Rel = dqComp_ixStabi
+
+IFVar.Main.FrcCpl.WC.t_0.x.Link = FMUVar
+IFVar.Main.FrcCpl.WC.t_0.x.Rel = WC_t_0_x
+IFVar.Main.FrcCpl.WC.t_0.y.Link = FMUVar
+IFVar.Main.FrcCpl.WC.t_0.y.Rel = WC_t_0_y
+IFVar.Main.FrcCpl.WC.t_0.z.Link = FMUVar
+IFVar.Main.FrcCpl.WC.t_0.z.Rel = WC_t_0_z
+
+IFVar.Main.FrcCpl.WC.v_0.x.Link = FMUVar
+IFVar.Main.FrcCpl.WC.v_0.x.Rel = WC_v_0_x
+IFVar.Main.FrcCpl.WC.v_0.y.Link = FMUVar
+IFVar.Main.FrcCpl.WC.v_0.y.Rel = WC_v_0_y
+IFVar.Main.FrcCpl.WC.v_0.z.Link = FMUVar
+IFVar.Main.FrcCpl.WC.v_0.z.Rel = WC_v_0_z
+
+IFVar.Main.FrcCpl.WC.Tr2Fr0.xx.Link = FMUVar
+IFVar.Main.FrcCpl.WC.Tr2Fr0.xx.Rel = WC_Tr2Fr0_x_x
+IFVar.Main.FrcCpl.WC.Tr2Fr0.xy.Link = FMUVar
+IFVar.Main.FrcCpl.WC.Tr2Fr0.xy.Rel = WC_Tr2Fr0_x_y
+IFVar.Main.FrcCpl.WC.Tr2Fr0.xz.Link = FMUVar
+IFVar.Main.FrcCpl.WC.Tr2Fr0.xz.Rel = WC_Tr2Fr0_x_z
+
+IFVar.Main.FrcCpl.WC.Tr2Fr0.yx.Link = FMUVar
+IFVar.Main.FrcCpl.WC.Tr2Fr0.yx.Rel = WC_Tr2Fr0_y_x
+IFVar.Main.FrcCpl.WC.Tr2Fr0.yy.Link = FMUVar
+IFVar.Main.FrcCpl.WC.Tr2Fr0.yy.Rel = WC_Tr2Fr0_y_y
+IFVar.Main.FrcCpl.WC.Tr2Fr0.yz.Link = FMUVar
+IFVar.Main.FrcCpl.WC.Tr2Fr0.yz.Rel = WC_Tr2Fr0_y_z
+
+IFVar.Main.FrcCpl.WC.Tr2Fr0.zx.Link = FMUVar
+IFVar.Main.FrcCpl.WC.Tr2Fr0.zx.Rel = WC_Tr2Fr0_z_x
+IFVar.Main.FrcCpl.WC.Tr2Fr0.zy.Link = FMUVar
+IFVar.Main.FrcCpl.WC.Tr2Fr0.zy.Rel = WC_Tr2Fr0_z_y
+IFVar.Main.FrcCpl.WC.Tr2Fr0.zz.Link = FMUVar
+IFVar.Main.FrcCpl.WC.Tr2Fr0.zz.Rel = WC_Tr2Fr0_z_z
+
+
+IFVar.Main.FrcCpl.WC.omega_0.x.Link = FMUVar
+IFVar.Main.FrcCpl.WC.omega_0.x.Rel = WC_omega_0_x
+IFVar.Main.FrcCpl.WC.omega_0.y.Link = FMUVar
+IFVar.Main.FrcCpl.WC.omega_0.y.Rel = WC_omega_0_y
+IFVar.Main.FrcCpl.WC.omega_0.z.Link = FMUVar
+IFVar.Main.FrcCpl.WC.omega_0.z.Rel = WC_omega_0_z
+
+IFVar.Main.FrcCpl.Spring.xtof.x.Link = FMUVar
+IFVar.Main.FrcCpl.Spring.xtof.x.Rel = Spring_xtof_x
+IFVar.Main.FrcCpl.Spring.xtof.y.Link = FMUVar
+IFVar.Main.FrcCpl.Spring.xtof.y.Rel = Spring_xtof_y
+IFVar.Main.FrcCpl.Spring.xtof.z.Link = FMUVar
+IFVar.Main.FrcCpl.Spring.xtof.z.Rel = Spring_xtof_z
+
+IFVar.Main.FrcCpl.Spring.TransAx.x.Link = FMUVar
+IFVar.Main.FrcCpl.Spring.TransAx.x.Rel = Spring_TransAx_x
+IFVar.Main.FrcCpl.Spring.TransAx.y.Link = FMUVar
+IFVar.Main.FrcCpl.Spring.TransAx.y.Rel = Spring_TransAx_y
+IFVar.Main.FrcCpl.Spring.TransAx.z.Link = FMUVar
+IFVar.Main.FrcCpl.Spring.TransAx.z.Rel = Spring_TransAx_z
+
+IFVar.Main.FrcCpl.Damper.xtof.x.Link = FMUVar
+IFVar.Main.FrcCpl.Damper.xtof.x.Rel = Damper_xtof_x
+IFVar.Main.FrcCpl.Damper.xtof.y.Link = FMUVar
+IFVar.Main.FrcCpl.Damper.xtof.y.Rel = Damper_xtof_y
+IFVar.Main.FrcCpl.Damper.xtof.z.Link = FMUVar
+IFVar.Main.FrcCpl.Damper.xtof.z.Rel = Damper_xtof_z
+
+IFVar.Main.FrcCpl.Damper.TransAx.x.Link = FMUVar
+IFVar.Main.FrcCpl.Damper.TransAx.x.Rel = Damper_TransAx_x
+IFVar.Main.FrcCpl.Damper.TransAx.y.Link = FMUVar
+IFVar.Main.FrcCpl.Damper.TransAx.y.Rel = Damper_TransAx_y
+IFVar.Main.FrcCpl.Damper.TransAx.z.Link = FMUVar
+IFVar.Main.FrcCpl.Damper.TransAx.z.Rel = Damper_TransAx_z
+
+IFVar.Main.FrcCpl.AF.Frc_1.x.Link = FMUVar
+IFVar.Main.FrcCpl.AF.Frc_1.x.Rel = AF_Frc_1_x
+IFVar.Main.FrcCpl.AF.Frc_1.y.Link = FMUVar
+IFVar.Main.FrcCpl.AF.Frc_1.y.Rel = AF_Frc_1_y
+IFVar.Main.FrcCpl.AF.Frc_1.z.Link = FMUVar
+IFVar.Main.FrcCpl.AF.Frc_1.z.Rel = AF_Frc_1_z
+
+IFVar.Main.FrcCpl.AF.Trq_1.x.Link = FMUVar
+IFVar.Main.FrcCpl.AF.Trq_1.x.Rel = AF_Trq_1_x
+IFVar.Main.FrcCpl.AF.Trq_1.y.Link = FMUVar
+IFVar.Main.FrcCpl.AF.Trq_1.y.Rel = AF_Trq_1_y
+IFVar.Main.FrcCpl.AF.Trq_1.z.Link = FMUVar
+IFVar.Main.FrcCpl.AF.Trq_1.z.Rel = AF_Trq_1_z
+
+# Output variables of the Initialization interface struct tSuspCfgIF
+SuspKnC.DoubleSided = 0
+SuspKnC.Use_qSteer = 0
+SuspKnC.Use_qCompOpp = 0
+# Activate ForceCoupling. 0 (not active) and 1 (active) allowed
+SuspKnC.ForceCoupling = 1
+SuspKnC.JointType = FREEZXY
+SuspKnC.FrcFrame = Fr1

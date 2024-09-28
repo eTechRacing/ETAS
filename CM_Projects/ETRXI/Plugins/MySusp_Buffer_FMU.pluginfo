@@ -1,0 +1,49 @@
+#INFOFILE1.1 - Do not remove this line!
+FileIdent = CarMaker-PlugInfo 2
+FileCreator = CarMaker 9.0 2020-04-08 12:42 TEMPLATE
+
+FMU.Name = MySusp_Buffer_FMU
+FMU.Modelclass = Susp_Buffer
+FMU.GUID = {893cb1e7-47fa-43c9-bb60-4aaabffe8056}
+
+FMU.Inputs.ShowInDDict = 0
+FMU.Outputs.ShowInDDict = 0
+FMU.MakePluginfo = 0
+FMU.DebugLogging = 0
+FMU.InitParamStartValues = 1
+
+FMUIn.l.Link = IFVar
+FMUIn.l.Rel = length
+
+IFVar.Force.Link = FMUVar
+IFVar.Force.Rel = Frc
+
+# Optional. Buffer push substitute model
+# amplification factor. Default is 1.
+Susp.Buffer.SubstModel.Push.Amplify = 
+
+# Optional. Buffer pull substitute model
+# amplification factor. Default is 1.
+Susp.Buffer.SubstModel.Pull.Amplify = 
+
+# Buffer push substitute model position,
+# the unit is m.
+Susp.Buffer.SubstModel.Push.tz0 = 0.055
+
+# Buffer pull substitute model position,
+# the unit is m.
+Susp.Buffer.SubstModel.Pull.tz0 = -0.09
+
+# The spring characteristic of the buffer push
+# substitute model can be defined with a data
+# table describing the non-linear spring behavior.
+Susp.Buffer.SubstModel.Push:
+	0.0 0.0
+	1.0 50000.0
+
+# The spring characteristic of the buffer pull
+# substitute model can be defined with a data
+# table describing the non-linear spring behavior.
+Susp.Buffer.SubstModel.Pull:
+	0.0 0.0
+	1.0 50000.0
