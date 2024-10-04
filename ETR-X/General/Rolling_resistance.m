@@ -168,11 +168,46 @@ f5(0)
 f6(0)
 f7(0)
 f8(0)
+display(y)
 
-
+%{
 %plot(linspace(-0.15,0.15,40),f1(linspace(-0.15,0.15,40)))
 %plot(V(29817:30483))
-plot(SL(1342:2047),FY(1342:2047))
+figure(1)
+plot(SL(1342:2047),FX(1342:2047))
+hold on
+title("1342:2047")
+figure(2)
+plot(SL(2048:2769),FX(2048:2769))
+title('2048:2769')
+figure(3)
+plot(SL(4141:4814),FX(4141:4814))
+title('4141:4814')
+figure(4)
+plot(SL(4815:5509),FX(4815:5509))
+title('4815:5509')
+figure(5)
+plot(SL(26307:27011),FX(26307:27011))
+title('26307:27011')
+%}
+
+fplot(f1,[-0.15 0.15])
+rollingresistance1=zeros(1,length(0:0.01:0.15))
+f1positiu=zeros(1,length(0:0.01:0.15))
+f1negatiu=zeros(1,length(0:0.01:0.15))
+
+slip=[0:0.01:0.15]
+
+for i=1:length(0:0.01:0.15);
+    i
+    f1positiu(i)=f1(slip(i));
+    f1negatiu(i)=f1(-slip(i));
+    rollingresistance1(i)=f1(slip(i))+f1(-slip(i));
+end
+
+f1positiu
+f1negatiu
+rollingresistance1
 
 
 abs(f1(-0.1))-abs(f1(0.1))
