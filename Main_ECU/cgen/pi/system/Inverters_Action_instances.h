@@ -27,7 +27,6 @@ struct RTWTop_Inverters_Action_Class
     scalarWrapper_Obj *RTWWrapper_Inverters_Action_B_Merge_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Action_B_Merge2_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Action_B_Merge2_p_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Inverters_Action_B_NOR_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Action_B_subscribed_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Action_B_subscribed_k_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Action_ConstB_TorqueCommand_Divide_Ptr;
@@ -46,10 +45,7 @@ struct RTWTop_Inverters_Action_Class
     scalarWrapper_Obj *RTWWrapper_Inverters_Action_DW_EnumerationCounter_g_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Action_DW_LastAction_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Action_DW_LastAction_l_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Inverters_Action_U_Car_State_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Action_U_InvertersAction_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Inverters_Action_U_RL_rads_Motor_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Inverters_Action_U_RacingMode_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Action_U_current_L_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Action_U_current_R_Ptr;
     scalarWrapper_Obj *RTWWrapper_Inverters_Action_Y_Inverter_L_RegID_Ptr;

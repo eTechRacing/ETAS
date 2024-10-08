@@ -1,0 +1,334 @@
+<?DTDVersion "3.2.0"?>
+<?CompatibleDTDVersion "3.0.0"?>
+<?CompatibleDTDVersion "2.2"?>
+<?CompatibleDTDVersion "2.0.3"?>
+<?CompatibleDTDVersion "2.0.2"?>
+<?CompatibleDTDVersion "2.0.1"?>
+<?CompatibleDTDVersion "2.0"?>
+
+<!ENTITY % System SYSTEM "_System.DTD">
+%System;
+
+<!ENTITY % ESNode SYSTEM "ESNode.DTD">
+%ESNode;
+
+<!NOTATION ofTypeES1300NodeMain SYSTEM "ES1300NodeMain">
+<!NOTATION ofTypeES1300NodeSignal SYSTEM "ES1300NodeSignal">
+<!NOTATION ofTypeES1300NodeSignalGroup SYSTEM "ES1300NodeSignalGroup">
+
+<?SuperClass ES1300NodeMain->ESNodeMain?>
+<?SuperClass ES1300NodeSignalGroup->ESNodeUnsortedSignalGroup ?>
+<?SuperClass ES1300NodeSignal->ESNodeSignal ?>
+
+<!-- node main -->
+
+<!ELEMENT ES1300NodeMain (ES1300NodeMain.Parameters, ES1300NodeMain.L1Generation, ES1300NodeMain.SubNodes, _System)>
+<!ATTLIST ES1300NodeMain
+    Name ID #REQUIRED
+    GlobalObject.ofTypeYBOBoard ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOCPUBoard ENTITY #REQUIRED
+    GlobalSubParent.ofTypeYBODevice ENTITY #REQUIRED
+>
+
+<!ELEMENT ES1300NodeMain.Parameters (ES1300NodeMainParameters)>
+<!ELEMENT ES1300NodeMain.L1Generation (ES1300NodeMainL1Generation)>
+<!ELEMENT ES1300NodeMain.SubNodes (ES1300NodeMainSubNodeList)>
+
+<!ELEMENT ES1300NodeMainL1Generation (ES1300NodeMainL1Generation.NotRunning, ES1300NodeMainL1Generation.Reconnect, ES1300NodeMainL1Generation.WriteToStream)>
+<!ATTLIST ES1300NodeMainL1Generation
+    L1TreeIndex CDATA "-1"
+
+    ConfigROID CDATA "-1"
+    APIROIDArray1 CDATA "-1"
+    APIROIDArray2 CDATA "-1"
+    APIROIDArray3 CDATA "-1"
+    APIROIDArray4 CDATA "-1"
+    APIROIDArray5 CDATA "-1"
+>
+
+<!ELEMENT ES1300NodeMainL1Generation.NotRunning (ES1300NodeMainL1GenerationNotRunning)>
+<!ELEMENT ES1300NodeMainL1Generation.Reconnect (ES1300NodeMainL1GenerationReconnect)>
+<!ELEMENT ES1300NodeMainL1Generation.WriteToStream (ES1300NodeMainL1GenerationWriteToStream)>
+
+<!ELEMENT ES1300NodeMainL1GenerationNotRunning EMPTY>
+<!ELEMENT ES1300NodeMainL1GenerationReconnect EMPTY>
+<!ELEMENT ES1300NodeMainL1GenerationWriteToStream EMPTY>
+
+<!ELEMENT ES1300NodeMainParameters (ES1300NodeMainParameters.Name, ES1300NodeMainParameters.Enabled, ES1300NodeMainParameters.VMEBaseAddress, ES1300NodeMainParameters.InputVoltage, ES1300NodeMainParameters.GainFactor, ES1300NodeMainParameters.EffectiveMeasurementRange, ES1300NodeMainParameters.MeasureMode, ES1300NodeMainParameters.ReadMode)>
+
+<!ELEMENT ES1300NodeMainParameters.Name (ESParameterName)>
+<!ELEMENT ES1300NodeMainParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES1300NodeMainParameters.VMEBaseAddress (ESParameterEnum)>
+<!ATTLIST ES1300NodeMainParameters.VMEBaseAddress 
+    EnumText1      CDATA "ID1 / 0xE00000"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "ID2 / 0xE00100"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "ID3 / 0xE00200"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "ID4 / 0xE00300"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+>
+
+<!ELEMENT ES1300NodeMainParameters.InputVoltage (ESParameterEnum)>
+<!ATTLIST ES1300NodeMainParameters.InputVoltage  
+    EnumText1      CDATA "-25V ... +25V / B21: 1-3 B22: 1-3"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "-50V ... +50V / B21: 1-3 B22: 1-2"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "-0V ... +50V / B21: 1-2 B22: 1-3"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ES1300NodeMainParameters.GainFactor (ESParameterEnum)>
+<!ATTLIST ES1300NodeMainParameters.GainFactor   
+    EnumText1      CDATA "1"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "5"
+    EnumL1Value2     CDATA "4"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "10"
+    EnumL1Value3     CDATA "1"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "50"
+    EnumL1Value4     CDATA "5"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "100"
+    EnumL1Value5     CDATA "2"
+    EnumAvailable5 CDATA "1"
+
+    EnumText6      CDATA "500"
+    EnumL1Value6     CDATA "6"
+    EnumAvailable6 CDATA "1"
+>
+
+<!ELEMENT ES1300NodeMainParameters.EffectiveMeasurementRange (ESParameterEnum)>
+<!ATTLIST ES1300NodeMainParameters.EffectiveMeasurementRange   
+    EnumText1      CDATA "-25V .. +25V"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "-5V .. +5V"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "-2.5V .. +2.5V"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "-0.5V .. +0.5V"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "-0.25V .. +0.25V"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "1"
+
+    EnumText6      CDATA "-0.05V .. +0.05V"
+    EnumL1Value6     CDATA "5"
+    EnumAvailable6 CDATA "1"
+
+    EnumText7      CDATA "-50V .. +50V"
+    EnumL1Value7     CDATA "6"
+    EnumAvailable7 CDATA "1"
+
+    EnumText8      CDATA "-10V .. +10V"
+    EnumL1Value8     CDATA "7"
+    EnumAvailable8 CDATA "1"
+
+    EnumText9      CDATA "-5V .. +5V"
+    EnumL1Value9     CDATA "8"
+    EnumAvailable9 CDATA "1"
+
+    EnumText10      CDATA "-1V .. +1V"
+    EnumL1Value10     CDATA "9"
+    EnumAvailable10 CDATA "1"
+
+    EnumText11      CDATA "-0.5V .. +0.5V"
+    EnumL1Value11     CDATA "10"
+    EnumAvailable11 CDATA "1"
+
+    EnumText12      CDATA "-0.1V .. +0.1V"
+    EnumL1Value12     CDATA "11"
+    EnumAvailable12 CDATA "1"
+
+    EnumText13      CDATA "-0V .. +50V"
+    EnumL1Value13     CDATA "12"
+    EnumAvailable13 CDATA "1"
+
+    EnumText14      CDATA "-0V .. +10V"
+    EnumL1Value14     CDATA "13"
+    EnumAvailable14 CDATA "1"
+
+    EnumText15      CDATA "-0V .. +5V"
+    EnumL1Value15     CDATA "14"
+    EnumAvailable15 CDATA "1"
+
+    EnumText16      CDATA "-0V .. +1V"
+    EnumL1Value16     CDATA "15"
+    EnumAvailable16 CDATA "1"
+
+    EnumText17      CDATA "-0V .. +0.5V"
+    EnumL1Value17     CDATA "16"
+    EnumAvailable17 CDATA "1"
+
+    EnumText18      CDATA "-0V .. +0.1V"
+    EnumL1Value18     CDATA "17"
+    EnumAvailable18 CDATA "1"
+>
+
+<!ELEMENT ES1300NodeMainParameters.MeasureMode (ESParameterEnum)>
+<!ATTLIST ES1300NodeMainParameters.MeasureMode   
+    EnumText1      CDATA "single ended / B23: 1-3 B24: 1-2"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "differential / B23: 1-2 B24: open"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES1300NodeMainParameters.ReadMode (ESParameterEnum)>
+<!ATTLIST ES1300NodeMainParameters.ReadMode    
+    EnumText1      CDATA "auto"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "wait for new values (slow)"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "get old values (fast)"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+>
+
+<!ELEMENT ES1300NodeMainSubNodeList (ES1300NodeSignalGroup)*>
+
+<!-- node signal -->
+
+<!ELEMENT ES1300NodeSignal (ES1300NodeSignal.Parameters, ES1300NodeSignal.L1Generation, ES1300NodeSignal.SubNodes)>
+<!ATTLIST ES1300NodeSignal
+    Name ID #REQUIRED
+    GlobalObject.ofTypeYBOHWPort ENTITY #REQUIRED
+    GlobalParent.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+<!ELEMENT ES1300NodeSignal.Parameters (ES1300NodeSignalParameters)>
+<!ELEMENT ES1300NodeSignal.L1Generation (ES1300NodeSignalL1Generation)>
+<!ELEMENT ES1300NodeSignal.SubNodes (ES1300NodeSignalSubNodeList)>
+
+<!ELEMENT ES1300NodeSignalL1Generation (ES1300NodeSignalL1Generation.UnionCase, ES1300NodeSignalL1Generation.Reconnect)>
+<!ATTLIST ES1300NodeSignalL1Generation  
+    L1TreeIndex CDATA "-1"
+    
+    MappingROID CDATA "-1"
+>
+
+<!ELEMENT ES1300NodeSignalL1Generation.UnionCase (ES1300NodeSignalL1GenerationUnionCase)>
+<!ELEMENT ES1300NodeSignalL1Generation.Reconnect (ESL1GenerationCaseSignalReconnect)>
+
+<!ELEMENT ES1300NodeSignalL1GenerationUnionCase EMPTY>
+
+<!ELEMENT ES1300NodeSignalParameters (ES1300NodeSignalParameters.Name, ES1300NodeSignalParameters.Enabled ,ES1300NodeSignalParameters.SignalType, ES1300NodeSignalParameters.Unit, ES1300NodeSignalParameters.Formula, ES1300NodeSignalParameters.Message)>
+
+<!ELEMENT ES1300NodeSignalParameters.Name (ESParameterName)>
+<!ELEMENT ES1300NodeSignalParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES1300NodeSignalParameters.SignalType (ESParameterEnum)>
+<!ELEMENT ES1300NodeSignalParameters.Message (ESParameterString)>
+
+<!ATTLIST ES1300NodeSignalParameters.SignalType 
+    EnumText1      CDATA "cont"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "sdisc"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+
+    EnumText3      CDATA "udisc"
+    EnumL1Value3     CDATA "2"
+    EnumAvailable3 CDATA "1"
+
+    EnumText4      CDATA "boolean"
+    EnumL1Value4     CDATA "3"
+    EnumAvailable4 CDATA "1"
+
+    EnumText5      CDATA "enum"
+    EnumL1Value5     CDATA "4"
+    EnumAvailable5 CDATA "0"
+
+>
+
+<!ELEMENT ES1300NodeSignalParameters.Unit (ESParameterString)>
+<!ELEMENT ES1300NodeSignalParameters.Formula (ESParameterUnion)>
+
+<!ELEMENT ES1300NodeSignalSubNodeList EMPTY>
+
+<!-- node signal group -->
+
+<!ELEMENT ES1300NodeSignalGroup (ES1300NodeSignalGroup.Parameters, ES1300NodeSignalGroup.L1Generation, ES1300NodeSignalGroup.SubNodes)>
+<!ATTLIST ES1300NodeSignalGroup
+    Name ID #REQUIRED
+    GlobalObject.ofTypeYBOSignalGroup ENTITY #REQUIRED
+    GlobalParent.ofTypeYBODevice ENTITY #REQUIRED
+    MonitoringSignaldT.ofTypeYBOHWPort ENTITY #REQUIRED
+    MonitoringSignalRec.ofTypeYBOHWPort ENTITY #REQUIRED
+  MonitoringSendSignalGroup.ofTypeYBOSignalGroup ENTITY #REQUIRED
+>
+
+<!ELEMENT ES1300NodeSignalGroup.Parameters (ES1300NodeSignalGroupParameters)>
+<!ELEMENT ES1300NodeSignalGroup.L1Generation (ES1300NodeSignalGroupL1Generation)>
+<!ELEMENT ES1300NodeSignalGroup.SubNodes (ES1300NodeSignalGroupSubNodeList)>
+
+
+<!ELEMENT ES1300NodeSignalGroupL1Generation (ES1300NodeSignalGroupL1Generation.UnionCase, ES1300NodeSignalGroupL1Generation.Reconnect)>
+<!ATTLIST ES1300NodeSignalGroupL1Generation 
+    L1TreeIndex CDATA "-1"
+
+    APIROID CDATA "-1"
+>
+
+<!ELEMENT ES1300NodeSignalGroupL1Generation.UnionCase (ES1300NodeSignalGroupL1GenerationUnionCase)>
+<!ELEMENT ES1300NodeSignalGroupL1Generation.Reconnect (ESL1GenerationCaseSignalGroupReconnect)>
+
+<!ELEMENT ES1300NodeSignalGroupL1GenerationUnionCase EMPTY>
+
+<!ELEMENT ES1300NodeSignalGroupParameters (ES1300NodeSignalGroupParameters.Name, ES1300NodeSignalGroupParameters.Enabled, ES1300NodeSignalGroupParameters.Direction, ES1300NodeSignalGroupParameters.Task)>
+
+<!ELEMENT ES1300NodeSignalGroupParameters.Name (ESParameterName)>
+<!ELEMENT ES1300NodeSignalGroupParameters.Enabled (ESParameterBoolean)>
+<!ELEMENT ES1300NodeSignalGroupParameters.Task (ESParameterString)>
+
+<!ELEMENT ES1300NodeSignalGroupParameters.Direction (ESParameterEnum)>
+<!ATTLIST ES1300NodeSignalGroupParameters.Direction
+    EnumText1      CDATA "send"
+    EnumL1Value1     CDATA "0"
+    EnumAvailable1 CDATA "1"
+
+    EnumText2      CDATA "receive"
+    EnumL1Value2     CDATA "1"
+    EnumAvailable2 CDATA "1"
+>
+
+<!ELEMENT ES1300NodeSignalGroupSubNodeList (ES1300NodeSignal)*>
+
+
+

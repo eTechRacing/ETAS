@@ -24,15 +24,15 @@ const char* getModelIdentificationString();
 struct INTECRIOTop_ROOT_Class
 {
     ASDObjectHeader objectHeader;
-    struct RTWTop_Disconnections_Obj *RTWTop_Disconnections_Ptr;
     struct RTWTop_Car_State_Obj *RTWTop_Car_State_Ptr;
-    struct RTWTop_Sensors_Obj *RTWTop_Sensors_Ptr;
-    struct RTWTop_VDC_Obj *RTWTop_VDC_Ptr;
-    struct RTWTop_Synchronism_Obj *RTWTop_Synchronism_Ptr;
-    struct RTWTop_Power_Control_Obj *RTWTop_Power_Control_Ptr;
-    struct RTWTop_Inverters_Data_Obj *RTWTop_Inverters_Data_Ptr;
-    struct RTWTop_Inverters_Action_Obj *RTWTop_Inverters_Action_Ptr;
+    struct RTWTop_Disconnections_Obj *RTWTop_Disconnections_Ptr;
     struct RTWTop_Ellipse_Obj *RTWTop_Ellipse_Ptr;
+    struct RTWTop_Inverters_Action_Obj *RTWTop_Inverters_Action_Ptr;
+    struct RTWTop_Inverters_Data_Obj *RTWTop_Inverters_Data_Ptr;
+    struct RTWTop_Power_Control_Obj *RTWTop_Power_Control_Ptr;
+    struct RTWTop_Sensors_Obj *RTWTop_Sensors_Ptr;
+    struct RTWTop_Synchronism_Obj *RTWTop_Synchronism_Ptr;
+    struct RTWTop_VDC_Winter_Testing_Obj *RTWTop_VDC_Winter_Testing_Ptr;
 };
 /* Definition of the class object structure */
 struct INTECRIOTop_ROOT_Obj

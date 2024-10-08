@@ -11,15 +11,15 @@
  *****************************************************************************/
 #include "../a_basdef.h"
 #include "./ROOT_instances.h"
-#include "./Disconnections_instances.h"
 #include "./Car_State_instances.h"
-#include "./Sensors_instances.h"
-#include "./VDC_instances.h"
-#include "./Synchronism_instances.h"
-#include "./Power_Control_instances.h"
-#include "./Inverters_Data_instances.h"
-#include "./Inverters_Action_instances.h"
+#include "./Disconnections_instances.h"
 #include "./Ellipse_instances.h"
+#include "./Inverters_Action_instances.h"
+#include "./Inverters_Data_instances.h"
+#include "./Power_Control_instances.h"
+#include "./Sensors_instances.h"
+#include "./Synchronism_instances.h"
+#include "./VDC_Winter_Testing_instances.h"
 /* Data structure for keeping the INTECRIO version (defines must be set) */
 #ifdef INTECRIO_VERSION_NUMBER
 static const uint32 intecrioVersionNumber = INTECRIO_VERSION_NUMBER;
@@ -53,15 +53,15 @@ uint32 getBuildEnvironment(void)
 static void initClass_INTECRIOTop_ROOT(struct INTECRIOTop_ROOT_Class *self)
 {
     /* Intialize top level class variables */
-    self->RTWTop_Disconnections_Ptr = (struct RTWTop_Disconnections_Obj*)initModel_RTWTop_Disconnections();
     self->RTWTop_Car_State_Ptr = (struct RTWTop_Car_State_Obj*)initModel_RTWTop_Car_State();
-    self->RTWTop_Sensors_Ptr = (struct RTWTop_Sensors_Obj*)initModel_RTWTop_Sensors();
-    self->RTWTop_VDC_Ptr = (struct RTWTop_VDC_Obj*)initModel_RTWTop_VDC();
-    self->RTWTop_Synchronism_Ptr = (struct RTWTop_Synchronism_Obj*)initModel_RTWTop_Synchronism();
-    self->RTWTop_Power_Control_Ptr = (struct RTWTop_Power_Control_Obj*)initModel_RTWTop_Power_Control();
-    self->RTWTop_Inverters_Data_Ptr = (struct RTWTop_Inverters_Data_Obj*)initModel_RTWTop_Inverters_Data();
-    self->RTWTop_Inverters_Action_Ptr = (struct RTWTop_Inverters_Action_Obj*)initModel_RTWTop_Inverters_Action();
+    self->RTWTop_Disconnections_Ptr = (struct RTWTop_Disconnections_Obj*)initModel_RTWTop_Disconnections();
     self->RTWTop_Ellipse_Ptr = (struct RTWTop_Ellipse_Obj*)initModel_RTWTop_Ellipse();
+    self->RTWTop_Inverters_Action_Ptr = (struct RTWTop_Inverters_Action_Obj*)initModel_RTWTop_Inverters_Action();
+    self->RTWTop_Inverters_Data_Ptr = (struct RTWTop_Inverters_Data_Obj*)initModel_RTWTop_Inverters_Data();
+    self->RTWTop_Power_Control_Ptr = (struct RTWTop_Power_Control_Obj*)initModel_RTWTop_Power_Control();
+    self->RTWTop_Sensors_Ptr = (struct RTWTop_Sensors_Obj*)initModel_RTWTop_Sensors();
+    self->RTWTop_Synchronism_Ptr = (struct RTWTop_Synchronism_Obj*)initModel_RTWTop_Synchronism();
+    self->RTWTop_VDC_Winter_Testing_Ptr = (struct RTWTop_VDC_Winter_Testing_Obj*)initModel_RTWTop_VDC_Winter_Testing();
     return;
 }
 /* Definition of the class header */
@@ -92,15 +92,15 @@ void os_setDeltaT (void)
 {
     staticDT = ((real64) (SYSTEM_TICK_DURATION * os_dT) / 1.0e9);
     /* Set dT for each module */
-    setDeltaT_Disconnections();
     setDeltaT_Car_State();
-    setDeltaT_Sensors();
-    setDeltaT_VDC();
-    setDeltaT_Synchronism();
-    setDeltaT_Power_Control();
-    setDeltaT_Inverters_Data();
-    setDeltaT_Inverters_Action();
+    setDeltaT_Disconnections();
     setDeltaT_Ellipse();
+    setDeltaT_Inverters_Action();
+    setDeltaT_Inverters_Data();
+    setDeltaT_Power_Control();
+    setDeltaT_Sensors();
+    setDeltaT_Synchronism();
+    setDeltaT_VDC_Winter_Testing();
 }
 /* Accessor for staticDT */
 uint32 getDeltaT (void)

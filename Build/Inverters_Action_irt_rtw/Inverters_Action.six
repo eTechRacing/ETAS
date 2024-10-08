@@ -22,9 +22,9 @@
 	<moduleInfo identifier="Inverters_Action">
 		<name>Inverters_Action</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Inverters_Action.slx&quot;"/>
-		<version major="13" minor="34"/>
+		<version major="13" minor="36"/>
 		<dateTime kind="created" year="2021" month="7" day="16" hour="11" minute="31" second="58"/>
-		<dateTime kind="lastModified" year="2024" month="9" day="7" hour="15" minute="53" second="11"/>
+		<dateTime kind="lastModified" year="2024" month="10" day="8" hour="13" minute="12" second="20"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="9" day="7" hour="16" minute="35" second="8"/>
+		<dateTime kind="created" year="2024" month="10" day="8" hour="13" minute="14" second="43"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -176,12 +176,6 @@
 					</annotation>
 				</structMember>
 				<structMember identifier="Merge">
-					<type><typeRef name="boolean_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Opaque</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="NOR">
 					<type><typeRef name="boolean_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Opaque</documentation>
@@ -317,24 +311,6 @@
 						<documentation>&lt;Root&gt;/current_L</documentation>
 					</annotation>
 				</structMember>
-				<structMember identifier="RL_rads_Motor">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/RL_rads_Motor</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Car_State">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Car_State</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="RacingMode">
-					<type><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/RacingMode</documentation>
-					</annotation>
-				</structMember>
 			</structDef>
 			<typeDef name="ExtU_Inverters_Action_T">
 				<struct/><typeRef name="ExtU_Inverters_Action_T_tag"/>
@@ -425,18 +401,6 @@
 					<type><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>State information for 'dsmMem'.</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="If_ActiveSubsystem">
-					<type><typeRef name="int8_T"/></type>
-					<annotation>
-						<documentation>State information for 'ActiveSubsystem'.</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Memory1_PreviousInput">
-					<type><typeRef name="boolean_T"/></type>
-					<annotation>
-						<documentation>State information for 'PreviousInput'.</documentation>
 					</annotation>
 				</structMember>
 			</structDef>
@@ -604,40 +568,6 @@
 					<pathNode name="Inverters_Action" kind="mlsl:model" type="atomic"/>
 					<pathNode name="Merge" kind="mlsl:block"/>
 					<pathNode name="Merge" kind="mlsl:signal"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="private">
-				</modelKind>
-				<modelType type="Boolean">
-					<valueRange min="0.0" max="1.0"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Action_CM_boolean"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Action_B.NOR">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Action_B"/>
-					<memberRef identifier="NOR"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Action.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Action.Opaque.NOR">
-				<name>NOR</name>
-				<modelLink href="Inverters_Action/Opaque"/>
-				<modelLocation>
-					<pathNode name="Inverters_Action" kind="mlsl:model" type="atomic"/>
-					<pathNode name="Forced Forward Direction accel" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="NOR" kind="mlsl:block"/>
-					<pathNode name="NOR" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>
@@ -1397,99 +1327,6 @@
 				</address>
 			</usage>
 		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Action_U.RL_rads_Motor">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Action_U"/>
-					<memberRef identifier="RL_rads_Motor"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Action.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Action.RL_rads_Motor">
-				<name>RL_rads_Motor</name>
-				<modelLink href="Inverters_Action/RL_rads_Motor"/>
-				<modelLocation>
-					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="RL_rads_Motor" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Action_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Action_U.Car_State">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Action_U"/>
-					<memberRef identifier="Car_State"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Action.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Action.Car_State">
-				<name>Car_State</name>
-				<modelLink href="Inverters_Action/Car_State"/>
-				<modelLocation>
-					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="Car_State" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Action_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Inverters_Action_U.RacingMode">
-				<definitionLocation>
-					<baseRef identifier="Inverters_Action_U"/>
-					<memberRef identifier="RacingMode"/>
-				</definitionLocation>
-				<fileOrigin name="Inverters_Action.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Inverters_Action.RacingMode">
-				<name>RacingMode</name>
-				<modelLink href="Inverters_Action/RacingMode"/>
-				<modelLocation>
-					<pathNode name="Inverters_Action" kind="mlsl:model"/>
-					<pathNode name="RacingMode" kind="mlsl:block" type="Inport"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="public">
-					<flowDirection in="true"/>
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Inverters_Action_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
 		<!-- rtY output ports following -->
 		<dataElement interfaceKind="export">
 			<dataCInterface identifier="Inverters_Action_Y.Inverter_L_RegID">
@@ -1762,9 +1599,6 @@
 						<message identifier="Inverters_Action_U.InvertersAction" send="false"></message>
 						<message identifier="Inverters_Action_U.current_R" send="false"></message>
 						<message identifier="Inverters_Action_U.current_L" send="false"></message>
-						<message identifier="Inverters_Action_U.RL_rads_Motor" send="false"></message>
-						<message identifier="Inverters_Action_U.Car_State" send="false"></message>
-						<message identifier="Inverters_Action_U.RacingMode" send="false"></message>
 						<message identifier="Inverters_Action_Y.Inverter_L_RegID" send="true"></message>
 						<message identifier="Inverters_Action_Y.Inverter_L_b15tob8" send="true"></message>
 						<message identifier="Inverters_Action_Y.Inverter_L_b7tob0" send="true"></message>

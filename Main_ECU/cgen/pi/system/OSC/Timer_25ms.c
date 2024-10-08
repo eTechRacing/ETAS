@@ -20,7 +20,7 @@ extern void crossbarHook_31_9(void);
 extern void irt_OneStep_Sensors(void);
 extern void crossbarHook_31_10(void);
 extern void crossbarHook_31_11(void);
-extern void irt_OneStep_VDC(void);
+extern void irt_OneStep_VDC_Winter_Testing(void);
 extern void crossbarHook_31_12(void);
 extern void crossbarHook_31_13(void);
 extern void rtioHook_31_0(void);
@@ -60,7 +60,7 @@ TASK(Timer_25ms)
 	irt_OneStep_Sensors();
 	crossbarHook_31_10();
 	crossbarHook_31_11();
-	irt_OneStep_VDC();
+	irt_OneStep_VDC_Winter_Testing();
 	crossbarHook_31_12();
 	crossbarHook_31_13();
 	rtioHook_31_0();

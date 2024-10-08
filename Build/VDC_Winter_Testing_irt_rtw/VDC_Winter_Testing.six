@@ -1,0 +1,1699 @@
+<?xml version="1.0"?>
+<!DOCTYPE module [
+    <!ENTITY szlig "&#223;">
+    <!ENTITY copy "&#169;">
+    <!ENTITY baseTypes-mlsl SYSTEM 'file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/baseTypes-mlsl.six'>
+    ]>
+<?xml-stylesheet type="text/xsl" href="file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/common/showSCOOP-IX.xsl"?>
+<!--
+<h1>SCOOP-IX</h1>
+<p>
+    <strong>Copyright &copy; 2014 ETAS GmbH</strong>, Borsigstra&szlig;e 14, D-70469 Stuttgart. <em>All rights reserved.</em>
+</p>
+-->
+<module xmlns="http://www.etas.com/scoop-ix/1.5" xmlns:ix="http://www.etas.com/scoop-ix/1.5" xmlns:mlsl="http://www.etas.com/scoop-ix/1.5/modelDomain/matlab-simulink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.etas.com/scoop-ix/1.5
+        file://C:\Program%20Files%20(x86)\ETAS\INTECRIO5.0\SCOOP-IX\1.5/schemas/scoop-ix-domain-mlsl.xsd" xmlns:html="http://www.w3.org/1999/xhtml">
+	<directoryLocations scheme="MATLAB 23.2">
+		<directory identifier="integratorDir" path="C:\Program Files (x86)\ETAS\INTECRIO5.0\MATLAB\"/>
+		<directory identifier="toolDir" path=".\"/>
+		<directory identifier="modelDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Simulink\"/>
+		<directory identifier="codeDir" path="C:\Users\joser\OneDrive\Documentos\GitHub\ETAS\Build\VDC_Winter_Testing_irt_rtw\"/>
+	</directoryLocations>
+	<moduleInfo identifier="VDC_Winter_Testing">
+		<name>VDC_Winter_Testing</name>
+		<modelLink href="mlsl:///&quot;{{modelDir}}VDC_Winter_Testing.slx&quot;"/>
+		<version major="4" minor="217"/>
+		<dateTime kind="created" year="2024" month="3" day="15" hour="15" minute="34" second="18"/>
+		<dateTime kind="lastModified" year="2024" month="10" day="8" hour="13" minute="21" second="2"/>
+		<completion degree="full"/>
+		<suitability>
+			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
+			<application domain="softwareDevelopment" addressesAvailable="false" nestedDataStructuresAvailable="true"/>
+		</suitability>
+		<user lastName="joser" role="modifier"/>
+		<creators>
+			<user lastName="no" role="creator"/>
+			<tool kind="environment" vendor="The Mathworks, Inc." name="MATLAB">
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
+			</tool>
+			<tool kind="modeler" vendor="The Mathworks, Inc." name="Simulink">
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
+			</tool>
+			<tool kind="modeler" vendor="The Mathworks, Inc." name="Stateflow">
+			</tool>
+			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="Simulink Coder">
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
+				<mode name="target" value="INTECRIO Real-Time Target"/>
+				<configuration>
+					<option identifier="InlineParameters">1</option>
+					<option identifier="InlineInvariantSignals">0</option>
+					<option identifier="Solver">FixedStepDiscrete</option>
+					<option identifier="SolverType">FixedStep</option>
+					<option identifier="FixedStepOpts.FixedStep">0.2</option>
+					<option identifier="FixedStepOpts.SolverMode">SingleTasking</option>
+				</configuration>
+			</tool>
+			<tool kind="codeGenerator" vendor="The Mathworks, Inc." name="MATLAB Coder">
+				<version major="23" minor="2" year="2023" month="8" day="1" info="R2023b"/>
+			</tool>
+			<tool kind="codeGenerator" vendor="ETAS GmbH" name="Connector for Simulink (IRT)" family="INTECRIO Tool Suite">
+				<configuration>
+					<option identifier="SCOOPIXFileName"><![CDATA[VDC_Winter_Testing.six]]></option>
+					<option identifier="ExternalMode">0</option>
+					<option identifier="IgnoreCustomStorageClasses">1</option>
+					<option identifier="StopSimuAfterAssert">1</option>
+					<option identifier="GenerateOnlySelectedSignalsToASAP2">0</option>
+				</configuration>
+			</tool>
+		</creators>
+	</moduleInfo>
+	<codeInfo>
+		<constitution mode="sourceCode"/>
+		<dateTime kind="created" year="2024" month="10" day="8" hour="13" minute="22" second="24"/>
+		<target>
+			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
+			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
+				<configuration>
+					<optionKind name="macroDefine" prefix="-D"/>
+					<optionKind name="includeDirectory" prefix="-I"/>
+					<!-- RTW specific defines -->
+					<option kind="macroDefine" name="USE_RTMODEL"/>
+					<option kind="macroDefine" name="MODEL">VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="RT"/>
+					<option kind="macroDefine" name="NUMST">1</option>
+					<option kind="macroDefine" name="TID01EQ">0</option>
+					<option kind="macroDefine" name="NCSTATES">0</option>
+					<option kind="macroDefine" name="MT">0</option>
+					<option kind="macroDefine" name="HAVESTDIO"/>
+					<option kind="macroDefine" name="MdlStart">MdlStart_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="MdlOutputs">MdlOutputs_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="MdlUpdate">MdlUpdate_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="MdlTerminate">MdlTerminate_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="MdlInitializeSizes">MdlInitializeSizes_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="MdlInitializeSampleTimes">MdlInitializeSampleTimes_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="MdlInitialize">MdlInitialize_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="MdlEnable">MdlEnable_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="MdlDerivatives">MdlDerivatives_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="MdlProjection">MdlProjection_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_ODECreateIntegrationData">rt_ODECreateIntegrationData_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_ODEUpdateContinuousStates">rt_ODEUpdateContinuousStates_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_ODEDestroyIntegrationData">rt_ODEDestroyIntegrationData_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_ODECacheDataIntoSolverInfo">rt_ODECacheDataIntoSolverInfo_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_ODERetrieveDataFromSolverInfo">rt_ODERetrieveDataFromSolverInfo_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_ODECreateSolverInfo">rt_ODECreateSolverInfo_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_SimInitTimingEngine">rt_SimInitTimingEngine_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_SimGetNextSampleHit">rt_SimGetNextSampleHit_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteTaskSampleHits">rt_SimUpdateDiscreteTaskSampleHits_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteEvents">rt_SimUpdateDiscreteEvents_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_SimUpdateDiscreteTaskTime">rt_SimUpdateDiscreteTaskTime_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_CallSys">rt_CallSys_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_EnableSys">rt_EnableSys_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_DisableSys">rt_DisableSys_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_SimDestroyTimingEngine">rt_SimDestroyTimingEngine_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_InitTimingEngine">rt_InitTimingEngine_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_DestroyTimingEngine">rt_DestroyTimingEngine_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteTaskSampleHits">rt_UpdateDiscreteTaskSampleHits_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_GetNextSampleHit">rt_GetNextSampleHit_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteEvents">rt_UpdateDiscreteEvents_VDC_Winter_Testing</option>
+					<option kind="macroDefine" name="rt_UpdateDiscreteTaskTime">rt_UpdateDiscreteTaskTime_VDC_Winter_Testing</option>
+					<!-- RTW specific include directories -->
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}]]></option>
+					<option kind="includeDirectory"><![CDATA[{{integratorDir}}c\src\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{integratorDir}}c\lib\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\simulink\include\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\extern\include\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\src\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\rtw\c\libsrc\]]></option>
+					<option kind="includeDirectory"><![CDATA[{{codeDir}}external\_sharedutils\]]></option>
+				</configuration>
+			</tool>
+		</target>
+	</codeInfo>
+	<!-- Model specific files -->
+	<fileContainer constitution="sourceCode">
+		<pathBase path="{{codeDir}}"/>
+		<!-- Model specific source files -->
+		<file name="VDC_Winter_Testing_types.h" kind="header"/>
+		<file name="VDC_Winter_Testing.c" kind="body"/>
+		<file name="VDC_Winter_Testing_private.h" kind="header"/>
+		<file name="VDC_Winter_Testing.h" kind="header"/>
+		<file name="rtmodel.h" kind="header"/>
+		<file name="VDC_Winter_Testing_main.c" kind="body"/>
+		<file name="rt_sim.c" path="{{codeDir}}external\rtw\c\src\" kind="body"/>
+		<!-- Target specific libraries -->
+		<file name="rtwStaticLib.lib" kind="symbolicLibrary"/>
+		<file name="rtwSharedLib.lib" kind="symbolicLibrary"/>
+		<!-- Additional files -->
+	</fileContainer>
+	<fileContainer constitution="referencedModels">
+	</fileContainer>
+	<interface>
+		<modelLinkBase href="mlsl:///{{modelDir}}VDC_Winter_Testing.slx?"/>
+		<pathBase path="{{codeDir}}"/>
+		<fileOrigin name="VDC_Winter_Testing.c"/>
+		<fileOrigin name="rt_nonfinite.c"/>
+		<fileOrigin name="VDC_Winter_Testing_main.c"/>
+		<headerFile name="VDC_Winter_Testing.h"/>
+		<headerFile name="VDC_Winter_Testing_private.h"/>
+		<usage layoutFamily="mlsl:standardLayout"/>
+		<!-- "import" MATLAB/Simulink base type and complex struct definitions via external entity -->
+		&baseTypes-mlsl;
+		<definitions>
+			<structDef name="ExtU_VDC_Winter_Testing_T_tag">
+				<fileOrigin name="VDC_Winter_Testing.h"/>
+				<structMember identifier="el_ACCEL_X">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_ACCEL_X</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="el_ACCEL_Y">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_ACCEL_Y</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="el_ACCEL_Z">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_ACCEL_Z</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="el_YAW">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_YAW</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="el_PITCH">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_PITCH</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="el_ROLL">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_ROLL</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="el_GYRO_X">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_GYRO_X</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="el_GYRO_Y">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_GYRO_Y</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="el_GYRO_Z">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_GYRO_Z</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="APPS2_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/APPS2_Value</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="APPS1_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/APPS1_Value</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="BrakePedal_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/BrakePedal_Value</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="SteeringSensor_Value">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/SteeringSensor_Value</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="RL_Vel_ms_Wheel">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/RL_Vel_ms_Wheel</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="RR_Vel_ms_Wheel">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/RR_Vel_ms_Wheel</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="RR_rads_Motor">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/RR_rads_Motor</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="RL_rads_Motor">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/RL_rads_Motor</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Accumulator_Voltage">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Accumulator_Voltage</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Shutdown_PackageIntck">
+					<type><typeRef name="boolean_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Shutdown_PackageIntck</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Disconnection_Mode">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Disconnection_Mode</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="RacingMode">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/RacingMode</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="el_VEL">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/el_VEL</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Susp_F_L">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Susp_F_L</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Susp_F_R">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Susp_F_R</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Susp_R_L">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Susp_R_L</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Susp_R_R">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Susp_R_R</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="TorqueEnable">
+					<type><typeRef name="boolean_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/TorqueEnable</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="CriticalDisconnection">
+					<type><typeRef name="boolean_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/CriticalDisconnection</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Car_State">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Car_State</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ExtU_VDC_Winter_Testing_T">
+				<struct/><typeRef name="ExtU_VDC_Winter_Testing_T_tag"/>
+				<fileOrigin name="VDC_Winter_Testing.h"/>
+			</typeDef>
+			<structDef name="ExtY_VDC_Winter_Testing_T_tag">
+				<fileOrigin name="VDC_Winter_Testing.h"/>
+				<structMember identifier="VDC_Max_Tyre_Slip">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/VDC_Max_Tyre_Slip</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Torque_R">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Torque_R</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Torque_L">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Torque_L</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="APPS_Implausibility">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/APPS_Implausibility</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Torque_OK">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Torque_OK</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="BrakeLight_Control">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/BrakeLight_Control</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="ExtY_VDC_Winter_Testing_T">
+				<struct/><typeRef name="ExtY_VDC_Winter_Testing_T_tag"/>
+				<fileOrigin name="VDC_Winter_Testing.h"/>
+			</typeDef>
+			<structDef name="_DW_VDC_Winter_Testing_T">
+				<fileOrigin name="VDC_Winter_Testing.h"/>
+				<structMember identifier="ERROR_Counter">
+					<type><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>State information for 'dsmMem'.</documentation>
+					</annotation>
+				</structMember>
+			</structDef>
+			<typeDef name="DW_VDC_Winter_Testing_T">
+				<struct/><typeRef name="_DW_VDC_Winter_Testing_T"/>
+				<fileOrigin name="VDC_Winter_Testing.h"/>
+			</typeDef>
+			<baseDef identifier="VDC_Winter_Testing_U">
+				<type><typeRef name="ExtU_VDC_Winter_Testing_T"/></type>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+				<annotation>
+					<documentation>The rtU data structure for external inputs.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="VDC_Winter_Testing_Y">
+				<type><typeRef name="ExtY_VDC_Winter_Testing_T"/></type>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+				<annotation>
+					<documentation>The rtY data structure for external outputs.</documentation>
+				</annotation>
+			</baseDef>
+			<baseDef identifier="VDC_Winter_Testing_DW">
+				<type><typeRef name="DW_VDC_Winter_Testing_T"/></type>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+				<annotation>
+					<documentation>The dWork data structure for model state.</documentation>
+				</annotation>
+			</baseDef>
+			<conversion name="VDC_Winter_Testing_CM_double">
+				<rationalFunction>
+					<numerator bx="1.0"/>
+					<denominator f="1.0"/>
+				</rationalFunction>
+				<annotation>
+					<documentation>Q = V</documentation>
+				</annotation>
+			</conversion>
+			<conversion name="VDC_Winter_Testing_CM_boolean">
+				<rationalFunction>
+					<numerator bx="1.0"/>
+					<denominator f="1.0"/>
+				</rationalFunction>
+				<annotation>
+					<documentation>Q = V</documentation>
+				</annotation>
+			</conversion>
+		</definitions>
+		<!-- rtP parameters following -->
+		<!-- Constant parameters following -->
+		<!-- Exported global parameters following -->
+		<!-- Imported extern parameters following -->
+		<!-- Global BlockIO (rtB) signals following -->
+		<!-- Global constant BlockIO (rtC) signals following -->
+		<!-- Exported global and imported extern signals following -->
+		<!-- Global IRT DWork port signals following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_DW.ERROR_Counter">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_DW"/>
+					<memberRef identifier="ERROR_Counter"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.Opaque.ERROR_Counter">
+				<name>ERROR_Counter</name>
+				<modelLink href="VDC_Winter_Testing/Opaque"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="SAFETY BLOCK" kind="mlsl:subsystem"/>
+					<pathNode name="APPS_IMPLAUSIBILITY" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Data Store Memory1" kind="mlsl:block"/>
+					<pathNode name="ERROR_Counter" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- rtU input ports following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.el_ACCEL_X">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="el_ACCEL_X"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.el_ACCEL_X">
+				<name>el_ACCEL_X</name>
+				<modelLink href="VDC_Winter_Testing/el_ACCEL_X"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="el_ACCEL_X" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.el_ACCEL_Y">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="el_ACCEL_Y"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.el_ACCEL_Y">
+				<name>el_ACCEL_Y</name>
+				<modelLink href="VDC_Winter_Testing/el_ACCEL_Y"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="el_ACCEL_Y" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.el_ACCEL_Z">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="el_ACCEL_Z"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.el_ACCEL_Z">
+				<name>el_ACCEL_Z</name>
+				<modelLink href="VDC_Winter_Testing/el_ACCEL_Z"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="el_ACCEL_Z" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.el_YAW">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="el_YAW"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.el_YAW">
+				<name>el_YAW</name>
+				<modelLink href="VDC_Winter_Testing/el_YAW"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="el_YAW" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.el_PITCH">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="el_PITCH"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.el_PITCH">
+				<name>el_PITCH</name>
+				<modelLink href="VDC_Winter_Testing/el_PITCH"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="el_PITCH" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.el_ROLL">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="el_ROLL"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.el_ROLL">
+				<name>el_ROLL</name>
+				<modelLink href="VDC_Winter_Testing/el_ROLL"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="el_ROLL" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.el_GYRO_X">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="el_GYRO_X"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.el_GYRO_X">
+				<name>el_GYRO_X</name>
+				<modelLink href="VDC_Winter_Testing/el_GYRO_X"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="el_GYRO_X" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.el_GYRO_Y">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="el_GYRO_Y"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.el_GYRO_Y">
+				<name>el_GYRO_Y</name>
+				<modelLink href="VDC_Winter_Testing/el_GYRO_Y"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="el_GYRO_Y" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.el_GYRO_Z">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="el_GYRO_Z"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.el_GYRO_Z">
+				<name>el_GYRO_Z</name>
+				<modelLink href="VDC_Winter_Testing/el_GYRO_Z"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="el_GYRO_Z" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.APPS2_Value">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="APPS2_Value"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.APPS2_Value">
+				<name>APPS2_Value</name>
+				<modelLink href="VDC_Winter_Testing/APPS2_Value"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="APPS2_Value" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.APPS1_Value">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="APPS1_Value"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.APPS1_Value">
+				<name>APPS1_Value</name>
+				<modelLink href="VDC_Winter_Testing/APPS1_Value"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="APPS1_Value" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.BrakePedal_Value">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="BrakePedal_Value"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.BrakePedal_Value">
+				<name>BrakePedal_Value</name>
+				<modelLink href="VDC_Winter_Testing/BrakePedal_Value"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="BrakePedal_Value" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.SteeringSensor_Value">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="SteeringSensor_Value"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.SteeringSensor_Value">
+				<name>SteeringSensor_Value</name>
+				<modelLink href="VDC_Winter_Testing/SteeringSensor_Value"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="SteeringSensor_Value" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.RL_Vel_ms_Wheel">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="RL_Vel_ms_Wheel"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.RL_Vel_ms_Wheel">
+				<name>RL_Vel_ms_Wheel</name>
+				<modelLink href="VDC_Winter_Testing/RL_Vel_ms_Wheel"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="RL_Vel_ms_Wheel" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.RR_Vel_ms_Wheel">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="RR_Vel_ms_Wheel"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.RR_Vel_ms_Wheel">
+				<name>RR_Vel_ms_Wheel</name>
+				<modelLink href="VDC_Winter_Testing/RR_Vel_ms_Wheel"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="RR_Vel_ms_Wheel" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.RR_rads_Motor">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="RR_rads_Motor"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.RR_rads_Motor">
+				<name>RR_rads_Motor</name>
+				<modelLink href="VDC_Winter_Testing/RR_rads_Motor"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="RR_rads_Motor" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.RL_rads_Motor">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="RL_rads_Motor"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.RL_rads_Motor">
+				<name>RL_rads_Motor</name>
+				<modelLink href="VDC_Winter_Testing/RL_rads_Motor"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="RL_rads_Motor" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.Accumulator_Voltage">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="Accumulator_Voltage"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.Accumulator_Voltage">
+				<name>Accumulator_Voltage</name>
+				<modelLink href="VDC_Winter_Testing/Accumulator_Voltage"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="Accumulator_Voltage" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.Shutdown_PackageIntck">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="Shutdown_PackageIntck"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.Shutdown_PackageIntck">
+				<name>Shutdown_PackageIntck</name>
+				<modelLink href="VDC_Winter_Testing/Shutdown_PackageIntck"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="Shutdown_PackageIntck" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="Boolean">
+					<valueRange min="0.0" max="1.0"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_boolean"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.Disconnection_Mode">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="Disconnection_Mode"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.Disconnection_Mode">
+				<name>Disconnection_Mode</name>
+				<modelLink href="VDC_Winter_Testing/Disconnection_Mode"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="Disconnection_Mode" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.RacingMode">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="RacingMode"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.RacingMode">
+				<name>RacingMode</name>
+				<modelLink href="VDC_Winter_Testing/RacingMode"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="RacingMode" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.el_VEL">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="el_VEL"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.el_VEL">
+				<name>el_VEL</name>
+				<modelLink href="VDC_Winter_Testing/el_VEL"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="el_VEL" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.Susp_F_L">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="Susp_F_L"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.Susp_F_L">
+				<name>Susp_F_L</name>
+				<modelLink href="VDC_Winter_Testing/Susp_F_L"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="Susp_F_L" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.Susp_F_R">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="Susp_F_R"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.Susp_F_R">
+				<name>Susp_F_R</name>
+				<modelLink href="VDC_Winter_Testing/Susp_F_R"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="Susp_F_R" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.Susp_R_L">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="Susp_R_L"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.Susp_R_L">
+				<name>Susp_R_L</name>
+				<modelLink href="VDC_Winter_Testing/Susp_R_L"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="Susp_R_L" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.Susp_R_R">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="Susp_R_R"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.Susp_R_R">
+				<name>Susp_R_R</name>
+				<modelLink href="VDC_Winter_Testing/Susp_R_R"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="Susp_R_R" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.TorqueEnable">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="TorqueEnable"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.TorqueEnable">
+				<name>TorqueEnable</name>
+				<modelLink href="VDC_Winter_Testing/TorqueEnable"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="TorqueEnable" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="Boolean">
+					<valueRange min="0.0" max="1.0"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_boolean"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.CriticalDisconnection">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="CriticalDisconnection"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.CriticalDisconnection">
+				<name>CriticalDisconnection</name>
+				<modelLink href="VDC_Winter_Testing/CriticalDisconnection"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="CriticalDisconnection" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="Boolean">
+					<valueRange min="0.0" max="1.0"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_boolean"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_U.Car_State">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_U"/>
+					<memberRef identifier="Car_State"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.Car_State">
+				<name>Car_State</name>
+				<modelLink href="VDC_Winter_Testing/Car_State"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="Car_State" kind="mlsl:block" type="Inport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection in="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<!-- rtY output ports following -->
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_Y.VDC_Max_Tyre_Slip">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_Y"/>
+					<memberRef identifier="VDC_Max_Tyre_Slip"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.VDC_Max_Tyre_Slip">
+				<name>VDC_Max_Tyre_Slip</name>
+				<modelLink href="VDC_Winter_Testing/VDC_Max_Tyre_Slip"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="VDC_Max_Tyre_Slip" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_Y.Torque_R">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_Y"/>
+					<memberRef identifier="Torque_R"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.Torque_R">
+				<name>Torque_R</name>
+				<modelLink href="VDC_Winter_Testing/Torque_R"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="Torque_R" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_Y.Torque_L">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_Y"/>
+					<memberRef identifier="Torque_L"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.Torque_L">
+				<name>Torque_L</name>
+				<modelLink href="VDC_Winter_Testing/Torque_L"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="Torque_L" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_Y.APPS_Implausibility">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_Y"/>
+					<memberRef identifier="APPS_Implausibility"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.APPS_Implausibility">
+				<name>APPS_Implausibility</name>
+				<modelLink href="VDC_Winter_Testing/APPS_Implausibility"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="APPS_Implausibility" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_Y.Torque_OK">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_Y"/>
+					<memberRef identifier="Torque_OK"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.Torque_OK">
+				<name>Torque_OK</name>
+				<modelLink href="VDC_Winter_Testing/Torque_OK"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="Torque_OK" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="VDC_Winter_Testing_Y.BrakeLight_Control">
+				<definitionLocation>
+					<baseRef identifier="VDC_Winter_Testing_Y"/>
+					<memberRef identifier="BrakeLight_Control"/>
+				</definitionLocation>
+				<fileOrigin name="VDC_Winter_Testing.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="VDC_Winter_Testing.BrakeLight_Control">
+				<name>BrakeLight_Control</name>
+				<modelLink href="VDC_Winter_Testing/BrakeLight_Control"/>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="BrakeLight_Control" kind="mlsl:block" type="Outport"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="public">
+					<flowDirection out="true"/>
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="VDC_Winter_Testing_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_Start_VDC_Winter_Testing">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="VDC_Winter_Testing_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_Start_VDC_Winter_Testing">
+				<name>irt_Start_VDC_Winter_Testing</name>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="irt_Start_VDC_Winter_Testing" kind="mlsl:process" type="initialization"/>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<constraint>
+						<execution trigger="initialization"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the initialization process of the Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_OneStep_VDC_Winter_Testing">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="VDC_Winter_Testing_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_OneStep_VDC_Winter_Testing">
+				<name>irt_OneStep_VDC_Winter_Testing</name>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="irt_OneStep_VDC_Winter_Testing" kind="mlsl:process" type="execution">
+						<pathParameter name="mlsl:baseSampleRate" value="0.2"/>
+						<pathParameter name="mlsl:sampleRates" value="0.2"/>
+					</pathNode>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<messageAccess>
+						<message identifier="VDC_Winter_Testing_U.el_ACCEL_X" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.el_ACCEL_Y" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.el_ACCEL_Z" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.el_YAW" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.el_PITCH" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.el_ROLL" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.el_GYRO_X" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.el_GYRO_Y" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.el_GYRO_Z" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.APPS2_Value" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.APPS1_Value" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.BrakePedal_Value" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.SteeringSensor_Value" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.RL_Vel_ms_Wheel" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.RR_Vel_ms_Wheel" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.RR_rads_Motor" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.RL_rads_Motor" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.Accumulator_Voltage" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.Shutdown_PackageIntck" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.Disconnection_Mode" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.RacingMode" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.el_VEL" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.Susp_F_L" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.Susp_F_R" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.Susp_R_L" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.Susp_R_R" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.TorqueEnable" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.CriticalDisconnection" send="false"></message>
+						<message identifier="VDC_Winter_Testing_U.Car_State" send="false"></message>
+						<message identifier="VDC_Winter_Testing_Y.Torque_R" send="true"></message>
+						<message identifier="VDC_Winter_Testing_Y.Torque_L" send="true"></message>
+						<message identifier="VDC_Winter_Testing_Y.APPS_Implausibility" send="true"></message>
+						<message identifier="VDC_Winter_Testing_Y.Torque_OK" send="true"></message>
+						<message identifier="VDC_Winter_Testing_Y.BrakeLight_Control" send="true"></message>
+						<message identifier="VDC_Winter_Testing_Y.VDC_Max_Tyre_Slip" send="true"></message>
+					</messageAccess>
+					<constraint>
+						<period value="0.2"/>
+						<offset value="0.0"/>
+						<execution trigger="timer" priority="normal"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the execution process of the Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+		<functionElement interfaceKind="export">
+			<functionCInterface identifier="irt_Terminate_VDC_Winter_Testing">
+				<signature>
+					<return>
+						<type><void/></type>
+					</return>
+					<void/>
+				</signature>
+				<fileOrigin name="VDC_Winter_Testing_main.c"/>
+			</functionCInterface>
+			<modelOrigin identifier="irt_Terminate_VDC_Winter_Testing">
+				<name>irt_Terminate_VDC_Winter_Testing</name>
+				<modelLocation>
+					<pathNode name="VDC_Winter_Testing" kind="mlsl:model"/>
+					<pathNode name="irt_Terminate_VDC_Winter_Testing" kind="mlsl:process" type="termination"/>
+				</modelLocation>
+				<modelKind kind="process"/>
+				<runTimeInfo>
+					<constraint>
+						<execution trigger="termination"/>
+					</constraint>
+				</runTimeInfo>
+				<annotation>
+					<documentation>
+                        This is the termination process of the INTECRIO Real-Time Target code.
+                    </documentation>
+				</annotation>
+			</modelOrigin>
+		</functionElement>
+	</interface>
+</module>
