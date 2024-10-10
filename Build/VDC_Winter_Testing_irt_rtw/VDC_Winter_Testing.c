@@ -7,9 +7,9 @@
  *
  * Code generation for model "VDC_Winter_Testing".
  *
- * Model version              : 4.217
+ * Model version              : 4.218
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Oct  8 13:22:24 2024
+ * C source code generated on : Thu Oct 10 15:43:48 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -43,6 +43,7 @@ static void VDC_Winter_Testing_output(void)
 {
   real_T Throttle_Response;
   real_T rtb_Merge1_e;
+  real_T rtb_Throttle_Torque;
   boolean_T rtb_LogicalOperator;
 
   /* If: '<S7>/If' incorporates:
@@ -125,39 +126,47 @@ static void VDC_Winter_Testing_output(void)
     Throttle_Response = (VDC_Winter_Testing_U.APPS1_Value - 0.05) / 0.95;
   }
 
-  Throttle_Response *= 27.0;
+  rtb_Throttle_Torque = Throttle_Response * 27.0;
 
   /* End of MATLAB Function: '<Root>/Torque demanded by the driver' */
 
+  /* Saturate: '<Root>/Saturation' incorporates:
+   *  Saturate: '<Root>/Saturation1'
+   */
+  if (rtb_Throttle_Torque > 27.0) {
+    Throttle_Response = 27.0;
+    rtb_Throttle_Torque = 27.0;
+  } else if (rtb_Throttle_Torque < 0.0) {
+    Throttle_Response = 0.0;
+    rtb_Throttle_Torque = 0.0;
+  } else {
+    Throttle_Response = rtb_Throttle_Torque;
+  }
+
+  /* End of Saturate: '<Root>/Saturation' */
+
   /* MATLAB Function: '<Root>/Safety' incorporates:
    *  DataTypeConversion: '<S3>/Data Type Conversion'
+   *  Inport: '<Root>/RacingMode'
    */
-  if (rtb_LogicalOperator && (fmax(VDC_Winter_Testing_U.RR_rads_Motor,
-        VDC_Winter_Testing_U.RL_rads_Motor) < 130.89969389957471)) {
-    /* Saturate: '<Root>/Saturation' incorporates:
-     *  Saturate: '<Root>/Saturation1'
-     */
-    if (Throttle_Response > 27.0) {
-      /* Outport: '<Root>/Torque_R' */
-      VDC_Winter_Testing_Y.Torque_R = 27.0;
+  if (rtb_LogicalOperator && (VDC_Winter_Testing_U.RacingMode != 1.0) && (fmax
+       (VDC_Winter_Testing_U.RR_rads_Motor, VDC_Winter_Testing_U.RL_rads_Motor) <
+       1727.8759594743863)) {
+    /* Outport: '<Root>/Torque_R' */
+    VDC_Winter_Testing_Y.Torque_R = Throttle_Response;
 
-      /* Outport: '<Root>/Torque_L' */
-      VDC_Winter_Testing_Y.Torque_L = 27.0;
-    } else if (Throttle_Response < 0.0) {
-      /* Outport: '<Root>/Torque_R' */
-      VDC_Winter_Testing_Y.Torque_R = 0.0;
+    /* Outport: '<Root>/Torque_L' */
+    VDC_Winter_Testing_Y.Torque_L = rtb_Throttle_Torque;
+  } else if (rtb_LogicalOperator && (VDC_Winter_Testing_U.RacingMode == 1.0) &&
+             (fmax(VDC_Winter_Testing_U.RR_rads_Motor,
+                   VDC_Winter_Testing_U.RL_rads_Motor) < 209.43951023931953)) {
+    Throttle_Response /= 9.0;
 
-      /* Outport: '<Root>/Torque_L' */
-      VDC_Winter_Testing_Y.Torque_L = 0.0;
-    } else {
-      /* Outport: '<Root>/Torque_R' */
-      VDC_Winter_Testing_Y.Torque_R = Throttle_Response;
+    /* Outport: '<Root>/Torque_R' */
+    VDC_Winter_Testing_Y.Torque_R = Throttle_Response;
 
-      /* Outport: '<Root>/Torque_L' */
-      VDC_Winter_Testing_Y.Torque_L = Throttle_Response;
-    }
-
-    /* End of Saturate: '<Root>/Saturation' */
+    /* Outport: '<Root>/Torque_L' */
+    VDC_Winter_Testing_Y.Torque_L = Throttle_Response;
   } else {
     /* Outport: '<Root>/Torque_R' */
     VDC_Winter_Testing_Y.Torque_R = 0.0;

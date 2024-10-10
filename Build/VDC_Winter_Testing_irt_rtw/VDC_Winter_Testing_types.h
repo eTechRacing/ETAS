@@ -7,9 +7,9 @@
  *
  * Code generation for model "VDC_Winter_Testing".
  *
- * Model version              : 4.217
+ * Model version              : 4.218
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Tue Oct  8 13:22:24 2024
+ * C source code generated on : Thu Oct 10 15:43:48 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

@@ -1,0 +1,27 @@
+<?DTDVersion "2.0"?>
+
+<!ELEMENT _System (_AdminInfo,_LinkTarget)>
+
+<!ELEMENT _AdminInfo (_IdxVals*)>
+
+<!ELEMENT _IdxVals (_Keyword*)>
+<!ATTLIST _IdxVals
+    Name    CDATA ""
+    Changes CDATA "0"
+    UID CDATA #REQUIRED
+    Creator CDATA ""
+    Editor  CDATA ""
+    CrTime  CDATA "0"
+    ChTime  CDATA "0"
+    Comment CDATA "">
+
+<!ELEMENT _Keyword EMPTY>
+<!ATTLIST _Keyword
+          Keyword   CDATA "">
+
+<!ELEMENT _LinkTarget (_LinkTarget*)>
+<!ATTLIST _LinkTarget
+    Name    CDATA ""
+    Index   CDATA "0"
+    Type    CDATA "">
+
