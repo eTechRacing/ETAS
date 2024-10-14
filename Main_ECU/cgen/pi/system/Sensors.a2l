@@ -34,7 +34,7 @@ ASAP2_VERSION
 
  
         /begin MEASUREMENT 
-            /* Name                */     Sensors_ConstB.Subtract 
+            /* Name                */     Sensors_ConstB.Square 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     Sensors_CM_double 
@@ -43,7 +43,7 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Sensors.Suspension_FL_Data_Conv.Subtract.Subtract 
+            DISPLAY_IDENTIFIER Sensors.Suspension_FL_Data_Conv.T._del_coseno.Square.Square 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
@@ -59,6 +59,70 @@ ASAP2_VERSION
 
  
         /begin MEASUREMENT 
+            /* Name                */     Sensors_ConstB.Square1 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Sensors_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Sensors.Suspension_FL_Data_Conv.T._del_coseno.Square1.Square1 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     Sensors_ConstB.Square1_e 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Sensors_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Sensors.Suspension_FR_Data_Conv.T._del_coseno.Square1.Square1_e 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     Sensors_ConstB.Square_m 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Sensors_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Sensors.Suspension_FR_Data_Conv.T._del_coseno.Square.Square_m 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
+            /* Name                */     Sensors_ConstB.Subtract 
+            /* Long identifier     */     "" 
+            /* Data type           */     FLOAT64_IEEE 
+            /* Conversion method   */     Sensors_CM_double 
+            /* Resolution          */     0 
+            /* Accuracy            */     0 
+            /* Lower limit         */     -1.7e+308 
+            /* Upper limit         */     1.7e+308 
+            ECU_ADDRESS 0x0 
+            DISPLAY_IDENTIFIER Sensors.Suspension_FL_Data_Conv.Subtract.Subtract 
+            /begin IF_DATA E_TARGET 
+                KP_BLOB /***[INTECRIO_BLOB]***/  
+            /end IF_DATA 
+        /end MEASUREMENT
+ 
+        /begin MEASUREMENT 
             /* Name                */     Sensors_ConstB.Subtract_a 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
@@ -68,14 +132,14 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Sensors.Suspension_FR_Data_Conv.Subtract.Subtract_a 
+            DISPLAY_IDENTIFIER Sensors.Suspension_RR_Data_Conv.Subtract.Subtract_a 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     Sensors_ConstB.Subtract_e 
+            /* Name                */     Sensors_ConstB.Subtract_h 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     Sensors_CM_double 
@@ -84,14 +148,14 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Sensors.Suspension_RL_Data_Conv.Subtract.Subtract_e 
+            DISPLAY_IDENTIFIER Sensors.Suspension_FR_Data_Conv.Subtract.Subtract_h 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 
         /end MEASUREMENT
  
         /begin MEASUREMENT 
-            /* Name                */     Sensors_ConstB.Subtract_n 
+            /* Name                */     Sensors_ConstB.Subtract_m 
             /* Long identifier     */     "" 
             /* Data type           */     FLOAT64_IEEE 
             /* Conversion method   */     Sensors_CM_double 
@@ -100,7 +164,7 @@ ASAP2_VERSION
             /* Lower limit         */     -1.7e+308 
             /* Upper limit         */     1.7e+308 
             ECU_ADDRESS 0x0 
-            DISPLAY_IDENTIFIER Sensors.Suspension_RR_Data_Conv.Subtract.Subtract_n 
+            DISPLAY_IDENTIFIER Sensors.Suspension_RL_Data_Conv.Subtract.Subtract_m 
             /begin IF_DATA E_TARGET 
                 KP_BLOB /***[INTECRIO_BLOB]***/  
             /end IF_DATA 

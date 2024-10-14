@@ -3,6 +3,11 @@
 #include "VDC_Winter_Testing_irtmacros.h"
 /* PATCH END */
 
+/* Patched in by the INTECRIO IRT target */
+/* PATCH BEGIN */
+#include "VDC_Winter_Testing_irtmacros.h"
+/* PATCH END */
+
 /*
  * VDC_Winter_Testing.h
  *

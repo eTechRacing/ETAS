@@ -22,9 +22,9 @@
 	<moduleInfo identifier="Sensors">
 		<name>Sensors</name>
 		<modelLink href="mlsl:///&quot;{{modelDir}}Sensors.slx&quot;"/>
-		<version major="13" minor="15"/>
+		<version major="13" minor="24"/>
 		<dateTime kind="created" year="2021" month="2" day="17" hour="15" minute="47" second="20"/>
-		<dateTime kind="lastModified" year="2024" month="8" day="31" hour="20" minute="52" second="52"/>
+		<dateTime kind="lastModified" year="2024" month="10" day="14" hour="15" minute="3" second="4"/>
 		<completion degree="full"/>
 		<suitability>
 			<application domain="rapidPrototyping" addressesAvailable="true" nestedDataStructuresAvailable="true"/>
@@ -69,7 +69,7 @@
 	</moduleInfo>
 	<codeInfo>
 		<constitution mode="sourceCode"/>
-		<dateTime kind="created" year="2024" month="9" day="7" hour="16" minute="35" second="26"/>
+		<dateTime kind="created" year="2024" month="10" day="14" hour="16" minute="23" second="43"/>
 		<target>
 			<board vendor="ETAS GmbH" model="INTECRIO Generic Experimental Target"/>
 			<tool kind="compiler" vendor="GNU Project" family="GNU Compiler Collection" name="GNU C Compiler">
@@ -187,19 +187,43 @@
 						<documentation>&lt;Root&gt;/Opaque</documentation>
 					</annotation>
 				</structMember>
+				<structMember identifier="Square">
+					<type><const/><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Square1">
+					<type><const/><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Subtract_h">
+					<type><const/><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Square_m">
+					<type><const/><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Square1_e">
+					<type><const/><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
+				<structMember identifier="Subtract_m">
+					<type><const/><typeRef name="real_T"/></type>
+					<annotation>
+						<documentation>&lt;Root&gt;/Opaque</documentation>
+					</annotation>
+				</structMember>
 				<structMember identifier="Subtract_a">
-					<type><const/><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Opaque</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Subtract_e">
-					<type><const/><typeRef name="real_T"/></type>
-					<annotation>
-						<documentation>&lt;Root&gt;/Opaque</documentation>
-					</annotation>
-				</structMember>
-				<structMember identifier="Subtract_n">
 					<type><const/><typeRef name="real_T"/></type>
 					<annotation>
 						<documentation>&lt;Root&gt;/Opaque</documentation>
@@ -541,6 +565,214 @@
 			</usage>
 		</dataElement>
 		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_ConstB.Square">
+				<definitionLocation>
+					<baseRef identifier="Sensors_ConstB"/>
+					<memberRef identifier="Square"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Opaque.Square">
+				<name>Square</name>
+				<modelLink href="Sensors/Opaque"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="Suspension_FL Data Conv" kind="mlsl:subsystem"/>
+					<pathNode name="T. del coseno" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Square" kind="mlsl:block"/>
+					<pathNode name="Square" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_ConstB.Square1">
+				<definitionLocation>
+					<baseRef identifier="Sensors_ConstB"/>
+					<memberRef identifier="Square1"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Opaque.Square1">
+				<name>Square1</name>
+				<modelLink href="Sensors/Opaque"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="Suspension_FL Data Conv" kind="mlsl:subsystem"/>
+					<pathNode name="T. del coseno" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Square1" kind="mlsl:block"/>
+					<pathNode name="Square1" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_ConstB.Subtract_h">
+				<definitionLocation>
+					<baseRef identifier="Sensors_ConstB"/>
+					<memberRef identifier="Subtract_h"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Opaque.Subtract_h">
+				<name>Subtract_h</name>
+				<modelLink href="Sensors/Opaque"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="Suspension_FR Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Subtract" kind="mlsl:block"/>
+					<pathNode name="Subtract_h" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_ConstB.Square_m">
+				<definitionLocation>
+					<baseRef identifier="Sensors_ConstB"/>
+					<memberRef identifier="Square_m"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Opaque.Square_m">
+				<name>Square_m</name>
+				<modelLink href="Sensors/Opaque"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="Suspension_FR Data Conv" kind="mlsl:subsystem"/>
+					<pathNode name="T. del coseno" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Square" kind="mlsl:block"/>
+					<pathNode name="Square_m" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_ConstB.Square1_e">
+				<definitionLocation>
+					<baseRef identifier="Sensors_ConstB"/>
+					<memberRef identifier="Square1_e"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Opaque.Square1_e">
+				<name>Square1_e</name>
+				<modelLink href="Sensors/Opaque"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="Suspension_FR Data Conv" kind="mlsl:subsystem"/>
+					<pathNode name="T. del coseno" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Square1" kind="mlsl:block"/>
+					<pathNode name="Square1_e" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
+			<dataCInterface identifier="Sensors_ConstB.Subtract_m">
+				<definitionLocation>
+					<baseRef identifier="Sensors_ConstB"/>
+					<memberRef identifier="Subtract_m"/>
+				</definitionLocation>
+				<fileOrigin name="Sensors.c"/>
+			</dataCInterface>
+			<modelOrigin identifier="Sensors.Opaque.Subtract_m">
+				<name>Subtract_m</name>
+				<modelLink href="Sensors/Opaque"/>
+				<modelLocation>
+					<pathNode name="Sensors" kind="mlsl:model"/>
+					<pathNode name="Suspension_RL Data Conv" kind="mlsl:subsystem" type="atomic"/>
+					<pathNode name="Subtract" kind="mlsl:block"/>
+					<pathNode name="Subtract_m" kind="mlsl:signal"/>
+				</modelLocation>
+				<modelKind kind="variable" visibility="private">
+				</modelKind>
+				<modelType type="continuous">
+					<valueRange min="-1.7E+308" max="1.7E+308"/>
+				</modelType>
+				<annotation>
+				</annotation>
+			</modelOrigin>
+			<implementation>
+				<conversionRef name="Sensors_CM_double"/>
+			</implementation>
+			<usage measurement="true">
+				<address kind="pseudo">
+					<BLOB kind="KP_BLOB" device="E_TARGET"/>
+				</address>
+			</usage>
+		</dataElement>
+		<dataElement interfaceKind="export">
 			<dataCInterface identifier="Sensors_ConstB.Subtract_a">
 				<definitionLocation>
 					<baseRef identifier="Sensors_ConstB"/>
@@ -553,77 +785,9 @@
 				<modelLink href="Sensors/Opaque"/>
 				<modelLocation>
 					<pathNode name="Sensors" kind="mlsl:model"/>
-					<pathNode name="Suspension_FR Data Conv" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Subtract" kind="mlsl:block"/>
-					<pathNode name="Subtract_a" kind="mlsl:signal"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="private">
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Sensors_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Sensors_ConstB.Subtract_e">
-				<definitionLocation>
-					<baseRef identifier="Sensors_ConstB"/>
-					<memberRef identifier="Subtract_e"/>
-				</definitionLocation>
-				<fileOrigin name="Sensors.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Sensors.Opaque.Subtract_e">
-				<name>Subtract_e</name>
-				<modelLink href="Sensors/Opaque"/>
-				<modelLocation>
-					<pathNode name="Sensors" kind="mlsl:model"/>
-					<pathNode name="Suspension_RL Data Conv" kind="mlsl:subsystem" type="atomic"/>
-					<pathNode name="Subtract" kind="mlsl:block"/>
-					<pathNode name="Subtract_e" kind="mlsl:signal"/>
-				</modelLocation>
-				<modelKind kind="variable" visibility="private">
-				</modelKind>
-				<modelType type="continuous">
-					<valueRange min="-1.7E+308" max="1.7E+308"/>
-				</modelType>
-				<annotation>
-				</annotation>
-			</modelOrigin>
-			<implementation>
-				<conversionRef name="Sensors_CM_double"/>
-			</implementation>
-			<usage measurement="true">
-				<address kind="pseudo">
-					<BLOB kind="KP_BLOB" device="E_TARGET"/>
-				</address>
-			</usage>
-		</dataElement>
-		<dataElement interfaceKind="export">
-			<dataCInterface identifier="Sensors_ConstB.Subtract_n">
-				<definitionLocation>
-					<baseRef identifier="Sensors_ConstB"/>
-					<memberRef identifier="Subtract_n"/>
-				</definitionLocation>
-				<fileOrigin name="Sensors.c"/>
-			</dataCInterface>
-			<modelOrigin identifier="Sensors.Opaque.Subtract_n">
-				<name>Subtract_n</name>
-				<modelLink href="Sensors/Opaque"/>
-				<modelLocation>
-					<pathNode name="Sensors" kind="mlsl:model"/>
 					<pathNode name="Suspension_RR Data Conv" kind="mlsl:subsystem" type="atomic"/>
 					<pathNode name="Subtract" kind="mlsl:block"/>
-					<pathNode name="Subtract_n" kind="mlsl:signal"/>
+					<pathNode name="Subtract_a" kind="mlsl:signal"/>
 				</modelLocation>
 				<modelKind kind="variable" visibility="private">
 				</modelKind>

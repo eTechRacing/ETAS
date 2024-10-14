@@ -38,10 +38,14 @@ struct RTWTop_Sensors_Obj *initModel_RTWTop_Sensors(void)
 void initClass_RTWTop_Sensors(struct RTWTop_Sensors_Class *self)
 {
     /* Level 1 class variables */
+    self->RTWWrapper_Sensors_ConstB_Square_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Square, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Sensors_ConstB_Square1_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Square1, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Sensors_ConstB_Square1_e_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Square1_e, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Sensors_ConstB_Square_m_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Square_m, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_ConstB_Subtract_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Subtract, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_ConstB_Subtract_a_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Subtract_a, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Sensors_ConstB_Subtract_e_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Subtract_e, sizeof(double), (uint32)ASD_VARIABLE);
-    self->RTWWrapper_Sensors_ConstB_Subtract_n_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Subtract_n, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Sensors_ConstB_Subtract_h_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Subtract_h, sizeof(double), (uint32)ASD_VARIABLE);
+    self->RTWWrapper_Sensors_ConstB_Subtract_m_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Subtract_m, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_ConstB_Subtract_p_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Subtract_p, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_ConstB_Sum1_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Sum1, sizeof(double), (uint32)ASD_VARIABLE);
     self->RTWWrapper_Sensors_ConstB_Sum1_c_Ptr = initInstance_scalarWrapper((void*)&Sensors_ConstB.Sum1_c, sizeof(double), (uint32)ASD_VARIABLE);
@@ -86,9 +90,13 @@ static MethodList RTWTop_Sensors_ClassMethodList =
 };
 /* Definition of the class header */
 static ASDClassHeader RTWTop_Sensors_ClassHeader =
-    {0, 1, 0, 28 + 0, (MethodList *)0, (MethodList *)&RTWTop_Sensors_ClassMethodList};
+    {0, 1, 0, 32 + 0, (MethodList *)0, (MethodList *)&RTWTop_Sensors_ClassMethodList};
 /* Definition and initialization of the class object */
 struct RTWTop_Sensors_Class RTWTop_Sensors_ClassObj = {{1, {&RTWTop_Sensors_ClassHeader}, {0}}
+    ,NULL
+    ,NULL
+    ,NULL
+    ,NULL
     ,NULL
     ,NULL
     ,NULL

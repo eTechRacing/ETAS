@@ -24,10 +24,14 @@ void setDeltaT_Sensors(void);
 struct RTWTop_Sensors_Class
 {
     ASDObjectHeader objectHeader;
+    scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Square_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Square1_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Square1_e_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Square_m_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Subtract_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Subtract_a_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Subtract_e_Ptr;
-    scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Subtract_n_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Subtract_h_Ptr;
+    scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Subtract_m_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Subtract_p_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Sum1_Ptr;
     scalarWrapper_Obj *RTWWrapper_Sensors_ConstB_Sum1_c_Ptr;

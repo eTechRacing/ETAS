@@ -8,9 +8,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 13.15
+ * Model version              : 13.24
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Sep  7 16:35:26 2024
+ * C source code generated on : Mon Oct 14 16:23:43 2024
  * 
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -907,8 +907,8 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin SUB_FUNCTION
         If_Action_Subsystem
         If_Action_Subsystem1
-        max
-        min
+        Bits_MAX
+        Bits_MIN
         If
         Merge
         Divide
@@ -931,8 +931,8 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin SUB_FUNCTION
         If_Action_Subsystem
         If_Action_Subsystem1
-        max
-        min
+        Bits_MAX
+        Bits_MIN
         If
         Merge
         Divide
@@ -953,8 +953,8 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
     /begin FUNCTION
       Brake_Pedal_Data_Conv ""
       /begin SUB_FUNCTION
-        max
-        min
+        Bits_MAX
+        Bits_MIN
         Divide
         Saturation
         Sum
@@ -993,9 +993,12 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
     /begin FUNCTION
       Suspension_FL_Data_Conv ""
       /begin SUB_FUNCTION
-        bitsmax_
-        Cte_muelles
-        Ltotal
+        Longitude_to_elongation
+        T._del_coseno
+        Bits_MAX_
+        Bits_MIN
+        Angle_Total__deg_
+        K_DamperFront__N__mm_
         Divide
         Subtract
         Subtract1
@@ -1003,7 +1006,6 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
-        
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
@@ -1013,9 +1015,12 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
     /begin FUNCTION
       Suspension_FR_Data_Conv ""
       /begin SUB_FUNCTION
-        bitsmax_
-        Cte_muelles
-        Ltotal
+        Longitude_to_elongation
+        T._del_coseno
+        Bits_MAX_
+        Bits_MIN
+        Angle_Total__deg_
+        K_DamperFront__N__mm_
         Divide
         Subtract
         Subtract1
@@ -1023,7 +1028,6 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
-        
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
@@ -1033,9 +1037,10 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
     /begin FUNCTION
       Suspension_RL_Data_Conv ""
       /begin SUB_FUNCTION
-        bitsmax_
-        Cte_muelles
-        Ltotal
+        Bits_MAX_
+        Bits_MIN
+        K_DamperRear__N__mm_
+        Total_Elongation__mm_
         Divide
         Subtract
         Subtract1
@@ -1043,7 +1048,6 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
-        
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
@@ -1053,9 +1057,10 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
     /begin FUNCTION
       Suspension_RR_Data_Conv ""
       /begin SUB_FUNCTION
-        bitsmax_
-        Cte_muelles
-        Ltotal
+        Bits_MAX_
+        Bits_MIN
+        K_DamperRear__N__mm_
+        Total_Elongation__mm_
         Divide
         Subtract
         Subtract1
@@ -1064,17 +1069,6 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
         
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Zero_Bits_Experimental ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT
         
@@ -1108,7 +1102,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      max ""
+      Bits_MAX ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -1118,7 +1112,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      min ""
+      Bits_MIN ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -1226,7 +1220,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      max ""
+      Bits_MAX ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -1236,7 +1230,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      min ""
+      Bits_MIN ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -1317,7 +1311,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      max ""
+      Bits_MAX ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -1327,7 +1321,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      min ""
+      Bits_MIN ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -1487,17 +1481,11 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      bitsmax_ ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Cte_muelles ""
+      Longitude_to_elongation ""
+      /begin SUB_FUNCTION
+        Longitude_MIN_Damper__mm_
+        Add1
+      /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -1508,7 +1496,19 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Ltotal ""
+      T._del_coseno ""
+      /begin SUB_FUNCTION
+        Degrees_to_Radians
+        Constant
+        Distance_Supports_Rocker_Damper_Front__mm_
+        Rocker_Radius_Front__mm_
+        Square
+        Square1
+        Product
+        Add
+        Cos
+        Sqrt
+      /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -1519,43 +1519,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Divide ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Subtract ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Subtract1 ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-        
-        
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      bitsmax_ ""
+      Bits_MAX_ ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -1565,7 +1529,17 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Cte_muelles ""
+      Bits_MIN ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Angle_Total__deg_ ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -1576,7 +1550,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Ltotal ""
+      K_DamperFront__N__mm_ ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -1623,17 +1597,11 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      bitsmax_ ""
-      /begin DEF_CHARACTERISTIC
-      /end DEF_CHARACTERISTIC
-      /begin IN_MEASUREMENT
-      /end IN_MEASUREMENT
-      /begin OUT_MEASUREMENT
-        
-      /end OUT_MEASUREMENT
-    /end FUNCTION
-    /begin FUNCTION
-      Cte_muelles ""
+      Longitude_to_elongation ""
+      /begin SUB_FUNCTION
+        Longitude_MIN_Damper__mm_
+        Add1
+      /end SUB_FUNCTION
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -1644,7 +1612,61 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Ltotal ""
+      T._del_coseno ""
+      /begin SUB_FUNCTION
+        Degrees_to_Radians
+        Constant
+        Distance_Supports_Rocker_Damper_Front__mm_
+        Rocker_Radius_Front__mm_
+        Square
+        Square1
+        Product
+        Add
+        Cos
+        Sqrt
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Bits_MAX_ ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Bits_MIN ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Angle_Total__deg_ ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      K_DamperFront__N__mm_ ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -1691,7 +1713,7 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      bitsmax_ ""
+      Bits_MAX_ ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -1701,7 +1723,17 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Cte_muelles ""
+      Bits_MIN ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      K_DamperRear__N__mm_ ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -1712,7 +1744,85 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end OUT_MEASUREMENT
     /end FUNCTION
     /begin FUNCTION
-      Ltotal ""
+      Total_Elongation__mm_ ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Divide ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Subtract ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Subtract1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Bits_MAX_ ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Bits_MIN ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      K_DamperRear__N__mm_ ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Total_Elongation__mm_ ""
       /begin DEF_CHARACTERISTIC
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
@@ -1931,6 +2041,302 @@ ASAP2_VERSION  1 51   /* Version 1.51 */
       /end DEF_CHARACTERISTIC
       /begin IN_MEASUREMENT
         
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Longitude_MIN_Damper__mm_ ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Add1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Degrees_to_Radians ""
+      /begin SUB_FUNCTION
+        Gain1
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Distance_Supports_Rocker_Damper_Front__mm_ ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Rocker_Radius_Front__mm_ ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Square ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Square1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Product ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Add ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Cos ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Sqrt ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Longitude_MIN_Damper__mm_ ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Add1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Degrees_to_Radians ""
+      /begin SUB_FUNCTION
+        Gain1
+      /end SUB_FUNCTION
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Constant ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Distance_Supports_Rocker_Damper_Front__mm_ ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Rocker_Radius_Front__mm_ ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Square ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Square1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Product ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Add ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+        
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Cos ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Sqrt ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Gain1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
+        
+      /end IN_MEASUREMENT
+      /begin OUT_MEASUREMENT
+        
+      /end OUT_MEASUREMENT
+    /end FUNCTION
+    /begin FUNCTION
+      Gain1 ""
+      /begin DEF_CHARACTERISTIC
+      /end DEF_CHARACTERISTIC
+      /begin IN_MEASUREMENT
         
       /end IN_MEASUREMENT
       /begin OUT_MEASUREMENT

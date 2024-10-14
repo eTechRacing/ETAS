@@ -12,9 +12,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 13.15
+ * Model version              : 13.24
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Sep  7 16:35:26 2024
+ * C source code generated on : Mon Oct 14 16:23:43 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -870,9 +870,13 @@ typedef struct {
   const real_T Sum1_d;                 /* '<S2>/Sum1' */
   const real_T Sum1_c;                 /* '<S3>/Sum1' */
   const real_T Subtract;               /* '<S5>/Subtract' */
-  const real_T Subtract_a;             /* '<S6>/Subtract' */
-  const real_T Subtract_e;             /* '<S7>/Subtract' */
-  const real_T Subtract_n;             /* '<S8>/Subtract' */
+  const real_T Square;                 /* '<S15>/Square' */
+  const real_T Square1;                /* '<S15>/Square1' */
+  const real_T Subtract_h;             /* '<S6>/Subtract' */
+  const real_T Square_m;               /* '<S18>/Square' */
+  const real_T Square1_e;              /* '<S18>/Square1' */
+  const real_T Subtract_m;             /* '<S7>/Subtract' */
+  const real_T Subtract_a;             /* '<S8>/Subtract' */
   const real_T Subtract_p;             /* '<S13>/Subtract' */
 } ConstB_Sensors_T;
 
@@ -1063,5 +1067,11 @@ extern RT_MODEL_Sensors_T *const Sensors_M;
  * '<S11>'  : 'Sensors/APPS1 Data Conv1/If Action Subsystem'
  * '<S12>'  : 'Sensors/APPS1 Data Conv1/If Action Subsystem1'
  * '<S13>'  : 'Sensors/Steering Data Conv/Low Pass'
+ * '<S14>'  : 'Sensors/Suspension_FL Data Conv/Longitude to elongation'
+ * '<S15>'  : 'Sensors/Suspension_FL Data Conv/T. del coseno'
+ * '<S16>'  : 'Sensors/Suspension_FL Data Conv/T. del coseno/Degrees to Radians'
+ * '<S17>'  : 'Sensors/Suspension_FR Data Conv/Longitude to elongation'
+ * '<S18>'  : 'Sensors/Suspension_FR Data Conv/T. del coseno'
+ * '<S19>'  : 'Sensors/Suspension_FR Data Conv/T. del coseno/Degrees to Radians'
  */
 #endif                                 /* RTW_HEADER_Sensors_h_ */

@@ -7,9 +7,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 13.15
+ * Model version              : 13.24
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Sep  7 16:35:26 2024
+ * C source code generated on : Mon Oct 14 16:23:43 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -21,6 +21,7 @@
 #include "Sensors.h"
 #include "rtwtypes.h"
 #include "Sensors_private.h"
+#include <math.h>
 #include <string.h>
 #include "rt_nonfinite.h"
 
@@ -67,7 +68,7 @@ static void Sensors_output(void)
   real_T rtb_Saturation;
 
   /* If: '<S1>/If' incorporates:
-   *  Constant: '<S1>/min'
+   *  Constant: '<S1>/Bits_MIN'
    *  Inport: '<Root>/APPS1_Bits'
    *  Inport: '<Root>/Disconnection_APPS1'
    *  Product: '<S1>/Divide'
@@ -107,7 +108,7 @@ static void Sensors_output(void)
   /* End of Saturate: '<S1>/Saturation' */
 
   /* If: '<S2>/If' incorporates:
-   *  Constant: '<S2>/min'
+   *  Constant: '<S2>/Bits_MIN'
    *  Inport: '<Root>/APPS2_Bits'
    *  Inport: '<Root>/Disconnection_APPS2'
    *  Product: '<S2>/Divide'
@@ -147,7 +148,7 @@ static void Sensors_output(void)
   /* End of Saturate: '<S2>/Saturation' */
 
   /* Product: '<S3>/Divide' incorporates:
-   *  Constant: '<S3>/min'
+   *  Constant: '<S3>/Bits_MIN'
    *  Inport: '<Root>/BrakePedal_Bits'
    *  Sum: '<S3>/Sum'
    */
@@ -168,48 +169,70 @@ static void Sensors_output(void)
   /* End of Saturate: '<S3>/Saturation' */
 
   /* Outport: '<Root>/SUSP_F_L' incorporates:
-   *  Constant: '<Root>/Zero_Bits_Experimental'
-   *  Gain: '<S5>/Cte muelles'
-   *  Gain: '<S5>/Ltotal'
+   *  Constant: '<S14>/Longitude_MIN_Damper (mm)'
+   *  Constant: '<S15>/Constant'
+   *  Constant: '<S15>/Distance_Supports_Rocker-Damper_Front (mm)'
+   *  Constant: '<S15>/Rocker_Radius_Front (mm)'
+   *  Constant: '<S5>/Bits_MIN'
+   *  Gain: '<S16>/Gain1'
+   *  Gain: '<S5>/Angle_Total (deg)'
+   *  Gain: '<S5>/K_DamperFront (N//mm)'
    *  Inport: '<Root>/Susp_F_L_Bits'
+   *  Product: '<S15>/Product'
    *  Product: '<S5>/Divide'
+   *  Sqrt: '<S15>/Sqrt'
+   *  Sum: '<S14>/Add1'
+   *  Sum: '<S15>/Add'
    *  Sum: '<S5>/Subtract1'
+   *  Trigonometry: '<S15>/Cos'
    */
-  Sensors_Y.SUSP_F_L = (Sensors_U.Susp_F_L_Bits - 25.0) /
-    Sensors_ConstB.Subtract * 57.0 * 30.0;
+  Sensors_Y.SUSP_F_L = (sqrt((Sensors_ConstB.Square + Sensors_ConstB.Square1) -
+    cos((Sensors_U.Susp_F_L_Bits - 25.0) / Sensors_ConstB.Subtract * 41.94 *
+        0.017453292519943295) * 30948.800000000003) - 143.0) * 18.34402;
 
   /* Outport: '<Root>/SUSP_F_R' incorporates:
-   *  Constant: '<Root>/Zero_Bits_Experimental'
-   *  Gain: '<S6>/Cte muelles'
-   *  Gain: '<S6>/Ltotal'
+   *  Constant: '<S17>/Longitude_MIN_Damper (mm)'
+   *  Constant: '<S18>/Constant'
+   *  Constant: '<S18>/Distance_Supports_Rocker-Damper_Front (mm)'
+   *  Constant: '<S18>/Rocker_Radius_Front (mm)'
+   *  Constant: '<S6>/Bits_MIN'
+   *  Gain: '<S19>/Gain1'
+   *  Gain: '<S6>/Angle_Total (deg)'
+   *  Gain: '<S6>/K_DamperFront (N//mm)'
    *  Inport: '<Root>/Susp_F_R_Bits'
+   *  Product: '<S18>/Product'
    *  Product: '<S6>/Divide'
+   *  Sqrt: '<S18>/Sqrt'
+   *  Sum: '<S17>/Add1'
+   *  Sum: '<S18>/Add'
    *  Sum: '<S6>/Subtract1'
+   *  Trigonometry: '<S18>/Cos'
    */
-  Sensors_Y.SUSP_F_R = (Sensors_U.Susp_F_R_Bits - 25.0) /
-    Sensors_ConstB.Subtract_a * 57.0 * 30.0;
+  Sensors_Y.SUSP_F_R = (sqrt((Sensors_ConstB.Square_m + Sensors_ConstB.Square1_e)
+    - cos((Sensors_U.Susp_F_R_Bits - 25.0) / Sensors_ConstB.Subtract_h * 41.94 *
+          0.017453292519943295) * 30948.800000000003) - 147.0) * 18.34402;
 
   /* Outport: '<Root>/SUSP_R_L' incorporates:
-   *  Constant: '<Root>/Zero_Bits_Experimental'
-   *  Gain: '<S7>/Cte muelles'
-   *  Gain: '<S7>/Ltotal'
+   *  Constant: '<S7>/Bits_MIN'
+   *  Gain: '<S7>/K_DamperRear (N//mm)'
+   *  Gain: '<S7>/Total_Elongation (mm)'
    *  Inport: '<Root>/Susp_R_L_Bits'
    *  Product: '<S7>/Divide'
    *  Sum: '<S7>/Subtract1'
    */
   Sensors_Y.SUSP_R_L = (Sensors_U.Susp_R_L_Bits - 25.0) /
-    Sensors_ConstB.Subtract_e * 57.0 * 30.0;
+    Sensors_ConstB.Subtract_m * 57.0 * 21.64005;
 
   /* Outport: '<Root>/SUSP_R_R' incorporates:
-   *  Constant: '<Root>/Zero_Bits_Experimental'
-   *  Gain: '<S8>/Cte muelles'
-   *  Gain: '<S8>/Ltotal'
+   *  Constant: '<S8>/Bits_MIN'
+   *  Gain: '<S8>/K_DamperRear (N//mm)'
+   *  Gain: '<S8>/Total_Elongation (mm)'
    *  Inport: '<Root>/Susp_R_R_Bits'
    *  Product: '<S8>/Divide'
    *  Sum: '<S8>/Subtract1'
    */
   Sensors_Y.SUSP_R_R = (Sensors_U.Susp_R_R_Bits - 25.0) /
-    Sensors_ConstB.Subtract_n * 57.0 * 30.0;
+    Sensors_ConstB.Subtract_a * 57.0 * 21.64005;
 
   /* Outputs for Atomic SubSystem: '<S4>/Low Pass' */
   /* Sum: '<S13>/Subtract1' incorporates:
@@ -420,7 +443,7 @@ RT_MODEL_Sensors_T *Sensors(void)
   Sensors_M->Sizes.numU = (10);        /* Number of model inputs */
   Sensors_M->Sizes.sysDirFeedThru = (1);/* The model is direct feedthrough */
   Sensors_M->Sizes.numSampTimes = (1); /* Number of sample times */
-  Sensors_M->Sizes.numBlocks = (83);   /* Number of blocks */
+  Sensors_M->Sizes.numBlocks = (110);  /* Number of blocks */
   Sensors_M->Sizes.numBlockIO = (0);   /* Number of block outputs */
   return Sensors_M;
 }
