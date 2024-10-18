@@ -7,9 +7,9 @@
  *
  * Code generation for model "SoC".
  *
- * Model version              : 13.20
+ * Model version              : 13.21
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Mon Oct 14 16:24:35 2024
+ * C source code generated on : Tue Oct 15 12:40:53 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -102,7 +102,7 @@ void SoC_uRC_Cell_H_Start(int32_T NumIters, B_uRC_Cell_H_SoC_T localB[1],
     localB[ForEach_itr].CoreSubsys.Sum[3] = 0.0;
 
     /* Start for Probe: '<S25>/Probe' */
-    localB[ForEach_itr].CoreSubsys.Probe[0] = 0.025;
+    localB[ForEach_itr].CoreSubsys.Probe[0] = 0.2;
     localB[ForEach_itr].CoreSubsys.Probe[1] = 0.0;
   }
 }
@@ -1067,7 +1067,7 @@ static void SoC_initialize(void)
       SoC_B.CoreSubsys[ForEach_itr].Sum[3] = 0.0;
 
       /* Start for Probe: '<S9>/Probe' */
-      SoC_B.CoreSubsys[ForEach_itr].Probe[0] = 0.025;
+      SoC_B.CoreSubsys[ForEach_itr].Probe[0] = 0.2;
       SoC_B.CoreSubsys[ForEach_itr].Probe[1] = 0.0;
     }
 
@@ -1174,7 +1174,7 @@ RT_MODEL_SoC_T *SoC(void)
     SoC_M->Timing.offsetTimes = (&SoC_M->Timing.offsetTimesArray[0]);
 
     /* task periods */
-    SoC_M->Timing.sampleTimes[0] = (0.025);
+    SoC_M->Timing.sampleTimes[0] = (0.2);
 
     /* task offsets */
     SoC_M->Timing.offsetTimes[0] = (0.0);
@@ -1189,7 +1189,7 @@ RT_MODEL_SoC_T *SoC(void)
   }
 
   rtmSetTFinal(SoC_M, 10.0);
-  SoC_M->Timing.stepSize0 = 0.025;
+  SoC_M->Timing.stepSize0 = 0.2;
 
   /* Setup for data logging */
   {
@@ -1215,8 +1215,8 @@ RT_MODEL_SoC_T *SoC(void)
   }
 
   SoC_M->solverInfoPtr = (&SoC_M->solverInfo);
-  SoC_M->Timing.stepSize = (0.025);
-  rtsiSetFixedStepSize(&SoC_M->solverInfo, 0.025);
+  SoC_M->Timing.stepSize = (0.2);
+  rtsiSetFixedStepSize(&SoC_M->solverInfo, 0.2);
   rtsiSetSolverMode(&SoC_M->solverInfo, SOLVER_MODE_SINGLETASKING);
 
   /* block I/O */
