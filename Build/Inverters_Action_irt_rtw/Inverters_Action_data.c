@@ -7,9 +7,9 @@
  *
  * Code generation for model "Inverters_Action".
  *
- * Model version              : 13.36
+ * Model version              : 13.40
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Fri Oct 18 19:28:53 2024
+ * C source code generated on : Sat Oct 19 01:04:48 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -22,7 +22,7 @@
 
 /* Invariant block signals (default storage) */
 ConstB_Inverters_Action_T Inverters_Action_ConstB = {
-  /* Start of '<S2>/Torque Command 0' */
+  /* Start of '<S4>/Torque Command 0' */
   {
     163.835,                           /* '<S36>/Divide' */
     0U,                                /* '<S36>/Product' */
@@ -32,17 +32,17 @@ ConstB_Inverters_Action_T Inverters_Action_ConstB = {
   }
   ,
 
-  /* End of '<S2>/Torque Command 0' */
+  /* End of '<S4>/Torque Command 0' */
 
-  /* Start of '<S2>/Torque Command' */
+  /* Start of '<S4>/Torque Command' */
   {
     385.49411764705883                 /* '<S35>/Divide' */
   }
   ,
 
-  /* End of '<S2>/Torque Command' */
+  /* End of '<S4>/Torque Command' */
 
-  /* Start of '<S1>/Torque Command 0' */
+  /* Start of '<S3>/Torque Command 0' */
   {
     163.835,                           /* '<S11>/Divide' */
     0U,                                /* '<S11>/Product' */
@@ -52,11 +52,11 @@ ConstB_Inverters_Action_T Inverters_Action_ConstB = {
   }
   ,
 
-  /* End of '<S1>/Torque Command 0' */
+  /* End of '<S3>/Torque Command 0' */
 
-  /* Start of '<S1>/Torque Command' */
+  /* Start of '<S3>/Torque Command' */
   {
     385.49411764705883                 /* '<S10>/Divide' */
   }
-  /* End of '<S1>/Torque Command' */
+  /* End of '<S3>/Torque Command' */
 };

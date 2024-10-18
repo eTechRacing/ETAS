@@ -12,9 +12,9 @@
  *
  * Code generation for model "Inverters_Action".
  *
- * Model version              : 13.36
+ * Model version              : 13.40
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Fri Oct 18 19:28:53 2024
+ * C source code generated on : Sat Oct 19 01:04:48 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -860,8 +860,8 @@
 
 /* Block signals (default storage) */
 typedef struct {
-  uint8_T Merge2;                      /* '<S1>/Merge2' */
-  uint8_T Merge2_p;                    /* '<S2>/Merge2' */
+  uint8_T Merge2;                      /* '<S3>/Merge2' */
+  uint8_T Merge2_p;                    /* '<S4>/Merge2' */
   boolean_T Merge;                     /* '<Root>/Merge' */
   boolean_T subscribed;                /* '<S37>/subscribed?' */
   boolean_T subscribed_k;              /* '<S12>/subscribed?' */
@@ -871,18 +871,18 @@ typedef struct {
 typedef struct {
   real_T Delay_DSTATE;                 /* '<S14>/Delay' */
   real_T Delay_DSTATE_f;               /* '<S39>/Delay' */
-  real_T LastAction;                   /* '<S1>/Data Store Memory1' */
-  real_T LastAction_l;                 /* '<S2>/Data Store Memory1' */
-  real_T EnumerationCounter;           /* '<S1>/Data Store Memory2' */
-  real_T EnumerationCounter_g;         /* '<S2>/Data Store Memory2' */
+  real_T LastAction;                   /* '<S3>/Data Store Memory1' */
+  real_T LastAction_l;                 /* '<S4>/Data Store Memory1' */
+  real_T EnumerationCounter;           /* '<S3>/Data Store Memory2' */
+  real_T EnumerationCounter_g;         /* '<S4>/Data Store Memory2' */
 } DW_Inverters_Action_T;
 
-/* Invariant block signals for system '<S1>/Torque Command' */
+/* Invariant block signals for system '<S3>/Torque Command' */
 typedef struct {
   const real_T Divide;                 /* '<S10>/Divide' */
 } ConstB_TorqueCommand_Inverter_T;
 
-/* Invariant block signals for system '<S1>/Torque Command 0' */
+/* Invariant block signals for system '<S3>/Torque Command 0' */
 typedef struct {
   const real_T Divide;                 /* '<S11>/Divide' */
   const uint16_T Current0to65535;      /* '<S11>/Product' */
@@ -893,10 +893,10 @@ typedef struct {
 
 /* Invariant block signals (default storage) */
 typedef struct {
-  ConstB_TorqueCommand0_Inverte_T TorqueCommand0_a;/* '<S2>/Torque Command 0' */
-  ConstB_TorqueCommand_Inverter_T TorqueCommand_k;/* '<S2>/Torque Command' */
-  ConstB_TorqueCommand0_Inverte_T TorqueCommand0;/* '<S1>/Torque Command 0' */
-  ConstB_TorqueCommand_Inverter_T TorqueCommand;/* '<S1>/Torque Command' */
+  ConstB_TorqueCommand0_Inverte_T TorqueCommand0_a;/* '<S4>/Torque Command 0' */
+  ConstB_TorqueCommand_Inverter_T TorqueCommand_k;/* '<S4>/Torque Command' */
+  ConstB_TorqueCommand0_Inverte_T TorqueCommand0;/* '<S3>/Torque Command 0' */
+  ConstB_TorqueCommand_Inverter_T TorqueCommand;/* '<S3>/Torque Command' */
 } ConstB_Inverters_Action_T;
 
 /* External inputs (root inport signals with default storage) */
@@ -1071,12 +1071,12 @@ extern RT_MODEL_Inverters_Action_T *const Inverters_Action_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'Inverters_Action'
- * '<S1>'   : 'Inverters_Action/Blost-e Left'
- * '<S2>'   : 'Inverters_Action/Blost-e Right'
- * '<S3>'   : 'Inverters_Action/Positive current'
- * '<S4>'   : 'Inverters_Action/Positive current1'
- * '<S5>'   : 'Inverters_Action/Positive current2'
- * '<S6>'   : 'Inverters_Action/Positive current3'
+ * '<S1>'   : 'Inverters_Action/Accel PP'
+ * '<S2>'   : 'Inverters_Action/AutoX PN'
+ * '<S3>'   : 'Inverters_Action/Blost-e Left'
+ * '<S4>'   : 'Inverters_Action/Blost-e Right'
+ * '<S5>'   : 'Inverters_Action/Endurance NN'
+ * '<S6>'   : 'Inverters_Action/SkidPad NP'
  * '<S7>'   : 'Inverters_Action/Blost-e Left/Action not Defined'
  * '<S8>'   : 'Inverters_Action/Blost-e Left/DisableDrive//EnableDrive'
  * '<S9>'   : 'Inverters_Action/Blost-e Left/Reset Enumeration'

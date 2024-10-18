@@ -7,9 +7,9 @@
  *
  * Code generation for model "Sensors".
  *
- * Model version              : 13.24
+ * Model version              : 13.25
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Mon Oct 14 16:23:43 2024
+ * C source code generated on : Sat Oct 19 01:03:17 2024
  *
  * Target selection: irt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -152,7 +152,7 @@ static void Sensors_output(void)
    *  Inport: '<Root>/BrakePedal_Bits'
    *  Sum: '<S3>/Sum'
    */
-  rtb_Saturation = (Sensors_U.BrakePedal_Bits - 900.0) / Sensors_ConstB.Sum1_c;
+  rtb_Saturation = (Sensors_U.BrakePedal_Bits - 990.0) / Sensors_ConstB.Sum1_c;
 
   /* Saturate: '<S3>/Saturation' */
   if (rtb_Saturation > 1.0) {
@@ -173,7 +173,7 @@ static void Sensors_output(void)
    *  Constant: '<S15>/Constant'
    *  Constant: '<S15>/Distance_Supports_Rocker-Damper_Front (mm)'
    *  Constant: '<S15>/Rocker_Radius_Front (mm)'
-   *  Constant: '<S5>/Bits_MIN'
+   *  Constant: '<S5>/Bits_ZERO'
    *  Gain: '<S16>/Gain1'
    *  Gain: '<S5>/Angle_Total (deg)'
    *  Gain: '<S5>/K_DamperFront (N//mm)'
@@ -187,7 +187,7 @@ static void Sensors_output(void)
    *  Trigonometry: '<S15>/Cos'
    */
   Sensors_Y.SUSP_F_L = (sqrt((Sensors_ConstB.Square + Sensors_ConstB.Square1) -
-    cos((Sensors_U.Susp_F_L_Bits - 25.0) / Sensors_ConstB.Subtract * 41.94 *
+    cos((Sensors_U.Susp_F_L_Bits - 1235.0) / Sensors_ConstB.Subtract * 41.94 *
         0.017453292519943295) * 30948.800000000003) - 143.0) * 18.34402;
 
   /* Outport: '<Root>/SUSP_F_R' incorporates:
@@ -195,7 +195,7 @@ static void Sensors_output(void)
    *  Constant: '<S18>/Constant'
    *  Constant: '<S18>/Distance_Supports_Rocker-Damper_Front (mm)'
    *  Constant: '<S18>/Rocker_Radius_Front (mm)'
-   *  Constant: '<S6>/Bits_MIN'
+   *  Constant: '<S6>/Bits_ZERO'
    *  Gain: '<S19>/Gain1'
    *  Gain: '<S6>/Angle_Total (deg)'
    *  Gain: '<S6>/K_DamperFront (N//mm)'
@@ -209,29 +209,29 @@ static void Sensors_output(void)
    *  Trigonometry: '<S18>/Cos'
    */
   Sensors_Y.SUSP_F_R = (sqrt((Sensors_ConstB.Square_m + Sensors_ConstB.Square1_e)
-    - cos((Sensors_U.Susp_F_R_Bits - 25.0) / Sensors_ConstB.Subtract_h * 41.94 *
-          0.017453292519943295) * 30948.800000000003) - 147.0) * 18.34402;
+    - cos((Sensors_U.Susp_F_R_Bits - 1521.0) / Sensors_ConstB.Subtract_h * 41.94
+          * 0.017453292519943295) * 30948.800000000003) - 147.0) * 18.34402;
 
   /* Outport: '<Root>/SUSP_R_L' incorporates:
-   *  Constant: '<S7>/Bits_MIN'
+   *  Constant: '<S7>/Bits_ZERO'
    *  Gain: '<S7>/K_DamperRear (N//mm)'
    *  Gain: '<S7>/Total_Elongation (mm)'
    *  Inport: '<Root>/Susp_R_L_Bits'
    *  Product: '<S7>/Divide'
    *  Sum: '<S7>/Subtract1'
    */
-  Sensors_Y.SUSP_R_L = (Sensors_U.Susp_R_L_Bits - 25.0) /
+  Sensors_Y.SUSP_R_L = (Sensors_U.Susp_R_L_Bits - 3210.0) /
     Sensors_ConstB.Subtract_m * 57.0 * 21.64005;
 
   /* Outport: '<Root>/SUSP_R_R' incorporates:
-   *  Constant: '<S8>/Bits_MIN'
+   *  Constant: '<S8>/Bits_ZERO'
    *  Gain: '<S8>/K_DamperRear (N//mm)'
    *  Gain: '<S8>/Total_Elongation (mm)'
    *  Inport: '<Root>/Susp_R_R_Bits'
    *  Product: '<S8>/Divide'
    *  Sum: '<S8>/Subtract1'
    */
-  Sensors_Y.SUSP_R_R = (Sensors_U.Susp_R_R_Bits - 25.0) /
+  Sensors_Y.SUSP_R_R = (Sensors_U.Susp_R_R_Bits - 3210.0) /
     Sensors_ConstB.Subtract_a * 57.0 * 21.64005;
 
   /* Outputs for Atomic SubSystem: '<S4>/Low Pass' */

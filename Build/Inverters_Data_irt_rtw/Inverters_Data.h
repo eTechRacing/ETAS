@@ -3,6 +3,16 @@
 #include "Inverters_Data_irtmacros.h"
 /* PATCH END */
 
+/* Patched in by the INTECRIO IRT target */
+/* PATCH BEGIN */
+#include "Inverters_Data_irtmacros.h"
+/* PATCH END */
+
+/* Patched in by the INTECRIO IRT target */
+/* PATCH BEGIN */
+#include "Inverters_Data_irtmacros.h"
+/* PATCH END */
+
 /*
  * Inverters_Data.h
  *
